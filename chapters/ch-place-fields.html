@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Field counts and gaps reveal threshold and scale – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<title>10&nbsp; Field counts and gaps reveal threshold and scale – Neural Codes, Noise, and Memory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -134,7 +134,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+      <a href="../">Neural Codes, Noise, and Memory</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,7 +147,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+ <span class="menu-text">Neural Codes, Noise, and Memory</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,7 +165,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+ <span class="menu-text">Results and connections across the three papers</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -417,7 +417,7 @@ window.Quarto = {
 <p>The paper writes this threshold rule as a rectified input (<a href="../papers/mainali-2025-universal-statistics.pdf#page=13">STAR Methods, Eq. 3</a>). In the notation used here it is</p>
 <p><span class="math display">\[ F(x)=a\,[z(x)-q]_+,\qquad [u]_+=\max(u,0). \]</span></p>
 <p>Here <span class="math inline">\(x\)</span> is the animal’s position, <span class="math inline">\(z(x)\)</span> is the mean-centered input divided by its standard deviation, <span class="math inline">\(q\)</span> is the threshold in those standard-deviation units, <span class="math inline">\(F(x)\)</span> is the predicted firing rate, and <span class="math inline">\(a&gt;0\)</span> sets its scale. Thus the cell is active where <span class="math inline">\(z(x)&gt;q\)</span>.</p>
-<p><strong>[Guide development: the threshold rule]</strong> Let the input before centering be <span class="math inline">\(H(x)\)</span>, with constant mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma_h&gt;0\)</span>. If the cell’s response is modeled as <span class="math inline">\(F(x)=G[H(x)-H_{\rm th}]_+\)</span> for a positive gain <span class="math inline">\(G\)</span> and input threshold <span class="math inline">\(H_{\rm th}\)</span>, define</p>
+<p><strong>[Development: the threshold rule]</strong> Let the input before centering be <span class="math inline">\(H(x)\)</span>, with constant mean <span class="math inline">\(\mu\)</span> and standard deviation <span class="math inline">\(\sigma_h&gt;0\)</span>. If the cell’s response is modeled as <span class="math inline">\(F(x)=G[H(x)-H_{\rm th}]_+\)</span> for a positive gain <span class="math inline">\(G\)</span> and input threshold <span class="math inline">\(H_{\rm th}\)</span>, define</p>
 <p><span class="math display">\[ z(x)=\frac{H(x)-\mu}{\sigma_h},\qquad q=\frac{H_{\rm th}-\mu}{\sigma_h},\qquad a=G\sigma_h. \]</span></p>
 <p>Since <span class="math inline">\(H(x)-H_{\rm th}=\sigma_h[z(x)-q]\)</span> and <span class="math inline">\(\sigma_h&gt;0\)</span>, substituting gives <span class="math inline">\(F(x)=a[z(x)-q]_+\)</span>. This is a change of units within the paper’s model: it does not derive thresholded firing from the animal recordings. The following section states the Gaussian-map and smoothness assumptions.</p>
 <p>We begin on a track, where a field starts at an upcrossing, a point where the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.</p>
@@ -466,7 +466,7 @@ Figure&nbsp;10.1: Draft overview for Chapter 10. Unreviewed AI-generated illustr
 <p>A Gaussian distribution of values does not guarantee this smoothness. For example, a covariance proportional to <span class="math inline">\(e^{-|x-y|/b}\)</span> has a sharp corner at zero separation and does not supply the differentiable paths assumed below. <!-- vale ai-tells.FormalTransitions = YES --></p>
 <p>Set the mean to zero and write <span class="math inline">\(\sigma_h^2=C(0)\)</span> for input variance. A constant input mean can be absorbed into the threshold. It is useful to normalize the input,</p>
 <p><span class="math display">\[ z(x)=\frac{h(x)}{\sigma_h},\qquad F(x)=a\,[z(x)-q]_+, \quad [u]_+=\max(u,0). \]</span></p>
-<p>Here <span class="math inline">\(z\)</span> has variance one, <span class="math inline">\(q\)</span> is a dimensionless threshold, and <span class="math inline">\(a&gt;0\)</span> converts normalized input to firing rate, in Hz. The paper writes <span class="math inline">\(\theta\)</span> for <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span> for covariance, and <span class="math inline">\(D\)</span> for spatial dimension. This guide uses <span class="math inline">\(q,C,d\)</span> to avoid conflicts with earlier chapters. The original input threshold is <span class="math inline">\(q\sigma_h\)</span>. In the paper’s Equation 3 the firing rate is proportional to <span class="math inline">\([h-q\sigma_h]_+\)</span>, which is equivalent to this form after choosing the gain.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>Here <span class="math inline">\(z\)</span> has variance one, <span class="math inline">\(q\)</span> is a dimensionless threshold, and <span class="math inline">\(a&gt;0\)</span> converts normalized input to firing rate, in Hz. The paper writes <span class="math inline">\(\theta\)</span> for <span class="math inline">\(q\)</span>, <span class="math inline">\(r\)</span> for covariance, and <span class="math inline">\(D\)</span> for spatial dimension. Here we use <span class="math inline">\(q,C,d\)</span> to avoid conflicts with earlier chapters. The original input threshold is <span class="math inline">\(q\sigma_h\)</span>. In the paper’s Equation 3 the firing rate is proportional to <span class="math inline">\([h-q\sigma_h]_+\)</span>, which is equivalent to this form after choosing the gain.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
 <p>The input threshold summarizes how much combined input is needed before the model cell fires. It can reflect the cell’s own response properties and inhibitory input. Raising <span class="math inline">\(q\)</span> at a fixed input map leaves fewer positions active. If the absolute threshold above the input mean is positive and held fixed, increasing the input standard deviation <span class="math inline">\(\sigma_h\)</span> lowers <span class="math inline">\(q\)</span>, making activity more widespread. Changing <span class="math inline">\(a\)</span> instead changes rates within active regions while preserving their zero-rate boundaries. A fixed positive detection cutoff in Hz would change this last conclusion. <span class="key-statement">A fitted threshold describes the balance of input and response. It does not identify which biological quantity changed.</span></p>
 <details class="publisher-long-content publisher-source-figure">
 <summary>
@@ -539,7 +539,7 @@ Figure&nbsp;10.3: One fixed Gaussian input draw becomes a nonnegative firing map
 <img src="../assets/fig-place-crossings.png" class="img-fluid figure-img" style="width:7.29167in" alt="A constructed smooth curve crosses q upward twice and has three active intervals because the first begins before the left edge of the track. One full field and one gap are marked. Two local tangent plots use the same vertical band q plus or minus epsilon. The steeper slope has a narrower horizontal width 2 epsilon divided by v, and slope times width divided by 2 epsilon equals one in both cases.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-place-crossings-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;10.4: Two upcrossings start two new fields, and one field is already active at the left edge. The local tangent panels show that a steeper crossing occupies a narrower threshold band, while slope weighting makes each crossing contribute one. This is a guide construction, not a sampled cell or a new fit. It illustrates Mainali et al.&nbsp;(2025), Figure 1A–B and Supplemental Methods S3, Equations S11–S15.
+Figure&nbsp;10.4: Two upcrossings start two new fields, and one field is already active at the left edge. The local tangent panels show that a steeper crossing occupies a narrower threshold band, while slope weighting makes each crossing contribute one. This is an illustrative construction, not a sampled cell or a new fit. It illustrates Mainali et al.&nbsp;(2025), Figure 1A–B and Supplemental Methods S3, Equations S11–S15.
 </figcaption>
 </figure>
 </div>

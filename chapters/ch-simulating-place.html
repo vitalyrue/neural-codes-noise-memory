@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>21&nbsp; Random spatial maps test the statistics of place fields – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<title>21&nbsp; Random spatial maps test the statistics of place fields – Neural Codes, Noise, and Memory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -134,7 +134,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+      <a href="../">Neural Codes, Noise, and Memory</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,7 +147,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+ <span class="menu-text">Neural Codes, Noise, and Memory</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,7 +165,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+ <span class="menu-text">Results and connections across the three papers</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -433,7 +433,7 @@ Figure&nbsp;21.2: Unreviewed draft diagram, second part of the chapter overview.
 </div>
 <section id="sec-simulating-place-generate" class="level2" data-number="21.1">
 <h2 data-number="21.1" class="anchored" data-anchor-id="sec-simulating-place-generate"><span class="header-section-number">21.1</span> A smooth random input becomes a firing map after thresholding</h2>
-<p>For each model cell, the theory assigns a smooth Gaussian input field <span class="math inline">\(h(\mathbf x)\)</span> to locations <span class="math inline">\(\mathbf x\)</span>. Its covariance controls how similar nearby input values tend to be. A threshold determines which locations activate the cell. In the guide’s notation, the rate is proportional to</p>
+<p>For each model cell, the theory assigns a smooth Gaussian input field <span class="math inline">\(h(\mathbf x)\)</span> to locations <span class="math inline">\(\mathbf x\)</span>. Its covariance controls how similar nearby input values tend to be. A threshold determines which locations activate the cell. With this notation, the rate is proportional to</p>
 <p><span class="math display">\[ \max\{h(\mathbf x)-q\sqrt{C(0)},0\}. \]</span></p>
 <p>Here <span class="math inline">\(h(\mathbf x)\)</span> is the input at position <span class="math inline">\(\mathbf x\)</span>, <span class="math inline">\(q\)</span> is the threshold in units of input standard deviation, and <span class="math inline">\(C(0)\)</span> is the input variance. The expression selects the positive part of the input above <span class="math inline">\(q\sqrt{C(0)}\)</span>; an overall gain converts that excess into a firing rate. The threshold and spatial correlation scale govern the shapes and sizes of the active regions. The gain supplies the firing-rate scale. The <a href="ch-place-fields.html">spatial-model chapter</a> develops these quantities before deriving field-count and gap predictions.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p>The published Python archive constructs such maps directly:</p>

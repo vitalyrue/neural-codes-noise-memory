@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>22&nbsp; Reproduction depends on the model, numerical method, and measurement – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<title>22&nbsp; Reproduction depends on the model, numerical method, and measurement – Neural Codes, Noise, and Memory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -134,7 +134,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+      <a href="../">Neural Codes, Noise, and Memory</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,7 +147,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+ <span class="menu-text">Neural Codes, Noise, and Memory</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,7 +165,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+ <span class="menu-text">Results and connections across the three papers</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -432,7 +432,7 @@ Figure&nbsp;22.2: Unreviewed draft diagram, second part of the chapter overview.
 <h2 data-number="22.1" class="anchored" data-anchor-id="sec-simulation-tools-routes"><span class="header-section-number">22.1</span> The original code and a teaching reconstruction serve different purposes</h2>
 <p>The starting point depends on the intended result. Running the authors’ program tests whether its implementation produces the reported output. Rebuilding the equations in another program tests whether an independent implementation agrees. A smaller teaching model can isolate a mechanism, but its numerical output belongs to that smaller model.</p>
 <p>For Burak and Fiete (2012), the paper and supporting text specify the network equations and numerical settings. The inspected publication records did not identify a public simulation-code package. For Ben-Shushan et al.&nbsp;(2022), public MATLAB code and deposited recordings support a more direct route. Mainali et al.&nbsp;(2025) provide Python code and links to the source datasets. The preceding chapters identify what was checked in each package and where the inspected defaults differ from the publication.</p>
-<p><span class="key-statement">A successful program run establishes that the chosen program executed. Agreement with a paper also requires matching its model, parameters, measurements, and uncertainty.</span> The simulation summaries here are source-based explanations. The guide has not rerun the authors’ full simulations or reprocessed their animal recordings.</p>
+<p><span class="key-statement">A successful program run establishes that the chosen program executed. Agreement with a paper also requires matching its model, parameters, measurements, and uncertainty.</span> The simulation summaries here are source-based explanations. The authors’ full simulations and animal-recording analyses have not been independently rerun here.</p>
 <p>One further distinction matters for Part III. A computer can calculate a neural model, calculate a proposed transistor circuit, or collect measurements from a fabricated chip. Sun et al.&nbsp;(2026) report post-layout hardware simulations. Pehle et al.&nbsp;(2022) describe physical analog neural circuits. Both can address memory, but their outputs support different claims about an electronic device. The <a href="ch-neuromorphic-systems.html">hardware comparison</a> keeps these cases separate.</p>
 </section>
 <section id="sec-simulation-tools-software" class="level2" data-number="22.2">
@@ -455,7 +455,7 @@ Table&nbsp;22.1: Software roles and the evidence for their use.
 <tr class="header">
 <th>Tool or package</th>
 <th>Role</th>
-<th>Status in this guide</th>
+<th>Evidence or use</th>
 </tr>
 </thead>
 <tbody>
@@ -502,7 +502,7 @@ Table&nbsp;22.1: Software roles and the evidence for their use.
 <p>A <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>convergence check</strong></span> tests whether the quantity being reported changes acceptably little when the numerical resolution is refined.</span> The acceptable difference depends on the scientific comparison and the uncertainty from repeated random realizations. A smooth-looking trajectory is not a convergence check.</p>
 <div class="publisher-worked-calculation publisher-fold-always">
 <p><strong>Example: a smaller time step must keep the same diffusion per second.</strong></p>
-<p>Consider the guide’s reduced Brownian model, with diffusion coefficient <span class="math inline">\(D=0.5\)</span> deg<span class="math inline">\(^2\)</span>/s. Over a step of duration <span class="math inline">\(h\)</span>, the angular increment has variance <span class="math inline">\(2Dh\)</span>. At <span class="math inline">\(h=0.01\)</span> s, its standard deviation is <span class="math inline">\(0.1^\circ\)</span>. Reducing the step to <span class="math inline">\(0.0025\)</span> s makes the standard deviation <span class="math inline">\(0.05^\circ\)</span>.</p>
+<p>Consider a simplified Brownian model, with diffusion coefficient <span class="math inline">\(D=0.5\)</span> deg<span class="math inline">\(^2\)</span>/s. Over a step of duration <span class="math inline">\(h\)</span>, the angular increment has variance <span class="math inline">\(2Dh\)</span>. At <span class="math inline">\(h=0.01\)</span> s, its standard deviation is <span class="math inline">\(0.1^\circ\)</span>. Reducing the step to <span class="math inline">\(0.0025\)</span> s makes the standard deviation <span class="math inline">\(0.05^\circ\)</span>.</p>
 <p>There are now four times as many steps per second, each with one quarter of the variance. The variance accumulated in one second remains <span class="math inline">\(1\)</span> deg<span class="math inline">\(^2\)</span>. If the increment’s standard deviation were reduced by four instead of two, that variance would fall to <span class="math inline">\(0.25\)</span> deg<span class="math inline">\(^2\)</span>. The program would be simulating a different noise strength.</p>
 <p>This calculation concerns Gaussian increments of the reduced model. A network driven by discrete spikes instead generates events according to its firing-rate rule and applies the specified synaptic jumps.</p>
 </div>
@@ -527,7 +527,7 @@ Table&nbsp;22.1: Software roles and the evidence for their use.
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>NumPy developers. <em>Random Generator</em>, NumPy 2.5 documentation. <a href="https://numpy.org/doc/stable/reference/random/generator.html">Generator and reproducibility guidance</a>. Retrieved October 30, 2026. The guide recommends this for an optional Python reconstruction.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>NumPy developers. <em>Random Generator</em>, NumPy 2.5 documentation. <a href="https://numpy.org/doc/stable/reference/random/generator.html">Generator and reproducibility guidance</a>. Retrieved October 30, 2026. This documentation supports an optional Python reconstruction.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>SciPy developers. <em>scipy.integrate.solve_ivp</em>, SciPy 1.18.0 documentation. <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">Ordinary differential equation solver</a>. Retrieved October 30, 2026.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>SciPy developers. <em>scipy.ndimage.label</em>, SciPy 1.18.0 documentation. <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html">Connected-component labeling</a>. Retrieved October 30, 2026.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>Brian developers. <em>Brian 2 documentation</em>, version 2.11.0. <a href="https://brian2.readthedocs.io/en/stable/">Spiking-network simulator</a>. Retrieved October 30, 2026.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>

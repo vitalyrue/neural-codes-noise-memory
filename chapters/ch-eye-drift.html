@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Eye drift points to a shared neural drive – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<title>7&nbsp; Eye drift points to a shared neural drive – Neural Codes, Noise, and Memory</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -134,7 +134,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+      <a href="../">Neural Codes, Noise, and Memory</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,7 +147,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+ <span class="menu-text">Neural Codes, Noise, and Memory</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -165,7 +165,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+ <span class="menu-text">Results and connections across the three papers</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -416,7 +416,7 @@ window.Quarto = {
 <p>The paper’s estimate of the common contribution can be read directly as</p>
 <p><span class="math display">\[ \chi\simeq\frac{\operatorname{Cov}(\Delta\widehat E,\Delta E)}{\operatorname{Var}(\Delta E)}, \qquad \langle\chi\rangle_w=0.82\pm0.07. \]</span></p>
 <p>Here <span class="math inline">\(\Delta E\)</span> is measured horizontal eye displacement during 350 ms, <span class="math inline">\(\Delta\widehat E\)</span> is the displacement reconstructed from one motor neuron’s spikes, and <span class="math inline">\(\chi\)</span> estimates the fraction of displacement variance due to the shared drive. The reported value is a weighted average over cells and its weighted error. This interpretation assumes that the shared signal has the same calibrated gain in both quantities and that the remaining fluctuations are approximately uncorrelated. The <a href="#sec-eye-chi">covariance section</a> derives the formula and examines these assumptions; see <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=5">paper, PDF p.&nbsp;5</a>.</p>
-<p><strong>[Guide derivation: the shared variance estimate]</strong> Write <span class="math inline">\(X=\Delta\widehat E=C+\varepsilon\)</span> and <span class="math inline">\(Y=\Delta E=C+\eta\)</span>, where <span class="math inline">\(C\)</span> is the shared contribution to displacement after calibration, <span class="math inline">\(\varepsilon\)</span> is the remaining prediction fluctuation, and <span class="math inline">\(\eta\)</span> is the remaining eye-displacement fluctuation. Expanding the covariance gives</p>
+<p><strong>[Derivation: the shared variance estimate]</strong> Write <span class="math inline">\(X=\Delta\widehat E=C+\varepsilon\)</span> and <span class="math inline">\(Y=\Delta E=C+\eta\)</span>, where <span class="math inline">\(C\)</span> is the shared contribution to displacement after calibration, <span class="math inline">\(\varepsilon\)</span> is the remaining prediction fluctuation, and <span class="math inline">\(\eta\)</span> is the remaining eye-displacement fluctuation. Expanding the covariance gives</p>
 <p><span class="math display">\[ \operatorname{Cov}(X,Y)=\operatorname{Var}(C) +\operatorname{Cov}(C,\eta)+\operatorname{Cov}(\varepsilon,C) +\operatorname{Cov}(\varepsilon,\eta). \]</span></p>
 <p>If the shared component has equal calibrated gains and the other covariance terms are small, the numerator estimates <span class="math inline">\(\operatorname{Var}(C)\)</span>. Dividing by <span class="math inline">\(\operatorname{Var}(Y)\)</span> estimates the fraction of eye-displacement variance shared with the neural prediction. The later calculation considers the residual private contribution from the recorded cell and the consequences of unequal gains.</p>
 <p>This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory.</p>
@@ -498,7 +498,7 @@ Figure&nbsp;7.3: Fixation segment durations and counts vary across cells and ani
 <img src="../assets/fig-eye-physical-and-recorded.png" class="img-fluid figure-img" style="width:7.29167in" alt="A proposed attractor storage circuit sends shared drive to a motor neuron population, then through muscles and eye mechanics to physical eye position. Private variability enters one neuron; downstream physical variability enters the muscles. Only the highlighted neuron is recorded, paired with eye position. Measurement noise enters that recorded position, not the physical eye. A separate dashed calculation transforms the single-cell spikes through a calibrated filter into predicted eye position.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eye-physical-and-recorded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: The recordings pair one motor neuron with eye movement. Private spike variability acts at individual cells, downstream physical variability acts on movement, and measurement noise enters the eye-position record. The attractor storage source is proposed; the dashed analysis path is a calculation from one cell through its calibrated filter. Original guide schematic based on Ben-Shushan et al.&nbsp;(2022), Figs. 1–2 and 4–5. Signal symbols are illustrative, not experimental traces.
+Figure&nbsp;7.4: The recordings pair one motor neuron with eye movement. Private spike variability acts at individual cells, downstream physical variability acts on movement, and measurement noise enters the eye-position record. The attractor storage source is proposed; the dashed analysis path is a calculation from one cell through its calibrated filter. Original illustrative schematic based on Ben-Shushan et al.&nbsp;(2022), Figs. 1–2 and 4–5. Signal symbols are illustrative, not experimental traces.
 </figcaption>
 </figure>
 </div>
@@ -562,7 +562,7 @@ Figure&nbsp;7.5: Eye movement and motor activity share weak but positive fluctua
 <p>These are the paired signs in the paper’s Eq. 7, with <span class="math inline">\(\tau_+&gt;\tau_-\)</span> when <span class="math inline">\(k,r,m&gt;0\)</span> and <span class="math inline">\(r^2&gt;4km\)</span>. Under these conditions both components decay without oscillation.</p>
 <p>At rest, the inverse equation gives <span class="math inline">\(x=f/k\)</span>: with the threshold fixed, doubling <span class="math inline">\(k\)</span> halves the position offset predicted from the same steady firing rate. During a change, <span class="math inline">\(r\)</span> and <span class="math inline">\(m\)</span> also affect the response through the two timescales. This is a consequence of the fitted relationship, not evidence that changing one recorded neuron’s rate alone sets eye position. The same factorization gives two useful identities:</p>
 <p><span class="math display">\[ \tau_+\tau_-=\frac{m}{k},\qquad \tau_++\tau_-=\frac{r}{k}. \]</span></p>
-<p><strong>[Guide derivation: weights of the two decaying responses]</strong></p>
+<p><strong>[Derivation: weights of the two decaying responses]</strong></p>
 <p>We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as</p>
 <p><span class="math display">\[ h_0(u)=A e^{-u/\tau_+}+B e^{-u/\tau_-},\qquad u&gt;0. \]</span></p>
 <!-- vale ai-tells.FillerPhrases = NO -->
@@ -705,7 +705,7 @@ Figure&nbsp;7.7: The same common variance enters movement and the single cell pr
 <li id="fn7"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;9, “OMN firing rate estimators,” Eqs. 2–3. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;9, “OMN firing rate estimators,” Eqs. 2–3. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;3, Fig. 1; p.&nbsp;9, “Firing rate correlation coefficients.” <!-- vale ai-tells.SemicolonUsage = YES --><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn10"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;9, “Model inversion,” Eqs. 4–7. Factorization, units, static gain check, and repeated-pole limit are guide derivations of those equations. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;9, “Model inversion,” Eqs. 4–7. Factorization, units, static gain check, and repeated-pole limit are derived here of those equations. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn11"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;2–4, Fig. 2; pp.&nbsp;9–10, “Eye position correlation coefficients,” Eq. 8 and shuffle procedure. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn12"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;3, “Central source”; Supplementary Information, p.&nbsp;2, “The explanatory power of a single OMN,” Eqs. S1–S2. The residual-variance proof is expanded here for teaching. <!-- vale ai-tells.FillerIntensifier = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn13"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;3, “Central source”; Supplementary Information, p.&nbsp;2, “The explanatory power of a single OMN,” Eqs. S1–S2. The residual-variance proof is expanded here for teaching. <!-- vale ai-tells.FillerIntensifier = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
