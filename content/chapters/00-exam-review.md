@@ -1,11 +1,5 @@
 # Results and connections across the three papers {#ch:EXAM-REVIEW}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-FRONT-EXAM-REVIEW-A}}
-
-{{block:fig:DRAFT-MAP-FRONT-EXAM-REVIEW-B}}
-
 
 Each paper studies a different physical system. This overview connects **what changes in each system, what the measurements can establish, and the formulas that express the results**. The later chapters develop the underlying arguments.
 

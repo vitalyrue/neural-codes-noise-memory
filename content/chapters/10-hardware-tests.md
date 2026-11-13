@@ -4,11 +4,6 @@
 The earlier stability comparison followed the response to one disturbance. A memory experiment instead repeats a cue and observes what happens as disturbances continue over time. After an angle cue, the estimate may be wrong because the state wandered, because unequal connections pull it toward another angle, or because the observer reads it poorly. One accuracy score combines these causes. This chapter first separates the mean motion from trial-to-trial spread, then relates that spread to circuit noise and finally asks what the output reveals about the state. The protocol and reduced models are proposed tools, not results already demonstrated on every platform in the previous chapter.
 <!-- vale ai-tells.VerbTricolon = YES -->
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH18-A}}
-
-{{block:fig:DRAFT-MAP-CH18-B}}
 
 ## Repeated cue-and-delay trials separate drift from random spreading {#sec:HARDWARE-TESTS-PROTOCOL}
 

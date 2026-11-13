@@ -2,11 +2,6 @@
 
 A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Beyond the paper-specific methods in the preceding chapters, a reproduction needs checks that its software, resolution, and saved run record preserve the intended comparison. This chapter explains how to choose those checks and distinguish the authors' program from an independent implementation or a smaller teaching model.
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH22-A}}
-
-{{block:fig:DRAFT-MAP-CH22-B}}
 
 ## The original code and a teaching reconstruction serve different purposes {#sec:SIMULATION-TOOLS-ROUTES}
 

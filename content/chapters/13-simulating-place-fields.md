@@ -2,11 +2,6 @@
 
 To reproduce Mainali et al.'s (2025) place-field comparisons, we need the rules for generating and fitting model maps, and for measuring both model and recorded maps. The [spatial-model chapter](ch-place-fields.html) explains the statistical assumptions, and the [tests chapter](ch-place-tests.html) interprets the evidence. Here the additional detail is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors, and access to code and recordings. Position is the independent variable; each generated map is fixed during analysis, so these computations do not simulate a remembered position changing over time.
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH21-A}}
-
-{{block:fig:DRAFT-MAP-CH21-B}}
 
 ## A smooth random input becomes a firing map after thresholding {#sec:SIMULATING-PLACE-GENERATE}
 

@@ -18,11 +18,6 @@ Here $M_{\rm obs}$ is the MSD calculated from measured positions, including meas
 
 For the internal position, model a displacement as $\Delta B=\sqrt{2D}\,\Delta W$, where the Brownian increment $\Delta W$ has mean zero and variance $\ell$. Thus $\mathbb E[(\Delta B)^2]=2D\ell$. This is the internal signal before the muscle filter; the observed eye MSD need not be linear at short lags.
 
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH08-A}}
-
-{{block:fig:DRAFT-MAP-CH08-B}}
 
 ## Independent measurement error adds a constant offset to the MSD {#sec:EYE-MEASUREMENT-NOISE}
 

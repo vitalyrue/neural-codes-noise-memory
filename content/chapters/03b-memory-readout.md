@@ -1,9 +1,6 @@
 <!-- vale ai-tells.ExplainerHeadings = NO -->
 # Readout accuracy depends on how a moving memory is observed {#ch:MEMORY-READOUT}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-CH06}}
 
 <!-- vale ai-tells.ExplainerHeadings = YES -->
 
@@ -88,7 +85,6 @@ A timeline separates the displacement accumulated before the cue from the error 
 </div>
 
 
-
 ## Accounting for diffusion makes readout improve toward a limit {#sec:MEMORY-IDEAL}
 
 **[Paper]** [Main Eq. 5 and Fig. 3, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4), describe the ideal observer's characteristic observation time and diminishing gains from further spikes. For the local Gaussian readout model, the finite-interval readout variance and its characteristic time are
@@ -167,7 +163,6 @@ $$
 \boxed{V_{\mathrm{ideal}}(L)
 =\sqrt{\frac{2D}{J}}\coth(\sqrt{2DJ}\,L).}
 $$
-
 
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Check: the short-time ideal readout variance"}

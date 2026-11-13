@@ -4,11 +4,6 @@
 A circuit can remain active for seconds even when its individual voltages decay in milliseconds. The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity does not by itself identify what is being preserved. Starting with the preceding flip-flop and ring examples, this chapter follows one disturbance, then asks what happens when noise keeps perturbing the circuit. It explains how feedback extends a time scale and distinguishes a restoring discrete memory from a freely changing continuous one. Measured silicon circuits show why this distinction matters beyond a mathematical model.
 <!-- vale ai-tells.ParallelStaccato = YES -->
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH16-A}}
-
-{{block:fig:DRAFT-MAP-CH16-B}}
 
 ## Feedback can extend persistence beyond a component's decay time {#sec:HARDWARE-DYNAMICS-FEEDBACK}
 

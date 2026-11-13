@@ -27,9 +27,6 @@ This distinction connects the previous chapters to a measurement outside the bra
 
 A recording from one motor neuron becomes useful for this comparison only after its spikes and the eye's movement can be expressed on the same scale. The larger movements provide that calibration. Applying it during fixation then lets us ask whether independent motor noise could explain the observed relationship, and estimate the shared contribution under explicit gain and independence assumptions.
 
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH07}}
 
 ## From stored eye position to muscle action {#sec:EYE-PATHWAY}
 
@@ -88,13 +85,11 @@ The initial stationary target was followed by 500–700 ms of required fixation 
 The large movements have a useful role even though the scientific question concerns tiny drifts. They produce enough rate change to estimate how each cell's activity depends on eye movement. The fitted relationship is then applied during fixation. This transfer is an assumption to examine, because an incorrect gain during drift would change the inferred common variance. Gain is the scale that converts a change in one signal into a change in the other.
 
 
-
 <div class="figure-scroll">
 
 {{block:fig:EYE-PHYSICAL-AND-RECORDED}}
 
 </div>
-
 
 
 ## A fitted model links movement to firing rate {#sec:EYE-FORWARD-FIT}
@@ -234,7 +229,6 @@ $$
 $$
 
 These expressions reproduce Eqs. 4–6, including the factor $\tau_+\tau_-/m$ and the delay. The convolution integral adds the responses to all past spikes. With spike count treated as a count, $\xi$ has units spikes/s and $h$ has units degrees/spike. Each spike contributes a decaying position response. Adding those responses produces degrees.[^p2-inversion]
-
 
 
 For a constructed example, take $k=4$ spikes/(s deg), $\tau_+=0.120$ s, and $\tau_-=0.005$ s. The identities above require $r=0.500$ spikes/deg and $m=0.00240$ spikes s/deg. Then
@@ -391,7 +385,6 @@ $$
 <!-- vale ai-tells.FillerIntensifier = NO -->
 One cell explains $R^2\simeq2.89\%$ of displacement variance after linear rescaling, while the common signal supplies 82% of actual displacement variance. The larger, poorly predicted part of the single cell signal is private prediction noise.
 <!-- vale ai-tells.FillerIntensifier = YES -->
-
 
 
 <div class="figure-scroll">

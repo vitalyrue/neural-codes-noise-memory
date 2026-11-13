@@ -2,11 +2,6 @@
 
 A silicon circuit can keep a connection strength unchanged while losing the angle it was asked to remember. It can also keep that angle while its individual electrical signals change. To compare electronic memory with the neural memory in Part I, we first need to identify what information each physical quantity represents. This chapter separates the connection settings, the changing state of each artificial neuron, and the value represented by their joint activity. That separation will let us ask what feedback actually preserves.
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH14-A}}
-
-{{block:fig:DRAFT-MAP-CH14-B}}
 
 ## A connection setting shapes activity. The activity can represent a cue {#sec:HARDWARE-MEMORY-ROLES}
 

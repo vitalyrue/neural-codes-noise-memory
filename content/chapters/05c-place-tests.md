@@ -8,11 +8,6 @@ We first count connected regions and holes together, which gives a prediction ac
 
 The input map varies with position but remains fixed in time in this model. As before, $q$ is the threshold applied to normalized input, $\sigma$ is the local spatial scale, and $a$ converts normalized input above threshold into firing rate. The number of spatial dimensions is $d$. It is separate from the diffusion coefficient $D$ used in the memory chapters.
 
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH12-A}}
-
-{{block:fig:DRAFT-MAP-CH12-B}}
 
 ## Holes distinguish maps with the same field count {#sec:PLACE-TOPOLOGY}
 

@@ -98,47 +98,49 @@ Entries follow their first use in the reading path and chapters. The paper's sup
 
    <!-- vale ai-tells.EmDashUsage = NO -->
    <!-- vale ai-tells.NounString = NO -->
-31. Massoud, T. M.; Horiuchi, T. K. (2011). *A neuromorphic VLSI head direction cell system*. IEEE Transactions on Circuits and Systems I: Regular Papers, 58(1), 150–163. [DOI](https://doi.org/10.1109/TCSI.2010.2055310).
+31. Shah, P. J. (1992). *A short term analogue memory*. Proceedings of the 18th European Solid-State Circuits Conference, 127–130. [Publication record and paper](https://orbit.dtu.dk/en/publications/a-short-term-analogue-memory/). Measured droop in a sample-and-hold chip.
+
+32. Massoud, T. M.; Horiuchi, T. K. (2011). *A neuromorphic VLSI head direction cell system*. IEEE Transactions on Circuits and Systems I: Regular Papers, 58(1), 150–163. [DOI](https://doi.org/10.1109/TCSI.2010.2055310).
    <!-- vale ai-tells.NounString = YES -->
    <!-- vale ai-tells.EmDashUsage = YES -->
 
-32. Kreiser, R.; Cartiglia, M.; Martel, J. N. P.; Conradt, J.; Sandamirskaya, Y. (2018). *A neuromorphic approach to path integration: A head-direction spiking neural network with vision-driven reset*. [Authors' paper](https://services.ini.uzh.ch/admin/extras/doc_get.php?id=71960). Mixed-signal ROLLS head-direction network; the reported navigation error includes device mismatch and motion-related errors.
+33. Kreiser, R.; Cartiglia, M.; Martel, J. N. P.; Conradt, J.; Sandamirskaya, Y. (2018). *A neuromorphic approach to path integration: A head-direction spiking neural network with vision-driven reset*. [Authors' paper](https://services.ini.uzh.ch/admin/extras/doc_get.php?id=71960). Mixed-signal ROLLS head-direction network; the reported navigation error includes device mismatch and motion-related errors.
 
-33. Hajimiri, A.; Limotyrakis, S.; Lee, T. H. (1999). *Jitter and phase noise in ring oscillators*. IEEE Journal of Solid-State Circuits, 34(6), 790–804. [DOI](https://doi.org/10.1109/4.766813). Oscillator phase-noise theory and ring-oscillator measurements.
+34. Hajimiri, A.; Limotyrakis, S.; Lee, T. H. (1999). *Jitter and phase noise in ring oscillators*. IEEE Journal of Solid-State Circuits, 34(6), 790–804. [DOI](https://doi.org/10.1109/4.766813). Oscillator phase-noise theory and ring-oscillator measurements.
 
-34. Cao, R.; Zhang, X.; Liu, S.; Lu, J.; Wang, Y.; Jiang, H.; Yang, Y.; Sun, Y.; Wei, W.; Wang, J.; Xu, H.; Li, Q.; Liu, Q. (2022). *Compact artificial neuron based on anti-ferroelectric transistor*. Nature Communications, 13, 7018. [DOI](https://doi.org/10.1038/s41467-022-34774-9). The device was fabricated and measured; the full pattern-recognition network was simulated.
+35. Cao, R.; Zhang, X.; Liu, S.; Lu, J.; Wang, Y.; Jiang, H.; Yang, Y.; Sun, Y.; Wei, W.; Wang, J.; Xu, H.; Li, Q.; Liu, Q. (2022). *Compact artificial neuron based on anti-ferroelectric transistor*. Nature Communications, 13, 7018. [DOI](https://doi.org/10.1038/s41467-022-34774-9). The device was fabricated and measured; the full pattern-recognition network was simulated.
 
-35. Kleyko, D.; Kymn, C. J.; Thomas, A.; Olshausen, B. A.; Sommer, F. T.; Frady, E. P. (2025). *Principled neuromorphic reservoir computing*. Nature Communications, 16(1), 640. [DOI](https://doi.org/10.1038/s41467-025-55832-y).
+36. Kleyko, D.; Kymn, C. J.; Thomas, A.; Olshausen, B. A.; Sommer, F. T.; Frady, E. P. (2025). *Principled neuromorphic reservoir computing*. Nature Communications, 16(1), 640. [DOI](https://doi.org/10.1038/s41467-025-55832-y).
 
-36. Aitsam, M.; Htet, A.; Hasan, S. S.; Jimenez Rodriguez, A.; Di Nuovo, A. (2026). *A spiking continuous attractor network for event-driven neuromorphic robot guidance*. Frontiers in Neuroscience, 20, 1910808. [DOI](https://doi.org/10.3389/fnins.2026.1910808).
+37. Aitsam, M.; Htet, A.; Hasan, S. S.; Jimenez Rodriguez, A.; Di Nuovo, A. (2026). *A spiking continuous attractor network for event-driven neuromorphic robot guidance*. Frontiers in Neuroscience, 20, 1910808. [DOI](https://doi.org/10.3389/fnins.2026.1910808).
 
-37. Ortner, T.; Petschenig, H.; Vasilopoulos, A.; Renner, R.; Brglez, Š.; Limbacher, T.; Piñero, E.; Linares-Barranco, A.; Pantazi, A.; Legenstein, R. (2025). *Rapid learning with phase-change memory-based in-memory computing through learning-to-learn*. Nature Communications, 16(1), 1243. [DOI](https://doi.org/10.1038/s41467-025-56345-4).
+38. Ortner, T.; Petschenig, H.; Vasilopoulos, A.; Renner, R.; Brglez, Š.; Limbacher, T.; Piñero, E.; Linares-Barranco, A.; Pantazi, A.; Legenstein, R. (2025). *Rapid learning with phase-change memory-based in-memory computing through learning-to-learn*. Nature Communications, 16(1), 1243. [DOI](https://doi.org/10.1038/s41467-025-56345-4).
 
    <!-- vale ai-tells.EmDashUsage = NO -->
    <!-- vale ai-tells.SemicolonUsage = NO -->
-38. Wang, X.; Wang, R.; Sun, S.; Xu, D.; Nie, C.; Zhou, Z.; Wen, C.; Zhang, J.; Chu, R.; Shen, X.; Zhou, W.; Song, Z.; Wang, J.-J.; Ma, E.; Zhang, W. (2026). *Amorphous phase-change memory alloy with no resistance drift*. Nature Materials, 25(3), 456–462. [DOI](https://doi.org/10.1038/s41563-025-02361-0). First published online October 1, 2025. March 2026 issue.
+39. Wang, X.; Wang, R.; Sun, S.; Xu, D.; Nie, C.; Zhou, Z.; Wen, C.; Zhang, J.; Chu, R.; Shen, X.; Zhou, W.; Song, Z.; Wang, J.-J.; Ma, E.; Zhang, W. (2026). *Amorphous phase-change memory alloy with no resistance drift*. Nature Materials, 25(3), 456–462. [DOI](https://doi.org/10.1038/s41563-025-02361-0). First published online October 1, 2025. March 2026 issue.
    <!-- vale ai-tells.SemicolonUsage = YES -->
    <!-- vale ai-tells.EmDashUsage = YES -->
 
    <!-- vale ai-tells.EmDashUsage = NO -->
-39. Sun, P.; Su, Z.; Achterberg, J.; Indiveri, G.; Goodman, D. F. M.; Akarca, D. (2026). *Algorithm–hardware co-design of neuromorphic networks with dual memory pathways*. Nature Machine Intelligence, 8(6), 901–912. [DOI](https://doi.org/10.1038/s42256-026-01255-3).
+40. Sun, P.; Su, Z.; Achterberg, J.; Indiveri, G.; Goodman, D. F. M.; Akarca, D. (2026). *Algorithm–hardware co-design of neuromorphic networks with dual memory pathways*. Nature Machine Intelligence, 8(6), 901–912. [DOI](https://doi.org/10.1038/s42256-026-01255-3).
    <!-- vale ai-tells.EmDashUsage = YES -->
 
-40. Ilmberger, J.; Schemmel, J. (2025, December 3). *The BrainScaleS-2 multi-chip system: Interconnecting continuous-time neuromorphic compute substrates* [Preprint, version 1]. arXiv. [Versioned text](https://arxiv.org/html/2512.03781v1).
+41. Ilmberger, J.; Schemmel, J. (2025, December 3). *The BrainScaleS-2 multi-chip system: Interconnecting continuous-time neuromorphic compute substrates* [Preprint, version 1]. arXiv. [Versioned text](https://arxiv.org/html/2512.03781v1).
 
-41. The Burak Lab. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry* [MATLAB source code]. [Inspected revision, February 28, 2022](https://github.com/The-Burak-lab/Fixational-drift-is-driven-by-diffusive-dynamics-in-central-neuralcircuitry/tree/27d4093008c6756fe8ae2ad77567176ed626bd17).
+42. The Burak Lab. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry* [MATLAB source code]. [Inspected revision, February 28, 2022](https://github.com/The-Burak-lab/Fixational-drift-is-driven-by-diffusive-dynamics-in-central-neuralcircuitry/tree/27d4093008c6756fe8ae2ad77567176ed626bd17).
 
-42. Ben-Shushan, N.; Shaham, N.; Joshua, M.; Burak, Y. (2022). *Fixational drift is driven by central neural circuitry* [Dataset]. Zenodo. [DOI](https://doi.org/10.5281/zenodo.6076911).
+43. Ben-Shushan, N.; Shaham, N.; Joshua, M.; Burak, Y. (2022). *Fixational drift is driven by central neural circuitry* [Dataset]. Zenodo. [DOI](https://doi.org/10.5281/zenodo.6076911).
 
-43. Mainali, N. (2025). *Gaussian process place-field model* [Python source code]. [Published archive](https://doi.org/10.5281/zenodo.14650881). [Inspected repository revision](https://github.com/5183nischal/gp-model/tree/eae7eab801bb6ca016b3a6ff4f35d6a47df98d6a).
+44. Mainali, N. (2025). *Gaussian process place-field model* [Python source code]. [Published archive](https://doi.org/10.5281/zenodo.14650881). [Inspected repository revision](https://github.com/5183nischal/gp-model/tree/eae7eab801bb6ca016b3a6ff4f35d6a47df98d6a).
 
-44. Eliav et al. (2021). *Multiscale representation of very large environments in the hippocampus of flying bats* [Dataset]. Zenodo. [Version DOI](https://doi.org/10.5281/zenodo.4646728). [Associated paper](https://doi.org/10.1126/science.abg4020).
+45. Eliav et al. (2021). *Multiscale representation of very large environments in the hippocampus of flying bats* [Dataset]. Zenodo. [Version DOI](https://doi.org/10.5281/zenodo.4646728). [Associated paper](https://doi.org/10.1126/science.abg4020).
 
-45. NumPy developers. *Random Generator*, NumPy 2.5 documentation. Retrieved October 30, 2026, from the [generator documentation](https://numpy.org/doc/stable/reference/random/generator.html).
+46. NumPy developers. *Random Generator*, NumPy 2.5 documentation. Retrieved October 30, 2026, from the [generator documentation](https://numpy.org/doc/stable/reference/random/generator.html).
 
-46. SciPy developers. *scipy.integrate.solve_ivp*, SciPy 1.18.0 documentation. Retrieved October 30, 2026, from the [ODE solver documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html).
+47. SciPy developers. *scipy.integrate.solve_ivp*, SciPy 1.18.0 documentation. Retrieved October 30, 2026, from the [ODE solver documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html).
 
-47. SciPy developers. *scipy.ndimage.label*, SciPy 1.18.0 documentation. Retrieved October 30, 2026, from the [connected-component documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html).
+48. SciPy developers. *scipy.ndimage.label*, SciPy 1.18.0 documentation. Retrieved October 30, 2026, from the [connected-component documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html).
 
-48. Brian developers. *Brian 2 documentation*, version 2.11.0. Retrieved October 30, 2026, from the [simulator documentation](https://brian2.readthedocs.io/en/stable/).
+49. Brian developers. *Brian 2 documentation*, version 2.11.0. Retrieved October 30, 2026, from the [simulator documentation](https://brian2.readthedocs.io/en/stable/).
 

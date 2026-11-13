@@ -1,11 +1,5 @@
 # Patterns of variable spikes can represent a value {#ch:FOUNDATIONS}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-CH01-A}}
-
-{{block:fig:DRAFT-MAP-CH01-B}}
-
 
 **[Paper: Introduction and Results, pp. 1–2]** Burak and Fiete (2012) ask how accurately a network of interacting neurons can retain a continuous value, such as an eye position or a direction, when its neurons emit spikes at variable times. The paper takes a continuous attractor model as its starting point. Its contribution is to calculate how spike variability makes the stored value wander, and how that wandering is related to the information available in the network's spikes. For an effectively constant local diffusion coefficient $D$ and negligible systematic drift, the represented value has mean squared displacement approximately $2Dt$ over a suitable time interval $t$. The paper's information–diffusion inequality is $D\ge 1/(2\tau^2J)$, where $J$ is the internal Fisher information rate in the network's spikes and $\tau$ is the common synaptic decay time. These are results for the authors' specified noisy continuous-attractor model, not universal bounds on every memory circuit. [Read the introduction and Results setup](../papers/burak-fiete-2012-persistent-activity.pdf#page=1).
 

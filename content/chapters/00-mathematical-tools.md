@@ -1,11 +1,5 @@
 # Mathematical tools connect neural signals to the papers' predictions {#ch:MATHEMATICAL-TOOLS}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-FRONT-MATHEMATICAL-TOOLS-A}}
-
-{{block:fig:DRAFT-MAP-FRONT-MATHEMATICAL-TOOLS-B}}
-
 
 The three papers ask different questions about neural activity. How accurately can a circuit retain a value? What do fluctuations in neural recordings reveal about eye movement? Why do place cells have fields of different sizes and shapes? Each question needs a mathematical tool whose variables correspond to a physical part of the system.
 

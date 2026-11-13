@@ -1,9 +1,5 @@
 # Spiking noise produces diffusion along the memory attractor {#ch:MEMORY-DYNAMICS}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-CH03}}
-
 
 **[Paper section: “Diffusive Drift due to Ongoing Neural Noise”]** [Main article, pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2). This chapter intersperses the supporting derivation with the paper’s diffusion result; the next chapter examines its simulation tests and long-delay implications.
 

@@ -7,9 +7,6 @@ To connect them, we first separate the spatial map, the changing represented pos
 <!-- vale ai-tells.VerbTricolon = YES -->
 
 <!-- vale ai-tells.CataphoricForecasting = NO -->
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH13}}
 
 ## The three papers constrain maps, dynamics, and movement {#sec:SYNTHESIS-QUESTIONS}
 <!-- vale ai-tells.CataphoricForecasting = YES -->

@@ -1,11 +1,6 @@
 <!-- vale ai-tells.ExplainerHeadings = NO -->
 # What the three papers establish {#ch:READING-GUIDE}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-FRONT-READING-A}}
-
-{{block:fig:DRAFT-MAP-FRONT-READING-B}}
 
 <!-- vale ai-tells.ExplainerHeadings = YES -->
 

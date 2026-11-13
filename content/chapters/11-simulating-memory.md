@@ -2,11 +2,6 @@
 
 To compare a simulated memory trace with Burak and Fiete's (2012) theory, the numerical update and the measurement of the stored value must match the model. The [foundation chapter](ch-foundations.html#sec-foundations-simulation) explains the spike-update cycle, and the [long-delay chapter](ch-memory-long-delays.html) interprets its diffusion tests. Here the additional task is to recover the published network settings, distinguish a numerical position measurement from the theoretical coordinate, and identify choices left open for an independent reproduction.
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH19-A}}
-
-{{block:fig:DRAFT-MAP-CH19-B}}
 
 ## A simulation renews the same synaptic state that the theory approximates {#sec:SIMULATING-MEMORY-STATE}
 

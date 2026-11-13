@@ -6,11 +6,6 @@ Suppose we want to study how a noisy network retains an angle. One machine can c
 The research snapshot is **October 30, 2026**. “State of the art” here means selected recent capabilities supported by primary papers, with older architecture papers supplying their physical explanation. It does not mean one machine leads every task. We distinguish measured chips, experiments partly run on a separate computer, and proposed hardware evaluated by simulation. A [[**host computer**]{.definition-term custom-style="Definition Term"} is a separate general-purpose computer that controls an experiment or performs calculations assigned outside the neuromorphic chip.]{.definition-explanation}
 <!-- vale ai-tells.VerbTricolon = YES -->
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH17-A}}
-
-{{block:fig:DRAFT-MAP-CH17-B}}
 
 ## Digital and analog implementations expose different parts of the neural model {#sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES}
 

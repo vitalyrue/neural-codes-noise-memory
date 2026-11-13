@@ -34,9 +34,6 @@ We begin on a track, where a field starts at an upcrossing, a point where the in
 
 [Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning.]{.key-statement}
 
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH10}}
 
 ## Thresholding a smooth Gaussian input produces place fields {#sec:PLACE-GP}
 

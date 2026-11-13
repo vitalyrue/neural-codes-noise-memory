@@ -30,11 +30,6 @@ $$
 
 For a possible size $S>0$, the high-threshold approximation makes the events $s\le S$ and $U\le\beta S^{2/d}$ approximately equivalent. With $\Pr(U>u)\to e^{-u}$, the high-threshold approximation gives $\Pr(s\le S)\simeq1-e^{-\beta S^{2/d}}$. Differentiating it gives $p_d(S)=(2\beta/d)S^{2/d-1}e^{-\beta S^{2/d}}$, the formula above. The derivative supplies the change-of-variable factor; it is why simply relabeling the exponential density would give the wrong result. The following sections expand the peak and geometry arguments, their conditions, and finite-threshold checks.
 
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH11-A}}
-
-{{block:fig:DRAFT-MAP-CH11-B}}
 
 ## Near a high peak, the input is nearly parabolic {#sec:PLACE-RARE-PEAKS}
 

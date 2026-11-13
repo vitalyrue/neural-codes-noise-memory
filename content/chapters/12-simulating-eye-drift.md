@@ -2,11 +2,6 @@
 
 A reproduction of Ben-Shushan et al. (2022) must distinguish the recording analysis from the simulated eye-control pathway. The [circuit chapter](ch-eye-circuit.html) explains why a noisy internal command is a possible source of drift. Here the added detail is how the published parameters, spike generator, update intervals, saved samples, and MATLAB files determine the numerical experiment, and which code or data gaps limit reproduction. The pathway below gives the mechanism needed to interpret those choices.
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH20-A}}
-
-{{block:fig:DRAFT-MAP-CH20-B}}
 
 ## Recorded data constrain the question before the model generates a trajectory {#sec:SIMULATING-EYE-DATA}
 

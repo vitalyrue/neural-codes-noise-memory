@@ -6,11 +6,6 @@ Hassabis and colleagues' review *Neuroscience-Inspired Artificial Intelligence* 
 
 For each architecture, ask three questions: **what physical state changes, what does feedback do, and what value can be read from the state?** We start with circuits familiar from electronics, then connect them to spikes, synaptic activation and network memory. Folded examples give a closer look at particular devices. The earlier [comparison of stored weights and activity](ch-hardware-memory.html#sec-hardware-memory-roles) explains why the three roles must be kept separate. The next chapter follows a disturbance through these circuits before adding ongoing noise; a later chapter asks how well their states can be measured.
 
-**Draft diagrams:** These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.
-
-{{block:fig:DRAFT-MAP-CH15-A}}
-
-{{block:fig:DRAFT-MAP-CH15-B}}
 
 ## Electronic architectures can share neural organization while storing different things {#sec:ELECTRONIC-OVERVIEW}
 
@@ -18,15 +13,16 @@ For each architecture, ask three questions: **what physical state changes, what 
 
 In the neural model, the connection $W_{ij}$ specifies how activation from neuron $j$ affects neuron $i$. The changing activation $s_j$ reflects the accumulated, decaying effect of spikes. A population pattern of these changing activations can represent a value $\theta$. In an electronic circuit the corresponding objects might be a programmed conductance, a capacitor voltage or current, and a value decoded from several signals. Which physical quantity plays which role must be checked for each design.
 
-The list below is a reading map, not a claim that the circuits have identical equations or are biological models. A flip-flop and multilevel memory show how feedback can hold *discrete* states. An oscillator and a ring attractor illustrate different ways a displacement can persist.
+The list below is a reading map, not a claim that the circuits have identical equations or are biological models. A flip-flop and multilevel memory show how feedback can hold *discrete* states. A capacitor can hold a continuously valued voltage. An oscillator and a ring attractor illustrate different ways a displacement can persist.
 
 - **Flip-flop:** feedback restores one of two states; the output indicates a bit.
 - **Multilevel memory:** feedback restores one of several preferred voltage levels; the output indicates a discrete level.
+- **Capacitor memory:** stored charge sets a voltage that can take values across a range; leakage limits how long it is held.
 - **Recurrent ring:** an activity bump can persist at different positions; its position indicates a direction.
 - **Oscillator:** feedback sustains a cycle; its phase gives the position within that cycle and normally advances with time.
 - **Pulse-based neuron circuit:** graded input can set pulse timing or rate; a circuit state can accumulate and leak input.
 
-The first two are useful comparisons, not automatically neural networks. The ring is a network when its connected units and their dynamics implement the stated interactions. We now follow the feedback in each case.
+The flip-flop, multilevel circuit and capacitor are useful comparisons; none is automatically a neural network. The ring is a network when its connected units and their dynamics implement the stated interactions. We now examine how each circuit holds or changes its state.
 
 ## A flip-flop maintains one of two states through feedback {#sec:ELECTRONIC-FLIPFLOP}
 
@@ -49,6 +45,32 @@ Imagine adjacent preferred levels at 0.40 V and 0.50 V. If a setting input leave
 </div>
 
 Ten levels can distinguish more values than two, but each stable point has a region that pulls nearby voltages toward it. Increasing the number of discrete levels does not alone create the ideal continuous family of steady states used in the 2012 model. In principle, a sufficiently large noise disturbance can cause a jump between levels; this general switching mechanism differs from the local wandering of a neutral memory coordinate. The ten-level study is cited here for its stable levels, not as a measurement of those jumps.
+
+## A capacitor can hold a continuously valued voltage {#sec:ELECTRONIC-ANALOG-HOLD}
+
+The ten-level circuit remembers which one of several preferred voltages was selected. What circuit can instead retain a voltage anywhere within a range, including values between those levels? A [[**sample-and-hold circuit**]{.definition-term custom-style="Definition Term"} stores an input voltage for later measurement by charging a capacitor and then isolating it.]{.definition-explanation} A capacitor stores separated electric charge; its voltage depends on that stored charge. The operation has three stages:
+
+1. **Write:** close a switch between the input and the storage capacitor long enough for the capacitor voltage to approach the input voltage.
+2. **Hold:** open the switch. The capacitor retains charge, so its voltage carries the sampled value after the input has changed.
+3. **Read:** measure the voltage, typically through a high-input-impedance buffer that draws little current from the capacitor. The measurement has finite precision and the buffer need not be perfect.
+
+For an ideal capacitor, $Q=CV$, where $Q$ is the stored charge, $C$ the capacitance, and $V$ the voltage. With the switch open and no current leaving, $Q$ and therefore $V$ stay constant. Any voltage within the circuit's operating range can be stored in this idealization: there is no feedback pulling it to one of ten prescribed levels. A real cell loses or gains charge through leakage paths, and measurement can also disturb it. If a constant leakage current $I_{\rm leak}$ removes charge, $dQ/dt=-I_{\rm leak}$. For constant $C$ this gives
+
+$$
+\frac{dV}{dt}=-\frac{I_{\rm leak}}{C},\qquad V(t)=V(0)-\frac{I_{\rm leak}}{C}t.
+$$
+
+Here $t$ is time elapsed since the switch opened, and positive $I_{\rm leak}$ means charge is leaving. This is a simple constant-current model of systematic voltage droop, not a universal law: leakage may depend on voltage, temperature, and the surrounding circuit. A larger $C$ reduces the voltage change for the same leakage current, at the cost of needing more charge to write a given voltage change.
+
+<div class="publisher-worked-calculation publisher-fold-always">
+
+**Example: how leakage changes a stored value.**
+
+For an illustrative $C=1$ pF cell with a constant outward leakage of $75$ attoamperes ($75\times10^{-18}$ A), the voltage falls at $0.075$ mV/s. After 10 s it is $0.75$ mV below its initial value. If the desired resolution is $0.1$ mV, this drift exceeds the desired resolution even though the voltage has not changed very much in absolute terms. Shah's fabricated sample-and-hold chip was reported to have a droop of $0.075$ mV/s with a 1 pF capacitor; the constant-current extrapolation here is an illustrative calculation, not an additional measurement of that chip.[^arch-shah]
+
+</div>
+
+**Comparison with neural memory.** The ideal capacitor and the ideal neural attractor each allow a small change in the stored value to persist. In the capacitor, the value is stored as charge separation and the resulting voltage across the capacitor; in the neural model, it is represented by an activity pattern across interacting neurons. A disturbance that adds charge $\Delta Q$ changes the ideal capacitor voltage by $\Delta Q/C$, and that change persists after the disturbance ends. The capacitor does not require recurrent neural-like feedback to hold its value. The multilevel feedback circuit, in contrast, restores small errors toward a chosen level. A real capacitor's leakage causes systematic drift; random current and readout noise can add trial-to-trial spread. To distinguish these contributions, repeat the same write and delay, measure the mean voltage change and its variance, then vary the delay. A trend in the mean alone is not a diffusion measurement.
 
 ## Ring networks store a value in the position of an activity bump {#sec:ELECTRONIC-RING}
 
@@ -107,3 +129,5 @@ The architectural question to carry forward is therefore concrete: **which physi
 [^arch-phase]: Hajimiri, A., Limotyrakis, S., & Lee, T. H. (1999). *Jitter and phase noise in ring oscillators*. IEEE Journal of Solid-State Circuits, 34(6), 790–804. [Author repository](https://authors.library.caltech.edu/records/1hw2y-5p770).
 
 [^arch-device]: Cao, R., Zhang, X., Liu, S., et al. (2022). *Compact artificial neuron based on anti-ferroelectric transistor*. Nature Communications, 13, 7018. [Article](https://www.nature.com/articles/s41467-022-34774-9). Device measurements and network simulation are described separately in Results and Methods.
+
+[^arch-shah]: Shah, P. J. (1992). *A short term analogue memory*. Proceedings of the 18th European Solid-State Circuits Conference, 127–130. [Publication record and paper](https://orbit.dtu.dk/en/publications/a-short-term-analogue-memory/). The record reports a measured 0.075 mV/s droop for a 1 pF storage capacitor.

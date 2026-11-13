@@ -6,11 +6,6 @@ The recordings support a shared source before the motor neurons, and the movemen
 
 Following that complete path lets the model test whether neural noise can produce both the amount and timing of the observed drift. Its spike variability, neuron count and time constants determine how much freedom this match allows. Comparing the model with the separate recording and timing results then shows what the study supports, and why it still leaves other upstream sources possible.
 
-**Unreviewed draft diagrams.** These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.
-
-{{block:fig:DRAFT-MAP-CH09-A}}
-
-{{block:fig:DRAFT-MAP-CH09-B}}
 
 ## A noisy integrator can reproduce drift after muscle filtering {#sec:EYE-CIRCUIT-MODEL}
 

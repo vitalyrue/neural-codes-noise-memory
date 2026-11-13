@@ -1,9 +1,6 @@
 <!-- vale ai-tells.NounString = NO -->
 # Spike information limits memory stability {#ch:MEMORY-INFORMATION}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-CH05}}
 
 <!-- vale ai-tells.NounString = YES -->
 
@@ -415,7 +412,6 @@ J=\frac{25}{1500}+\frac{25}{500}=\frac1{15}\simeq0.06667,
 $$
 
 The actual diffusion remains $1000$. The inequality is strict because the projection coefficients $v_i$ no longer satisfy the equality condition $v_i\propto r_i'/\bar r_i$ for the two unequal rates. These coefficients describe how spike fluctuations shift the stored value; they are distinct from the synaptic connection weights $W_{ij}$. This also shows why equality at a special state does not force the transfer function to be exponential on its whole domain. A constant lower bound attained everywhere and an accidental equality at one state are different claims.
-
 
 
 <div class="figure-scroll">

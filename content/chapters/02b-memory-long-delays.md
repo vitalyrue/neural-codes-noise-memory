@@ -1,9 +1,6 @@
 <!-- vale ai-tells.NounString = NO -->
 # Boundaries and drift change memory error over long delays {#ch:MEMORY-LONG-DELAYS}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-CH04}}
 
 <!-- vale ai-tells.NounString = YES -->
 

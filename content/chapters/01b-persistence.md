@@ -1,9 +1,5 @@
 # Stable representations can accumulate error {#ch:PERSISTENCE}
 
-**Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
-
-{{block:fig:DRAFT-MAP-CH02}}
-
 
 **[Paper: Results setup, p. 2]** The 2012 paper begins its analysis with a continuous family of steady neural activity patterns, described by Eq. 1 in Chapter 1. For neuron $i$, the family obeys $\bar s_i(\theta)=\tau\phi(\sum_jW_{ij}\bar s_j(\theta)+b_i)=\tau\bar r_i(\theta)$. Here $\theta$ is the represented value; $\bar s_i$ and $\bar r_i$ are steady activation and firing rate; $W_{ij}$ couples neuron $j$ to neuron $i$; $b_i$ is fixed input; $\phi$ maps input to rate; and $\tau$ is the common activation decay time. Each pattern represents a different value. Spike variability disturbs the activity, and the paper asks how the represented value changes as the network responds. [Read the Results setup and Fig. 1](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).
 
