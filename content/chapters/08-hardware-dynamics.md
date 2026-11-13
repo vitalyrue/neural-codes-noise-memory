@@ -102,7 +102,7 @@ The comparison gives a useful reading rule for current machines: determine what 
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^dynamics-burak]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). See the guide's [information-bound derivation](ch-memory-information.html#sec-memory-bound) and its assumptions.
+[^dynamics-burak]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). See the [information-bound derivation](ch-memory-information.html#sec-memory-bound) and its assumptions.
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->

@@ -70,7 +70,7 @@ $$
 
 These are signed densities per length, area, and volume, not three formulas for positive field counts.
 
-**[Guide derivation: the Gaussian determinant average]** Write the conditional Hessian as $H=-b\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,
+**[Derivation: the Gaussian determinant average]** Write the conditional Hessian as $H=-b\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,
 
 $$
 \mathbb E[G_{ii}G_{kk}]=\kappa-\lambda^2,
@@ -369,5 +369,5 @@ Agreement with the Gaussian field predictions supports this random-summation acc
 <!-- vale Google.Units = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^p3-discussion]: Mainali et al. (2025), *Universal statistics of hippocampal place fields across species and dimensionalities*, Neuron, 113, 1110–1120.e3, [doi:10.1016/j.neuron.2025.01.017](https://doi.org/10.1016/j.neuron.2025.01.017), Discussion, pp. 1117–1118. The distinction between a sufficient mechanism and a uniquely identified mechanism is this guide's inference from the model and measurement scope.
+[^p3-discussion]: Mainali et al. (2025), *Universal statistics of hippocampal place fields across species and dimensionalities*, Neuron, 113, 1110–1120.e3, [doi:10.1016/j.neuron.2025.01.017](https://doi.org/10.1016/j.neuron.2025.01.017), Discussion, pp. 1117–1118. The distinction between a sufficient mechanism and a uniquely identified mechanism is an inference made here from the model and measurement scope.
 <!-- vale ai-tells.EmDashUsage = YES -->

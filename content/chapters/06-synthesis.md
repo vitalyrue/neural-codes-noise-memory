@@ -22,7 +22,7 @@ For a circuit representing position, three questions arise:
 
 The objects differ even when the word position appears in all three. In 2012, $\theta(t)$ locates a network state on its attractor. In 2022, the internal eye-position command and actual eye angle are separate quantities linked through motor neurons and mechanics. In 2025, $x$ locates an animal in an environment, and $h_i(x)$ is a spatial input function assigned to a cell. The Gaussian process does not update a remembered $x$ through time.
 
-The [guide map](ch-persistence.html#fig-foundations-paper-map) gives a visual comparison of these three questions.
+The [comparison map](ch-persistence.html#fig-foundations-paper-map) gives a visual comparison of these three questions.
 
 <div class="table-responsive">
 
@@ -41,7 +41,7 @@ R_i(t)=f_i(x(t)).
 $$
 
 <!-- vale ai-tells.ContrastiveFormulas = NO -->
-[Here $f_i$ describes spatial tuning and $x(t)$ describes dynamics. A source of time variation has entered even though $f_i$ is fixed. Actual spike counts add another layer of variability around the expected rate.]{.key-statement} This construction is a guide calculation connecting the papers' objects, not a model tested jointly by the three studies.
+[Here $f_i$ describes spatial tuning and $x(t)$ describes dynamics. A source of time variation has entered even though $f_i$ is fixed. Actual spike counts add another layer of variability around the expected rate.]{.key-statement} This construction is a calculation developed here connecting the papers' objects, not a model tested jointly by the three studies.
 <!-- vale ai-tells.ContrastiveFormulas = YES -->
 
 Consider a short interval of duration $t$ starting at $x_0$. Assume that the estimate's local displacement $\delta x=x(t)-x_0$ has mean zero and variance $2Dt$, where $D$ is the diffusion coefficient of the represented position. The displacement must be small enough to linearize each rate curve; $f_i'(x_0)=df_i/dx|_{x_0}$ is cell $i$’s rate change per unit position change at the start. Taylor expansion gives
@@ -117,7 +117,7 @@ The shared-position calculation predicts how rates would change together. Establ
   <!-- vale ai-tells.VerbTricolon = NO -->
 - **Memory stability:** The 2012 inequality $D\ge 1/(2\tau^2J)$ is a mathematical constraint rather than an experimental fit: $D$ is memory diffusion, $J$ is the internal spike information rate, and $\tau$ is the synaptic time constant. Its derivation specifies what noise and dynamics it covers. An experimental comparison would need estimates of diffusion, the relevant time constants, and the appropriate instantaneous information rate, all under compatible conditions. Agreement with $1/N$ scaling alone would not test the entire inequality, since several mechanisms can share that scaling.
 
-  **[Guide derivation: the memory bound]** At the represented value $\theta$, let $\bar r_i$ be neuron $i$'s steady firing rate and $r_i'=d\bar r_i/d\theta$ its rate slope. Let $v_i$ be the lasting change in $\theta$ from a unit activation perturbation in that neuron. For a stable continuous family with one neutral memory direction, in the weak-noise Poisson model with independent spike generation conditional on rates and a common $\tau$, normalize the projection so a unit coordinate change is read as one unit. Then the projection gives $2D=\sum_i v_i^2\bar r_i$ and $\tau\sum_i v_i r_i'=1$; the local spike information rate about the current attractor state is $J=\sum_i(r_i')^2/\bar r_i$ for positive rates. Cauchy–Schwarz then gives $1/\tau^2=(\sum_i v_i r_i')^2\le(\sum_i v_i^2\bar r_i)(\sum_i(r_i')^2/\bar r_i)=2DJ$, hence $D\ge1/(2\tau^2J)$ when $J>0$. The full projection and information calculations appear in Part I of this guide.[^s-three]
+  **[Derivation: the memory bound]** At the represented value $\theta$, let $\bar r_i$ be neuron $i$'s steady firing rate and $r_i'=d\bar r_i/d\theta$ its rate slope. Let $v_i$ be the lasting change in $\theta$ from a unit activation perturbation in that neuron. For a stable continuous family with one neutral memory direction, in the weak-noise Poisson model with independent spike generation conditional on rates and a common $\tau$, normalize the projection so a unit coordinate change is read as one unit. Then the projection gives $2D=\sum_i v_i^2\bar r_i$ and $\tau\sum_i v_i r_i'=1$; the local spike information rate about the current attractor state is $J=\sum_i(r_i')^2/\bar r_i$ for positive rates. Cauchy–Schwarz then gives $1/\tau^2=(\sum_i v_i r_i')^2\le(\sum_i v_i^2\bar r_i)(\sum_i(r_i')^2/\bar r_i)=2DJ$, hence $D\ge1/(2\tau^2J)$ when $J>0$. The full projection and information calculations appear in Part I.[^s-three]
   <!-- vale ai-tells.VerbTricolon = YES -->
 
 ## Related studies change assumptions and leave circuit choices open {#sec:SYNTHESIS-RELATED}
@@ -146,7 +146,7 @@ Related studies test the assumptions and ask questions the three papers leave op
 4. **If comparing behavior,** include the physical or neural filters between the representation and the measurement.
 
 <!-- vale ai-tells.VerbTricolon = NO -->
-These measurements would test whether one system satisfies both spatial-statistics and dynamical-stability constraints. [A static Gaussian-process fit alone cannot supply the diffusion coefficient. A diffusion fit alone cannot establish the distribution of fields.]{.key-statement} Agreement with both would constrain the model more than either fit alone. A mismatch would require further tests of spatial input statistics, recurrent maintenance, the observation filter, or their coupling. This is proposed follow-up work, not a replication claimed by this guide.
+These measurements would test whether one system satisfies both spatial-statistics and dynamical-stability constraints. [A static Gaussian-process fit alone cannot supply the diffusion coefficient. A diffusion fit alone cannot establish the distribution of fields.]{.key-statement} Agreement with both would constrain the model more than either fit alone. A mismatch would require further tests of spatial input statistics, recurrent maintenance, the observation filter, or their coupling. This is proposed follow-up work, not a replication reported here.
 <!-- vale ai-tells.VerbTricolon = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->

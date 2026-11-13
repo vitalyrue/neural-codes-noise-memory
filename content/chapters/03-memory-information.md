@@ -9,7 +9,7 @@
 
 **[Paper]** Burak and Fiete ask how well the network's own spikes distinguish nearby values of the memory it currently holds. They calculate this *internal Fisher information rate* $J$ and show that it limits how slowly the memory can diffuse: $D\ge1/(2\tau^2J)$. Here $D$ is the local diffusion coefficient of the represented value and $\tau$ is the synaptic time constant. The result assumes a stable continuous family of states, weak fluctuations, Poisson spike generation that is independent across neurons conditional on the current rates, and a common synaptic time constant. It holds for arbitrary connection weights and transfer functions under those assumptions. These are the second and third steps of the argument, after Chapter 3's diffusion calculation. See [main Eqs. 3–4, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).[^p1-info-main]
 
-**[Guide derivation: the bound]** For neuron $i$, let $\bar r_i(\theta)>0$ be its noise-free steady rate and $r_i'=d\bar r_i/d\theta$ its change per unit memory coordinate. Let $v_i$ be the lasting change in the represented value caused by a unit perturbation of that neuron's outgoing activation, after the other disturbances relax. Chapter 3 gives $2D=\sum_i v_i^2\bar r_i$ and the normalization $\tau\sum_i v_i r_i'=1$. The paper's information rate is $J=\sum_i(r_i')^2/\bar r_i$. Applying Cauchy–Schwarz to $v_i\sqrt{\bar r_i}$ and $r_i'/\sqrt{\bar r_i}$ gives
+**[Derivation: the bound]** For neuron $i$, let $\bar r_i(\theta)>0$ be its noise-free steady rate and $r_i'=d\bar r_i/d\theta$ its change per unit memory coordinate. Let $v_i$ be the lasting change in the represented value caused by a unit perturbation of that neuron's outgoing activation, after the other disturbances relax. Chapter 3 gives $2D=\sum_i v_i^2\bar r_i$ and the normalization $\tau\sum_i v_i r_i'=1$. The paper's information rate is $J=\sum_i(r_i')^2/\bar r_i$. Applying Cauchy–Schwarz to $v_i\sqrt{\bar r_i}$ and $r_i'/\sqrt{\bar r_i}$ gives
 
 $$
 \frac{1}{\tau^2}=\left(\sum_i v_i r_i'\right)^2
@@ -41,7 +41,7 @@ Here $i$ indexes neurons, $\bar r_i(\theta)$ is neuron $i$'s steady firing rate 
 
 **[Background]** Let $h$ be the observation duration in seconds and $n_i$ neuron $i$'s spike count. For this calculation, hold $\theta$ effectively fixed during observation and assume positive rates. Once that state is fixed, the model treats the counts from different cells as independent Poisson variables. Their mean and variance are both $\bar r_i(\theta)h$. This is a short observation approximation to the recurrent circuit, whose state can otherwise move while spikes are collected.
 
-**[Guide derivation]** For neuron $i$, write $r_i'=d\bar r_i/d\theta$ for the change in its steady firing rate per unit change in the represented value $\theta$. During an observation lasting $h$, the expected spike count is $h\bar r_i$. [The count [**sensitivity**]{.definition-term custom-style="Definition Term"} is the change in that expected count per unit change in $\theta$: its value is $h r_i'$.]{.definition-explanation} For a small change $\delta\theta$, the expected count therefore changes by approximately $h r_i'\,\delta\theta$. The Poisson count variance, our measure of count noise here, is $h\bar r_i$. Write $I_{h,i}(\theta)$ for the information in neuron $i$'s spike count during the window $h$. Dividing the squared count sensitivity $(h r_i')^2$ by that variance gives
+**[Derivation]** For neuron $i$, write $r_i'=d\bar r_i/d\theta$ for the change in its steady firing rate per unit change in the represented value $\theta$. During an observation lasting $h$, the expected spike count is $h\bar r_i$. [The count [**sensitivity**]{.definition-term custom-style="Definition Term"} is the change in that expected count per unit change in $\theta$: its value is $h r_i'$.]{.definition-explanation} For a small change $\delta\theta$, the expected count therefore changes by approximately $h r_i'\,\delta\theta$. The Poisson count variance, our measure of count noise here, is $h\bar r_i$. Write $I_{h,i}(\theta)$ for the information in neuron $i$'s spike count during the window $h$. Dividing the squared count sensitivity $(h r_i')^2$ by that variance gives
 
 $$
 I_{h,i}(\theta)=\frac{(h r_i')^2}{\bar r_i h}
@@ -58,7 +58,7 @@ $$
 
 **[Background]** To compare possible angles, hold the observed spike counts fixed and vary the proposed $\theta$. [A [**likelihood**]{.definition-term custom-style="Definition Term"} compares proposed parameter values by the probability each assigns to those observations.]{.definition-explanation} It is not, by itself, a probability distribution over the proposed angles.
 
-**[Guide derivation: likelihood and Fisher information]** Suppose four spikes were recorded during the short observation. A candidate angle predicting four spikes on average and one predicting sixteen assign different probabilities to that same count. Evaluating those probabilities as the proposed angle changes gives the likelihood. The following calculation makes the link to the paper's information rate explicit.
+**[Derivation: likelihood and Fisher information]** Suppose four spikes were recorded during the short observation. A candidate angle predicting four spikes on average and one predicting sixteen assign different probabilities to that same count. Evaluating those probabilities as the proposed angle changes gives the likelihood. The following calculation makes the link to the paper's information rate explicit.
 
 For the full vector $\mathbf n$ of observed counts, independence gives
 
@@ -152,7 +152,7 @@ $$
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Derivation: why inverse information bounds estimation variance"}
 
-**[Guide derivation]** Assume the same estimator is unbiased throughout a neighborhood of $\theta$, the probabilities vary smoothly with $\theta$, and differentiation can be exchanged with summation over the counts. Differentiate $E_\theta[\hat\theta]=\theta$:
+**[Derivation]** Assume the same estimator is unbiased throughout a neighborhood of $\theta$, the probabilities vary smoothly with $\theta$, and differentiation can be exchanged with summation over the counts. Differentiate $E_\theta[\hat\theta]=\theta$:
 
 $$
 1=\sum_{\mathbf n}\hat\theta(\mathbf n)\partial_\theta p(\mathbf n\mid\theta)
@@ -194,7 +194,7 @@ $D$ measures the local rate at which the represented value $\theta$ spreads acro
 
 **[Paper]** The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. Burak and Fiete suggest thinking of maintenance as estimating the state again from roughly one synaptic time constant $\tau$ of the network's own spikes. For a state held fixed, that sample would supply information $J\tau$, so even an ideal locally unbiased estimate would have variance at least $1/(J\tau)$. Comparing this with the variance $2D\tau$ accumulated over the same time suggests $2D\tau\ge1/(J\tau)$. One factor of $\tau$ comes from collecting information; the other comes from accumulating displacement variance. This is the authors' heuristic; the calculation below establishes the inequality from the projection assumptions. [Paper, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3).
 
-**[Guide derivation]** Cauchy Schwarz bounds a dot product by the product of the two vector lengths. Here $u_i=d\bar s_i/d\theta$ is the change in neuron $i$'s steady activation per unit change of the memory value; $v_i$ gives the lasting change in that value per unit perturbation of $s_i$. Their normalization $\sum_i v_i u_i=1$ fixes the dot product, while the two lengths measure diffusion and information. The rate slope is $r_i'=d\bar r_i/d\theta$, and $\tau$ is the common synaptic decay time. From the [projection and diffusion calculation](ch-memory-dynamics.html#sec-memory-diffusion),
+**[Derivation]** Cauchy Schwarz bounds a dot product by the product of the two vector lengths. Here $u_i=d\bar s_i/d\theta$ is the change in neuron $i$'s steady activation per unit change of the memory value; $v_i$ gives the lasting change in that value per unit perturbation of $s_i$. Their normalization $\sum_i v_i u_i=1$ fixes the dot product, while the two lengths measure diffusion and information. The rate slope is $r_i'=d\bar r_i/d\theta$, and $\tau$ is the common synaptic decay time. From the [projection and diffusion calculation](ch-memory-dynamics.html#sec-memory-diffusion),
 
 $$
 2D=\sum_i v_i^2\bar r_i,
@@ -245,7 +245,7 @@ Here $D$ is the diffusion matrix: $2D_{\alpha\beta}dt$ gives the local covarianc
 **[Interpretation]** A spike can shift more than one coordinate, so the information and diffusion must describe combinations of shifts. For coordinate $\alpha$, $\mathbf u^\alpha=\partial\bar{\mathbf s}/\partial\theta_\alpha$ is the change in steady activations per unit coordinate change, and $\mathbf v^\alpha$ extracts the lasting change in that coordinate from a small activation disturbance. The [multi-coordinate projection](ch-memory-dynamics.html#sec-memory-diffusion) derives these vectors.
 <!-- vale ai-tells.FormalTransitions = YES -->
 
-**[Guide derivation]** For $m$ memory coordinates $\theta_1,\ldots,\theta_m$, let $\alpha$ and $\beta$ identify coordinates and $i$ identify neurons. The steady rate $\bar r_i$ depends on all the coordinates; $\partial_{\theta_\alpha}\bar r_i$ is its slope with respect to coordinate $\alpha$, holding the others fixed. The information is a matrix,
+**[Derivation]** For $m$ memory coordinates $\theta_1,\ldots,\theta_m$, let $\alpha$ and $\beta$ identify coordinates and $i$ identify neurons. The steady rate $\bar r_i$ depends on all the coordinates; $\partial_{\theta_\alpha}\bar r_i$ is its slope with respect to coordinate $\alpha$, holding the others fixed. The information is a matrix,
 
 $$
 J_{\alpha\beta}=\sum_i
@@ -255,7 +255,7 @@ $$
 
 **[Interpretation]** The matrix calculation assumes that every independent small coordinate change can be distinguished through a change in rates, so $J$ is invertible. If a nonzero change in coordinates leaves every rate unchanged to first order, that direction has zero local information and $J$ is singular. For example, if all cells depend locally on $\theta_1+\theta_2$ only, increasing $\theta_1$ while decreasing $\theta_2$ by the same amount is invisible to this local readout. Larger changes or other observations could still distinguish those values.
 
-**[Guide derivation]** Here $D$ is the diffusion matrix: $2D_{\alpha\beta}dt$ is the local covariance of coordinate displacements over $dt$. The matrix bound $2D\succeq\tau^{-2}J^{-1}$ means that every linear combination of coordinate displacements obeys the corresponding variance lower bound. Here $A\succeq B$ means $\mathbf z^T(A-B)\mathbf z\ge0$ for every real vector $\mathbf z$. To derive it, recall $u_i^\alpha=\tau\,\partial_{\theta_\alpha}\bar r_i$ and form $N\times m$ matrices $U_{i\alpha}=u_i^\alpha/\sqrt{\bar r_i}$ and $V_{i\alpha}=v_i^\alpha\sqrt{\bar r_i}$, where $N$ is the number of neurons and $m$ the number of memory coordinates. Let $I$ be the $m\times m$ identity matrix. Then
+**[Derivation]** Here $D$ is the diffusion matrix: $2D_{\alpha\beta}dt$ is the local covariance of coordinate displacements over $dt$. The matrix bound $2D\succeq\tau^{-2}J^{-1}$ means that every linear combination of coordinate displacements obeys the corresponding variance lower bound. Here $A\succeq B$ means $\mathbf z^T(A-B)\mathbf z\ge0$ for every real vector $\mathbf z$. To derive it, recall $u_i^\alpha=\tau\,\partial_{\theta_\alpha}\bar r_i$ and form $N\times m$ matrices $U_{i\alpha}=u_i^\alpha/\sqrt{\bar r_i}$ and $V_{i\alpha}=v_i^\alpha\sqrt{\bar r_i}$, where $N$ is the number of neurons and $m$ the number of memory coordinates. Let $I$ be the $m\times m$ identity matrix. Then
 
 $$
 U^TV=I,\qquad U^TU=\tau^2J,\qquad V^TV=2D.
@@ -295,7 +295,7 @@ $$
 \tau_m\dot r_i=-r_i+\phi(g_i).
 $$
 
-**[Guide derivation]** In this symmetric weight extension, the linear state is $(\delta\mathbf s,\delta\mathbf r)$: changes of synaptic activations and firing rates from their steady values. In the matrix below, $W$ contains the connection weights, $I$ is the identity matrix, and $\operatorname{diag}(\phi')$ has the transfer slopes $\phi'(\bar g_i)$ on its diagonal. The deterministic matrix is
+**[Derivation]** In this symmetric weight extension, the linear state is $(\delta\mathbf s,\delta\mathbf r)$: changes of synaptic activations and firing rates from their steady values. In the matrix below, $W$ contains the connection weights, $I$ is the identity matrix, and $\operatorname{diag}(\phi')$ has the transfer slopes $\phi'(\bar g_i)$ on its diagonal. The deterministic matrix is
 
 $$
 A=\begin{pmatrix}
@@ -329,19 +329,19 @@ $$
 
 **[Paper]** For the alternative in [supporting text section VII, PDF p. 19](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=19), the authors report that the same information–diffusion inequality holds with additive white Gaussian noise of constant variance. For symmetric weights, a linear transfer function is sufficient to attain equality; for Poisson noise, an exponential transfer function is sufficient. The comparison depends on the noise model and how information is defined for its observations.
 
-**[Guide derivation]** To explain the comparison, the guide replaces Poisson spike-count fluctuations with independent Gaussian noise of constant strength $q>0$:
+**[Derivation]** To explain the comparison, the discussion replaces Poisson spike-count fluctuations with independent Gaussian noise of constant strength $q>0$:
 
 $$
 ds_i=F_i(\mathbf s)dt+\sqrt q\,dB_i.
 $$
 
-**[Guide derivation]** For an observation interval of length $h$, the observed mean rate is now Gaussian with variance $q/h$. Here $q$ is the constant noise strength specified above. Repeating the score calculation gives $J=\sum_i(r_i')^2/q$, while projection gives $2D=q\sum_i v_i^2$. The same Cauchy Schwarz proof yields $2DJ\ge\tau^{-2}$. Equality requires $v_i\propto r_i'$ because all cells have the same noise strength. In a symmetric network $v_i\propto g_i'$, so a linear transfer rule supplies the condition by keeping $\phi'(g)$ constant across participating inputs.
+**[Derivation]** For an observation interval of length $h$, the observed mean rate is now Gaussian with variance $q/h$. Here $q$ is the constant noise strength specified above. Repeating the score calculation gives $J=\sum_i(r_i')^2/q$, while projection gives $2D=q\sum_i v_i^2$. The same Cauchy Schwarz proof yields $2DJ\ge\tau^{-2}$. Equality requires $v_i\propto r_i'$ because all cells have the same noise strength. In a symmetric network $v_i\propto g_i'$, so a linear transfer rule supplies the condition by keeping $\phi'(g)$ constant across participating inputs.
 
 **[Interpretation]** In the Poisson case, variance grows with rate and an exponential rule is a sufficient way to attain equality. The pointwise projection condition remains the general criterion. A [linear-family example](#sec-memory-saturation) below shows that an exponential transfer rule is not necessary for every family. The difference between these sufficient classes follows from the noise weighting, not from linearity being universally preferable.[^p1-gaussian]
 
 <!-- vale ai-tells.AnthropomorphicCognition = NO -->
 <!-- vale ai-tells.EmDashUsage = NO -->
-**[Guide derivation]** This explicit $q$ formulation is a teaching reconstruction that keeps dimensions and the noise normalization visible. The supplement's Gaussian subsection establishes the change in equality condition. Here the matched noise and likelihood derivation supplies all factors of $q$ and $\tau$ without requiring the reader to infer a normalization from SI Eqs. S94–S95.
+**[Derivation]** This explicit $q$ formulation is a teaching reconstruction that keeps dimensions and the noise normalization visible. The supplement's Gaussian subsection establishes the change in equality condition. Here the matched noise and likelihood derivation supplies all factors of $q$ and $\tau$ without requiring the reader to infer a normalization from SI Eqs. S94–S95.
 <!-- vale ai-tells.EmDashUsage = YES -->
 <!-- vale ai-tells.AnthropomorphicCognition = YES -->
 
@@ -350,7 +350,7 @@ $$
 
 **[Interpretation]** [Reaching the bound requires the network's retained response to each cell's spike noise to match that cell's information about memory.]{.key-statement} Specifically, the cell's lasting effect $v_i$ must be proportional to its rate slope divided by its rate, $r_i'/\bar r_i$. A cell that adds retained noise without helping distinguish nearby values prevents equality. In a symmetric network, the transfer function determines whether those effects have the required proportions.
 
-**[Guide derivation]** Equality requires the two vectors in the proof to be proportional:
+**[Derivation]** Equality requires the two vectors in the proof to be proportional:
 
 $$
 v_i=c\frac{r_i'}{\bar r_i}
@@ -368,14 +368,14 @@ $$
 
 gives $\phi(g)=A e^{kg}$.
 
-**[Paper]** The authors show that $\phi(g)=A e^{kg}$, with positive constants $A$ and $k$, attains $D=1/(2\tau^2J)$ for symmetric weights and Poisson noise under the other model assumptions. They also state the converse: that saturation requires an exponential transfer function. The guide's example below tests that converse separately; the claimed inequality itself is not in question.[^p1-equality]
+**[Paper]** The authors show that $\phi(g)=A e^{kg}$, with positive constants $A$ and $k$, attains $D=1/(2\tau^2J)$ for symmetric weights and Poisson noise under the other model assumptions. They also state the converse: that saturation requires an exponential transfer function. The example below tests that converse separately; the claimed inequality itself is not in question.[^p1-equality]
 
-**[Interpretation]** The guide's check below finds that further restrictions are needed for that converse: the common ratio may depend on the current memory state. This check is separate from the authors' published correction to Eq. 2.
+**[Interpretation]** The check below finds that further restrictions are needed for that converse: the common ratio may depend on the current memory state. This check is separate from the authors' published correction to Eq. 2.
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Check: equality can also hold with a linear transfer rule"}
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Guide derivation]** The [mutual-excitation example](ch-memory-long-delays.html#sec-memory-long-time) shows why equality does not require an exponential transfer rule under the stated general assumptions. This check is the guide's calculation, not an author-issued correction. Set its bias $b_0=0$ and use the linear rule $\phi(g)=g/\tau$ on positive inputs. Its fixed states are $s_1=s_2=\theta>0$, with $\mathbf u=(1,1)^T$ and $\mathbf v=(1/2,1/2)^T$. Both rates are $\theta/\tau$, and both rate derivatives are $1/\tau$. Therefore
+**[Derivation]** The [mutual-excitation example](ch-memory-long-delays.html#sec-memory-long-time) shows why equality does not require an exponential transfer rule under the stated general assumptions. This check is the calculation, not an author-issued correction. Set its bias $b_0=0$ and use the linear rule $\phi(g)=g/\tau$ on positive inputs. Its fixed states are $s_1=s_2=\theta>0$, with $\mathbf u=(1,1)^T$ and $\mathbf v=(1/2,1/2)^T$. Both rates are $\theta/\tau$, and both rate derivatives are $1/\tau$. Therefore
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 $$
@@ -446,13 +446,13 @@ The gap at $\theta=100$ shows why a lower minimum allowed by the inequality is n
 
 <!-- vale ai-tells.ContrastiveFormulas = NO -->
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Guide derivation]** Increasing $N$ while retaining the same distribution of tuning curves and scaling weights as $1/N$ keeps individual inputs and rates fixed. The sums in the symmetric formula scale as $N$ in the numerator and $N^2$ in the denominator. Consequently $D\propto1/N$, while $J\propto N$. This expands the paper's network-size comparison; it is not a promise about adding arbitrary neurons.
+**[Derivation]** Increasing $N$ while retaining the same distribution of tuning curves and scaling weights as $1/N$ keeps individual inputs and rates fixed. The sums in the symmetric formula scale as $N$ in the numerator and $N^2$ in the denominator. Consequently $D\propto1/N$, while $J\propto N$. This expands the paper's network-size comparison; it is not a promise about adding arbitrary neurons.
 <!-- vale ai-tells.FormalTransitions = YES -->
 <!-- vale ai-tells.ContrastiveFormulas = YES -->
 
-**[Guide derivation]** If all tuning rates are multiplied by a factor $a$, their slopes are also multiplied by $a$, so $J\mapsto aJ$. For equality achieving exponential networks, $D\mapsto D/a$ immediately follows. The same scaling follows from the symmetric diffusion formula when the change preserves $g_i'$ up to a common scale and preserves the tuning geometry. For a general fixed nonlinear transfer rule, multiplying rates need not preserve those quantities or even the attractor. The paper's rate comparison is made with the tuning shapes and appropriate network scaling held under control.[^p1-scaling]
+**[Derivation]** If all tuning rates are multiplied by a factor $a$, their slopes are also multiplied by $a$, so $J\mapsto aJ$. For equality achieving exponential networks, $D\mapsto D/a$ immediately follows. The same scaling follows from the symmetric diffusion formula when the change preserves $g_i'$ up to a common scale and preserves the tuning geometry. For a general fixed nonlinear transfer rule, multiplying rates need not preserve those quantities or even the attractor. The paper's rate comparison is made with the tuning shapes and appropriate network scaling held under control.[^p1-scaling]
 
-**[Guide derivation]** Changing $\tau$ while holding the rate tuning curves and their input relation fixed gives $D\propto\tau^{-2}$ in the symmetric formula. Maintaining those curves requires retuning the network, because $\bar s=\tau\bar r$.
+**[Derivation]** Changing $\tau$ while holding the rate tuning curves and their input relation fixed gives $D\propto\tau^{-2}$ in the symmetric formula. Maintaining those curves requires retuning the network, because $\bar s=\tau\bar r$.
 
 <!-- vale ai-tells.FigurativeStays = NO -->
 <!-- vale ai-tells.FormalTransitions = NO -->
@@ -470,11 +470,11 @@ The gap at $\theta=100$ shows why a lower minimum allowed by the inequality is n
 <!-- vale ai-tells.StrawmanContrast = NO -->
 **[Paper]** The paper links tuning width to memory persistence: under the sensory-coding comparison it cites, narrower tuning improves persistence for a one-dimensional attractor, whereas broader tuning improves it in three dimensions ([main article, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4)).[^p1-width]
 
-**[Guide derivation]** The guide reconstruction below makes one such comparison explicit: for tuning width $w$ in dimension $d$, $J\propto w^{d-2}$, so a network saturating the information bound has $D\propto w^{2-d}$ when peak rates, population density and tuning shape are fixed. These exponents belong to that reconstruction, not to every possible tuning family.
+**[Derivation]** The independent reconstruction below makes one such comparison explicit: for tuning width $w$ in dimension $d$, $J\propto w^{d-2}$, so a network saturating the information bound has $D\propto w^{2-d}$ when peak rates, population density and tuning shape are fixed. These exponents belong to that reconstruction, not to every possible tuning family.
 <!-- vale ai-tells.StrawmanContrast = YES -->
 <!-- vale ai-tells.AnthropomorphicCognition = YES -->
 
-**[Guide derivation]** Assume preferred positions $\mathbf c$ have uniform density $\rho$ in a $d$ dimensional stimulus or memory space. Away from boundaries, let identical tuning curves have fixed peak rate $a$ and a common shape $f$:
+**[Derivation]** Assume preferred positions $\mathbf c$ have uniform density $\rho$ in a $d$ dimensional stimulus or memory space. Away from boundaries, let identical tuning curves have fixed peak rate $a$ and a common shape $f$:
 
 $$
 \bar r_{\mathbf c}(\boldsymbol\theta)
@@ -483,7 +483,7 @@ $$
 
 The width $w$ is varied while $a$, $\rho$, and the shape $f$ are fixed.
 
-**[Guide derivation]** For one coordinate direction $\alpha$, replace the population sum by an integral and substitute $\mathbf z=(\boldsymbol\theta-\mathbf c)/w$:
+**[Derivation]** For one coordinate direction $\alpha$, replace the population sum by an integral and substitute $\mathbf z=(\boldsymbol\theta-\mathbf c)/w$:
 
 $$
 J_{\alpha\alpha}
@@ -501,7 +501,7 @@ $$
 - The squared slope contributes $w^{-2}$ because broader curves change more slowly.
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Guide derivation]** Each diagonal entry therefore scales as $J_{\alpha\alpha}\propto w^{d-2}$. Now restrict the tuning shape $f$ to depend only on distance from its center. Uniformly distributing those centers makes every coordinate direction equivalent: off-diagonal information terms vanish, and all diagonal entries are equal. For an exponential network that attains the matrix bound, $D_{\alpha\alpha}=1/(2\tau^2J_{\alpha\alpha})\propto w^{2-d}$.
+**[Derivation]** Each diagonal entry therefore scales as $J_{\alpha\alpha}\propto w^{d-2}$. Now restrict the tuning shape $f$ to depend only on distance from its center. Uniformly distributing those centers makes every coordinate direction equivalent: off-diagonal information terms vanish, and all diagonal entries are equal. For an exponential network that attains the matrix bound, $D_{\alpha\alpha}=1/(2\tau^2J_{\alpha\alpha})\propto w^{2-d}$.
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 **[Interpretation]** The resulting comparisons are:
@@ -541,7 +541,7 @@ $$
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^p1-equality]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 11, Eqs. S47–S51. [DOI](https://doi.org/10.1073/pnas.1117386109). The linear-family counterexample is a guide calculation qualifying the source's converse.
+[^p1-equality]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 11, Eqs. S47–S51. [DOI](https://doi.org/10.1073/pnas.1117386109). The linear-family counterexample is an independent calculation qualifying the source's converse.
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.AnthropomorphicCognition = NO -->
@@ -570,4 +570,4 @@ $$
 
 [^p1-two-times]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 17–18, Eqs. S84–S92. [DOI](https://doi.org/10.1073/pnas.1117386109). The linear matrix here follows directly from S84. Its rate decay block is negative, as required by that differential equation, despite the positive sign printed in the corresponding block of S85.
 
-[^p1-gaussian]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 19, White Gaussian noise, Eqs. S93–S95; main pp. 3–4. [DOI](https://doi.org/10.1073/pnas.1117386109). Constant noise strength $q$ and its likelihood are retained explicitly in the guide's reconstruction.
+[^p1-gaussian]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 19, White Gaussian noise, Eqs. S93–S95; main pp. 3–4. [DOI](https://doi.org/10.1073/pnas.1117386109). Constant noise strength $q$ and its likelihood are retained explicitly in the reconstruction.

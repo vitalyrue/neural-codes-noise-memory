@@ -83,14 +83,14 @@ The three contributions therefore have different meanings: a mathematical constr
 
 ## Simulations separate the model from the evidence used to test it {#sec:READING-SIMULATIONS}
 
-[Part IV](../parts/part-simulations.html) follows the computational methods in Burak and Fiete (2012), Ben-Shushan et al. (2022), and Mainali et al. (2025). It distinguishes simulated neural trajectories, recorded-data analysis, and generated spatial maps. Each chapter identifies the model states, numerical procedure, measurements, available code, and limits on reproducing the published figures. The final chapter compares tools and explains resolution and repeatability checks. These are explanations of the sources, not a claim that the guide reran their full simulations.
+[Part IV](../parts/part-simulations.html) follows the computational methods in Burak and Fiete (2012), Ben-Shushan et al. (2022), and Mainali et al. (2025). It distinguishes simulated neural trajectories, recorded-data analysis, and generated spatial maps. Each chapter identifies the model states, numerical procedure, measurements, available code, and limits on reproducing the published figures. The final chapter compares tools and explains resolution and repeatability checks. These are explanations of the sources, not a claim that this book reran their full simulations.
 
-Part introductions identify the paper behind each chapter's result using author and year. **Central** marks a main finding of that paper. **Supporting** marks an analysis used to establish or qualify it. **Background** supplies needed concepts. **Guide-derived** marks expanded explanations, comparisons, or proposed tests developed here. A result can be central in its own paper while serving as supporting evidence in another argument.
+Part introductions identify the paper behind each chapter's result using author and year. **Central** marks a main finding of that paper. **Supporting** marks an analysis used to establish or qualify it. **Background** supplies needed concepts. **Derived here** marks expanded explanations, comparisons, or proposed tests developed here. A result can be central in its own paper while serving as supporting evidence in another argument.
 
 ## Starting knowledge and reading paths {#sec:READING-START}
 
 <!-- vale ai-tells.AnthropomorphicCognition = NO -->
-The guide assumes undergraduate calculus, basic probability, and linear algebra, including expected value, variance, standard deviation and probability density. Before Part I, the [mathematical-tools chapter](ch-mathematical-tools.html) introduces the tools behind all three papers: neural feedback and information, covariance and filtering of eye signals, and spatial random fields with crossing and peak calculations. The later chapters develop the full derivations and the remaining tools in context.
+This book assumes undergraduate calculus, basic probability, and linear algebra, including expected value, variance, standard deviation and probability density. Before Part I, the [mathematical-tools chapter](ch-mathematical-tools.html) introduces the tools behind all three papers: neural feedback and information, covariance and filtering of eye signals, and spatial random fields with crossing and peak calculations. The later chapters develop the full derivations and the remaining tools in context.
 <!-- vale ai-tells.AnthropomorphicCognition = YES -->
 
   <!-- vale ai-tells.EmDashUsage = NO -->
@@ -121,7 +121,7 @@ For a path focused on particular papers:
 
 The Glossary gives short definitions for lookup after their first explanation. The References section gives full source details. The original paper figures are discussed by number and can be inspected in the linked PDFs.
 
-After the foundations, the [guide map](../chapters/ch-persistence.html#fig-foundations-paper-map) shows the three paper questions together.
+After the foundations, the [book map](../chapters/ch-persistence.html#fig-foundations-paper-map) shows the three paper questions together.
 
 On a first reading, follow the main text, figures, assumptions, and results. The expandable notes preserve longer calculations and extensions. Open one when you want to check the steps behind a result. The explanations needed for the next section remain in the main text.
 
@@ -154,7 +154,7 @@ For a first conceptual pass, read the mechanism, inspect the displayed result an
 <!-- vale ai-tells.FigurativeHolds = YES -->
 
 <!-- vale ai-tells.AnthropomorphicCognition = NO -->
-The [PNAS appendix](https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.1117386109&file=Appendix.pdf) supplies both neural-model choices and mathematical arguments. This map links its seven sections to the guide's explanations. Page links open the local copy. The guide sometimes uses an equivalent teaching derivation and identifies source inconsistencies beside the affected calculation.
+The [PNAS appendix](https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.1117386109&file=Appendix.pdf) supplies both neural-model choices and mathematical arguments. This map links its seven sections to this book's explanations. Page links open the local copy. This book sometimes uses an equivalent teaching derivation and identifies source inconsistencies beside the affected calculation.
 <!-- vale ai-tells.AnthropomorphicCognition = YES -->
 
 {{block:tbl:READING-APPENDIX}}
@@ -162,14 +162,14 @@ The [PNAS appendix](https://www.pnas.org/action/downloadSupplement?doi=10.1073%2
 ## How to interpret the calculations and evidence {#sec:READING-SCOPE}
 
 <!-- vale ai-tells.AnthropomorphicCognition = NO -->
-Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified model differs from the paper's full model.
+Examples chosen for this book distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified model differs from the paper's full model.
 <!-- vale ai-tells.AnthropomorphicCognition = YES -->
 
 <!-- vale ai-tells.RestatementMarkers = NO -->
-The guide explains how to interpret the experiments and their figures. It does not rerun the original animal recordings, data processing, or full neural-network simulations. [A successful numerical check of a probability identity is different from an independent reproduction of a paper's empirical result.]{.key-statement} Related work is selected to clarify the assumptions and alternatives rather than to claim an exhaustive literature search.
+This book explains how to interpret the experiments and their figures. It does not rerun the original animal recordings, data processing, or full neural-network simulations. [A successful numerical check of a probability identity is different from an independent reproduction of a paper's empirical result.]{.key-statement} Related work is selected to clarify the assumptions and alternatives rather than to claim an exhaustive literature search.
 <!-- vale ai-tells.RestatementMarkers = YES -->
 
-The following map is a **guide-derived comparison** of the source papers' contributions. Read each paper's column downward: the mathematical prediction, numerical comparison, and animal-data comparison answer different questions.[^orientation-memory][^orientation-eye][^orientation-place]
+The following map is an **additional comparison** of the source papers' contributions. Read each paper's column downward: the mathematical prediction, numerical comparison, and animal-data comparison answer different questions.[^orientation-memory][^orientation-eye][^orientation-place]
 
 <div class="table-responsive">
 
@@ -177,7 +177,7 @@ The following map is a **guide-derived comparison** of the source papers' contri
 
 </div>
 
-Throughout the guide, $D$ denotes the [[**diffusion coefficient**]{.definition-term custom-style="Definition Term"}, which sets how quickly uncertainty spreads]{.definition-explanation}. In the basic one-dimensional model, $D$ is constant, neither direction is favored, and no boundary limits the motion. Its [[**mean squared displacement**]{.definition-term custom-style="Definition Term"} (MSD), the average squared change in the represented coordinate after elapsed time $t$]{.definition-explanation}, is $2Dt$. [Chapter 2](../chapters/ch-persistence.html#sec-foundations-diffusion) explains this model and its assumptions.
+Throughout this book, $D$ denotes the [[**diffusion coefficient**]{.definition-term custom-style="Definition Term"}, which sets how quickly uncertainty spreads]{.definition-explanation}. In the basic one-dimensional model, $D$ is constant, neither direction is favored, and no boundary limits the motion. Its [[**mean squared displacement**]{.definition-term custom-style="Definition Term"} (MSD), the average squared change in the represented coordinate after elapsed time $t$]{.definition-explanation}, is $2Dt$. [Chapter 2](../chapters/ch-persistence.html#sec-foundations-diffusion) explains this model and its assumptions.
 
 The other recurring symbols are:
 
@@ -197,10 +197,10 @@ The copies are the published versions. Supporting information is linked separate
 - **Ben-Shushan, Shaham, Joshua, and Burak (2022):** [Paper PDF](../papers/ben-shushan-2022-fixational-drift.pdf), [supplementary notes and figures PDF](../papers/ben-shushan-2022-supplement-1.pdf), and [open peer review PDF](../papers/ben-shushan-2022-supplement-2.pdf). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [Published DOI](https://doi.org/10.1038/s41467-022-29201-y). Ben-Shushan and Shaham contributed equally.
   <!-- vale ai-tells.VerbTricolon = YES -->
   <!-- vale ai-tells.EmDashUsage = NO -->
-- **Mainali, Azeredo da Silveira, and Burak (2025):** [Paper and STAR Methods PDF](../papers/mainali-2025-universal-statistics.pdf) and [supplementary figures and Methods S1–S4 PDF](../papers/mainali-2025-supplement.pdf). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [Published DOI](https://doi.org/10.1016/j.neuron.2025.01.017). The main PDF has a cover before the article. Guide citations distinguish printed and PDF page numbers when needed.
+- **Mainali, Azeredo da Silveira, and Burak (2025):** [Paper and STAR Methods PDF](../papers/mainali-2025-universal-statistics.pdf) and [supplementary figures and Methods S1–S4 PDF](../papers/mainali-2025-supplement.pdf). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [Published DOI](https://doi.org/10.1016/j.neuron.2025.01.017). The main PDF has a cover before the article. Citations here distinguish printed and PDF page numbers when needed.
   <!-- vale ai-tells.EmDashUsage = YES -->
 
-The supporting-information copies preserve their original formulas. The guide identifies apparent inconsistencies in several printed intermediate equations beside the affected calculations and follows an explicitly shown derivation. Such observations are independent mathematical checks, not author-confirmed corrections.
+The supporting-information copies preserve their original formulas. This book identifies apparent inconsistencies in several printed intermediate equations beside the affected calculations and follows an explicitly shown derivation. Such observations are independent mathematical checks, not author-confirmed corrections.
 
 <!-- vale ai-tells.EmDashUsage = NO -->
 [^orientation-memory]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Abstract and Introduction, PDF p. 1; Results, Eqs. 1–5 and Figs. 1–3, PDF pp. 2–4; Discussion, PDF p. 5. The readout duration follows the recall cue and is distinct from the preceding storage delay.

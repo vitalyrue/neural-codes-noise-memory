@@ -1,4 +1,4 @@
-# Exam review: connect mechanisms, measurements and results {#ch:EXAM-REVIEW}
+# Results and connections across the three papers {#ch:EXAM-REVIEW}
 
 **Unreviewed draft diagrams.** These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.
 
@@ -7,15 +7,15 @@
 {{block:fig:DRAFT-MAP-FRONT-EXAM-REVIEW-B}}
 
 
-Start by recalling **what physical system each paper studies, what changes inside it, and what the measurements can establish**. Then use a formula to support that explanation. This page is a return point after studying the guide; you do not need to master it before Part I.
+Each paper studies a different physical system. This overview connects **what changes in each system, what the measurements can establish, and the formulas that express the results**. The later chapters develop the underlying arguments.
 
-For a quick review:
+The overview is organized as follows:
 
-1. Read the three reasoning chains below. Try to explain each one without notation.
-2. Follow the paper where your explanation breaks down. Its core results stay visible; supporting results open on request.
-3. Read the **common notation** below the overview once, then the selected paper's additions. Each formula lists only its extra symbols and notes, followed by **Paper location** and **Guide location**. PDF page means the page counted by the PDF viewer. Supporting Information is abbreviated SI.
+1. Three reasoning chains connect each paper's question, method and findings.
+2. Core formulas are visible; supporting results open on request.
+3. **Common notation** introduces shared symbols, followed by each paper's additions. Formula entries give additional symbols, **Paper location** and **Chapter location**. PDF page means the page counted by the PDF viewer. Supporting Information is abbreviated SI.
 
-The central and supporting labels describe each result's role in the paper, rather than predict an exam syllabus. A formula marked **guide-derived** has its own derivation here; its paper link gives the source context and does not claim that the paper prints the same equation. The [mathematical-tools chapter](ch-mathematical-tools.html) supplies the longer introductions.
+The central and supporting labels describe each result's role in its paper. A formula marked **derived here** is developed in this book; its paper link gives the source context and does not claim that the paper prints the same equation. The [mathematical-tools chapter](ch-mathematical-tools.html) introduces the tools in more detail.
 
 ## Three questions organize the three papers {#sec:EXAM-MAP}
 
@@ -100,7 +100,7 @@ The circuit can restore the shape of its activity pattern without restoring its 
 
 **Ben-Shushan et al. (2022): horizontal eye drift during fixation in macaque monkeys.** A recorded motor neuron's spikes are converted into a prediction in degrees. Comparing that prediction with actual displacement asks how much variation they share. A second argument asks whether independent motor noise, after muscle filtering, could explain the measured mean squared displacement (MSD).
 
-**Recall the chain:** calibrate the spike-to-movement filter (E1) → estimate the shared variance fraction (E3) → compare filtered stationary noise with an accumulating command (E5–E6). E6 is a simplified guide calculation, not the paper's full circuit model. The separate population bound (E2) challenges independent motor noise alone; it is in the additional results below.
+**Recall the chain:** calibrate the spike-to-movement filter (E1) → estimate the shared variance fraction (E3) → compare filtered stationary noise with an accumulating command (E5–E6). E6 is a simplified calculation developed here, not the paper's full circuit model. The separate population bound (E2) challenges independent motor noise alone; it is in the additional results below.
 
 The time lag in an MSD is the separation between two readings. The eye response time in E6 is different from the synaptic decay time in the 2012 theory. Measurement correction and parameter scaling remain available below the core argument.
 

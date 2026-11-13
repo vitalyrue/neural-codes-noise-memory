@@ -1,6 +1,6 @@
 schema_version: 3
 book:
-  title: 'Neural Codes, Noise, and Memory: A Guide to Three Papers'
+  title: 'Neural Codes, Noise, and Memory'
   contributors: []
   front_matter:
   - ch:READING-GUIDE
@@ -14,7 +14,7 @@ book:
       source, [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109), derives how quickly accuracy
       can be lost and how well the value can be read. Chapters 1 and 2 establish the background. Chapters
       3 and 5 develop the central diffusion and information results. Chapters 4 and 6 explain long-delay
-      behavior and readout. Expanded examples and marked checks of printed formulas are guide-derived.
+      behavior and readout. Expanded examples and marked checks of printed formulas are developed here.
     chapters:
     - ch:FOUNDATIONS
     - ch:PERSISTENCE
@@ -43,25 +43,25 @@ book:
     - type: paragraph
       text: '**[Interpretation]** A network can keep firing without keeping the original angle exactly. This Part follows that distinction from the model’s physical components to its predictions about error. Chapters 1–2 prepare the neural and mathematical background; Chapters 3–4 follow noise and diffusion; Chapter 5 explains the information bound; Chapter 6 follows the readout calculation.'
     - type: paragraph
-      text: '**How to read the labels.** **[Paper]** marks an author claim or result, paraphrased here and linked to the relevant article or supporting-text passage. **[Interpretation]** marks this guide’s explanation of what a result or mechanism means. **[Guide derivation]** identifies steps filled in or rearranged for teaching; it does not imply that the authors wrote those exact steps. **[Example]** identifies an example, with its source or guide construction stated locally. **[Background]** identifies preparation from outside the 2012 result. An interpretation can be consistent with the paper while being the guide’s wording; a label is not evidence by itself.'
+      text: '**How to read the labels.** **[Paper]** marks an author claim or result, paraphrased here and linked to the relevant article or supporting-text passage. **[Interpretation]** marks the explanation given here of what a result or mechanism means. **[Derivation]** identifies steps filled in or rearranged for teaching; it does not imply that the authors wrote those exact steps. **[Example]** identifies an example, with its source or construction identified locally. **[Background]** identifies preparation from outside the 2012 result. An interpretation can be consistent with the paper while being this book’s wording; a label is not evidence by itself.'
     - type: paragraph
       text: |-
-        **The article’s sequence and the guide.** The page links below open the main article PDF; the guide links open the corresponding explanation. The article presents its results before the model equations in Materials and Methods, so the guide brings those equations forward. Supporting-text links in each chapter identify the longer derivations. The [supporting-text map](../frontmatter/ch-reading-guide.html#sec-reading-mechanism-math) lists the appendix sections separately.
+        **The article’s sequence and these chapters.** The page links below open the main article PDF; the chapter links open the corresponding explanation. The article presents its results before the model equations in Materials and Methods, so this book brings those equations forward. Supporting-text links in each chapter identify the longer derivations. The [supporting-text map](../frontmatter/ch-reading-guide.html#sec-reading-mechanism-math) lists the appendix sections separately.
 
         1. **Model and steady states:** [Results introduction and Eq. 1, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2) → [the steady activity family](../chapters/ch-persistence.html#sec-foundations-attractor). The model equations themselves appear later in the article, in [Materials and Methods, Eqs. 7–9, PDF p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5) → [how spikes, weights and rates interact](../chapters/ch-foundations.html#sec-memory-spikes).
-        2. **Diffusive drift:** [Diffusive Drift, Eq. 2 and Fig. 1, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2) → [linearization and diffusion](../chapters/ch-memory-dynamics.html#sec-memory-linearization). [Fig. 2, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3) → [the simulation overview](../chapters/ch-foundations.html#sec-foundations-simulation) and [figure analysis](../chapters/ch-memory-long-delays.html#sec-memory-figures). The guide's longer [boundary and drift treatment](../chapters/ch-memory-long-delays.html) follows supporting-text sections II–III before turning to information.
+        2. **Diffusive drift:** [Diffusive Drift, Eq. 2 and Fig. 1, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2) → [linearization and diffusion](../chapters/ch-memory-dynamics.html#sec-memory-linearization). [Fig. 2, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3) → [the simulation overview](../chapters/ch-foundations.html#sec-foundations-simulation) and [figure analysis](../chapters/ch-memory-long-delays.html#sec-memory-figures). This book's longer [boundary and drift treatment](../chapters/ch-memory-long-delays.html) follows supporting-text sections II–III before turning to information.
         3. **Internal Fisher information:** [Eq. 3, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2) → [rate slopes and information](../chapters/ch-memory-information.html#sec-memory-fi).
-        4. **Information–diffusion inequality:** [Eq. 4, generalizations and saturation, PDF pp. 3–4](../papers/burak-fiete-2012-persistent-activity.pdf#page=3) → [the bound](../chapters/ch-memory-information.html#sec-memory-bound). The paper then gives generalizations and discusses when the bound is saturated. The guide develops the [time-scale and noise-law extensions](../chapters/ch-memory-information.html#sec-memory-extensions) before readout; the supporting text presents those extensions later.
-        5. **Optimal observation time and estimation error:** [Eqs. 5–6 and Fig. 3, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4) → [readout](../chapters/ch-memory-readout.html). The article introduces the [ideal estimator](../chapters/ch-memory-readout.html#sec-memory-ideal) before the [naive estimator](../chapters/ch-memory-readout.html#sec-memory-naive); the guide follows that same order.
-        6. **Discussion:** [Implications and limits, PDF pp. 4–5](../papers/burak-fiete-2012-persistent-activity.pdf#page=4) → [comparisons and assumptions](../chapters/ch-memory-information.html#sec-memory-comparisons), [systematic drift and correlated noise](../chapters/ch-memory-long-delays.html#sec-memory-drift-scope), and [readout limitations](../chapters/ch-memory-readout.html#sec-memory-fig3-and-caution). These guide sections collect related discussion points rather than reproduce the Discussion paragraph by paragraph.
+        4. **Information–diffusion inequality:** [Eq. 4, generalizations and saturation, PDF pp. 3–4](../papers/burak-fiete-2012-persistent-activity.pdf#page=3) → [the bound](../chapters/ch-memory-information.html#sec-memory-bound). The paper then gives generalizations and discusses when the bound is saturated. This book develops the [time-scale and noise-law extensions](../chapters/ch-memory-information.html#sec-memory-extensions) before readout; the supporting text presents those extensions later.
+        5. **Optimal observation time and estimation error:** [Eqs. 5–6 and Fig. 3, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4) → [readout](../chapters/ch-memory-readout.html). The article introduces the [ideal estimator](../chapters/ch-memory-readout.html#sec-memory-ideal) before the [naive estimator](../chapters/ch-memory-readout.html#sec-memory-naive); this book follows that same order.
+        6. **Discussion:** [Implications and limits, PDF pp. 4–5](../papers/burak-fiete-2012-persistent-activity.pdf#page=4) → [comparisons and assumptions](../chapters/ch-memory-information.html#sec-memory-comparisons), [systematic drift and correlated noise](../chapters/ch-memory-long-delays.html#sec-memory-drift-scope), and [readout limitations](../chapters/ch-memory-readout.html#sec-memory-fig3-and-caution). These sections here collect related discussion points rather than reproduce the Discussion paragraph by paragraph.
         7. **Methods and simulations:** [Neural Network and Weak Fluctuations, PDF pp. 5–6](../papers/burak-fiete-2012-persistent-activity.pdf#page=5), and [Network Simulations, PDF p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6) → [model dynamics](../chapters/ch-foundations.html#sec-memory-spikes), [weak-noise approximation](../chapters/ch-memory-dynamics.html#sec-memory-weak-noise), and [simulation setup](../chapters/ch-foundations.html#sec-foundations-simulation).
 
-        In-text labels below distinguish the authors' claims, guide interpretations, expanded derivations, examples and background. Article and supporting-text links identify the relevant passages.
+        In-text labels below distinguish the authors' claims, interpretations developed here, expanded derivations, examples and background. Article and supporting-text links identify the relevant passages.
     - type: paragraph
       text: The contribution labels describe the role of each result here. **Central** is a main finding
         of the cited paper. **Supporting** establishes or qualifies that finding. **Background** supplies
-        needed concepts. **Guide-derived** identifies an explanation, comparison, or proposed test developed
-        in this guide.
+        needed concepts. **Developed here** identifies an explanation, comparison, or proposed test developed
+        here.
     - type: paragraph
       text: "::: {.part-chapter-map}\n\n- **[Chapter 1: Patterns of variable spikes can represent a value](../chapters/ch-foundations.html)**\n\
         \n  **Background and model:** Spikes leave decaying synaptic activation; weighted activation sets\
@@ -72,28 +72,28 @@ book:
         \ simulated recurrent networks reproduce the predicted memory spreading in the modeled circuits.\
         \ [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y) and [Mainali et al.\
         \ (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) supply eye-control and spatial-coding\
-        \ context. The elementary numerical examples are guide-derived.\n\n- **[Chapter 2: Stable representations\
+        \ context. The elementary numerical examples are developed here.\n\n- **[Chapter 2: Stable representations\
         \ can accumulate error](../chapters/ch-persistence.html)**\n\n  **Background and mechanism:**\
         \ A stable pattern of neural activity can retain a value while noise moves that value along a\
         \ family of states. This is the continuous-memory setup of [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109).\
-        \ The two-variable illustrations are guide-derived.\n\n- **[Chapter 3: Spiking noise produces\
+        \ The two-variable illustrations are developed here.\n\n- **[Chapter 3: Spiking noise produces\
         \ diffusion along the memory attractor](../chapters/ch-memory-dynamics.html)**\n\n  **Central\
         \ result:** [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109) derive memory diffusion\
         \ by projecting spike fluctuations through the network dynamics. The symmetric formula uses the\
         \ authors' [2017 correction](https://doi.org/10.1073/pnas.1706051114). Expanded projection examples\
-        \ are guide-derived.\n\n- **[Chapter 4: Boundaries and drift change memory error over long delays](../chapters/ch-memory-long-delays.html)**\n\
+        \ are developed here.\n\n- **[Chapter 4: Boundaries and drift change memory error over long delays](../chapters/ch-memory-long-delays.html)**\n\
         \n  **Supporting results:** [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109)\
         \ explain long-delay behavior, angular boundaries, and state-dependent diffusion. These qualify\
-        \ how the central diffusion result can be used. The guide adds explicit boundary calculations\
+        \ how the central diffusion result can be used. This book adds explicit boundary calculations\
         \ and distinguishes its checks of other printed equations from the official correction.\n\n- **[Chapter\
         \ 5: Spike information limits memory stability](../chapters/ch-memory-information.html)**\n\n\
         \  **Central result:** [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109) relate\
-        \ the information in spikes to a lower bound on memory diffusion. The guide expands the proofs\
+        \ the information in spikes to a lower bound on memory diffusion. This book expands the proofs\
         \ and labels its counterexamples and comparisons of fixed quantities.\n\n- **[Chapter 6: Readout\
         \ accuracy depends on how a moving memory is observed](../chapters/ch-memory-readout.html)**\n\
         \n  **Central readout result and supporting extensions:** [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109)\
         \ derive limits on estimating a value that moves during observation. Partial access and alternative\
-        \ time scales extend that result. The guide supplies intermediate calculations and identifies\
+        \ time scales extend that result. This book supplies intermediate calculations and identifies\
         \ source formulas needing qualification.\n\n:::"
   - part_id: part:OBSERVATIONS
     title: Eye motion and place fields constrain different parts of a neural code
@@ -101,7 +101,7 @@ book:
       bats. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y) supply the central
       shared-drive inference and a possible integrator explanation in Chapters 7 to 9. [Mainali et al.
       (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) supply the spatial model, field-size predictions,
-      and supporting shape tests in Chapters 10 to 12. Chapter 13 is a guide-derived comparison of those
+      and supporting shape tests in Chapters 10 to 12. Chapter 13 is a comparison developed here of those
       results with Burak and Fiete (2012). The eye chapters begin with recordings and then test a possible
       neural source. The place chapters begin with a spatial input model and then test its field statistics.
     chapters:
@@ -129,14 +129,14 @@ book:
         bats. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y) supply the central
         shared-drive inference and a possible integrator explanation in Chapters 7 to 9. [Mainali et al.
         (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) supply the spatial model, field-size predictions,
-        and supporting shape tests in Chapters 10 to 12. Chapter 13 is a guide-derived comparison of those
+        and supporting shape tests in Chapters 10 to 12. Chapter 13 is a comparison developed here of those
         results with Burak and Fiete (2012). The eye chapters begin with recordings and then test a possible
         neural source. The place chapters begin with a spatial input model and then test its field statistics.
     - type: paragraph
       text: The contribution labels describe the role of each result here. **Central** is a main finding
         of the cited paper. **Supporting** establishes or qualifies that finding. **Background** supplies
-        needed concepts. **Guide-derived** identifies an explanation, comparison, or proposed test developed
-        in this guide.
+        needed concepts. **Developed here** identifies an explanation, comparison, or proposed test developed
+        here.
     - type: paragraph
       text: "::: {.part-chapter-map}\n\n- **[Chapter 7: Eye drift points to a shared neural drive](../chapters/ch-eye-drift.html)**\n\
         \n  **Central empirical result:** [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y)\
@@ -145,7 +145,7 @@ book:
         \n- **[Chapter 8: Drift growth distinguishes diffusion from filtered white noise](../chapters/ch-eye-timing.html)**\n\
         \n  **Supporting test:** [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y)\
         \ compare displacement statistics with the predictions of mechanical filtering and private motor\
-        \ noise. The one-filter calculation is a guide-derived teaching model, distinct from the full\
+        \ noise. The one-filter calculation is a teaching model developed here, distinct from the full\
         \ simulation.\n\n- **[Chapter 9: A noisy memory circuit can produce eye drift](../chapters/ch-eye-circuit.html)**\n\
         \n  **Central proposed explanation:** [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y)\
         \ show that a noisy integrator model can account for the motion after muscle filtering and delayed\
@@ -154,10 +154,10 @@ book:
         \ Field counts and gaps reveal threshold and scale](../chapters/ch-place-fields.html)**\n\n  **Central\
         \ spatial model:** [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) describe\
         \ fields and gaps as regions of a smooth random input above or below threshold. Expanded crossing\
-        \ and parameter-inference calculations are guide-derived.\n\n- **[Chapter 11: High peaks explain\
+        \ and parameter-inference calculations are developed here.\n\n- **[Chapter 11: High peaks explain\
         \ size laws across dimensions](../chapters/ch-place-sizes.html)**\n\n  **Central size predictions:**\
         \ [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) derive dimension-dependent\
-        \ field-size statistics and compare them with recordings. The guide expands the local-peak derivation\
+        \ field-size statistics and compare them with recordings. This book expands the local-peak derivation\
         \ and separates limiting laws from finite-threshold behavior.\n\n- **[Chapter 12: Holes and measurements\
         \ test the spatial explanation](../chapters/ch-place-tests.html)**\n\n  **Supporting tests and\
         \ circuit interpretation:** [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017)\
@@ -165,7 +165,7 @@ book:
         \ include [Eliav et al. (2021)](https://doi.org/10.1126/science.abg4020), [Harland et al. (2021)](https://doi.org/10.1016/j.cub.2021.03.003),\
         \ and [Yartsev and Ulanovsky (2013)](https://doi.org/10.1126/science.1235338). Gaussian maps constrain\
         \ possible inputs without uniquely identifying wiring.\n\n- **[Chapter 13: Spatial maps and memory\
-        \ dynamics need separate tests](../chapters/ch-synthesis.html)**\n\n  **Guide-derived synthesis:**\
+        \ dynamics need separate tests](../chapters/ch-synthesis.html)**\n\n  **Synthesis:**\
         \ The comparison joins the questions asked by [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109),\
         \ [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y), and [Mainali et al.\
         \ (2025)](https://doi.org/10.1016/j.neuron.2025.01.017). Its common-displacement calculation and\
@@ -173,7 +173,7 @@ book:
         \n:::"
   - part_id: part:HARDWARE
     title: Neural memory in electronic hardware
-    purpose: "Electronic circuits store connection settings, changing states and values represented by networks. Von Neumann (1958) motivates the comparison. Chapter 14 identifies physical states and weights; Chapter 15 follows feedback through electronic architectures. Chapter 16 compares stability and noise with the neural model of Burak and Fiete (2012). Chapter 17 examines selected hardware results through October 30, 2026. Chapter 18 develops guide-derived experiments and readout tests connected to all three papers."
+    purpose: "Electronic circuits store connection settings, changing states and values represented by networks. Von Neumann (1958) motivates the comparison. Chapter 14 identifies physical states and weights; Chapter 15 follows feedback through electronic architectures. Chapter 16 compares stability and noise with the neural model of Burak and Fiete (2012). Chapter 17 examines selected hardware results through October 30, 2026. Chapter 18 develops proposed experiments and readout tests connected to all three papers."
     content:
     - type: paragraph
       text: '**Unreviewed draft diagram.** This AI-generated image may contain incorrect or missing labels, arrows,
@@ -220,10 +220,10 @@ book:
     - type: paragraph
       text: The contribution labels describe the role of each result here. **Central** is a main finding
         of the cited paper. **Supporting** establishes or qualifies that finding. **Background** supplies
-        needed concepts. **Guide-derived** identifies an explanation, comparison, or proposed test developed
-        in this guide.
+        needed concepts. **Developed here** identifies an explanation, comparison, or proposed test developed
+        here.
     - type: paragraph
-      text: "::: {.part-chapter-map}\n\n- **[Chapter 14: A stored weight and a remembered value are different states](../chapters/ch-hardware-memory.html)**\n\n  **Background and hardware mechanisms:** von Neumann (1958) motivates the comparison. [Pehle et al. (2022)](https://doi.org/10.3389/fnins.2022.795876), Intel Labs (2021), Scholze et al. (2026), and [Le Gallo et al. (2023)](https://doi.org/10.1038/s41928-023-01010-1) supply the architecture descriptions. The guide distinguishes connection settings, changing states and represented values.\n\n- **[Chapter 15: Electronic feedback circuits store and transform neural-like states](../chapters/ch-electronic-architectures.html)**\n\n  **Guide-derived architectural comparison:** [Hassabis et al. (2017)](https://doi.org/10.1016/j.neuron.2017.06.011) discuss exchanges between neuroscience and AI. [Alhawari and Perrott (2014)](https://doi.org/10.1109/ISCAS.2014.6865497), [Massoud and Horiuchi (2011)](https://doi.org/10.1109/TCSI.2010.2055310) and [Kreiser et al. (2018)](https://services.ini.uzh.ch/admin/extras/doc_get.php?id=71960) supply distinct circuit examples. The guide compares what their feedback and state represent; not every example is a neural network.\n\n- **[Chapter 16: Discrete restoration and continuous random wandering produce different memory errors](../chapters/ch-hardware-dynamics.html)**\n\n  **Central neural distinction with supporting hardware examples:** [Seung (1996)](https://doi.org/10.1073/pnas.93.23.13339) and [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109) explain graded persistence and noise. [Massoud and Horiuchi (2011)](https://doi.org/10.1109/TCSI.2010.2055310) and [Giulioni et al. (2012)](https://doi.org/10.3389/fnins.2011.00149) supply distinct silicon demonstrations. The reduced feedback and error comparisons are guide-derived.\n\n- **[Chapter 17: Neuromorphic chips choose where physics performs the calculation](../chapters/ch-neuromorphic-systems.html)**\n\n  **Central results of selected hardware studies:** [Kleyko et al. (2025)](https://doi.org/10.1038/s41467-025-55832-y) test temporal computation. [Aitsam et al. (2026)](https://doi.org/10.3389/fnins.2026.1910808) demonstrate persistent spatial activity. [Ortner et al. (2025)](https://doi.org/10.1038/s41467-025-56345-4) study adaptation with phase-change computing. [Wang et al. (2026)](https://doi.org/10.1038/s41563-025-02361-0) study material-state stability. [Sun et al. (2026)](https://doi.org/10.1038/s42256-026-01255-3) evaluate a proposed dual-memory design. These results concern different kinds of memory, as the chapter explains.\n\n- **[Chapter 18: Memory experiments must separate device error from network dynamics](../chapters/ch-hardware-tests.html)**\n\n  **Guide-derived experiments:** The proposed measurements combine the diffusion and readout questions of [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109), the output-filtering lesson of [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y), and the spatial-versus-temporal distinction exposed by [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017). They are suggested tests, not a reported common hardware experiment.\n\n:::"
+      text: "::: {.part-chapter-map}\n\n- **[Chapter 14: A stored weight and a remembered value are different states](../chapters/ch-hardware-memory.html)**\n\n  **Background and hardware mechanisms:** von Neumann (1958) motivates the comparison. [Pehle et al. (2022)](https://doi.org/10.3389/fnins.2022.795876), Intel Labs (2021), Scholze et al. (2026), and [Le Gallo et al. (2023)](https://doi.org/10.1038/s41928-023-01010-1) supply the architecture descriptions. This book distinguishes connection settings, changing states and represented values.\n\n- **[Chapter 15: Electronic feedback circuits store and transform neural-like states](../chapters/ch-electronic-architectures.html)**\n\n  **Architectural comparison:** [Hassabis et al. (2017)](https://doi.org/10.1016/j.neuron.2017.06.011) discuss exchanges between neuroscience and AI. [Alhawari and Perrott (2014)](https://doi.org/10.1109/ISCAS.2014.6865497), [Massoud and Horiuchi (2011)](https://doi.org/10.1109/TCSI.2010.2055310) and [Kreiser et al. (2018)](https://services.ini.uzh.ch/admin/extras/doc_get.php?id=71960) supply distinct circuit examples. This book compares what their feedback and state represent; not every example is a neural network.\n\n- **[Chapter 16: Discrete restoration and continuous random wandering produce different memory errors](../chapters/ch-hardware-dynamics.html)**\n\n  **Central neural distinction with supporting hardware examples:** [Seung (1996)](https://doi.org/10.1073/pnas.93.23.13339) and [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109) explain graded persistence and noise. [Massoud and Horiuchi (2011)](https://doi.org/10.1109/TCSI.2010.2055310) and [Giulioni et al. (2012)](https://doi.org/10.3389/fnins.2011.00149) supply distinct silicon demonstrations. The reduced feedback and error comparisons are developed here.\n\n- **[Chapter 17: Neuromorphic chips choose where physics performs the calculation](../chapters/ch-neuromorphic-systems.html)**\n\n  **Central results of selected hardware studies:** [Kleyko et al. (2025)](https://doi.org/10.1038/s41467-025-55832-y) test temporal computation. [Aitsam et al. (2026)](https://doi.org/10.3389/fnins.2026.1910808) demonstrate persistent spatial activity. [Ortner et al. (2025)](https://doi.org/10.1038/s41467-025-56345-4) study adaptation with phase-change computing. [Wang et al. (2026)](https://doi.org/10.1038/s41563-025-02361-0) study material-state stability. [Sun et al. (2026)](https://doi.org/10.1038/s42256-026-01255-3) evaluate a proposed dual-memory design. These results concern different kinds of memory, as the chapter explains.\n\n- **[Chapter 18: Memory experiments must separate device error from network dynamics](../chapters/ch-hardware-tests.html)**\n\n  **Proposed experiments:** The proposed measurements combine the diffusion and readout questions of [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109), the output-filtering lesson of [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y), and the spatial-versus-temporal distinction exposed by [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017). They are suggested tests, not a reported common hardware experiment.\n\n:::"
     chapters:
     - ch:HARDWARE-MEMORY
     - ch:ELECTRONIC-ARCHITECTURES
@@ -236,7 +236,7 @@ book:
       in spiking networks. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y) connect
       a simulated neural command to eye motion. [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017)
       generate spatial maps and compare their fields with recordings. This Part explains the methods,
-      measurements, and software behind those studies, then gives a guide-derived route for checking a
+      measurements, and software behind those studies, then gives a route developed here for checking a
       reproduction.'
     content:
     - type: paragraph
@@ -266,8 +266,8 @@ book:
     - type: paragraph
       text: The contribution labels describe the role of each result here. **Central** is a main finding
         of the cited paper. **Supporting** establishes or qualifies that finding. **Background** supplies
-        needed concepts. **Guide-derived** identifies an explanation, comparison, or proposed test developed
-        in this guide.
+        needed concepts. **Developed here** identifies an explanation, comparison, or proposed test developed
+        here.
     - type: paragraph
       text: "::: {.part-chapter-map}\n\n- **[Chapter 19: Network simulations test how random spikes move\
         \ a stored value](../chapters/ch-simulating-memory.html)**\n\n  **Supporting simulations of a\
@@ -284,7 +284,7 @@ book:
         \ generate thresholded Gaussian spatial maps, fit selected summaries, and test additional field\
         \ properties. Original animal recordings supply the comparison data. These are static-map simulations\
         \ rather than recurrent memory dynamics.\n\n- **[Chapter 22: Reproduction depends on the model,\
-        \ numerical method, and measurement](../chapters/ch-simulation-tools.html)**\n\n  **Guide-derived\
+        \ numerical method, and measurement](../chapters/ch-simulation-tools.html)**\n\n  **Developed here\
         \ methods and tool comparison:** The shared reproduction procedure is assembled here from the\
         \ three studies. Author code is distinguished from optional numerical tools. No new full-paper\
         \ reproduction is claimed.\n\n:::"

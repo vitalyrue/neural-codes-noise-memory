@@ -23,7 +23,7 @@
 
 **[Interpretation]** [A [**continuous attractor**]{.definition-term custom-style="Definition Term"} is a continuous family of fixed points with restoring dynamics toward the family and a neutral direction along it. Neutral means that there is no restoring force along that direction in the ideal deterministic model.]{.definition-explanation} [The family is an [**attractor manifold**]{.definition-term custom-style="Definition Term"}. Its dimension counts independent coordinates represented on it, rather than neurons in the circuit.]{.definition-explanation} A line attractor has one represented coordinate. A ring can represent a periodic coordinate such as heading.[^f-memory]
 
-**[Example]** The two-cell model below is a guide construction. The difference between its firing rates represents the angle. Raising both rates equally leaves that difference unchanged. The model's feedback removes the common increase. Raising one rate while lowering the other changes the represented angle. That second change persists. The calculation makes these two responses explicit. It is not a fitted biological circuit.
+**[Example]** The two-cell model below is an illustrative construction. The difference between its firing rates represents the angle. Raising both rates equally leaves that difference unchanged. The model's feedback removes the common increase. Raising one rate while lowering the other changes the represented angle. That second change persists. The calculation makes these two responses explicit. It is not a fitted biological circuit.
 
 <div class="publisher-worked-calculation publisher-fold-always">
 
@@ -82,7 +82,7 @@ The two changes occupy different directions in the activity plane. The solid arr
 
 **[Paper]** The authors simulate a two-unit mutual-inhibition network in [Fig. 2E–G, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3); they specify its dynamics in [Network Simulations, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6). The weights are $W_{11}=W_{22}=0$ and $W_{12}=W_{21}=-1$, both units receive the fixed input $b=5000$, the activation time constant is $\tau=100$ ms, and the transfer rule is $\tau\phi(g)=g$ in the active range. The steady family satisfies $2\tau(\bar r_1,\bar r_2)=(b+\theta,b-\theta)$, so $\theta=\tau(\bar r_1-\bar r_2)$. The predicted local diffusion coefficient for $\theta$ is $D=b/(2\tau)$; simulated firing-rate differences show the corresponding random spreading. This is a numerical test of the model prediction, not a fit to biological recordings.
 
-**[Guide derivation: the two-unit diffusion]** In this linear active range, $\theta=s_1-s_2=\tau(r_1-r_2)$: subtracting the two activation equations cancels their deterministic drift. Conditional on the present state, independent Poisson spikes from the two units give the variance of their difference over $dt$ as $(\bar r_1+\bar r_2)dt$. Along the steady family, the two displayed rate equations give $\bar r_1+\bar r_2=b/\tau$. Therefore
+**[Derivation: the two-unit diffusion]** In this linear active range, $\theta=s_1-s_2=\tau(r_1-r_2)$: subtracting the two activation equations cancels their deterministic drift. Conditional on the present state, independent Poisson spikes from the two units give the variance of their difference over $dt$ as $(\bar r_1+\bar r_2)dt$. Along the steady family, the two displayed rate equations give $\bar r_1+\bar r_2=b/\tau$. Therefore
 
 $$
 \operatorname{Var}[\theta(t)-\theta(0)]\simeq\frac{b}{\tau}t=2Dt,
@@ -91,21 +91,21 @@ $$
 
 The local approximation assumes the active linear regime and neglects boundary effects. For the plotted rate difference rather than $\theta$, the diffusion coefficient is divided by $\tau^2$, because $r_1-r_2=\theta/\tau$.
 
-**[Guide derivation]** This network has the same geometry as the example above. Over its positive linear firing range, its rate dynamics reproduce the example with common-mode decay rate $a=2/\tau$, where $\tau$ is the synaptic decay time. The difference between the rates remains neutral. The [network chapter](ch-memory-dynamics.html#sec-memory-symmetric) uses synaptic activations to describe this network and gives the conversion between its coordinate and the angle used here. This small network illustrates one possible memory mechanism; the gaze-holding circuit also needs the motor and muscle stages described below.
+**[Derivation]** This network has the same geometry as the example above. Over its positive linear firing range, its rate dynamics reproduce the example with common-mode decay rate $a=2/\tau$, where $\tau$ is the synaptic decay time. The difference between the rates remains neutral. The [network chapter](ch-memory-dynamics.html#sec-memory-symmetric) uses synaptic activations to describe this network and gives the conversion between its coordinate and the angle used here. This small network illustrates one possible memory mechanism; the gaze-holding circuit also needs the motor and muscle stages described below.
 
 ## Sustained muscle tension holds the eye against elastic restoring forces {#sec:PERSISTENCE-EYE-MECHANICS}
 
-**[Background]** Eye mechanics and the experiments described here give biological context. The folded mechanical calculation is a guide model, not a derivation from the 2012 paper. The [eye anatomy and motor pathway](ch-foundations.html#sec-foundations-eye-action) explain why holding an angle needs continuing muscle force. We now separate two questions: how that force balances the eye's elastic pull, and how the brain maintains the command that produces it. The folded calculation answers the mechanical question; the experiments below test the neural one.
+**[Background]** Eye mechanics and the experiments described here give biological context. The folded mechanical calculation is a simplified model, not a derivation from the 2012 paper. The [eye anatomy and motor pathway](ch-foundations.html#sec-foundations-eye-action) explain why holding an angle needs continuing muscle force. We now separate two questions: how that force balances the eye's elastic pull, and how the brain maintains the command that produces it. The folded calculation answers the mechanical question; the experiments below test the neural one.
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Mechanical calculation: what holds an angle, and what only slows its change"}
 
-**[Guide derivation]** For a small angular range, a teaching approximation treats the eye as a rotating mass with a spring and viscous resistance. Let $\phi$ be angle in radians measured from the position where the passive forces balance. Let $I$ be the rotational inertia, $B>0$ the viscous resistance, $K>0$ the angular stiffness, and $\tau_m(t)$ the net active muscle torque. The angular force balance is
+**[Derivation]** For a small angular range, a teaching approximation treats the eye as a rotating mass with a spring and viscous resistance. Let $\phi$ be angle in radians measured from the position where the passive forces balance. Let $I$ be the rotational inertia, $B>0$ the viscous resistance, $K>0$ the angular stiffness, and $\tau_m(t)$ the net active muscle torque. The angular force balance is
 
 $$
 I\ddot\phi+B\dot\phi+K\phi=\tau_m(t).
 $$
 
-The terms are torques: $I$ multiplies angular acceleration, $B$ multiplies angular velocity, and $K$ multiplies displacement. This is a guide approximation, not the full model of eye mechanics in Ben-Shushan et al. (2022). Real muscle force is nonlinear and depends on activation and movement history.[^p-eye-mechanics]
+The terms are torques: $I$ multiplies angular acceleration, $B$ multiplies angular velocity, and $K$ multiplies displacement. This is a simplified approximation, not the full model of eye mechanics in Ben-Shushan et al. (2022). Real muscle force is nonlinear and depends on activation and movement history.[^p-eye-mechanics]
 
 At a held angle, $\dot\phi=\ddot\phi=0$, so
 
@@ -138,12 +138,12 @@ Visual feedback can correct gaze errors, and signals from the inner ear help com
 <!-- vale ai-tells.ContrastiveFormulas = NO -->
 **[Paper]** Each extra or missing spike changes synaptic input. After the circuit has corrected the disturbances it can remove, a small change in the represented angle may remain. The authors relate these lasting changes to spreading in [Diffusive Drift, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), and [supporting text, section III, PDF pp. 6–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6). Repeating this process makes trials that began at the same angle gradually spread apart. For negligible systematic drift and a nearly constant local diffusion coefficient $D$, their short-time result is $E[(\theta(t)-\theta(0))^2]\simeq2Dt$. The interval must also be long enough for rapidly restoring disturbances to decay. The formula describes local random spreading; at long times, boundaries and changes in $D$ can alter it.
 
-**[Guide derivation]** We first model these lasting changes as independent, with no preferred direction and a constant variance per unit time. These are assumptions about the surviving changes, not about complete spike trains.
+**[Derivation]** We first model these lasting changes as independent, with no preferred direction and a constant variance per unit time. These are assumptions about the surviving changes, not about complete spike trains.
 <!-- vale ai-tells.ContrastiveFormulas = YES -->
 
 **[Background]** [**Brownian motion**]{.definition-term custom-style="Definition Term"} [$W(t)$ models the accumulated effect of many small fluctuations. It starts at zero, has continuous paths and independent Gaussian increments with mean zero, and satisfies $\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\geq s$.]{.definition-explanation} The independence concerns changes over disjoint time intervals. A physical network need only approach this description over the time and noise scales relevant to the calculation.
 
-**[Guide derivation: independent steps]** Divide time into intervals of length $\Delta t$. Let $\xi_j$ be the change in the represented coordinate during interval $j$. The calculation assumes:
+**[Derivation: independent steps]** Divide time into intervals of length $\Delta t$. Let $\xi_j$ be the change in the represented coordinate during interval $j$. The calculation assumes:
 
 - Increments are independent.
 - Each increment has mean zero.
@@ -223,7 +223,7 @@ A constant bias grows linearly, so it eventually exceeds the square root growth 
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Mathematical detail: why two times share accumulated noise"}
 
-**[Guide derivation]** Two times along a Brownian path are correlated even though its increments are independent. For $0\leq s\leq t$, write $W(t)=W(s)+[W(t)-W(s)]$. The bracketed increment is independent of $W(s)$ and has mean zero, giving
+**[Derivation]** Two times along a Brownian path are correlated even though its increments are independent. For $0\leq s\leq t$, write $W(t)=W(s)+[W(t)-W(s)]$. The bracketed increment is independent of $W(s)$ and has mean zero, giving
 
 $$
 \operatorname{Cov}(W(s),W(t))
@@ -261,7 +261,7 @@ The three questions can now be placed beside the kind of variation each paper st
 **[Interpretation]** The rows compare different questions. They do not establish one circuit connecting all three papers.
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^f-memory]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Introduction, Fig. 1, and SI I–III. The two-activity example is a guide construction illustrating the geometry, not the paper's simulated network.
+[^f-memory]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Introduction, Fig. 1, and SI I–III. The two-activity example is an illustrative construction showing the geometry, not the paper's simulated network.
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
@@ -270,7 +270,7 @@ The three questions can now be placed beside the kind of variation each paper st
 
 [^p-eye-anatomy]: Dragoi, V. (2026, July 7 review). *Ocular Motor Control*. Neuroscience Online, Section 3, Chapter 8, McGovern Medical School, UTHealth Houston. [Sections 8.2–8.3 and Fig. 8.1](https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html). Anatomy, muscle innervation and visual/vestibular control.
 
-[^p-eye-mechanics]: Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). *Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation*. Journal of Neurophysiology, 101(6), 2907–2923. [DOI](https://doi.org/10.1152/jn.91045.2008). Introduction and stimulation/relaxation results. The spring-and-damper calculation is a guide reconstruction of the physical roles, not a fitted reproduction of these experiments.
+[^p-eye-mechanics]: Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). *Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation*. Journal of Neurophysiology, 101(6), 2907–2923. [DOI](https://doi.org/10.1152/jn.91045.2008). Introduction and stimulation/relaxation results. The spring-and-damper calculation is an independent reconstruction of the physical roles, not a fitted reproduction of these experiments.
 
 [^p-eye-integrator]: Cannon, S. C., and Robinson, D. A. (1987). *Loss of the neural integrator of the oculomotor system from brain stem lesions in monkey*. Journal of Neurophysiology, 57(5), 1383–1409. [DOI](https://doi.org/10.1152/jn.1987.57.5.1383). Abstract reports the reversible disruption and gaze-holding time constants.
 

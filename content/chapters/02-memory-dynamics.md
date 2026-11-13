@@ -29,7 +29,7 @@ $$
 
 Here $r_i'=d\bar r_i/d\theta$ describes how neuron $i$'s steady firing rate changes with the represented value. Likewise $g_i'=d\bar g_i/d\theta$ describes the change in its steady total input; $\tau$ is the synaptic decay time. The formula is local in $\theta$ and assumes a stable continuous family, weak fluctuations, symmetric weights, and Poisson spike generation independent across neurons conditional on the current rates. The time window must be long enough for stable disturbances to relax and many small contributions to accumulate, but short enough that the local coefficients change little. It is shown in the form given by the [authors’ 2017 correction](https://doi.org/10.1073/pnas.1706051114). The original article prints an uncorrected version. The derivation below explains why spike-rate variability and the rate and input slopes enter this expression; the [symmetric-weight section](#sec-memory-symmetric) derives it explicitly.
 
-**[Guide derivation: the diffusion result]** The calculation needs one direction along the family of steady patterns and one rule for projecting a disturbance onto the final memory value. The tangent is $u_i=d\bar s_i/d\theta=\tau r_i'$. Let $K$ be the linearized return matrix, with $K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}$. Here $W_{ij}$ weights neuron $j$'s input to neuron $i$, $\phi'(\bar g_i)$ is the firing-rate change per unit input at the steady input $\bar g_i$, and $\delta_{ij}$ is one when $i=j$ and zero otherwise. The left zero vector $\mathbf v$ satisfies $\mathbf v^TK=0$ and is normalized by $\mathbf v^T\mathbf u=1$. Its component $v_i$ is the lasting memory shift caused by a unit activation perturbation in neuron $i$.
+**[Derivation: the diffusion result]** The calculation needs one direction along the family of steady patterns and one rule for projecting a disturbance onto the final memory value. The tangent is $u_i=d\bar s_i/d\theta=\tau r_i'$. Let $K$ be the linearized return matrix, with $K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}$. Here $W_{ij}$ weights neuron $j$'s input to neuron $i$, $\phi'(\bar g_i)$ is the firing-rate change per unit input at the steady input $\bar g_i$, and $\delta_{ij}$ is one when $i=j$ and zero otherwise. The left zero vector $\mathbf v$ satisfies $\mathbf v^TK=0$ and is normalized by $\mathbf v^T\mathbf u=1$. Its component $v_i$ is the lasting memory shift caused by a unit activation perturbation in neuron $i$.
 
 A local spike fluctuation in neuron $i$ has variance $\bar r_i\,dt$. Projecting independent fluctuations through $\mathbf v$ gives $d\theta=\sum_i v_i\sqrt{\bar r_i}\,dB_i$ and $E[(d\theta)^2]=(\sum_i v_i^2\bar r_i)dt=2D\,dt$, with independent Brownian increments $dB_i$ of variance $dt$. Thus the general projection result is $2D=\sum_i v_i^2\bar r_i$.
 
@@ -47,7 +47,7 @@ The second equality uses $\mathbf v^T\mathbf u=1$ and assumes a nonzero normaliz
 
 ## Many weak inputs allow a continuous approximation to spike noise {#sec:MEMORY-WEAK-NOISE}
 
-**[Paper]** In the weak-fluctuation limit, the authors approximate the summed effects of many spikes by Gaussian noise. In the guide's Brownian notation, their local noisy activation equation is
+**[Paper]** In the weak-fluctuation limit, the authors approximate the summed effects of many spikes by Gaussian noise. In the Brownian notation used here, their local noisy activation equation is
 
 $$
 ds_i=\left[-\frac{s_i}{\tau}+\phi(g_i)\right]dt+\sqrt{r_i}\,dB_i,
@@ -58,10 +58,10 @@ $s_i$ is neuron $i$'s synaptic activation, $\tau$ its decay time, $g_i$ its tota
 
 **[Interpretation]** [Chapter 1 established the spike, activation and firing-rate model, Eqs. 7–9](ch-foundations.html#sec-memory-spikes). The [connection-matrix explanation](../frontmatter/ch-mathematical-tools.html#sec-math-tools-weights) establishes the feedback role of those connections. Here we calculate how random spike timing makes activation fluctuate. The connections are tuned to a continuous family of steady patterns, and the Gaussian approximation assumes small fluctuations in each neuron's total input.
 
-**[Guide derivation]** To see what the approximation replaces, start from $ds_i=-s_i\,dt/\tau+dN_i$. The elementary spike-generation noise is independent across neurons conditional on the present rates. The count and Brownian steps below expand the authors' argument; the individual spike process itself remains discrete.
+**[Derivation]** To see what the approximation replaces, start from $ds_i=-s_i\,dt/\tau+dN_i$. The elementary spike-generation noise is independent across neurons conditional on the present rates. The count and Brownian steps below expand the authors' argument; the individual spike process itself remains discrete.
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Guide derivation]** Conditioned on the present rates, the spike-count increments have the following leading-order infinitesimal mean and covariance. This does not assert independence of finite-interval counts when recurrent feedback changes the rates. Let $\delta_{ij}$ be one when $i=j$ and zero otherwise:
+**[Derivation]** Conditioned on the present rates, the spike-count increments have the following leading-order infinitesimal mean and covariance. This does not assert independence of finite-interval counts when recurrent feedback changes the rates. Let $\delta_{ij}$ be one when $i=j$ and zero otherwise:
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 $$
@@ -71,7 +71,7 @@ E[dN_i\mid r_i]=r_i\,dt,
 =\delta_{ij}r_i\,dt.
 $$
 
-**[Guide derivation]** Write $dM_i=dN_i-r_i\,dt$ for the spike count minus its conditional mean: the surplus or deficit of spikes in this interval. Splitting the count into its mean and this fluctuation gives
+**[Derivation]** Write $dM_i=dN_i-r_i\,dt$ for the spike count minus its conditional mean: the surplus or deficit of spikes in this interval. Splitting the count into its mean and this fluctuation gives
 
 $$
 ds_i=\left[-\frac{s_i}{\tau}+\phi(g_i)\right]dt+dM_i,
@@ -93,7 +93,7 @@ This example holds the rates fixed during the interval. In a recurrent network t
 </div>
 </details>
 
-**[Guide derivation]** Each receiving cell sees a weighted sum $g_i=\sum_j W_{ij}s_j+b_i$. With fixed weights, the random part of its input increment is $\sum_jW_{ij}\,dM_j$. Conditional independence gives its leading covariance with the corresponding increment of receiver $k$:
+**[Derivation]** Each receiving cell sees a weighted sum $g_i=\sum_j W_{ij}s_j+b_i$. With fixed weights, the random part of its input increment is $\sum_jW_{ij}\,dM_j$. Conditional independence gives its leading covariance with the corresponding increment of receiver $k$:
 
 $$
 \operatorname{Cov}(dg_i,dg_k\mid\mathbf r)
@@ -102,7 +102,7 @@ $$
 
 **[Interpretation]** The same presynaptic fluctuation can affect both receivers, so their summed inputs can be correlated even when spike generation is conditionally independent. In the weak-fluctuation limit, the paper approximates the summed and synaptically smoothed input as Gaussian. It can represent that approximation using a separate Gaussian drive for each activation variable: multiplying those drives by $W$ gives the input covariance above.
 
-**[Guide derivation]** Let $F_i(\mathbf s)$ be the mean rate of change of neuron $i$'s activation. Let $B_i$ be independent standard [Brownian motions](ch-persistence.html#sec-foundations-diffusion). The increment $dB_i=B_i(t+dt)-B_i(t)$ has mean zero and variance $dt$. Multiplying it by $\sqrt{r_i}$ gives the same leading variance $r_i\,dt$ as the centered spike count. The Gaussian representation of the activation equation is
+**[Derivation]** Let $F_i(\mathbf s)$ be the mean rate of change of neuron $i$'s activation. Let $B_i$ be independent standard [Brownian motions](ch-persistence.html#sec-foundations-diffusion). The increment $dB_i=B_i(t+dt)-B_i(t)$ has mean zero and variance $dt$. Multiplying it by $\sqrt{r_i}$ gives the same leading variance $r_i\,dt$ as the centered spike count. The Gaussian representation of the activation equation is
 
 $$
 ds_i=F_i(\mathbf s)dt+\sqrt{r_i}\,dB_i,
@@ -135,7 +135,7 @@ $$
 
 **[Interpretation]** A spike perturbs many aspects of a network's state. Most of those changes decay as the state returns to the attractor. [To calculate memory loss, we need the lasting change: the displacement to a different fixed point. We assume a smooth continuous family with one neutral memory direction, while all other local modes decay. The disturbance must be small enough that the first order response describes the return flow.]{.key-statement}
 
-**[Guide derivation]** The supplement's Eq. S7 writes $s_i=\bar s_i(\theta)+\delta s_i$. Fix the reference value $\theta$ while analyzing a small change, so $\bar s_i$ does not change with time and $\dot s_i=\delta\dot s_i$. Ignoring noise for a moment, substitute this expression into the deterministic activation equation:
+**[Derivation]** The supplement's Eq. S7 writes $s_i=\bar s_i(\theta)+\delta s_i$. Fix the reference value $\theta$ while analyzing a small change, so $\bar s_i$ does not change with time and $\dot s_i=\delta\dot s_i$. Ignoring noise for a moment, substitute this expression into the deterministic activation equation:
 
 $$
 \delta\dot s_i=-\frac{\bar s_i+\delta s_i}{\tau}
@@ -151,7 +151,7 @@ $$
 $$
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Guide derivation]** Substitute this expansion into the previous equation. The terms $-\bar s_i/\tau+\phi(\bar g_i)$ cancel because the reference pattern is a fixed point. What remains is
+**[Derivation]** Substitute this expansion into the previous equation. The terms $-\bar s_i/\tau+\phi(\bar g_i)$ cancel because the reference pattern is a fixed point. What remains is
 
 $$
 \delta\dot s_i=-\frac{\delta s_i}{\tau}
@@ -174,11 +174,11 @@ $$
 
 $K_{ij}$ says how a small change in neuron $j$'s activation changes the rate at which neuron $i$'s activation evolves, near the reference state. The term $-\delta_{ij}/\tau$ removes a disturbance as synaptic activation fades. The term $\phi'(\bar g_i)W_{ij}$ describes recurrent renewal: the connection converts a change in cell $j$'s activation into input to cell $i$, and the local slope of the transfer function converts that input into a rate change. A steeper slope makes this response stronger. [Whether a disturbance decays, persists, or grows depends on the combined feedback through the whole network.]{.key-statement} A stronger connection alone does not establish better memory.
 
-**[Guide derivation]** To see how the matrix controls time, temporarily switch off the noise and consider a disturbance in a right eigenvector direction $\mathbf z$, with $K\mathbf z=\lambda\mathbf z$. If it starts at $c\mathbf z$, the linear equation gives $\delta\mathbf s(t)=c e^{\lambda t}\mathbf z$. A negative real eigenvalue makes that component decay; a zero eigenvalue leaves it unchanged. Complex eigenvalues describe oscillating combinations, which decay when their real parts are negative. The attractor calculation assumes all directions away from its neutral tangent decay. Even if the matrix is not diagonalizable, stable components can have transient polynomial factors but still decay when their eigenvalues have negative real parts.
+**[Derivation]** To see how the matrix controls time, temporarily switch off the noise and consider a disturbance in a right eigenvector direction $\mathbf z$, with $K\mathbf z=\lambda\mathbf z$. If it starts at $c\mathbf z$, the linear equation gives $\delta\mathbf s(t)=c e^{\lambda t}\mathbf z$. A negative real eigenvalue makes that component decay; a zero eigenvalue leaves it unchanged. Complex eigenvalues describe oscillating combinations, which decay when their real parts are negative. The attractor calculation assumes all directions away from its neutral tangent decay. Even if the matrix is not diagonalizable, stable components can have transient polynomial factors but still decay when their eigenvalues have negative real parts.
 
 **[Paper]** The tangent to the fixed-pattern family is $u_i=d\bar s_i/d\theta=\tau\phi'(\bar g_i)\,d\bar g_i/d\theta$. It is a right zero mode, $K\mathbf u=0$: a small displacement along this direction changes the represented value without being restored by the noise-free linear dynamics. This is [supporting text, Eq. S11, PDF p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3). The derivative steps below explain why.
 
-**[Guide derivation]** Moving a little along the fixed point family changes the activation by
+**[Derivation]** Moving a little along the fixed point family changes the activation by
 
 $$
 \delta\mathbf s\simeq\mathbf u\,\delta\theta,
@@ -196,7 +196,7 @@ $$
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 <!-- vale ai-tells.NegatedObject = NO -->
-**[Paper]** The left vector $\mathbf v$ is chosen so $\mathbf v^T K=0$ and $\mathbf v^T\mathbf u=1$. It extracts the lasting coordinate displacement: for a small perturbation $\delta\mathbf s$, $\delta\theta=\mathbf v^T\delta\mathbf s$. Its components weight the different neurons' contributions. These are [supporting text, Eqs. S12–S13, PDF p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3). The tilted two-variable example below is a guide construction.
+**[Paper]** The left vector $\mathbf v$ is chosen so $\mathbf v^T K=0$ and $\mathbf v^T\mathbf u=1$. It extracts the lasting coordinate displacement: for a small perturbation $\delta\mathbf s$, $\delta\theta=\mathbf v^T\delta\mathbf s$. Its components weight the different neurons' contributions. These are [supporting text, Eqs. S12–S13, PDF p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3). The tilted two-variable example below is an illustrative construction.
 
 **[Interpretation]** To extract the lasting memory displacement from a general perturbation, recall the [left zero eigenvector](../frontmatter/ch-mathematical-tools.html#sec-math-tools-weights), a vector $\mathbf v$ satisfying
 <!-- vale ai-tells.NegatedObject = YES -->
@@ -206,7 +206,7 @@ $$
 \qquad \mathbf v^T\mathbf u=1.
 $$
 
-**[Guide derivation]** The normalization makes $\mathbf v^T(\mathbf u\,\delta\theta)=\delta\theta$. If a stable mode $\mathbf z$ satisfies $K\mathbf z=\lambda\mathbf z$ with $\lambda\ne0$, then
+**[Derivation]** The normalization makes $\mathbf v^T(\mathbf u\,\delta\theta)=\delta\theta$. If a stable mode $\mathbf z$ satisfies $K\mathbf z=\lambda\mathbf z$ with $\lambda\ne0$, then
 
 $$
 0=\mathbf v^T K\mathbf z=\lambda\mathbf v^T\mathbf z,
@@ -278,7 +278,7 @@ Here $\bar r_i$ is neuron $i$'s steady firing rate and $v_i$ is the lasting shif
 
 **[Interpretation]** We can now calculate how much random displacement remains after the stable components have relaxed. [Each cell's random spikes disturb its outgoing synaptic activation. The circuit's return flow determines the lasting shift in memory.]{.key-statement} This calculation uses the weak noise and conditional independence assumptions, with rates and return flow evaluated near one fixed point.
 
-**[Guide derivation]** Recall the [projection vector $\mathbf v$ derived above](#sec-memory-linearization): a small disturbance $\delta\mathbf s$ leaves a coordinate shift $\delta\theta=\sum_i v_i\delta s_i$ after the other components decay. Thus $v_i$ is the lasting change in the represented value per unit change in neuron $i$'s synaptic activation, in this local linear model. These projection coefficients describe the whole circuit's response; they are distinct from its connection weights $W_{ij}$.
+**[Derivation]** Recall the [projection vector $\mathbf v$ derived above](#sec-memory-linearization): a small disturbance $\delta\mathbf s$ leaves a coordinate shift $\delta\theta=\sum_i v_i\delta s_i$ after the other components decay. Thus $v_i$ is the lasting change in the represented value per unit change in neuron $i$'s synaptic activation, in this local linear model. These projection coefficients describe the whole circuit's response; they are distinct from its connection weights $W_{ij}$.
 
 The variance of a linear combination of independent noise increments is the sum of their variances multiplied by squared weights. Let $K$ be the matrix of the linearized return dynamics, $R$ the diagonal matrix with entries $R_{ii}=\bar r_i$, and $d\mathbf B$ the vector of independent Brownian increments. Multiplying the linear stochastic equation by $\mathbf v^T$ removes its deterministic return term because $\mathbf v^TK=0$, leaving
 
@@ -312,9 +312,9 @@ The result is local in state and leading order in weak noise. The time interval 
 
 These conditions justify a local spreading rate.
 
-**[Paper]** For several memory coordinates $\theta_\alpha$, the authors define their local displacement covariances by $\langle\Delta\theta_\alpha\Delta\theta_\beta\rangle=2D_{\alpha\beta}\Delta t$ and obtain $2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta$. Here $\mathbf v^\alpha$ extracts the lasting change of coordinate $\alpha$, and $\bar r_i$ sets neuron $i$'s local Poisson noise strength. This result and its conditions are in [supporting text, Eqs. S21–S27, PDF pp. 5–6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5). The paired-vector example that follows is added by the guide.
+**[Paper]** For several memory coordinates $\theta_\alpha$, the authors define their local displacement covariances by $\langle\Delta\theta_\alpha\Delta\theta_\beta\rangle=2D_{\alpha\beta}\Delta t$ and obtain $2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta$. Here $\mathbf v^\alpha$ extracts the lasting change of coordinate $\alpha$, and $\bar r_i$ sets neuron $i$'s local Poisson noise strength. This result and its conditions are in [supporting text, Eqs. S21–S27, PDF pp. 5–6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5). The paired-vector example that follows is an additional illustration.
 
-**[Guide derivation]** For several memory coordinates $\theta_\alpha$, choose tangent vectors $u_i^\alpha=\partial\bar s_i/\partial\theta_\alpha$ and left zero vectors $\mathbf v^\alpha$ satisfying $(\mathbf v^\alpha)^T K=0$ and $\sum_i v_i^\alpha u_i^\beta=\delta_{\alpha\beta}$. A unit change of coordinate $\beta$ moves the activation along $\mathbf u^\beta$. The projection vector $\mathbf v^\alpha$ extracts one unit when $\alpha=\beta$ and zero when the two coordinates differ. It also discards the decaying activity components. Thus $\sum_i v_i^\alpha\delta s_i$ gives the lasting local change in coordinate $\alpha$. The same covariance calculation gives
+**[Derivation]** For several memory coordinates $\theta_\alpha$, choose tangent vectors $u_i^\alpha=\partial\bar s_i/\partial\theta_\alpha$ and left zero vectors $\mathbf v^\alpha$ satisfying $(\mathbf v^\alpha)^T K=0$ and $\sum_i v_i^\alpha u_i^\beta=\delta_{\alpha\beta}$. A unit change of coordinate $\beta$ moves the activation along $\mathbf u^\beta$. The projection vector $\mathbf v^\alpha$ extracts one unit when $\alpha=\beta$ and zero when the two coordinates differ. It also discards the decaying activity components. Thus $\sum_i v_i^\alpha\delta s_i$ gives the lasting local change in coordinate $\alpha$. The same covariance calculation gives
 
 $$
 2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta.
@@ -341,7 +341,7 @@ Systematic drift requires a [separate check in the next chapter](ch-memory-long-
 **[Interpretation]** The general formula uses the projection vector $\mathbf v$ derived from the network's dynamics. The distinct matrix $W$ contains the [connection weights](ch-foundations.html#sec-memory-spikes): $W_{ij}$ describes the effect of neuron $j$'s synaptic activation on neuron $i$'s input. [If each pair has equal connection weights in opposite directions, $W_{ij}=W_{ji}$, can we express $\mathbf v$ through the tuning curves and neural transfer function?]{.key-statement} Equal connection weights do not require equal firing responses. We retain the common synaptic time constant, a stable continuous family, and the weak noise and conditional independence assumptions.
 <!-- vale ai-tells.VerbTricolon = YES -->
 
-**[Guide derivation]** The chain rule relates the slope of a response curve to the slope of its input curve. Here let $g_i'=d\bar g_i/d\theta$ and $r_i'=d\bar r_i/d\theta$. Differentiating the fixed point identities gives
+**[Derivation]** The chain rule relates the slope of a response curve to the slope of its input curve. Here let $g_i'=d\bar g_i/d\theta$ and $r_i'=d\bar r_i/d\theta$. Differentiating the fixed point identities gives
 
 $$
 r_i'=\phi'(\bar g_i)g_i',
@@ -375,7 +375,7 @@ $$
 $$
 
 <!-- vale ai-tells.ContrastiveFormulas = NO -->
-**[Interpretation]** The input slopes $g_i'$ now determine the projection coefficients, so the diffusion coefficient can be calculated from the tuning curves and transfer function. This follows from [SI Eq. S18, p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,239), with $\bar g_i=\phi^{-1}(\bar r_i)$ wherever the transfer function is invertible over the relevant range. The supplied Early Edition [main Eq. 2, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,88) omits the square on $g_i'$ in the numerator. [Burak and Fiete's published correction (2017)](https://doi.org/10.1073/pnas.1706051114) confirms the squared expression shown here, which also follows from the projection calculation and SI S18. The guide's checks of other printed formulas remain separate from that correction. The result requires:
+**[Interpretation]** The input slopes $g_i'$ now determine the projection coefficients, so the diffusion coefficient can be calculated from the tuning curves and transfer function. This follows from [SI Eq. S18, p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,239), with $\bar g_i=\phi^{-1}(\bar r_i)$ wherever the transfer function is invertible over the relevant range. The supplied Early Edition [main Eq. 2, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,88) omits the square on $g_i'$ in the numerator. [Burak and Fiete's published correction (2017)](https://doi.org/10.1073/pnas.1706051114) confirms the squared expression shown here, which also follows from the projection calculation and SI S18. The checks of other printed formulas remain separate from that correction. The result requires:
 <!-- vale ai-tells.ContrastiveFormulas = YES -->
 
 - Symmetric weights.

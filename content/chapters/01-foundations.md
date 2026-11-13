@@ -11,7 +11,7 @@
 
 **[Interpretation]** Imagine the network holding an eye angle $\theta$ after a cue disappears. Neuron $i$ emits spikes at a firing rate $r_i$, the expected number of spikes per unit time. Each spike increases its outgoing synaptic activation $s_i$, which then decays. The weighted activations from the network determine each neuron’s input and thus its firing rate. This feedback can maintain an activity pattern that represents the angle.
 
-**[Guide derivation: preview of the paper's bound]** At a fixed represented value $\theta$, write $\bar r_i$ for cell $i$'s noise-free steady firing rate and $r_i'=d\bar r_i/d\theta$ for its slope. Let $v_i$ measure the lasting change in $\theta$ caused by one unit of activation disturbance in cell $i$ after the other disturbances relax. A unit change in $\theta$ changes the steady activations by $\tau r_i'$; the projection must therefore obey $\sum_i\tau v_i r_i'=1$. The steady-state relation used here is derived just below.
+**[Derivation: preview of the paper's bound]** At a fixed represented value $\theta$, write $\bar r_i$ for cell $i$'s noise-free steady firing rate and $r_i'=d\bar r_i/d\theta$ for its slope. Let $v_i$ measure the lasting change in $\theta$ caused by one unit of activation disturbance in cell $i$ after the other disturbances relax. A unit change in $\theta$ changes the steady activations by $\tau r_i'$; the projection must therefore obey $\sum_i\tau v_i r_i'=1$. The steady-state relation used here is derived just below.
 
 Conditional Poisson spike fluctuations have variance $\bar r_i\,dt$ over a short interval $dt$. Their independent contributions give $2D=\sum_i v_i^2\bar r_i$. For positive rates, a Poisson count $n_i$ in a fixed-state window $h$ has mean $h\bar r_i$. Differentiating its log probability $\log p(n_i\mid\theta)=n_i\log(h\bar r_i)-h\bar r_i-\log(n_i!)$ gives the score $S_i=(r_i'/\bar r_i)(n_i-h\bar r_i)$. Since the count variance is $h\bar r_i$, $E[S_i^2]=h(r_i')^2/\bar r_i$. Independent counts add, so the internal information per unit time is $J=\sum_i(r_i')^2/\bar r_i$. Cauchy–Schwarz applied to the two vectors with entries $v_i\sqrt{\bar r_i}$ and $r_i'/\sqrt{\bar r_i}$ then gives
 
@@ -33,7 +33,7 @@ $$
 
 Here $W_{ij}$ is the strength with which neuron $j$ affects neuron $i$, $b_i$ is a constant input to neuron $i$, $\phi$ converts its total input into a firing rate, and $\tau$ is the synaptic decay time. The sum collects input from the network. The equation says that, at each steady state, activation lost by decay is balanced by the activation supplied by firing. The next sections explain these quantities and how the model obtains this balance; the [original Eq. 1](../papers/burak-fiete-2012-persistent-activity.pdf#page=2) precedes the paper's analysis of noise.
 
-**[Guide derivation: steady states]** The relation follows from balancing decay against the mean effect of new spikes. Over a short interval $dt$, neuron $i$'s activation changes by $ds_i=-s_i\,dt/\tau+dN_i$, where $dN_i$ counts its new spikes. At the current state, the expected spike count is $E[dN_i\mid\mathbf s]=\phi(g_i)dt$ to leading order, with input $g_i=\sum_j W_{ij}s_j+b_i$. Thus the deterministic rate of change obtained by averaging the spike increment at that state is
+**[Derivation: steady states]** The relation follows from balancing decay against the mean effect of new spikes. Over a short interval $dt$, neuron $i$'s activation changes by $ds_i=-s_i\,dt/\tau+dN_i$, where $dN_i$ counts its new spikes. At the current state, the expected spike count is $E[dN_i\mid\mathbf s]=\phi(g_i)dt$ to leading order, with input $g_i=\sum_j W_{ij}s_j+b_i$. Thus the deterministic rate of change obtained by averaging the spike increment at that state is
 
 $$
 \frac{E[ds_i\mid\mathbf s]}{dt}=-\frac{s_i}{\tau}+\phi\!\left(\sum_jW_{ij}s_j+b_i\right).
@@ -90,7 +90,7 @@ $$
 
 **[Interpretation]** Between spikes, the right-hand side is zero and activation decays. Integrating through one spike gives a one-unit increase in $s_i$. [Read Eq. 7 as a balance: spikes add activation, while the term $s_i/\tau$ removes it.]{.key-statement} [Original Eq. 7, PDF p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5).
 
-**[Guide derivation]** **Equivalent count form.** Let $N_i(t)$ count neuron $i$'s spikes up to time $t$. Integrating the pulse train counts the spikes, so the same dynamics can be written as
+**[Derivation]** **Equivalent count form.** Let $N_i(t)$ count neuron $i$'s spikes up to time $t$. Integrating the pulse train counts the spikes, so the same dynamics can be written as
 
 $$
 ds_i=-\frac{s_i}{\tau}\,dt+dN_i(t).
@@ -175,7 +175,7 @@ $$
 
 **[Background]** For a predetermined rate function, a [**Poisson process**]{.definition-term custom-style="Definition Term"} has [independent spike counts in disjoint intervals; in a short interval, the probability of a spike is approximately the rate multiplied by the interval's duration.]{.definition-explanation} In the recurrent model, the rate depends on network activity; the qualification about whole spike trains appears below.
 
-**[Guide derivation]** For a constant rate $r$, the Poisson assumption gives the following law for the number $K$ of spikes in an interval of length $\Delta t$:
+**[Derivation]** For a constant rate $r$, the Poisson assumption gives the following law for the number $K$ of spikes in an interval of length $\Delta t$:
 
 $$
 \Pr(K=k)=e^{-\lambda}\frac{\lambda^k}{k!},
@@ -183,7 +183,7 @@ $$
 \qquad k=0,1,2,\ldots .
 $$
 
-**[Guide derivation: the count law]** Divide the interval into $n$ independent short bins, each with spike probability $\lambda/n$, where $\lambda=r\Delta t$. For fixed $k$, the chance of spikes in exactly $k$ bins is $\binom nk(\lambda/n)^k(1-\lambda/n)^{n-k}$. As $n$ grows, $\binom nk/n^k\to1/k!$ and $(1-\lambda/n)^{n-k}\to e^{-\lambda}$, giving the displayed Poisson formula. The longer derivation below shows these limits and the mean and variance step by step.
+**[Derivation: the count law]** Divide the interval into $n$ independent short bins, each with spike probability $\lambda/n$, where $\lambda=r\Delta t$. For fixed $k$, the chance of spikes in exactly $k$ bins is $\binom nk(\lambda/n)^k(1-\lambda/n)^{n-k}$. As $n$ grows, $\binom nk/n^k\to1/k!$ and $(1-\lambda/n)^{n-k}\to e^{-\lambda}$, giving the displayed Poisson formula. The longer derivation below shows these limits and the mean and variance step by step.
 
 **[Interpretation]** Here $\lambda$ is an expected count, so it has no units. For this distribution,
 
@@ -194,7 +194,7 @@ $$
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Derivation: where the Poisson count formula and its variance come from"}
 
-**[Guide derivation] From random spike times to a count.** Hold the rate $r$ fixed over the observation of length $\Delta t$. Divide that observation into $n$ short bins of width $\delta t=\Delta t/n$. Approximate each bin by one independent spike-or-no-spike trial, with spike probability
+**[Derivation] From random spike times to a count.** Hold the rate $r$ fixed over the observation of length $\Delta t$. Divide that observation into $n$ short bins of width $\delta t=\Delta t/n$. Approximate each bin by one independent spike-or-no-spike trial, with spike probability
 
 $$
 p=r\delta t=\frac{\lambda}{n},\qquad \lambda=r\Delta t.
@@ -236,7 +236,7 @@ $$
 
 [The exponential comes from requiring silence in all the unoccupied bins. The factor $\lambda^k$ comes from the $k$ spike probabilities together with the number of possible bin locations, and $k!$ corrects repeated counting.]{.key-statement} In particular, $e^{-\lambda}$ is the probability of no spikes. A positive expected count can therefore coexist with a silent observation.
 
-**[Guide derivation] From the count formula to its mean and variance.** Shifting the summation index by one gives
+**[Derivation] From the count formula to its mean and variance.** Shifting the summation index by one gives
 
 $$
 \begin{aligned}
@@ -312,7 +312,7 @@ Dividing the pooled rate estimate by 20 keeps the expected rate per cell fixed, 
 
 **[Paper]** Can a network keep firing while losing the value it represents? Burak and Fiete (2012) test this by following the spikes and synaptic activations generated by Eqs. 7–9. In two different simulated networks, the represented value wanders while the neural activity persists. The simulation measurements agree with diffusion predicted from each network's noise-free activity, without fitting a free diffusion parameter. At short times, their prediction is $\operatorname{Var}[\theta(t)-\theta(0)]\simeq2Dt$, where $\theta$ labels the represented value and $D$ is the local diffusion coefficient; this assumes negligible systematic drift and an appropriate time window after fast disturbances relax. The ring and two-unit settings and the measurements are given below. They describe the result in [Diffusive Drift, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), show [Fig. 2, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), and specify [Network Simulations, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6).[^f-network-simulation]
 
-**[Guide derivation]** The update rule below reconstructs the stated simulation method. It shows how the simulated spikes generate changes in the stored value that can be compared with the paper's theoretical prediction.
+**[Derivation]** The update rule below reconstructs the stated simulation method. It shows how the simulated spikes generate changes in the stored value that can be compared with the paper's theoretical prediction.
 
 **[Interpretation]** **The simulated system.** The computer stores one changing activation $s_i$ for each neuron. It calculates each input $g_i$ and rate $r_i$ from the current activations. The connections $W_{ij}$, input biases $b_i$, decay time $\tau$ and transfer function $\phi$ stay fixed during a run. Constant bias remains present, but no continuing stimulus fixes the remembered value. The model follows recurrent neural activity; it does not calculate muscle forces, membrane-voltage waveforms or learning of connections. This describes the procedure specified under [Network Simulations, PDF p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6).
 
@@ -328,7 +328,7 @@ The authors use common bias $b=-2$ and synaptic time constant $\tau=10$ ms. They
 
 **How neurons depend on one another.** A spike in cell $j$ increases $s_j$ by one. Every receiving cell $i$ then gets an input change $W_{ij}$, which changes its rate through $\phi$. Its later spikes feed back into the network. [Independent random spike draws at given rates do not make the neurons' activity independent: earlier spikes change the rates used for later draws.]{.key-statement}
 
-**[Guide derivation]** The following update reconstructs one step of the ring simulation, of duration $h$, from the stated method:
+**[Derivation]** The following update reconstructs one step of the ring simulation, of duration $h$, from the stated method:
 
 1. Calculate $g_i$ and $r_i$ from all current activations.
 2. Draw a spike indicator $X_i$: it is one with probability $r_i h$ and zero otherwise, independently across cells conditional on those current rates.
@@ -378,7 +378,7 @@ The [shared-signal explanation](../frontmatter/ch-mathematical-tools.html#sec-ma
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Mathematical definitions: covariance, variance and correlation"}
 
-**[Guide derivation]** Let $X$ and $Y$ be the two displacements, in degrees, across repeated intervals of the same duration. Subtracting each average leaves its fluctuation. Their covariance is
+**[Derivation]** Let $X$ and $Y$ be the two displacements, in degrees, across repeated intervals of the same duration. Subtracting each average leaves its fluctuation. Their covariance is
 
 $$
 \operatorname{Cov}(X,Y)=\mathbb E[(X-\mathbb E[X])(Y-\mathbb E[Y])].
@@ -427,7 +427,7 @@ $$
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Derivation: separating spread from mean displacement"}
 
-**[Guide derivation]** Write $\mu=\mathbb E[\Delta x]$ and $\eta=\Delta x-\mu$, so $\mathbb E[\eta]=0$. Squaring and averaging gives
+**[Derivation]** Write $\mu=\mathbb E[\Delta x]$ and $\eta=\Delta x-\mu$, so $\mathbb E[\eta]=0$. Squaring and averaging gives
 
 $$
 \mathbb E[(\mu+\eta)^2]=\mu^2+2\mu\mathbb E[\eta]+\mathbb E[\eta^2]
@@ -462,23 +462,23 @@ The next chapter follows the proposed source upstream: how a circuit can keep a 
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^f-anatomy]: Maimon, S. R., and colleagues (2026). *Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1*. Nature. [DOI](https://doi.org/10.1038/s41586-026-10537-0). Main text, Introduction and Figs. 1–2. The present guide uses this later comparison for anatomical and coding context. It is not evidence reported in the 2025 paper.
+[^f-anatomy]: Maimon, S. R., and colleagues (2026). *Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1*. Nature. [DOI](https://doi.org/10.1038/s41586-026-10537-0). Main text, Introduction and Figs. 1–2. This discussion uses this later comparison for anatomical and coding context. It is not evidence reported in the 2025 paper.
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^f-poisson]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Results and Methods, Eqs. 7–10, describe the Poisson spike model and weak-fluctuation approximation. The finite count calculations in this section are direct consequences of the Poisson distribution and are guide derivations.
+[^f-poisson]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Results and Methods, Eqs. 7–10, describe the Poisson spike model and weak-fluctuation approximation. The finite count calculations in this section are direct consequences of the Poisson distribution and are derived here.
 <!-- vale ai-tells.EmDashUsage = YES -->
 
-[^f-poisson-limit]: Massachusetts Institute of Technology, OpenCourseWare (2018). *Introduction to Probability: Lecture 22 notes, the Poisson process*. [PDF, pp. 3–5](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3). The guide reconstructs the independent-bin limit using $r$ for rate and $\lambda=r\Delta t$ for expected count.
+[^f-poisson-limit]: Massachusetts Institute of Technology, OpenCourseWare (2018). *Introduction to Probability: Lecture 22 notes, the Poisson process*. [PDF, pp. 3–5](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3). The calculation reconstructs the independent-bin limit using $r$ for rate and $\lambda=r\Delta t$ for expected count.
 
 [^p-eye-anatomy]: Dragoi, V. (2026, July 7 review). *Ocular Motor Control*. Neuroscience Online, Section 3, Chapter 8, McGovern Medical School, UTHealth Houston. [Sections 8.2–8.3 and Fig. 8.1](https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html). Anatomy, muscle innervation and visual/vestibular control.
 
-[^p-eye-mechanics]: Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). *Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation*. Journal of Neurophysiology, 101(6), 2907–2923. [DOI](https://doi.org/10.1152/jn.91045.2008). Introduction and stimulation/relaxation results. The spring-and-damper calculation is a guide reconstruction of the physical roles, not a fitted reproduction of these experiments.
+[^p-eye-mechanics]: Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). *Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation*. Journal of Neurophysiology, 101(6), 2907–2923. [DOI](https://doi.org/10.1152/jn.91045.2008). Introduction and stimulation/relaxation results. The spring-and-damper calculation is an illustrative reconstruction of the physical roles, not a fitted reproduction of these experiments.
 
 [^p-eye-plasticity]: Major, G., Baker, R., Aksay, E., Mensh, B., Seung, H. S., and Tank, D. W. (2004). *Plasticity and tuning by visual feedback of the stability of a neural integrator*. Proceedings of the National Academy of Sciences, 101(20), 7739–7744. [DOI](https://doi.org/10.1073/pnas.0401970101). Fig. 1 for movement and holding signals; Figs. 2–4 and Discussion for goldfish training, reversibility and unresolved cellular mechanisms.
 
 [^p1-model]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). [Main Eq. 1 and the steady state, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,60); [Model, Eqs. 7–9, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,372).
 
-[^f-network-simulation]: Burak and Fiete (2012), [comparison with theory, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), [Figure 2 and caption, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), and [Network Simulations, PDF p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6). The update displayed here writes their stated Euler step and spike-generation rule together using the guide's spike indicator $X_i$.
+[^f-network-simulation]: Burak and Fiete (2012), [comparison with theory, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), [Figure 2 and caption, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), and [Network Simulations, PDF p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6). The update displayed here writes their stated Euler step and spike-generation rule together using the spike indicator $X_i$.
 
 [^f-network-data]: Burak and Fiete (2012), [experimental motivation, PDF p. 1](../papers/burak-fiete-2012-persistent-activity.pdf#page=1), [possible use of tuning data, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), and [proposed experimental tests and non-Poisson eye-position firing, PDF p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5). Ben-Shushan et al. (2022), [main paper](../papers/ben-shushan-2022-fixational-drift.pdf), provides the separate empirical eye-drift study.

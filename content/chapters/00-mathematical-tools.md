@@ -15,7 +15,7 @@ This chapter introduces those tools before their use in Parts I and II. It assum
 - **Eye drift, Ben-Shushan et al. (2022):** [covariance](#sec-math-tools-shared) tests for shared fluctuations, and [filtering](#sec-math-tools-filters) describes how neural signals become eye motion. Chapters 7–9 apply the tools to recordings and a circuit model.
 - **Place fields, Mainali et al. (2025):** [random fields](#sec-math-tools-random-fields) describe correlated input over space; [crossings and peak geometry](#sec-math-tools-crossings-peaks) connect that input to field counts and sizes. Chapters 10–12 derive and test those predictions.
 
-For a quick return to the complete arguments, use the [Exam review](ch-exam-review.html): reasoning chains, formulas, symbol keys and exact locations.
+For a quick return to the complete arguments, use the [Results and connections](ch-exam-review.html): reasoning chains, formulas, symbol keys and exact locations.
 
 ## Connection weights determine how neurons sustain activity {#sec:MATH-TOOLS-WEIGHTS}
 
@@ -422,7 +422,7 @@ Geometry changes the distribution even though the scaled peak excess has the sam
 
 <span id="tbl-math-results"></span>
 
-The [Exam review](ch-exam-review.html) organizes all 35 results by the question each paper answers. Begin with its three reasoning chains, then read the core results or open supporting calculations. A common notation key gives shared quantities and their aliases across the papers; paper keys add model-specific meanings, and result rows list further symbols or exceptions. Every result retains its paper equation/page locations and guide chapter/section links.
+The [Results and connections](ch-exam-review.html) organizes all 35 results by the question each paper answers. Begin with its three reasoning chains, then read the core results or open supporting calculations. A common notation key gives shared quantities and their aliases across the papers; paper keys add model-specific meanings, and result rows list further symbols or exceptions. Every result retains its paper equation/page locations and book chapter/section links.
 
 This chapter introduces the mathematical tools. Use the separate review page when you want to reconstruct the complete argument or find a particular result quickly.
 

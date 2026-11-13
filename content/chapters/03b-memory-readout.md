@@ -10,7 +10,7 @@
 <!-- vale ai-tells.EmptyPadding = NO -->
 **[Paper]** Burak and Fiete ask how long an observer should collect spikes when reading a memory that keeps diffusing. For their ideal observer, the characteristic observation time is $L^*=1/\sqrt{2DJ}\le\tau$: $D$ is the memory diffusion coefficient, $J$ is the spike information rate and $\tau$ is the synaptic time constant. Readout variance continues to fall with observation time but approaches the limit $\sqrt{2D/J}$. The inequality for $L^*$ follows from the information–diffusion bound and assumes full access to the spikes. The authors state the result in [“Optimal Observation Time for Memory Readout,” PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4), and develop it in [supporting text section VI](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12).
 
-**[Guide derivation: useful observation time]** Let $L$ be time spent observing after the recall cue, and let $P(L)$ be the precision, the reciprocal of the variance, of the ideal estimate of the state at that cue. In the local Gaussian approximation, take $D$ and $J$ as constant and assume that the future state increments and observation errors are independent. With no informative prior, $P(0)=0$. Over a short bin $h$, state diffusion adds variance $2Dh$ when the later information is carried back to the earlier state, while the bin's spikes add precision $Jh$. Thus
+**[Derivation: useful observation time]** Let $L$ be time spent observing after the recall cue, and let $P(L)$ be the precision, the reciprocal of the variance, of the ideal estimate of the state at that cue. In the local Gaussian approximation, take $D$ and $J$ as constant and assume that the future state increments and observation errors are independent. With no informative prior, $P(0)=0$. Over a short bin $h$, state diffusion adds variance $2Dh$ when the later information is carried back to the earlier state, while the bin's spikes add precision $Jh$. Thus
 
 $$
 P(L+h)=Jh+\frac{P(L)}{1+2DhP(L)},\qquad
@@ -30,13 +30,13 @@ As before, the memory coordinate is $\theta$, its initial value is $\Theta$, and
 
 ## Optimal Observation Time for Memory Readout: separating storage and readout error {#sec:MEMORY-READOUT-SETUP}
 
-**[Paper]** The [readout section, main PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4), starts with an initial value $\Theta$, a storage delay $T$, and an observer who samples spikes for duration $L$ after the recall cue. For the locally translation-invariant model with constant $D$ and independent future fluctuations, the total estimation variance separates as $V_{\mathrm{total}}(T,L)=2DT+V_{\mathrm{read}}(L)$. The first term is the variance of displacement accumulated before the cue; the second is the error in estimating the state present at the cue from the later spikes. The [supporting text, section VI, PDF pp. 12–13](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12), derives this decomposition; the guide spells out the conditions below.
+**[Paper]** The [readout section, main PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4), starts with an initial value $\Theta$, a storage delay $T$, and an observer who samples spikes for duration $L$ after the recall cue. For the locally translation-invariant model with constant $D$ and independent future fluctuations, the total estimation variance separates as $V_{\mathrm{total}}(T,L)=2DT+V_{\mathrm{read}}(L)$. The first term is the variance of displacement accumulated before the cue; the second is the error in estimating the state present at the cue from the later spikes. The [supporting text, section VI, PDF pp. 12–13](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12), derives this decomposition; the discussion spells out the conditions below.
 
 **[Interpretation]** At time $T$, a recall cue arrives. The observer must estimate the original value $\Theta$, but only has access to future spikes. The network has already diffused during storage.
 
 **[Paper]** To solve the readout problem, the supplement approximates the [likelihood](ch-memory-information.html#sec-memory-fi) for the state in each short bin of duration $h$ by a Gaussian with variance $1/(Jh)$ ([supporting text, PDF p. 13](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=13)). Here $J$ is the information rate of the observed spike population. The approximation requires an informative spike sample, not literally infinitely many independent observations in an arbitrarily short physical bin.
 
-**[Guide derivation]** Let $x=\theta(T)$ and index subsequent bins by $k$, starting with $\theta_0=x$. The increment $\eta_k$ is the change in the stored value between bins. The observation $y_k$ summarizes the bin's population spikes as an estimate of $\theta_k$, and $\epsilon_k$ is its estimation error. In this approximation, these increments and errors are independent, zero-mean Gaussian variables. This treats the noise moving the state as separate from the noise in the observed counts, excluding the dependence that can arise when the same spikes both change recurrent activation and supply the observation. The equivalent observation model is
+**[Derivation]** Let $x=\theta(T)$ and index subsequent bins by $k$, starting with $\theta_0=x$. The increment $\eta_k$ is the change in the stored value between bins. The observation $y_k$ summarizes the bin's population spikes as an estimate of $\theta_k$, and $\epsilon_k$ is its estimation error. In this approximation, these increments and errors are independent, zero-mean Gaussian variables. This treats the noise moving the state as separate from the noise in the observed counts, excluding the dependence that can arise when the same spikes both change recurrent activation and supply the observation. The equivalent observation model is
 
 $$
 \theta_{k+1}=\theta_k+\eta_k,
@@ -52,7 +52,7 @@ $$
 **[Interpretation]** The value $y_k$ is inferred from spikes, not an additional directly measured physical coordinate. The continuous limit is a convenient mathematical description of the many spike, weak fluctuation regime. It does not assert that an arbitrarily short physical bin already contains enough spikes for a Gaussian fit. The derivations below are exact within this local Gaussian readout model.[^p1-read-gaussian]
 <!-- vale ai-tells.ParallelStaccato = YES -->
 
-**[Guide derivation]** For an unbounded coordinate with constant $D$ and no drift, let $x=\theta(T)$ and let $\widehat x$ estimate that state from later spikes. Write the storage displacement as $s=x-\Theta$ and the readout error as $e=\widehat x-x$. In this section $s$ denotes a scalar displacement, not the synaptic activation $s_i$. The total recall error is their sum:
+**[Derivation]** For an unbounded coordinate with constant $D$ and no drift, let $x=\theta(T)$ and let $\widehat x$ estimate that state from later spikes. Write the storage displacement as $s=x-\Theta$ and the readout error as $e=\widehat x-x$. In this section $s$ denotes a scalar displacement, not the synaptic activation $s_i$. The total recall error is their sum:
 
 $$
 \widehat x-\Theta=s+e,\qquad
@@ -98,13 +98,13 @@ V_{\mathrm{ideal}}(L)=\sqrt{\frac{2D}{J}}\,\coth\!\left(\sqrt{2DJ}\,L\right),
 \qquad L^*=\frac{1}{\sqrt{2DJ}}\leq\tau.
 $$
 
-Here $L$ is the observation duration after the cue, $D$ is the memory diffusion coefficient, $J$ is the spike information rate and $\tau$ is the synaptic time constant. $V_{\mathrm{ideal}}$ is the variance of estimating the state at the cue, excluding earlier storage error. As $L$ grows, it approaches $\sqrt{2D/J}$; $L^*$ is a scale of approach, not a sharp stopping time. The bound on $L^*$ uses the information–diffusion inequality and full spike access. The [supporting calculation, Eqs. S58–S75, PDF pp. 13–15](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=13), uses a Gaussian readout model; the backward-precision calculation below is a guide reconstruction.
+Here $L$ is the observation duration after the cue, $D$ is the memory diffusion coefficient, $J$ is the spike information rate and $\tau$ is the synaptic time constant. $V_{\mathrm{ideal}}$ is the variance of estimating the state at the cue, excluding earlier storage error. As $L$ grows, it approaches $\sqrt{2D/J}$; $L^*$ is a scale of approach, not a sharp stopping time. The bound on $L^*$ uses the information–diffusion inequality and full spike access. The [supporting calculation, Eqs. S58–S75, PDF pp. 13–15](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=13), uses a Gaussian readout model; the backward-precision calculation below is an independent reconstruction.
 
 <!-- vale ai-tells.ParallelStaccato = NO -->
 **[Interpretation]** An observer that accounts for diffusion can use later observations without treating them as direct measurements of $x$. Their value is limited by the motion separating them from $x$. This is an ideal inference rule for an observer. The readout calculation does not demonstrate a neural circuit implementing it. Its error can be derived by combining information backward from the end of the observation interval.
 <!-- vale ai-tells.ParallelStaccato = YES -->
 
-**[Guide derivation]** [The [**precision**]{.definition-term custom-style="Definition Term"} of a scalar Gaussian estimate is the reciprocal of its variance.]{.definition-explanation} Independent Gaussian measurements of one value add precisions. To verify this, multiply likelihoods proportional to $\exp[-(x-a)^2/(2V_a)]$ and $\exp[-(x-b)^2/(2V_b)]$: the coefficient of $x^2/2$ becomes $1/V_a+1/V_b$.
+**[Derivation]** [The [**precision**]{.definition-term custom-style="Definition Term"} of a scalar Gaussian estimate is the reciprocal of its variance.]{.definition-explanation} Independent Gaussian measurements of one value add precisions. To verify this, multiply likelihoods proportional to $\exp[-(x-a)^2/(2V_a)]$ and $\exp[-(x-b)^2/(2V_b)]$: the coefficient of $x^2/2$ becomes $1/V_a+1/V_b$.
 
 <!-- vale ai-tells.FormalTransitions = NO -->
 Let $P(L)$ be the precision about the state at the beginning of an interval of length $L$, using all observations in that interval and no informative prior. Suppose we have already compressed the later part into a likelihood about the next bin's state with variance $1/P$. Bringing that likelihood one step backward adds transition variance $2Dh$, since the next state equals the earlier state plus an independent Gaussian increment. Its precision about the earlier state is therefore
@@ -139,7 +139,7 @@ $$
 
 **[Background]** [The [**hyperbolic cotangent**]{.definition-term custom-style="Definition Term"} is $\coth z=(e^{2z}+1)/(e^{2z}-1)$.]{.definition-explanation} For positive $z$, it falls from large values toward one. This function describes how the readout variance decreases toward its limit as observation continues.
 
-**[Guide derivation: solving the precision equation]** [The [**hyperbolic tangent**]{.definition-term custom-style="Definition Term"} is $\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$.]{.definition-explanation} [Its [**inverse hyperbolic tangent**]{.definition-term custom-style="Definition Term"} on $(-1,1)$ is $\operatorname{artanh}z=\tfrac12\log[(1+z)/(1-z)]$, whose derivative is $1/(1-z^2)$.]{.definition-explanation} Set $a=\sqrt{J/(2D)}$ and $k=\sqrt{2DJ}$. Separating variables gives
+**[Derivation: solving the precision equation]** [The [**hyperbolic tangent**]{.definition-term custom-style="Definition Term"} is $\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$.]{.definition-explanation} [Its [**inverse hyperbolic tangent**]{.definition-term custom-style="Definition Term"} on $(-1,1)$ is $\operatorname{artanh}z=\tfrac12\log[(1+z)/(1-z)]$, whose derivative is $1/(1-z^2)$.]{.definition-explanation} Set $a=\sqrt{J/(2D)}$ and $k=\sqrt{2DJ}$. Separating variables gives
 
 $$
 \int_0^{P/a}\frac{dz}{1-z^2}=kL,
@@ -184,7 +184,7 @@ The equal-weight estimator derived next will agree with these displayed terms.
 
 :::
 
-**[Guide derivation]** For long intervals,
+**[Derivation]** For long intervals,
 
 $$
 V_{\mathrm{ideal}}(L)\longrightarrow\sqrt{2D/J},
@@ -199,7 +199,7 @@ $$
 
 These are variances, so their ratios are not ratios of standard deviations.
 
-**[Guide derivation]** Using $2DJ\ge\tau^{-2}$ gives
+**[Derivation]** Using $2DJ\ge\tau^{-2}$ gives
 
 $$
 L^*\le\tau.
@@ -222,7 +222,7 @@ The first term is uncertainty from the spike sample; the second is error from av
 
 **[Interpretation]** A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$.
 
-**[Guide derivation]** Let $T$ be the storage delay before the cue and $x=\theta(T)$ the state at that cue. For elapsed time $t$ after it, write $\theta(T+t)=x+B_D(t)$, where $B_D(t)$ is the subsequent zero-mean Brownian displacement, with diffusion coefficient $D$ and covariance
+**[Derivation]** Let $T$ be the storage delay before the cue and $x=\theta(T)$ the state at that cue. For elapsed time $t$ after it, write $\theta(T+t)=x+B_D(t)$, where $B_D(t)$ is the subsequent zero-mean Brownian displacement, with diffusion coefficient $D$ and covariance
 
 $$
 E[B_D(t)B_D(s)]=2D\min(t,s).
@@ -281,11 +281,11 @@ $$
 
 ## Limited access can make observation slower {#sec:MEMORY-PARTIAL}
 
-**[Paper]** The authors consider incomplete spike access in [supporting text section VI, PDF p. 16, Eqs. S82–S83 and Fig. S2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=16). If the accessible spikes carry a fraction $0<\alpha\le1$ of the full information rate $J$, the accessible information rate is $J_{\mathrm{obs}}=\alpha J$. Here $D$ is still the diffusion coefficient of the full memory network. The ideal characteristic observation time becomes $L^*_{\mathrm{obs}}=1/\sqrt{2D\alpha J}=L^*/\sqrt\alpha$, and its limiting readout variance becomes $\sqrt{2D/(\alpha J)}$. Thus, reducing the information fraction increases both quantities by $1/\sqrt\alpha$, while $D$ describes the original network's diffusion. The guide derives an independent random-spike-thinning case below and separately checks the printed bound.
+**[Paper]** The authors consider incomplete spike access in [supporting text section VI, PDF p. 16, Eqs. S82–S83 and Fig. S2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=16). If the accessible spikes carry a fraction $0<\alpha\le1$ of the full information rate $J$, the accessible information rate is $J_{\mathrm{obs}}=\alpha J$. Here $D$ is still the diffusion coefficient of the full memory network. The ideal characteristic observation time becomes $L^*_{\mathrm{obs}}=1/\sqrt{2D\alpha J}=L^*/\sqrt\alpha$, and its limiting readout variance becomes $\sqrt{2D/(\alpha J)}$. Thus, reducing the information fraction increases both quantities by $1/\sqrt\alpha$, while $D$ describes the original network's diffusion. The derivation below gives an independent random-spike-thinning case and separately checks the printed bound.
 
 **[Interpretation]** [A downstream area may receive only some of the memory network's spikes. That reduces its information without reducing the fluctuations that already move the full memory network.]{.key-statement}
 
-**[Guide derivation]** If every spike is independently retained with probability $\alpha$, the observed rates and their slopes both scale by $\alpha$. Substitution in the Poisson information formula gives
+**[Derivation]** If every spike is independently retained with probability $\alpha$, the observed rates and their slopes both scale by $\alpha$. Substitution in the Poisson information formula gives
 
 $$
 J_{\mathrm{obs}}=\sum_i\frac{(\alpha r_i')^2}{\alpha\bar r_i}=\alpha J.
@@ -360,9 +360,9 @@ $$
 V_{\mathrm{total}}\geq 2D(T+\tau)\qquad\text{(printed claim; see the check below).}
 $$
 
-Here $D$ is diffusion, $T$ is the storage delay, and $\tau$ is the synaptic time constant. [SI Eq. S83](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=16) uses a readout term $2D\tau/\sqrt\alpha$ for fraction $\alpha$ of the information. The guide's independent check below finds that this lower-bound claim does not follow in general from the other displayed results; this is not an author-issued correction.
+Here $D$ is diffusion, $T$ is the storage delay, and $\tau$ is the synaptic time constant. [SI Eq. S83](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=16) uses a readout term $2D\tau/\sqrt\alpha$ for fraction $\alpha$ of the information. The independent check below finds that this lower-bound claim does not follow in general from the other displayed results; this is not an author-issued correction.
 
-**[Guide derivation]** The paper's other derived results imply
+**[Derivation]** The paper's other derived results imply
 
 $$
 2DJ\ge\tau^{-2}

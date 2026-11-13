@@ -41,7 +41,7 @@ The [information calculation](ch-memory-information.html#sec-memory-fi) measures
 
 **[Paper]** [Figure 2, p. 3](ch-memory-long-delays.html#fig-paper-memory-2), tests the diffusion calculation in two designs ([original figure, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3)). In the ring, $W_{ij}=f(\vartheta_i-\vartheta_j)$ depends on the difference between neurons' preferred angles $\vartheta_i$ and $\vartheta_j$, with $f(\delta)=e^{\cos\delta-1}-e^{0.3(\cos\delta-1)}$. The authors simulate $N=1024$ neurons, constant bias $b=-2$ and $\tau=10$ ms, using 100 trials of 1,000 s with 0.1 ms steps. Their two transfer rules are $\tau\phi(g)=10e^g$ and $\tau\phi(g)=0.2[1+\tanh(g+4)]$, where $g$ is a neuron's total input and $\phi$ maps input to firing rate. Both simulations agree with their respective diffusion predictions. The second design uses two mutually inhibiting units without rotational symmetry: $W_{12}=W_{21}=-1$, $W_{11}=W_{22}=0$, common input $b=5000$, $\tau=100$ ms and $\tau\phi(g)=g$ in the active range. For the memory coordinate $\theta=\tau(\bar r_1-\bar r_2)$, the predicted diffusion coefficient is $D=b/(2\tau)$. Its simulated rate-difference spreading also agrees with the calculation. The individual panels and their measurements are described below.
 
-**[Guide derivation: two-unit diffusion]** The steady rates satisfy $\bar r_1+\bar r_2=b/\tau$. Independent Poisson spike fluctuations in the activation difference $\theta$ have variance $(\bar r_1+\bar r_2)dt$ in an interval $dt$. Therefore $\operatorname{Var}[\Delta\theta]\simeq(b/\tau)dt=2Ddt$, which gives $D=b/(2\tau)$ in the local active region.
+**[Derivation: two-unit diffusion]** The steady rates satisfy $\bar r_1+\bar r_2=b/\tau$. Independent Poisson spike fluctuations in the activation difference $\theta$ have variance $(\bar r_1+\bar r_2)dt$ in an interval $dt$. Therefore $\operatorname{Var}[\Delta\theta]\simeq(b/\tau)dt=2Ddt$, which gives $D=b/(2\tau)$ in the local active region.
 
 **[Interpretation: Figure 2]** This gives the finite ring a rotational symmetry: shifting the activity pattern by a whole number of neuron positions leaves its dynamics unchanged in form.
 
@@ -52,7 +52,7 @@ Panels C and D test different parts of the prediction:
   <!-- vale ai-tells.ContrastiveFormulas = NO -->
 - Panel C compares simulated mean squared angular displacements with the prediction from the tuning curves and transfer function. The gray exponential case and black sigmoidal, or S-shaped, case have different transfer functions, shown in its inset. Circles are simulation measurements; solid lines are the diffusion prediction from Eq. 2. The dashed [information bound](../frontmatter/ch-mathematical-tools.html#sec-math-tools-bound) is a lower limit for the sigmoidal case, not a separate fitted trajectory. A model can lie above its information bound while still agreeing with the derived diffusion formula. Error bars in C and D show [the [**standard error of the mean (SEM)**]{.definition-term custom-style="Definition Term"}: uncertainty in the mean MSD estimated from 100 trials, rather than the spread of individual trial values.]{.definition-explanation} In C they are smaller than the symbols.
   <!-- vale ai-tells.ContrastiveFormulas = YES -->
-- Panel D follows angular error to longer intervals. Its theoretical curve inserts the predicted diffusion coefficient into the wrapped-angle mean squared error formula, SI Eq. S32. It therefore includes the effect of periodic boundaries rather than extending the short-lag straight line indefinitely. Its flattening uses angular wrapping, not a disappearance of noise. The expected limiting value with the caption's error convention is $\pi^2/3$. For a uniform wrapped error $x$ on $[-\pi,\pi)$, the guide calculates $E[x^2]=(1/2\pi)\int_{-\pi}^{\pi}x^2dx=\pi^2/3$. The [long-delay calculation](#sec-memory-long-time) shows how the wrapped density approaches this limit.
+- Panel D follows angular error to longer intervals. Its theoretical curve inserts the predicted diffusion coefficient into the wrapped-angle mean squared error formula, SI Eq. S32. It therefore includes the effect of periodic boundaries rather than extending the short-lag straight line indefinitely. Its flattening uses angular wrapping, not a disappearance of noise. The expected limiting value with the caption's error convention is $\pi^2/3$. For a uniform wrapped error $x$ on $[-\pi,\pi)$, the calculation gives $E[x^2]=(1/2\pi)\int_{-\pi}^{\pi}x^2dx=\pi^2/3$. The [long-delay calculation](#sec-memory-long-time) shows how the wrapped density approaches this limit.
 
 <!-- vale ai-tells.CataphoricForecasting = NO -->
 Panel E replaces the ring with two mutually inhibiting units, which can also represent two neural populations. Equal opposing weights and a linear firing rule support a continuous range of rate differences. That difference represents a nonperiodic stored value, rather than an angle that wraps around.
@@ -75,11 +75,11 @@ Panel G asks how far their rate difference changes over a lag. For each lag, the
 
 ## Long delay errors depend on boundaries and local diffusion {#sec:MEMORY-LONG-TIME}
 
-**[Paper]** To follow memory over longer delays, the authors evolve the probability density $p(\theta,t)$ of the represented value. With no systematic drift it satisfies $\partial_t p=\partial_\theta^2[D(\theta)p]$, starting from $p(\theta,0)=\delta(\theta-\Theta)$. Here $\theta$ is the value represented at time $t$, $\Theta$ is the value shared by the trials at time zero, and $D(\theta)$ is the local diffusion coefficient: in a short suitable interval $dt$ the displacement variance is approximately $2D(\theta)dt$. The symbol $\delta$ denotes a point mass at the initial value. For constant $D$ on an unbounded line the density is Gaussian with variance $2Dt$; on a ring it is wrapped around the angular range and approaches a uniform density. These results are in [supporting text, section III, Eqs. S28–S32, PDF p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7), with state-dependent cases on [pp. 8–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8). The guide expands their derivations below.
+**[Paper]** To follow memory over longer delays, the authors evolve the probability density $p(\theta,t)$ of the represented value. With no systematic drift it satisfies $\partial_t p=\partial_\theta^2[D(\theta)p]$, starting from $p(\theta,0)=\delta(\theta-\Theta)$. Here $\theta$ is the value represented at time $t$, $\Theta$ is the value shared by the trials at time zero, and $D(\theta)$ is the local diffusion coefficient: in a short suitable interval $dt$ the displacement variance is approximately $2D(\theta)dt$. The symbol $\delta$ denotes a point mass at the initial value. For constant $D$ on an unbounded line the density is Gaussian with variance $2Dt$; on a ring it is wrapped around the angular range and approaches a uniform density. These results are in [supporting text, section III, Eqs. S28–S32, PDF p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7), with state-dependent cases on [pp. 8–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8). The steps below expand their derivations.
 
 **[Interpretation]** Spike fluctuations keep shifting the stored value after the cue has ended. The local diffusion coefficient describes the variance of those shifts after stable disturbances have relaxed. It does not by itself say that variance grows at the same rate forever: boundaries and variation of $D$ can change the long time behavior. The derivation first permits $D$ to vary with the memory state; the line and circle examples then keep $D$ constant to compare different boundaries.
 
-**[Guide derivation]** Let $p(\theta,t)$ be the density of the memory coordinate across repeated trials initialized at $\Theta$. [The [**Itô convention**]{.definition-term custom-style="Definition Term"} evaluates a state-dependent noise coefficient at the beginning of each increment.]{.definition-explanation} A density equation tracks how small random increments redistribute probability. The calculation below first obtains that equation for a general state-dependent $D$. Constant $D$ then gives the line and circle solutions.
+**[Derivation]** Let $p(\theta,t)$ be the density of the memory coordinate across repeated trials initialized at $\Theta$. [The [**Itô convention**]{.definition-term custom-style="Definition Term"} evaluates a state-dependent noise coefficient at the beginning of each increment.]{.definition-explanation} A density equation tracks how small random increments redistribute probability. The calculation below first obtains that equation for a general state-dependent $D$. Constant $D$ then gives the line and circle solutions.
 
 **[Paper]** [In the zero-drift diffusion approximation, this density evolves according to the [**Fokker Planck equation**]{.definition-term custom-style="Definition Term"}:]{.definition-explanation} This is [SI Eqs. S28–S29, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7).
 
@@ -89,7 +89,7 @@ $$
 \qquad p(\theta,0)=\delta(\theta-\Theta).
 $$
 
-**[Guide derivation: the density equation]** To pass from random increments to this equation, choose any smooth function $F(\theta)$. In a short interval $dt$, the zero-drift Itô increment has conditional mean zero and conditional second moment $2D(\theta)dt$. Taylor expansion at the starting coordinate gives
+**[Derivation: the density equation]** To pass from random increments to this equation, choose any smooth function $F(\theta)$. In a short interval $dt$, the zero-drift Itô increment has conditional mean zero and conditional second moment $2D(\theta)dt$. Taylor expansion at the starting coordinate gives
 
 $$
 \begin{aligned}
@@ -128,7 +128,7 @@ $$
 
 This is [SI Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483). At long times the density approaches $1/(2\pi)$; individual paths continue moving even though the circular density becomes uniform.
 
-**[Guide derivation]** Let $x$ be the angular error in radians. If errors are reported in $[-\pi,\pi)$, their limiting mean squared value is
+**[Derivation]** Let $x$ be the angular error in radians. If errors are reported in $[-\pi,\pi)$, their limiting mean squared value is
 
 $$
 \frac{1}{2\pi}\int_{-\pi}^{\pi}x^2dx=\frac{\pi^2}{3}.
@@ -138,7 +138,7 @@ $$
 **[Interpretation]** [The flattening of a ring network's error curve can therefore occur while its local noise mechanism remains unchanged. It reflects the bounded way angular error is reported.]{.key-statement}[^p1-fp]
 <!-- vale ai-tells.FormalTransitions = YES -->
 
-**[Example]** For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the guide's plots show how the density and squared error change with delay.
+**[Example]** For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the plots show how the density and squared error change with delay.
 
 <div class="figure-scroll">
 
@@ -148,9 +148,9 @@ $$
 
 **[Interpretation]** As the wrapped density approaches uniform, its mean squared error approaches $\pi^2/3$. The unbounded line error keeps growing.
 
-**[Paper]** For zero-drift diffusion with a state-dependent $D(\theta)$, the supplement obtains $\operatorname{Var}[\theta(t)-\Theta]=2D(\Theta)t+D(\Theta)D''(\Theta)t^2+\cdots$ at short times, where $D''$ is the second derivative with respect to the represented value. The first term is the local diffusion result; curvature in $D$ produces the displayed next correction. The supplement then gives a mutual-excitation example and tests it in simulation ([Eqs. S33–S41, PDF pp. 8–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8); [Fig. S1, PDF p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10)). The guide shows the moment calculation and identifies an apparent factor discrepancy in the printed example.
+**[Paper]** For zero-drift diffusion with a state-dependent $D(\theta)$, the supplement obtains $\operatorname{Var}[\theta(t)-\Theta]=2D(\Theta)t+D(\Theta)D''(\Theta)t^2+\cdots$ at short times, where $D''$ is the second derivative with respect to the represented value. The first term is the local diffusion result; curvature in $D$ produces the displayed next correction. The supplement then gives a mutual-excitation example and tests it in simulation ([Eqs. S33–S41, PDF pp. 8–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8); [Fig. S1, PDF p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10)). The steps below show the moment calculation and identifies an apparent factor discrepancy in the printed example.
 
-**[Guide derivation]** When $D$ varies with state, the zero drift stochastic equation is $d\theta=\sqrt{2D(\theta)}\,dB$ with the Itô convention. Here $dB$ is a Brownian increment of mean zero and variance $dt$. Under conditions that remove boundary terms, the density equation gives
+**[Derivation]** When $D$ varies with state, the zero drift stochastic equation is $d\theta=\sqrt{2D(\theta)}\,dB$ with the Itô convention. Here $dB$ is a Brownian increment of mean zero and variance $dt$. Under conditions that remove boundary terms, the density equation gives
 
 $$
 \frac{d}{dt}E[\theta]=0,
@@ -160,7 +160,7 @@ $$
 
 <!-- vale ai-tells.ConsequenceParticiple = NO -->
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Guide derivation]** To obtain these identities, multiply the density equation by $\theta$ or $(\theta-\Theta)^2$, integrate over $\theta$, and integrate by parts twice. The second derivatives of these functions are respectively zero and two, giving the two identities. A similar calculation for the smooth function $D$ gives $dE[D]/dt=E[DD'']$. Expanding at $t=0$ therefore yields
+**[Derivation]** To obtain these identities, multiply the density equation by $\theta$ or $(\theta-\Theta)^2$, integrate over $\theta$, and integrate by parts twice. The second derivatives of these functions are respectively zero and two, giving the two identities. A similar calculation for the smooth function $D$ gives $dE[D]/dt=E[DD'']$. Expanding at $t=0$ therefore yields
 <!-- vale ai-tells.FormalTransitions = YES -->
 <!-- vale ai-tells.ConsequenceParticiple = YES -->
 
@@ -171,9 +171,9 @@ $$
 
 **[Paper]** This is [SI Eq. S37, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,602).[^p1-variable]
 
-**[Paper]** In this Poisson model, the rate of random spreading can change as the stored value changes, because the current firing rates set the spike-count variability. The supplement illustrates this dependence with mutual excitation, $W_{12}=W_{21}=1$, biases $(b_0,-b_0)$, and the same linear transfer rule. The fixed activation states are $(\theta+b_0/2,\theta-b_0/2)$, and the transfer rule is $\phi(g)=g/\tau$. The supplement prints $D(\theta)=\theta/(2\tau)$ in Eq. S40 and a variance $\Theta t/(2\tau)$ in Eq. S41 ([supporting text, Eqs. S38–S41, PDF p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9)). With the stated convention $\operatorname{Var}(\Delta\theta)=2Dt$, these two printed expressions differ by a factor of two. The guide independently checks this discrepancy below; it is not an author-issued correction.
+**[Paper]** In this Poisson model, the rate of random spreading can change as the stored value changes, because the current firing rates set the spike-count variability. The supplement illustrates this dependence with mutual excitation, $W_{12}=W_{21}=1$, biases $(b_0,-b_0)$, and the same linear transfer rule. The fixed activation states are $(\theta+b_0/2,\theta-b_0/2)$, and the transfer rule is $\phi(g)=g/\tau$. The supplement prints $D(\theta)=\theta/(2\tau)$ in Eq. S40 and a variance $\Theta t/(2\tau)$ in Eq. S41 ([supporting text, Eqs. S38–S41, PDF p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9)). With the stated convention $\operatorname{Var}(\Delta\theta)=2Dt$, these two printed expressions differ by a factor of two. An independent calculation checks this discrepancy below; it is not an author-issued correction.
 
-**[Guide derivation]** For this example the tangent and left projection vectors are $\mathbf u=(1,1)^T$ and $\mathbf v=(1/2,1/2)^T$.
+**[Derivation]** For this example the tangent and left projection vectors are $\mathbf u=(1,1)^T$ and $\mathbf v=(1/2,1/2)^T$.
 
 <!-- vale ai-tells.ContrastiveFormulas = NO -->
 <!-- vale ai-tells.FigurativeFires = NO -->
@@ -185,14 +185,14 @@ $$
 <!-- vale ai-tells.FigurativeFires = YES -->
 <!-- vale ai-tells.ContrastiveFormulas = YES -->
 
-**[Guide derivation]** For the mutual excitation network, substituting $v_1=v_2=1/2$ into the diffusion formula gives
+**[Derivation]** For the mutual excitation network, substituting $v_1=v_2=1/2$ into the diffusion formula gives
 
 $$
 2D=\frac{1}{4}(\bar r_1+\bar r_2)=\frac{\theta}{2\tau},
 \qquad D=\frac{\theta}{4\tau}.
 $$
 
-**[Interpretation]** A state dependent $D$ need not produce a nonlinear increase of variance with time. If $D$ is linear in $\theta$, then $E[D(\theta)]=D(E[\theta])=D(\Theta)$, so the variance remains linear while the process stays within the model's valid domain. The implied variance for this network is $\Theta t/(2\tau)$, agreeing with [SI Eq. S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,383) and the slope tested in [Fig. S1, p. 10](ch-memory-long-delays.html#fig-paper-memory-s1). SI Eq. S40 instead prints $D=\theta/(2\tau)$. Under the convention used throughout this guide, that displayed value differs by a factor of two from the direct projection and S41. This is the guide's independent check, not an author-issued correction.[^p1-excitation]
+**[Interpretation]** A state dependent $D$ need not produce a nonlinear increase of variance with time. If $D$ is linear in $\theta$, then $E[D(\theta)]=D(E[\theta])=D(\Theta)$, so the variance remains linear while the process stays within the model's valid domain. The implied variance for this network is $\Theta t/(2\tau)$, agreeing with [SI Eq. S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,383) and the slope tested in [Fig. S1, p. 10](ch-memory-long-delays.html#fig-paper-memory-s1). SI Eq. S40 instead prints $D=\theta/(2\tau)$. Under the convention used throughout this discussion, that displayed value differs by a factor of two from the direct projection and S41. This is the independent check, not an author-issued correction.[^p1-excitation]
 
 <details class="publisher-long-content publisher-source-figure">
 <summary>Original paper figure: Burak and Fiete (2012), Figure S1</summary>
@@ -205,11 +205,11 @@ $$
 
 ## A diffusion calculation does not determine systematic drift {#sec:MEMORY-DRIFT-SCOPE}
 
-**[Paper]** Systematic motion is a nonzero mean displacement, distinct from trial-to-trial spreading. To estimate a possible noise-induced drift, the supplement compares Itô and Stratonovich interpretations of $d\theta=\sqrt{2D(\theta)}\,dB$. The Itô version with no written drift has zero mean increment, whereas the Stratonovich version has mean increment approximately $\tfrac12 D'(\theta_0)\,dt$ when started at $\theta_0$. The authors offer this difference as a scale estimate, not an exact derivation of the microscopic neural process ([supporting text, Eqs. S19–S20, PDF pp. 4–5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4)). The explicit convention conversion below is a guide derivation.
+**[Paper]** Systematic motion is a nonzero mean displacement, distinct from trial-to-trial spreading. To estimate a possible noise-induced drift, the supplement compares Itô and Stratonovich interpretations of $d\theta=\sqrt{2D(\theta)}\,dB$. The Itô version with no written drift has zero mean increment, whereas the Stratonovich version has mean increment approximately $\tfrac12 D'(\theta_0)\,dt$ when started at $\theta_0$. The authors offer this difference as a scale estimate, not an exact derivation of the microscopic neural process ([supporting text, Eqs. S19–S20, PDF pp. 4–5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4)). The explicit convention conversion below is a derivation developed here.
 
-**[Guide derivation]** For state dependent $D$, where the coefficient is evaluated affects the process. [The [**Stratonovich convention**]{.definition-term custom-style="Definition Term"} uses midpoint evaluation in its limiting increments.]{.definition-explanation} With the same written coefficient and zero written drift, it describes a different process from the Itô equation. If noise is stronger at larger values, a positive step samples stronger noise at its midpoint and a negative step samples weaker noise. Their average no longer cancels. Converting to Itô form expresses this effect as a drift $D'/2$. The supplement uses the difference to estimate a possible scale of noise induced drift, not to identify the exact drift of every neural network.
+**[Derivation]** For state dependent $D$, where the coefficient is evaluated affects the process. [The [**Stratonovich convention**]{.definition-term custom-style="Definition Term"} uses midpoint evaluation in its limiting increments.]{.definition-explanation} With the same written coefficient and zero written drift, it describes a different process from the Itô equation. If noise is stronger at larger values, a positive step samples stronger noise at its midpoint and a negative step samples weaker noise. Their average no longer cancels. Converting to Itô form expresses this effect as a drift $D'/2$. The supplement uses the difference to estimate a possible scale of noise induced drift, not to identify the exact drift of every neural network.
 
-**[Guide derivation: midpoint evaluation]** Write $b(\theta)=\sqrt{2D(\theta)}$ in a region where $D$ is positive and smooth. A Stratonovich step uses $\Delta\theta=b(\theta+\Delta\theta/2)\Delta W$. Expand about the starting value and use $\Delta\theta\simeq b\Delta W$ in the correction:
+**[Derivation: midpoint evaluation]** Write $b(\theta)=\sqrt{2D(\theta)}$ in a region where $D$ is positive and smooth. A Stratonovich step uses $\Delta\theta=b(\theta+\Delta\theta/2)\Delta W$. Expand about the starting value and use $\Delta\theta\simeq b\Delta W$ in the correction:
 
 $$
 \Delta\theta\simeq b\Delta W+\frac{b'}2\Delta\theta\Delta W
@@ -236,7 +236,7 @@ The variance calculation captures the leading random term. [Small changes to wei
 
 **[Paper]** In the [Discussion, PDF p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5), the authors suggest that an information–diffusion bound may extend beyond independent Poisson spikes, including systems with correlated noise. Their established basic-model bound is $D\ge 1/(2\tau^2J)$, with $J$ the internal information rate and $\tau$ the synaptic time constant. They do not derive a universal correlated-noise formula there: extending the principle and identifying the appropriate information and time scales are conjectures to be tested.
 
-**[Guide derivation]** The independence assumption also has a precise scope. Newly generated spike-count fluctuations are conditionally independent given the present state. Shared recurrent fluctuations can still correlate the observed spike trains over time. An extra source of correlated fluctuations would change the projection formula to $2D=\mathbf v^TQ\mathbf v$, where $Q\,dt$ is their increment covariance. A matching calculation of information would need the probabilities of joint spike patterns. The paper discusses such correlated models as future extensions ([Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142)). It does not prove that every correlated spiking model obeys its Poisson formulas.[^p1-correlation]
+**[Derivation]** The independence assumption also has a precise scope. Newly generated spike-count fluctuations are conditionally independent given the present state. Shared recurrent fluctuations can still correlate the observed spike trains over time. An extra source of correlated fluctuations would change the projection formula to $2D=\mathbf v^TQ\mathbf v$, where $Q\,dt$ is their increment covariance. A matching calculation of information would need the probabilities of joint spike patterns. The paper discusses such correlated models as future extensions ([Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142)). It does not prove that every correlated spiking model obeys its Poisson formulas.[^p1-correlation]
 
 **[Interpretation]** The diffusion calculation gives $D$ from spike variability and the network’s return flow. The paper next asks how much information the same neural activity provides about the represented value, and how that information limits $D$.
 

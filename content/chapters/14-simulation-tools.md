@@ -14,7 +14,7 @@ The starting point depends on the intended result. Running the authors' program 
 
 For Burak and Fiete (2012), the paper and supporting text specify the network equations and numerical settings. The inspected publication records did not identify a public simulation-code package. For Ben-Shushan et al. (2022), public MATLAB code and deposited recordings support a more direct route. Mainali et al. (2025) provide Python code and links to the source datasets. The preceding chapters identify what was checked in each package and where the inspected defaults differ from the publication.
 
-[A successful program run establishes that the chosen program executed. Agreement with a paper also requires matching its model, parameters, measurements, and uncertainty.]{.key-statement} The simulation summaries here are source-based explanations. The guide has not rerun the authors' full simulations or reprocessed their animal recordings.
+[A successful program run establishes that the chosen program executed. Agreement with a paper also requires matching its model, parameters, measurements, and uncertainty.]{.key-statement} The simulation summaries here are source-based explanations. The authors' full simulations and animal-recording analyses have not been independently rerun here.
 
 One further distinction matters for Part III. A computer can calculate a neural model, calculate a proposed transistor circuit, or collect measurements from a fabricated chip. Sun et al. (2026) report post-layout hardware simulations. Pehle et al. (2022) describe physical analog neural circuits. Both can address memory, but their outputs support different claims about an electronic device. The [hardware comparison](ch-neuromorphic-systems.html) keeps these cases separate.
 
@@ -48,7 +48,7 @@ A [[**convergence check**]{.definition-term custom-style="Definition Term"} test
 
 **Example: a smaller time step must keep the same diffusion per second.**
 
-Consider the guide's reduced Brownian model, with diffusion coefficient $D=0.5$ deg$^2$/s. Over a step of duration $h$, the angular increment has variance $2Dh$. At $h=0.01$ s, its standard deviation is $0.1^\circ$. Reducing the step to $0.0025$ s makes the standard deviation $0.05^\circ$.
+Consider a simplified Brownian model, with diffusion coefficient $D=0.5$ deg$^2$/s. Over a step of duration $h$, the angular increment has variance $2Dh$. At $h=0.01$ s, its standard deviation is $0.1^\circ$. Reducing the step to $0.0025$ s makes the standard deviation $0.05^\circ$.
 
 There are now four times as many steps per second, each with one quarter of the variance. The variance accumulated in one second remains $1$ deg$^2$. If the increment's standard deviation were reduced by four instead of two, that variance would fall to $0.25$ deg$^2$. The program would be simulating a different noise strength.
 
@@ -74,7 +74,7 @@ A practical progression is to test one deterministic decay or one generated fiel
 
 [The common neurophysics question is which physical assumption produces the measured pattern, and whether that pattern remains after reasonable changes to the numerical implementation.]{.key-statement} Software supplies controlled experiments on a model. The link to an animal or a fabricated circuit still comes from the evidence used to constrain and test that model.
 
-[^simtools-numpy]: NumPy developers. *Random Generator*, NumPy 2.5 documentation. [Generator and reproducibility guidance](https://numpy.org/doc/stable/reference/random/generator.html). Retrieved October 30, 2026. The guide recommends this for an optional Python reconstruction.
+[^simtools-numpy]: NumPy developers. *Random Generator*, NumPy 2.5 documentation. [Generator and reproducibility guidance](https://numpy.org/doc/stable/reference/random/generator.html). Retrieved October 30, 2026. This documentation supports an optional Python reconstruction.
 
 [^simtools-ode]: SciPy developers. *scipy.integrate.solve_ivp*, SciPy 1.18.0 documentation. [Ordinary differential equation solver](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html). Retrieved October 30, 2026.
 

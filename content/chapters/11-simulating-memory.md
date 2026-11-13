@@ -74,7 +74,7 @@ The hat marks an average calculated from the finite simulation. For each lag, ta
 
 Figure 2F reports rates in $\mathrm{ms}^{-1}$, so G reports squared rate displacements in $(\mathrm{ms}^{-1})^2$. If a reproduction stores rates in $\mathrm{s}^{-1}$, divide its squared displacements by $10^6$ to compare their numerical values with G. The theoretical line must use $2D_r\ell$ in the same units. [Agreement tests whether the predicted diffusion gives the spreading of the simulated rate difference.]{.key-statement} It does not compare the rate trace with a recorded animal's memory errors.[^simmem-two]
 
-The supporting text also tests a mutually excitatory pair in Figure S1. Across 4,000 trials started at the same coordinate, its variance grows linearly even though the local diffusion coefficient depends on the state. The guide's [long-delay chapter](ch-memory-long-delays.html#sec-memory-long-time) explains the coordinate and the printed factor-of-two discrepancy. That discrepancy is separate from the authors' 2017 correction.
+The supporting text also tests a mutually excitatory pair in Figure S1. Across 4,000 trials started at the same coordinate, its variance grows linearly even though the local diffusion coefficient depends on the state. The [long-delay chapter](ch-memory-long-delays.html#sec-memory-long-time) explains the coordinate and the printed factor-of-two discrepancy. That discrepancy is separate from the authors' 2017 correction.
 
 ## A plotted analytical curve is different from a network simulation {#sec:SIMULATING-MEMORY-OUTPUTS}
 

@@ -1,6 +1,6 @@
 # References {#ch:REFERENCES}
 
-Entries follow their first use in the reading path and chapters. The paper's supporting information shares its main article entry. The author's mathematical notes are listed separately because the guide also uses them for the excursion derivation.
+Entries follow their first use in the reading path and chapters. The paper's supporting information shares its main article entry. The author's mathematical notes are listed separately because they are also used for the excursion derivation.
 
    <!-- vale ai-tells.EmDashUsage = NO -->
 1. Burak, Y.; Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). The authors' 2017 correction restores the squared input slope in Eq. 2. [Correction DOI](https://doi.org/10.1073/pnas.1706051114).
@@ -22,7 +22,7 @@ Entries follow their first use in the reading path and chapters. The paper's sup
 7. Maimon, S. R.; Eliav, T.; Aljadeff, J.; Shalev, A.; Gronich, Y.; Finger, N. M.; Eveland, K. E.; Moss, C. F.; Las, L.; Ulanovsky, N. (2026). *Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1*. Nature, 655(8125), 1242–1251. [DOI](https://doi.org/10.1038/s41586-026-10537-0).
    <!-- vale ai-tells.EmDashUsage = YES -->
 
-8. Massachusetts Institute of Technology, OpenCourseWare. (2018). *Introduction to probability: Lecture 22 notes, the Poisson process*. [Notes, pp. 3–5](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3). The guide uses $r$ for rate and $\lambda=r\Delta t$ for expected count.
+8. Massachusetts Institute of Technology, OpenCourseWare. (2018). *Introduction to probability: Lecture 22 notes, the Poisson process*. [Notes, pp. 3–5](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3). Here $r$ denotes rate and $\lambda=r\Delta t$ for expected count.
 
 9. Cannon, S. C.; Robinson, D. A. (1987). *Loss of the neural integrator of the oculomotor system from brain stem lesions in monkey*. Journal of Neurophysiology, 57(5), 1383–1409. [DOI](https://doi.org/10.1152/jn.1987.57.5.1383). Reversible disruption and its effect on gaze persistence in darkness.
 

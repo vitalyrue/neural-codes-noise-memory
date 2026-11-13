@@ -20,7 +20,7 @@ $$
 
 Here $x$ is the animal's position, $z(x)$ is the mean-centered input divided by its standard deviation, $q$ is the threshold in those standard-deviation units, $F(x)$ is the predicted firing rate, and $a>0$ sets its scale. Thus the cell is active where $z(x)>q$.
 
-**[Guide development: the threshold rule]** Let the input before centering be $H(x)$, with constant mean $\mu$ and standard deviation $\sigma_h>0$. If the cell's response is modeled as $F(x)=G[H(x)-H_{\rm th}]_+$ for a positive gain $G$ and input threshold $H_{\rm th}$, define
+**[Development: the threshold rule]** Let the input before centering be $H(x)$, with constant mean $\mu$ and standard deviation $\sigma_h>0$. If the cell's response is modeled as $F(x)=G[H(x)-H_{\rm th}]_+$ for a positive gain $G$ and input threshold $H_{\rm th}$, define
 
 $$
 z(x)=\frac{H(x)-\mu}{\sigma_h},\qquad
@@ -89,7 +89,7 @@ F(x)=a\,[z(x)-q]_+,
 \quad [u]_+=\max(u,0).
 $$
 
-Here $z$ has variance one, $q$ is a dimensionless threshold, and $a>0$ converts normalized input to firing rate, in Hz. The paper writes $\theta$ for $q$, $r$ for covariance, and $D$ for spatial dimension. This guide uses $q,C,d$ to avoid conflicts with earlier chapters. The original input threshold is $q\sigma_h$. In the paper's Equation 3 the firing rate is proportional to $[h-q\sigma_h]_+$, which is equivalent to this form after choosing the gain.[^p3-model]
+Here $z$ has variance one, $q$ is a dimensionless threshold, and $a>0$ converts normalized input to firing rate, in Hz. The paper writes $\theta$ for $q$, $r$ for covariance, and $D$ for spatial dimension. Here we use $q,C,d$ to avoid conflicts with earlier chapters. The original input threshold is $q\sigma_h$. In the paper's Equation 3 the firing rate is proportional to $[h-q\sigma_h]_+$, which is equivalent to this form after choosing the gain.[^p3-model]
 
 The input threshold summarizes how much combined input is needed before the model cell fires. It can reflect the cell's own response properties and inhibitory input. Raising $q$ at a fixed input map leaves fewer positions active. If the absolute threshold above the input mean is positive and held fixed, increasing the input standard deviation $\sigma_h$ lowers $q$, making activity more widespread. Changing $a$ instead changes rates within active regions while preserving their zero-rate boundaries. A fixed positive detection cutoff in Hz would change this last conclusion. [A fitted threshold describes the balance of input and response. It does not identify which biological quantity changed.]{.key-statement}
 

@@ -10,7 +10,7 @@ To reproduce Mainali et al.'s (2025) place-field comparisons, we need the rules 
 
 ## A smooth random input becomes a firing map after thresholding {#sec:SIMULATING-PLACE-GENERATE}
 
-For each model cell, the theory assigns a smooth Gaussian input field $h(\mathbf x)$ to locations $\mathbf x$. Its covariance controls how similar nearby input values tend to be. A threshold determines which locations activate the cell. In the guide's notation, the rate is proportional to
+For each model cell, the theory assigns a smooth Gaussian input field $h(\mathbf x)$ to locations $\mathbf x$. Its covariance controls how similar nearby input values tend to be. A threshold determines which locations activate the cell. With this notation, the rate is proportional to
 
 $$
 \max\{h(\mathbf x)-q\sqrt{C(0)},0\}.

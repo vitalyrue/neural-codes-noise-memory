@@ -13,7 +13,7 @@ $$
 
 Here $\Delta E$ is measured horizontal eye displacement during 350 ms, $\Delta\widehat E$ is the displacement reconstructed from one motor neuron’s spikes, and $\chi$ estimates the fraction of displacement variance due to the shared drive. The reported value is a weighted average over cells and its weighted error. This interpretation assumes that the shared signal has the same calibrated gain in both quantities and that the remaining fluctuations are approximately uncorrelated. The [covariance section](#sec-eye-chi) derives the formula and examines these assumptions; see [paper, PDF p. 5](../papers/ben-shushan-2022-fixational-drift.pdf#page=5).
 
-**[Guide derivation: the shared variance estimate]** Write $X=\Delta\widehat E=C+\varepsilon$ and $Y=\Delta E=C+\eta$, where $C$ is the shared contribution to displacement after calibration, $\varepsilon$ is the remaining prediction fluctuation, and $\eta$ is the remaining eye-displacement fluctuation. Expanding the covariance gives
+**[Derivation: the shared variance estimate]** Write $X=\Delta\widehat E=C+\varepsilon$ and $Y=\Delta E=C+\eta$, where $C$ is the shared contribution to displacement after calibration, $\varepsilon$ is the remaining prediction fluctuation, and $\eta$ is the remaining eye-displacement fluctuation. Expanding the covariance gives
 
 $$
 \operatorname{Cov}(X,Y)=\operatorname{Var}(C)
@@ -195,7 +195,7 @@ $$
 \tau_++\tau_-=\frac{r}{k}.
 $$
 
-**[Guide derivation: weights of the two decaying responses]**
+**[Derivation: weights of the two decaying responses]**
 
 We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as
 
@@ -445,7 +445,7 @@ To see the weighting, let normalized weights $a_i$ sum to one. Independent error
 <!-- vale ai-tells.SemicolonUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[^p2-inversion]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 9, “Model inversion,” Eqs. 4–7. Factorization, units, static gain check, and repeated-pole limit are guide derivations of those equations.
+[^p2-inversion]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 9, “Model inversion,” Eqs. 4–7. Factorization, units, static gain check, and repeated-pole limit are derived here of those equations.
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->

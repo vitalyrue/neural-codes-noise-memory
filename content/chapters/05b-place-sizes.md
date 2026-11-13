@@ -18,7 +18,7 @@ $$
 
 Here $d$ is the number of spatial dimensions; $s$ means length in 1D, area in 2D, and volume in 3D. The positive scale is $\beta=q^2/(2\sigma^2v_d^{2/d})$ in the high-threshold geometry, where $v_d$ is the volume of the unit ball: $v_1=2$, $v_2=\pi$, and $v_3=4\pi/3$. It depends on the threshold and local spatial scale. For instance, $d=1$ gives a Rayleigh-shaped length density, while $d=2$ gives an exponential area density. This is an asymptotic prediction for high thresholds, not an exact law for every finite threshold.
 
-**[Guide development: from high peaks to the size density]** Select a typical field away from an environment boundary and let $\epsilon$ be its peak's excess above the high threshold $q$. The paper's high-excursion argument gives $U=q\epsilon$ an approximately exponential distribution of mean one as $q\to\infty$. In one dimension this follows from the ratio of high upcrossing densities: the chance that a selected peak above $q$ also exceeds $q+u/q$ approaches $e^{-u}$. In higher dimensions the ratio of the additional leading peak-count factors tends to one in the same limit. This step assumes the smooth, stationary, isotropic Gaussian model and well-separated high fields; it is an approximation, not a proof for every covariance or a finite-threshold identity.
+**[Development: from high peaks to the size density]** Select a typical field away from an environment boundary and let $\epsilon$ be its peak's excess above the high threshold $q$. The paper's high-excursion argument gives $U=q\epsilon$ an approximately exponential distribution of mean one as $q\to\infty$. In one dimension this follows from the ratio of high upcrossing densities: the chance that a selected peak above $q$ also exceeds $q+u/q$ approaches $e^{-u}$. In higher dimensions the ratio of the additional leading peak-count factors tends to one in the same limit. This step assumes the smooth, stationary, isotropic Gaussian model and well-separated high fields; it is an approximation, not a proof for every covariance or a finite-threshold identity.
 
 Near such a high peak, put the peak at $x=0$. Its average curvature is approximately $-q/\sigma^2$ in each spatial direction, so $z(x)-q\simeq\epsilon-q\|x\|^2/(2\sigma^2)$. The threshold crossing occurs at radius $r_*\simeq\sigma\sqrt{2\epsilon/q}$. An approximately round field therefore has size
 
@@ -204,7 +204,7 @@ $$
 \beta=\left[\frac{\Gamma(1+d/2)}{\mu_s}\right]^{2/d}.
 $$
 
-**[Guide derivation: normalization and higher size moments]** The same substitution verifies normalization: $\int_0^\infty p_d(s)\,ds=\int_0^\infty e^{-u}\,du=1$. It also supplies every positive moment,
+**[Derivation: normalization and higher size moments]** The same substitution verifies normalization: $\int_0^\infty p_d(s)\,ds=\int_0^\infty e^{-u}\,du=1$. It also supplies every positive moment,
 
 $$
 \mathbb E[s^k]
