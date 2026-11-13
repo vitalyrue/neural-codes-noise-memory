@@ -421,17 +421,6 @@ window.Quarto = {
 <p>If the shared component has equal calibrated gains and the other covariance terms are small, the numerator estimates <span class="math inline">\(\operatorname{Var}(C)\)</span>. Dividing by <span class="math inline">\(\operatorname{Var}(Y)\)</span> estimates the fraction of eye-displacement variance shared with the neural prediction. The later calculation considers the residual private contribution from the recorded cell and the consequences of unequal gains.</p>
 <p>This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory.</p>
 <p>A recording from one motor neuron becomes useful for this comparison only after its spikes and the eye’s movement can be expressed on the same scale. The larger movements provide that calibration. Applying it during fixation then lets us ask whether independent motor noise could explain the observed relationship, and estimate the shared contribution under explicit gain and independence assumptions.</p>
-<p><strong>Unreviewed draft diagrams.</strong> These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.</p>
-<div id="fig-draft-map-ch07" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated overview of Eye drift points to a shared neural drive; check the chapter text for definitions, relationships, and values.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-draft-map-ch07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/fig-draft-map-ch07.png" class="img-fluid figure-img" style="width:6.5in" alt="Unreviewed AI-generated overview of Eye drift points to a shared neural drive; check the chapter text for definitions, relationships, and values.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch07-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.1: Draft overview for Chapter 7. Unreviewed AI-generated illustration; labels, arrows, formulas, and numbers require verification. Correction: the figure shows 0.82 ± 0.08; the reported value is 0.82 ± 0.07.
-</figcaption>
-</figure>
-</div>
 <section id="sec-eye-pathway" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="sec-eye-pathway"><span class="header-section-number">7.1</span> From stored eye position to muscle action</h2>
 <!-- vale ai-tells.FormalTransitions = NO -->
@@ -449,7 +438,7 @@ Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 6
 <img src="../assets/fig-paper-eye-ed6.png" class="img-fluid figure-img" style="width:6.5in" alt="A scatter plot compares firing-rate sensitivity and eye-position threshold, with a dashed classification boundary and OMN and INN labels.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.2: Response parameters distinguish motor neurons from internuclear neurons. Original Extended Data Figure 6 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=11">PDF page 11</a>. <a href="../assets/fig-paper-eye-ed6.png">Open image at full size</a>.
+Figure&nbsp;7.1: Response parameters distinguish motor neurons from internuclear neurons. Original Extended Data Figure 6 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=11">PDF page 11</a>. <a href="../assets/fig-paper-eye-ed6.png">Open image at full size</a>.
 </figcaption>
 </figure>
 </div>
@@ -484,7 +473,7 @@ Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 7
 <img src="../assets/fig-paper-eye-ed7.png" class="img-fluid figure-img" style="width:6.5in" alt="Four histograms show intersaccade intervals and numbers of fixation segments for two monkeys.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed7-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.3: Fixation segment durations and counts vary across cells and animals. Original Extended Data Figure 7 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=12">PDF page 12</a>. <a href="../assets/fig-paper-eye-ed7.png">Open image at full size</a>.
+Figure&nbsp;7.2: Fixation segment durations and counts vary across cells and animals. Original Extended Data Figure 7 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=12">PDF page 12</a>. <a href="../assets/fig-paper-eye-ed7.png">Open image at full size</a>.
 </figcaption>
 </figure>
 </div>
@@ -498,7 +487,7 @@ Figure&nbsp;7.3: Fixation segment durations and counts vary across cells and ani
 <img src="../assets/fig-eye-physical-and-recorded.png" class="img-fluid figure-img" style="width:7.29167in" alt="A proposed attractor storage circuit sends shared drive to a motor neuron population, then through muscles and eye mechanics to physical eye position. Private variability enters one neuron; downstream physical variability enters the muscles. Only the highlighted neuron is recorded, paired with eye position. Measurement noise enters that recorded position, not the physical eye. A separate dashed calculation transforms the single-cell spikes through a calibrated filter into predicted eye position.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eye-physical-and-recorded-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.4: The recordings pair one motor neuron with eye movement. Private spike variability acts at individual cells, downstream physical variability acts on movement, and measurement noise enters the eye-position record. The attractor storage source is proposed; the dashed analysis path is a calculation from one cell through its calibrated filter. Original illustrative schematic based on Ben-Shushan et al.&nbsp;(2022), Figs. 1–2 and 4–5. Signal symbols are illustrative, not experimental traces.
+Figure&nbsp;7.3: The recordings pair one motor neuron with eye movement. Private spike variability acts at individual cells, downstream physical variability acts on movement, and measurement noise enters the eye-position record. The attractor storage source is proposed; the dashed analysis path is a calculation from one cell through its calibrated filter. Original illustrative schematic based on Ben-Shushan et al.&nbsp;(2022), Figs. 1–2 and 4–5. Signal symbols are illustrative, not experimental traces.
 </figcaption>
 </figure>
 </div>
@@ -540,7 +529,7 @@ Original paper figure: Ben-Shushan et al.&nbsp;(2022), Figure 1
 <img src="../assets/fig-paper-eye-1.png" class="img-fluid figure-img" style="width:6.5in" alt="Four panels show eye angle, actual and predicted firing rates, a single-cell rate scatter plot, and population correlation histogram.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.5: Eye movement and motor activity share weak but positive fluctuations. Original Figure 1 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=3">PDF page 3</a>. <a href="../assets/fig-paper-eye-1.png">Open image at full size</a>.
+Figure&nbsp;7.4: Eye movement and motor activity share weak but positive fluctuations. Original Figure 1 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=3">PDF page 3</a>. <a href="../assets/fig-paper-eye-1.png">Open image at full size</a>.
 </figcaption>
 </figure>
 </div>
@@ -601,7 +590,7 @@ Original paper figure: Ben-Shushan et al.&nbsp;(2022), Figure 2
 <img src="../assets/fig-paper-eye-2.png" class="img-fluid figure-img" style="width:6.5in" alt="Six panels show the fitted response kernel, time constants, measured and predicted eye traces, correlations, shared variance estimates and their errors.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.6: Single motor neuron predictions are noisy, while the population supports a shared component. Original Figure 2 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=4">PDF page 4</a>. <a href="../assets/fig-paper-eye-2.png">Open image at full size</a>.
+Figure&nbsp;7.5: Single motor neuron predictions are noisy, while the population supports a shared component. Original Figure 2 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=4">PDF page 4</a>. <a href="../assets/fig-paper-eye-2.png">Open image at full size</a>.
 </figcaption>
 </figure>
 </div>
@@ -663,7 +652,7 @@ Figure&nbsp;7.6: Single motor neuron predictions are noisy, while the population
 <img src="../assets/fig-eye-shared-private-variance.png" class="img-fluid figure-img" style="width:7.29167in" alt="Horizontal stacked bars use one variance axis in degrees squared: movement has common variance 0.00820 and other variance 0.00180; the single cell prediction has the same common variance and private variance 0.22446. A curve shows R falling as private predictor variance increases, reaching 0.170 at the constructed point, while χ remains 0.820.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-eye-shared-private-variance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.7: The same common variance enters movement and the single cell predictor, but the predictor has much more private noise. Increasing only private predictor variance lowers correlation R while the common movement fraction χ stays at 0.82. The marked point uses the chapter’s constructed example. Calculations assume unit common gain and mutually uncorrelated contributions; they are not recorded cell data. Based on Ben-Shushan et al.&nbsp;(2022), main p.&nbsp;10, Eqs. 11–15.
+Figure&nbsp;7.6: The same common variance enters movement and the single cell predictor, but the predictor has much more private noise. Increasing only private predictor variance lowers correlation R while the common movement fraction χ stays at 0.82. The marked point uses the chapter’s constructed example. Calculations assume unit common gain and mutually uncorrelated contributions; they are not recorded cell data. Based on Ben-Shushan et al.&nbsp;(2022), main p.&nbsp;10, Eqs. 11–15.
 </figcaption>
 </figure>
 </div>

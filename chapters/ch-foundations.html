@@ -411,27 +411,6 @@ window.Quarto = {
 <div class="publisher-purpose">
 <p>Introduce the question and steady-state equation in the 2012 paper, then explain eye mechanics, the neural model brought forward from Methods, spike statistics, and a preview of its simulations.</p>
 </div>
-<p><strong>Unreviewed draft diagrams.</strong> These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.</p>
-<div id="fig-draft-map-ch01-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-draft-map-ch01-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/fig-draft-map-ch01-a.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch01-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.1: Unreviewed draft map for Patterns of variable spikes can represent a value. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
-</figcaption>
-</figure>
-</div>
-<div id="fig-draft-map-ch01-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-draft-map-ch01-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/fig-draft-map-ch01-b.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch01-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.2: Unreviewed draft map for Patterns of variable spikes can represent a value. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
-</figcaption>
-</figure>
-</div>
 <p><strong>[Paper: Introduction and Results, pp.&nbsp;1–2]</strong> Burak and Fiete (2012) ask how accurately a network of interacting neurons can retain a continuous value, such as an eye position or a direction, when its neurons emit spikes at variable times. The paper takes a continuous attractor model as its starting point. Its contribution is to calculate how spike variability makes the stored value wander, and how that wandering is related to the information available in the network’s spikes. For an effectively constant local diffusion coefficient <span class="math inline">\(D\)</span> and negligible systematic drift, the represented value has mean squared displacement approximately <span class="math inline">\(2Dt\)</span> over a suitable time interval <span class="math inline">\(t\)</span>. The paper’s information–diffusion inequality is <span class="math inline">\(D\ge 1/(2\tau^2J)\)</span>, where <span class="math inline">\(J\)</span> is the internal Fisher information rate in the network’s spikes and <span class="math inline">\(\tau\)</span> is the common synaptic decay time. These are results for the authors’ specified noisy continuous-attractor model, not universal bounds on every memory circuit. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=1">Read the introduction and Results setup</a>.</p>
 <p><strong>[Interpretation]</strong> Imagine the network holding an eye angle <span class="math inline">\(\theta\)</span> after a cue disappears. Neuron <span class="math inline">\(i\)</span> emits spikes at a firing rate <span class="math inline">\(r_i\)</span>, the expected number of spikes per unit time. Each spike increases its outgoing synaptic activation <span class="math inline">\(s_i\)</span>, which then decays. The weighted activations from the network determine each neuron’s input and thus its firing rate. This feedback can maintain an activity pattern that represents the angle.</p>
 <p><strong>[Derivation: preview of the paper’s bound]</strong> At a fixed represented value <span class="math inline">\(\theta\)</span>, write <span class="math inline">\(\bar r_i\)</span> for cell <span class="math inline">\(i\)</span>’s noise-free steady firing rate and <span class="math inline">\(r_i'=d\bar r_i/d\theta\)</span> for its slope. Let <span class="math inline">\(v_i\)</span> measure the lasting change in <span class="math inline">\(\theta\)</span> caused by one unit of activation disturbance in cell <span class="math inline">\(i\)</span> after the other disturbances relax. A unit change in <span class="math inline">\(\theta\)</span> changes the steady activations by <span class="math inline">\(\tau r_i'\)</span>; the projection must therefore obey <span class="math inline">\(\sum_i\tau v_i r_i'=1\)</span>. The steady-state relation used here is derived just below.</p>
@@ -489,7 +468,7 @@ Figure&nbsp;1.2: Unreviewed draft map for Patterns of variable spikes can repres
 <img src="../assets/fig-memory-spike-trace.png" class="img-fluid figure-img" style="width:7.29167in" alt="Five spike marks share a time axis with an activation trace. Each mark aligns with a vertical rise of one activation unit. The activation decays smoothly between spikes, and nearby spikes build on the remaining activation.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-memory-spike-trace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.3: Each spike adds one activation unit, which then decays with a 50 ms time constant. Closely spaced spikes add to the activation left by earlier spikes. The five spike times are an illustrative input, and the activation is calculated exactly from Burak and Fiete (2012), Eq. 7.
+Figure&nbsp;1.1: Each spike adds one activation unit, which then decays with a 50 ms time constant. Closely spaced spikes add to the activation left by earlier spikes. The five spike times are an illustrative input, and the activation is calculated exactly from Burak and Fiete (2012), Eq. 7.
 </figcaption>
 </figure>
 </div>
@@ -571,7 +550,7 @@ Figure&nbsp;1.3: Each spike adds one activation unit, which then decays with a 5
 <img src="../assets/fig-foundations-poisson-population.png" class="img-fluid figure-img" style="width:7.29167in" alt="Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters around twenty hertz. Their means match, but the rate standard deviation falls from twenty to 4.47 hertz.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-foundations-poisson-population-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1.4: Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell <span class="math inline">\(K/(N\Delta t)\)</span>, so both estimates have mean 20 Hz. Their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains.
+Figure&nbsp;1.2: Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell <span class="math inline">\(K/(N\Delta t)\)</span>, so both estimates have mean 20 Hz. Their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains.
 </figcaption>
 </figure>
 </div>

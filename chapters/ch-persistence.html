@@ -409,17 +409,6 @@ window.Quarto = {
 <div class="publisher-purpose">
 <p>Explain the continuous family of states in the 2012 Results, then provide eye mechanics and the random-spreading background needed to understand how persistent activity can accumulate error.</p>
 </div>
-<p><strong>Unreviewed draft diagrams.</strong> These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.</p>
-<div id="fig-draft-map-ch02" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Stable representations can accumulate error. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-draft-map-ch02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/fig-draft-map-ch02.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Stable representations can accumulate error. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch02-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Unreviewed draft map for Stable representations can accumulate error. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
-</figcaption>
-</figure>
-</div>
 <p><strong>[Paper: Results setup, p.&nbsp;2]</strong> The 2012 paper begins its analysis with a continuous family of steady neural activity patterns, described by Eq. 1 in Chapter 1. For neuron <span class="math inline">\(i\)</span>, the family obeys <span class="math inline">\(\bar s_i(\theta)=\tau\phi(\sum_jW_{ij}\bar s_j(\theta)+b_i)=\tau\bar r_i(\theta)\)</span>. Here <span class="math inline">\(\theta\)</span> is the represented value; <span class="math inline">\(\bar s_i\)</span> and <span class="math inline">\(\bar r_i\)</span> are steady activation and firing rate; <span class="math inline">\(W_{ij}\)</span> couples neuron <span class="math inline">\(j\)</span> to neuron <span class="math inline">\(i\)</span>; <span class="math inline">\(b_i\)</span> is fixed input; <span class="math inline">\(\phi\)</span> maps input to rate; and <span class="math inline">\(\tau\)</span> is the common activation decay time. Each pattern represents a different value. Spike variability disturbs the activity, and the paper asks how the represented value changes as the network responds. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Read the Results setup and Fig. 1</a>.</p>
 <p><strong>[Interpretation]</strong> We first explain the geometry of the persistent states and use a small example to distinguish recovery of activity from preservation of the stored value. The eye mechanics that follow provide biological background. We then introduce the random spreading used in the paper and distinguish it from a spatial map that varies across position.</p>
 <section id="sec-foundations-attractor" class="level2" data-number="2.1">
@@ -459,7 +448,7 @@ Figure&nbsp;2.1: Unreviewed draft map for Stable representations can accumulate 
 <img src="../assets/fig-foundations-attractor.svg" class="img-fluid figure-img" style="width:6.4in" alt="Two activity axes in hertz, a diagonal fixed-point line, initial state at 50 and 30, common disturbance at 53 and 33 with a solid arrow back, and along-line disturbance at 53 and 27 corresponding to 6.5 degrees.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-foundations-attractor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.2: A common activity disturbance returns to the initial angle, while an along-line disturbance persists as a changed angle. The solid arrow is deterministic recovery. The dashed arrow is an imposed disturbance. This is the two-activity construction, not experimental data.
+Figure&nbsp;2.1: A common activity disturbance returns to the initial angle, while an along-line disturbance persists as a changed angle. The solid arrow is deterministic recovery. The dashed arrow is an imposed disturbance. This is the two-activity construction, not experimental data.
 </figcaption>
 </figure>
 </div>
@@ -531,7 +520,7 @@ Figure&nbsp;2.2: A common activity disturbance returns to the initial angle, whi
 <img src="../assets/fig-foundations-diffusion-bias.png" class="img-fluid figure-img" style="width:7.29167in" alt="Seven Brownian sample paths move irregularly above and below zero. A dashed positive and negative root mean squared envelope grows with the square root of time. Some paths cross it. A second plot compares the positive root mean squared displacement with a linearly growing bias displacement. Both equal 0.40 degrees at four seconds, after which the bias line is higher.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-foundations-diffusion-bias-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.3: Simulated Brownian teaching paths and analytic displacement scales for <span class="math inline">\(D=0.02\)</span> degrees squared per second and <span class="math inline">\(v=0.10\)</span> degrees per second. The upper paths have zero drift and start at zero. The dashed envelope is the exact root mean squared displacement, not a boundary on individual paths. Below, <span class="math inline">\(\sqrt{2Dt}\)</span> and <span class="math inline">\(vt\)</span> are equal at 4 s, when each is 0.40 degrees. Their squares are the separate contributions to the biased model’s MSD. The coordinate is unbounded, and these chosen values are not estimates from animal recordings.
+Figure&nbsp;2.2: Simulated Brownian teaching paths and analytic displacement scales for <span class="math inline">\(D=0.02\)</span> degrees squared per second and <span class="math inline">\(v=0.10\)</span> degrees per second. The upper paths have zero drift and start at zero. The dashed envelope is the exact root mean squared displacement, not a boundary on individual paths. Below, <span class="math inline">\(\sqrt{2Dt}\)</span> and <span class="math inline">\(vt\)</span> are equal at 4 s, when each is 0.40 degrees. Their squares are the separate contributions to the biased model’s MSD. The coordinate is unbounded, and these chosen values are not estimates from animal recordings.
 </figcaption>
 </figure>
 </div>
@@ -563,7 +552,7 @@ Figure&nbsp;2.3: Simulated Brownian teaching paths and analytic displacement sca
 <img src="../assets/fig-foundations-paper-map.png" class="img-fluid figure-img" style="width:7.29167in" alt="Three separate rows compare a wandering stored value over time, a proposed changing command passing through muscles to eye position, and one fixed spatial rate curve evaluated twice at the same place. They link to the 2012 memory, 2022 eye-drift and 2025 place-field papers respectively.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-foundations-paper-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.4: Memory loss and eye drift concern changes over time. Place-field statistics concern variation across a fixed spatial map. The eye pathway shows the proposed changing-command mechanism. Original illustrative schematic based on the three papers, with illustrative traces rather than recorded data.
+Figure&nbsp;2.3: Memory loss and eye drift concern changes over time. Place-field statistics concern variation across a fixed spatial map. The eye pathway shows the proposed changing-command mechanism. Original illustrative schematic based on the three papers, with illustrative traces rather than recorded data.
 </figcaption>
 </figure>
 </div>

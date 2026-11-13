@@ -409,17 +409,6 @@ window.Quarto = {
 <div class="publisher-purpose">
 <p>Starting from the neural model in Chapter 1, derive the weak-fluctuation approximation and follow small disturbances through the circuit to calculate diffusion of a stored value.</p>
 </div>
-<p><strong>Unreviewed draft diagrams.</strong> These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.</p>
-<div id="fig-draft-map-ch03" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Spiking noise produces diffusion along the memory attractor. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-draft-map-ch03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../assets/fig-draft-map-ch03.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Spiking noise produces diffusion along the memory attractor. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.1: Unreviewed draft map for Spiking noise produces diffusion along the memory attractor. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
-</figcaption>
-</figure>
-</div>
 <p><strong>[Paper section: “Diffusive Drift due to Ongoing Neural Noise”]</strong> <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Main article, pp.&nbsp;2–3</a>. This chapter intersperses the supporting derivation with the paper’s diffusion result; the next chapter examines its simulation tests and long-delay implications.</p>
 <p><strong>[Paper]</strong> <span class="key-statement">A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied.</span> Burak and Fiete study this distinction in a network whose stable activity patterns form a continuous set. They ask how random spikes move the represented value along that set. For negligible systematic drift, after transients have relaxed and before the local diffusion coefficient <span class="math inline">\(D\)</span> changes appreciably, their result gives <span class="math inline">\(\operatorname{Var}[\theta(t)-\Theta]\simeq2Dt\)</span>, where <span class="math inline">\(\theta\)</span> is the represented value and <span class="math inline">\(\Theta\)</span> its initial value (<a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">main article, p.&nbsp;2</a>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <p><strong>[Background]</strong> The article states its diffusion result in the main text and derives it in the supporting text. We start with the spike model from Chapter 1, replace the accumulated fluctuations by continuous noise under the authors’ assumptions, and follow one disturbance through the circuit’s return flow. The part of that disturbance that survives changes the remembered value. Adding many such changes gives the diffusion coefficient. We then examine symmetric connections and a two-cell example. The next chapter extends the calculation to longer delays.</p>
@@ -525,7 +514,7 @@ Example: how many small spike inputs approach a Gaussian
 <img src="../assets/fig-memory-tilted-decay.png" class="img-fluid figure-img" style="width:7.29167in" alt="A line of fixed points lies at y equals zero. An imposed vertical jump from zero zero to zero two is followed by a straight tilted flow toward one zero. Equal time marks crowd toward the endpoint. Perpendicular projection would return to zero zero and miss the lasting shift of one. The tangent is one zero. The left vector measures delta x plus one half delta y.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-memory-tilted-decay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.2: Original illustrative construction of the tilted decay example, with dimensionless coordinates and <span class="math inline">\(a/\lambda=1/2\)</span>. After an imposed jump from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((0,2)\)</span>, the state relaxes toward <span class="math inline">\((1,0)\)</span>. Successive time marks crowd toward that endpoint. This illustrates the left and right zero vector construction in Burak and Fiete (2012), Supporting Text, Section II, pp.&nbsp;3–4, Eqs. S10–S16. It is not a paper network simulation.
+Figure&nbsp;3.1: Original illustrative construction of the tilted decay example, with dimensionless coordinates and <span class="math inline">\(a/\lambda=1/2\)</span>. After an imposed jump from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((0,2)\)</span>, the state relaxes toward <span class="math inline">\((1,0)\)</span>. Successive time marks crowd toward that endpoint. This illustrates the left and right zero vector construction in Burak and Fiete (2012), Supporting Text, Section II, pp.&nbsp;3–4, Eqs. S10–S16. It is not a paper network simulation.
 </figcaption>
 </figure>
 </div>
@@ -609,7 +598,7 @@ Example: reading two coordinates from tilted directions
 <img src="../assets/fig-memory-inhibition-rates.png" class="img-fluid figure-img" style="width:7.29167in" alt="As theta increases through the interior from minus 20 to 20 activation units, r1 increases toward 200 spikes per second and r2 decreases toward zero. Their dashed sum stays at 200. A lower aligned plot shows D constant at 100 coordinate units squared per second. Open endpoint circles exclude both boundaries.">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-memory-inhibition-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;3.3: For the chapter’s two mutually inhibiting cells, b = 20 activation units and tau = 0.1 s give opposite changes in the two rates. Their sum remains 200 spikes/s, so local D remains 100 coordinate units squared/s. Open endpoints mark the excluded boundaries. The linear interior model does not determine boundary behavior. These curves are calculated examples, not simulation data.
+Figure&nbsp;3.2: For the chapter’s two mutually inhibiting cells, b = 20 activation units and tau = 0.1 s give opposite changes in the two rates. Their sum remains 200 spikes/s, so local D remains 100 coordinate units squared/s. Open endpoints mark the excluded boundaries. The linear interior model does not determine boundary behavior. These curves are calculated examples, not simulation data.
 </figcaption>
 </figure>
 </div>
