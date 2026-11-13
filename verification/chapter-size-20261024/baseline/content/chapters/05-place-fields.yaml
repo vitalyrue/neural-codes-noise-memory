@@ -1,0 +1,212 @@
+chapter_id: ch:PLACE-FIELDS
+part_id: part:OBSERVATIONS
+title: A thresholded Gaussian map predicts field sizes and shapes
+purpose: A cell recorded on a short track may have one smooth firing hill. On a long track,
+  the same kind of cell may have several separated fields, each with a different width
+  and height. In a room, its active regions can bend, split, and surround inactive holes.
+  How could one model produce this variety and still make useful predictions?
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:PLACE-GP
+  title: Thresholding a smooth Gaussian input produces place fields
+  summary: 'To predict a field''s width, we need to relate activity at nearby positions.
+    A histogram of firing rates alone loses that information: rearranging its values could
+    turn one broad field into many tiny fields without changing the histogram.'
+  level: 2
+- id: sec:PLACE-KAC-RICE
+  title: Upcrossings count fields, with an endpoint correction
+  summary: Finding every root of a random curve is difficult. Counting how often the curve
+    passes a level is easier because a small interval around a crossing has a width determined
+    by its slope.
+  level: 2
+- id: sec:PLACE-INFERENCE
+  title: Mean field and gap lengths separate threshold from scale
+  summary: A low field count can result from a high threshold or a slowly varying map.
+    Field lengths help separate those possibilities.
+  level: 2
+- id: sec:PLACE-RARE-PEAKS
+  title: Near a high peak, the input is nearly parabolic
+  summary: The crossing calculation determines a mean length exactly, but it does not
+    yet explain the shape of the length histogram. To obtain that distribution, we examine
+    the small region around a peak that barely exceeds a high threshold.
+  level: 2
+- id: sec:PLACE-SIZE-LAW
+  title: Geometry gives different size laws in each dimension
+  summary: A round region's radius and its volume have different units and different distributions.
+    This geometric conversion explains why the model predicts different histograms in
+    a track, an arena, and a room.
+  level: 2
+- id: sec:PLACE-SLICES
+  title: Slices test spatial structure beyond field volume
+  summary: A model can fit field volumes and still place activity incorrectly within those
+    volumes. Slicing the map tests that internal spatial structure.
+  level: 2
+- id: sec:PLACE-SLOPES
+  title: Why slopes at field boundaries are Rayleigh
+  summary: The derivative at an arbitrary position is Gaussian. A field boundary is a
+    selected position, however, and selecting it changes the derivative distribution.
+  level: 2
+- id: sec:PLACE-TOPOLOGY
+  title: Holes distinguish maps with the same field count
+  summary: Two maps can have the same field count and total active area but different
+    holes. As the activity threshold rises, active regions shrink and can split or disappear.
+    The numbers of components and holes can change.
+  level: 2
+- id: sec:PLACE-DATA
+  title: What was fitted and what was tested
+  summary: The experiments supply estimated firing rate maps, not the hidden Gaussian
+    input. To assess a prediction, we must therefore track both which summaries set its
+    parameters and which processing decisions change the map's geometry.
+  level: 2
+- id: sec:PLACE-WIRING
+  title: Random input weights can generate Gaussian maps
+  summary: The statistical model becomes biologically useful if it suggests how a circuit
+    could make the maps. A random weighted sum of many inputs is one possible mechanism,
+    and the supplement makes its assumptions explicit.
+  level: 2
+blocks:
+- id: tbl:PLACE-SIZE-LAWS
+  kind: table
+  placement: sec:PLACE-SIZE-LAW
+  headers:
+  - Space
+  - Meaning of $s$
+  - Density
+  - Consequence
+  rows:
+  - - $d=1$
+    - length
+    - $2\beta s e^{-\beta s^2}$
+    - Rayleigh; density vanishes at zero
+  - - $d=2$
+    - area
+    - $\beta e^{-\beta s}$
+    - exponential; mean area $1/\beta$
+  - - $d=3$
+    - volume
+    - $(2\beta/3)s^{-1/3}e^{-\beta s^{2/3}}$
+    - Weibull with shape $2/3$; density rises without bound near zero but is integrable
+  caption: Field-size laws in one, two, and three dimensions.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:PLACE-DATA-COMPARISONS
+  kind: table
+  placement: sec:PLACE-DATA
+  headers:
+  - Condition
+  - Quantities used to choose parameters
+  - Main additional comparisons
+  rows:
+  - - Bats, 200 m tunnel
+    - mean field length and mean gap
+    - full distributions, log-length moments, peaks, boundary slopes, rate versus width,
+      EC
+  - - Bats, 6 m tunnel
+    - mean field length and occupied fraction
+    - length distribution and simpler field shapes; Figure 5D reports 40 cells
+  - - Bats, 130 m tunnel; rats, 48 m maze
+    - mean length and mean field count
+    - length distributions and parameter trends; rat details in Figure S1
+  - - Mice, 40 m virtual track
+    - direct fit of $\beta$ to available length histograms
+    - qualitative Rayleigh comparison for four mice in Figure 1F
+  - - Rats, 18.6 m$^2$ arena
+    - mean area and count, with silent-cell exclusion correction
+    - areas, counts, line slices, and EC; raw-map slice/EC analyses use 20 supplied cells
+  - - Bats, 5.8 by 4.6 by 2.7 m room
+    - mean volume and occupied volume fraction
+    - volumes, line/plane slices, rate versus linear size, EC, surface curvature
+  caption: Fitted quantities and additional comparisons.
+  first_column_role: row-labels
+  html_fold: never
+- id: fig:PLACE-CROSSINGS
+  kind: figure
+  placement: sec:PLACE-KAC-RICE
+  asset: assets/approved/visuals/place-crossings.png
+  caption: Two upcrossings start two new fields, and one field is already active at the
+    left edge. The local tangent panels show that a steeper crossing occupies a narrower
+    threshold band, while slope weighting makes each crossing contribute one. This is
+    a guide construction, not a sampled cell or a new fit; it illustrates Mainali et al.
+    (2025), Figure 1A–B and Supplemental Methods S3, Equations S11–S15.
+  alt: A constructed smooth curve crosses q upward twice and has three active intervals
+    because the first begins before the left edge of the track. One full field and one
+    gap are marked. Two local tangent plots use the same vertical band q plus or minus
+    epsilon; the steeper slope has a narrower horizontal width 2 epsilon divided by v,
+    and slope times width divided by 2 epsilon equals one in both cases.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PLACE-SIZE-GEOMETRY
+  kind: figure
+  placement: sec:PLACE-SIZE-LAW
+  asset: assets/approved/visuals/place-size-geometry.png
+  caption: In the high-threshold approximation, excess peak height fixes a radius, and
+    converting that radius into length, area, or volume gives powers 2, 1, and 2/3 in
+    $U=\beta s^{2/d}$. The round regions are a guide reconstruction of the limiting geometry,
+    not observed field shapes; see Mainali et al. (2025), Equation 1 and Supplemental
+    Methods S4, with the parabola constants checked in this chapter.
+  alt: A local parabola stands epsilon above threshold q, and its full width is twice
+    r star. U equals q times epsilon and r star is approximately square root of two times
+    sigma divided by q times square root of U. The same radius gives an interval of length
+    2 r star, a disk of area pi r star squared, or a ball of volume four pi r star cubed
+    over three. Therefore U depends on size to powers 2, 1, and 2/3.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PLACE-TOPOLOGY
+  kind: figure
+  placement: sec:PLACE-TOPOLOGY
+  asset: assets/approved/visuals/place-topology.png
+  caption: As the threshold rises on one constructed smooth map, components and holes
+    change separately, giving Euler characteristics -1, 0, 4, and 3. The above-threshold
+    regions shrink as the threshold rises, even though this signed count does not change
+    in one direction. This guide example is not an observed place-field map or a Gaussian-process
+    sample; it illustrates Mainali et al. (2025), Figure 3F–H and STAR Methods Equations
+    8–10.
+  alt: Four thresholds of the same smooth two-dimensional map show one component with
+    two holes and chi minus one; one component with one hole and chi zero; four components
+    with no holes and chi four; and three components with no holes and chi three. Each
+    active set is contained in the preceding one as q increases from 0.3 to 0.5, 0.8 and
+    1.0.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PLACE-GP-TO-FIRING
+  kind: figure
+  placement: sec:PLACE-GP
+  asset: assets/approved/visuals/place-gp-to-firing.png
+  caption: One fixed Gaussian input draw becomes a nonnegative firing map through $F(x)=a[z(x)-q]_+$.
+    Values below $q$ become zero; values above $q$ keep their relative heights after subtraction
+    and scaling. The shaded connected intervals are the model fields. This is a simulated
+    teaching map with chosen parameters, not a recorded cell. Based on Mainali et al.
+    (2025), Fig. 1A and STAR Methods Eqs. 2–3, p. e1.
+  alt: The upper plot shows one fixed smooth input against spatial position, with a threshold
+    at 0.8 and shaded intervals above it. The lower plot uses the same positions and plots
+    six times the positive excess above the threshold in hertz. Its connected positive
+    intervals align with the upper shading; all other positions have zero firing.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PLACE-SIZE-DENSITY-COLLAPSE
+  kind: figure
+  placement: sec:PLACE-SIZE-LAW
+  asset: assets/approved/visuals/place-size-density-collapse.png
+  caption: 'The limiting size densities differ with spatial dimension: one dimensional
+    length is Rayleigh, two dimensional area is exponential, and three dimensional volume
+    has a density that rises without bound as size approaches zero, while its integral
+    remains one. Their survival probabilities, the probabilities of exceeding a threshold,
+    coincide after transformation to $U=\beta s^{2/d}$, where $\Pr(U>u)=e^{-u}$. These
+    are exact calculations from the high-threshold limiting law, not finite-threshold
+    simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p.
+    1111, and Methods S3.'
+  alt: Three density curves against dimensionless size w show the one dimensional curve
+    starting at zero, the two dimensional curve starting at one, and the three dimensional
+    curve rising without bound toward zero size. An arrow marks the unbounded end. In
+    the second panel, three differently styled survival curves coincide on exp(-u) after
+    U=w^(2/d).
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

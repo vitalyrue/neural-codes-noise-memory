@@ -1,0 +1,55 @@
+chapter_id: ch:MEMORY-LONG-DELAYS
+part_id: part:MECHANISMS
+title: Boundaries and drift change memory error over long delays
+purpose: A rate of random spreading measured near one stored value does not yet tell us how
+  memory error behaves after a long wait. The value may approach a boundary, wrap around an
+  angular range, or reach a region where the spreading rate differs. A consistent movement
+  of the average value would also change the error without being captured by the rate of random
+  spreading alone.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:MEMORY-DYNAMICS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:MEMORY-LONG-TIME
+  title: Long delay errors depend on boundaries and local diffusion
+  summary: A local diffusion coefficient answers how variance initially grows. It does not
+    by itself say that variance grows at the same rate forever. Boundaries and variation of
+    $D$ can change the long time behavior.
+  level: 2
+- id: sec:MEMORY-DRIFT-SCOPE
+  title: A diffusion calculation does not determine systematic drift
+  summary: Repeated trials can spread apart even if their average stays at the original value.
+    That random spreading differs from a reproducible movement in one direction. Both can
+    occur, and the derivation of $D$ alone does not settle the second question.
+  level: 2
+- id: sec:MEMORY-FIGURES
+  title: Figures distinguish memory motion from readout error and test diffusion
+  summary: '[Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439)
+    shows the definition of the memory coordinate. Start at a green point off the attractor
+    and follow the noise free flow to the black point on it. This endpoint defines the instantaneous
+    attractor state. After one noisy interval, repeat that flow. The difference between the
+    two endpoints is the retained memory change. The relevant projection follows the flow,
+    as in the [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization).'
+  level: 2
+blocks:
+- id: fig:MEMORY-LINE-RING
+  kind: figure
+  placement: sec:MEMORY-LONG-TIME
+  asset: assets/approved/visuals/memory-line-ring.png
+  caption: With the same constant D = 0.5 rad²/s, wrapped Gaussian error densities widen toward
+    1/(2π). The unbounded line has mean squared error 2Dt; reporting angular error in $[-\pi,\pi)$
+    instead gives a mean squared error that approaches π²/3. The flattening comes from the
+    bounded error convention while local diffusion stays constant. All curves are analytic
+    teaching calculations, not paper simulation data.
+  alt: Wrapped Gaussian densities at 0.2, 1 and 5 seconds broaden toward a dashed uniform
+    density over angular errors from minus pi to pi. Below, line mean squared error rises
+    linearly while wrapped angular mean squared error approaches a horizontal pi squared over
+    three reference, with the same constant diffusion coefficient.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

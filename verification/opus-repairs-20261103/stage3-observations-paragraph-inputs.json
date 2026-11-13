@@ -1,0 +1,2970 @@
+[
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "Looking steadily at a small spot does not hold the eye perfectly still. [Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style=\"Definition Term\"}, the eye makes a small, smooth, irregular movement called fixational drift.]{.definition-explanation} Here drift names the slow eye movement, which can be largely random. Systematic drift in the memory equations instead means a nonzero mean velocity. [Does this movement begin as noise in the muscles, or does the brain send a changing command to them?]{.key-statement} Ben-Shushan and colleagues answer this in two stages. Their recordings support a large shared drive upstream of the motor neurons. Their model then proposes a particular source: random motion of the eye position stored in a memory circuit.[^p2-question]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      7,
+      7
+    ],
+    "text": "This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      9,
+      9
+    ],
+    "text": "A recording from one motor neuron becomes useful for this comparison only after its spikes and the eye's movement can be expressed on the same scale. The larger movements provide that calibration. Applying it during fixation then lets us ask whether independent motor noise could explain the observed relationship, and estimate the shared contribution under explicit gain and independence assumptions."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      14,
+      14
+    ],
+    "text": "The [eye anatomy and motor action](ch-foundations.html#sec-foundations-eye-action) explain why a position must be maintained by an ongoing command. The oculomotor integrator supplies the lasting position signal. In the proposed mechanism, the continuous attractor described in the [foundations](ch-persistence.html#sec-foundations-attractor) and [network model](ch-foundations.html#sec-memory-spikes) stores horizontal eye position. Noise moves the stored value along that attractor.[^p2-pathway]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      18,
+      18
+    ],
+    "text": "The signal reaches ocular motoneurons (OMNs), whose spikes activate the eye muscles. [The recordings came from the [**abducens nucleus**]{.definition-term custom-style=\"Definition Term\"}, a group of brainstem neurons that includes OMNs activating the lateral rectus muscle, which turns the eye outward.]{.definition-explanation} Other neurons in that nucleus carry signals to other neurons rather than directly to muscle. The study separated these cell types by how their firing changed with eye position and movement. [Finally, the muscles and the mechanical properties of the eye, together called the [**ocular plant**]{.definition-term custom-style=\"Definition Term\"}, turn neural activity into movement.]{.definition-explanation}[^p2-recordings]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      30,
+      30
+    ],
+    "text": "There are three possible contributions to an observed fixational drift:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      32,
+      34
+    ],
+    "text": "- A changing shared command sent to many OMNs. - Private spike variability in individual OMNs. - Variability after those neurons, including muscle and measurement noise."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      39,
+      39
+    ],
+    "text": "[Private spike fluctuations can partly cancel when many neurons act together. A common command survives this averaging.]{.key-statement} This is why the noisy activity of one neuron can reveal a source that dominates the much smoother eye movement. The shared drive and common command below mean the signal sent to many OMNs. The variable $C$ later measures its contribution to eye displacement after motor and muscle filtering."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      47,
+      47
+    ],
+    "text": "The authors reanalyzed earlier experiments in two male rhesus macaques. With their heads held still, the monkeys first looked at a stationary spot of light on a monitor and then followed the moving spot. A wire search coil on one eye measured the eye's angle while an electrode recorded one neuron's spikes. There were 57 identified OMNs. [Each recording paired one OMN with eye movement. There were no simultaneous recordings of multiple OMNs. Thus the analysis cannot directly measure the covariance between two recorded motor neurons.]{.key-statement}[^p2-recordings][^p2-single]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      52,
+      52
+    ],
+    "text": "The initial stationary target was followed by 500–700 ms of required fixation before the target stepped and began moving. Neural voltage was sampled at 25 kHz and eye position at 1 kHz. The authors detected microsaccades using eye speed and acceleration, removed 30 ms on each side of them, and manually checked the remaining segments. For the main displacement analysis, segments shorter than 350 ms were excluded and longer ones were split into nonoverlapping 350 ms pieces. There were 302 such pieces per cell on average, with different counts across cells. These repeated observations improve estimates within two animals. They do not create 57 independent animal samples.[^p2-segments]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      65,
+      65
+    ],
+    "text": "The large movements have a useful role even though the scientific question concerns tiny drifts. They produce enough rate change to estimate how each cell's activity depends on eye movement. The fitted relationship is then applied during fixation. This transfer is an assumption to examine, because an incorrect gain during drift would change the inferred common variance. Gain is the scale that converts a change in one signal into a change in the other."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      80,
+      80
+    ],
+    "text": "Position alone does not predict a motor neuron's activity during a movement. At the same position, firing can differ when the eye is moving or accelerating. The paper therefore fits"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      88,
+      88
+    ],
+    "text": "Here $E$ is horizontal eye position in degrees and $\\widehat f$ is predicted firing rate in spikes/s. The position threshold $E_T$ sets where the position term reaches zero. The coefficients have units"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      96,
+      96
+    ],
+    "text": "Multiplying by position, velocity, and acceleration gives spikes/s in all three terms."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      99,
+      99
+    ],
+    "text": "The position term describes ongoing firing associated with holding the eye at an angle. The velocity term allows a different rate while the eye passes through that same angle. The acceleration term allows another change while its velocity changes. Thus $k$, $r$, and $m$ describe different demands on the motor signal. They are fitted coefficients of the combined neural and mechanical relationship. In particular, $m$ is not a direct measurement of the eye's mass. The delay $\\Delta t$ is in seconds: firing at time $t$ predicts movement at the later time $t+\\Delta t$ for a positive neural lead. This is the paper's Eq. 2, including its threshold and time shift.[^p2-forward]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      102,
+      102
+    ],
+    "text": "The observed rate $f(t)$ was estimated as the inverse of the interval between successive spikes, constant between those spikes. For each cell, the authors minimized the sum of squared rate errors,"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      109,
+      109
+    ],
+    "text": "$a$ labels trials and $T_a$ is trial duration. This is Eq. 3 with the trial count renamed so that it cannot be confused with a neuron count. Fits used full trials, including fixation and pursuit. To predict a trial's rate, that trial was left out of the parameter fit. Acceleration was estimated from velocity after local polynomial smoothing over 21 ms. Trials in which the rate fell below 20 Hz were discarded: the linear formula is intended for active cells above firing threshold, whereas firing cannot become negative.[^p2-forward]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      114,
+      114
+    ],
+    "text": "During fixation, the authors subtracted each segment's mean firing rate, joined the segments, and compared observed and predicted rate fluctuations. Figure 1c illustrates a weak relationship for one cell. Fig. 1d shows a positive population effect. The authors used a [**one sided t test**]{.definition-term custom-style=\"Definition Term\"}: it compares the mean correlation across 57 cells with zero, after dividing that mean by its estimated sampling uncertainty. The positive direction was the one being tested."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      116,
+      116
+    ],
+    "text": "[The [**p value**]{.definition-term custom-style=\"Definition Term\"} is the probability that this test would give a value at least as large as observed if the population mean correlation were zero and the test's sampling assumptions held.]{.definition-explanation} The reported $p=3\\times10^{-9}$ measures how unusual the result is under that reference. It is not the probability that the zero-mean hypothesis, or a proposed neural mechanism, is true. A weak single cell relationship is expected here because the tiny movement produces small rate changes against much larger spike variability. This is evidence of a relationship, before any estimate of the fraction of common motion.[^p2-rate-result]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      120,
+      120
+    ],
+    "text": "Let $R_i$ be the correlation for cell $i$, $\\bar R$ the mean across $n=57$ cells, and $s_R$ their sample standard deviation. The number compared with the reference distribution, called the test statistic, is $t=\\bar R/(s_R/\\sqrt{n})$. The denominator estimates the uncertainty in the mean. The reference is the Student t distribution with $n-1=56$ degrees of freedom: the distribution of this ratio for independent, identically distributed normal observations with true mean zero. Applying it to the cell correlations uses that sampling approximation. The one sided p value is the reference probability above the observed $t$. The observations in this calculation are cells recorded from two monkeys, not 57 independent animals."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      140,
+      140
+    ],
+    "text": "To ask how much eye movement is shared with a neuron, it helps to express both signals in degrees. [The paper reverses the fitted relationship: a cell's spike train becomes the input, and its prediction of eye position becomes the output. This operation is an inverse of the movement-to-rate fit, rather than a new fit to small drift residuals.]{.key-statement}"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      144,
+      144
+    ],
+    "text": "Let $x(t)=E(t)-E_T$. Ignoring the time shift for a moment, the deterministic relation is"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      150,
+      150
+    ],
+    "text": "[A [**causal filter**]{.definition-term custom-style=\"Definition Term\"} computes its present output from present and past input. For the equation above, its [**impulse response**]{.definition-term custom-style=\"Definition Term\"} $h_0(u)$ is the position response to one instantaneous spike at time zero.]{.definition-explanation} To factor the equation, consider a time component $e^{pt}$: differentiation multiplies it by $p$. The algebraic ratio of output to input for that component is"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      157,
+      157
+    ],
+    "text": "Factoring the quadratic gives the slow and fast decay times"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      164,
+      164
+    ],
+    "text": "These are the paired signs in the paper's Eq. 7, with $\\tau_+>\\tau_-$ when $k,r,m>0$ and $r^2>4km$. Under these conditions both components decay without oscillation."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      166,
+      166
+    ],
+    "text": "At rest, the inverse equation gives $x=f/k$: with the threshold fixed, doubling $k$ halves the position offset predicted from the same steady firing rate. During a change, $r$ and $m$ also affect the response through the two timescales. This is a consequence of the fitted relationship, not evidence that changing one recorded neuron's rate alone sets eye position. The same factorization gives two useful identities:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      173,
+      173
+    ],
+    "text": "The corresponding impulse response is"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      181,
+      181
+    ],
+    "text": "$\\Theta(u)$ is zero for $u<0$ and one for $u>0$, which makes the response zero before the input. Restoring the fitted neural lead delays this response: $h(u)=h_0(u-\\Delta t)$. Write the spike train as $\\xi(t)=\\sum_j\\delta(t-t_j)$, where $\\delta$ is an ideal instantaneous impulse of unit area, so integration over one spike counts one event. The prediction is"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      188,
+      188
+    ],
+    "text": "These expressions reproduce Eqs. 4–6, including the factor $\\tau_+\\tau_-/m$ and the delay. [The [**convolution**]{.definition-term custom-style=\"Definition Term\"} integral adds the responses to all past spikes.]{.definition-explanation} With spike count treated as a count, $\\xi$ has units spikes/s and $h$ has units degrees/spike. Each spike contributes a decaying position response. Adding those responses produces degrees.[^p2-inversion]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      192,
+      192
+    ],
+    "text": "We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      200,
+      200
+    ],
+    "text": "To find $A$ and $B$, treat the spike as a short pulse of unit area and shrink its duration to zero. The position change during that pulse tends to zero, so $h_0(0^+)=0$. Integrating $m h_0''+r h_0'+k h_0$ across the pulse gives $m h_0'(0^+)=1$: the velocity changes by $1/m$, while position and velocity before the causal response are zero. Therefore"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      210,
+      210
+    ],
+    "text": "Substituting $B=-A$ gives $A(1/\\tau_- -1/\\tau_+)=1/m$, hence $A=\\tau_+\\tau_-/[m(\\tau_+-\\tau_-)]$. Making the response zero before the spike gives the impulse response $h_0(u)$."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      215,
+      215
+    ],
+    "text": "For a constructed example, take $k=4$ spikes/(s deg), $\\tau_+=0.120$ s, and $\\tau_-=0.005$ s. The identities above require $r=0.500$ spikes/deg and $m=0.00240$ spikes s/deg. Then"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      222,
+      222
+    ],
+    "text": "and its area is $2.174(0.120-0.005)=0.250$ deg s/spike, equal to $1/k$. A steady rate of 80 spikes/s predicts an offset of 20 degrees above $E_T$. This checks the gain and the time constants."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      226,
+      226
+    ],
+    "text": "The kernel's area checks its normalization:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      235,
+      235
+    ],
+    "text": "Thus a constant input rate $f_0$ predicts $E_T+f_0/k$, exactly the static forward relation. A kernel with unit area would give the wrong conversion unless $k$ had already been absorbed into the input. When the two decay times coincide, $r^2=4km$, the limit is $h_0(u)=\\Theta(u)u e^{-u/\\tau}/m$. The distinct exponential formula is used for the fitted responses in the paper."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      243,
+      243
+    ],
+    "text": "Figure 2a–b shows typical fitted times of about 5 ms and 120 ms. Figure 2c shows that a single cell's reconstructed drift is much noisier than the measured movement. Pearson correlation is the ordinary linear correlation defined as $\\rho$ in the [foundations](ch-foundations.html#sec-foundations-covariance); this paper writes it as $R$. Across 350 ms displacement pairs, the mean Pearson correlation was $\\langle R\\rangle=0.17\\pm0.02$, [where the error is the [**standard error of the mean (SEM)**]{.definition-term custom-style=\"Definition Term\"}. SEM estimates uncertainty in the across-cell mean, rather than the spread of individual cells or uncertainty across animals.]{.definition-explanation} The one sided test gave $p=3.8\\times10^{-12}$. Shuffling which measured segment was paired with which spike prediction centered the comparison near zero. Here and below $\\langle\\cdot\\rangle$ over cells means a population average.[^p2-correlation]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      259,
+      259
+    ],
+    "text": "A correlation of 0.17 does not immediately tell us how much motion comes from the common command. First we can ask a more limited question: could all the motion come from independent motor neuron fluctuations?"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      261,
+      261
+    ],
+    "text": "For a centered displacement $Y$ and one centered prediction $X$, the best linear prediction $bX$ minimizes $\\operatorname{Var}(Y-bX)$. Differentiating with respect to $b$ gives $b=\\operatorname{Cov}(X,Y)/\\operatorname{Var}(X)$. Its explained fraction of variance is"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      269,
+      269
+    ],
+    "text": "[This is the [**coefficient of determination**]{.definition-term custom-style=\"Definition Term\"} for a linear prediction with a fitted gain.]{.definition-explanation} It does not assert that the raw, unscaled position predictor itself has a small squared error."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      271,
+      271
+    ],
+    "text": "Suppose there are $N_m$ independent single neuron predictors $X_i$. Standardize each to variance one and also standardize $Y$. Independence makes the $X_i$ uncorrelated, so the residual after using them all has variance"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      280,
+      280
+    ],
+    "text": "Consequently $\\sum_iR_i^2\\le1$, and an average neuron explains at most $1/N_m$. This proves the bound used in Supplementary Eq. S1. It does not require equal muscle effects from all neurons. Applying it to the sampled cells does require their average explanatory power to represent the relevant motor population.[^p2-independent-bound]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      283,
+      283
+    ],
+    "text": "The authors avoid directly averaging noisy squared correlations. Instead,"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      293,
+      293
+    ],
+    "text": "[Thus the estimated mean correlation implies an average explained fraction of at least about 2.9%. For 1,000 independently contributing motor neurons, the bound would be 0.1%. For several thousand it is smaller. The mismatch argues against independent OMN noise as the sole source.]{.key-statement} Shared fluctuations can allow many cells to explain the same part of the movement, so their explained fractions can overlap.[^p2-independent-bound]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      297,
+      297
+    ],
+    "text": "This step finds shared variation. Locating its source upstream also uses a biological premise: the private variability generated within OMNs is taken to be independent across cells. The paper supports that premise using anatomical and stimulation studies indicating little local recurrent coupling in the relevant motor nuclei. It was not tested by simultaneous recordings in this data set. Common inputs can correlate the total activity of OMNs even when their privately generated spike noise is independent.[^p2-independence]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      302,
+      302
+    ],
+    "text": "The variance bound establishes that a shared signal exists, but leaves its size open. The next calculation uses the inverse filter’s calibrated gain in degrees. For one 350 ms interval, write the measured displacement and the single cell prediction as"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      310,
+      310
+    ],
+    "text": "where $C=\\delta E_C$ is the common upstream contribution, $\\eta$ combines motor neuron, muscle, and measurement contributions to measured displacement, and $\\epsilon$ is the prediction error from the individual cell. All are displacement variables in degrees. The calculation assumes:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      312,
+      315
+    ],
+    "text": "<!-- vale ai-tells.ConsequenceParticiple = NO --> - The common contribution enters both signals with unit gain, meaning the same one-for-one displacement scale. <!-- vale ai-tells.ConsequenceParticiple = YES --> - $C,\\eta,\\epsilon$ are pairwise uncorrelated to the required accuracy."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      317,
+      317
+    ],
+    "text": "Expanding the covariance shows why those assumptions matter:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      327,
+      327
+    ],
+    "text": "The common fraction is therefore estimated by"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      335,
+      335
+    ],
+    "text": "These are Eqs. 11–15 in displacement form. The gain assumption requires that the relation calibrated during larger movements still applies during drift. There is also a small covariance between $\\epsilon$ and $\\eta$, because the recorded neuron's private spikes contribute both to its predictor and to actual eye motion. The paper neglects this contribution as order $1/N_m$ under its many neuron model.[^p2-chi-method]"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      337,
+      337
+    ],
+    "text": "Correlation divides the same covariance by a different denominator:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      345,
+      345
+    ],
+    "text": "[Large private noise in a cell inflates $\\operatorname{Var}(X)$ and makes $R$ small. It need not make the common contribution to the real movement small, because many independent private contributions average down there.]{.key-statement}"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      349,
+      349
+    ],
+    "text": "**Example: correlation 0.17 with a common fraction 0.82.**"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      351,
+      351
+    ],
+    "text": "These numbers are constructed to expose the distinction, not extracted from individual cells. Take independent centered variables with"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      359,
+      359
+    ],
+    "text": "Then $\\operatorname{Var}(Y)=0.01000$, $\\operatorname{Var}(X)=0.23266$, and $\\operatorname{Cov}(X,Y)=0.00820$, all in deg$^2$. It follows that"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      367,
+      367
+    ],
+    "text": "One cell explains $R^2\\simeq2.89\\%$ of displacement variance after linear rescaling, while the common signal supplies 82% of actual displacement variance. The larger, poorly predicted part of the single cell signal is private prediction noise."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      379,
+      379
+    ],
+    "text": "The bars use the same physical scale, so the equal common pieces have equal lengths. See [Shared and private variability, Eqs. 11–15, p. 10](../papers/ben-shushan-2022-fixational-drift.pdf#page=10)."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      384,
+      384
+    ],
+    "text": "In the experiment, each cell gives a noisy estimate $\\chi_i$, and those estimates can lie outside $[0,1]$. The underlying variance fraction remains in that interval under the model, but the sample covariance need not. The paper estimates each standard error $\\Delta\\chi_i$ mainly from covariance uncertainty, treating the measured displacement variance in the denominator as comparatively well determined. It then uses inverse variance weighting:"
+  },
+  {
+    "chapter": "04-eye-drift",
+    "lines": [
+      393,
+      393
+    ],
+    "text": "To see the weighting, let normalized weights $a_i$ sum to one. Independent errors give variance $\\sum_i a_i^2(\\Delta\\chi_i)^2$ for $\\sum_i a_i\\chi_i$. Minimizing this subject to $\\sum_i a_i=1$ gives $a_i\\propto1/(\\Delta\\chi_i)^2$ and the error above. The paper additionally assumes approximately normal errors around a common value. The last expression is a propagated estimation error under those assumptions. It does not measure variation across animals or uncertainty in the gain and independence assumptions. [The reported result was $0.82\\pm0.07$, a weighted mean and weighted error for horizontal displacement over 350 ms. It is neither a fraction of distance traveled nor the fraction that one neuron's spikes accurately predict.]{.key-statement}[^p2-chi-error]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "The shared movement estimate concerns a single interval length. [It leaves open whether the command merely fluctuates around a stable value or keeps accumulating changes. Comparing displacements over different time separations can distinguish these possibilities, but the smallest measured displacements may include a large contribution from recording error.]{.key-statement}"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      7,
+      7
+    ],
+    "text": "The mean squared displacement measures the average squared position change over a chosen interval. Separating the recording error from that quantity is necessary before interpreting its growth. To test whether the command accumulates changes, we compare two possible inputs after a decaying muscle response: fluctuations that do not accumulate and a position that wanders by diffusion. Their different long interval behavior explains how a smooth eye movement can still reflect a wandering stored value."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "Using the [earlier definition of mean squared displacement](ch-foundations.html#sec-foundations-covariance),"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      17,
+      17
+    ],
+    "text": "is the mean squared displacement, or MSD, at lag $\\ell$. The data estimate it within each microsaccade free segment, then average the available segment estimates at each lag. Larger lags have fewer eligible segments. The 1 ms sampling sets the available lag spacing.[^p2-msd]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      19,
+      19
+    ],
+    "text": "At short lags, the displacement can be smaller than the search coil's measurement error. Suppose its reading is $E_{\\rm obs}(t)=E(t)+\\nu(t)$. The measurement error is assumed to have:"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      21,
+      23
+    ],
+    "text": "- Zero mean and variance $\\sigma_m^2$. - Independence from true movement. - No correlation between distinct sampled times."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      25,
+      25
+    ],
+    "text": "For a positive lag,"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      40,
+      40
+    ],
+    "text": "The mixed movement-error term vanishes by independence. This is Eqs. 18–19. The correction is the variance of a difference of two errors, $2\\sigma_m^2$, rather than the variance of a single position error. At exactly zero lag the same error is subtracted from itself, so the MSD is zero. A positive lag plateau near zero lag can still occur when successive measurement errors are independent.[^p2-msd-noise]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      46,
+      46
+    ],
+    "text": "The authors estimated the plateau contribution at order $10^{-3}$ deg$^2$, checked its scale with a coil fixed in space, and subtracted that contribution from the observed MSD. [This is a correction of an average statistic, not knowledge of each trial's unknown noise.]{.key-statement} Smoothing the eye trajectories instead would also change the movement statistics the analysis seeks to measure. If the plateau estimate has uncertainty $10^{-4}$ deg$^2$, a corrected MSD of that size is unreliable even when the plateau itself is much larger. The peer review response uses this example to explain the shortest lag limitation.[^p2-noise-limit]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      60,
+      60
+    ],
+    "text": "For instance, a constructed measured MSD of $0.0014$ deg$^2$ with an estimated noise contribution $0.0010$ deg$^2$ leaves $0.0004$ deg$^2$. A $0.0001$ deg$^2$ uncertainty in the subtraction is already 25% of that result. This is why a corrected short lag point needs an uncertainty assessment as well as a positive value. If measurement errors were temporally correlated, the correction would instead be $2[\\sigma_m^2-C_\\nu(\\ell)]$, where $C_\\nu$ is their covariance at lag $\\ell$. A constant subtraction would then need revision."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      64,
+      64
+    ],
+    "text": "For a constructed Brownian movement with $D=0.010$ deg$^2$/s, adding independent position measurement errors with $2\\sigma_m^2=0.0010$ deg$^2$ shifts every positive-lag MSD upward by the same amount."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      73,
+      73
+    ],
+    "text": "The Brownian movement is chosen only to make the constant offset visible. See [Measurement noise correction, Eqs. 18–19, p. 10](../papers/ben-shushan-2022-fixational-drift.pdf#page=10)."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      78,
+      78
+    ],
+    "text": "The corrected MSD keeps increasing over the observed range, toward a second, while its logarithmic slope decreases and remains between one and two. Define that local slope by"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      86,
+      86
+    ],
+    "text": "Ordinary diffusion has $M=2D\\ell$ and $\\alpha=1$. A roughly constant velocity over a short interval gives displacement $v\\ell$ and $M=\\mathbb E[v^2]\\ell^2$, so $\\alpha=2$. [Growth faster than linear is called [**superdiffusion**]{.definition-term custom-style=\"Definition Term\"}. Here it describes a finite range of lags. It does not assert a single power law for arbitrarily long times.]{.definition-explanation}[^p2-msd-result]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      91,
+      91
+    ],
+    "text": "Could temporally uncorrelated motor noise acquire the observed MSD just by passing through muscles? [A [**low pass filter**]{.definition-term custom-style=\"Definition Term\"} suppresses rapid input changes relative to slow ones.]{.definition-explanation} The input is idealized as [white noise](ch-memory-readout.html#sec-memory-extensions), so fluctuations at unequal times are uncorrelated. [A stable, decaying response to this noise produces a [**stationary process**]{.definition-term custom-style=\"Definition Term\"} in the sense needed here: its mean is constant and its covariance depends only on time separation.]{.definition-explanation} Its position variance consequently does not grow with absolute time. Let $E=h*\\xi$, where"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      99,
+      99
+    ],
+    "text": "The noise intensity $A$ has units input$^2$ times seconds. Expanding the convolution and using the delta function yields, for $\\ell\\ge0$,"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      106,
+      106
+    ],
+    "text": "For a stationary centered position, expanding the squared difference then gives"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      115,
+      115
+    ],
+    "text": "If the kernel decays sufficiently rapidly, its overlap with a shifted copy tends to zero. The MSD consequently approaches $2C_E(0)$, a finite plateau. This reconstructs the reasoning of Eqs. 20–22.[^p2-white-noise]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      120,
+      120
+    ],
+    "text": "For the one exponential filter $h(u)=\\Theta(u)e^{-u/\\tau}/\\tau$,"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      127,
+      127
+    ],
+    "text": "This simple filter has a short lag MSD proportional to $\\ell$ and a long lag plateau. A double exponential filter is smoother at short lags, but still gives a plateau because its kernel also decays. Increasing $A$ raises the curve without removing its flattening. The paper's simulated private OMN noise, passed through muscle dynamics, is both too small and too flat at long lags. In Fig. 3b, using 2,000 heterogeneous OMNs, its contribution is about 1% of the observed variance near 900 ms.[^p2-msd-result]"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      139,
+      139
+    ],
+    "text": "Filtered white noise cannot explain continued long-lag growth. Suppose instead the input is a stored position $B(t)$ undergoing Brownian motion with $\\mathbb E[(B(t+\\ell)-B(t))^2]=2D\\ell$. Its position variance accumulates. A low pass filter with nonzero static gain smooths the path while retaining that accumulating long time displacement variance. The following one exponential example is a teaching reconstruction, not the paper's full muscle model. It derives how smooth movement can have a slope between one and two even though the stored position undergoes ordinary diffusion."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      142,
+      142
+    ],
+    "text": "Let"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      148,
+      148
+    ],
+    "text": "Here $B$ is the changing position command and $E$ is the eye angle that follows it, both in degrees. The mismatch $B-E$ drives velocity: a command to the right of the current position makes the eye move right. For the same mismatch, a larger response time $\\tau$ gives a smaller velocity, so the eye takes longer to catch up and smooths rapid command changes more strongly. This response time belongs to the simplified eye filter. It is not automatically the synaptic decay time used in the memory model."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      150,
+      150
+    ],
+    "text": "$W$ is a Brownian process with unit increment variance per unit time, so $D$ has units deg$^2$/s. Define velocity $v=\\dot E=(B-E)/\\tau$. Taking its increment gives"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      156,
+      156
+    ],
+    "text": "Velocity loses its past value over time $\\tau$ and receives new random input. To add the surviving effect of those inputs, divide the past into short intervals of width $h$. The Brownian change $\\Delta W_j=W(u_j+h)-W(u_j)$ has mean zero and variance $h$. Changes in disjoint intervals are independent. Its contribution to the velocity at time $t$ is approximately $(\\sqrt{2D}/\\tau)e^{-(t-u_j)/\\tau}\\Delta W_j$: the initial change has decayed between $u_j$ and $t$."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      159,
+      159
+    ],
+    "text": "The integral against $dW(u)$ denotes the limit of these weighted sums as $h$ tends to zero. It does not require an ordinary derivative of the Brownian path. After the initial velocity has decayed, extending the input history into the distant past gives"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      166,
+      166
+    ],
+    "text": "For a lag $s\\geq0$, multiply the sums for $v(t)$ and $v(t+s)$ and average. Products of distinct increments have zero mean. The same increment contributes its variance $h$, so the sum becomes an ordinary overlap integral over their shared past:"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      178,
+      178
+    ],
+    "text": "Here $r=t-u$ is the age of an input increment. Covariance is even in the lag, so $C_v(s)=(D/\\tau)e^{-|s|/\\tau}$ for either sign of $s$. Integrating velocity over an interval gives position change. The double integral over its covariance reduces to"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      189,
+      189
+    ],
+    "text": "At short lags, $1-e^{-\\ell/\\tau}=\\ell/\\tau-\\ell^2/(2\\tau^2)+\\cdots$, so"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      195,
+      195
+    ],
+    "text": "The eye keeps approximately the same velocity over that interval. At long lags,"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      201,
+      201
+    ],
+    "text": "which grows linearly rather than approaching a plateau."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      203,
+      203
+    ],
+    "text": "Holding the internal diffusion coefficient $D$ fixed, increasing $\\tau$ reduces short-lag displacement and moves the transition to linear growth to longer lags. It does not stop accumulating error: the long-lag MSD growth rate still approaches $2D$. Increasing $D$ instead raises the entire MSD curve in proportion, at fixed $\\tau$. The local logarithmic slope of this MSD is"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      211,
+      211
+    ],
+    "text": "approaching two at short lags and one at long lags. At $\\ell=\\tau$ it is $e-1\\simeq1.718$. At $\\ell=5\\tau$ it is about $1.239$. [Thus an intermediate slope can arise from filtering ordinary diffusion, without faster than Brownian accumulation inside the memory circuit.]{.key-statement}"
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      214,
+      214
+    ],
+    "text": "The curves compare the two inputs after the same filter with one exponential response, also called a one pole filter."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      222,
+      222
+    ],
+    "text": "The white-input short-lag slope of one belongs to this one-pole example."
+  },
+  {
+    "chapter": "04b-eye-timing",
+    "lines": [
+      225,
+      225
+    ],
+    "text": "The actual muscle response contains fast and slow exponential components, and the full model also contains motor neuron filtering and feedback. Those ingredients change the detailed curve. The one exponential derivation teaches the distinction relevant to Fig. 3: [a decaying low pass filter of stationary white noise saturates, whereas the same filter, with nonzero static gain, retains accumulating displacement from a wandering position. A slow correlated peripheral source is a different hypothesis from the temporally uncorrelated noise rejected by this comparison.]{.key-statement}"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "The recordings support a shared source before the motor neurons, and the movement's timing is compatible with a stored position that wanders. [Neither result identifies the circuit that supplies that command. A noisy memory circuit is a proposed explanation whose output must pass through the motor neurons and muscles before it can be compared with eye movement.]{.key-statement}"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      7,
+      7
+    ],
+    "text": "Following that complete path lets the model test whether neural noise can produce both the amount and timing of the observed drift. Its spike variability, neuron count and time constants determine how much freedom this match allows. Comparing the model with the separate recording and timing results then shows what the study supports, and why it still leaves other upstream sources possible."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "The recording analysis places much of the drive upstream of OMNs. To test whether integrator noise could supply it, the authors build a model from a noisy memory circuit through to the eye. The model adapts an earlier goldfish integrator architecture to primate tuning and variability. The model has two groups of integrator neurons. One group fires more when the eye points farther right. The other fires more when it points farther left. Neurons excite cells in their own group and inhibit cells in the other group. The connection strengths are tuned so that the circuit can approximately maintain a range of represented eye positions.[^p2-network]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      13,
+      13
+    ],
+    "text": "For the right population, the model's rate is"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      20,
+      20
+    ],
+    "text": "$E_{OI}$ is the internally represented position in degrees, $\\zeta_i^R$ is a tuning slope in spikes/(s deg), and $\\lambda_i^0$ is a rate offset in spikes/s. Taking the maximum with zero prevents negative firing. $F$ is a feedback input in degrees, defined below. The matching left neuron has the opposite slope, $\\zeta_i^L=-\\zeta_i^R$. In an active neuron, a change of one degree changes its rate by $\\zeta_i$."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      22,
+      22
+    ],
+    "text": "The model scales each spike train into an input $X_i$ with a saturating mean response. This input changes the neuron's synaptic output $S_i$, the lingering effect of its spikes on neurons receiving them. A weighted difference between the two groups' synaptic outputs gives the represented eye angle $E_{OI}$. This value sets the firing rates again, closing the feedback loop:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      31,
+      31
+    ],
+    "text": "Here $\\xi_i^R$ is a spike train generated at rate $\\lambda_i^R$, $\\tau_s$ is the synaptic decay time, and $\\lambda_t=60$ Hz sets the rate scale in the nonlinear synaptic response. Treating spikes as counts, $X_i$ and $S_i$ are dimensionless, and the weights $\\eta_i$ are in degrees. Between spikes, $S_i$ decays exponentially. One spike adds a jump of $1/[\\tau_s(\\lambda_t+\\lambda_i^R)]$. Replacing spikes by their mean rate gives a drive $\\lambda_i^R/(\\lambda_t+\\lambda_i^R)$ that approaches one as the rate increases. This is the model's saturating synaptic effect, rather than the purely linear synapses of the basic 2012 example.[^p2-network]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      34,
+      34
+    ],
+    "text": "Persistence requires a further condition on that feedback. Set $F=0$ and replace spikes by their mean rates. Define the mean saturated drives at a proposed stored value $z$ by"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      42,
+      42
+    ],
+    "text": "Multiply each synaptic equation by its readout weight, subtract the left contribution, and sum. Since the same $\\tau_s$ applies to every unit, the readout obeys"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      50,
+      50
+    ],
+    "text": "[An exact continuum of persistent readout values would require $G(z)=z$ over the represented range.]{.key-statement} For a small displacement from a fixed value, Taylor expansion gives"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      58,
+      58
+    ],
+    "text": "Thus $G'(z)=1$ is the local neutral condition for the stored coordinate. Stable directions of the remaining synaptic state are also needed for an attractor. The weights were optimized to approximate the fixed-point relation across $-50$ to $50$ degrees. [Residual mismatch can produce deterministic drift, so this finite optimized circuit provides approximate persistence rather than an exactly neutral continuum.]{.key-statement} The tuning slopes and thresholds were sampled to match reported macaque relationships and variation. With spikes, perturbations along the nearly neutral direction also accumulate. This reduction is a teaching derivation from the paper's equations. Figure 4 separates the resulting internal diffusion from later muscle smoothing.[^p2-network]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      70,
+      70
+    ],
+    "text": "The motor neurons receive this position signal:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      78,
+      78
+    ],
+    "text": "$\\lambda_i^M$ is a motor rate in spikes/s, $E_{T_i}$ is that neuron's position threshold in degrees, and $k_i$ is its position sensitivity. $\\xi_i^M$ is its generated spike train. The filtered output $s_i^M$ also has units spikes/s, with decay time $\\tau_{MN}$. One spike makes a jump of $1/\\tau_{MN}$. At constant mean rate, the mean output is that rate."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      80,
+      80
+    ],
+    "text": "Each motor unit's muscle and plant response is represented by a position contribution $E_i$ satisfying"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      90,
+      90
+    ],
+    "text": "These are Eqs. 28–31. The second order equation uses the same roles and units as the forward fit. At constant $E_{OI}$, an active unit has mean $s_i^M=k_i(E_{OI}-E_{T_i})$, giving mean $E_i=E_{OI}$ when derivatives vanish. Averaging therefore transmits the common position while reducing independent private fluctuations. This is an effective model of combined motor output, not a claim that one motor unit moves an isolated eye of its own.[^p2-motor]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      95,
+      95
+    ],
+    "text": "The model used diverse thresholds and response coefficients, with motor thresholds sampled between $-45$ and $-5$ degrees, and imposed $m_i<r_i^2/(4k_i)$ to give nonoscillatory individual response kernels. Main Methods report $N=30{,}000$ integrator neurons, $N_m=1{,}000$ OMNs, and $\\tau_s=20$ ms for the main full simulation. The separate private OMN comparison in Fig. 3 used 2,000 OMNs. These neuron counts belong to different simulation comparisons.[^p2-motor]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      97,
+      97
+    ],
+    "text": "As the eye moves while viewing a stationary target, the target's image moves across the retina. The authors assume that visual feedback responds to this recent image motion rather than to an absolute target-position error. Their delayed feedback model is:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      104,
+      104
+    ],
+    "text": "Both positions are in degrees, so $A$ is dimensionless in this formulation. The main value is $A=0.015$. If gaze and its internal representation have recently moved rightward, the delayed position is to their left, making $F$ negative. Its contribution to the integrator rates then opposes continued rightward movement. For a slowly varying position that the eye tracks, $E(t-\\tau_d)-E_{OI}(t)\\simeq-\\tau_d\\dot E(t)$, showing the velocity-like action and sign. The approximation requires tracking and slow change over the delay.[^p2-feedback]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      107,
+      107
+    ],
+    "text": "The effect on the ongoing MSD must be checked from the coupled model, rather than inferred from the delay alone. A short MSD lag is a separation between two samples in a running process, not the time since a new perturbation. Past measurements can already affect both samples, and $F$ also contains the immediate term $-A E_{OI}(t)$. Extended Data Fig. 3 compares the model with and without feedback: feedback changes amplitude across lags, while its larger effect on logarithmic slope occurs at longer lags. Figure 5 shows the full model. [Muscle filtering supplies the short-lag smoothness, and feedback improves the detailed longer-lag fit. These are results of this model comparison, not a hard delay-based cutoff or a claim excluding visual control under other tasks.]{.key-statement}[^p2-feedback]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      130,
+      130
+    ],
+    "text": "An agreement in amplitude is informative only if we know how much freedom the model has. The paper uses regular spike trains. The [spike variability section](ch-foundations.html#sec-foundations-poisson) defined the interspike interval coefficient of variation (CV) as the interval standard deviation divided by its mean. A Poisson process at constant rate has CV one. The model uses about 0.22 for integrator neurons and about 0.07 for OMNs. [Such firing is called [**sub-Poisson spiking**]{.definition-term custom-style=\"Definition Term\"} here because its long window count variability is lower than a Poisson process at the same rate, under the interval construction used in the model.]{.definition-explanation}[^p2-cv]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      133,
+      133
+    ],
+    "text": "The construction starts with a Poisson process at $M$ times the desired rate and retains every $M$th spike. At constant rate, a retained interval is the sum of $M$ independent exponential intervals. Each initial interval has mean $1/(M\\lambda)$ and variance $1/(M\\lambda)^2$. The retained interval therefore has mean $1/\\lambda$, variance $1/(M\\lambda^2)$, and CV $1/\\sqrt M$. This preserves the mean rate while reducing variability. Its use at changing rates is part of the model. The simple interval derivation assumes a constant rate."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      137,
+      137
+    ],
+    "text": "At constant rate, the retained intervals are independent. [This is a [**renewal process**]{.definition-term custom-style=\"Definition Term\"}, a spike process whose successive intervals are independent and identically distributed.]{.definition-explanation} Let their mean be $\\mu=1/\\lambda$ and standard deviation $\\sigma_I$. The time to $n$ spikes has variance $n\\sigma_I^2$. For a long fixed window $L\\simeq n\\mu$, a fluctuation in total interval time produces the opposite fluctuation in count divided by $\\mu$. Thus"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      146,
+      146
+    ],
+    "text": "This explains why the diffusion scale contains CV squared: it is the strength of the accumulated spike fluctuations relative to the Poisson case. The [diffusion calculation](ch-memory-dynamics.html#sec-memory-diffusion) and [information bound](ch-memory-information.html#sec-memory-bound) show how projecting those fluctuations onto a neutral memory direction adds a factor proportional to $1/\\tau_s^2$ and, for a comparable independent population, $1/N$."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      148,
+      148
+    ],
+    "text": "Rate and sensitivity need more care. Write the absolute local rate slope as $a=d\\lambda/dE$, in spikes/(s deg). For a scale estimate, first use the simpler Poisson model with linear synapses. If $N$ similar cells fire near rate $\\lambda_0$, their Poisson information per unit time about position is"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      154,
+      154
+    ],
+    "text": "Using the [information-diffusion relation](ch-memory-information.html#sec-memory-bound) as a scale, including the $\\mathrm{CV}^2$ factor just derived and holding the network geometry fixed,"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      161,
+      161
+    ],
+    "text": "If instead sensitivity is expressed as the fractional slope $b=a/\\lambda_0$, in inverse degrees, the same expression becomes"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      167,
+      168
+    ],
+    "text": "This second form has the dependence printed in the paper's Eq. 1, $D\\propto\\mathrm{CV}^2N^{-1}\\lambda_0^{-1}k_0^{-2}\\tau_s^{-2}$."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      170,
+      170
+    ],
+    "text": "However, its surrounding text calls $k_0$ position sensitivity without specifying fractional normalization. If it means the absolute slope in Hz/degree, the Poisson estimate above instead puts $\\lambda_0$ in the numerator at fixed slope. The printed inverse-rate dependence matches a fractional slope. The printed expression is a proportionality, so an omitted factor can carry units; units alone do not establish a printing error. This calculation is a scale estimate under fixed network geometry. The full 2022 model has saturating synapses and sub-Poisson spike trains, so inserting CV squared into the simpler Poisson relation does not give an exact formula for that network.[^p2-scaling]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      173,
+      173
+    ],
+    "text": "Within this scale estimate, at fixed network geometry and under the noise assumptions above:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      175,
+      178
+    ],
+    "text": "- Doubling $N$ halves it. - Doubling CV multiplies it by four. - Doubling $\\tau_s$ divides it by four. - Doubling the absolute slope at fixed rate also divides it by four."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      180,
+      180
+    ],
+    "text": "[Increasing rate reduces diffusion when the fractional slope is fixed, because more spikes then also supply a proportionally steeper absolute slope. Increasing rate at fixed absolute slope is a different comparison and increases the scale in the first formula. A rate change alone does not specify which comparison is intended.]{.key-statement}"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      182,
+      182
+    ],
+    "text": "Could the measured CV itself mostly reflect drift rather than private spike variability? Supplementary Notes test this. Let $\\lambda(t)=\\bar\\lambda+aB(t)$ during a fixation of length $T$, with the rate changes small relative to $\\bar\\lambda$. For a Brownian path starting at zero, the expected time averaged squared position is $DT$, and the expected squared time mean is $2DT/3$. Subtracting gives the expected within-segment position variance $DT/3=2DT/6$:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      189,
+      191
+    ],
+    "text": "The second term follows from $\\mathbb E[B(t)B(s)]=2D\\min(t,s)$ and $T^{-2}\\int_0^T\\int_0^T2D\\min(t,s)\\,dt\\,ds=2DT/3$. Expanding $1/(\\bar\\lambda+aB)$ to first order gives $1/\\bar\\lambda-aB/\\bar\\lambda^2$. Dividing its standard deviation by its mean then gives"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      199,
+      199
+    ],
+    "text": "With the supplement's values $a=1/15$ spikes/(s arcmin), $2D=100$ arcmin$^2$/s, $T=0.5$ s, and $\\bar\\lambda=80$ Hz, this is about $0.0024$, well below the OMN CV near 0.07. These are an order of magnitude check, not a fitted diffusion constant for the whole model. Since one degree is 60 arcmin, that $2D$ equals $0.0278$ deg$^2$/s, or $D=0.0139$ deg$^2$/s.[^p2-cv-drift]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      205,
+      205
+    ],
+    "text": "The five figures address different steps. Their agreement is easier to assess when those questions remain separate."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      214,
+      214
+    ],
+    "text": "The most useful supplemental comparisons are Extended Data Fig. 1 for individual uncertainty, Fig. 2 for noise subtraction and its simulated control, Fig. 3 for feedback, Fig. 4 for a no-central-drive control, and Fig. 5 for the other monkey's fit. In the no-central-drive control, $\\widehat\\chi=-0.09\\pm0.22$ is compatible with zero. That negative estimate is sampling variation. Figures 6–8 document cell classification, segment sampling, and a rank correlation check. [The [**Spearman correlation**]{.definition-term custom-style=\"Definition Term\"} used in Figure 8 replaces each set of measured values by their ranks before computing correlation.]{.definition-explanation} It checks whether larger predicted displacements tend to accompany larger recorded displacements, without requiring the relationship to be linear. Figure 9 shows the heterogeneous model parameters. Figure 10 separates spiking noise passed directly to the output from spiking noise that drives diffusion inside the integrator: internal stochastic spikes remain in the latter comparison. Its caption reports little direct output-noise effect beyond 50 ms.[^p2-supp-figures]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      272,
+      272
+    ],
+    "text": "The data and model answer different questions about where the drive originates:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      274,
+      276
+    ],
+    "text": "- The common variance estimate supports a drive upstream of OMNs, given the calibration and noise assumptions. - The MSD comparison supports a command that accumulates variation over the measured interval, rather than stationary white noise passed through a decaying muscle filter. - The circuit model shows that integrator noise with plausible parameters can generate such a command and explain its filtered amplitude and timing."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      279,
+      279
+    ],
+    "text": "Those results do not uniquely locate the noise inside integrator neurons. Two missing tests limit that conclusion:"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      282,
+      285
+    ],
+    "text": "<!-- vale ai-tells.NegatedSubject = NO --> - No integrator neurons were recorded in this study. <!-- vale ai-tells.NegatedSubject = YES --> - No selective change of that circuit tested whether it was necessary for drift."
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      287,
+      287
+    ],
+    "text": "[Noisy inputs to the integrator, or an already diffusive upstream signal, remain possible. The authors make this distinction in the Discussion and explicitly in their peer review response. Several combinations of neuron count, variability, and synaptic time constant can also fit an amplitude, so matching one curve does not uniquely recover those parameters.]{.key-statement}[^p2-localization]"
+  },
+  {
+    "chapter": "04c-eye-circuit",
+    "lines": [
+      290,
+      290
+    ],
+    "text": "The study's empirical scope is horizontal motion during these fixation segments in two animals. Visual tasks, feedback, and other sources of input can alter the statistics. Its contribution to the connection with the 2012 theory is more precise: a continuous memory can diffuse internally, while a mechanical output of that memory looks smooth and superdiffusive at shorter lags. To compare a memory theory with behavior, the mapping from stored value to measured movement is part of the calculation."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "The study compares recordings of hippocampal place cells from bats flying through tunnels, rats moving over an arena floor, and bats flying through a room. For tunnel flights, the analysis uses distance along an approximately one-dimensional route, although the tunnel itself has width and height. The floor map uses two position coordinates, and the room map uses three."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      7,
+      7
+    ],
+    "text": "A cell recorded on a short track may have one smooth firing hill. [On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?]{.key-statement}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "Mainali, Azeredo da Silveira, and Burak propose that a cell's spatial input is a smooth random function. This function can be interpreted as the average combined input arriving through the cell's synapses at each animal position. The model cell has positive firing rate where this input exceeds a threshold. The recordings estimate firing rates rather than measuring this input directly.[^p3-model] [The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests check whether fitting field sizes and counts also explains field shapes and holes.]{.key-statement}[^p3-question]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      15,
+      15
+    ],
+    "text": "We begin on a track, where a field starts at [an [**upcrossing**]{.definition-term custom-style=\"Definition Term\"}, a point where the input crosses upward through the threshold.]{.definition-explanation} Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      17,
+      17
+    ],
+    "text": "[Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning.]{.key-statement}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      21,
+      21
+    ],
+    "text": "To predict a field's width, we need to relate activity at nearby positions. A histogram of firing rates alone loses that information: rearranging its values could turn one broad field into many tiny fields without changing the histogram."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      23,
+      23
+    ],
+    "text": "The model assigns an input $h(x)$ to each position $x$, with nearby values linked so that a cell can have a continuous active region. [A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} specifies a distribution of maps such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} [A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} This joint rule constrains how inputs at different positions can vary together, beyond requiring a Gaussian histogram at each position."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      25,
+      25
+    ],
+    "text": "The mean sets the average input, and the spatial covariance describes how inputs at two positions vary together across possible maps. These functions determine the joint Gaussian laws. The chosen covariance must also make the maps smooth enough for the derivatives used below. After a map is drawn, moving the animal changes which position is evaluated, not the map itself."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      30,
+      30
+    ],
+    "text": "For chosen positions $x_1,\\ldots,x_n$, the input vector is $(h(x_1),\\ldots,h(x_n))$. Its mean vector and covariance matrix are obtained by evaluating two functions,"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      39,
+      39
+    ],
+    "text": "The expectation runs over possible maps, or over cells assumed to share these statistics. For jointly Gaussian vectors, zero covariance between two subvectors implies their independence. That extra property, which does not hold for general distributions, will simplify the crossing calculation. The values after thresholding will generally not have a Gaussian distribution.[^p3-model]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      45,
+      45
+    ],
+    "text": "Three assumptions have different jobs:"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      48,
+      54
+    ],
+    "text": "<!-- vale ai-tells.EmptyPadding = NO --> - [[**Stationarity**]{.definition-term custom-style=\"Definition Term\"} means that moving the observation window does not change the map's probability law. Here it gives a constant mean and a covariance $C(x,y)=C(y-x)$ that depends on separation.]{.definition-explanation} It does not say that a particular map is flat. <!-- vale ai-tells.EmptyPadding = YES --> <!-- vale ai-tells.ParallelStaccato = NO --> - [[**Isotropy**]{.definition-term custom-style=\"Definition Term\"} means that rotating the separation does not change the covariance: in several dimensions, $C(\\Delta x)$ depends only on $\\|\\Delta x\\|$.]{.definition-explanation} It rules out a preferred direction in the model's statistics. Stationarity alone does not imply isotropy. <!-- vale ai-tells.ParallelStaccato = YES --> - [[**Smoothness**]{.definition-term custom-style=\"Definition Term\"} controls whether the map has well defined spatial derivatives.]{.definition-explanation} Crossing calculations require differentiable sample functions and nondegenerate joint distributions: the relevant vector of heights and derivatives must have an invertible covariance matrix, rather than obey an exact linear constraint. Peak calculations require second derivatives and enough regularity to control their local approximation."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      57,
+      57
+    ],
+    "text": "A Gaussian distribution of values does not guarantee this smoothness. For example, a covariance proportional to $e^{-|x-y|/b}$ has a sharp corner at zero separation and does not supply the differentiable paths assumed below."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      60,
+      60
+    ],
+    "text": "Set the mean to zero and write $\\sigma_h^2=C(0)$ for input variance. A constant input mean can be absorbed into the threshold. It is useful to normalize the input,"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      68,
+      68
+    ],
+    "text": "Here $z$ has variance one, $q$ is a dimensionless threshold, and $a>0$ converts normalized input to firing rate, in Hz. The paper writes $\\theta$ for $q$, $r$ for covariance, and $D$ for spatial dimension. This guide uses $q,C,d$ to avoid conflicts with earlier chapters. The original input threshold is $q\\sigma_h$. In the paper's Equation 3 the firing rate is proportional to $[h-q\\sigma_h]_+$, which is equivalent to this form after choosing the gain.[^p3-model]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      70,
+      70
+    ],
+    "text": "The input threshold summarizes how much combined input is needed before the model cell fires. It can reflect the cell's own response properties and inhibitory input. Raising $q$ at a fixed input map leaves fewer positions active. If the absolute threshold above the input mean is positive and held fixed, increasing the input standard deviation $\\sigma_h$ lowers $q$, making activity more widespread. Changing $a$ instead changes rates within active regions while preserving their zero-rate boundaries. A fixed positive detection cutoff in Hz would change this last conclusion. [A fitted threshold describes the balance of input and response. It does not identify which biological quantity changed.]{.key-statement}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      81,
+      81
+    ],
+    "text": "[The [**excursion set**]{.definition-term custom-style=\"Definition Term\"} above $q$ is]{.definition-explanation}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      89,
+      89
+    ],
+    "text": "Each connected piece of $A_q$ is a model place field. In one dimension its size is length. In two and three dimensions it is area and volume. [Two nearby peaks belong to one field if an above-threshold path joins them. Counting peaks and counting fields therefore answer different questions.]{.key-statement}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      93,
+      93
+    ],
+    "text": "For a one dimensional stationary process, differentiation of covariance gives"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      100,
+      100
+    ],
+    "text": "The minus sign comes from differentiating $y-x$ once with respect to each variable. The paper defines the spatial scale"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      108,
+      108
+    ],
+    "text": "Thus $\\sigma$ compares typical height with typical slope and has units of distance. In an isotropic field, the same definition applies along any unit direction. For the smooth Gaussian covariance $C(\\Delta x)=\\sigma_h^2\\exp[-\\|\\Delta x\\|^2/(2\\sigma^2)]$, it is exactly the parameter in that exponent. The paper uses a Gaussian covariance for its simulations. Other smooth covariances can share this local scale while having different longer distance structure.[^p3-scale]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      111,
+      111
+    ],
+    "text": "A simulated Gaussian input map with covariance $C(\\Delta x)=\\exp[-(\\Delta x/\\sigma)^2/2]$ gives the firing map below when $q=0.8$ and $a=6$ Hz. Position is shown in units of $\\sigma$."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      120,
+      120
+    ],
+    "text": "Thresholding changes the distribution of values and can separate one smooth input curve into several fields. Both panels describe the same fixed map over space, so neither curve is a trajectory over time. See [Gaussian input and firing rate, STAR Methods Eqs. 2–3, p. e1](../papers/mainali-2025-universal-statistics.pdf#page=13)."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      125,
+      125
+    ],
+    "text": "A field starts at an upcrossing, so its expected count can be found by counting upward passages through the threshold. A small interval around each crossing has a width determined by its slope. This lets us count crossings without locating every root."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      127,
+      127
+    ],
+    "text": "Consider a differentiable fixed curve and a simple upward crossing $x_0$ of $q$, with slope $v=z'(x_0)>0$. Close to the crossing,"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      134,
+      134
+    ],
+    "text": "The curve lies in the vertical band $|z-q|<\\varepsilon$ for a spatial distance approximately $2\\varepsilon/v$. Integrating $z'(x)/(2\\varepsilon)$ over that interval contributes one. Restricting to positive slopes counts only upward crossings. [Under the usual regularity conditions, averaging this counting identity gives the [**Kac–Rice formula**]{.definition-term custom-style=\"Definition Term\"} for the mean upcrossing density,]{.definition-explanation}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      141,
+      141
+    ],
+    "text": "The density $p_{z,z'}(q,v)$ describes how often height is near $q$ and slope near $v$. Multiplication by $v$ compensates for the shorter spatial window of a steep crossing. Multiplying the probability of being above threshold by a typical slope would miss this weighting.[^p3-crossings]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      143,
+      143
+    ],
+    "text": "A fixed smooth curve shows how to count a field already active at the left edge and why the crossing integral weights each slope."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      151,
+      151
+    ],
+    "text": "The count includes every connected active interval intersecting the track. Discarding clipped boundary fields would change this convention."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      153,
+      153
+    ],
+    "text": "We can evaluate the integral because height and slope are independent here. Stationarity gives"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      160,
+      160
+    ],
+    "text": "Height and slope are jointly Gaussian. Zero covariance therefore makes them independent. Their distributions are $z\\sim\\mathcal N(0,1)$ and $z'\\sim\\mathcal N(0,\\sigma^{-2})$. Consequently,"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      176,
+      176
+    ],
+    "text": "In the integral, use $u=\\sigma^2v^2/2$, so $v\\,dv=du/\\sigma^2$. [This result is exact for the stated smooth stationary Gaussian model. A high threshold is not needed.]{.key-statement} Its units are inverse distance: increasing $\\sigma$ stretches the map and reduces crossings per metre."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      179,
+      179
+    ],
+    "text": "On a finite track $[0,L]$, each upcrossing starts a field, but a field may already be active at the left endpoint. If $N_L$ counts all components intersecting the track, then, under regularity conditions that exclude tangencies and give nonzero slopes at crossings,"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      187,
+      187
+    ],
+    "text": "where $Q(q)=1-\\Phi(q)$ and $\\Phi$ is the standard normal cumulative distribution function. The last term is the endpoint correction. Removing incomplete boundary fields changes the counting convention, so the same correction cannot then be used unchanged. This identity also gives the paper's exact one dimensional mean Euler characteristic, Equation 8. In one dimension, the Euler characteristic is the number of connected active intervals, so it is the field count used here. The [later topology chapter](ch-place-tests.html#sec-place-topology) extends this count to maps with holes.[^p3-ec-source]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      191,
+      191
+    ],
+    "text": "[A low field count can result from a high threshold or a slowly varying map. Field lengths help separate those possibilities.]{.key-statement}"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      194,
+      194
+    ],
+    "text": "At a uniformly chosen position, the probability of activity is $Q(q)$. Hence a track of length $L$ has expected occupied length $LQ(q)$. On a long stationary track, the average occupied length per field is the occupied length per unit distance divided by the number of fields per unit distance. The corresponding gap calculation uses the inactive fraction $\\Phi(q)$:"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      206,
+      206
+    ],
+    "text": "These are stationary per-field and per-gap means, ignoring clipping at track boundaries. They are not an assertion that the expectation of a finite sample's ratio equals the ratio of its expectations. Subject to suitable averaging over a long track or many maps, they give the inference rule in Methods S3, Equations S14–S15.[^p3-means]"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      208,
+      208
+    ],
+    "text": "Adding and dividing removes one unknown at a time:"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      216,
+      216
+    ],
+    "text": "Thus"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      227,
+      227
+    ],
+    "text": "For example, $q=1.1$ and $\\sigma=2.4$ m, the fitted parameters reported for the 200 m bat tunnel, give $Q(q)=0.1357$, $\\nu_+=0.03621$ per metre, $\\mu_s=3.746$ m, and $\\mu_g=23.868$ m in the continuous model. Putting these two means into the inversion recovers $q=1.1$ and $\\sigma=2.4$ m. The expected number of intersecting fields on a 200 m track is $7.2425+0.1357=7.3782$, including the left endpoint term. These are calculations from the fitted model, not fresh estimates from raw recordings."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      234,
+      234
+    ],
+    "text": "[The means do not imply a full gap or count distribution. At high thresholds, distant rare excursions can approach independent events if correlations decay sufficiently with distance. In that regime, field locations approach a Poisson process, counts in a long interval are approximately Poisson, and gaps are approximately exponential. Smoothness and stationarity alone do not ensure this independence.]{.key-statement} A periodic Gaussian process, for example, retains long distance dependence. Upward and downward crossings that enclose the same small field remain strongly related even when fields far apart are almost independent."
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      239,
+      239
+    ],
+    "text": "Experimental selection also matters. If cells with no fields are excluded, a Poisson model with unconditioned mean $\\lambda$ gives"
+  },
+  {
+    "chapter": "05-place-fields",
+    "lines": [
+      248,
+      248
+    ],
+    "text": "The mean follows because the omitted $n=0$ term contributes zero to $\\sum n\\Pr(N=n)=\\lambda$, while conditioning divides all remaining probabilities by $1-e^{-\\lambda}$. For $\\lambda=1$, $36.8\\%$ of cells are excluded and the observed mean is $1.582$, not one. Using $1.582$ as the unconditioned mean would infer too many fields. The paper applies this correction to its two dimensional count fit, Equation 5.[^p3-selection]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      5,
+      5
+    ],
+    "text": "[Knowing the average field length does not tell us how often fields fall within a given size range. Why should the same spatial model give one size distribution on a track, another in an arena, and a third in a room?]{.key-statement} The next step is to find the shape of a typical field when only unusually high input peaks rise above the threshold."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      9,
+      9
+    ],
+    "text": "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, and converting that radius into length, area or volume gives the different size laws. Cuts through a map test its spatial structure, and slopes at field edges provide a separate check on the predicted field widths. [The size laws use a high threshold approximation. The boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.]{.key-statement}"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "We keep the earlier notation: $z(x)$ is the spatial input normalized to variance one, $q$ is its threshold, $\\sigma$ is its local distance scale, and $a$ converts positive excess input into firing rate. The number of spatial dimensions is $d$. The firing rule remains $F(x)=a[z(x)-q]_+$, where $[u]_+=\\max(u,0)$."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      15,
+      15
+    ],
+    "text": "The crossing calculation determines a mean length exactly, but it does not yet explain the shape of the length histogram. To obtain that distribution, we examine the small region around a peak that barely exceeds a high threshold."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      18,
+      18
+    ],
+    "text": "The following is a teaching reconstruction of the high excursion argument in Methods S4, with algebraic corrections made explicit below. It assumes:"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      21,
+      24
+    ],
+    "text": "- a sufficiently smooth, stationary, isotropic, unit variance Gaussian field. - an invertible covariance matrix for the relevant derivative variables. - the limit $q\\to\\infty$. - typical components counted once each, away from environment boundaries."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      26,
+      26
+    ],
+    "text": "It is not a proof of the full excursion convergence theorem for every allowed covariance.[^p3-rare-source]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      28,
+      28
+    ],
+    "text": "[The [**Hessian**]{.definition-term custom-style=\"Definition Term\"} is the matrix $H$ of second spatial derivatives. Its eigenvalues describe curvature along the principal directions.]{.definition-explanation} Isotropy and the definition of $\\sigma$ imply"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      36,
+      36
+    ],
+    "text": "Here $\\delta_{ij}$ is one for equal indices and zero otherwise. For jointly Gaussian variables, conditioning $Y$ on a scalar $Z$ of variance one gives $\\mathbb E[Y\\mid Z=b]=\\operatorname{Cov}(Y,Z)b$ when both means vanish. One way to see this is to write $Y=\\operatorname{Cov}(Y,Z)Z+\\epsilon$. The remainder has zero covariance with $Z$ and is therefore independent of it. Applying this to each Hessian entry gives"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      43,
+      43
+    ],
+    "text": "The conditional fluctuations around this mean have a variance that does not grow with $b$. For a high peak, the negative mean curvature is of order $q$, so its relative fluctuations become small. Conditioning the gradient to zero does not change this Gaussian conditional mean, because the gradient has zero covariance with both height and Hessian in a stationary isotropic field. Selecting an actual maximum also weights curvatures, but its leading high peak shape is the same."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      45,
+      45
+    ],
+    "text": "Let the peak height be $q+\\epsilon$, with $\\epsilon>0$, and put the peak at the origin. The gradient there is zero. The Taylor expansion becomes, to leading order,"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      51,
+      51
+    ],
+    "text": "It is positive inside an approximately round region of radius"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      58,
+      58
+    ],
+    "text": "The remaining question is how $\\epsilon$ is distributed when we select one high field at a time. In one dimension, the number of high maxima is asymptotically the number of upcrossings, proportional to $e^{-q^2/2}$. Therefore the fraction of peaks above $q$ that also exceed $q+\\epsilon$ is approximately"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      66,
+      66
+    ],
+    "text": "Define $U=q\\epsilon$. At fixed $u\\ge0$ and as $q$ increases,"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      75,
+      75
+    ],
+    "text": "[Thus the scaled excess height approaches an exponential variable of mean one.]{.key-statement} In several dimensions, high peak counts have the additional leading factor $q^{d-1}$. Its ratio at $q+u/q$ and $q$ tends to one, so the same excess-height limit remains. The higher dimensional count factor will also follow from the [Euler characteristic calculation](ch-place-tests.html#sec-place-topology). A rigorous conclusion requires control of the remainder and of components containing multiple peaks, beyond this local argument."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      79,
+      79
+    ],
+    "text": "In one dimension, the full field length is $s=2r_*$. Eliminating $\\epsilon$ gives"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      87,
+      87
+    ],
+    "text": "This supplies two distinct predictions:"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      89,
+      92
+    ],
+    "text": "<!-- vale ai-tells.ConsequenceParticiple = NO --> - [The length is a scaled square root of an exponential variable, giving a [**Rayleigh distribution**]{.definition-term custom-style=\"Definition Term\"}.]{.definition-explanation} <!-- vale ai-tells.ConsequenceParticiple = YES --> - The peak firing rate is $a\\epsilon$, so at fixed high $q$ it is proportional to $s^2$."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      94,
+      94
+    ],
+    "text": "The exponent two concerns rate versus linear size. In three dimensions a suitable linear size is $s^{1/3}$ when $s$ denotes volume."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      98,
+      98
+    ],
+    "text": "At moderate thresholds the omitted shape fluctuations matter. Figure 3C reports a rate versus length exponent of $1.42$ in the 200 m bat data and $1.46$ in finite threshold model simulations. Figure 3D reports $1.75$ versus $1.71$ using cube root of volume in 3D. These are compatible with a model that approaches exponent two only as the threshold becomes large. They are not measurements of the limiting exponent. Figure 5A–C illustrates the progression toward simpler, usually single peak fields as $q$ increases. Figure 4C tests this trend in the shorter bat tunnel.[^p3-shapes]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      113,
+      113
+    ],
+    "text": "A round region's radius and its volume have different units and different distributions. This geometric conversion explains why the model predicts different histograms in a track, an arena, and a room."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      115,
+      115
+    ],
+    "text": "Let $v_d=\\pi^{d/2}/\\Gamma(1+d/2)$ be the volume of a unit ball in $d$ dimensions. For $d=1,2,3$, it is $2,\\pi,4\\pi/3$. [The symbol $\\Gamma$ is the [**gamma function**]{.definition-term custom-style=\"Definition Term\"}, defined for $t>0$ by $\\Gamma(t)=\\int_0^\\infty u^{t-1}e^{-u}\\,du$. It extends factorials: $\\Gamma(n+1)=n!$.]{.definition-explanation}"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      117,
+      117
+    ],
+    "text": "Using the radius from the preceding section, the field size is"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      126,
+      126
+    ],
+    "text": "The same local radius gives a length, an area, or a volume depending on the dimension of the region."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      134,
+      134
+    ],
+    "text": "The round shape and exponential excess belong to the high-threshold limit, so they do not make every measured place field spherical."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      136,
+      136
+    ],
+    "text": "Since the density of $U$ is $e^{-u}$ for $u>0$, changing variables gives"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      145,
+      145
+    ],
+    "text": "This is the paper's Equation 1. The expression for $\\beta$ above is its leading high threshold geometric scale, not an exact finite threshold identity. A finite threshold simulation can share the approximate shape while having a different fitted scale.[^p3-size-source]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      147,
+      147
+    ],
+    "text": "The mean and its corresponding scale are"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      156,
+      156
+    ],
+    "text": "The same substitution verifies normalization: $\\int_0^\\infty p_d(s)\\,ds=\\int_0^\\infty e^{-u}\\,du=1$. It also supplies every positive moment,"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      166,
+      166
+    ],
+    "text": "Size has units of distance to the power $d$, while $\\beta$ has units of inverse distance squared in every dimension. This makes $\\beta s^{2/d}$ dimensionless, and makes $p_d(s)$ a density per unit size. These checks catch mistakes in changing variables."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      168,
+      168
+    ],
+    "text": "Writing dimensionless size as $w=\\beta^{d/2}s$ removes the size scale. The dimensional size laws then differ in shape, while the transformed variable $U=\\beta s^{2/d}=w^{2/d}$ has the same exponential law."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      176,
+      176
+    ],
+    "text": "Removing units does not erase the difference between length, area, and volume distributions. The nonlinear transformation to U removes that shape difference. Its shared exponential law is the assumption used in the change of variables. See [Field-size laws, Eq. 1, p. 1111](../papers/mainali-2025-universal-statistics.pdf#page=3)."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      185,
+      185
+    ],
+    "text": "[A [**Weibull distribution**]{.definition-term custom-style=\"Definition Term\"} has survival probability $\\Pr(\\text{size}>s)=\\exp[-(s/b)^k]$ for size $s>0$, scale $b>0$, and shape $k>0$. This is the chance that a field is larger than $s$.]{.definition-explanation} Here $k=2/d$ and $b=\\beta^{-d/2}$. In 3D the diverging density does not mean a positive probability of exactly zero volume. The probability of $0<s<\\delta$ still tends to zero as $\\delta\\to0$."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      188,
+      188
+    ],
+    "text": "For a concrete comparison, set $\\sigma=1$ m and $q=5$ in this limiting calculation. The mean size is $0.5013$ m in 1D, $0.2513$ m$^2$ in 2D, and $0.1260$ m$^3$ in 3D. These values describe the same local distance scale and threshold, rather than fields with the same numerical size in different units. More generally, the geometry and moment formula simplify to $\\mu_s\\simeq(\\sqrt{2\\pi}\\sigma/q)^d$."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      192,
+      192
+    ],
+    "text": "This approximation has a measurable error even for a smooth Gaussian process. At $q=1.1,\\sigma=2.4$ m, its 1D mean is $5.469$ m, compared with the [exact stationary crossing result](ch-place-fields.html#sec-place-inference) $3.746$ m, an overestimate of $46.0\\%$. At $q=5$ the error is $3.73\\%$. [This is why the paper compares data to finite threshold simulations as well as to limiting curves.]{.key-statement}"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      198,
+      198
+    ],
+    "text": "The printed supplement appears to contain three algebraic errors in this calculation:"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      200,
+      202
+    ],
+    "text": "- Equation S18 prints multiplication by mean size where the preceding moment formula requires division. - Equation S23 omits a factor $\\sqrt2$ when solving the parabola in S22 for full width. - In S25 the finite-height quadratic exponent should be negative."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      204,
+      204
+    ],
+    "text": "The derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation. They do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      210,
+      210
+    ],
+    "text": "A model can fit field volumes and still place activity incorrectly within those volumes. Slicing the map tests that internal spatial structure."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      213,
+      213
+    ],
+    "text": "Restrict a Gaussian field to a straight line $x=x_0+tv$. At any chosen values $t_1,\\ldots,t_n$, its values are a subset of the original jointly Gaussian values. They therefore remain jointly Gaussian. Along the line the covariance is $C((t-t')v)$. For a unit direction in an isotropic field it has the same local length scale $\\sigma$. The same argument applies to a flat plane. First slicing and then thresholding gives the same active portions as thresholding and then slicing.[^p3-slices-source]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      218,
+      218
+    ],
+    "text": "Thus a line through a 2D or 3D map has the one dimensional excursion prediction, and a plane through a 3D map has the two dimensional prediction. The field being counted is now a connected active interval or patch in that slice. One 3D component can be missed, cut into multiple pieces, or intersect several slices."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      222,
+      222
+    ],
+    "text": "Choosing one original field uniformly and cutting through its centre is different from choosing lines uniformly through space. Large fields are more likely to be hit by a spatially sampled line, and most hits pass away from their centres. The Gaussian restriction argument describes excursions along the sampled line. The radius distribution for fields counted once each cannot be used directly as the distribution of lengths observed along a line. In the high peak picture, an isotropic $d$ dimensional field has a radius of order $\\sigma/q$. Converting this same radius into $d$ dimensional size and then cutting it requires both hit probability and cut position."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      224,
+      224
+    ],
+    "text": "Figure 2 separates the measurements by spatial dimension:"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      226,
+      231
+    ],
+    "text": "<!-- vale ai-tells.EmDashUsage = NO --> - Panels A–B illustrate 2D thresholding. C measures lengths along slices, D measures original field areas, and E counts fields per observed cell. <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale ai-tells.EmDashUsage = NO --> - F–G show 3D examples. H, I, and J compare line lengths, planar areas, and full volumes. <!-- vale ai-tells.EmDashUsage = YES -->"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      243,
+      243
+    ],
+    "text": "[The dashed analytical curves change with the dimension of the measurement, even within one recorded map. The alternative spherical-field model in Figure S2 matches empirical volumes and peak rates by construction but fails these slice distributions and the topology test. Matching volumes alone is therefore insufficient.]{.key-statement}[^p3-slices-source]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      257,
+      257
+    ],
+    "text": "The derivative at an arbitrary position is Gaussian. A field boundary is a selected position, however, and selecting it changes the derivative distribution."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      259,
+      259
+    ],
+    "text": "Return to the [crossing integral](ch-place-fields.html#sec-place-kac-rice) and retain only slopes between $v$ and $v+dv$. Their contribution is proportional to $v p_{z'}(v)dv$. Dividing by the total contribution of positive slopes gives the slope density at a typical upcrossing:"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      268,
+      268
+    ],
+    "text": "The height density cancels because height and slope are independent. [This Rayleigh law is therefore independent of $q$ under the smooth stationary Gaussian model, without a high threshold approximation.]{.key-statement} Absolute slopes at downward boundaries have the same law. The rate slope is $av$, so its scale also depends on the firing rate gain. This selection effect explains why a half Gaussian law for a positive derivative sampled uniformly in space would be wrong at crossings.[^p3-slope-source]"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      273,
+      273
+    ],
+    "text": "There is also an independent check on the high threshold width constant. Starting at an upcrossing with slope $v$, the local excursion is approximately"
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      279,
+      279
+    ],
+    "text": "Its second root is $s=2\\sigma^2v/q$. Changing variables in the exact crossing slope law gives $p(s)=2\\beta s e^{-\\beta s^2}$ with $\\beta=q^2/(8\\sigma^2)$, the same constant as the peak calculation for $v_1=2$."
+  },
+  {
+    "chapter": "05b-place-sizes",
+    "lines": [
+      284,
+      284
+    ],
+    "text": "Figure 3A identifies which width, peak, and slopes are measured. B compares local peak counts, C–D compare rate and size, and E compares boundary slopes. The paper measures boundary slopes by a finite difference between samples 0.1 m apart. This approximates a derivative and has its own spatial resolution. It is not a direct observation of the underlying synaptic input."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "[Two maps can have the same field sizes and counts while arranging their active regions differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial model account for these differences, and how much would that agreement tell us about the circuit that produced the maps?]{.key-statement}"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      7,
+      7
+    ],
+    "text": "We first count connected regions and holes together, which gives a prediction across activity thresholds. The boundary of the observed environment matters for this calculation, so we keep its contributions. We then examine which measured quantities set the model's parameters and which provide further tests. Finally, a sum of many randomly weighted inputs shows one way a circuit could produce Gaussian spatial input, while making clear which assumptions and circuit measurements that explanation still needs."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      9,
+      9
+    ],
+    "text": "The map is still fixed over space. As before, $q$ is the normalized activity threshold, $\\sigma$ is the local spatial scale, and $a$ converts normalized input above threshold into firing rate. The number of spatial dimensions is $d$. It is separate from the diffusion coefficient $D$ used in the memory chapters."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      14,
+      14
+    ],
+    "text": "Two maps can have the same field count and total active area but different holes. As the activity threshold rises, active regions shrink and can split or disappear. The numbers of components and holes can change."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      17,
+      17
+    ],
+    "text": "[The [**Euler characteristic**]{.definition-term custom-style=\"Definition Term\"}, written $\\chi$ and unrelated to the common variance fraction $\\chi$ in the eye chapter, combines these counts differently in each dimension:]{.definition-explanation}"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      19,
+      23
+    ],
+    "text": "- In 1D it equals the number of connected active intervals. <!-- vale ai-tells.CataphoricForecasting = NO --> - In 2D it is the number of connected components minus the number of independent holes. Three disjoint disks have $\\chi=3$. One connected ring has $\\chi=1-1=0$. <!-- vale ai-tells.CataphoricForecasting = YES --> - In 3D it is components minus independent tunnels plus enclosed cavities. A solid ball has $\\chi=1$, a solid ring has $\\chi=0$, and a hollow spherical shell has $\\chi=2$."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      25,
+      25
+    ],
+    "text": "[These counts are the first three [**Betti numbers**]{.definition-term custom-style=\"Definition Term\"}: numbers of independent components, loops, and cavities, respectively.]{.definition-explanation}[^p3-ec-source]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      27,
+      27
+    ],
+    "text": "Thresholding one fixed smooth map separates the number of connected fields from the number of holes."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      35,
+      35
+    ],
+    "text": "A negative chi means that holes outnumber components in this 2D example. It does not mean a negative number of fields. When holes are absent, chi equals the component count."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      37,
+      37
+    ],
+    "text": "The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical result. [A [**critical point**]{.definition-term custom-style=\"Definition Term\"} is a location where the gradient is zero.]{.definition-explanation} [For a smooth function on a compact domain with invertible Hessians at its critical points and suitable boundary conditions, [**Morse theory**]{.definition-term custom-style=\"Definition Term\"} expresses the Euler characteristic as a signed count of critical points, including boundary contributions.]{.definition-explanation} We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms. The general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      40,
+      40
+    ],
+    "text": "The signs have a geometric meaning. In 2D, lowering the threshold through a maximum creates an active component, adding one to $\\chi$. Passing a saddle joins two components or opens a hole, subtracting one. Passing a minimum fills a hole, adding one. The Hessian has two negative eigenvalues at a maximum, opposite signs at a saddle, and two positive eigenvalues at a minimum. Thus $\\det(-H)$ has the required signs $+,-,+$. The boundary terms account for changes at the edge of the observed region."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      44,
+      44
+    ],
+    "text": "First take the interior of a $j$ dimensional region, with $j\\le3$, and set $\\lambda=\\sigma^{-2}$. A critical point has gradient zero. The multidimensional Kac–Rice rule counts these zeros with the absolute Hessian determinant. The Morse signs replace that absolute determinant by $\\det(-H)$. The resulting signed density above level $q$ is"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      53,
+      53
+    ],
+    "text": "where $\\phi(b)=e^{-b^2/2}/\\sqrt{2\\pi}$. The gradient's $j$ components are independent Gaussians of variance $\\lambda$, so $p_{\\nabla z}(0)=(2\\pi\\lambda)^{-j/2}$. The determinant measures how spatial volume near a gradient zero converts to gradient volume, just as the slope did for a scalar crossing."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      55,
+      55
+    ],
+    "text": "The resulting signed densities are"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      63,
+      63
+    ],
+    "text": "These are signed densities per length, area, and volume, not three formulas for positive field counts."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      67,
+      67
+    ],
+    "text": "Write the conditional Hessian as $H=-b\\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      76,
+      76
+    ],
+    "text": "The constant $\\kappa$ describes a fourth derivative of covariance. Conditioning on height subtracts $\\lambda^2$ from the covariance of the two diagonal entries, but not from the off-diagonal variance. Hence each pair contributes"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      84,
+      84
+    ],
+    "text": "For $j=1$, $\\mathbb E[\\det(-H)\\mid b]=b\\lambda$. For $j=2$, expand the two by two determinant to obtain $\\lambda^2(b^2-1)$. For $j=3$, the leading term is $b^3\\lambda^3$. The three index pairs each contribute $-b\\lambda^3$, and all odd centered Gaussian products vanish. The result is $\\lambda^3(b^3-3b)$. The unknown fourth derivative $\\kappa$ has canceled."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      87,
+      87
+    ],
+    "text": "Integrating the three polynomials gives"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      98,
+      98
+    ],
+    "text": "For example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      104,
+      104
+    ],
+    "text": "Now include the boundary of an ordinary closed square or cube of side $L$, whose opposite faces are not joined and with every intersecting component retained. On a $j$ dimensional face, derivatives along the face give the same calculation as above. Each of its $d-j$ gradient components perpendicular to the face and directed out of the box must have the appropriate sign to contribute to the boundary Morse count. Symmetry and independence give a factor $2^{-(d-j)}$. There are $2^{d-j}\\binom dj$ such faces, each of size $L^j$. Their combined coefficient is therefore $\\binom djL^j$. Corners supply $Q(q)$ in total. With $r=L/\\sigma$, the formulas become"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      119,
+      119
+    ],
+    "text": "These reproduce the paper's Equations 8–10 for interval, square, and cube geometry. They are not the formulas for a periodic box. For a rectangle or rectangular room, replace $2L$ or $3L$ by the sum of side lengths, $3L^2$ by the sum of pairwise side products, and $L^3$ by volume. A general domain requires its own geometric boundary factors. Applying only the volume term to a small room would discard real boundary contributions."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      122,
+      122
+    ],
+    "text": "The formulas have two limiting checks:"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      124,
+      125
+    ],
+    "text": "- As $q\\to-\\infty$, the whole box becomes active and all three expectations tend to one. - As $q\\to+\\infty$, they tend to zero."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      129,
+      129
+    ],
+    "text": "At intermediate thresholds the higher dimensional signed densities can be negative because tunnels or holes outnumber components. For example a cube with $L/\\sigma=10$ has expected $\\chi=-20.06$ at $q=0$. A negative expected Euler characteristic is meaningful. A negative expected field count would not be."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      133,
+      133
+    ],
+    "text": "At a sufficiently high threshold, almost every component is a small solid blob with one peak and no holes. Then $\\chi\\simeq N$. For a large box, retaining the leading volume term and the leading power of $q$ gives"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      141,
+      141
+    ],
+    "text": "where $V$ is environment length, area, or volume. Dividing $VQ(q)$ by this count and using $Q(q)\\simeq\\phi(q)/q$ recovers $\\mu_s\\simeq(\\sqrt{2\\pi}\\sigma/q)^d$, independently checking the size-law mean. [The exact EC formula and this approximate component count have different ranges of validity.]{.key-statement}[^p3-higher-count]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      145,
+      145
+    ],
+    "text": "Read Figure 3F–H as whole curves, rather than single field counts. Increasing the applied firing rate cutoff by $t\\ge0$ changes the normalized level to $q+t/a$. It can reveal separation between peaks or remove components. The measured maps only test levels at or above their original effective cutoff. The rest of an analytic curve is a prediction. The gain was matched using mean maximum firing rate before the EC comparison, so the horizontal conversion from Hz to normalized level also uses fitted information. Two dimensional holes and three dimensional tunnels help explain the nonmonotonic curves.[^p3-ec-source]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      152,
+      152
+    ],
+    "text": "The experiments supply estimated firing rate maps, not the hidden Gaussian input. To assess a prediction, we must therefore track both which summaries set its parameters and which processing decisions change the map's geometry."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      157,
+      157
+    ],
+    "text": "The paper reanalyzes earlier bat and rodent recordings. It uses different available summaries in different conditions. The inspected article and supplement do not clearly give the final included cell count for every analysis, particularly the long-tunnel and 3D reanalyses. Counts from an original recording study should therefore not be silently substituted for those final samples.[^p3-processing]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      167,
+      167
+    ],
+    "text": "The STAR Methods call the virtual-track animals rats in one sentence. Figure 1F and the main results identify them as mice. Several STAR figure cross-references also appear displaced. The table follows the main figure captions and the analyses described in full, rather than those isolated labels."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      170,
+      170
+    ],
+    "text": "Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its parameters were constrained by both mean length and mean gap, so the full length histogram is an additional check. Figure 1D does the same for gaps. Panel E tests whether the shape of the log-length distribution agrees with the model beyond its mean and variance."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      173,
+      173
+    ],
+    "text": "For $Y=\\log s$, write $m_k=\\mathbb E[(Y-\\mathbb EY)^k]$. [[**Skew**]{.definition-term custom-style=\"Definition Term\"}, $m_3/m_2^{3/2}$, measures signed asymmetry: the cubed deviations retain their signs, so unusually large log lengths contribute positively and unusually small ones negatively.]{.definition-explanation} [[**Excess kurtosis**]{.definition-term custom-style=\"Definition Term\"}, $m_4/m_2^2-3$, measures the fourth moment relative to a Gaussian with the same variance. The fourth power weights large departures from the mean strongly, on either side.]{.definition-explanation} A positive value means a larger fourth moment than that Gaussian reference. [A [**lognormal distribution**]{.definition-term custom-style=\"Definition Term\"} of lengths makes $Y$ Gaussian and both quantities zero.]{.definition-explanation} Nonzero population values therefore rule out that lognormal description. Zero values alone do not prove it, and finite sample estimates fluctuate, which is why the figure compares simulated sampling distributions.[^p3-fit-tests]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      177,
+      177
+    ],
+    "text": "For the long-tunnel data, the authors compared the Gaussian excursion model with a fitted lognormal using likelihoods, the probabilities or densities each model assigns to the observed data, and criteria that penalize fitted parameter count. Those comparisons favored the Gaussian model. [These are in-sample model comparisons. They are not reported held-out forecasts.]{.key-statement} Model histogram error bars come from $10^4$ simulations matched to the number of recorded cells. They do not quantify every source of animal-level or measurement uncertainty.[^p3-fit-tests]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      179,
+      179
+    ],
+    "text": "The processing choices affect the quantities being compared:"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      181,
+      185
+    ],
+    "text": "- Bat maps were rectified at about 0.5 Hz for denoising: rates below this cutoff were set to zero, removing weak activity from the measured fields. - The 3D maps, sampled in 10 cm bins, also received a [**median filter**]{.definition-term custom-style=\"Definition Term\"}, which replaces each bin's rate with a middle-ranked rate in its local neighborhood. The paper used a neighborhood two bins wide on each axis. This reduces isolated high or low values but can also change small field features. - Fields larger than three standard deviations above mean 3D volume were removed as possible merges, including from slice analyses. - Peak counting excluded incomplete boundary fields and used a range of smoothing widths. - The 1D rate versus width comparison used an additional 1 Hz cutoff."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      188,
+      188
+    ],
+    "text": "[These decisions can remove small components, alter peaks, and change tails. They belong to the definition of the analyzed fields.]{.key-statement}[^p3-processing]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      191,
+      191
+    ],
+    "text": "Figure S1 matches the rat maze's 15 cm minimum length cutoff in simulations and removes unusually large empirical fields. Changing that cutoff changes log-length moments. Figure S5 shows sensitivity of the higher-moment comparison across small denoising thresholds, while the rate versus width slope becomes stable above about 1 Hz. Figure S2 compares the spherical-field alternative and measures boundary curvature. [Locally, [**mean curvature**]{.definition-term custom-style=\"Definition Term\"} averages bending in two principal directions and [**Gaussian curvature**]{.definition-term custom-style=\"Definition Term\"} multiplies them: a spherical patch bends the same way in both directions, while a saddle bends in opposite directions.]{.definition-explanation} These are extra shape measurements. They are not needed to derive the field-size law. Surface representations and finite differences affect their estimates.[^p3-supp-tests]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      214,
+      214
+    ],
+    "text": "Figure 4A–B summarizes fitted parameter changes across a small set of environments. The correlation length increases with environment size while the threshold generally decreases. Increasing $\\sigma$ reduces crossings per metre, while decreasing $q$ increases them. Both parameters also affect mean length, so these effects must be considered together. Figure S3 reports count scaling exponents below one and hence a weak decline in count per unit environment size. These cross-experiment trends do not establish a biological scaling law. In particular, the 3D table's reported $\\sigma=4.0$ has an unclear distance-unit conversion relative to the spatial binning, so it should not be read as a verified value in metres.[^p3-trends]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      238,
+      238
+    ],
+    "text": "The model also allows differences between cells. Figure S4 draws a positive threshold separately for each cell and keeps that threshold for two otherwise independent maps representing opposite flight directions. Low-threshold cells tend to have more and larger fields in both maps. This shared cell property creates correlations between flight directions even when field locations differ between directions. Two distribution parameters were chosen to match the two empirical correlations, so those correlations are fitted features of this extension. Its continued agreement with length and gap distributions is the additional comparison. This extension should not be described as a two-parameter model shared by all cells.[^p3-threshold-variation]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      252,
+      252
+    ],
+    "text": "The statistical model becomes biologically useful if it suggests how a circuit could make the maps. A random weighted sum of many inputs is one possible mechanism, and the supplement makes its assumptions explicit."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      254,
+      254
+    ],
+    "text": "At position $x$, each input cell contributes according to its spatial firing profile. Fixed connection weights determine how those contributions combine at the receiving cell. The source treats the sum as effective input relative to a background that can be balanced through inhibition or regulation of excitation and inhibition. The signed random weights below are part of this simplified input model. They do not establish the signs of individual biological synapses."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      256,
+      256
+    ],
+    "text": "Let $u_i(x)$ be the fixed spatial tuning of input neuron $i$, and let independent weights $W_i$ have zero mean and variance $v_W$. The profiles $u_i$ may have nonzero spatial means. The expectation below is over weights: their zero means make the summed input $h(x)$ have mean zero. The summed input is"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      263,
+      263
+    ],
+    "text": "[At a finite list of positions this is a sum of independent random vectors, one per input cell. Under a multivariate central limit condition, with a suitable normalization and no single input dominating, the sum approaches a Gaussian vector as the number of contributing inputs grows. Applying this at every finite list supplies the Gaussian-process description. This Gaussian limit requires many contributing inputs at each position. A large anatomical input count alone does not establish how many inputs contribute there.]{.key-statement}[^p3-wiring-source]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      266,
+      266
+    ],
+    "text": "The covariance calculation exposes which assumption supplies spatial structure:"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      277,
+      277
+    ],
+    "text": "The same fixed weight multiplies an input cell's activity at both positions. For positive input profiles, cells active at both $x$ and $y$ therefore make positive contributions to covariance across possible weight choices. Little overlap gives a smaller contribution. For profiles defined as deviations from background, the products can also be negative. Broad input profiles can produce broad spatial covariance, as the Gaussian example below shows."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      280,
+      280
+    ],
+    "text": "If inputs are translated copies $u_i(x)=u_0(x-x_i)$ with centres densely and uniformly covering space at density $\\rho$, the sum is approximately"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      286,
+      286
+    ],
+    "text": "The assumptions supply different parts of the model:"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      288,
+      290
+    ],
+    "text": "- Uniform coverage supplies stationarity away from boundaries. - Smooth input tuning supplies smoothness. - Random weights supply the Gaussian limit under their independence and size conditions."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      292,
+      292
+    ],
+    "text": "For input profiles with different shapes, average the last integral over the distribution of those shapes, as in Methods S2, Equation S8."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      294,
+      294
+    ],
+    "text": "At fixed profile shape, increasing the weight variance $v_W$ or input density $\\rho$ increases the covariance amplitude. It does not change the normalized spatial dependence in this construction. Widening each input profile instead broadens the distances over which positions share input. These are different changes: input amplitude can alter the effective threshold $q$ when the absolute threshold is held fixed, whereas input width changes the spatial scale."
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      297,
+      297
+    ],
+    "text": "For example, take $u_0(s)=R_0e^{-s^2/(2b^2)}$ in one dimension. Completing the square gives"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      305,
+      305
+    ],
+    "text": "The covariance's Gaussian standard deviation is $\\sqrt2 b$, fixing the width convention used in the comparison. Thus the spatial standard deviation is multiplied by $\\sqrt2$, while its square, the variance parameter of that Gaussian shape, doubles. The supplement's description of twice the width is consistent with using the variance parameter as width.[^p3-wiring-source]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      308,
+      308
+    ],
+    "text": "Agreement with the Gaussian field predictions supports this random-summation account as a possible explanation. It does not uniquely recover synaptic weights from rate maps. Correlated inputs, a structured component added to many random contributions, plasticity, or recurrent processing could also produce approximately Gaussian spatial input under some conditions. The paper measures rate maps, rather than the relevant weights or subthreshold input directly. Its analyzed environments were familiar and fairly uniform. Stationarity may fail near landmarks, boundaries, rewards, or in changing tasks.[^p3-discussion]"
+  },
+  {
+    "chapter": "05c-place-tests",
+    "lines": [
+      312,
+      312
+    ],
+    "text": "[Thresholding a smooth spatial Gaussian input predicts field arrangement, shape, and topology from a small set of parameters. Several comparisons with recordings support these predictions. Inferring a circuit mechanism from this agreement requires additional measurements or perturbations.]{.key-statement}"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      3,
+      3
+    ],
+    "text": "A silicon circuit can keep a connection strength unchanged while losing the angle it was asked to remember. It can also keep that angle while its individual electrical signals change. To compare electronic memory with the neural memory in Part I, we first need to identify what information each physical quantity represents. This chapter separates the connection settings, the changing state of each artificial neuron, and the value represented by their joint activity. That separation will let us ask what feedback actually preserves."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      7,
+      7
+    ],
+    "text": "Imagine giving a circuit a brief cue for an angle of $30^\\circ$. After the cue ends, a connected group of artificial neurons remains active. We estimate the remembered angle from which neurons are active and how strongly. The experiment involves:"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      9,
+      11
+    ],
+    "text": "1. **Connection weights** determine how a signal from one neuron changes another neuron's state. A weight can be fixed throughout the trial. 2. **Neuron and synapse states** change during the trial. Examples include a voltage, a current left by recent inputs, or a number representing either quantity. 3. **The remembered angle** is a property of the joint state, recovered by a readout rule. It need not occupy one dedicated storage cell."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      13,
+      13
+    ],
+    "text": "[Keeping the weights unchanged preserves the circuit's rule of operation. Keeping the cue available requires the resulting activity to preserve information about that cue.]{.key-statement} Training can change the first object. Remembering a new angle can change the second and third without any further training."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      15,
+      15
+    ],
+    "text": "[[**Neuromorphic computing**]{.definition-term custom-style=\"Definition Term\"} implements computations inspired by neural circuits using electronic systems organized around neurons, connections, events, or their dynamics.]{.definition-explanation} Some systems calculate neural states as digital numbers. Others use voltages and currents that evolve physically. A system can combine both approaches. The word alone does not tell us where its memory is stored or whether it demonstrates a biological memory mechanism."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      17,
+      17
+    ],
+    "text": "[[**Working memory**]{.definition-term custom-style=\"Definition Term\"}, in this Part, means keeping information about a recent input available for a later task.]{.definition-explanation} Persistent activity is one candidate mechanism. A slowly decaying state, a sequence of states, or an explicit digital buffer can also store recent information. We must specify the allowed delay and readout error before calling one implementation adequate."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      21,
+      21
+    ],
+    "text": "**Example: the same weights can hold different angles.**"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      23,
+      23
+    ],
+    "text": "Suppose a ring of 32 artificial neurons has fixed local excitation and broader inhibition. A cue near neuron 3 creates a localized group of active neurons there. A later trial cues neuron 11 and creates a group near that location. The same connection weights support both trials. A decoder assigns an angle to the active group's center. If the group moves after the cue, the decoded angle changes even though every stored weight remains correct. This is an example constructed to illustrate the distinction. It is not a specification of a chip."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      29,
+      29
+    ],
+    "text": "The neural model still needs a physical implementation. If the model has a variable called membrane voltage, a chip may store it as a binary number or as an actual circuit voltage. Those choices expose the computation to different errors. [[**Current**]{.definition-term custom-style=\"Definition Term\"} is electric charge flowing per unit time, measured in amperes (coulombs per second).]{.definition-explanation} [[**Voltage**]{.definition-term custom-style=\"Definition Term\"} is an electrical energy difference per unit charge, measured in volts (joules per coulomb).]{.definition-explanation}"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      31,
+      31
+    ],
+    "text": "A [[**capacitor**]{.definition-term custom-style=\"Definition Term\"} stores separated electric charge. For fixed capacitance $C$, its stored charge $Q$ and voltage difference $V$ satisfy $Q=CV$.]{.definition-explanation} Charge is measured in coulombs and capacitance in farads (coulombs per volt). Supplying current changes $Q$, so it changes the stored voltage."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      34,
+      34
+    ],
+    "text": "[[**Digital storage**]{.definition-term custom-style=\"Definition Term\"} uses distinguishable physical ranges to represent discrete symbols, usually bits.]{.definition-explanation} In [[**static random-access memory (SRAM)**]{.definition-term custom-style=\"Definition Term\"}, powered transistor feedback maintains one of two states representing a bit.]{.definition-explanation} Several bits can encode a weight or a changing neuron variable. Reliable bits do not imply unlimited numerical precision: a finite word represents only finitely many values."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      37,
+      37
+    ],
+    "text": "[[**Analog state**]{.definition-term custom-style=\"Definition Term\"} represents a model quantity through the magnitude of a physical variable, such as capacitor voltage.]{.definition-explanation} Input current changes stored charge and so changes voltage. Leakage changes that voltage during a quiet interval. Feedback or new input can oppose the leakage. In BrainScaleS-2, the membrane state evolves this way, while local SRAM stores the synaptic weights.[^hardware-pehle]"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      39,
+      39
+    ],
+    "text": "[[**Phase-change memory (PCM)**]{.definition-term custom-style=\"Definition Term\"} stores information in a material's atomic arrangement, including the proportions of ordered and disordered regions, which affect its electrical resistance.]{.definition-explanation} Programming pulses heat the material. Its heating and cooling history changes the arrangement. [[**Conductance**]{.definition-term custom-style=\"Definition Term\"} measures the current produced per unit applied voltage where current is approximately proportional to voltage. It is the inverse of resistance, the voltage required per unit current.]{.definition-explanation} Reading the conductance can recover a stored weight. Such storage is [[**nonvolatile**]{.definition-term custom-style=\"Definition Term\"}: it can retain its state without continuous power, within its retention limits.]{.definition-explanation} Nonvolatile weights can remain after the changing neural state has disappeared."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      41,
+      41
+    ],
+    "text": "The following choices locate the stored quantity before we compare complete machines."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      49,
+      49
+    ],
+    "text": "Here [[**device mismatch**]{.definition-term custom-style=\"Definition Term\"} means persistent differences between nominally identical circuit elements.]{.definition-explanation} It differs from fluctuations that vary from moment to moment. A fixed mismatch can create a repeatable bias. Changing noise can create a different trajectory on each trial. We will measure these separately."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      53,
+      53
+    ],
+    "text": "To understand a machine's memory, follow one input through it. On a digital spiking processor, an arriving event identifies connections, their weights contribute to inputs, and a program updates stored neuron variables. Those variables determine whether to send further events. Loihi 2 provides local digital state and weight memory with programmable neuron and learning rules. SpiNNaker2 uses many processor cores whose software updates neural states stored with weights in local SRAM. Their event communication does not make every model variable evolve continuously in physical time.[^hardware-intel][^hardware-spinnaker]"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      55,
+      55
+    ],
+    "text": "In an analog neural circuit, an input can directly supply current to a capacitor. Transistors implement leakage and other responses as the voltage evolves. Digital circuits may still route the events and store the settings. [[**Mixed-signal hardware**]{.definition-term custom-style=\"Definition Term\"} combines analog circuit variables with digital storage, communication, or calculation.]{.definition-explanation} The division of labor, rather than the label, determines which dynamics are physical and which are calculated."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      57,
+      57
+    ],
+    "text": "PCM supplies a third use of physics. At a fixed, sufficiently small read voltage, a cell's current is approximately $I=GV$, where $I$ is current, $V$ is applied voltage, and $G$ is conductance, measured in siemens (amperes per volt). The stored conductance represents a weight. In Le Gallo and colleagues' chip, the duration of a read pulse represents the input magnitude. For one positive contribution with fixed $G$ and $V$, a pulse lasting $T$ seconds passes charge $Q\\simeq GVT$. The contribution is proportional to the product of weight and input duration. Currents from several cells add, and the chip converts the combined current over time to digital values. Signed inputs and weights require additional polarity handling beyond this simple example.[^hardware-legallo]"
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      59,
+      59
+    ],
+    "text": "[[**In-memory computing**]{.definition-term custom-style=\"Definition Term\"} performs some operations where the values are stored, reducing the need to transfer them to a separate arithmetic unit.]{.definition-explanation} The 64-core PCM chip demonstrates this approach to neural-network inference, with digital processing also part of the system. Its weighted response results from both the stored material state and the applied input signal."
+  },
+  {
+    "chapter": "07-hardware-memory",
+    "lines": [
+      61,
+      61
+    ],
+    "text": "[A circuit's storage medium tells us how a value is retained between updates. Its update rule tells us how that value affects subsequent computation. Both are needed to explain memory.]{.key-statement} We can now examine why feedback can preserve a bit yet let a graded estimate wander."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "A circuit can remain active for seconds even when its individual voltages decay in milliseconds. The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity does not by itself identify what is being preserved. This chapter first explains how feedback extends a time scale, then distinguishes a restoring discrete memory from a freely changing continuous one. Measured silicon circuits show why this distinction matters beyond a mathematical model."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      9,
+      9
+    ],
+    "text": "**Physical mechanism.** An isolated capacitor loses a voltage difference when charge leaks through a resistance. In a recurrent circuit, its output can cause an input current that replaces some of that charge. The competition between loss and replacement sets the decay of the collective state. For a neural population, the same competition occurs between decay of synaptic input and input supplied by recurrent spikes."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "Let $u$ be the amplitude of one small activity disturbance around a reference state. A simple linear model is"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      17,
+      17
+    ],
+    "text": "Here $\\tau_s$ is the component decay time, $g$ is dimensionless recurrent feedback gain, and $I(t)$ is external drive expressed in the same units as $u$. The term $-u$ removes activity, and $gu$ replaces a fraction of that loss. After the cue ends, $I=0$. For $g<1$,"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      24,
+      24
+    ],
+    "text": "**Interpretation.** Raising $g$ toward one slows forgetting. At $g=1$, this ideal linear mode retains every amplitude. For $g>1$, it grows until effects omitted from the linear model become important. [Long persistence requires a balance of physical processes. It is not determined by the storage element's decay time alone.]{.key-statement}"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      29,
+      29
+    ],
+    "text": "With no external input, divide the differential equation by $\\tau_s$: $du/dt=-(1-g)u/\\tau_s$. Multiplying by $e^{(1-g)t/\\tau_s}$ makes the derivative of $u e^{(1-g)t/\\tau_s}$ zero. Its value is the initial amplitude $u(0)$. Comparing the resulting exponential with $e^{-t/\\tau_{\\rm eff}}$ gives the effective time constant above. This is one linear mode near a chosen state, not a full transistor or spiking-network model."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      36,
+      36
+    ],
+    "text": "**Example: a small gain error changes a long memory time.**"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      38,
+      38
+    ],
+    "text": "Choose $\\tau_s=10$ ms. Gain $g=0.99$ gives $\\tau_{\\rm eff}=1$ s. Changing the gain to $0.98$ reduces that time to $0.5$ s. Changing it to $0.995$ increases it to $2$ s. The component decay time is unchanged in these three cases. The example predicts sensitivity to adjusting the feedback strength, not a measured lifetime on any chip."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      42,
+      42
+    ],
+    "text": "The next issue is which disturbances the feedback corrects. Retaining any amplitude requires a different response from restoring one chosen amplitude."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      48,
+      48
+    ],
+    "text": "**Physical mechanism.** In a two-state electronic memory, feedback pushes a slightly disturbed state back toward the same stable state. A sufficiently large disturbance can switch it to the other state. In an ideal continuous attractor, disturbances away from the family of memory states decay, but a displacement along that family represents another valid value. The circuit has no restoring signal telling it which earlier value to recover. Seung used this distinction to compare discrete electronic memory with graded eye-position memory.[^dynamics-seung]"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      51,
+      51
+    ],
+    "text": "This is a distinction between dynamics, not a division between all digital and all analog machines. Analog transistors can maintain discrete bits. Digital processors can calculate a continuous-state neural model to finite precision. Stored bits may remain correct while repeated numerical updates produce a wandering decoded angle."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      54,
+      54
+    ],
+    "text": "**Mathematical comparison.** Let $e$ measure a local displacement from one stable state. If restoration has strength $\\kappa>0$ and random perturbations have diffusion coefficient $D$, a reduced model is"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      60,
+      60
+    ],
+    "text": "The Brownian increment $dW_t$ has variance $dt$. Here $\\kappa$ has units of inverse time and $D$ has units of $e^2$/time. Starting exactly at the stable state,"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      66,
+      66
+    ],
+    "text": "For a neutral memory direction with $\\kappa=0$, the corresponding result is $\\operatorname{Var}(e(t))=2Dt$. Restoration limits small local fluctuations. A neutral direction accumulates them."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      71,
+      71
+    ],
+    "text": "The linear stochastic equation has solution $e(t)=\\sqrt{2D}\\int_0^t e^{-\\kappa(t-s)}dW_s$ when $e(0)=0$. Independent Brownian increments make its variance the integral of the squared weighting function: $2D\\int_0^t e^{-2\\kappa(t-s)}ds=D(1-e^{-2\\kappa t})/\\kappa$. As $\\kappa$ tends to zero, expanding the exponential gives $2Dt$. This is a local model inside one stable state's region of attraction. It does not describe rare switches between digital states or estimate a hardware bit-error rate."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      76,
+      76
+    ],
+    "text": "**Interpretation.** Adding restoration to an angle memory can reduce random spread by drawing nearby angles toward preferred positions. That also reduces the set of distinct values retained. [[**Pinning**]{.definition-term custom-style=\"Definition Term\"} means that imperfections or imposed structure draw a nominally continuous memory toward preferred states.]{.definition-explanation} A flat error variance can mean successful retention near one preferred value while other cues have been biased toward it. Both mean error and spread are needed."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      79,
+      79
+    ],
+    "text": "[Burak and Fiete's diffusion bound concerns a specified noisy neural memory model. It is not a lower bound on the error of every electronic memory.]{.key-statement} A digital device that freezes a number, uses explicit error correction, or changes the noise and readout assumptions poses a different problem. To transfer the bound, match the dynamics, noise, available observations, and time scale first.[^dynamics-burak]"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      84,
+      84
+    ],
+    "text": "A physical demonstration lets us test whether feedback maintains the intended state despite unequal devices and finite resolution. The following early experiments make different claims and should be read separately."
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      86,
+      86
+    ],
+    "text": "Massoud and Horiuchi built a head-direction circuit whose localized activity could persist after a cue and move with velocity input. It had 32 bump positions around a circle, a spacing of $11.25^\\circ$. This demonstrates a physical orientation representation with finite resolution. It does not establish an exact continuum of persistent states or a measured Brownian diffusion law.[^dynamics-massoud]"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      88,
+      88
+    ],
+    "text": "Giulioni and colleagues built a recurrent spiking circuit with low and high activity states. Brief stimulation could initiate activity lasting seconds despite millisecond circuit dynamics. Their measurements also examined noise-driven transitions and recovery after disturbance. This is [[**bistability**]{.definition-term custom-style=\"Definition Term\"}: two locally stable states under the same ongoing conditions.]{.definition-explanation} It supplies a physical working-memory example, but its two-state retention is a different task from retaining an arbitrary angle.[^dynamics-giulioni]"
+  },
+  {
+    "chapter": "08-hardware-dynamics",
+    "lines": [
+      90,
+      90
+    ],
+    "text": "The comparison gives a useful reading rule for current machines: determine what values the network distinguishes, then ask how long and how accurately it preserves them. Neuron count or nonvolatile weight storage cannot answer those questions alone."
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      3,
+      3
+    ],
+    "text": "Suppose we want to study how a noisy network retains an angle. One machine can calculate every state update as arithmetic. Another can let capacitor voltages perform part of the dynamics. A third can use material conductances to multiply inputs by stored weights. The scientific choice is which physical effects we want to control, measure, or exploit. This chapter compares these implementations and then examines recent demonstrations of memory and learning."
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      6,
+      6
+    ],
+    "text": "The research snapshot is **October 30, 2026**. “State of the art” here means selected recent capabilities supported by primary papers, with older architecture papers supplying their physical explanation. It does not mean one machine leads every task. We distinguish measured chips, experiments partly run on a separate computer, and proposed hardware evaluated by simulation. A [[**host computer**]{.definition-term custom-style=\"Definition Term\"} is a separate general-purpose computer that controls an experiment or performs calculations assigned outside the neuromorphic chip.]{.definition-explanation}"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "A useful platform must make the variables of interest accessible. If the question concerns a specific noise law, a digital update may allow precise control of the injected noise. If the question concerns physical circuit variability, analog dynamics expose that variability directly. Interpreting either choice as a biological result requires a matched model and experiment. [[**Hardware calibration**]{.definition-term custom-style=\"Definition Term\"} adjusts circuit settings to make measured device responses match requested responses more closely.]{.definition-explanation}"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      19,
+      19
+    ],
+    "text": "The first two rows describe digital neural computation, while BrainScaleS-2 directly implements parts of the differential equations in analog circuitry. Its dynamics run roughly a thousand times faster than the biological model time. That acceleration makes long model intervals accessible quickly, but communication and measurement delays still occur in physical time.[^systems-architecture]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      21,
+      21
+    ],
+    "text": "[[**On-chip learning**]{.definition-term custom-style=\"Definition Term\"} means that circuitry on the chip computes and applies some weight changes.]{.definition-explanation} It is distinct from loading previously trained weights. Loihi 2 offers programmable learning rules. SpiNNaker2's 2026 technical preprint reports an on-chip learning implementation. BrainScaleS-2 combines local measurements with programmable processors that update weights. An experiment may still use weights trained beforehand or learning performed on a separate computer, so its learning setup must be checked.[^systems-learning]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      25,
+      25
+    ],
+    "text": "The following studies make progress on different parts of the memory problem. For each, ask what information persists and which physical component is responsible."
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      27,
+      27
+    ],
+    "text": "**A useful input history on Loihi 2, 2025.** Kleyko and colleagues implemented a stored history of recent inputs and functions of those inputs that include products. A trained readout uses these values to predict an output. This shows that changing chip state can supply useful information about recent inputs. It is not a measurement of indefinitely stable cue retention. Their pictured Hala Point system is much larger than the resources used in the experiment.[^systems-kleyko]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      29,
+      29
+    ],
+    "text": "**Persistent spatial activity on SpiNNaker 2, September 2026.** Aitsam and colleagues ran a 768-neuron recurrent sheet on one chip. A host computer processed the physical event camera's output into a smoothed estimate of the target's center and sent that position to the chip. The configured neural update used deterministic integer-weight dynamics, without an added stochastic neural-noise term. During an eight-second interval without input, the decoded activity center moved by at most half a cell. This establishes persistence for that interval, not a measured lifetime or a test of noise-driven diffusion. During tracking, recurrence reduced frame-to-frame jitter by 15% relative to the host-smoothed input, but added about 115 ms of lag and increased mean position error from 2.02 to 5.65 cells. The robot-guidance evaluation used a simulated robot, and its power figures were estimates. Longer-delay tests with controlled noise would help compare this implementation with the stochastic memory theory.[^systems-aitsam]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      31,
+      31
+    ],
+    "text": "**Rapid adaptation using PCM, 2025.** Ortner and colleagues used physical PCM weights for a recurrent spiking network that produced robotic-arm commands after a task-specific update. Earlier training adjusted the model for rapid adaptation to new tasks. The PCM units performed matrix-vector products. Other operations ran on a host computer. This locates the demonstrated advance in weight adaptation and mixed hardware computation. It does not show that PCM cells themselves sustained an autonomous recurrent activity pattern.[^systems-ortner]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      34,
+      34
+    ],
+    "text": "**Reduced material drift, online 2025 and in a 2026 issue.** Wang and colleagues measured low resistance drift in a chromium-telluride phase-change material, CrTe$_3$. Reduced drift can help a programmed conductance continue representing the intended weight. Their demonstration of several programmed resistance levels used laser programming and electrical readout. Electrical switching was a separate demonstration. Operation with several levels in nanoscale devices, performance beyond a million programming cycles, and variability across large arrays remained open. This is progress in a storage material, not a complete multilevel neuromorphic processor.[^systems-wang]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      37,
+      37
+    ],
+    "text": "[Better temporal state, faster adaptation, and more stable weights solve different problems, so progress in one does not establish the others.]{.key-statement} For the Burak comparison, the missing measurement is often how a decoded value changes during an input-free delay."
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      41,
+      41
+    ],
+    "text": "Fast spiking units can lose earlier inputs before a later decision needs them. One solution is to add a slower state that summarizes recent activity and sends input back to the fast units. Sun and colleagues' 2026 dual-memory-pathway design takes this route. Their tested slow pathway uses a linear state based on a Legendre memory unit: several stored components summarize the shape of recent input over a sliding time window. It represents a recent input history, rather than a cue held unchanged on a continuous attractor. Its proposed digital hardware holds successive slow states in [[**registers**]{.definition-term custom-style=\"Definition Term\"}, small, fast digital storage locations]{.definition-explanation}, and other variables in SRAM. The hardware results came from post-layout simulations, which model a circuit after its physical layout has been designed. They were not measurements of a fabricated chip. The weights were trained before the evaluated tasks.[^systems-sun]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      43,
+      43
+    ],
+    "text": "A model with one stored number illustrates gradual forgetting without reproducing that richer input history. Let $z_k$ be current input to a stored quantity $m_k$:"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      49,
+      49
+    ],
+    "text": "Here $k$ counts updates, $\\alpha$ is the retained fraction, and $\\beta$ converts input units into state units. After input stops, $m_{k+n}=\\alpha^n m_k$. The state remembers earlier input through its present value, while gradually forgetting it. This model illustrates slow storage. It is not the full equations or an independent performance test of Sun and colleagues' architecture."
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      53,
+      53
+    ],
+    "text": "**Example: the update interval determines the physical memory time.**"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      55,
+      55
+    ],
+    "text": "If updates are separated by $\\Delta t$, equating $\\alpha^n$ with $e^{-n\\Delta t/\\tau_m}$ gives $\\tau_m=-\\Delta t/\\ln\\alpha$. With $\\Delta t=1$ ms and $\\alpha=0.999$, $\\tau_m$ is about 1 second. Executing the same updates a thousand times faster reduces that physical decay time to about 1 millisecond, unless the mapping between model time and wall time is changed. A number described as “slow” must be specified relative to other processes and the task clock."
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      59,
+      59
+    ],
+    "text": "Scaling a network also adds communication constraints. Ilmberger and Schemmel's 2025 preprint measured communication in a four-chip BrainScaleS-2 prototype. The timing matters because its analog states continue changing while messages are transmitted. A small delay in wall time can be a substantial delay in accelerated model time.[^systems-multichip]"
+  },
+  {
+    "chapter": "09-neuromorphic-systems",
+    "lines": [
+      61,
+      61
+    ],
+    "text": "The comparison needs a specified task, permitted error, delay, and system boundary. Energy for a matrix operation omits state maintenance, communication, conversion, and host work when those are outside the measured unit. The next chapter turns these qualifications into an experiment that can compare the machines on the same memory question."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      4,
+      4
+    ],
+    "text": "After a circuit receives an angle cue, its later estimate may be wrong because the state wandered, because unequal connections pull it toward another angle, or because the observer reads it poorly. One accuracy score combines these causes. The controlled tests below connect these errors to physical parameters. The protocol and reduced models below are proposed tools for reasoning about these experiments, not results already demonstrated on every platform in the previous chapter."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      9,
+      9
+    ],
+    "text": "Begin with a circuit whose joint activity represents an angle. Choose a decoder on separate calibration data, then keep it fixed while testing retention. A [[**decoder**]{.definition-term custom-style=\"Definition Term\"} is a specified rule for estimating the represented quantity from observable circuit signals.]{.definition-explanation} A decoder given every internal state has a different task from a downstream neuron receiving only spikes."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      11,
+      11
+    ],
+    "text": "Use the following sequence:"
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      13,
+      17
+    ],
+    "text": "1. Present a brief cue for angle $\\theta_0$, then remove it. Test many angles, including values between any suspected preferred positions. 2. Hold the connection weights fixed during each retention trial. Record the actual settings, temperature, update interval, and any imposed noise. 3. Repeat trials at several delays $t$ and decode $\\hat\\theta(t)$. Use a common reference for angular differences. [[**Unwrapping**]{.definition-term custom-style=\"Definition Term\"} tracks crossings of $0^\\circ/360^\\circ$ by adding or subtracting full turns to continue the trajectory.]{.definition-explanation} Use it only when sampling is frequent enough to identify crossings reliably. 4. Report mean error and error variance separately as functions of cue and delay. Also report failures in which the activity pattern disappears or changes form. 5. Repeat with changed noise, calibration, or numerical precision, changing one factor at a time. Compare with the same model running in a numerical reference implementation."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      19,
+      19
+    ],
+    "text": "Record the decoded state immediately after each cue so that error in writing the value can be separated from error accumulated during retention. Report the number of repeated trials and uncertainty in the estimated drift and diffusion."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      21,
+      21
+    ],
+    "text": "[An active circuit has demonstrated useful memory only when its later signals distinguish the earlier cues at the required accuracy.]{.key-statement} High firing rate alone does not establish this. Nor does a small average error if positive and negative errors cancel."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      23,
+      23
+    ],
+    "text": "For short intervals, a useful local model is"
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      29,
+      29
+    ],
+    "text": "Here $b(\\theta)$ is systematic angular motion per unit time and $D(\\theta)$ is half the local variance growth rate. With nearly constant coefficients over a short lag $\\Delta t$, repeated trials near the same angle give $\\mathbb E[\\Delta\\theta]\\simeq b\\Delta t$ and $\\operatorname{Var}(\\Delta\\theta)\\simeq2D\\Delta t$. Correlated perturbations, preferred states, or boundaries can invalidate that short-lag fit. At long delays, report the distribution of angular errors around the circle. Values separated by a full turn represent the same angle, so a local unwrapped variance cannot be extended indefinitely as a measure of angular error."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      31,
+      31
+    ],
+    "text": "Estimate readout noise before interpreting short-lag variance as motion of the stored value. Independent errors with constant variance in two position readings add a constant offset to the measured displacement variance."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      35,
+      35
+    ],
+    "text": "Suppose each position estimate contains independent, zero-mean measurement error with variance $\\sigma_m^2$. The difference of two estimates then adds $2\\sigma_m^2$ to displacement variance, even when the circuit does not move. For independent constant-$D$ state motion, the measured short-lag displacement variance is $2D\\Delta t+2\\sigma_m^2$. A nonzero intercept can reveal this contribution. Correlated readout errors, overlapping observation windows, or a state that changes during the readout require a fuller model. This is the same type of separation needed when interpreting the eye-drift measurements."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      41,
+      41
+    ],
+    "text": "A changed component affects memory through the circuit's equations. Increasing a leak current can shorten a component time constant. Changing a recurrent weight can alter restoration or introduce a preferred angle. A fluctuating current can perturb many neurons, yet only part of the resulting activity change remains as a change of the remembered angle."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      43,
+      43
+    ],
+    "text": "The [projection derived in Part I](ch-memory-dynamics.html#sec-memory-linearization) makes the last statement precise. Let the vector $\\mathbf r$ contain the network's activity variables, with local dynamics $d\\mathbf r=\\mathbf f(\\mathbf r)dt+B\\,d\\mathbf W_t$. The matrix $B$ maps independent Brownian disturbances into those variables. Near a family $\\mathbf r_*(\\theta)$ of steady states, let $\\boldsymbol\\ell$ be the left neutral vector, the object called $\\mathbf v$ in Part I, normalized so that $\\boldsymbol\\ell^T d\\mathbf r_*/d\\theta=1$. It converts an activity disturbance into its surviving angular displacement. The leading local approximation gives"
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      49,
+      49
+    ],
+    "text": "[Noise matters through both its size and the directions in which it pushes the circuit.]{.key-statement} Large disturbances in rapidly corrected directions can matter less than small disturbances along the memory direction. In a general network the left neutral vector differs from the visible tangent to the family. Using the tangent alone can predict the wrong sensitivity. Curvature and state-dependent noise can also contribute drift beyond this local approximation."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      51,
+      51
+    ],
+    "text": "Here $B$ represents fluctuations that vary across time and trials, including noise deliberately added to a digital update or measured fluctuations in an analog circuit. A fixed device mismatch instead changes the deterministic dynamics $\\mathbf f$ and can create repeatable bias or preferred angles. A configured deterministic neural rule has no stochastic term unless one is supplied; that statement does not make the physical digital chip free of timing variation or hardware errors."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      55,
+      55
+    ],
+    "text": "Write $\\delta\\theta\\simeq\\boldsymbol\\ell^T\\delta\\mathbf r$ in the local linear regime. For the neutral mode, $\\boldsymbol\\ell^T$ times the linearized deterministic drift is zero. The stochastic increment is $d\\theta\\simeq\\boldsymbol\\ell^TB\\,d\\mathbf W_t$. Since $\\operatorname{Cov}(d\\mathbf W_t)=I\\,dt$, its variance is $\\boldsymbol\\ell^TBB^T\\boldsymbol\\ell\\,dt$. Equating this to $2D\\,dt$ gives the displayed coefficient. The normalization ensures that the result measures angular displacement rather than an arbitrarily scaled activity coordinate. This calculation transfers only after the hardware's local dynamics and noise assumptions have been checked."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      59,
+      59
+    ],
+    "text": "The following changes suggest tests under the model assumptions above."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      69,
+      69
+    ],
+    "text": "**Example: a tighter distribution can hide a biased memory.**"
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      71,
+      71
+    ],
+    "text": "Consider two illustrative circuits after a one-second delay. Circuit A has zero mean angular error and variance $4$ deg$^2$. Circuit B has mean error $3^\\circ$ and variance $1$ deg$^2$, because it is attracted toward a preferred angle. Their mean squared errors are $4$ and $1+3^2=10$ deg$^2$. Circuit B has less random spread but worse cue retention. Reporting only its smaller variance would hide the effect of pinning."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      77,
+      77
+    ],
+    "text": "The source papers supply different constraints on this hardware experiment."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      79,
+      80
+    ],
+    "text": "- **Burak and Fiete (2012):** compare diffusion with the information available in spikes under matched noise, dynamics, and observation assumptions. A processor that stores an exact internal angle and exposes it directly to the decoder has changed the readout problem. - **Ben-Shushan and colleagues (2022):** a measured output can filter the internal command. Camera exposure, output smoothing, or a mechanical actuator can change the observed motion. Calibrate that path before assigning an output time scale to the memory circuit itself."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      82,
+      82
+    ],
+    "text": "- **Mainali and colleagues (2025):** patterns of firing across physical positions constrain a spatial representation. Reproducing field-size statistics does not by itself show that a network implemented in hardware retains position without input. Spatial structure and temporal persistence need separate tests."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      85,
+      85
+    ],
+    "text": "These links concern the tested mechanisms, not a claim that a chip reproduces the animal systems. The [synthesis chapter](ch-synthesis.html#sec-synthesis-evidence) sets out the evidence supplied by the original papers."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      87,
+      87
+    ],
+    "text": "Time conversion is especially important for accelerated hardware. If model time $t_m=a t_p$, where $t_p$ is physical time and $a>1$ is the acceleration factor, a diffusion law $\\operatorname{Var}(\\Delta\\theta)=2D_m t_m$ becomes $2(aD_m)t_p$. The result is $D_p=aD_m$ when expressed per physical second. This is a change of units for the same ideal trajectory. Physical communication delay, temperature drift, or limited readout speed can prevent a real device from obeying that ideal rescaling."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      89,
+      89
+    ],
+    "text": "For an energy comparison, specify the cue distribution, delay, permitted decoding error, and failed-trial rate. Measure energy over writing, waiting, and reading, including required host processing and interfaces. Then report how error and energy change as delay increases. An operations-per-second or operations-per-watt figure alone cannot establish the cost of retaining a useful value."
+  },
+  {
+    "chapter": "10-hardware-tests",
+    "lines": [
+      91,
+      91
+    ],
+    "text": "The resulting research question is concrete: **which part of the physical implementation limits the accuracy of a remembered quantity, and does changing that part improve retention under the same task and readout?** That question turns von Neumann's comparison into a test of contemporary neural and electronic memory mechanisms."
+  }
+]

@@ -1,0 +1,225 @@
+{
+  "review_id": "stage3-foundations-memory",
+  "stage": "3: reader understanding and flow",
+  "reviewer": "Independent foundations/memory reviewer; separate pass after correctness and wording repair",
+  "model": "GPT-6.1-sol/high as assigned",
+  "started_at": "2026-10-24T20:28:17.498635+03:00",
+  "shared_task_started_at": "2026-10-24T20:17:28.7375959+03:00",
+  "previous_checkpoint_at": "2026-10-24T20:28:32.3596185+03:00",
+  "audience": "Undergraduate calculus, probability and linear algebra; subject-specific ideas taught along this path",
+  "scope": "New openings in the four foundations/memory chapters, their first section starts, last main-text paragraphs before the new splits, changed reference paragraphs and revised reading paths, including applied NM1",
+  "reading_mode": "First-pass main text with optional notes treated as closed. Longer proofs inside notes were not used to fill a required premise in the main path.",
+  "verdict": "Pass for the assigned changed reading path; no unresolved flow or prerequisite defect found",
+  "unresolved_findings": [],
+  "paragraph_assessment": [
+    {
+      "passage": "01-foundations.md:3",
+      "addition": "Establishes useful eye position and navigation despite variable neural activity, then locates the three papers within that problem.",
+      "connection": "Moves from familiar behavior to the need for representation, which the next paragraph explains before teaching the signals.",
+      "prior_knowledge": "Requires no neural circuit mathematics. 'Neurons' is introduced in the reading guide at 00-reading-guide.md:7 as the brain's signaling cells.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "01-foundations.md:5, including NM1",
+      "addition": "Explains why representation precedes count uncertainty, why several cells can help, and why joint variation and average motion need separate tools.",
+      "connection": "The first section at lines 7-13 defines spikes, firing rates, synapses and tuning curves in the same order as the opening's promised setup. NM1 keeps the purpose visible without requiring covariance or MSD names in advance.",
+      "prior_knowledge": "Only the idea that observations can vary is used before definitions. 'Can help' leaves the actual count independence condition for the count example.",
+      "decision": "Retain repaired paragraph"
+    },
+    {
+      "passage": "01b-persistence.md:3",
+      "addition": "Separates the stored number from the many activities carrying it and distinguishes two possible effects of a disturbance.",
+      "connection": "The preceding foundations chapter taught a population-rate vector at 01-foundations.md:15-21, so the distinction has an actual earlier object. The first new section defines state, fixed point and stable direction before presenting the angle example.",
+      "prior_knowledge": "The opening does not require the reader to know an attractor or a projection. The geometry is promised and then taught with the two-activity model.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "01b-persistence.md:5",
+      "addition": "Turns one persistent change into repeated errors and distinguishes temporal variability from a fixed map.",
+      "connection": "The two-disturbance example at lines 15-49 supplies the lasting-change mechanism; the independent-increment derivation at lines 53-73 then supplies its accumulating spread. The final fixed-map section sets up the separate place-field path.",
+      "prior_knowledge": "Variance and covariance come from the preceding chapter, and the Brownian object is defined in the main text before later covariance calculations.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:3",
+      "addition": "Restates the concrete failure to be calculated: continuing firing can carry the wrong value.",
+      "connection": "The persistence chapter's two-disturbance example already showed this distinction, so the opening now narrows it to the paper's recurrent network.",
+      "prior_knowledge": "The continuous family and returning versus neutral directions were taught in 01b-persistence.md:9-49. No new network matrix is assumed yet.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:5",
+      "addition": "Explains the needed chain from spike renewal to a lasting displacement and local variance growth, then explains the special symmetric case.",
+      "connection": "The first section at lines 12-28 answers how brief spikes leave decaying activation. Later sections use that object to derive return flow and diffusion. The next-chapter sentence identifies exactly what the local result has not answered.",
+      "prior_knowledge": "Synapses and tuning curves have already been defined in 01-foundations.md:11-13. 'Equal weights in both directions' is a plain reminder for the later symmetric condition.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:7",
+      "addition": "Explains how the reader can use the linked evidence without looking for nonexistent line numbers.",
+      "connection": "This practical paragraph is brief and followed by notation, then the first derivation. It does not insert a competing scientific idea into the path.",
+      "prior_knowledge": "SI is expanded here; no outside document-navigation knowledge is required.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:9",
+      "addition": "Sets current versus initial value, steady-state rates, the common time constant and the diffusion convention.",
+      "connection": "The first activation equation uses tau, and the fixed-point/projection calculation later uses bars and theta. Defining them here avoids having to infer their roles from equations.",
+      "prior_knowledge": "Diffusion and 2Dt were taught in 01b-persistence.md:51-110; the paragraph recalls them with units and limits rather than redefining the full process.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02b-memory-long-delays.md:3",
+      "addition": "Identifies the three reasons a local spreading rate does not answer the long-delay question and separates mean motion from spread.",
+      "connection": "The preceding chapter ends with constant interior diffusion in a bounded valid range at 02-memory-dynamics.md:245-268. Its endpoint caution directly motivates the new opening's boundary question.",
+      "prior_knowledge": "The reader has already seen a stored coordinate, local diffusion and fixed bias. No density equation or stochastic convention is needed to understand this question.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02b-memory-long-delays.md:5",
+      "addition": "Explains why a distribution across trials is needed, why line and wrapped-angle results differ, and why drift and readout are treated separately.",
+      "connection": "The first section at lines 11-34 introduces p(theta,t), the density equation and a point-mass initial condition, then interprets the line and ring solutions. The main text provides this setup before the optional derivation.",
+      "prior_knowledge": "Basic densities and derivatives are in the recorded audience baseline. The Itô convention and Dirac delta are defined at their actual use, so the reader need not supply either from expertise.",
+      "decision": "Retain"
+    },
+    {
+      "passage": "02b-memory-long-delays.md:7",
+      "addition": "Restores current/initial notation and state-dependent D after the chapter break, with a precise link to the local result.",
+      "connection": "The next section's density equation uses exactly these objects. The constant-D no-drift reminder prevents the first Gaussian example from being read as every possible long-delay case.",
+      "prior_knowledge": "The preceding network chapter supplies the weak-noise approximation, relaxed stable components and local formula. This paragraph need not teach them again.",
+      "decision": "Retain"
+    }
+  ],
+  "split_and_link_assessment": [
+    {
+      "boundary": "01-foundations.md:104-113 to 01b-persistence.md:3-11",
+      "evidence": "The old final section finishes the mean-square decomposition before the page ends. The next opening moves from representation to persistence and its first section teaches fixed-point geometry. The old forward reference to the eye covariance calculation is now an explicit link at line 104; following it is optional rather than a missing premise for persistence.",
+      "decision": "Natural complete-section boundary"
+    },
+    {
+      "boundary": "01b-persistence.md:114-126 to 02-memory-dynamics.md:3-14",
+      "evidence": "The fixed-map distinction closes the general background and explicitly announces dynamics, eye measurement and spatial statistics in that order. The main-text figure interpretation warns against assuming one shared circuit. The next opening then chooses the first of those questions and gives a concrete renewal mechanism.",
+      "decision": "Natural move from concepts to the network derivation"
+    },
+    {
+      "boundary": "02-memory-dynamics.md:245-268 to 02b-memory-long-delays.md:3-13",
+      "evidence": "The symmetric example is complete before the split, including rate-domain and endpoint limits. The caption interprets the constant-D plot rather than ending on an unexplained equation. The next opening uses that exact limit as its question, supplies notation, then introduces the density.",
+      "decision": "Natural move from local dynamics to long-delay predictions"
+    },
+    {
+      "boundary": "02b-memory-long-delays.md:110-120 to the information and readout chapters",
+      "evidence": "The revised figure paragraph links back to the tilted-return example when explaining the flow projection. It then distinguishes the moved state from uncertainty due to a finite spike sample. The information link and readout link lead to separate chapters, with the final paragraph stating why information should constrain diffusion.",
+      "decision": "The reader knows why the next mathematical object is needed"
+    }
+  ],
+  "closed_note_check": [
+    "The Poisson variance derivation may stay closed because the variance result, units, count example and independence limit remain in the main text.",
+    "The density-equation derivation may stay closed because the main text states the modeled random process, density, initial condition, equation, line solution and wrapped-angle interpretation before the note.",
+    "No new opening or boundary depends on an optional note for a first-use definition, a required assumption or the interpretation of a result."
+  ],
+  "reading_paths": [
+    {
+      "passage": "00-reading-guide.md:37-43",
+      "assessment": "The first two chapter route teaches representation, noise and covariance before persistence and diffusion. The full memory/eye route then follows mechanism, long-delay limits, information/readout and the eye study. The shorter place route still includes the fixed-map-versus-time distinction in the second foundations chapter. The main-text-first instruction is consistent with the checked note dependencies."
+    },
+    {
+      "passage": "00-reading-guide.md:51",
+      "assessment": "The symbol recap points to Chapter 2 for diffusion and distinguishes dimension d from diffusion D before the later spatial chapters. The new chapter range names agree with the actual 13-chapter plan."
+    }
+  ],
+  "alternative_order_considered": [
+    {
+      "order": "Teach persistence and diffusion before spike counts and covariance",
+      "assessment": "The angle geometry could be introduced earlier, but the later random-spread calculation would lack the earlier explicit variance/covariance tools and the rate-vector representation. The selected order supplies both before the persistence example needs them."
+    },
+    {
+      "order": "Move long-delay behavior after information and readout",
+      "assessment": "That would bring the information bound closer to the local D formula, but would postpone the domain and mean-drift limits while readers already use diffusion to reason about readout. The selected order resolves those limits first and ends by motivating information from a concrete finite-spike uncertainty."
+    }
+  ],
+  "limits": [
+    "This pass assesses the changed reading path, not the correctness of every unchanged derivation or paper finding.",
+    "The reviewer read source text and linked target passages. This is not a new rendered-page, figure-pixel or live-control check.",
+    "The source hashes attach this verdict to the actual repaired snapshot; later affected edits require a bounded recheck."
+  ],
+  "awake_execution_time": "Unverified",
+  "token_stats": "Token stats unavailable",
+  "source_snapshots": [
+    {
+      "path": "content/chapters/01-foundations.md",
+      "sha256": "43ad0a571a52d3f4f48414a3dcb76a82a27073be345f9e2f72964fbe1f226f83",
+      "last_write_utc": "2026-10-24T17:27:43.1930119Z",
+      "bytes": 12376
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "1cc3061cfc840b1903a116de7641d1b99b76f40f5f7a8bb4760b48b2a7eca29a",
+      "last_write_utc": "2026-10-24T17:23:47.0456933Z",
+      "bytes": 11005
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "sha256": "e6f86ac4902afe56562e41e9e4a19068b2d80cf35a544af8bc715461a173a092",
+      "last_write_utc": "2026-10-24T17:23:47.0471853Z",
+      "bytes": 18379
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "sha256": "9f0db00d7aee4de3918c53cd4875d746e31fbcc2feba0e304b3632eee3f29f49",
+      "last_write_utc": "2026-10-24T17:23:47.0482835Z",
+      "bytes": 16221
+    },
+    {
+      "path": "content/chapters/00-reading-guide.md",
+      "sha256": "5a70f680341ed5141ff59f5740cbeeca7b61476de6175c2c3660066bb8e22ccc",
+      "last_write_utc": "2026-10-24T17:24:07.3796106Z",
+      "bytes": 14003
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "sha256": "258c636f81fb2daf7741e1f6a0a955693439761c213fd32b4959291bbccb2946",
+      "last_write_utc": "2026-10-24T17:23:47.0502634Z",
+      "bytes": 19332
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "sha256": "8b68f20cac79489a54e89b62818f79eeb861eead66f9dbecefde6af9178e3d69",
+      "last_write_utc": "2026-10-24T17:23:47.0522770Z",
+      "bytes": 21739
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "15c1a3b9157572762ed2c4c0dbc03b4602b25537530ed86fac3f3f3e172628f0",
+      "last_write_utc": "2026-10-24T17:23:47.0542759Z",
+      "bytes": 26056
+    },
+    {
+      "path": "plan/chapter-plan.yaml",
+      "sha256": "20ba449269de19bd8559ea3f58086c9ff7b5b1c24a1f2a270768b096accc7857",
+      "last_write_utc": "2026-10-24T17:23:47.0729987Z",
+      "bytes": 1384
+    },
+    {
+      "path": "verification/chapter-size-20261024/integration.json",
+      "sha256": "786fb942598631d1ad5549de2a500db6d20c3158c006bdb67966a9a3093f7602",
+      "last_write_utc": "2026-10-24T17:27:43.1990160Z",
+      "bytes": 45565
+    },
+    {
+      "path": "verification/chapter-size-20261024/reference-edits.json",
+      "sha256": "82b94cc1dddbe631a02b891a49142bb7ea83e23e3df41e12c4efb5f864c6195b",
+      "last_write_utc": "2026-10-24T17:23:46.4727576Z",
+      "bytes": 3662
+    },
+    {
+      "path": "verification/chapter-size-20261024/orientation-edits.json",
+      "sha256": "e15a4805c9e0ebe68c683585e0ec7edad0f4863f64c2645b2fcb141ac48fe453",
+      "last_write_utc": "2026-10-24T17:24:07.6748847Z",
+      "bytes": 3187
+    }
+  ],
+  "completed_at": "2026-10-24T20:29:31.1918922+03:00",
+  "review_wall_clock_seconds": 74.2,
+  "task_wall_clock_seconds": 723.2,
+  "since_previous_checkpoint_seconds": 59.2
+}

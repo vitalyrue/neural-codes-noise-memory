@@ -1,0 +1,85 @@
+Fundamental limits on persistent activity
+in networks of noisy neurons
+Yoram Buraka,b,c,1 and Ila R. Fieted,1
+a
+ Edmond and Lily Safra Center for Brain Sciences, Hebrew University, Jerusalem 91904, Israel; bRacah Institute of Physics, Hebrew University, Jerusalem
+91904, Israel; cCenter for Brain Science, Harvard University, Cambridge, MA 02138; and dCenter for Learning and Memory, University of Texas at Austin,
+Austin, TX 78712
+
+Edited by Terrence J. Sejnowski, Salk Institute for Biological Studies, La Jolla, CA, and approved September 14, 2012 (received for review October 23, 2011)
+
+Neural noise limits the fidelity of representations in the brain. This          absence of any external anchoring input, stochastic neural activity
+limitation has been extensively analyzed for sensory coding. How-               causes the represented variable to drift. We show that this drift
+ever, in short-term memory and integrator networks, where noise                 is diffusive. We derive an expression quantifying the rate of
+accumulates and can play an even more prominent role, much less                 memory loss – which for symmetric networks takes a particularly
+is known about how neural noise interacts with neural and net-                  simple form – in terms of the number of neurons, the range of
+work parameters to determine the accuracy of the computation.                   the stored variable, the neural noise, the neural nonlinearity, and
+Here we analytically derive how the stored memory in continuous                 the shape of the tuning curves within the network.
+attractor networks of probabilistically spiking neurons will de-                   Second, we establish a fundamental relationship between a
+grade over time through diffusion. By combining statistical and                 dynamical property, the rate of drift of the memory state due to
+dynamical approaches, we establish a fundamental limit on the                   internal noise in the network; and an abstract statistical limit on
+network’s ability to maintain a persistent state: The noise-induced             estimation, which bounds the information an external observer
+
+
+
+
+                                                                                                                                                                        NEUROSCIENCE
+drift of the memory state over time within the network is strictly              can gain about the underlying state of the stochastic network from
+lower-bounded by the accuracy of estimation of the network’s                    a finite sample of its spikes. We show that the statistical limit
+instantaneous memory state by an ideal external observer. This                  on estimation enforces a finite minimum rate of diffusion in the
+result takes the form of an information-diffusion inequality. We                network dynamics.
+derive some unexpected consequences: Despite the persistence                       Third, we derive an unexpected result on the time required to
+time of short-term memory networks, it does not pay to accumu-                  read out the contents of continuous attractor memory networks:
+late spikes for longer than the cellular time-constant to read out              Despite the stochastic nature of spiking and the persistence of
+their contents. For certain neural transfer functions, the conditions           activity in the network, there is no advantage for an ideal observer
+for optimal sensory coding coincide with those for optimal storage,             in accumulating spikes beyond the biophysical time-constant of
+
+
+
+
+                                                                                                                                                                        PHYSICS
+implying that short-term memory may be co-localized with sensory                single neurons. Fourth, our results imply that in certain cases,
+representation.                                                                 the conditions for good sensory representation coincide with the
+                                                                                conditions for good short-term memory.
+
+S   hort-term memory is essential for survival in a world where
+    data sources may disappear before consequent decisions or
+actions are taken. In many cases, the object of the memory is
+                                                                                   It has long been realized that in physical systems, a deep re-
+                                                                                lationship exists between thermodynamics and memory (16–19).
+                                                                                More recently, such principles have been explored in man-made
+a continuous variable, for example, the direction of heading                    computing devices at the nanoscale, where fluctuations become
+during navigation, the location of the eyes, or the orientation of              prominent (19, 20). It is of interest to understand whether similar
+a visual stimulus. Short-term memory is associated with patterns                general principles relate internal noise in nonequilibrium biolo-
+of neural firing that correlate with the stored quantity (1, 2) and             gical systems to the dynamics of information and memory. Our
+persist during the storage period (3–5). When the stored variable               results, relating stochastic dynamics in neural networks to mem-
+is continuous, the persistent activity can take a continuum of                  ory degradation, establish that a statistical measure of internal
+states (1, 2, 5, 6).                                                            noise constrains the dissipation of memory.
+   Such persistent activity is thought, in many cases, to possess
+an underlying continuous attractor structure (7–10): the instan-                Results
+taneous value of a continuous variable is represented by setting                We consider a network of Poisson spiking neurons: Each neuron i
+the system to a point on a continuous manifold of stable fixed                  generates Poisson spikes based on its time-varying firing rate
+points. The stability of the fixed points generates a long time-                r i ðtÞ ¼ ϕ½∑j W ij sj ðtÞ þ bi , where ∑j W ij sj is the summed recur-
+constant for memory, even when cellular time-constants are short.               rent input, bi is a bias, and ϕ is the nonlinear neural transfer func-
+   Moreover, continuous attractors provide some degree of resis-                tion. Spikes in neuron j drive synaptic activation sj ðtÞ [Eq. 7]
+tance to ongoing noise: Any perturbation of the state of the                    which, weighted by the synaptic strength W ij , is the input to
+system away from the attractor manifold is corrected because the                postsynaptic neuron i. The Poisson model is motivated by the
+state quickly decays back to the attractor. However, the compo-                 Poisson-like statistics of spike trains in cortical areas (21, 22) and
+nent of noise parallel to the attractor manifold will remain un-                is a simple way of generating the spiking statistics that would
+corrected, causing loss of information about the stored memory                  be obtained under certain conditions from conductance-based
+(9, 11). Such noise-induced drift has been observed in numerical                neurons receiving noisy inputs (23, 24). In deriving our analytical
+simulations of continuous attractor networks (10, 12, 13) and
+has been studied analytically in a specific continuous attractor                Author contributions: Y.B. and I.R.F. designed research, performed research, analyzed
+network (14, 15). However, a general understanding of how neur-                 data, and wrote the paper.
+al and network properties affect the rate of drift and short-term               The authors declare no conflict of interest.
+memory performance has been missing.                                            This article is a PNAS Direct Submission.
+   In this work, we consider the dynamics of neural networks                    1
+                                                                                To whom correspondence may be addressed. E-mail: ilafiete@mail.clm.utexas.edu or
+with a continuous attractor and otherwise arbitrary connectivity,               yoram.burak@elsc.huji.ac.il.
+weights, and neural nonlinearity. First, we use a theory of weak                This article contains supporting information online at www.pnas.org/lookup/suppl/
+fluctuations in large networks to derive analytically how, in the               doi:10.1073/pnas.1117386109/-/DCSupplemental.
+
+
+
+www.pnas.org/cgi/doi/10.1073/pnas.1117386109                                                                                          PNAS Early Edition ∣    1 of 6
+

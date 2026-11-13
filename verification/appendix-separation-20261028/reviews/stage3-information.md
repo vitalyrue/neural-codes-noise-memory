@@ -1,0 +1,38 @@
+# Stage 3: connected reader-understanding and flow
+
+Start: 2026-10-28T17:04:56.209850+02:00. Completion: 2026-10-28T17:06:24.030949+02:00. Call wall elapsed: 87.8 seconds. Root wall elapsed since 16:44:38+02:00: 1306.0 seconds. Last measured checkpoint was this call's start. Awake execution unverified. No system clock change established. Reviewer: separate_dynamics, Sol high. Local request: stage3-information.
+
+This separate call follows Stage 1 and the three repaired Stage 2 findings. I reread the current connected chapters as a reader with undergraduate mathematics and no assumed neuroscience. I checked the exact repairs in their paragraphs and read the surrounding sequence, rather than using the repair log as proof. This is a local reader-flow call, not an expanded proof audit or whole-book/output acceptance.
+
+## Current hashes
+
+- `02b-memory-long-delays.md`: `dd4efe3e0df9d9bdf6c57d6d9dc04aed17c220663bb1992e78d9514d4fe49a39`
+- `03-memory-information.md`: `99eeaacd078b7413f9493b435622a010bf8bdfb88b440a3492a76bb01b1680ee`
+
+## Required findings
+
+None. The three requested wording repairs are present exactly. No remaining required issue in this review scope. No manuscript edits made.
+
+## Passage-based reader check
+
+| Reader question | What the current reading path supplies | Judgment |
+|---|---|---|
+| Why does the local spreading calculation need another chapter? | The long-delay opening says that boundaries, angular wrapping and changing spreading rates affect error after waiting. Its notation paragraph ties D back to the preceding network projection. | The chapter begins with an observable memory-error question and identifies the earlier result it needs. |
+| What is neural and what is general probability mathematics in the first topic? | Long-delay mechanism paragraph identifies continuing spike fluctuations. The next paragraph defines the across-trial density and Ito evaluation. The fold derives its density equation from zero-mean increments; the main text then gives the equation, line and circle cases. | The neural cause, mathematical assumptions and resulting probability calculation have separate jobs. The text explicitly explains why a general D appears before constant-D examples. |
+| Why can a memory-error curve flatten without better noise control? | The circle calculation gives a uniform angular distribution and computes the limiting wrapped squared error. Interpretation attributes flattening to the reported angular range. The line/ring plot is introduced and its two outcomes interpreted afterward. | The reader can explain the result from the bounded error measure rather than inventing a circuit that stops producing noise. |
+| What changes when D depends on the memory value? | The second mechanism introduces the two-cell excitation setup and v before the moment calculation. The repaired substitution now names v1=v2=1/2 rather than “conjugate weights.” The unchanged interpretation says why a linear D still gives linear variance and preserves its domain and source-discrepancy cautions. | Neural setup precedes its use; the math-to-network bridge is direct. The example and source warning answer different questions. |
+| Does the variance result determine a mean drift? | The drift section distinguishes trial spreading from mean movement, then explains why microscopic dynamics are needed. The convention conversion gives a possible drift scale, and interpretation states what a known mean can and cannot correct. Conditional spike independence is separated from temporal correlations. | The reader is not asked to infer exact neural drift from a generic stochastic convention. |
+| Why move from dynamics to information? | The figure section separates stored-state motion from uncertainty in observing current spikes. Its ending asks for a statistical quantity from the same tuning curves. The next chapter opens with that same observation problem. | The chapter boundary has a concrete question; it does not restart with an unrelated definition. |
+| How do spikes provide information? | Information mechanism compares nearby rate patterns relative to variability. The next paragraph supplies locally constant state, positive rates and conditional Poisson counts. The repaired likelihood paragraph defines the general concept and immediately supplies the neural likelihood. The score and Fisher rate follow, then the inverse-information calculation and its limits. | Removing the repeated likelihood sentence leaves no gap. The tuning-curve interpretation and figure remain after the derivation, consistent with the requested order. |
+| Why does information limit stored-memory stability? | The scalar-bound mechanism uses the same recurrent spikes. The derivation states Cauchy Schwarz, defines the two vectors and maps their squared lengths to D and J. Interpretation distinguishes a lower bound from achieved diffusion. | A reader can connect the neural noise source, projection normalization and inequality without relying on a source citation as the explanation. |
+| What does equality require and what does it not require? | The next role sequence connects retained cell noise to information weights, shows proportionality, then gives a sufficient exponential construction. The linear-family check and two-state numerical example preserve the distinction between equality at one state and a general converse. | Each example supplies a different limit. The paired roles do not make the source's unrestricted converse look established. |
+| What does a matrix add? | The multiple-coordinate mechanism says a spike may shift several coordinates. The derivation defines the information matrix, states rate distinguishability before J inverse, defines matrix order and U/V before the residual proof. Interpretation keeps the singular-J limit after removing the avoidable compound. | The repair retains the actual condition and its consequence. The earlier dynamics chapter supplies the coordinate tangents and left vectors used here. |
+| What can be concluded about adding neurons, rates, slower decay or changing tuning width? | The comparison section states what each calculation holds fixed. The width setup defines density, peak rate and shape before the integral; interpretation keeps alternate firing-budget, finite-boundary and correlation limits. The last sensory/internal comparison requires matching tuning curves. | Physical changes and mathematical controls remain distinct. The reader is not promised a universal improvement from changing a single parameter. |
+
+## References, order and limits
+
+The moved density proof now correctly ends by pointing to the equation below. Other local “above,” “following” and earlier-example references still point along the reading order. The cross-chapter excitation example remains before the information chapter's equality counterexample. Both chapter files have complete footnote-definition coverage. Their H1/H2 identities were preserved in Stage 1, and the three subsequent repairs changed prose only; none changes a link target or heading.
+
+Repeated mechanism/derivation/interpretation sequences within one H2 mark separate topics rather than implying that every equation must be repeated in a separate appendix. The figure section uses its specific mechanism/interpretation labels without pretending to derive a new result. The paired structure remains coherent on the connected read.
+
+This call ends with no unresolved required reader-flow issue in these two chapters. Rendered controls, PDF pages, other chapters and complete scientific acceptance are outside this call. No edit, build or acceptance-state update was performed. Token stats unavailable.

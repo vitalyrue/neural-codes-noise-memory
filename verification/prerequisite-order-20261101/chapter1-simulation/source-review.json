@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "status": "source evidence review complete; no manuscript acceptance",
+  "extension_start_utc": "2026-11-01T19:23:52Z",
+  "original_start_utc": "2026-11-01T13:32:42Z",
+  "awake_execution_time": "unverified",
+  "scope": "Original Burak and Fiete (2012) main PDF pages2,3,5,6 freshly extracted with PyMuPDF; SI pages1,2,10 freshly extracted. Figure2 page3 inspected as one source image. Existing Chapter18 read for context only.",
+  "sources": [
+    {
+      "file": "assets/papers/burak-fiete-2012-persistent-activity.pdf",
+      "sha256": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+      "pages_read": [
+        2,
+        3,
+        5,
+        6
+      ]
+    },
+    {
+      "file": "assets/papers/burak-fiete-2012-persistent-activity-si.pdf",
+      "sha256": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+      "pages_read": [
+        1,
+        2,
+        10
+      ]
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "sha256": "2edb8af20fc8a218b9602638775a8980db1d567b70584e26ae877386a6bb5ece",
+      "role": "Context only; claims below checked against PDFs"
+    }
+  ],
+  "supported_content": [
+    {
+      "id": "S1",
+      "topic": "What is simulated",
+      "support": "Main p5 Materials and Methods Eqs7-9; p6 Network Simulations",
+      "content": "A recurrent network of linear-nonlinear Poisson neurons, represented by outgoing synaptic activations s_i rather than detailed action-potential waveforms or measured membrane voltages. Every spike adds one activation unit; activation decays exponentially with common tau. Input g_i is sum_j W_ij s_j+b_i, and transfer phi(g_i) sets expected spike rate. Weights and biases are given model settings, not learned during the reported runs."
+    },
+    {
+      "id": "S2",
+      "topic": "How neurons affect one another",
+      "support": "Main p5 Eqs7-9 and p6 ring spike-generation procedure",
+      "content": "A generated spike changes s_j, which changes the weighted inputs g_i of receiving cells, which can change their rates and later spikes. The network state therefore affects future spike probabilities. Independent elementary spike-generation randomness conditional on current state does not imply independent entire spike trains or uncoupled neurons.",
+      "classification": "Direct equations and computational consequence; the full-train warning is an explanation derived from recurrence."
+    },
+    {
+      "id": "S3",
+      "topic": "Ring organization",
+      "support": "Main p3 Fig2A caption; main p6 Network Simulations",
+      "content": "The ring simulation has1024 neurons with labels theta_n=2pi n/N. Weights depend only on separation theta_i-theta_j. These are angles in the model's representation, not evidence that biological cells sit in a physical anatomical ring. Shifting a population pattern around the labels preserves the form of the connection rule."
+    },
+    {
+      "id": "S4",
+      "topic": "Actual ring weights",
+      "support": "Main p6 Network Simulations",
+      "content": "W_ij=w(theta_i-theta_j), w(alpha)=exp[cos(alpha)-1]-exp[0.3(cos(alpha)-1)], with A=1,k1=1,k2=.3. The paper explicitly calls these rotationally invariant inhibitory weights. The finite-network formula here is W=w, not W=w/N."
+    },
+    {
+      "id": "S5",
+      "topic": "Meaning of inhibitory interdependence",
+      "support": "Main p6 weight formula; main p3 Fig2B activity snapshot",
+      "content": "For the published parameters, w(0)=0 and w(alpha)<0 for nonzero angular separation modulo2pi. A spike therefore adds a nonpositive recurrent contribution to other cells' inputs. Nearby angular labels have weak inhibition relative to many more separated labels. It is wrong to describe this particular simulation as neighboring cells exciting each other.",
+      "classification": "Sign statement follows directly by comparing exp(x) and exp(.3x) for x=cos(alpha)-1<=0. Do not claim inhibition increases monotonically across all separations."
+    },
+    {
+      "id": "S6",
+      "topic": "Population bump and memory coordinate",
+      "support": "Main p2 Fig1B caption; p3 Fig2B caption and p6 decoding procedure",
+      "content": "A localized peak in the pattern of firing rates represents an angle by its position across neuron labels. Random spiking can shift that position while activity persists. Fig2B inset distinguishes smooth firing-rate traces from marks for emitted spikes; snapshots are10 seconds apart and marks cover10ms. Methods track the simulated angular state by the angle label of the neuron with maximal instantaneous rate."
+    },
+    {
+      "id": "S7",
+      "topic": "Simulation cycle and settings",
+      "support": "Main p6 Network Simulations",
+      "content": "Ring settings: tau10ms, dt0.1ms, constant b=-2,100 trials of1000s, initial s_i independently uniform between0 and.01. At each step neuron i emits a spike with probability r_i(t)dt; synaptic dynamics use stochastic Euler integration. Rates depend on the current network state and are updated as the state changes.",
+      "limitation": "The source supports a conceptual cycle, not a claim about exact source-code update ordering. Ring's one-event per step approximation should not be copied to arbitrary high-rate populations."
+    },
+    {
+      "id": "S8",
+      "topic": "Transfer-function comparison",
+      "support": "Main p6 Network Simulations; p3 Fig2 caption",
+      "content": "The compared transfer rules are tau phi(g)=10exp(g) and tau phi(g)=.2[1+tanh(g+4)]. Fig2C gray and black simulation series correspond to exponential and sigmoid transfer rules. Exponential symmetric networks attain the stated information bound under the model assumptions; the illustrated sigmoid network lies above its bound."
+    },
+    {
+      "id": "S9",
+      "topic": "What Fig2 compares",
+      "support": "Main p2 last paragraphs of Diffusive Drift subsection; p3 Fig2 caption; p6 Network Simulations",
+      "content": "The test compares simulated mean squared displacement of the represented state with predictions calculated from steady-state tuning curves and the analytical diffusion formula. Main p2 describes quantitative prediction without free fitted parameters for the two illustrated model networks. These are simulated measurements versus analytical theory, not biological recordings versus a fitted network."
+    },
+    {
+      "id": "S10",
+      "topic": "Figure2 panels",
+      "support": "Main p3 Fig2 artwork/caption",
+      "content": "A is the ring scheme. B shows a wandering represented angle and population rates/spikes. C compares short-lag simulated squared displacement (circles) for exponential gray and sigmoid black with theoretical curves (solid); dashed curve is the information lower bound for the sigmoid case. D extends the angular displacement comparison to longer lags. E is equal mutual inhibition of two cells or populations. F shows their changing rates. G compares simulated displacement of their represented rate difference with the theoretical line."
+    },
+    {
+      "id": "S11",
+      "topic": "Angular boundary qualification",
+      "support": "Main p3 Fig2 caption and p6 decoding/variance procedure",
+      "content": "Angular differences in C/D are wrapped modulo2pi into(-pi,pi). Long-lag saturation is consistent with this bounded angular-error convention and periodic diffusion; it does not mean the original remembered angle becomes accurate again or the noise disappears."
+    },
+    {
+      "id": "S12",
+      "topic": "What makes the test separate from fitting",
+      "support": "Main p6 last lines of ring procedure",
+      "content": "D and J are calculated from Eqs2,3 and the numerical noise-free steady state. The ring's stochastic simulation then supplies displacement statistics. Fig2D uses predicted D with the analytic periodic-variable variance. Thus the agreement checks a calculation against the stochastic system used to derive it, with stated approximation assumptions."
+    },
+    {
+      "id": "S13",
+      "topic": "Second model and purpose",
+      "support": "Main p2 comparison paragraph; p3 Fig2E-G caption; p6 two-neuron method",
+      "content": "Two mutually inhibiting neurons, equivalently populations, have zero self weights and equal cross weights-1; linear transfer rule in positive range. Their rate difference is the nonperiodic represented variable. This illustrates agreement beyond the rotationally symmetric ring. It does not establish that animal oculomotor circuits have exactly these two units or weights."
+    },
+    {
+      "id": "S14",
+      "topic": "SI scaling distinction",
+      "support": "SI p1 EqS1 and p2 EqS6; main p6 finite-network method",
+      "content": "The SI introduces replicated populations with weights scaled1/n, or denser ring labels with weights1/N, to define the weak-fluctuation limit with mean input fixed. This mathematical population-size comparison is distinct from the published finite1024-neuron ring settings. Do not add another1/N factor to those finite weights."
+    },
+    {
+      "id": "S15",
+      "topic": "Additional SI example",
+      "support": "SI p10 FigS1 caption",
+      "content": "A two-neuron mutually excitatory simulation starts trials at Theta100; variance across4000 trials is compared with theory. It is an additional model check and need not be unpacked in a first Chapter1 setup."
+    }
+  ],
+  "limits_on_empirical_claims": [
+    {
+      "support": "Main p2 prediction paragraph and p3 Figure2 heading/caption",
+      "judgment": "The reported Figure2 agreement is numerical validation of diffusivity in model networks. Calling its circles animal data, recorded neural firing, or experimental recall errors is unsupported."
+    },
+    {
+      "support": "Main p5 empirical-studies discussion",
+      "judgment": "The authors propose applying these ideas to measured recall errors, oculomotor drift and readout psychometric curves; this is a route for future empirical tests, not a reported Figure2 animal-data fit."
+    },
+    {
+      "support": "Main p5 discussion of oculomotor fixation",
+      "judgment": "The paper explicitly says Eq2 cannot directly be applied to oculomotor spikes because those spikes are substantially sub-Poisson. Do not claim its Poisson ring simulation quantitatively establishes the amount of animal eye drift."
+    },
+    {
+      "support": "Main p2 attractor assumptions; p6 noise-free dynamics and tuning footnote",
+      "judgment": "The derivation assumes a tuned continuous family and weak fluctuations; a small higher-order tuning correction may be needed to cancel systematic noisy drift. Simulations of examples do not prove arbitrary recurrent networks retain a continuous memory."
+    },
+    {
+      "support": "Main p6 initialization vs main p2 Fig1B conceptual illustration",
+      "judgment": "Fig1B illustrates a cue-established state followed by cue removal. The actual ring Methods initialize activations randomly in[0,.01]. Keep general cue-storage explanation separate from a claim that the reported Figure2 runs used a specified sensory cue angle."
+    },
+    {
+      "support": "Main p6 stochastic method",
+      "judgment": "The model uses spikes as events and a simple transfer function; it does not simulate detailed spike voltage shapes, full muscle mechanics, or learning of W during these tests."
+    },
+    {
+      "support": "Main p2 Eq2 in supplied Early Edition",
+      "judgment": "Existing guide already applies the2017 correction for the squared input-slope numerator. New Chapter1 material can describe the simulation-theory comparison without reprinting this formula. Do not silently treat the supplied early Eq2 typography as authoritative."
+    }
+  ],
+  "suggested_content_boundary": "A short Chapter1 setup can identify simulated states and one feedback cycle, explain ring labels and inhibitory interdependence, distinguish firing-rate bump from spike marks, then state that Fig2 compares stochastic model output with analytical predictions. Keep diffusion derivation, full variance curves, boundary mathematics and detailed numerical settings in later chapters. Introduce assigned/preferred angles before using them; do not require the reader to know a continuous-attractor proof to understand what the computer updates.",
+  "stage_status": "No correctness/wording/reader acceptance of future addition performed. Root will author and request these separately.",
+  "artifacts": [
+    "main-p2-fresh.txt",
+    "main-p3-fresh.txt",
+    "main-p5-fresh.txt",
+    "main-p6-fresh.txt",
+    "si-p1-fresh.txt",
+    "si-p2-fresh.txt",
+    "si-p10-fresh.txt",
+    "main-p3-source.png"
+  ],
+  "canonical_edits_made": false,
+  "token_stats": "unavailable",
+  "completed_utc": "2026-11-01T19:28:04Z",
+  "extension_wall_seconds": 253,
+  "original_wall_seconds": 21323
+}

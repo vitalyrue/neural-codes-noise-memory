@@ -1,0 +1,2017 @@
+{
+  "call": {
+    "run_id": "localrequest:place-truth-20261029-01",
+    "reviewer_id": "/root/alignment_place_truth",
+    "stage": "truth_reasoning",
+    "context": "fresh",
+    "started_at": "2026-10-29T12:32:57.437574+02:00",
+    "completed_at": "2026-10-29T12:47:17.204361+02:00",
+    "input_hash": "81f7e2f3f75c1d85db5116fb870c668bdebcfc94c180926ad1673e33b6f06e76",
+    "review_contract_hash": "593934f3af51c49175417df3e4263df20a0835575d099bad4f0070163b4a17dc"
+  },
+  "scope": {
+    "unit_count": 22,
+    "paragraph_count": 356,
+    "claim_row_count": 255,
+    "existing_glossary_entries_read": 97,
+    "authoritative_sources": "Actual assigned Markdown and its sidecar reader text; neutral input packet supplies IDs/hashes only.",
+    "stage_limit": "Truth and reasoning only. Necessity/terminology and reader-understanding/flow remain separate later calls.",
+    "visual_limit": "Scientific captions,alt text,SVG labels and source-figure statements checked. Extended pixels,crop fidelity,art acceptance remain explicitly deferred.",
+    "history": "No historical findings,current-state notes or other reviewers reports read. Coordinator later supplied the missing-displacement inventory candidate, independently confirmed and disclosed in PLACE-T1-01."
+  },
+  "open_ended_first_read": {
+    "judgment": "The current reading path consistently separates fixed spatial maps from temporal drift and observed statistics from neural mechanism. Initial candidate risks were finite-threshold overclaiming,maximum-versus-fixed-point conditioning,boundary counts,slice sampling,fit burden and uniqueness of circuit inference. The strongest full-passage reading resolved those risks using explicit nearby qualifications.",
+    "remaining": "One missing glossary lookup entry was confirmed after the coordinator inventory prompt; no substantive scientific contradiction was confirmed in this stage."
+  },
+  "units": {
+    "content/chapters/05-place-fields.md::ch:PLACE-FIELDS": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "What is random, and what moves?",
+          "answer": "The map varies across model draws or cells; an animal moves through one fixed draw. Physical position indexes input and expected rate, while crossings mark model-field boundaries.",
+          "source_refs": [
+            "content/chapters/05-place-fields.md::ch:PLACE-FIELDS::p7",
+            "content/chapters/05-place-fields.md::ch:PLACE-FIELDS::p9",
+            "content/chapters/05-place-fields.md::ch:PLACE-FIELDS::p11"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p3-p7: explain multiple separated fields and different widths while preserving the physical distinction between a tunnel route, floor and room.",
+        "Prerequisites, first use, and first teaching location": "00-reading-guide.md p27 teaches place cells and fields; 01-foundations.md teaches tuning and rate maps. p3 distinguishes coordinate dimension from tunnel width and height.",
+        "Definition and emphasis": "p9 defines an upcrossing as an upward threshold passage and marks the first teaching term; p7 explains the hidden input before any formula.",
+        "Operating mode and object roles, when relevant": "p7,p11: a cell receives an input function; position selects its value; the model predicts distributions across fixed maps. Recordings estimate rate, not that input.",
+        "System setup and component relationships": "setting: p3 physical environments; roles: p7 spatial input and thresholded cell; objects and flow: input at a position to positive rate; assumptions: fixed map p11; verdict: adequate.",
+        "Representation bridge, when relevant": "p7: a proposed smooth random spatial input stands for average synaptic input; observed rate is a separate output. No temporal-noise interpretation is imported.",
+        "Mechanism, calculation, or state change": "p9: counts arise from crossings; counts combined with lengths and gaps can separate threshold from scale. This is borne out by PLACE-INFERENCE.",
+        "Concrete trace or example": "p3 uses actual tunnel/floor/room coordinate examples; p5 compares a short-track hill with separated long-track fields.",
+        "Example setup and conclusion": "p5 establishes the observation to explain, and p9 states how counting answers the parameter question; no numerical result is promised in the opening.",
+        "Assumptions, limits, trade-offs, or failure modes": "p11 explicitly excludes memory drift, spike timing and learning; p7 keeps the statistical prediction separate from a particular next field.",
+        "Relevant alternatives, common criteria, and selection or scope": "Not applicable: p7-p9 introduce one paper and its statistical question; a circuit comparison belongs in PLACE-WIRING and the spherical alternative in PLACE-SLICES.",
+        "Expert objection": "objection: a spatial random function is being described as temporal neural noise; kind: correctness; target: p7,p11; disposition: does not apply; reason: the map is fixed and the spatial coordinate is expressly not time.",
+        "Essential explanation beyond the checklist": "reader task: What is random, and what moves?; dependencies checked: 00-reading-guide.md p27 teaches place cells and fields; 01-foundations.md teaches tuning and rate maps. p3 distinguishes coordinate dimension from tunnel width and height.; reasoning chain: The map varies across model draws or cells; an animal moves through one fixed draw. Physical position indexes input and expected rate, while crossings mark model-field boundaries.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR Eqs.2-3 model latent input and thresholded rate; main Eq.1 predicts size distributions."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "Mainali Figs.2-3 test shape and topology beyond fitted means; additional rate gain is kept explicit later in PLACE-DATA and TOPOLOGY."
+        },
+        "c3": {
+          "verdict": "condition stated",
+          "checked": "Fixed sampled map is the specified model, Mainali Methods S1; no learned or time-varying map is asserted."
+        }
+      }
+    },
+    "content/chapters/05-place-fields.md::sec:PLACE-GP": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Does the covariance imply the derivatives used for crossings?",
+          "answer": "Only with the stated regularity. The section explicitly distinguishes joint Gaussian values, translation/rotation assumptions, and sample-path smoothness; it then obtains the distance scale from derivative covariance.",
+          "source_refs": [
+            "content/chapters/05-place-fields.md::sec:PLACE-GP::p21",
+            "content/chapters/05-place-fields.md::sec:PLACE-GP::p34",
+            "content/chapters/05-place-fields.md::sec:PLACE-GP::p35",
+            "content/chapters/05-place-fields.md::sec:PLACE-GP::p36",
+            "content/chapters/05-place-fields.md::sec:PLACE-GP::p38",
+            "content/chapters/05-place-fields.md::sec:PLACE-GP::p83"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p15: identical rate histograms can hide different spatial arrangements, so a joint rule for neighboring positions is needed.",
+        "Prerequisites, first use, and first teaching location": "p17-p28 supplies finite joint Gaussian values and covariance; p34-p38 teaches stationarity, isotropy and smoothness before derivatives at p69.",
+        "Definition and emphasis": "p21 defines GP; p28 defines joint Gaussian and independence; p34-p36 mark the three assumptions; p61-p67 defines the excursion set and connected field.",
+        "Operating mode and object roles, when relevant": "p40-p50: h has input units, z is unit variance, q is dimensionless and a has Hz units; x is distance, not elapsed time.",
+        "System setup and component relationships": "setting: one stationary spatial map; roles: h/z input, q threshold, a rate gain; objects and flow: normalize then rectify; assumptions: Gaussian finite distributions and required smoothness; verdict: adequate (p17-p50).",
+        "Representation bridge, when relevant": "p40-p50 absorbs the constant mean into threshold and normalizes input. Changing a preserves zero-rate boundaries, with a positive detection-cutoff exception stated.",
+        "Mechanism, calculation, or state change": "p69-p83: differentiating C(y-x) twice yields -C double-prime(0), so normalized slope variance is sigma^-2. Gaussian covariance gives the same sigma.",
+        "Concrete trace or example": "p85 and fig:PLACE-GP-TO-FIRING set q=.8,a=6 Hz on one spatial map; its positive regions follow the explicit rectification.",
+        "Example setup and conclusion": "p85 introduces the chosen parameters; p93 interprets separated fields and repeats that both panels are spatial maps.",
+        "Assumptions, limits, trade-offs, or failure modes": "p36-p38 differentiability and nondegeneracy; p50 the positive detection cutoff exception; p83 other covariances can share local scale.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: specify spatial dependence; options: Gaussian covariance versus other smooth covariances and exponential covariance; relationship: covariance choices in one model family; criteria: derivative regularity and long-distance structure; selection or scope: p38,p83 use Gaussian simulations, excluding nonsmooth exponential paths from derivative calculations; verdict: adequate.",
+        "Expert objection": "objection: marginal Gaussian values guarantee smooth paths; kind: correctness; target: p36-p38 and derivative formulas; disposition: does not apply; reason: the exponential-covariance counterexample expressly defeats this inference.",
+        "Essential explanation beyond the checklist": "reader task: Does the covariance imply the derivatives used for crossings?; dependencies checked: p17-p28 supplies finite joint Gaussian values and covariance; p34-p38 teaches stationarity, isotropy and smoothness before derivatives at p69.; reasoning chain: Only with the stated regularity. The section explicitly distinguishes joint Gaussian values, translation/rotation assumptions, and sample-path smoothness; it then obtains the distance scale from derivative covariance.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "Differentiability is an extra covariance/sample-path requirement, stated in p36-p38 and required by Kac-Rice."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "A Gaussian finite vector is determined by its mean and covariance; Mainali Methods S1."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "For joint Gaussian subvectors the characteristic function factorizes when cross covariance vanishes; Methods S1 and author notes definitions."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Rectification puts mass at zero and changes positive values; STAR Eq.3."
+        },
+        "c5": {
+          "verdict": "condition stated",
+          "checked": "In the constant-mean Gaussian setting, radial covariance implies rotational invariance of finite laws."
+        },
+        "c6": {
+          "verdict": "condition stated",
+          "checked": "Conditions are expressly the differentiable, nondegenerate model used by the crossing and Hessian arguments."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Exponential covariance has a cusp at zero and is the stated counterexample."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "Constant mean can be subtracted while shifting threshold; C(0) is stationary input variance."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Dividing h by sqrt(C(0)) gives variance one; positive excess is dimensionless, so gain a has Hz units."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR Eq.3: gain absorbs sigma_h between [h-q sigma_h]+ and [z-q]+."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Mainali Figure 1; source PDF page 4 verified by extracted caption."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure 1A-F caption supports maps, random summation, lengths, gaps, log moments and four mice. Exact crop/pixel fidelity is deferred."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "Chain rule: partial_x C(y-x)=-C prime(y-x); partial_y then gives -C double-prime."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "Twice differentiating exp(-delta^2/(2 sigma^2)) at zero gives -sigma_h^2/sigma^2."
+        },
+        "c15": {
+          "verdict": "condition stated",
+          "checked": "Equal C(0) and C double-prime(0) fix only this local scale, not C at nonzero separations."
+        },
+        "c16": {
+          "verdict": "true as written",
+          "checked": "Declared teaching simulation and q=.8,a=6 agree with SVG labels and rectification; independent reproduction of the random draw was not requested."
+        },
+        "c17": {
+          "verdict": "true as written",
+          "checked": "Formula maps z<=.8 to zero and z>.8 to 6(z-.8); SVG text/caption agree. Artwork fidelity deferred."
+        },
+        "c18": {
+          "verdict": "true as written",
+          "checked": "Local PDF page 13 is STAR Eqs.2-3."
+        }
+      }
+    },
+    "content/chapters/05-place-fields.md::sec:PLACE-KAC-RICE": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Why is the endpoint term needed and why is slope weighting correct?",
+          "answer": "The narrow-band width is inversely proportional to slope, so multiplying by slope makes one unit per crossing. A field already active at zero has no upward crossing inside the track, adding an indicator with expectation Q(q).",
+          "source_refs": [
+            "content/chapters/05-place-fields.md::sec:PLACE-KAC-RICE::p105",
+            "content/chapters/05-place-fields.md::sec:PLACE-KAC-RICE::p111",
+            "content/chapters/05-place-fields.md::sec:PLACE-KAC-RICE::p145",
+            "content/chapters/05-place-fields.md::sec:PLACE-KAC-RICE::p153"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p97: count fields without solving every threshold root.",
+        "Prerequisites, first use, and first teaching location": "PLACE-GP p36,p83 supplies smoothness and derivative variance; p99 supplies a simple crossing and positive slope before the narrow-band argument.",
+        "Definition and emphasis": "p105 marks Kac-Rice and gives its counting meaning; p153 defines Q and Phi before endpoint use is interpreted.",
+        "Operating mode and object roles, when relevant": "p99-p111: v is spatial slope; p(z,z prime) is joint density across maps; nu is expected upcrossings per distance.",
+        "System setup and component relationships": "setting: finite track with connected active intervals; roles: upward crossing starts a field and the left endpoint may add one; objects and flow: count local bands, average, add endpoint; assumptions: simple crossings, stationary Gaussian law; verdict: adequate (p99,p145,p153).",
+        "Representation bridge, when relevant": "p105-p111 turns a finite vertical band into spatial width 2 epsilon/v and compensates the inverse-slope sampling with v.",
+        "Mechanism, calculation, or state change": "p123-p143: stationarity makes height-slope covariance zero; Gaussianity gives independence; a positive Gaussian first moment yields exp(-q^2/2)/(2 pi sigma).",
+        "Concrete trace or example": "fig:PLACE-CROSSINGS has two upward crossings and one already-active left boundary; draw_place.py v06 implements this construction and the local band weighting.",
+        "Example setup and conclusion": "p113 introduces the boundary illustration; p121 explains its retained-clipping convention before p145 gives the exact finite-track identity.",
+        "Assumptions, limits, trade-offs, or failure modes": "p143 exactness belongs to the regular smooth stationary Gaussian model, without a high threshold; p145,p153 distinguish clipped-field inclusion from exclusion.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: field count on a finite interval; options: all intersecting components versus complete fields only; relationship: different counting conventions; criteria: endpoint inclusion; selection or scope: retain all intersecting components and add Q(q); verdict: adequate (p121,p145,p153).",
+        "Expert objection": "objection: one upward crossing always corresponds to one counted field even at track boundaries; kind: correctness; target: p145-p153; disposition: does not apply; reason: the extra left-active component is counted explicitly.",
+        "Essential explanation beyond the checklist": "reader task: Why is the endpoint term needed and why is slope weighting correct?; dependencies checked: PLACE-GP p36,p83 supplies smoothness and derivative variance; p99 supplies a simple crossing and positive slope before the narrow-band argument.; reasoning chain: The narrow-band width is inversely proportional to slope, so multiplying by slope makes one unit per crossing. A field already active at zero has no upward crossing inside the track, adding an indicator with expectation Q(q).; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Local linearization gives band width 2 epsilon/v; integrating v/(2 epsilon) gives one."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "A simple upward crossing has positive nonzero derivative by the specified regularity."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Positive derivative excludes downward crossings in the narrow-band identity."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Kac-Rice weights the density at height q by v, not the tail probability Q(q); Mainali S9-S13 and author notes."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "draw_place.py v06 defines the fixed curve and crossing count; SVG labels show 3=2+1 and both tangent weights. Pixel check deferred."
+        },
+        "c6": {
+          "verdict": "condition stated",
+          "checked": "p121 expressly defines the retained-boundary convention."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Differentiate E[z(x)^2]=1: derivative is 2E[zz prime]=0 under smoothness."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "PLACE-GP derivative calculation gives variance sigma^-2; Gaussian derivatives remain jointly Gaussian."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Positive normal first moment is 1/(sigma sqrt(2 pi)); multiply by phi(q)."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "du=sigma^2 v dv gives the displayed substitution."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Q is the standard normal upper-tail probability used for z(0)>q."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Removing left/right clipped components changes N_L and hence its expectation."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR Eq.8 equals L exp(-q^2/2)/(2 pi sigma)+Q(q)."
+        }
+      }
+    },
+    "content/chapters/05-place-fields.md::sec:PLACE-INFERENCE": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Can the two means identify q and sigma without assuming a Poisson field process?",
+          "answer": "Yes. Occupancy and the exact Gaussian crossing intensity yield the two means and their inversion. Poisson behavior is a separate high-threshold/mixing approximation, used conditionally for the cell-selection example.",
+          "source_refs": [
+            "content/chapters/05-place-fields.md::sec:PLACE-INFERENCE::p159",
+            "content/chapters/05-place-fields.md::sec:PLACE-INFERENCE::p170",
+            "content/chapters/05-place-fields.md::sec:PLACE-INFERENCE::p187",
+            "content/chapters/05-place-fields.md::sec:PLACE-INFERENCE::p189",
+            "content/chapters/05-place-fields.md::sec:PLACE-INFERENCE::p200"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p157: low counts can reflect either a high threshold or slow spatial variation.",
+        "Prerequisites, first use, and first teaching location": "PLACE-KAC-RICE p143,p153 teaches nu and Q; p159 interprets occupied length before dividing by field intensity.",
+        "Definition and emphasis": "p159-p170 defines per-field and per-gap means and distinguishes them from finite-sample ratio expectations.",
+        "Operating mode and object roles, when relevant": "p159,p187: lengths/gaps are spatial metres; q and sigma are inferred model parameters; the 200m numbers are model calculations, not new recordings.",
+        "System setup and component relationships": "setting: long stationary track or many maps; roles: occupancy Q and crossing intensity nu; objects and flow: two means to q and sigma; assumptions: suitable averaging and no clipping; verdict: adequate (p159-p187).",
+        "Representation bridge, when relevant": "p191-p200 connects recorded-cell selection to a zero-truncated count distribution rather than treating observed counts as unconditional.",
+        "Mechanism, calculation, or state change": "Adding means isolates scale; their ratio yields Q(q); invert Phi and recover sigma. Conditional Poisson mean follows by omitting n=0 then renormalizing.",
+        "Concrete trace or example": "p187 recomputed Q=.1356660609, nu=.0362126851, means 3.74636845/23.86826429m and expected count 7.37820309.",
+        "Example setup and conclusion": "p187 explicitly labels fitted-model numbers; p200 shows 36.8% exclusion and conditional mean 1.5819767 for lambda=1, with the inference consequence.",
+        "Assumptions, limits, trade-offs, or failure modes": "p170 ratio-of-expectations caveat; p189 mixing/decay caveat and periodic counterexample; p191 Poisson is an assumed selection example.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: separate threshold/scale and correct selection; options: count alone versus occupancy/length information, unconditional versus truncated Poisson; relationship: incomplete summaries versus identified parameters; criteria: distinguish parameters and sample inclusion; selection or scope: p157-p200 uses both summaries and stated conditioning; verdict: adequate.",
+        "Expert objection": "objection: stationarity implies independent rare fields or an exact Poisson count at q=1.1; kind: correctness; target: p189,p191; disposition: does not apply; reason: decay and high-threshold qualifications are explicit, and the exact mean is kept separate from the distributional approximation.",
+        "Essential explanation beyond the checklist": "reader task: Can the two means identify q and sigma without assuming a Poisson field process?; dependencies checked: PLACE-KAC-RICE p143,p153 teaches nu and Q; p159 interprets occupied length before dividing by field intensity.; reasoning chain: Yes. Occupancy and the exact Gaussian crossing intensity yield the two means and their inversion. Poisson behavior is a separate high-threshold/mixing approximation, used conditionally for the cell-selection example.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "Mainali S14-S15 give occupancy/intensity stationary means with long-track boundary neglect stated."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "p170 retains suitable averaging and expressly excludes expectation-of-finite-ratio interpretation."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Q+Phi=1; adding and dividing the preceding means gives both identities."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Invert Phi(mu_g/(mu_s+mu_g)); substitute into the sum to recover sigma."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Recomputed using NormalDist tail and exp: .1356661,.03621269,3.746368,23.868264; Mainali Fig.4A supplies 1.1/2.4."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "Algebraic inverse of the unrounded model means recovers q and sigma."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "200*.036212685123+.135666060946=7.3782030856."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "A periodic smooth Gaussian process has persistent spatial dependence; stationarity alone cannot give independent distant events."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "A high excursion has a paired up/down boundary on its short length scale; rare-field mixing refers to separated excursions."
+        },
+        "c10": {
+          "verdict": "condition stated",
+          "checked": "Renormalizing Poisson probabilities for n>=1 gives the expression and lambda/(1-exp(-lambda))."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "n=0 contributes zero to E[N], proving the conditional mean identity."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "exp(-1)=.367879 and 1/(1-exp(-1))=1.581977."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "The conditional mean exceeds lambda; treating it as lambda overstates unconditional expected fields."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR Eq.5 and Parameter inference in 2D explicitly condition on at least one field."
+        }
+      }
+    },
+    "content/chapters/05b-place-sizes.md::ch:PLACE-SIZES": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Which promised results are approximate?",
+          "answer": "The near-peak parabola and size distributions use a high threshold; the selected crossing-slope law is exact under the earlier smooth stationary Gaussian assumptions.",
+          "source_refs": [
+            "content/chapters/05b-place-sizes.md::ch:PLACE-SIZES::p3",
+            "content/chapters/05b-place-sizes.md::ch:PLACE-SIZES::p5",
+            "content/chapters/05b-place-sizes.md::ch:PLACE-SIZES::p7"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p3 asks how a common spatial model gives different full size distributions across dimensions after mean size is known.",
+        "Prerequisites, first use, and first teaching location": "PLACE-INFERENCE supplies the mean; p7 restates z,q,sigma,a,d and the firing rule.",
+        "Definition and emphasis": "p5 explains the local downward parabola before the next section defines Hessian; p7 repeats only the needed symbols.",
+        "Operating mode and object roles, when relevant": "p5-p7: excess height determines radius, geometry converts radius to spatial size; no dynamical process is introduced.",
+        "System setup and component relationships": "Not applicable: p3-p7 introduce a mathematical change of scale and geometry, not an additional interacting system.",
+        "Representation bridge, when relevant": "p5 links one radius to length, area or volume and separates a geometry conversion from a new biological mechanism.",
+        "Mechanism, calculation, or state change": "p5 identifies high-peak shape then geometric conversion; the following sections derive these steps.",
+        "Concrete trace or example": "p5 track/arena/room supplies the three geometric cases; numerical examples occur in PLACE-SIZE-LAW.",
+        "Example setup and conclusion": "p3 asks the distribution question; p5 states the conditional calculation used to answer it.",
+        "Assumptions, limits, trade-offs, or failure modes": "p5 expressly separates approximate high-threshold sizes from the exact selected-boundary slope law.",
+        "Relevant alternatives, common criteria, and selection or scope": "Not applicable: p3-p7 set up the paper-derived size calculation, with its alternative empirical distribution compared in PLACE-DATA.",
+        "Expert objection": "objection: the exact crossing mean makes all size predictions exact at finite threshold; kind: correctness; target: p5; disposition: does not apply; reason: the opening labels the high-threshold approximation and gives the slope law a separate exact argument.",
+        "Essential explanation beyond the checklist": "reader task: Which promised results are approximate?; dependencies checked: PLACE-INFERENCE supplies the mean; p7 restates z,q,sigma,a,d and the firing rule.; reasoning chain: The near-peak parabola and size distributions use a high threshold; the selected crossing-slope law is exact under the earlier smooth stationary Gaussian assumptions.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "A mean alone does not determine a distribution; many positive laws have the same mean."
+        },
+        "c2": {
+          "verdict": "not a claim",
+          "checked": "The question motivates a change of variables whose answer is derived in the following unit."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Same normalized rectification as PLACE-GP; dimensions and gain are restated."
+        }
+      }
+    },
+    "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Does the local high-peak argument justify the width constant and exponential excess?",
+          "answer": "Under the stated limiting regime, the Gaussian conditional curvature gives a parabola with q/(2 sigma^2), yielding full width 2 sqrt(2) sigma sqrt(U)/q. The ratio of high-peak counts at q+u/q and q tends to exp(-u), with multiple-peak and remainder control acknowledged as outside the local sketch.",
+          "source_refs": [
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p22",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p29",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p35",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p37",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p49",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p63",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-RARE-PEAKS::p65"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p11: explain the histogram shape left unresolved by an exact mean length.",
+        "Prerequisites, first use, and first teaching location": "PLACE-GP supplies isotropic derivative covariance; p15-p18 state regularity, q to infinity and component sampling; p22,p29 teach Hessian and Gaussian conditioning before their use.",
+        "Definition and emphasis": "p22 marks Hessian with curvature meaning; p29 defines delta_ij and proves conditional mean by an independent Gaussian remainder; p75 defines Rayleigh through square-root exponential.",
+        "Operating mode and object roles, when relevant": "p37-p65: epsilon is peak excess, U=q epsilon, r_star is radius and s full length; actual maximum selection is distinguished from fixed-location conditioning in p35.",
+        "System setup and component relationships": "setting: one typical high component away from boundaries; roles: height, curvature and gradient; objects and flow: conditional parabola to radius to excess-height law; assumptions: p15-p20 high-threshold reconstruction, not a general theorem proof; verdict: adequate.",
+        "Representation bridge, when relevant": "p65,p78 distinguishes full length from radius and volume cube root from volume; the exponent two concerns rate versus a linear size.",
+        "Mechanism, calculation, or state change": "Conditional Hessian mean is -b/sigma^2 I with bounded variance; local expansion gives r_star=sigma sqrt(2 epsilon/q). Peak tail ratios tend to exp(-u) at epsilon=u/q.",
+        "Concrete trace or example": "p80 checks finite-threshold empirical/model exponents 1.42/1.46 and 1.75/1.71 against source Fig.3C-D; they are not called limiting exponents.",
+        "Example setup and conclusion": "p37 sets peak at origin and zero gradient; p73-p80 interprets length distribution and rate-width scaling, then explains finite-threshold departures.",
+        "Assumptions, limits, trade-offs, or failure modes": "p20,p63 retain theorem/remainder limits; p35 notes maximum-selection weighting; p80 warns shape fluctuations matter at moderate q.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: describe a selected peak; options: fixed-location Gaussian conditioning versus a randomly selected maximum; relationship: distinct sampling distributions; criteria: correct curvature weighting and high-q leading order; selection or scope: p35 retains the weighting distinction while using its leading limit; verdict: adequate.",
+        "Expert objection": "objection: conditioning on a high value at a fixed point is identical to sampling maxima; kind: correctness; target: p35,p49-p63; disposition: does not apply; reason: maximum curvature weighting and component/remainder qualifications are explicit, so only the leading asymptotic shape is claimed.",
+        "Essential explanation beyond the checklist": "reader task: Does the local high-peak argument justify the width constant and exponential excess?; dependencies checked: PLACE-GP supplies isotropic derivative covariance; p15-p18 state regularity, q to infinity and component sampling; p22,p29 teach Hessian and Gaussian conditioning before their use.; reasoning chain: Under the stated limiting regime, the Gaussian conditional curvature gives a parabola with q/(2 sigma^2), yielding full width 2 sqrt(2) sigma sqrt(U)/q. The ratio of high-peak counts at q+u/q and q tends to exp(-u), with multiple-peak and remainder control acknowledged as outside the local sketch.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "p15-p20 states q tends to infinity, smoothness and typical-component sampling."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "Count-once component sampling is stated and later contrasted with slices."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Source Methods S4 is a sketch; guide explicitly limits its reconstructed argument."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Conditional covariance of a jointly Gaussian Hessian is independent of b; its mean scales as b."
+        },
+        "c5": {
+          "verdict": "condition stated",
+          "checked": "Positive epsilon and zero gradient define the selected local maximum used for Taylor expansion."
+        },
+        "c6": {
+          "verdict": "condition stated",
+          "checked": "At high threshold regular excursions are dominated by single maxima; main S12 and S24 support the limiting count ratio."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Expanding -(q+epsilon)^2/2+q^2/2 gives -q epsilon-epsilon^2/2."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "At epsilon=u/q the exponent is -u-u^2/(2q^2); limit exp(-u)."
+        },
+        "c9": {
+          "verdict": "condition stated",
+          "checked": "Leading high-q count from S16 includes q^(d-1); EC unit derives the same factor."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "((q+u/q)/q)^(d-1)=(1+u/q^2)^(d-1) tends to one."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "A 1D symmetric interval has full length twice radius."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Cube root of volume has length units; proportional geometric constants do not change the exponent."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure 3C labels and caption: data 1.42, model 1.46."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure 3D labels: 1.75/1.71 and cube-root-volume x axis."
+        },
+        "c15": {
+          "verdict": "condition stated",
+          "checked": "finite q values need not equal the asymptotic exponent two; p80 keeps this distinction."
+        },
+        "c16": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure 5A-C shows field shapes, multiple peaks and power-law slopes versus threshold."
+        },
+        "c17": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure 4C compares 6m tunnel shape/rate-size behavior and peak inset."
+        },
+        "c18": {
+          "verdict": "true as written",
+          "checked": "Visible summary correctly names original Figure 5, PDF page9."
+        },
+        "c19": {
+          "verdict": "true as written",
+          "checked": "Mainali Fig.5 caption and A-D labels support threshold simplification and short-tunnel width comparison; pixel fidelity deferred."
+        }
+      }
+    },
+    "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Are the size constants and normalization consistent with the exact 1D crossing result?",
+          "answer": "Yes. The transformed density integrates to one, the Gamma moments fix beta by division by the mean, and the leading 1D mean sqrt(2pi)sigma/q is the large-q limit of Q(q)/nu(q). The finite-q numerical comparison explicitly shows the approximation error.",
+          "source_refs": [
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p125",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p136",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p146",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p166",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p168",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p174",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p175",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SIZE-LAW::p176"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p93: radius and dimensional size have different distributions and units.",
+        "Prerequisites, first use, and first teaching location": "PLACE-RARE-PEAKS p63,p65 gives U exponential and the radius; p95 defines unit-ball volume and gamma before transforming size.",
+        "Definition and emphasis": "p95 defines Gamma and v_d; p164 defines Weibull with scale/shape; p146 explains dimensions of beta.",
+        "Operating mode and object roles, when relevant": "p97-p127: d is physical spatial dimension; s is length/area/volume; beta rescales s^(2/d); the high-q formula and empirical fitted scale are different.",
+        "System setup and component relationships": "setting: limiting round excursion; roles: U excess, r_star radius, s dimensional size; objects and flow: monotonic variable transformation; assumptions: high-q and one component per draw; verdict: adequate (p97-p125).",
+        "Representation bridge, when relevant": "p146-p156: w removes units while U=w^(2/d) also removes shape differences; the reader is not told unit removal alone collapses the densities.",
+        "Mechanism, calculation, or state change": "Jacobian d(beta s^(2/d))/ds produces the density; substitution gives normalization and Gamma moments; inversion of the mean gives beta.",
+        "Concrete trace or example": "p166,p168 recomputed means .50132565m,.25132741m^2,.12599688m^3 and finite-q errors 45.98156%,3.730079%.",
+        "Example setup and conclusion": "p166 fixes sigma=1m,q=5 in the limiting calculation; p168 compares against the earlier exact 1D mean and interprets the error.",
+        "Assumptions, limits, trade-offs, or failure modes": "p114,p125 keep spherical/high-threshold scope; p164 explains integrable 3D divergence; p178 does not infer simulation errors from printed algebra.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: predict mean/shape at finite threshold; options: limiting density, exact 1D crossing mean, finite-threshold simulation; relationship: approximation versus exact expectation versus numerical model; criteria: finite-q accuracy; selection or scope: p168 displays measured approximation errors and motivates the simulation comparison; verdict: adequate.",
+        "Expert objection": "objection: the supplement contradicts the full-width constant and beta inferred from the mean; kind: correctness; target: p174-p176 and core formulas; disposition: does not apply; reason: current guide correctly repairs the printed algebra, confirmed by direct viewing of supplement PDF pages13-15 and by the independent crossing-mean limit.",
+        "Essential explanation beyond the checklist": "reader task: Are the size constants and normalization consistent with the exact 1D crossing result?; dependencies checked: PLACE-RARE-PEAKS p63,p65 gives U exponential and the radius; p95 defines unit-ball volume and gamma before transforming size.; reasoning chain: Yes. The transformed density integrates to one, the Gamma moments fix beta by division by the mean, and the leading 1D mean sqrt(2pi)sigma/q is the large-q limit of Q(q)/nu(q). The finite-q numerical comparison explicitly shows the approximation error.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Unit-ball formula gives standard ball volume and follows from the Gaussian integral; elementary recomputation for d=1,2,3."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Gamma(3/2)=sqrt(pi)/2, Gamma(2)=1, Gamma(5/2)=3sqrt(pi)/4 give 2,pi,4pi/3."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Definition integral converges for t>0; correct scope stated."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Integration by parts yields Gamma(n+1)=n! for nonnegative integers."
+        },
+        "c5": {
+          "verdict": "condition stated",
+          "checked": "Substitute radius sqrt(2)sigma sqrt(U)/q into v_d r^d, then solve for U."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "SVG formula labels and draw_place.py v07 match radius, full width, ball sizes and exponents; original pixels not accepted here."
+        },
+        "c7": {
+          "verdict": "condition stated",
+          "checked": "The text explicitly restricts roundness to the limiting approximation."
+        },
+        "c8": {
+          "verdict": "condition stated",
+          "checked": "U has the limiting exponential density from the preceding peak calculation."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Jacobian is (2 beta/d)s^(2/d-1); Mainali Eq.1."
+        },
+        "c10": {
+          "verdict": "condition stated",
+          "checked": "beta(q,sigma) is labeled leading high-threshold, not an identity at finite q."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Mean integral gives Gamma(1+d/2) beta^(-d/2); solve by dividing by mean before raising 2/d."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Substitute u=beta s^(2/d), so p(s)ds=e^-u du."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "For k>0, exponential U has all positive moments, so all stated size moments exist."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "s^k=beta^(-kd/2)U^(kd/2); integrating gives Gamma(1+kd/2)."
+        },
+        "c15": {
+          "verdict": "true as written",
+          "checked": "s has units length^d and beta length^-2 from its explicit formula."
+        },
+        "c16": {
+          "verdict": "true as written",
+          "checked": "beta s^(2/d) is dimensionless; derivative of the transform has units inverse-size."
+        },
+        "c17": {
+          "verdict": "true as written",
+          "checked": "beta^(d/2)s cancels length^-d against length^d."
+        },
+        "c18": {
+          "verdict": "true as written",
+          "checked": "u=w^(2/d) and its survival is e^-u by construction."
+        },
+        "c19": {
+          "verdict": "true as written",
+          "checked": "Formula, SVG labels and transformed survival agree; 3D density diverges as w^-1/3 but is integrable. Extended pixels deferred."
+        },
+        "c20": {
+          "verdict": "true as written",
+          "checked": "Local main PDF page3 contains Eq.1, printed1111."
+        },
+        "c21": {
+          "verdict": "true as written",
+          "checked": "Table caption accurately names the three row dimensions."
+        },
+        "c22": {
+          "verdict": "true as written",
+          "checked": "Set d=1 in Eq.1: 2 beta s exp(-beta s^2), zero at s=0."
+        },
+        "c23": {
+          "verdict": "true as written",
+          "checked": "Set d=2: beta exp(-beta s), mean1/beta."
+        },
+        "c24": {
+          "verdict": "true as written",
+          "checked": "Set d=3: (2beta/3)s^-1/3 exp(-beta s^(2/3)); integral finite and Weibull shape2/3."
+        },
+        "c25": {
+          "verdict": "condition stated",
+          "checked": "With positive beta, k=2/d,b=beta^(-d/2) gives the stated survival."
+        },
+        "c26": {
+          "verdict": "true as written",
+          "checked": "P(0<s<delta)=1-exp(-beta delta^(2/3)) tends to zero."
+        },
+        "c27": {
+          "verdict": "condition stated",
+          "checked": "p166 declares a chosen limiting calculation, not a measurement."
+        },
+        "c28": {
+          "verdict": "true as written",
+          "checked": "Recomputed (sqrt(2pi)/5)^d for d=1,2,3: .501325655,.251327412,.125996880."
+        },
+        "c29": {
+          "verdict": "true as written",
+          "checked": "sqrt(2pi)*2.4/1.1=5.469; dividing by exact3.746368 gives45.98156% excess."
+        },
+        "c30": {
+          "verdict": "true as written",
+          "checked": "At q=5 the same ratio minus1 is .0373007934."
+        },
+        "c31": {
+          "verdict": "condition stated",
+          "checked": "Direct source PDF confirms printed S18,S23,S25 errors; these alone say nothing about implementation or fitted data."
+        }
+      }
+    },
+    "content/chapters/05b-place-sizes.md::sec:PLACE-SLICES": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Why do line samples follow the lower-dimensional model rather than a once-per-field radius law?",
+          "answer": "The process restricted to a fixed line is itself Gaussian with the restricted covariance. Its connected positive intervals are the samples of interest. Picking a whole field first and cutting its centre would create a different sampling distribution.",
+          "source_refs": [
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLICES::p186",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLICES::p188",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLICES::p190",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLICES::p206"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p184: matching whole volumes does not establish how activity is arranged inside them.",
+        "Prerequisites, first use, and first teaching location": "PLACE-GP p21 gives finite Gaussian vectors; PLACE-SIZE-LAW distinguishes dimension and size. p186 explains restriction before applying dimensional size laws.",
+        "Definition and emphasis": "p188 defines the new counted object as a connected interval or patch in the slice, not the original component.",
+        "Operating mode and object roles, when relevant": "p186-p190: the line/plane samples physical positions; original fields may be missed or split; the sampling rule determines the observed length population.",
+        "System setup and component relationships": "setting: line or plane through a fixed higher-dimensional map; roles: original component and sliced component; objects and flow: restrict then threshold or reverse those operations; assumptions: isotropy for the shared scale and spatially selected slices; verdict: adequate (p186-p190).",
+        "Representation bridge, when relevant": "p186: subset of a jointly Gaussian vector remains Gaussian; thresholding commutes pointwise with restriction. p190 includes hit probability and off-centre cuts.",
+        "Mechanism, calculation, or state change": "The restricted covariance is C((t-t prime)v); with unit v and isotropy it has sigma unchanged. Size predictions then use the dimension of the slice.",
+        "Concrete trace or example": "p194-p195 maps Figure2C/D/E to lengths/areas/counts and H/I/J to lengths/areas/volumes; S2 supplies a fitted-volume spherical counterexample.",
+        "Example setup and conclusion": "p184 poses a spatial-structure test; p206 concludes that matching volumes alone is insufficient after the slice and topology comparisons.",
+        "Assumptions, limits, trade-offs, or failure modes": "p190 prohibits converting once-per-field radius samples directly into uniformly positioned line samples; high-threshold qualifications are inherited from the size law.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: match higher-dimensional maps; options: thresholded Gaussian field and volume/peak-matched spherical fields; relationship: competing statistical constructions; criteria: slice distributions and topology beyond fitted volumes; selection or scope: p206 and S2 distinguish them; verdict: adequate.",
+        "Expert objection": "objection: each original sphere supplies an equally likely diameter to a sampled line; kind: correctness; target: p190; disposition: does not apply; reason: both size-dependent hit probability and noncentral cuts are stated before interpreting the figure.",
+        "Essential explanation beyond the checklist": "reader task: Why do line samples follow the lower-dimensional model rather than a once-per-field radius law?; dependencies checked: PLACE-GP p21 gives finite Gaussian vectors; PLACE-SIZE-LAW distinguishes dimension and size. p186 explains restriction before applying dimensional size laws.; reasoning chain: The process restricted to a fixed line is itself Gaussian with the restricted covariance. Its connected positive intervals are the samples of interest. Picking a whole field first and cutting its centre would create a different sampling distribution.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "A straight line is parameterized by x0+t v; same scale requires the stated unit direction/isotropy."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Finite restriction takes a subvector of Gaussian evaluations, retaining joint Gaussianity."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "For each line position, z(x)>q is the same test before or after restriction."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Spatially sampled lines weight fields by hit probability and include off-centre chords; p190 states both."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Mainali Fig.2A-J caption confirms the dimensional organization."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Mainali Fig.2, local PDF page5 with continued caption page6."
+        },
+        "c7": {
+          "verdict": "condition stated",
+          "checked": "Mainali Fig.2 supports the slice comparisons; the dimensional law is interpreted with the preceding high-threshold limits. Pixel fidelity deferred."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "Supplement Fig.S2 caption: spherical support, exact empirical joint volume/peak match, discrepant slices and EC."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "A matched-volume counterexample failing slices/topology establishes insufficiency of volume matching alone."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Supplement Fig.S2 on PDF page3."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Supplement Fig.S2A-C supports the caption; D-E concern curvature. Pixel fidelity deferred."
+        }
+      }
+    },
+    "content/chapters/05b-place-sizes.md::sec:PLACE-SLOPES": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Is the Rayleigh slope law exact while the width check is approximate?",
+          "answer": "Yes. Height-slope independence removes q from the crossing-slope distribution without requiring high q. Width uses a local high-threshold parabola, so its change-of-variable check retains that approximation.",
+          "source_refs": [
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLOPES::p221",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLOPES::p229",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLOPES::p233",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLOPES::p239",
+            "content/chapters/05b-place-sizes.md::sec:PLACE-SLOPES::p243"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p219: a derivative sampled at a boundary is not sampled like a derivative at an arbitrary location.",
+        "Prerequisites, first use, and first teaching location": "PLACE-KAC-RICE p105-p143 supplies v-weighted crossings and height-slope independence; p221 reuses that integral.",
+        "Definition and emphasis": "p221-p229 defines the upcrossing slope density and distinguishes it from a half Gaussian at uniform spatial samples.",
+        "Operating mode and object roles, when relevant": "v is normalized input slope; av is rate slope. p243 states that measured boundary slopes are finite differences over .1m, not input measurements.",
+        "System setup and component relationships": "setting: selected simple crossings; roles: slope v and height density; objects and flow: restrict crossing count by slope then normalize; assumptions: stationary differentiable Gaussian map; verdict: adequate (p221-p229).",
+        "Representation bridge, when relevant": "p243 bridges continuous derivative to two adjacent recorded rate samples and states spatial-resolution limits.",
+        "Mechanism, calculation, or state change": "The q-dependent height density cancels. Positive Gaussian slope density weighted by v and normalized yields sigma^2 v exp(-sigma^2 v^2/2).",
+        "Concrete trace or example": "p233-p239 independently derives full width from vx-qx^2/(2sigma^2), then transforms the exact slope density to beta=q^2/(8sigma^2).",
+        "Example setup and conclusion": "The folded independent check states high-threshold approximation before solving the second root; it verifies the earlier width constant.",
+        "Assumptions, limits, trade-offs, or failure modes": "Exact slope law does not make the local-parabola width conversion exact; p233 calls it high threshold. p243 distinguishes finite difference from hidden input.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: distribution of positive derivatives; options: uniform positive slopes versus slopes selected at crossings; relationship: different sampling measures; criteria: crossing intensity weighting; selection or scope: p221-p229 chooses the v-weighted law; verdict: adequate.",
+        "Expert objection": "objection: multiplying a Gaussian derivative by a positivity indicator produces the boundary law; kind: correctness; target: p221-p229; disposition: does not apply; reason: the additional v factor is retained and its origin was derived in Kac-Rice.",
+        "Essential explanation beyond the checklist": "reader task: Is the Rayleigh slope law exact while the width check is approximate?; dependencies checked: PLACE-KAC-RICE p105-p143 supplies v-weighted crossings and height-slope independence; p221 reuses that integral.; reasoning chain: Yes. Height-slope independence removes q from the crossing-slope distribution without requiring high q. Width uses a local high-threshold parabola, so its change-of-variable check retains that approximation.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Kac-Rice numerator restricted to v..v+dv is proportional to v p_zprime(v)dv."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Normalize v sigma exp(-sigma^2v^2/2)/sqrt(2pi) by1/(sigma sqrt(2pi)), yielding the density shown."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Author notes Theorem2.3 gives the same selected-slope law; a half normal lacks the v factor."
+        },
+        "c4": {
+          "verdict": "condition stated",
+          "checked": "Solving x(v-qx/(2sigma^2))=0 gives second root2sigma^2v/q within the stated parabola."
+        },
+        "c5": {
+          "verdict": "condition stated",
+          "checked": "Jacobian dv/ds=q/(2sigma^2) yields2beta s exp(-beta s^2), beta=q^2/(8sigma^2)."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure3A labels width, max rate, peak count and boundary slopes."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR Boundary slopes specifies two consecutive samples separated by .1m."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "Visible summary names Figure3, local PDF page7."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Mainali Fig.3A-H includes all described shape, slope and EC comparisons; pixel fidelity deferred."
+        }
+      }
+    },
+    "content/chapters/05c-place-tests.md::ch:PLACE-TESTS": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "What additional evidence will geometry supply?",
+          "answer": "It can distinguish maps whose field summaries agree, but the chapter separately tracks fitting and circuit assumptions before interpreting that evidence.",
+          "source_refs": [
+            "content/chapters/05c-place-tests.md::ch:PLACE-TESTS::p3",
+            "content/chapters/05c-place-tests.md::ch:PLACE-TESTS::p5",
+            "content/chapters/05c-place-tests.md::ch:PLACE-TESTS::p7"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p3: maps with equal size/count summaries can have different holes, raising a stronger test and a circuit-inference question.",
+        "Prerequisites, first use, and first teaching location": "PLACE-FIELDS and PLACE-SIZES establish maps, dimensions and summaries; p7 explicitly restores q,sigma,a,d and separates d from diffusion D.",
+        "Definition and emphasis": "p5 describes connected regions/holes in ordinary words before the Euler definition in the next unit.",
+        "Operating mode and object roles, when relevant": "p5-p7: fixed spatial map, observed environment boundary, measured summaries and random input sum have separate roles.",
+        "System setup and component relationships": "setting: test map geometry then consider circuit input; roles: recordings, statistical model, candidate weighted inputs; objects and flow: compare predicted summaries then assess mechanism; assumptions: same fixed map model; verdict: adequate (p5,p7).",
+        "Representation bridge, when relevant": "p5 distinguishes measured maps from a possible generating sum; no circuit identification is promised.",
+        "Mechanism, calculation, or state change": "The plan progresses from geometric constraints through fitted quantities to a sufficient random-summation mechanism.",
+        "Concrete trace or example": "p3 compares ring/tunnel configurations while holding basic field summaries equal; numerical EC examples follow.",
+        "Example setup and conclusion": "p3 states the limitation, p5 states the three checks, p7 bounds the objects they act on.",
+        "Assumptions, limits, trade-offs, or failure modes": "p5 expressly leaves circuit assumptions and measurements visible, rather than deriving wiring from geometry.",
+        "Relevant alternatives, common criteria, and selection or scope": "Not applicable: p3-p7 motivate three complementary checks; the actual competing circuit explanations are supplied in PLACE-WIRING.",
+        "Expert objection": "objection: matching topology uniquely proves a random circuit; kind: correctness; target: p3,p5; disposition: does not apply; reason: the opening asks how much agreement establishes and promises to expose additional assumptions.",
+        "Essential explanation beyond the checklist": "reader task: What additional evidence will geometry supply?; dependencies checked: PLACE-FIELDS and PLACE-SIZES establish maps, dimensions and summaries; p7 explicitly restores q,sigma,a,d and separates d from diffusion D.; reasoning chain: It can distinguish maps whose field summaries agree, but the chapter separately tracks fitting and circuit assumptions before interpreting that evidence.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {}
+    },
+    "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Do the higher-dimensional formulas count fields exactly?",
+          "answer": "They count expected Euler characteristic exactly for the stated smooth Gaussian box setting. Fields equal EC only when components have no holes, used here as a high-threshold approximation. The signed densities and explicit boundary terms prevent conflating these quantities.",
+          "source_refs": [
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p31",
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p51",
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p85",
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p98",
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p105",
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p107",
+            "content/chapters/05c-place-tests.md::sec:PLACE-TOPOLOGY::p115"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p11: count and total area leave holes unresolved as threshold changes.",
+        "Prerequisites, first use, and first teaching location": "PLACE-GP gives Gaussian derivatives; PLACE-RARE-PEAKS gives Hessian conditioning; p13-p19 teaches EC and Betti counts; p31 states the Morse theorem used, without claiming its proof.",
+        "Definition and emphasis": "p13 EC, p19 Betti numbers, p31 critical point and Morse theory are marked and explained. p33,p41 define lambda and phi before density calculations.",
+        "Operating mode and object roles, when relevant": "p43-p51: eta_j are signed densities, not positive field counts; p85 specifies faces of a nonperiodic box; p107-p115 separately approximates high-q component counts.",
+        "System setup and component relationships": "setting: smooth isotropic Gaussian map on interval/square/cube; roles: interior critical points and boundary faces; objects and flow: signed Hessian count plus face contributions to EC; assumptions: nondegenerate critical points and retained intersecting components; verdict: adequate (p31,p33,p85).",
+        "Representation bridge, when relevant": "p117 maps an extra rate cutoff t to normalized level q+t/a and retains the fitted gain; rate cutoffs cannot directly expose below-original-threshold input geometry.",
+        "Mechanism, calculation, or state change": "Determinant expectations lambda^j times b,b^2-1,b^3-3b integrate to phi(q),q phi(q),(q^2-1)phi(q). Face multiplicity cancels sign factors to binomial(d,j)L^j.",
+        "Concrete trace or example": "p16-p17 disks/ring/ball/shell verify Betti counting; p105 recomputation .5+30/(2pi)-1000/(2pi)^2=-20.0556476.",
+        "Example setup and conclusion": "p105 interprets negative EC as holes, not negative fields; p115 checks the high-q mean against the independent size law.",
+        "Assumptions, limits, trade-offs, or failure modes": "p31 states the theorem rather than proves it; p98 distinguishes ordinary and periodic boxes and rectangular/general domains; p107-p115 labels component-count approximation.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: predict geometry across thresholds; options: EC versus component count, volume-only versus full boundary formula; relationship: different statistic and approximation; criteria: holes and domain size; selection or scope: full exact box EC except in explicitly high-q volume-dominated limit; verdict: adequate.",
+        "Expert objection": "objection: a negative expected EC invalidates a predicted field count; kind: correctness; target: p51,p105,p107; disposition: does not apply; reason: signed EC and positive counts are separated, and their approximate equality is limited to high threshold.",
+        "Essential explanation beyond the checklist": "reader task: Do the higher-dimensional formulas count fields exactly?; dependencies checked: PLACE-GP gives Gaussian derivatives; PLACE-RARE-PEAKS gives Hessian conditioning; p13-p19 teaches EC and Betti counts; p31 states the Morse theorem used, without claiming its proof.; reasoning chain: They count expected Euler characteristic exactly for the stated smooth Gaussian box setting. Fields equal EC only when components have no holes, used here as a high-threshold approximation. The signed densities and explicit boundary terms prevent conflating these quantities.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Betti sums: three disks b0=3; annulus b0=b1=1, so chi0."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Ball chi1; solid torus b0=b1=1 gives0; shell b0=b2=1 gives2."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR Euler characteristics uses the alternating Betti sum; dimensions0,1,2 match components,loops,cavities."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "draw_place.py topology_field and v08 define nested thresholds and component/hole counts; SVG labels match -1,0,4,3. Pixel fidelity deferred."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Taylor2006 Eq.5.1 gives Hermite-polynomial EC densities; Mainali STAR Eqs.8-10 give the box formulas."
+        },
+        "c6": {
+          "verdict": "condition stated",
+          "checked": "j<=3 and lambda=sigma^-2 are explicit restrictions/definitions."
+        },
+        "c7": {
+          "verdict": "condition stated",
+          "checked": "Kac-Rice zeros weighted by |det H| and superlevel Morse signs yield det(-H); regularity p31 required."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "phi is the standard normal density."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Isotropic derivative covariance is lambda I; Gaussianity yields independent gradient components and density at0."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "Multiply determinant mean, gradient density and Gaussian integrals; agrees Taylor Eq.5.1 for j1,2,3."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Conditional mean -H=b lambda in1D."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Expand2x2 determinant: b^2lambda^2+E[G11G22-G12^2]=lambda^2(b^2-1)."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "3x3 determinant has three pair terms -b lambda^3; odd centered Gaussian products vanish."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "Sum gives lambda^3(b^3-3b)."
+        },
+        "c15": {
+          "verdict": "true as written",
+          "checked": "Using phi prime=-b phi, each displayed antiderivative has the stated vanishing infinity boundary."
+        },
+        "c16": {
+          "verdict": "true as written",
+          "checked": "d(-q phi(q))/dq=(q^2-1)phi(q); integrate q..infinity gives q phi(q)."
+        },
+        "c17": {
+          "verdict": "condition stated",
+          "checked": "p85 explicitly selects nonperiodic closed geometry and retained intersecting components."
+        },
+        "c18": {
+          "verdict": "condition stated",
+          "checked": "Independent symmetric normal derivatives have sign probability1/2 per normal direction; isotropic smooth model stated."
+        },
+        "c19": {
+          "verdict": "true as written",
+          "checked": "Face counts2^(d-j)binomial(d,j) times probability2^-(d-j) give the coefficients; matches STAR Eqs.8-10."
+        },
+        "c20": {
+          "verdict": "true as written",
+          "checked": "Nonzero lower-dimensional face terms are lost if only volume is kept; they can dominate small domains."
+        },
+        "c21": {
+          "verdict": "true as written",
+          "checked": "Recomputed at r10,q0: -20.0556476178."
+        },
+        "c22": {
+          "verdict": "condition stated",
+          "checked": "High-q regular isolated excursions have single-peak blob limit, qualified by the prior high-peak assumptions."
+        },
+        "c23": {
+          "verdict": "condition stated",
+          "checked": "Keep volume eta_d and highest q power; Mainali Supplement S16."
+        },
+        "c24": {
+          "verdict": "condition stated",
+          "checked": "Exact EC includes holes/boundaries while high-q component approximation removes those leading complications."
+        },
+        "c25": {
+          "verdict": "true as written",
+          "checked": "Mainali Figure3F-H plots EC as cutoff varies, not a single field count."
+        },
+        "c26": {
+          "verdict": "true as written",
+          "checked": "With rateF=a[z-q]+, additional nonnegative cutoff only accesses z>q+t/a."
+        },
+        "c27": {
+          "verdict": "true as written",
+          "checked": "Betti-sum changes permit nonmonotonic EC; source Fig.3F-H and STAR EC."
+        }
+      }
+    },
+    "content/chapters/05c-place-tests.md::sec:PLACE-DATA": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Which agreements are additional tests and which quantities were fitted?",
+          "answer": "The table records different fitting summaries by dataset. Full histograms, slices and shapes provide additional comparisons, with firing gain and threshold-heterogeneity fits separately disclosed. Likelihood comparisons use the available data rather than a claimed held-out forecast.",
+          "source_refs": [
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p121",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p123",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p131",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p133",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p135",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p145",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p167",
+            "content/chapters/05c-place-tests.md::sec:PLACE-DATA::p187"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p121: judge additional predictions while tracking the statistics used in fitting and geometry-changing processing.",
+        "Prerequisites, first use, and first teaching location": "Earlier units teach mean/count/size/EC; p133 supplies centered log moments and lognormal meaning before their comparison.",
+        "Definition and emphasis": "p133 defines skew, excess kurtosis and lognormal; p147 defines two principal-curvature summaries without making them size-law prerequisites.",
+        "Operating mode and object roles, when relevant": "p121,p123: experiments estimate firing maps; simulations fit model parameters; original recording samples are not automatically final reanalysis samples.",
+        "System setup and component relationships": "setting: reanalysis of different species/environments; roles: summaries fit q,sigma and gain, processed maps supply tests; objects and flow: table then histogram/shape/selection checks; assumptions: measurement definitions differ; verdict: adequate (p121-p145).",
+        "Representation bridge, when relevant": "p139-p145 explains .5Hz rectification,10cm bins,median filtering,outlier exclusion and extra1Hz cutoff as changes to analyzed geometry.",
+        "Mechanism, calculation, or state change": "p133-p135 distinguishes fitted means from histogram/log-moment comparisons and penalized in-sample likelihoods; p187 explains shared random thresholds across otherwise independent maps.",
+        "Concrete trace or example": "Table separates six conditions and actual fit inputs; p187 gives the shared-cell-threshold mechanism for forward/backward correlations.",
+        "Example setup and conclusion": "p187 fixes the baseline mean threshold, fits two remaining distribution parameters to correlations, then identifies distribution agreement as the extra comparison.",
+        "Assumptions, limits, trade-offs, or failure modes": "p123 missing final sample counts; p135 no held-out claim; p167 unclear3D distance conversion and cross-experiment limits; p187 no universal two-parameter extension claim.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: explain observed summaries; options: GP simulation, limiting Rayleigh/Poisson laws, fitted lognormal and spherical alternative; relationship: finite model versus asymptotic laws versus competitors; criteria: fitting burden and additional distribution/shape comparisons; selection or scope: p133-p147 distinguishes each test; verdict: adequate.",
+        "Expert objection": "objection: all shape agreement is parameter-free and based on held-out recordings; kind: correctness; target: table,p135,p187; disposition: does not apply; reason: fitted summaries, rate gain in TOPOLOGY, in-sample comparisons and fitted threshold-correlation parameters are disclosed.",
+        "Essential explanation beyond the checklist": "reader task: Which agreements are additional tests and which quantities were fitted?; dependencies checked: Earlier units teach mean/count/size/EC; p133 supplies centered log moments and lognormal meaning before their comparison.; reasoning chain: The table records different fitting summaries by dataset. Full histograms, slices and shapes provide additional comparisons, with firing gain and threshold-heterogeneity fits separately disclosed. Likelihood comparisons use the available data rather than a claimed held-out forecast.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Tracking fitted quantities prevents counting a calibration as an independent test; demonstrated by table and gain passage."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "STAR methods and supplement inspected; final long-tunnel/3D reanalysis counts are not clearly specified there. No original-study counts are substituted."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Table is a fit-versus-comparison organization, as its caption says."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "STAR Parameter inference in1D matches mean length/gap for200m; Fig.1,3 comparisons as listed."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "STAR matches mean size and active fraction for6m; Figure5D caption explicitly says40 recorded cells."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "STAR matches mean size/count for130m bats and48m rats; supplement Fig.S1 matches rat lengths."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Figure1F/main results say four mice and40m; STAR directly fits beta from length histograms and has an isolated rat label."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "STAR2D inference conditions counts onN>=1; main Fig.2C and Fig.3H identify20 sample maps for slices/EC."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "STAR3D inference uses mean volume and active fraction; Fig.2,3 and S2 give listed comparisons and room dimensions."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "Direct comparison: STAR e2 says rats in40m; Figure1F caption says mice."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Figure1C distinguishes dashed limiting Rayleigh from orange simulation histogram."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Figure1D caption distinguishes simulated gaps and dashed analytical prediction."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "Centered third/fourth standardized moments give skew/excess kurtosis; correct normalization stated."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "If log(s) is normal, m3=0,m4=3m2^2; finite samples need not equal population moments."
+        },
+        "c15": {
+          "verdict": "true as written",
+          "checked": "STAR Fields in1D says10^4 matched-size simulations; likelihood/BIC/AIC described, with no held-out procedure."
+        },
+        "c16": {
+          "verdict": "true as written",
+          "checked": "STAR Data processing: bat1D/3D maps rectified around.5Hz."
+        },
+        "c17": {
+          "verdict": "condition stated",
+          "checked": "Nonlinear threshold/filter/removal operations can change components,peaks,tails; the sentence says can."
+        },
+        "c18": {
+          "verdict": "true as written",
+          "checked": "Field definition in STAR uses processed nonzero components, so these choices define the reported objects."
+        },
+        "c19": {
+          "verdict": "true as written",
+          "checked": "Supplement Fig.S1 caption states15cm cutoff applied to model and removal of large empirical fields."
+        },
+        "c20": {
+          "verdict": "true as written",
+          "checked": "Supplement Fig.S5 caption and plots describe threshold-sensitive moments and stable slope above1Hz."
+        },
+        "c21": {
+          "verdict": "true as written",
+          "checked": "Supplement Fig.S2A-C spherical comparison; D-E mean/Gaussian curvature."
+        },
+        "c22": {
+          "verdict": "condition stated",
+          "checked": "S2 describes surface array gradients; finite derivative estimates depend on representation/resolution."
+        },
+        "c23": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Fig.S1 on supplementary PDFpage2."
+        },
+        "c24": {
+          "verdict": "true as written",
+          "checked": "Supplement Fig.S1 caption supports matched minimum cutoff and log-moment comparisons; pixel fidelity deferred."
+        },
+        "c25": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Fig.S5; plots begin PDFpage7 and caption continues page8."
+        },
+        "c26": {
+          "verdict": "true as written",
+          "checked": "S5A-B/caption supports threshold effects and1Hz stabilization; local link selects start of figure; pixels deferred."
+        },
+        "c27": {
+          "verdict": "true as written",
+          "checked": "Figure4A-B table/trends compare a limited set of environments, not an experiment controlling every variable."
+        },
+        "c28": {
+          "verdict": "true as written",
+          "checked": "nu=exp(-q^2/2)/(2pi sigma), mean=Q/nu show both positive fitted q and sigma affect counts and lengths."
+        },
+        "c29": {
+          "verdict": "true as written",
+          "checked": "S3 count exponents .86,.82 imply propensity exponents -.14,-.18."
+        },
+        "c30": {
+          "verdict": "condition stated",
+          "checked": "Fig.4A gives4.0 for3D while STAR gives10cm resolution without an explicit conversion explaining that number; guide preserves uncertainty, not a metre claim."
+        },
+        "c31": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies original Figure4, PDFpage8."
+        },
+        "c32": {
+          "verdict": "true as written",
+          "checked": "Figure4A-C supports fitted-scale/environment and shape trends; the text restricts cross-experiment interpretation."
+        },
+        "c33": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Supplement FigureS3, PDFpage5."
+        },
+        "c34": {
+          "verdict": "true as written",
+          "checked": "S3B fitted count slopes are below1; caption explicitly says weak propensity decrease."
+        },
+        "c35": {
+          "verdict": "true as written",
+          "checked": "S4A-D: positive-conditioned skew normal threshold shared across two sampled maps per cell."
+        },
+        "c36": {
+          "verdict": "true as written",
+          "checked": "S4D fixes mean to baseline and fits two remaining distribution parameters, beyond shared q,sigma."
+        },
+        "c37": {
+          "verdict": "true as written",
+          "checked": "Visible summary identifies Supplement FigureS4, PDFpage6."
+        },
+        "c38": {
+          "verdict": "true as written",
+          "checked": "S4A-F gives shared threshold, count/size correlations and retained length/gap comparisons; pixels deferred."
+        }
+      }
+    },
+    "content/chapters/05c-place-tests.md::sec:PLACE-WIRING": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "What supplies Gaussianity, stationarity and spatial width?",
+          "answer": "The many-small-input limit supplies Gaussian finite distributions; uniform spatial coverage supplies stationarity; the autocorrelation of input tuning supplies covariance shape and width. Fixed weight variance changes amplitude, and these statistical facts do not identify a unique biological circuit.",
+          "source_refs": [
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p204",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p210",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p222",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p224",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p232",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p234",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p238",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p247",
+            "content/chapters/05c-place-tests.md::sec:PLACE-WIRING::p249"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p200: identify a possible circuit origin for the statistical input while retaining what remains unmeasured.",
+        "Prerequisites, first use, and first teaching location": "PLACE-GP gives covariance and finite Gaussian distributions; p202-p204 defines fixed input profiles, independent weights, and the expectation over weights.",
+        "Definition and emphasis": "p202 explains effective signed weights relative to background; p210 supplies central-limit size/independence conditions rather than just naming the theorem.",
+        "Operating mode and object roles, when relevant": "p204-p222: the same sampled W_i multiplies u_i at both spatial positions; averages vary weights, not time; positive and background-subtracted profiles are distinguished.",
+        "System setup and component relationships": "setting: many spatially tuned inputs to one receiving cell; roles: fixed profiles and weights, optional background balance; objects and flow: weighted sum then thresholded rate; assumptions: independent zero-mean finite-variance weights, no dominant input, uniform dense coverage for stationarity; verdict: adequate (p202-p234).",
+        "Representation bridge, when relevant": "p210 bridges a sum of independent vectors at finite position lists to a GP limit; a large anatomical count alone does not establish enough active contributors.",
+        "Mechanism, calculation, or state change": "Weight independence cancels i!=j terms: C=v_W sum u_i(x)u_i(y). Uniform translated profiles give autocorrelation integral; Gaussian profile yields sqrt(2)b covariance width.",
+        "Concrete trace or example": "p240-p247 explicitly completes the Gaussian autocorrelation: R0^2 sqrt(pi)b exp(-Delta^2/(4b^2)).",
+        "Example setup and conclusion": "p238 distinguishes changing amplitude via v_W/rho from changing spatial dependence via input width, then the Gaussian example establishes a width convention.",
+        "Assumptions, limits, trade-offs, or failure modes": "p249 states sufficient mechanism is not unique identification, lists structured/correlated/plastic/recurrent possibilities, and limits stationarity near boundaries/landmarks/rewards.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: produce approximately Gaussian spatial input; options: independent random summation, partially correlated/structured input, plasticity or recurrent processing; relationship: alternative or mixed mechanisms; criteria: predicted covariance and direct input/connection evidence; selection or scope: p249 identifies random summation only as sufficient; verdict: adequate.",
+        "Expert objection": "objection: many anatomical inputs or Gaussian map statistics prove random biological synapses; kind: correctness; target: p202,p210,p249; disposition: does not apply; reason: effective signed weights, active-contributor conditions and lack of direct connection measurement are explicit.",
+        "Essential explanation beyond the checklist": "reader task: What supplies Gaussianity, stationarity and spatial width?; dependencies checked: PLACE-GP gives covariance and finite Gaussian distributions; p202-p204 defines fixed input profiles, independent weights, and the expectation over weights.; reasoning chain: The many-small-input limit supplies Gaussian finite distributions; uniform spatial coverage supplies stationarity; the autocorrelation of input tuning supplies covariance shape and width. Fixed weight variance changes amplitude, and these statistical facts do not identify a unique biological circuit.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Mainali MethodsS2 Eq.S3 is the same weighted sum; guide makes expectation over weights explicit."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "Multivariate CLT under normalization/no dominant term yields consistent Gaussian finite-dimensional limits as stated."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "MethodsS2 final paragraph requires many active presynaptic inputs within fields, not only large anatomical counts."
+        },
+        "c4": {
+          "verdict": "condition stated",
+          "checked": "Gaussian u0 is a chosen profile with amplitude R0 and standard deviation b."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Complete square s^2+(s+Delta)^2=2(s+Delta/2)^2+Delta^2/2, then integrate exp(-(s+Delta/2)^2/b^2)."
+        },
+        "c6": {
+          "verdict": "condition stated",
+          "checked": "Mainali Discussion addresses familiar relatively uniform environments; nonuniform locations/tasks can violate stationary-law assumptions."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Mainali Figs.1-5 support the linked statistics; p251 immediately separates statistical success from unique mechanism."
+        }
+      }
+    },
+    "content/chapters/06-synthesis.md::ch:SYNTHESIS": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "What conclusion is the synthesis entitled to draw?",
+          "answer": "It can compare constraints and derive a conditional connection. It cannot turn agreement in separate models and organisms into a jointly tested circuit.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::ch:SYNTHESIS::p3",
+            "content/chapters/06-synthesis.md::ch:SYNTHESIS::p5"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p3: avoid treating a spatial fit as maintenance evidence or a behavioral covariance as unique generator identification.",
+        "Prerequisites, first use, and first teaching location": "PLACE-WIRING p249-p251 states sufficient versus unique mechanism; the earlier memory/eye chapters distinguish maintained state, downstream filter and observed motion.",
+        "Definition and emphasis": "No new technical definition is required at p3-p5; spatial map, represented position and downstream movement are already taught and separated again in the next unit.",
+        "Operating mode and object roles, when relevant": "p5 gives three distinct objects: spatial map, changing represented position and measured movement.",
+        "System setup and component relationships": "setting: compare three papers; roles: map model, maintenance dynamics, downstream observation; objects and flow: compare evidence then introduce a conditional joint calculation; assumptions: no claim of a joint experiment; verdict: adequate (p3-p5).",
+        "Representation bridge, when relevant": "p3 keeps statistical description, proposed dynamics and measured behavior at separate explanatory levels.",
+        "Mechanism, calculation, or state change": "p5 motivates the shared-position calculation as a connection to test, not evidence already supplied.",
+        "Concrete trace or example": "p5 previews a single common-position-error example developed in p60-p87.",
+        "Example setup and conclusion": "p3 asks the comparison problem, p5 outlines the calculation/evidence distinction used to answer it.",
+        "Assumptions, limits, trade-offs, or failure modes": "p3 explicitly blocks unique neural-generator inference from a behavior model.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: relate the papers; options: conflate their position variables or distinguish map/dynamics/measurement; relationship: alternative interpretations, not competing algorithms; criteria: evidence scope; selection or scope: p3-p5 preserves the object distinctions; verdict: adequate.",
+        "Expert objection": "objection: the three papers jointly validate one circuit model; kind: correctness; target: p3-p5; disposition: does not apply; reason: the opening explicitly frames a comparison of separately supported claims and measurements still needed.",
+        "Essential explanation beyond the checklist": "reader task: What conclusion is the synthesis entitled to draw?; dependencies checked: PLACE-WIRING p249-p251 states sufficient versus unique mechanism; the earlier memory/eye chapters distinguish maintained state, downstream filter and observed motion.; reasoning chain: It can compare constraints and derive a conditional connection. It cannot turn agreement in separate models and organisms into a jointly tested circuit.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {}
+    },
+    "content/chapters/06-synthesis.md::sec:SYNTHESIS-QUESTIONS": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Do the three uses of position name the same random object?",
+          "answer": "No. The2012 coordinate labels maintained network states;2022 distinguishes an internal angle command from observed eye angle;2025 indexes static spatial input by animal location. Their possible coupling must be added and tested.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-QUESTIONS::p11",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-QUESTIONS::p12",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-QUESTIONS::p13",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-QUESTIONS::p15",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-QUESTIONS::p25"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p9-p15: distinguish which position variable and question each paper addresses.",
+        "Prerequisites, first use, and first teaching location": "Memory diffusion and readout chapters establish theta; eye chapters distinguish internal command/eye angle; place chapters establish physical x and static h_i(x). p15 recaps these exact distinctions.",
+        "Definition and emphasis": "p11-p13 uses plain role labels spatial map, memory motion, observed movement rather than declaring a new common variable.",
+        "Operating mode and object roles, when relevant": "p15 assigns theta(t) to attractor state, internal command versus angle to eye, x to physical animal location; the GP does not update remembered x.",
+        "System setup and component relationships": "setting: proposed position representation; roles: map, maintained coordinate, downstream plant; objects and flow: coordinate selects rates and downstream mechanics transform command; assumptions: connections are proposed across separate models; verdict: adequate (p11-p25).",
+        "Representation bridge, when relevant": "Table maps random objects and observables across studies; it does not replace physical position with neural-state coordinates silently.",
+        "Mechanism, calculation, or state change": "p25 explains direct2012/2022 mechanism connection and why irregular place tuning still needs dynamics before joining it.",
+        "Concrete trace or example": "tbl:SYNTHESIS-MODELS compares each random object with its governing assumptions and principal observable.",
+        "Example setup and conclusion": "p9 poses the question set; p25 states what remains missing to turn curves into a dynamic model.",
+        "Assumptions, limits, trade-offs, or failure modes": "p25 explicitly excludes measuring Fisher information or equality in the2012 bound from the eye study.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: account for position representation and motion; options: three complementary studies; relationship: map statistics, maintenance constraint and filtered behavior evidence; criteria: random object and measured quantity; selection or scope: table and p25 keep different evidence levels; verdict: adequate.",
+        "Expert objection": "objection: shared upstream eye variability demonstrates equality in the memory information bound; kind: correctness; target: p25 and table; disposition: does not apply; reason: p25 expressly says neither Fisher information nor bound equality was measured.",
+        "Essential explanation beyond the checklist": "reader task: Do the three uses of position name the same random object?; dependencies checked: Memory diffusion and readout chapters establish theta; eye chapters distinguish internal command/eye angle; place chapters establish physical x and static h_i(x). p15 recaps these exact distinctions.; reasoning chain: No. The2012 coordinate labels maintained network states;2022 distinguishes an internal angle command from observed eye angle;2025 indexes static spatial input by animal location. Their possible coupling must be added and tested.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Ben-Shushan main model and Figs.4-5 combine integrator diffusion with ocular filtering/feedback; it is labeled candidate."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Table compares the three models under its stated four columns."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Burak-Fiete2012 Eqs.1-5 and SI derive coordinate increments, diffusion and readout under neural/noise parameters."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Ben-Shushan2022 Eqs.1-7 and Figs.2-5 distinguish shared/private/measurement contributions and movement MSD."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Mainali2025 Eq.2 is a function of physical position, Eq.1 and Figs.1-5 concern field statistics."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "A map f_i(x) alone has no equation for x(t), as made explicit in the next unit."
+        }
+      }
+    },
+    "content/chapters/06-synthesis.md::sec:SYNTHESIS-JOINT-CALCULATION": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "What does the shared covariance formula actually establish?",
+          "answer": "It computes one conditional contribution: expected-rate changes caused by the same small represented displacement. It is a local Taylor consequence, not a complete stochastic neural-network model.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-JOINT-CALCULATION::p29",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-JOINT-CALCULATION::p35",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-JOINT-CALCULATION::p37",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-JOINT-CALCULATION::p44",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-JOINT-CALCULATION::p52"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p29: determine what rate changes follow when a fixed tuning map is evaluated at a moving estimate.",
+        "Prerequisites, first use, and first teaching location": "01-foundations tuning/rate versus spikes; memory diffusion convention2Dt; ordinary Taylor expansion is in audience calculus baseline, with local linearization explained in02-memory-dynamics p97.",
+        "Definition and emphasis": "p29 names f_i and x(t); p37 defines x0,delta x,t,D and its mean/variance before expanding.",
+        "Operating mode and object roles, when relevant": "p35 distinguishes fixed f_i, time-varying x(t), expected rate R_i and actual spike-count variability.",
+        "System setup and component relationships": "setting: one-dimensional maintained estimate over a short interval; roles: fixed tuning slopes and one shared displacement; objects and flow: x to f_i(x) to rate changes/covariance; assumptions: zero local mean,variance2Dt,small displacement; verdict: adequate (p29-p52).",
+        "Representation bridge, when relevant": "p35 makes the addition of time variation explicit while preserving static spatial tuning; no GP fit is said to determine diffusion.",
+        "Mechanism, calculation, or state change": "First-order expansion gives delta R_i=f_i prime delta x, whose covariance is product of slopes times2Dt, conditional on x0.",
+        "Concrete trace or example": "p44 displays the centered-product calculation; the next unit substitutes slopes and diffusion to show negative covariance.",
+        "Example setup and conclusion": "p37 states interval/starting point and assumptions; p52 interprets which covariance was computed and which variability was omitted.",
+        "Assumptions, limits, trade-offs, or failure modes": "p35 labels a guide construction; p52 excludes all network covariance, higher-order tuning and extra private/shared fluctuations, and warns near thresholds.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: explain correlated rate changes; options: common represented displacement,private noise,other shared noise; relationship: alternative/concurrent contributors; criteria: covariance alignment with slopes; selection or scope: p52 isolates only the common-position contribution; verdict: adequate.",
+        "Expert objection": "objection: the formula applies to every spiking-network covariance or across threshold kinks; kind: correctness; target: p52; disposition: does not apply; reason: both claims are expressly ruled out and the formula is conditional and local.",
+        "Essential explanation beyond the checklist": "reader task: What does the shared covariance formula actually establish?; dependencies checked: 01-foundations tuning/rate versus spikes; memory diffusion convention2Dt; ordinary Taylor expansion is in audience calculus baseline, with local linearization explained in02-memory-dynamics p97.; reasoning chain: It computes one conditional contribution: expected-rate changes caused by the same small represented displacement. It is a local Taylor consequence, not a complete stochastic neural-network model.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "Zero-mean local displacement withvariance2Dt and sufficiently small change are stated assumptions, not measured facts."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Taylor theorem gives first order plus quadratic remainder for locally smooth f_i."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Cov(aX,bX)=ab Var(X); substitute slopes and2Dt, retaining leading-order qualification."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "p52 restricts the covariance to conditional expected-rate changes from one shared source."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Rectification thresholds are nondifferentiable and large displacements make neglected curvature matter."
+        }
+      }
+    },
+    "content/chapters/06-synthesis.md::sec:SYNTHESIS-COVARIANCE-EXAMPLE": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Does this example require an inhibitory connection?",
+          "answer": "No. The shared displacement increases one cell and decreases the other because their fixed slopes have opposite signs. The arithmetic gives negative covariance and correlation-1 before adding other noise.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-COVARIANCE-EXAMPLE::p60",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-COVARIANCE-EXAMPLE::p73",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-COVARIANCE-EXAMPLE::p75",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-COVARIANCE-EXAMPLE::p83",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-COVARIANCE-EXAMPLE::p87"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p60-p73: explain opposite rate changes from the same position error without inferring direct inhibition.",
+        "Prerequisites, first use, and first teaching location": "SYNTHESIS-JOINT-CALCULATION supplies Cov=2Dt f_i prime f_j prime; foundations defines covariance/correlation and local tuning.",
+        "Definition and emphasis": "p60 defines units and all numbers; p75 states the optional10Hz baseline chosen for the drawing.",
+        "Operating mode and object roles, when relevant": "p73: opposite signs arise from tuning slopes under one common displacement; no inhibitory synapse is identified.",
+        "System setup and component relationships": "setting: two locally linear rate curves at one starting position; roles: slopes2,-1 Hz/m and common delta x; objects and flow: displacement to paired changes; assumptions: one source only for correlation-1; verdict: adequate (p60-p83).",
+        "Representation bridge, when relevant": "p75,p83 maps the shared scalar displacement to a line in a two-rate plane, while independent private variation adds spread around it.",
+        "Mechanism, calculation, or state change": "2Dt=.01m^2; variances=.04,.01Hz^2; covariance=-.02Hz^2; divide by standard deviations .2*.1 to get-1.",
+        "Concrete trace or example": "A+.1m displacement produces+.2Hz,-.1Hz and covariance matrix [[.04,-.02],[-.02,.01]], rank1 and positive semidefinite.",
+        "Example setup and conclusion": "p60 provides the illustrative inputs; p73 interprets the sign; p87 says tuning-map alignment is needed for testing the shared-position account.",
+        "Assumptions, limits, trade-offs, or failure modes": "p73 requires only the one source for correlation-1; independent nonzero private noise reduces magnitude. The curves are the local example, not global unbounded firing rates.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: explain negative covariance; options: opposite tuning under shared input versus an inhibitory connection; relationship: distinct mechanisms that may give the same sign; criteria: slope alignment and additional circuit evidence; selection or scope: p73 refuses synaptic inference from sign alone; verdict: adequate.",
+        "Expert objection": "objection: negative covariance proves inhibition; kind: correctness; target: p73; disposition: does not apply; reason: common displacement with opposite slopes reproduces it with no direct cell-cell connection.",
+        "Essential explanation beyond the checklist": "reader task: Does this example require an inhibitory connection?; dependencies checked: SYNTHESIS-JOINT-CALCULATION supplies Cov=2Dt f_i prime f_j prime; foundations defines covariance/correlation and local tuning.; reasoning chain: No. The shared displacement increases one cell and decreases the other because their fixed slopes have opposite signs. The arithmetic gives negative covariance and correlation-1 before adding other noise.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "not a claim",
+          "checked": "Pure HTML container has no reader-visible scientific claim."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "Slopes2 and-1 Hz/m are chosen illustrative inputs."
+        },
+        "c3": {
+          "verdict": "condition stated",
+          "checked": "D=.01m^2/s and t=.5s are explicit suppositions."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "2*.01*.5=.01m^2."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "4*.01=.04Hz^2."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "1*.01=.01Hz^2 and2*(-1)*.01=-.02Hz^2."
+        },
+        "c7": {
+          "verdict": "condition stated",
+          "checked": "With only one shared source,-.02/sqrt(.04*.01)=-1. Independent added variance increases denominator."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "SVG labels and calculation give+.2,-.1 at+.1m, covariance-.02 and local baseline10. Artwork fidelity deferred."
+        },
+        "c9": {
+          "verdict": "condition stated",
+          "checked": "Alignment with fixed tuning slopes is a necessary comparison for this proposed mechanism, not a sufficient causal proof."
+        }
+      }
+    },
+    "content/chapters/06-synthesis.md::sec:SYNTHESIS-EVIDENCE": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Why are the three forms of evidence not interchangeable?",
+          "answer": "Fitted spatial summaries constrain maps, shared neural-behavior covariance and MSD constrain source contributions, and the2012 inequality constrains a specified stochastic memory model. Testing the combined account needs compatible measurements of all relevant quantities.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-EVIDENCE::p91",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-EVIDENCE::p93",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-EVIDENCE::p95",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-EVIDENCE::p97"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p91: determine which observations could establish the proposed link, beyond the illustrative covariance calculation.",
+        "Prerequisites, first use, and first teaching location": "Place data/gain passages; eye chi decomposition and timing chapter; memory information bound. p93-p97 explicitly recalls each source condition.",
+        "Definition and emphasis": "No new technical terms are needed; fitted parameters, covariance, MSD and information rate were developed in their source chapters.",
+        "Operating mode and object roles, when relevant": "p93 separates fitting and further predictions; p95 separates calibration and observation; p97 separates a mathematical bound from an experimental fit.",
+        "System setup and component relationships": "setting: assess three kinds of support; roles: fitted spatial model,calibrated eye analysis,derived inequality; objects and flow: assumptions to predicted observables to appropriate tests; assumptions: compatibility must be checked; verdict: adequate (p93-p97).",
+        "Representation bridge, when relevant": "p95 keeps the movement-to-firing calibration and inverse neural prediction explicit; p97 requires information/time constants measured under compatible conditions.",
+        "Mechanism, calculation, or state change": "p93 additional shape tests constrain a fitted spatial description; p95 shared covariance plus time structure constrains sources; p97 scaling alone cannot identify an entire inequality.",
+        "Concrete trace or example": "The three list entries are concrete evidence comparisons, not an artificial extra numerical example.",
+        "Example setup and conclusion": "p91 asks what remains to measure; p93-p97 identifies each source-specific limit and appropriate comparison.",
+        "Assumptions, limits, trade-offs, or failure modes": "p93 rate gain/high-q versus simulations; p95 calibration,source correlations,two animals,horizontal movement; p97 compatible noise/model assumptions.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: judge support for a link; options: distribution fit, shared covariance/time test, mathematical inequality; relationship: complementary evidence types; criteria: fit burden and assumptions versus tested quantity; selection or scope: p93-p97 forbids treating one as the other; verdict: adequate.",
+        "Expert objection": "objection: increasing stationary motor-noise amplitude alone can reproduce arbitrarily growing integrator displacement; kind: correctness; target: p95; disposition: does not apply; reason: the statement holds for the compared stationary filtered motor source, whose lag shape changes in amplitude but does not become upstream integrated diffusion.",
+        "Essential explanation beyond the checklist": "reader task: Why are the three forms of evidence not interchangeable?; dependencies checked: Place data/gain passages; eye chi decomposition and timing chapter; memory information bound. p93-p97 explicitly recalls each source condition.; reasoning chain: Fitted spatial summaries constrain maps, shared neural-behavior covariance and MSD constrain source contributions, and the2012 inequality constrains a specified stochastic memory model. Testing the combined account needs compatible measurements of all relevant quantities.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Mainali STAR matches log-log intercept for rate-width and mean max rate for EC; multiplier is disclosed."
+        },
+        "c2": {
+          "verdict": "condition stated",
+          "checked": "Under the stated independent-source decomposition, Cov(C+eta,C+epsilon)=Var(C); private noise alone cannot supply it."
+        },
+        "c3": {
+          "verdict": "condition stated",
+          "checked": "Ben-Shushan timing model and guide04b give stationary filtered-source versus accumulating-command lag shapes; changing only amplitude preserves the stationary shape."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Ben-Shushan source reports two macaques,horizontal350ms analysis; calibration and source independence are analysis assumptions."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "1/N alone omits prefactors,tau and information J; different averaging mechanisms share this scaling."
+        }
+      }
+    },
+    "content/chapters/06-synthesis.md::sec:SYNTHESIS-RELATED": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Are the related-study summaries supported without claiming more than their designs establish?",
+          "answer": "Yes. Primary abstracts/results support the particular model,region,plasticity and perception statements. The paragraph expressly keeps model-specific accuracy, separate experimental origins and unmeasured circuit mechanisms visible.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-RELATED::p103",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-RELATED::p105",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-RELATED::p107",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-RELATED::p109",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-RELATED::p111"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p101: identify assumptions tested or changed by related work, while keeping mechanisms open.",
+        "Prerequisites, first use, and first teaching location": "Foundations supplies CA3/CA1/grid anatomy; prior chapters teach line attractors, diffusion and field statistics; p103 defines path integration and p109 defines dendrite before using those roles.",
+        "Definition and emphasis": "p103 marks path integration as updating a position estimate from movement; p109 marks dendrite as branching neural input structure.",
+        "Operating mode and object roles, when relevant": "p103 separates goldfish experiments from macaque variance estimates; p107 separates original recordings/reanalysis andCA3/CA1; p109 separates plasticity evidence from a fitted random map.",
+        "System setup and component relationships": "setting: compare related theory and recordings; roles: source studies constrain dynamics,anatomy,plasticity or perception; objects and flow: each result changes a particular assumption; assumptions: species/model differences retained; verdict: adequate (p103-p111).",
+        "Representation bridge, when relevant": "p107 relates large-tunnelCA3/CA1 field counts without equating distinct regions; p111 relates retinal sampling benefits without deducing the motion generator.",
+        "Mechanism, calculation, or state change": "p103 grid integration accumulates modeled errors; p105 coding/plasticity changes memory predictions; p109 dendritic events can change synapses/form fields; these mechanisms are compatible with descriptive Gaussian statistics.",
+        "Concrete trace or example": "p107 gives the concrete later comparison: mostly single CA3 fields and multipleCA1 fields with similar sizes. Cached primary2026 text directly supports it.",
+        "Example setup and conclusion": "Each short entry names the paper question and ends with the limit of its relevance; this is a source comparison, not a full recreation of each external experiment.",
+        "Assumptions, limits, trade-offs, or failure modes": "p103 numerical grid accuracy is simulation-specific; p107 cross-dimensional reanalysis not three new experiments; p111 sensory benefit not unique neural source.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: what mechanisms remain possible; options: recurrent integration,coding transformations,synaptic plasticity,structured connections,sensory benefit; relationship: complementary constraints and candidate mechanisms rather than one interchangeable list; criteria: which assumption each changes and what it measured; selection or scope: p103-p111 retains those distinctions; verdict: adequate.",
+        "Expert objection": "objection: successful random-field statistics rule out structured connectivity or learned fields; kind: correctness; target: p109; disposition: does not apply; reason: Druckmann connectivity and Bittner plasticity are explicitly retained as compatible and distinguishable by further measurements.",
+        "Essential explanation beyond the checklist": "reader task: Are the related-study summaries supported without claiming more than their designs establish?; dependencies checked: Foundations supplies CA3/CA1/grid anatomy; prior chapters teach line attractors, diffusion and field statistics; p103 defines path integration and p109 defines dendrite before using those roles.; reasoning chain: Yes. Primary abstracts/results support the particular model,region,plasticity and perception statements. The paragraph expressly keeps model-specific accuracy, separate experimental origins and unmeasured circuit mechanisms visible.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Burak-Fiete2009 primary PLOS abstract/results confines accuracy ranges to model architectures,noise and parameter choices; Seung/Aksay cached primary texts support integration context."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Koyluoglu2017 primary eLife abstract compares direct/coded storage and human data; Seeholzer2019 primary abstract derives plasticity-dependent diffusion/drift. They change assumptions."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Maimon2026 primary cached Results/Figs1-2 directly compareCA3/CA1 in matched large tunnels and report similar field-size distributions."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Druckmann2014 primary abstract reports nonuniform clusteredCA3-CA1 synapses; Bittner2017 primary Methods/Results ties dendritic plateau events to potentiation and fields. Extra measurements can constrain candidate mechanisms."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Nghiem2025 primary Results has17 subjects and retinal encoding model with an intermediate movement optimum; benefit alone cannot identify a generator."
+        }
+      }
+    },
+    "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Is this a supported result or a proposed experiment?",
+          "answer": "It is a proposed follow-up. The derivation gives a testable covariance relation under conditions; the final paragraph states that neither standalone fit supplies the other model and that the guide has not replicated a joint result.",
+          "source_refs": [
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT::p115",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT::p117",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT::p118",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT::p119",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT::p120",
+            "content/chapters/06-synthesis.md::sec:SYNTHESIS-NEXT::p122"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p115: design a possible joint test requiring maps and fluctuations from one population.",
+        "Prerequisites, first use, and first teaching location": "SYNTHESIS-JOINT-CALCULATION establishes the conditional slope-covariance relation; evidence section supplies compatible assumptions and filters.",
+        "Definition and emphasis": "No new definition is introduced; diffusion,covariance,tuning and observation filters refer back to their explicit earlier roles.",
+        "Operating mode and object roles, when relevant": "p117-p120: experiment estimates tuning,measures fluctuations,fits diffusion and includes downstream filters if behavior is compared.",
+        "System setup and component relationships": "setting: proposed follow-up in one population; roles: tuning map,represented-coordinate fluctuation,observation filter; objects and flow: estimate maps then test covariance alignment and compatible diffusion; assumptions: local approximation and measurement corrections; verdict: adequate (p115-p122).",
+        "Representation bridge, when relevant": "p120 keeps physical/neural observation filtering between internal representation and measured behavior.",
+        "Mechanism, calculation, or state change": "p117-p122 imposes both static and temporal constraints, which independently fit models do not provide.",
+        "Concrete trace or example": "The numbered sequence is an explicitly proposed test, not an empirical result or a guarantee of unique diagnosis.",
+        "Example setup and conclusion": "p115 establishes proposed scope; p122 states the intended stronger constraint and explicitly denies replication by this guide.",
+        "Assumptions, limits, trade-offs, or failure modes": "p119 compatible local range; p120 conditional behavior step; p122 static map does not determineD and diffusion does not determine field distribution.",
+        "Relevant alternatives, common criteria, and selection or scope": "common problem: test the combined account; options: fit spatial statistics only,fit temporal diffusion only,joint measurements; relationship: partial versus combined constraints; criteria: compatibility in one population; selection or scope: p122 proposes joint work and leaves several assumptions to examine if it fails; verdict: adequate.",
+        "Expert objection": "objection: a failed joint test uniquely identifies which biological assumption is wrong; kind: correctness; target: p122; disposition: does not apply under the strongest reading; reason: the passage names spatial input,recurrent maintenance,filtering or coupling as candidate assumptions, rather than providing a unique diagnostic rule. Wording can make this non-uniqueness plainer in Stage2.",
+        "Essential explanation beyond the checklist": "reader task: Is this a supported result or a proposed experiment?; dependencies checked: SYNTHESIS-JOINT-CALCULATION establishes the conditional slope-covariance relation; evidence section supplies compatible assumptions and filters.; reasoning chain: It is a proposed follow-up. The derivation gives a testable covariance relation under conditions; the final paragraph states that neither standalone fit supplies the other model and that the guide has not replicated a joint result.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "Local linearization and measurement-correction conditions explicitly constrain fitting range."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "A distribution over fixed spatial maps contains no time dynamics parameterD without an added motion model."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "A diffusion process for a coordinate does not specify f_i(x) or its excursion distribution; p122 lists candidate assumptions and labels proposed work."
+        }
+      }
+    },
+    "content/chapters/glossary.md::ch:GLOSSARY": {
+      "status": "open",
+      "findings": [
+        {
+          "id": "PLACE-T1-01",
+          "kind": "correctness",
+          "severity": "minor",
+          "location": "content/chapters/glossary.md, alphabetic position after diffusion tensor (line22)",
+          "original": "No standalone displacement entry exists between diffusion tensor and Dirac delta.",
+          "replacement": "- [[**displacement:**]{.definition-term custom-style=\"Definition Term\"} The change in a coordinate between two observations; for eye angle, $\\Delta x=x(t+\\ell)-x(t)$ over lag $\\ell$.]{.definition-explanation}",
+          "reason": "The teaching contract requires a glossary entry for every marked body term. content/chapters/01-foundations.md line140 marks and defines displacement; direct glossary inspection confirms absence.",
+          "prerequisites_checked": [
+            "content/chapters/01-foundations.md:140",
+            "content/chapters/glossary.md:21",
+            "content/chapters/glossary.md:22",
+            "content/chapters/glossary.md:58"
+          ],
+          "strongest_reading_test": "Other entries use displacement or define MSD, but none is a standalone lookup entry for the marked term.",
+          "discovery": "Coordinator supplied inventory candidate after the independent first read; reviewer confirmed it in actual sources.",
+          "status": "open",
+          "applied": false
+        }
+      ],
+      "questions": [
+        {
+          "question": "Do the lookup definitions agree with the teaching and cover every marked body term?",
+          "answer": "The97 existing definitions agree with the scoped uses and equations. Coverage is incomplete: displacement is marked and defined in foundations line140 but has no glossary entry, although diffusion and MSD entries use the word.",
+          "source_refs": [
+            "content/chapters/glossary.md::ch:GLOSSARY::p3",
+            "content/chapters/glossary.md::ch:GLOSSARY::p21",
+            "content/chapters/glossary.md::ch:GLOSSARY::p22",
+            "content/chapters/glossary.md::ch:GLOSSARY::p58",
+            "content/chapters/glossary.md::ch:GLOSSARY::p81",
+            "content/chapters/glossary.md::ch:GLOSSARY::p92"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p3: provide short lookup definitions after the main teaching, rather than replace it.",
+        "Prerequisites, first use, and first teaching location": "All97 existing entries p5-p101 were read. Earlier actual definitions checked for place/random-field terms, covariance/Poisson/displacement in foundations, convolution/impulse response in04-eye-drift, and linearization in02-memory-dynamics.",
+        "Definition and emphasis": "Existing entries use marked terms and preserve the main meanings, but the marked body term displacement (01-foundations.md line140) has no standalone glossary entry. See finding PLACE-T1-01.",
+        "Operating mode and object roles, when relevant": "The glossary retains distinctions among expected rate and spikes,stationary process and fixed map,coordinate drift and diffusion,causal filtering and circuit source.",
+        "System setup and component relationships": "Not applicable: p3 defines a lookup appendix. The relevant systems are established in the linked teaching chapters, and inventing another process here would obscure the short definitions.",
+        "Representation bridge, when relevant": "p76 rate map remains spikes/time occupancy; p25 EC is a topological summary; p22 diffusion tensor and p7 attractor coordinate descriptions preserve their representations.",
+        "Mechanism, calculation, or state change": "Formula entries were checked algebraically: Gamma factorial extension,hyperbolic functions,Gaussian-vector characterization,zero-eigenvector equations,skew,Weibull survival and variance-rate convention.",
+        "Concrete trace or example": "p11 coefficient of determination is scoped to optimal linear prediction with intercept; p71 Poisson distinguishes deterministic event rate from conditionally Poisson recurrent spikes.",
+        "Example setup and conclusion": "Short reference entries need no new examples because p3 states lookup-after-teaching. Each definition was judged against its chapter use, not as an independent tutorial.",
+        "Assumptions, limits, trade-offs, or failure modes": "p17 regularity/local estimation caveat; p44 impulse response is used in the guide causal LTI model; p54 linearization is dynamical in its first teaching; p89 strict versus covariance-only stationarity distinguished.",
+        "Relevant alternatives, common criteria, and selection or scope": "Not applicable: glossary p3 offers definitions, not method choice. Necessary distinctions are within entries, such as Poisson recurrence and stationarity.",
+        "Expert objection": "objection: every marked body definition is available for glossary lookup; kind: correctness; target: glossary inventory versus01-foundations.md line140; disposition: open; reason: displacement is taught and marked but absent as an entry; the missing entry is confirmed directly, following a coordinator inventory prompt.",
+        "Essential explanation beyond the checklist": "reader task: Do the lookup definitions agree with the teaching and cover every marked body term?; dependencies checked: All97 existing entries p5-p101 were read. Earlier actual definitions checked for place/random-field terms, covariance/Poisson/displacement in foundations, convolution/impulse response in04-eye-drift, and linearization in02-memory-dynamics.; reasoning chain: The97 existing definitions agree with the scoped uses and equations. Coverage is incomplete: displacement is marked and defined in foundations line140 but has no glossary entry, although diffusion and MSD entries use the word.; unresolved: see findings."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "condition stated",
+          "checked": "The continuous-attractor setting supplies persistent family and coordinate description; main continuous-attractor definition supplies restoring/neutral directions."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Causal filtering excludes dependence on future input, matching04-eye-drift."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Integral and integration-by-parts factorial identity correct for t>0/nonnegative integern."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "coth=cosh/sinh=1/tanh for real nonzeroz."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Solve tanh(y)=z to obtain half log((1+z)/(1-z)), real domain(-1,1)."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "Finite real linear combinations characterize a jointly Gaussian vector; matches PLACE-GP."
+        },
+        "c7": {
+          "verdict": "condition stated",
+          "checked": "v^T A=0 is left zero eigenvector; normalization and local small-state condition are stated."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "Au=0 is right zero eigenvector direction for the linearized matrix."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Skew is centered third moment divided by variance^(3/2), consistent with PLACE-DATA."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "Probability-law translation invariance is strict stationarity; the definition explicitly distinguishes weaker covariance-only usage."
+        },
+        "c11": {
+          "verdict": "condition stated",
+          "checked": "Weak-fluctuation expansion requires aggregate small perturbations around deterministic dynamics; matches2012 approximation."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Positive scale/shape Weibull survival is exp(-(s/b)^k), consistent with PLACE-SIZE-LAW."
+        }
+      }
+    },
+    "content/chapters/references.md::ch:REFERENCES": {
+      "status": "pass",
+      "findings": [],
+      "questions": [
+        {
+          "question": "Are the cited identities and source roles internally consistent?",
+          "answer": "Yes. The list matches the primary article identities and first-use path. The mathematical notes are separate from the2025 paper, and the laterCA3/CA1 study is not attributed to it. Nghiem is indexed TE by one registry and TAE by the primaryXML; both refer to the same correctly identified DOI.",
+          "source_refs": [
+            "content/chapters/references.md::ch:REFERENCES::p3",
+            "content/chapters/references.md::ch:REFERENCES::p9",
+            "content/chapters/references.md::ch:REFERENCES::p11",
+            "content/chapters/references.md::ch:REFERENCES::p13",
+            "content/chapters/references.md::ch:REFERENCES::p15",
+            "content/chapters/references.md::ch:REFERENCES::p37"
+          ]
+        }
+      ],
+      "fields": {
+        "Reader problem, observable limitation, or engineering decision": "p3: provide full details in first-use order, with supplement/main article shared and author notes distinguished.",
+        "Prerequisites, first use, and first teaching location": "Actual reading-guide footnotes first cite2012,2022,2025; foundations then citesMaimon; place chapters first useMainali notes andTaylor; synthesis introduces the remaining related papers.",
+        "Definition and emphasis": "The17 entries identify authors,year,title,venue andDOI; Mainali teaching notes have date and author URL instead of journal metadata.",
+        "Operating mode and object roles, when relevant": "Research articles,main-article supporting information and author teaching notes are distinguished in p3 and their entries.",
+        "System setup and component relationships": "Not applicable: this is a bibliographic lookup list, not a multi-component method. Source roles are given in the chapter citations.",
+        "Representation bridge, when relevant": "Not applicable: bibliographic entries point to original works; no computational representation conversion is taught here.",
+        "Mechanism, calculation, or state change": "DOIs/titles were compared with local primary PDFs,primary-text metadata and live primary pages; first-use order was traced through actual reader text.",
+        "Concrete trace or example": "Mainali2025 DOI identifies the main article/SI; the2026 note remains a separate dated entry. Taylor2006 Eq5.1 supports the topology footnote.",
+        "Example setup and conclusion": "p3 explains the organization; entry text gives direct retrieval identifiers. Additional artificial examples would not help lookup.",
+        "Assumptions, limits, trade-offs, or failure modes": "A DOI fetch error is not a broken reference. Primary online access succeeded via explicit PLOS URLs after DOI redirects failed. Citation-list consistency is checked; exhaustive external link uptime is not claimed.",
+        "Relevant alternatives, common criteria, and selection or scope": "Not applicable: reference selection is deliberately scoped by reading-guide scope and synthesis questions, not advertised as exhaustive literature coverage.",
+        "Expert objection": "objection: the later2026CA3/CA1 result is presented as evidence collected by the2025 paper; kind: correctness; target: entry4 and synthesis p107; disposition: does not apply; reason: distinct dated reference and explicit later-study language preserve the chronology.",
+        "Essential explanation beyond the checklist": "reader task: Are the cited identities and source roles internally consistent?; dependencies checked: Actual reading-guide footnotes first cite2012,2022,2025; foundations then citesMaimon; place chapters first useMainali notes andTaylor; synthesis introduces the remaining related papers.; reasoning chain: Yes. The list matches the primary article identities and first-use path. The mathematical notes are separate from the2025 paper, and the laterCA3/CA1 study is not attributed to it. Nghiem is indexed TE by one registry and TAE by the primaryXML; both refer to the same correctly identified DOI.; unresolved: none in Stage 1 text scope; artwork fidelity remains deferred."
+      },
+      "claims": {
+        "c1": {
+          "verdict": "true as written",
+          "checked": "Local Burak-Fiete2012 primary PDF title/authors/DOI match entry1."
+        },
+        "c2": {
+          "verdict": "true as written",
+          "checked": "Local Ben-Shushan2022 primary PDF title/authors/DOI match entry2."
+        },
+        "c3": {
+          "verdict": "true as written",
+          "checked": "Local Mainali2025 primary PDF title/authors/113(7)/1110-1120.e3/DOI match entry3."
+        },
+        "c4": {
+          "verdict": "true as written",
+          "checked": "Maimon2026 cached primary article and metadata match exact title."
+        },
+        "c5": {
+          "verdict": "true as written",
+          "checked": "Maimon2026 primary metadata DOI,authors,volume655,issue8125,pages1242-1251 match."
+        },
+        "c6": {
+          "verdict": "true as written",
+          "checked": "Live Taylor author preprint title page:2006,34(1),122-158,DOI009117905000000594."
+        },
+        "c7": {
+          "verdict": "true as written",
+          "checked": "Cached Seung primary title/publication details identifyPNAS93,13339-13344 and DOI."
+        },
+        "c8": {
+          "verdict": "true as written",
+          "checked": "Cached Aksay primary text and metadata identifyNatNeurosci10,494-504 andDOI nn1877."
+        },
+        "c9": {
+          "verdict": "true as written",
+          "checked": "Live PLOS Burak-Fiete2009 primary page citation matches5(2),e1000291 andDOI."
+        },
+        "c10": {
+          "verdict": "true as written",
+          "checked": "Live eLife Koyluoglu2017 primary page citation matches6:e22225 andDOI."
+        },
+        "c11": {
+          "verdict": "true as written",
+          "checked": "Live PLOS Seeholzer2019 primary page citation matches15(4),e1006928 andDOI."
+        },
+        "c12": {
+          "verdict": "true as written",
+          "checked": "Mainali main/SI references list Eliav2021 authors/title/Science372,eabg4020/DOI; source provenance in synthesis matches."
+        },
+        "c13": {
+          "verdict": "true as written",
+          "checked": "Mainali main/SI bibliography lists Harland2021 author order,title,CurrentBiology31,2178-2190.e6 andDOI."
+        },
+        "c14": {
+          "verdict": "true as written",
+          "checked": "Mainali main bibliography listsYartsev/Ulanovsky2013 Science340,367-372 andDOI."
+        },
+        "c15": {
+          "verdict": "true as written",
+          "checked": "Primary Druckmann2014 PubMed abstract metadata matches authors,Neuron81(3),629-640 andDOI."
+        },
+        "c16": {
+          "verdict": "true as written",
+          "checked": "Primary Bittner2017 full article onPMC matches authors,Science357(6355),1033-1036 andDOI."
+        },
+        "c17": {
+          "verdict": "true as written",
+          "checked": "Cached Nghiem primary XML provides full first-author Trang-AnhE. with initialsTAE,PNAS122(6),e2416266122 andDOI; registryTE abbreviation in synthesis is a minor style difference, not wrong identity."
+        }
+      }
+    }
+  },
+  "extra_reader_text_checks": [
+    {
+      "source": "content/chapters/05-place-fields.md sidecar",
+      "fields": [
+        "title",
+        "purpose",
+        "section_list titles and summaries"
+      ],
+      "judgment": "The title promises separation of q/sigma; PLACE-INFERENCE supplies it. Purpose correctly describes rat/bat recordings and thresholded input. The GP,Kac-Rice and inference summaries match the paragraphs checked above; endpoint convention is supplied in the full Kac-Rice passage."
+    },
+    {
+      "source": "content/chapters/05b-place-sizes.md sidecar",
+      "fields": [
+        "title",
+        "purpose",
+        "section_list titles and summaries"
+      ],
+      "judgment": "Purpose states the high-threshold approximation. Peak,size,slice and boundary-slope titles/summaries name the actual calculations. The separate exact slope law is not asserted to make finite-threshold size laws exact."
+    },
+    {
+      "source": "content/chapters/05c-place-tests.md sidecar",
+      "fields": [
+        "title",
+        "purpose",
+        "section_list titles and summaries"
+      ],
+      "judgment": "Purpose promises geometry tests and asks what agreement reveals about connections, rather than claiming to identify them. Topology,data and wiring summaries keep those roles distinct; random weights can generate Gaussian maps is a qualified sufficiency claim."
+    },
+    {
+      "source": "content/chapters/06-synthesis.md sidecar",
+      "fields": [
+        "title",
+        "purpose",
+        "section_list titles and summaries"
+      ],
+      "judgment": "Purpose explicitly separates established connections from further questions. Joint-calculation summary begins Suppose; covariance example has the same units/numbers as the checked body; next-test summary says possible sequence."
+    },
+    {
+      "source": "content/chapters/glossary.md sidecar",
+      "fields": [
+        "title",
+        "purpose"
+      ],
+      "judgment": "Lookup-after-teaching purpose is accurate, but missing marked displacement entry remains open as PLACE-T1-01."
+    },
+    {
+      "source": "content/chapters/references.md sidecar",
+      "fields": [
+        "title",
+        "purpose"
+      ],
+      "judgment": "Purpose mirrors p3 and correctly separates main-article supporting information from the later author notes; first-use order was verified."
+    },
+    {
+      "source": "content/chapters/05-place-fields.md:19",
+      "fields": [
+        "visible title=\"Mathematical definitions: Gaussian processes and spatial covariance\""
+      ],
+      "judgment": "Correctly describes the finite-Gaussian-vector,mean/covariance and independence material inside the fold."
+    },
+    {
+      "source": "content/chapters/05b-place-sizes.md:134",
+      "fields": [
+        "visible title=\"Derivation: normalization and higher size moments\""
+      ],
+      "judgment": "Substitution u=beta s^(2/d) actually derives normalization and the Gamma moment formula."
+    },
+    {
+      "source": "content/chapters/05b-place-sizes.md:170",
+      "fields": [
+        "visible title=\"Source check: three printed steps in the supplement\""
+      ],
+      "judgment": "Three specific printed equations,S18,S23,S25,were independently checked by reopening source PDF pages13-15; claim is accurate."
+    },
+    {
+      "source": "content/chapters/05b-place-sizes.md:231",
+      "fields": [
+        "visible title=\"Independent check: recover field width from its boundary slope\""
+      ],
+      "judgment": "Alternative boundary-parabola route independently recovers the same full-width constant; it is not presented as independent experimental replication."
+    },
+    {
+      "source": "content/chapters/05c-place-tests.md:53",
+      "fields": [
+        "visible title=\"Derivation: the Gaussian determinant average and its integrals\""
+      ],
+      "judgment": "The enclosed conditional Hessian determinant expansion and three Gaussian tail integrals support the title."
+    },
+    {
+      "source": "content/chapters/06-synthesis.md:58",
+      "fields": [
+        "visible label \"Calculation and figure\""
+      ],
+      "judgment": "The fold includes both the stated arithmetic and its two-rate drawing; no external recording claim is made."
+    },
+    {
+      "source": "assigned original-paper figure summary labels and sidecar captions/alt",
+      "fields": [
+        "Mainali Figures1-5 andS1-S5"
+      ],
+      "judgment": "All10 original-figure names,panel descriptions,PDF-start-page references and textual scientific claims were checked against source captions/figure text. SupplementS5 caption continues on the following PDFpage. Exact artwork excerpt describes the intended source, but crop completeness and pixel fidelity are not accepted in this text review."
+    },
+    {
+      "source": "assets/approved/visuals/place-*.svg and synthesis-shared-position.svg",
+      "fields": [
+        "all visible SVG text and embedded mathematical label comments"
+      ],
+      "judgment": "Read labels for crossing counts/band widths,rectification q=.8 a=6,dimensional size transformations,density/survival variables,topological counts and shared-position slopes. They agree with the surrounding text and independently recomputed formulas. No extended rendered-artwork or crop audit was performed."
+    },
+    {
+      "source": "assigned Markdown footnote definitions",
+      "fields": [
+        "all footnotes in05,05b,05c,06"
+      ],
+      "judgment": "Checked study identities,local paper/STAR/SI equation/page references and the distinction between expanded guide derivations and original proofs. The Mainali supplemental printed-vs-PDF page offset is preserved. The guide does not claim to reproduce full Morse/kinematic or excursion convergence proofs. Related-study claims were checked at the primary abstract/results level appropriate to the concise summaries."
+    }
+  ],
+  "source_checks": [
+    "Mainali2025 local main PDF,STAR Methods,SupplementS1-S4 andFigures1-5/S1-S5; extracted main text used with sourcePDF reopened for ambiguous printed algebra.",
+    "Supplement PDFpages13-15 directly viewed and saved as place-stage1-source-13.png through-15.png for S18/S23/S25 checks.",
+    "Mainali2026 author notes https://nischmainali.github.io/blog/gp-code-notes/ (date6August2026; GP,Kac-Rice,slope sections).",
+    "Taylor2006 primary author preprint https://arxiv.org/pdf/math/0602545, title page andEq.5.1.",
+    "Primary Burak-Fiete2012 andBen-Shushan2022 cached texts consulted for synthesis model roles,alongside actual earlier teaching passages.",
+    "Seung1996 andAksay2007 cached primary abstracts/results; Burak-Fiete2009 https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000291.",
+    "Koyluoglu2017 https://elifesciences.org/articles/22225; Seeholzer2019 https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006928.",
+    "Maimon2026 cached primary full text/metadata; comparedCA3/CA1 at matched environment scales,keeping later-study chronology.",
+    "Druckmann2014 primary abstract https://pubmed.ncbi.nlm.nih.gov/24412418/; Bittner2017 primary full text https://pmc.ncbi.nlm.nih.gov/articles/PMC7289271/.",
+    "Nghiem2025 cached primary Results and XML; primary XML initialsTAE versus registryTE is a citation-style difference,not a different source.",
+    "Eliav,Harland,Yartsev bibliographic details checked inMainali primary main/SI references; source-reanalysis roles checked inMainali Methods. Their full original animal-data analyses were not recreated."
+  ],
+  "recomputations": {
+    "q1_1_sigma2_4": {
+      "Q": 0.13566606094638267,
+      "nu_per_m": 0.03621268512324263,
+      "mean_field_m": 3.746368447539042,
+      "mean_gap_m": 23.868264286727968,
+      "expected_intersecting_fields_200m": 7.378203085594909
+    },
+    "limiting_means_sigma1_q5": [
+      0.5013256549262001,
+      0.2513274122871834,
+      0.12599687956577935
+    ],
+    "mean_approximation_relative_error_percent_q1_1_q5": [
+      45.981561109986366,
+      3.73007934251659
+    ],
+    "cube_EC_r10_q0": -20.05564761782758,
+    "synthesis_covariance_Hz2": [
+      [
+        0.04,
+        -0.02
+      ],
+      [
+        -0.02,
+        0.01
+      ]
+    ],
+    "synthesis_correlation": -1
+  },
+  "checkpoints": [
+    {
+      "at": "2026-10-29T12:32:57.437574+02:00",
+      "event": "Read contracts and begin fresh source review"
+    },
+    {
+      "at": "2026-10-29T12:35:49.224461+02:00",
+      "event": "Assigned text read; core equations and supplement corrections checked"
+    },
+    {
+      "at": "2026-10-29T12:40:10.490464+02:00",
+      "event": "Related sources and sidecar summaries checked; evidence records in progress"
+    },
+    {
+      "at": "2026-10-29T12:42:55.503345+02:00",
+      "event": "Coordinator missing-displacement inventory candidate independently confirmed"
+    },
+    {
+      "at": "2026-10-29T12:47:17.204361+02:00",
+      "event": "Stage1 report completed"
+    }
+  ],
+  "time": {
+    "wall_seconds": 859.766787,
+    "awake_execution": "unverified; no sleep/resume log audit performed",
+    "system_clock_change": "No clock reversal observed in persisted checkpoints"
+  },
+  "token_stats": "Token stats unavailable",
+  "summary": {
+    "pass_units": 21,
+    "open_units": 1,
+    "confirmed_findings": [
+      "PLACE-T1-01"
+    ],
+    "manuscript_edits": false,
+    "later_stages_completed": false
+  }
+}

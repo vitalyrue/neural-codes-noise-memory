@@ -1,0 +1,126 @@
+{
+  "removed": [],
+  "added": [
+    "sec:GLOSSARY-SIMULATION"
+  ],
+  "changed": {
+    "sec:EYE-PATHWAY": {
+      "before": {
+        "id": "sec:EYE-PATHWAY",
+        "title": "From stored eye position to muscle action",
+        "summary": "The eye needs an ongoing command to maintain a position. A brief command to move is therefore insufficient: after the movement, a circuit must maintain activity representing the new position. The [**oculomotor integrator**]{.definition-term custom-style=\"Definition Term\"} is the neural circuit that performs this storage. “Integrator” refers to turning a movement command into a lasting position signal. In the proposed mechanism, the continuous attractor described in the [foundations](ch-persistence.html#sec-foundations-attractor) and [network model](ch-foundations.html#sec-memory-spikes) stores horizontal eye position. Noise moves the stored value along that attractor.[^p2-pathway]",
+        "guide_locus": "sec:EYE-PATHWAY",
+        "level": 2
+      },
+      "after": {
+        "id": "sec:EYE-PATHWAY",
+        "title": "From stored eye position to muscle action",
+        "summary": "The eye needs an ongoing command to maintain a position. A brief command to move is therefore insufficient: after the movement, a circuit must maintain activity representing the new position. The oculomotor integrator is the neural circuit that performs this storage. “Integrator” refers to turning a movement command into a lasting position signal. In the proposed mechanism, the continuous attractor described in the [foundations](ch-persistence.html#sec-foundations-attractor) and [network model](ch-foundations.html#sec-memory-spikes) stores horizontal eye position. Noise moves the stored value along that attractor.[^p2-pathway]",
+        "guide_locus": "sec:EYE-PATHWAY",
+        "level": 2
+      }
+    },
+    "ch:SIMULATION-TOOLS": {
+      "before": {
+        "id": "ch:SIMULATION-TOOLS",
+        "title": "Reproduction depends on the model, numerical method, and measurement",
+        "purpose": "A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Reproducing a result requires matching those choices before comparing curves. This chapter collects the practical decisions shared by the three papers and identifies tools for making those decisions visible.",
+        "guide_locus": "ch:SIMULATION-TOOLS"
+      },
+      "after": {
+        "id": "ch:SIMULATION-TOOLS",
+        "title": "Reproduction depends on the model, numerical method, and measurement",
+        "purpose": "A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Beyond the paper-specific methods in the preceding chapters, a reproduction needs checks that its software, resolution, and saved run record preserve the intended comparison. This chapter explains how to choose those checks and distinguish the authors' program from an independent implementation or a smaller teaching model.",
+        "guide_locus": "ch:SIMULATION-TOOLS"
+      }
+    },
+    "sec:SIMULATING-EYE-DATA": {
+      "before": {
+        "id": "sec:SIMULATING-EYE-DATA",
+        "title": "Recorded data constrain the question before the model generates a trajectory",
+        "summary": "The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of all 57 neurons. The authors fit each cell's relation to eye position, velocity, and acceleration, then use it to reconstruct movement from that cell's spikes. A trial held out of the fit tests prediction on data that did not determine the fitted parameters.[^simeye-data]",
+        "guide_locus": "sec:SIMULATING-EYE-DATA",
+        "level": 2
+      },
+      "after": {
+        "id": "sec:SIMULATING-EYE-DATA",
+        "title": "Recorded data constrain the question before the model generates a trajectory",
+        "summary": "The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of all 57 neurons. The authors fit each cell's firing-rate relation to eye position, velocity, and acceleration. For firing-rate prediction, they fit all trials except one and predict the firing rate in the omitted trial, repeating this leave-one-out procedure across trials. The analysis also uses the fitted movement relation to reconstruct motion from that cell's spikes.[^simeye-data]",
+        "guide_locus": "sec:SIMULATING-EYE-DATA",
+        "level": 2
+      }
+    },
+    "ch:SIMULATING-PLACE": {
+      "before": {
+        "id": "ch:SIMULATING-PLACE",
+        "title": "Random spatial maps test the statistics of place fields",
+        "purpose": "Mainali et al. (2025) ask whether one statistical model can explain the many firing regions observed in hippocampal place cells across different environments. Their simulation generates a cell's firing-rate map over space and measures the active regions. Position is the independent variable. The generated map is fixed while it is analyzed, so this simulation addresses spatial coding rather than how a neural circuit retains a position over time.",
+        "guide_locus": "ch:SIMULATING-PLACE"
+      },
+      "after": {
+        "id": "ch:SIMULATING-PLACE",
+        "title": "Random spatial maps test the statistics of place fields",
+        "purpose": "To reproduce Mainali et al.'s (2025) place-field comparisons, we need the rules for generating and fitting model maps, and for measuring both model and recorded maps. The [spatial-model chapter](ch-place-fields.html) explains the statistical assumptions, and the [tests chapter](ch-place-tests.html) interprets the evidence. Here the additional detail is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors, and access to code and recordings. Position is the independent variable; each generated map is fixed during analysis, so these computations do not simulate a remembered position changing over time.",
+        "guide_locus": "ch:SIMULATING-PLACE"
+      }
+    },
+    "sec:SIMULATING-MEMORY-RING": {
+      "before": {
+        "id": "sec:SIMULATING-MEMORY-RING",
+        "title": "Ring trajectories test both the diffusion rate and the effect of angular boundaries",
+        "summary": "In the ring model, neurons are ordered by their preferred angles. Their connections support a localized activity pattern whose position represents an angle. Figure 2A–D compares the wandering position with predictions calculated from the network's steady tuning curves. Two transfer functions test different relationships between diffusion and spike information: the exponential case attains the bound under the model assumptions, while the illustrated sigmoid case lies above it.[^simmem-ring]",
+        "guide_locus": "sec:SIMULATING-MEMORY-RING",
+        "level": 2
+      },
+      "after": {
+        "id": "sec:SIMULATING-MEMORY-RING",
+        "title": "Ring trajectories test both the diffusion rate and the effect of angular boundaries",
+        "summary": "In the ring model, neurons are ordered by preferred angle, and the position of their localized activity pattern represents the stored angle. The [earlier Figure 2 discussion](ch-memory-long-delays.html) explains the diffusion and information comparison. To reproduce that comparison, keep the exponential and sigmoid transfer functions as separate runs, with a theoretical prediction calculated from each run's steady tuning curves.[^simmem-ring]",
+        "guide_locus": "sec:SIMULATING-MEMORY-RING",
+        "level": 2
+      }
+    },
+    "ch:HARDWARE-DYNAMICS": {
+      "before": {
+        "id": "ch:HARDWARE-DYNAMICS",
+        "title": "Discrete restoration and continuous drift produce different memory errors",
+        "purpose": "A circuit can remain active for seconds even when its individual voltages decay in milliseconds. The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity does not by itself identify what is being preserved. This chapter first explains how feedback extends a time scale, then distinguishes a restoring discrete memory from a freely changing continuous one. Measured silicon circuits show why this distinction matters beyond a mathematical model.",
+        "guide_locus": "ch:HARDWARE-DYNAMICS"
+      },
+      "after": {
+        "id": "ch:HARDWARE-DYNAMICS",
+        "title": "Discrete restoration and continuous random wandering produce different memory errors",
+        "purpose": "A circuit can remain active for seconds even when its individual voltages decay in milliseconds. The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity does not by itself identify what is being preserved. This chapter first explains how feedback extends a time scale, then distinguishes a restoring discrete memory from a freely changing continuous one. Measured silicon circuits show why this distinction matters beyond a mathematical model.",
+        "guide_locus": "ch:HARDWARE-DYNAMICS"
+      }
+    },
+    "ch:SIMULATING-EYE": {
+      "before": {
+        "id": "ch:SIMULATING-EYE",
+        "title": "Eye simulations connect a noisy neural command to measured motion",
+        "purpose": "Ben-Shushan et al. (2022) ask whether fluctuations in a neural memory circuit can explain the small eye movements that continue during fixation. Their simulation must turn a changing neural command into muscle action and eye position. It must also produce signals that can be analyzed like the recordings. The paper's central evidence combines a shared-source inference from data with a model showing that a noisy integrator can account for the observed motion.",
+        "guide_locus": "ch:SIMULATING-EYE"
+      },
+      "after": {
+        "id": "ch:SIMULATING-EYE",
+        "title": "Eye simulations connect a noisy neural command to measured motion",
+        "purpose": "A reproduction of Ben-Shushan et al. (2022) must distinguish the recording analysis from the simulated eye-control pathway. The [circuit chapter](ch-eye-circuit.html) explains why a noisy internal command is a possible source of drift. Here the added detail is how the published parameters, spike generator, update intervals, saved samples, and MATLAB files determine the numerical experiment, and which code or data gaps limit reproduction. The pathway below gives the mechanism needed to interpret those choices.",
+        "guide_locus": "ch:SIMULATING-EYE"
+      }
+    },
+    "ch:SIMULATING-MEMORY": {
+      "before": {
+        "id": "ch:SIMULATING-MEMORY",
+        "title": "Network simulations test how random spikes move a stored value",
+        "purpose": "Burak and Fiete (2012) derive memory diffusion from assumptions about recurrent connections and random spike timing. To test that prediction, they simulate individual spikes and measure how the stored value moves. The central result remains an analytical bound. The simulations check its predicted motion in different network designs, including the limits imposed by an angular coordinate.",
+        "guide_locus": "ch:SIMULATING-MEMORY"
+      },
+      "after": {
+        "id": "ch:SIMULATING-MEMORY",
+        "title": "Network simulations test how random spikes move a stored value",
+        "purpose": "To compare a simulated memory trace with Burak and Fiete's (2012) theory, the numerical update and the measurement of the stored value must match the model. The [foundation chapter](ch-foundations.html#sec-foundations-simulation) explains the spike-update cycle, and the [long-delay chapter](ch-memory-long-delays.html) interprets its diffusion tests. Here the additional task is to recover the published network settings, distinguish a numerical position measurement from the theoretical coordinate, and identify choices left open for an independent reproduction.",
+        "guide_locus": "ch:SIMULATING-MEMORY"
+      }
+    }
+  }
+}

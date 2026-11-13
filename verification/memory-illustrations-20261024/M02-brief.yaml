@@ -1,0 +1,129 @@
+brief:
+  asset_id: fig:MEMORY-INHIBITION-RATES
+  scope: chapter
+  book: burak-three-papers
+  chapter: ch:MEMORY-DYNAMICS
+  purpose: Show that opposite changes in individual firing rates can leave local diffusion
+    constant.
+  target_use: sec:MEMORY-SYMMETRIC
+  generation_authorized: true
+  insertion_authorized: true
+author: /root/draw_memory_additions
+figure_role: quantitative-figure
+visual_explanation:
+  applicable: true
+  figure_role: quantitative-figure
+  composition: Aligned rate and diffusion plots share the valid interior memory coordinate;
+    open endpoints exclude the boundary.
+  required_scene_ids:
+  - opposite-rates
+  - constant-diffusion
+  reference_reason: Exact mathematical plots; no structural template or illustrated-opener
+    reference applies.
+chapter_map_coverage:
+  applicable: false
+  reason: Section calculation figure, not an opening map.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    colors_and_roles:
+      ink: '#17365D'
+      blue: '#1F4E79'
+      text: '#19202C'
+      muted: '#5D6876'
+      flow: '#0B7F95'
+      success: '#0F6B78'
+      risk: '#C4580B'
+      risk_deep: '#B85209'
+      line: '#9AA7B5'
+      fill_blue: '#EAF2F8'
+      fill_teal: '#E4F2F0'
+      fill_orange: '#FCEEE3'
+      fill_gray: '#F1F3F6'
+      paper: '#FFFFFF'
+      paper_warm: '#FFFDF7'
+      panel_warm: '#F8F4EC'
+    color_distance: exact SVG color token membership; no raster pixel-deviation claim
+    maximum_deviation_fraction: 0
+    allowed_special_purpose_colors: []
+parameters:
+  b_activation_units: 20
+  tau_s: 0.1
+  domain: -20 < theta < 20
+  r_sum_spikes_per_s: 200
+  D_coordinate_squared_per_s: 100
+required_items:
+- Rates r1=(20+theta)/0.2 and r2=(20-theta)/0.2.
+- Sum r1+r2=200 spikes/s.
+- D=(r1+r2)/2=100 coordinate units squared/s.
+- Only the interior of the linear positive-rate model is shown; endpoint markers are open.
+language_contract:
+  book_loci:
+  - sec:MEMORY-SYMMETRIC
+  caption: For the chapter’s two mutually inhibiting cells, b = 20 activation units and
+    tau = 0.1 s give opposite changes in the two rates. Their sum remains 200 spikes/s,
+    so local D remains 100 coordinate units squared/s. Open endpoints mark the excluded
+    boundaries; the linear interior model does not determine boundary behavior. These
+    curves are calculated examples, not simulation data.
+  alt_text: As theta increases through the interior from minus 20 to 20 activation units,
+    r1 increases toward 200 spikes per second and r2 decreases toward zero. Their dashed
+    sum stays at 200. A lower aligned plot shows D constant at 100 coordinate units squared
+    per second. Open endpoint circles exclude both boundaries.
+  teaching_introduction: The plot uses $b=20$ activation units and $\tau=0.1\,\mathrm{s}$.
+  conclusion: The dashed rate sum in the upper plot stays fixed, so the lower plot has
+    the same $D$ at every interior value of $\theta$.
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/draw_memory_additions
+  role_reason: Show that opposite changes in individual firing rates can leave local diffusion
+    constant.
+  source_files:
+  - content/chapters/02-memory-dynamics.md
+  - content/chapters/02-memory-dynamics.yaml
+  - verification/memory-illustrations-20261024/draw_additions.py
+  - verification/memory-illustrations-20261024/M02-brief.yaml
+  - verification/illustrations/figure_style.py
+  - assets/papers/burak-fiete-2012-persistent-activity.pdf
+  - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+  - verification/memory-illustrations-20261024/source-locators.json
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024/M02/qa.json
+  vector_spec: verification/memory-illustrations-20261024/draw_additions.py
+  insertion_width_px: 700
+  required_scene_ids:
+  - opposite-rates
+  - constant-diffusion
+  coverage:
+    applicable: false
+    reason: Internal quantitative figure, not an opening map; no chapter coverage claim.
+limitations:
+- Analytic teaching construction with specified illustrative parameters; not experimental
+  or simulated paper data.
+- No generic vector-template gate is claimed; computed checks and image inspection support
+  independent review.
+manual_rule_disposition:
+  applicable:
+  - semantic correspondence
+  - label and numerical accuracy
+  - readability at full size and 700px
+  - units and domain conditions
+  - palette color roles
+  - canvas clipping
+  not_applicable:
+  - opening-map coverage
+  - generic structural-template geometry gates
+  - raster palette measurement

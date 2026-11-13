@@ -1,0 +1,74 @@
+chapter_id: ch:PLACE-FIELDS
+part_id: part:OBSERVATIONS
+title: Field counts and gaps reveal threshold and scale
+purpose: Hippocampal place cells fire more at particular locations as an animal moves. This chapter introduces the
+  rodent and bat recordings, then shows how a smooth random input that exceeds a firing threshold can produce several
+  separate active regions for one cell.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+- ch:PERSISTENCE
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:PLACE-GP
+  title: Thresholding a smooth Gaussian input produces place fields
+  summary: 'To predict a field''s width, we need to relate activity at nearby positions. A histogram of firing rates
+    alone loses that information: rearranging its values could turn one broad field into many tiny fields without
+    changing the histogram.'
+  level: 2
+- id: sec:PLACE-KAC-RICE
+  title: Upcrossings count fields, with an endpoint correction
+  summary: A field starts at an upcrossing, so its expected count can be found by counting upward passages through
+    the threshold. A small interval around each crossing has a width determined by its slope; this lets us count
+    crossings without locating every root.
+  level: 2
+- id: sec:PLACE-INFERENCE
+  title: Mean field and gap lengths separate threshold from scale
+  summary: A low field count can result from a high threshold or a slowly varying map. Field lengths help separate
+    those possibilities.
+  level: 2
+blocks:
+- id: fig:PLACE-CROSSINGS
+  kind: figure
+  placement: sec:PLACE-KAC-RICE
+  asset: assets/approved/visuals/place-crossings.png
+  caption: Two upcrossings start two new fields, and one field is already active at the left edge. The local tangent
+    panels show that a steeper crossing occupies a narrower threshold band, while slope weighting makes each crossing
+    contribute one. This is a guide construction, not a sampled cell or a new fit; it illustrates Mainali et al.
+    (2025), Figure 1A–B and Supplemental Methods S3, Equations S11–S15.
+  alt: A constructed smooth curve crosses q upward twice and has three active intervals because the first begins
+    before the left edge of the track. One full field and one gap are marked. Two local tangent plots use the same
+    vertical band q plus or minus epsilon; the steeper slope has a narrower horizontal width 2 epsilon divided by
+    v, and slope times width divided by 2 epsilon equals one in both cases.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PLACE-GP-TO-FIRING
+  kind: figure
+  placement: sec:PLACE-GP
+  asset: assets/approved/visuals/place-gp-to-firing.png
+  caption: One fixed Gaussian input draw becomes a nonnegative firing map through $F(x)=a[z(x)-q]_+$. Values below
+    $q$ become zero; values above $q$ are reduced by $q$ and multiplied by $a$. The shaded connected intervals are
+    the model fields. This is a simulated teaching map with chosen parameters, not a recorded cell. Based on Mainali
+    et al. (2025), Fig. 1A and STAR Methods Eqs. 2–3, p. e1.
+  alt: The upper plot shows one fixed smooth input against spatial position, with a threshold at 0.8 and shaded
+    intervals above it. The lower plot uses the same positions and plots six times the positive excess above the
+    threshold in hertz. Its connected positive intervals align with the upper shading; all other positions have
+    zero firing.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PAPER-PLACE-1
+  kind: figure
+  placement: sec:PLACE-GP
+  asset: assets/approved/visuals/paper-excerpts/place-fig-1.png
+  caption: A thresholded Gaussian map explains field lengths, gaps and higher moments in one dimensional recordings.
+    Original Figure 1 from Mainali, Azeredo da Silveira, and Burak (2025); exact artwork excerpt. [PDF page 4](../papers/mainali-2025-universal-statistics.pdf#page=4).
+    [Open image at full size](../assets/fig-paper-place-1.png).
+  alt: Panels A–F show recorded and modeled fields, random input summation, length and gap histograms, log length
+    moments and mouse comparisons.
+  width_inches: 6.5
+  html_fold: never
+source_loci: []

@@ -1,0 +1,66 @@
+chapter_id: ch:HARDWARE-TESTS
+part_id: part:HARDWARE
+title: Memory experiments must separate device error from network dynamics
+purpose: After a circuit receives an angle cue, its later estimate may be wrong because the state wandered,
+  because unequal connections pull it toward another angle, or because the observer reads it poorly. One accuracy
+  score combines these causes. The controlled tests below connect these errors to physical parameters. The
+  protocol and reduced models below are proposed tools for reasoning about these experiments, not results already
+  demonstrated on every platform in the previous chapter.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:NEUROMORPHIC-SYSTEMS
+- ch:MEMORY-INFORMATION
+- ch:MEMORY-READOUT
+- ch:SYNTHESIS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:HARDWARE
+section_list:
+- id: sec:HARDWARE-TESTS-PROTOCOL
+  title: Repeated cue-and-delay trials separate drift from random spreading
+  summary: Begin with a circuit whose joint activity represents an angle. Choose a decoder on separate calibration
+    data, then keep it fixed while testing retention. A [[**decoder**]{.definition-term custom-style="Definition
+    Term"} is a specified rule for estimating the represented quantity from observable circuit signals.]{.definition-explanation}
+    A decoder given every internal state has a different task from a downstream neuron receiving only spikes.
+  level: 2
+- id: sec:HARDWARE-TESTS-PARAMETERS
+  title: Physical parameters act through decay, bias, and noise projection
+  summary: A changed component affects memory through the circuit's equations. Increasing a leak current can
+    shorten a component time constant. Changing a recurrent weight can alter restoration or introduce a preferred
+    angle. A fluctuating current can perturb many neurons, yet only part of the resulting activity change remains
+    as a change of the remembered angle.
+  level: 2
+- id: sec:HARDWARE-TESTS-COMPARISON
+  title: Matching time and readout is necessary to compare memory accuracy
+  summary: The source papers supply different constraints on this hardware experiment.
+  level: 2
+blocks:
+- id: tbl:HARDWARE-TEST-PARAMETERS
+  kind: table
+  placement: sec:HARDWARE-TESTS-PARAMETERS
+  headers:
+  - Controlled change
+  - Physical or computational action
+  - Quantity to measure
+  rows:
+  - - Increase feedback toward balance with leakage
+    - Reduces net decay in a stable mode
+    - Persistence time, then instability or saturation if gain is excessive
+  - - Inject stronger noise with its pattern unchanged
+    - Increases $BB^T$ in specified directions
+    - Growth of decoded error variance
+  - - Change fixed weights or calibration
+    - Alters the deterministic dynamics $\mathbf f$
+    - Mean drift versus cue and preferred resting angles
+  - - Reduce numerical precision
+    - Restricts representable states and updates
+    - Error from mapping values to available numerical levels, pinning, or stalled small updates
+  - - Let PCM weights age between trials
+    - May change the implemented connection strengths
+    - Weight measurements and changes in drift, measured separately
+  caption: Controlled changes and the memory measurements they motivate.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

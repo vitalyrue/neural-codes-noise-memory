@@ -1,0 +1,156 @@
+{
+  "reviewer": "/root/draw_memory_figures",
+  "stage": "Stage 2: necessity and plain wording of new V04/V05 insertions",
+  "scope": "New introductions, captions, alt text, interpretations and labels, with containing sections and relevant earlier definitions. No whole-chapter or Stage 3 audit. Unchanged pixel review not repeated.",
+  "started_at": "2026-10-23T22:12:52.9979386+03:00",
+  "verdict": "V04 pass; V05 requires two narrow prose repairs.",
+  "figures": {
+    "V04": {
+      "intro": "Pass. Announces the physical, recording and calculation roles after the pathway, recording design and gain are introduced. No later filter mathematics is needed.",
+      "caption": "Pass. Each sentence has a distinct purpose: single-cell pairing; three noise locations; proposed source versus calculated output; source/construction status; illustrative versus experimental trace symbols. All belong here.",
+      "alt": "Pass. Its five sentences preserve the physical route, separate noise locations, highlighted recorded cell, record-only measurement noise and dashed calculation. These relationships are needed without the pixels.",
+      "interpretation": "Pass. The possible-source reminder limits the schematic. Repeating the one-cell covariance limit serves a new local purpose because the diagram visibly contains a population. The final sentence separates calculated output from biological flow.",
+      "label_groups": [
+        {
+          "items": [
+            "Physical pathway",
+            "Paired recordings",
+            "Analysis"
+          ],
+          "answer": "Each short role label distinguishes a different kind of object."
+        },
+        {
+          "items": [
+            "Attractor storage",
+            "proposed source",
+            "Stored eye position",
+            "Shared drive",
+            "Motor neuron population",
+            "Private spike variability",
+            "Muscles and eye mechanics",
+            "Downstream physical variability",
+            "Physical eye position"
+          ],
+          "answer": "Each identifies a visible physical object or required qualifier. The preceding pathway section teaches these roles."
+        },
+        {
+          "items": [
+            "One neuron at a time",
+            "Recorded spikes",
+            "Measurement noise",
+            "Recorded eye position",
+            "One cell and eye movement recorded together"
+          ],
+          "answer": "These protect the distinctions between physical state, record and observations collected together."
+        },
+        {
+          "items": [
+            "Calibrated filter",
+            "Predicted eye position",
+            "calculated from one cell",
+            "physical flow",
+            "calculation"
+          ],
+          "answer": "These identify the operation and line meanings. The filter previews the fitted relationship already discussed; the detailed later inverse-filter derivation is not needed for this orientation."
+        }
+      ],
+      "prior_definitions": "OMNs, ocular plant, the attractor proposal, shared/private variation, one-cell recording and gain precede the figure. Placement is appropriate."
+    },
+    "V05": {
+      "intro": "Repair. The comparison belongs after both derivations, but connect one-pole to the earlier one exponential term so readers can match the new label to the response already taught.",
+      "caption": "Pass. Plateau versus continued growth states the comparison. Both exact normalization expressions and the shape-versus-amplitude explanation are needed because the vertical scales differ. The final sentence gives guide-calculation status, one-pole scope and source locators without presenting the curves as measured/fitted paper results. Math markup preserves the Stage 1 formulas.",
+      "alt": "Pass. Its four sentences give the alternative inputs, matched lag axes, both exact functions and limits, and different vertical scales. Spoken formulas preserve access to the same comparison.",
+      "interpretation": "Repair. Keep the restriction of white-input short-lag slope one to this example. The following existing paragraph already covers smoother muscle response, motor filtering and feedback. The caption and image already cover independent scale.",
+      "label_groups": [
+        {
+          "items": [
+            "Stationary white input",
+            "Brownian stored position",
+            "Input",
+            "Position",
+            "Same one-pole filter"
+          ],
+          "answer": "All identify the alternatives and shared operation. The one-pole term needs a brief equivalence in the intro, not an artwork change."
+        },
+        {
+          "items": [
+            "1-exp(-x)",
+            "x-1+exp(-x)",
+            "M_white/(A/tau)",
+            "M_Brownian/(2D tau)",
+            "Dimensionless lag x=ell/tau"
+          ],
+          "answer": "These are the minimum sufficient exact formulas and axes for the scientific plot. They are derived before insertion."
+        },
+        {
+          "items": [
+            "plateaus",
+            "continues growing",
+            "Short-lag slope 1",
+            "Short-lag slope 2",
+            "Each panel uses its own scale; physical amplitudes are not matched."
+          ],
+          "answer": "Each states a distinct plotted behavior or essential scale warning, in brief familiar words."
+        }
+      ],
+      "prior_definitions": "The containing section teaches MSD/local slope, white noise intensity A, stationary covariance, one exponential filtering, Brownian position, D, tau, both functions and both limits before insertion. Only the one-pole equivalence is missing."
+    }
+  },
+  "findings": [
+    {
+      "id": "V05-S2-TERM",
+      "location": "New intro before fig:EYE-FILTERED-NOISE-MSD",
+      "necessary_repair": "Link the unfamiliar one-pole label to the already taught one exponential response. No additional derivation is needed.",
+      "replacement": "The curves compare the two inputs after the same filter with one exponential response, also called a one pole filter.",
+      "change_scope": "Chapter intro and matching canonical integration record. No artwork change."
+    },
+    {
+      "id": "V05-S2-REPEAT",
+      "location": "New interpretation after fig:EYE-FILTERED-NOISE-MSD",
+      "necessary_repair": "The second sentence repeats the immediate next existing paragraph about smoother muscle response, motor filtering and feedback. The third repeats the physical-amplitude warning in the caption and image. Keep the first sentence only.",
+      "replacement": "The white-input short-lag slope of one belongs to this one-pole example.",
+      "preserve": "Keep the next existing paragraph beginning The actual muscle response contains fast and slow exponential components in full, including its nonzero-static-gain and correlated-peripheral-source limits.",
+      "change_scope": "Chapter interpretation and matching canonical integration record. No artwork change."
+    }
+  ],
+  "optional_preferences": [],
+  "awake_execution_time": "unverified",
+  "token_stats": "unavailable",
+  "inputs_sha256": {
+    "content\\chapters\\04-eye-drift.md": "82da76bde4cc0a225319d021b8c3b002ab7b1095a156ef17f70a2019ff636df2",
+    "content\\chapters\\04-eye-drift.yaml": "068311ac42d787bad2ea1fb82d86ee09141c82865d0ae506b86ee59b6d41c2cb",
+    "verification\\illustrations\\integration.json": "4478c3a2edbf44fb7dd4754da025be688318d9025feb4672b8be082d693d2c6e",
+    "verification\\illustrations\\review-eye-stage1.json": "5a26325db6d4be2bdb9066083d50f6da40f07cb736615769bfaaee3a135d9a9d"
+  },
+  "passages_reviewed": {
+    "V04": {
+      "intro": "The diagram separates the physical pathway from the paired recordings and the later calculation of predicted eye position.",
+      "caption": "The recordings pair one motor neuron with eye movement. Private spike variability acts at individual cells, downstream physical variability acts on movement, and measurement noise enters the eye-position record. The attractor storage source is proposed; the dashed analysis path is a calculation from one cell through its calibrated filter. Original guide schematic based on Ben-Shushan et al. (2022), Figs. 1–2 and 4–5. Signal symbols are illustrative, not experimental traces.",
+      "alt": "A proposed attractor storage circuit sends shared drive to a motor neuron population, then through muscles and eye mechanics to physical eye position. Private variability enters one neuron; downstream physical variability enters the muscles. Only the highlighted neuron is recorded, paired with eye position. Measurement noise enters that recorded position, not the physical eye. A separate dashed calculation transforms the single-cell spikes through a calibrated filter into predicted eye position.",
+      "interpretation": "The upper path describes a possible physical source and its output. The recording design provides one cell and eye movement at a time; it does not measure covariance between simultaneously recorded motor neurons. The predicted position is a later analysis result, not a signal sent backward through the physical pathway."
+    },
+    "V05": {
+      "intro": "The calculated curves show how the same one-pole filter separates stationary white input from a wandering stored position.",
+      "caption": "Filtering stationary white input produces an MSD plateau; filtering Brownian stored position preserves long-lag growth. Each panel uses its own normalization, $M_{\\mathrm{white}}/(A/\\tau)$ and $M_{\\mathrm{Brownian}}/(2D\\tau)$, so the figure compares shapes without matching physical noise amplitudes. Original guide calculation for the one-pole teaching model, connected to Ben-Shushan et al. (2022), Fig. 3 and main Eqs. 20–22; these are not measured data or the fitted full-model curves.",
+      "alt": "Two alternative inputs pass through identical one-pole filters. On matched logarithmic lag axes x equals lag divided by tau, normalized white-input MSD is 1 minus exp(-x), rising with short-lag slope one and approaching a plateau of one. Independently normalized filtered Brownian MSD is x minus one plus exp(-x), starting with slope two and continuing to grow with long-lag slope one. The two vertical scales differ.",
+      "interpretation": "The white-input short-lag slope of one belongs to this one-pole example. The paper uses a smoother muscle response and additional motor filtering and feedback. The useful contrast is the plateau versus continued accumulation, not equality of the curves’ physical amplitudes."
+    }
+  },
+  "assets": {
+    "V04": {
+      "asset": "assets/approved/visuals/eye-physical-and-recorded.png",
+      "sha256": "8bee428b9e097dbe2411116b794dc40906a2089eca4a5c76479d65e908842988",
+      "same_as_stage1": true
+    },
+    "V05": {
+      "asset": "assets/approved/visuals/eye-filtered-noise-msd.png",
+      "sha256": "04b19d849fe507f1b3896af426e05f95500e864f51315cd8508444640de0c5b1",
+      "same_as_stage1": true
+    }
+  },
+  "completed_at": "2026-10-23T22:16:23.219320+03:00",
+  "root_started_at": "2026-10-23T21:56:31.932270+03:00",
+  "wall_elapsed_seconds": 1191.28705,
+  "previous_checkpoint_at": "2026-10-23T22:13:43+03:00",
+  "since_previous_checkpoint_seconds": 160.21932
+}

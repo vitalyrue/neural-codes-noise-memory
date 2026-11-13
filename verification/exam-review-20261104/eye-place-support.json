@@ -1,0 +1,154 @@
+{
+  "17": {
+    "symbols": "$t$, $u$, $t_j$, $\\Delta t$: time, kernel lag, jth spike time, fitted neural lead (s); $j$: spike index; $E$, $E_T$, $x=E-E_T$, $\\widehat E$: eye angle, fitted threshold angle, angle offset, predicted eye angle (degrees); $f$: firing rate (spikes/s); $k$: position coefficient (spikes/(s degree)); $r$: velocity coefficient (spikes/degree), not a firing rate; $m$: acceleration coefficient (spikes s/degree); $p$: Laplace frequency (1/s); $\\tau_+$, $\\tau_-$: distinct positive slow/fast response decay times (s); $h_0$, $h$: causal position impulse response before/after delay (degrees/spike), zero at negative effective lag. Dots differentiate time; $h$ is a filter here, not spatial input.",
+    "paper_location": "Ben-Shushan et al. (2022), main Methods 'OMN firing rate estimators' Eqs. 2–3 and 'Model inversion' Eqs. 4–7, PDF p. 9. Factoring the polynomial and checking impulse weights are expanded in the guide.",
+    "paper_url": "../papers/ben-shushan-2022-fixational-drift.pdf#page=9",
+    "guide_location": "Chapter 7, section 7.4, A calibrated filter predicts eye position from one cell's spikes",
+    "guide_url": "../chapters/ch-eye-drift.html#sec-eye-inverse-filter",
+    "status": "Paper calibration method; guide expands the factorization, normalization, and physical units."
+  },
+  "18": {
+    "symbols": "$i$: motor-neuron index; $N_m$: number of contributing ocular motoneurons (count); $R_i$: Pearson correlation between cell $i$'s predicted displacement and measured displacement over the same 350 ms intervals (dimensionless); $R$: the same correlation when the cell index is omitted; angle brackets: motor-population mean; a representative sample estimates it with sampling uncertainty; $R_i^2$: fraction of displacement variance explained after best linear rescaling (dimensionless). Standardized predictors and measured displacement have zero mean and unit variance.",
+    "paper_location": "Ben-Shushan et al. (2022), Supplementary Notes 'The explanatory power of a single OMN', Eqs. S1–S2, supplement 1 PDF p. 2; related main 'Central source' discussion PDF p. 3. Guide supplies the residual-variance proof.",
+    "paper_url": "../papers/ben-shushan-2022-supplement-1.pdf#page=2",
+    "guide_location": "Chapter 7, section 7.5, The measured correlation challenges independent motor noise alone",
+    "guide_url": "../chapters/ch-eye-drift.html#sec-eye-shared-variance",
+    "status": "Paper independent-noise bound; guide proof under independence and representative sampling."
+  },
+  "19": {
+    "symbols": "$X$: displacement predicted from one cell's spikes; $Y$: measured eye displacement; $C$: shared upstream contribution to displacement; $\\epsilon$: private prediction error; $\\eta$: other measured-displacement contributions (all degrees over 350 ms); $C$ here is a random displacement, not a covariance function; $R$: Pearson correlation of $X$ and $Y$ (dimensionless); $\\chi$: shared fraction $\\operatorname{Var}(C)/\\operatorname{Var}(Y)$, dimensionless; $\\widehat\\chi$: weighted estimate of $\\chi$, reported 0.82 ± 0.07; $N_m$: motor-neuron population size (count); covariance and variances have degrees² units. The ± value is propagated weighted estimation error, not between-animal spread.",
+    "paper_location": "Ben-Shushan et al. (2022), main Methods 'Estimated contribution of central source to measured eye position', Eqs. 11–15 and weighted estimation Eqs. 16–17, PDF p. 10; measured result Fig. 2e–f, PDF p. 4.",
+    "paper_url": "../papers/ben-shushan-2022-fixational-drift.pdf#page=10",
+    "guide_location": "Chapter 7, section 7.6, Calibrated covariance estimates the common share of movement variance",
+    "guide_url": "../chapters/ch-eye-drift.html#sec-eye-chi",
+    "status": "Paper central estimate under unit calibration gain and nearly uncorrelated contributions; not a unique circuit identification."
+  },
+  "20": {
+    "symbols": "$t$: time (s); $\\ell$: positive sampling lag (s); $E(t)$: true horizontal eye angle; $E_{\\rm obs}(t)$: measured angle; $\\nu(t)$: position-reading error (all degrees); $\\sigma_m^2$: variance of one position-reading error (degrees²); $M(\\ell)$: true mean squared displacement $\\mathbb E[(E(t+\\ell)-E(t))^2]$ (degrees²); $M_{\\rm obs}$: the corresponding measured MSD (degrees²). The displacement error contains two readings, hence $2\\sigma_m^2$.",
+    "paper_location": "Ben-Shushan et al. (2022), main Methods 'Removal of measurement noise', Eqs. 18–19, PDF p. 10; supporting noise plateau and fixed-coil control in Extended Data Fig. 2, supplement 1 PDF p. 8.",
+    "paper_url": "../papers/ben-shushan-2022-fixational-drift.pdf#page=10",
+    "guide_location": "Chapter 8, section 8.1, Independent measurement error adds a constant offset to the MSD",
+    "guide_url": "../chapters/ch-eye-timing.html#sec-eye-measurement-noise",
+    "status": "Paper measurement correction assuming temporally independent errors independent of true movement."
+  },
+  "21": {
+    "symbols": "$E$: centered stationary eye angle (degrees); $t$, $u$, $\\ell$: time, integration lag, and observation lag (s); $h(u)$: stable causal response kernel, with units degrees/(input-unit s); $\\xi$: white input with an arbitrary fixed input unit $U$; $A$: white-input intensity defined by $\\mathbb E[\\xi(t)\\xi(t')]=A\\delta(t-t')$, units $U^2$ s; $C_E(\\ell)$: output position covariance (degrees²); $M(\\ell)$: output MSD (degrees²). Thus $h$ has degrees/($U$ s); it is not the spatial-input $h$ in place-field rows. $A$ is noise intensity, not the dimensionless visual-feedback gain used elsewhere.",
+    "paper_location": "Ben-Shushan et al. (2022), main Methods 'MSD curve of low-pass filtered white noise', Eqs. 20–22, PDF p. 10; related private-OMN comparison Fig. 3, PDF p. 6.",
+    "paper_url": "../papers/ben-shushan-2022-fixational-drift.pdf#page=10",
+    "guide_location": "Chapter 8, section 8.2, The MSD plateaus for filtered white noise but grows for filtered diffusion",
+    "guide_url": "../chapters/ch-eye-timing.html#sec-eye-filtered-msd",
+    "status": "Paper stationary filtered-noise result; a decaying kernel gives a finite MSD plateau."
+  },
+  "22": {
+    "symbols": "$t$: time (s); $\\ell$ and $s$: nonnegative time lags (s); $E$: filtered eye angle (degrees); $B$: accumulating Brownian position command (degrees); $\\tau_f$: the teaching model's single eye-response time (s), written $\\tau$ in the detailed chapter; $D$: temporal diffusion coefficient, with $\\operatorname{Var}[B(t+\\ell)-B(t)]=2D\\ell$ (degrees²/s); $W$: standard Brownian process with increment variance $dt$ ($W$ has sqrt(s) units), not a synaptic weight; $v=\\dot E$: velocity (degrees/s); $C_v(s)$: stationary velocity covariance (degrees²/s²); $M$: filtered-position MSD (degrees²). The 2012 synaptic $\\tau$ and this $\\tau_f$ describe different processes.",
+    "paper_location": "Guide derivation, not a displayed paper equation. Related context: Ben-Shushan et al. (2022), main Fig. 3 and discussion of diffusion versus muscle filtering, PDF pp. 5–6; stationary white-noise comparison Eqs. 20–22, PDF p. 10. The paper's full model instead has two muscle times and feedback, Methods Eqs. 23–34, PDF p. 11.",
+    "paper_url": "../papers/ben-shushan-2022-fixational-drift.pdf#page=6",
+    "guide_location": "Chapter 8, section 8.2, The MSD plateaus for filtered white noise but grows for filtered diffusion",
+    "guide_url": "../chapters/ch-eye-timing.html#sec-eye-filtered-msd",
+    "status": "Guide teaching derivation using a one-time-constant filter; not the paper's full circuit formula."
+  },
+  "23": {
+    "symbols": "$N$: number of comparable integrator neurons (count); $\\lambda$, $\\lambda_0$: firing rate and typical mean firing rate (spikes/s); $E$: represented eye angle (degrees); $a=d\\lambda/dE$: absolute tuning slope (spikes/(s degree)); $b=a/\\lambda_0$: fractional tuning slope (1/degree); $J$: Poisson Fisher information per unit time about angle (1/(s degree²)); $\\mathrm{CV}$: interspike-interval standard deviation divided by its mean (dimensionless); $\\tau_s$: synaptic decay time (s); $D$: angle diffusion coefficient (degrees²/s). Here $a$ and $b$ are slopes, not the place firing-rate gain or a conditioned peak height. Printed paper $k_0$ is called position sensitivity but its absolute/fractional normalization is unclear.",
+    "paper_location": "Guide Poisson/renewal scale comparison. Related paper expression: Ben-Shushan et al. (2022), main Eq. 1 and parameter discussion, PDF p. 6; sub-Poisson construction in Methods 'Sub-Poisson spike trains', PDF p. 11. The paper prints inverse lambda_0 dependence without clarifying the slope normalization.",
+    "paper_url": "../papers/ben-shushan-2022-fixational-drift.pdf#page=6",
+    "guide_location": "Chapter 9, section 9.2, Spike regularity and circuit parameters set the model's drift scale",
+    "guide_url": "../chapters/ch-eye-circuit.html#sec-eye-scaling",
+    "status": "Guide supporting scale estimate and paper Eq. 1 comparison; not an exact equation for the full saturating, sub-Poisson network."
+  },
+  "24": {
+    "symbols": "$x$: spatial position (a scalar on a track or vector in $\\mathbb R^d$, distance units); $d$: spatial dimension (1, 2, or 3), not diffusion; $h(x)$: fixed Gaussian input map in an input unit $U$; $\\mu$: constant input mean ($U$); $\\sigma_0$: input standard deviation ($U$); $h_{\\rm th}$: absolute input threshold ($U$); $z=(h-\\mu)/\\sigma_0$: unit-variance normalized input (dimensionless); $q=(h_{\\rm th}-\\mu)/\\sigma_0$: normalized threshold (dimensionless); $F$: firing rate (Hz); $a$: firing-rate gain for normalized excess (Hz); $C$: covariance of unnormalized input $h$ ($U^2$); $C''(0)$: second spatial derivative of covariance along a unit direction ($U^2$/distance²); $\\ell_c$: local spatial scale (distance), written $\\sigma$ in the detailed chapters; $z'$: spatial derivative (1/distance). The normalized covariance is $C/C(0)$, not $C$ itself. $q$ is unrelated to the 2012 Gaussian-noise intensity $q_n$. $[u]_+=\\max(u,0)$ keeps positive input excess and sets negative excess to zero; $u$ is a dimensionless placeholder for $z-q$.",
+    "paper_location": "Mainali et al. (2025), STAR Methods 'Model details', Eqs. 2–3, main PDF pp. 13–14; local spatial scale Eq. 4, main PDF p. 14. The guide makes the removable constant mean and rate gain explicit. Supplement Methods S1, PDF p. 9, defines the spatial Gaussian process.",
+    "paper_url": "../papers/mainali-2025-universal-statistics.pdf#page=13",
+    "guide_location": "Chapter 10, section 10.1, Thresholding a smooth Gaussian input produces place fields",
+    "guide_url": "../chapters/ch-place-fields.html#sec-place-gp",
+    "status": "Paper spatial Gaussian threshold model and local scale, with explicit guide normalization."
+  },
+  "25": {
+    "symbols": "$x$,$y$: spatial positions (vectors in $\\mathbb R^d$ with distance units); $i$: input-cell index; $u_i(x)$: fixed spatial firing profile of input cell $i$ (Hz); $W_i$: fixed random synaptic weight with zero mean (input-unit/Hz); $v_W=\\operatorname{Var}(W_i)$: weight variance (input-unit²/Hz²); $h(x)$: summed input (input-unit); $C(x,y)$: unnormalized input covariance across choices of weights (input-unit²). $W_i$ is a random weight, not Brownian $W$; $u_i$ is a tuning profile, not a time lag. The Gaussian limit needs many active terms with no dominant input; dimensions and covariance depend on the fixed input profiles.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S2 'Derivation of Gaussian process input to CA1 cells', Eqs. S2–S5, PDF p. 10, and heterogeneous-profile Eqs. S6–S8, PDF p. 11. The covariance formula is Eq. S4; guide expands its cancellation of cross terms.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=10",
+    "guide_location": "Chapter 12, section 12.3, Random input weights can generate Gaussian maps",
+    "guide_url": "../chapters/ch-place-tests.html#sec-place-wiring",
+    "status": "Paper supporting input-generation model; guide expands the covariance calculation and conditions for a Gaussian limit."
+  },
+  "26": {
+    "symbols": "$q$: dimensionless threshold of normalized input $z$; $z$: zero-mean unit-variance spatial Gaussian map; $z'$: derivative along the track (1/distance); $\\ell_c$: local distance scale, paper $\\sigma$; $\\nu_+(q)$: expected upcrossings per distance; $L$: track length (distance); $N_L$: number of connected active intervals intersecting [0,$L$], including clipped intervals (count); $Z$: standard normal scalar (dimensionless); $Q(q)=\\Pr(Z>q)$: Gaussian upper-tail probability (dimensionless). Height density is per normalized-input unit, and mean positive slope has inverse-distance units.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S3 'Field statistics in 1D', Eqs. S9–S10, PDF p. 11; crossing density Eqs. S11–S13, PDF p. 12. The finite-track endpoint term is also in main STAR Methods Eq. 8, PDF p. 15. The guide explains the counting identity explicitly.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=11",
+    "guide_location": "Chapter 10, section 10.2, Upcrossings count fields, with an endpoint correction",
+    "guide_url": "../chapters/ch-place-fields.html#sec-place-kac-rice",
+    "status": "Exact paper crossing and expected Euler-characteristic results; guide explains the endpoint field convention."
+  },
+  "27": {
+    "symbols": "$\\mu_s$: stationary mean complete-field length; $\\mu_g$: stationary mean complete-gap length; $\\ell_c$: local spatial scale (all distance units); $q$: dimensionless normalized threshold; $\\nu_+=e^{-q^2/2}/(2\\pi\\ell_c)$: upcrossing density (1/distance); $Q(q)$: standard normal upper-tail probability; $Q^{-1}$: inverse upper-tail function (both dimensionless). These means are per field or gap, not per occupied position; $\\mu_s$ is not the input mean $\\mu$ and is not a finite clipped-track ratio.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S3, Eqs. S14–S15 for mean field/gap lengths, PDF p. 12; related main STAR Methods 'Parameter inference in 1D environments', PDF p. 14. The explicit inversion for q and ell_c is guide algebra from those means.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=12",
+    "guide_location": "Chapter 10, section 10.3, Mean field and gap lengths separate threshold from scale",
+    "guide_url": "../chapters/ch-place-fields.html#sec-place-inference",
+    "status": "Paper exact stationary 1D means; guide derives the explicit parameter inversion."
+  },
+  "28": {
+    "symbols": "$N_L$: number of rare field locations on a track of length $L$; $N$: unconditioned field count (counts); $L$: track length; $G$: inactive gap length; $g$: chosen nonnegative gap cutoff (all distance units); $\\nu_+$: rare-event/upcrossing density (1/distance); $\\lambda$: unconditioned Poisson mean count (dimensionless), not a firing rate here; $q$: dimensionless normalized threshold. $\\operatorname{Poisson}(\\nu_+ L)$ is a count distribution. The exponential survival concerns large gaps in the rare-field limit; the conditioned mean excludes $N=0$ cells.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S3 'Distributions in the high threshold regime', PDF p. 13, gives limiting Poisson counts/exponential gaps; main STAR Methods Eq. 5, PDF p. 14, gives the zero-truncation mean used in the 2D fit. Guide states the extra weak-dependence condition and separates it from exact crossing density.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=13",
+    "guide_location": "Chapter 10, section 10.3, Mean field and gap lengths separate threshold from scale",
+    "guide_url": "../chapters/ch-place-fields.html#sec-place-inference",
+    "status": "Paper limiting rare-event distributions and Poisson selection correction; not an exact finite-threshold field-count law."
+  },
+  "29": {
+    "symbols": "$d$: spatial dimension (1,2,3), not a temporal diffusion coefficient; $s$: random field size, a length/area/volume ($\\mathrm{distance}^{d}$); $S$: nonnegative size cutoff with the same units; $q$: large positive dimensionless normalized threshold; $\\ell_c$: local distance scale; $\\epsilon$: normalized peak excess above $q$ (dimensionless); $U=q\\epsilon$: scaled excess tending to a mean-one exponential variable (dimensionless); $r_*$: approximate field radius (distance), not a firing rate; $v_d$: volume of a unit-radius $d$ dimensional ball, dimensionless, $(v_1,v_2,v_3)=(2,\\pi,4\\pi/3)$; $\\beta$: size-law coefficient (inverse distance²), so $\\beta S^{2/d}$ is dimensionless. Each field is sampled once, not weighted by occupied volume.",
+    "paper_location": "Mainali et al. (2025), main Eq. 1, PDF p. 3; supplement Methods S4, local parabola/full-width Eqs. S22–S23, PDF p. 14, and scaled peak excess Eqs. S24–S25, PDF p. 15. The guide reconstructs the geometric beta with the sqrt(2) width factor missing from printed S23 and the corrected negative quadratic term before S25.",
+    "paper_url": "../papers/mainali-2025-universal-statistics.pdf#page=3",
+    "guide_location": "Chapter 11, section 11.2, Geometry gives different size laws in each dimension",
+    "guide_url": "../chapters/ch-place-sizes.html#sec-place-size-law",
+    "status": "Paper central high-threshold size law; guide derives and checks the leading geometric constant and corrects printed algebra."
+  },
+  "30": {
+    "symbols": "$F_{\\max}$: maximum firing rate in a field (Hz); $a$: gain converting normalized excess input into firing rate (Hz), not the eye tuning slope; $\\epsilon$: peak normalized input minus threshold $q$ (dimensionless); $q$: large positive normalized threshold (dimensionless); $\\ell_c$ and $r_*$: local scale and field radius (distance); $d$: spatial dimension; $s$: complete field length/area/volume ($\\mathrm{distance}^{d}$); $v_d$: dimensionless unit-ball volume; $s^{1/d}$: a linear-size measure (distance). For a 1D full width, $v_1=2$.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S4, Eqs. S22–S23 and following peak-amplitude discussion, PDF pp. 14–15; empirical/model comparisons main Fig. 3C–D, PDF p. 7, and shape progression Fig. 5, PDF p. 9. Guide corrects the full-width factor and writes the explicit rate-size equation.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=14",
+    "guide_location": "Chapter 11, section 11.1, Near a high peak, the input is nearly parabolic",
+    "guide_url": "../chapters/ch-place-sizes.html#sec-place-rare-peaks",
+    "status": "Paper high-threshold peak-size prediction, expanded in the guide; not an exact empirical square law."
+  },
+  "31": {
+    "symbols": "$s$: random complete-field size ($\\mathrm{distance}^{d}$); $d$: spatial dimension; $k$: nonnegative moment order (dimensionless), not an eye position coefficient; $\\beta$: size-law coefficient ($\\mathrm{distance}^{-2}$); $\\mu_s=\\mathbb E[s]$: mean size ($\\mathrm{distance}^{d}$), not input mean; $u=\\beta s^{2/d}$: dimensionless integration variable; $\\Gamma$: gamma function, $\\Gamma(t)=\\int_0^\\infty u^{t-1}e^{-u}\\,du$ for $t>0$. Thus $\\mathbb E[s^k]$ has $\\mathrm{distance}^{dk}$ units. The field-size mean in this row is a limiting mean, unlike the exact 1D mean in P4.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S3, paragraph before Eq. S18, PDF p. 13, states the mean Gamma(1+d/2) beta^(−d/2); main Eq. 1, PDF p. 3, supplies the size density. The guide derives arbitrary nonnegative moments and corrects the multiplication/division error in printed S18.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=13",
+    "guide_location": "Chapter 11, section 11.2, Geometry gives different size laws in each dimension",
+    "guide_url": "../chapters/ch-place-sizes.html#sec-place-size-law",
+    "status": "Paper limiting mean plus guide general-moment derivation, inheriting the high-threshold approximation."
+  },
+  "32": {
+    "symbols": "$x_0$: point on a sampling line (position vector in $\\mathbb R^d$, distance units); $\\mathbf e$: fixed unit direction vector in $\\mathbb R^d$ (dimensionless); $t$,$t'$: signed spatial coordinates along that line (distance), not times; $h(x)$: fixed Gaussian spatial input (input-unit); $h_{\\rm line}(t)$: restriction of that input to the line (input-unit); $C(\\Delta x)$: unnormalized stationary input covariance (input-unit²) as a function of vector displacement; $C_{\\rm line}(t,t')$: restricted covariance (input-unit²); $\\ell_c$: local distance scale; $d$: dimension of original map, distinct from dimension of the line or plane slice. $h$ here is spatial input, not an eye filter.",
+    "paper_location": "Mainali et al. (2025), main Fig. 2C–D and H–J, PDF p. 5, and Results 'Statistics of place fields in two- and three-dimensional environments', PDF pp. 3,6; alternative spherical model and slice comparison Fig. S2, supplement PDF pp. 3–4. The Gaussian restriction equation is an explicit guide explanation, not a numbered paper equation.",
+    "paper_url": "../papers/mainali-2025-universal-statistics.pdf#page=5",
+    "guide_location": "Chapter 11, section 11.3, Slices test spatial structure beyond field volume",
+    "guide_url": "../chapters/ch-place-sizes.html#sec-place-slices",
+    "status": "Paper central slice test; guide states the exact Gaussian restriction property, with limiting size laws applied to the slice dimension."
+  },
+  "33": {
+    "symbols": "$z$: dimensionless normalized spatial input; $x$: track coordinate (distance); $v=z'(x)>0$: normalized input slope at a typical upcrossing (1/distance); $\\ell_c$: local spatial scale (distance); $p_{\\uparrow}(v)$: probability density of upcrossing slope (distance units, reciprocal to $v$); $p_{z'}(v)$: ordinary spatial derivative density (distance units); $w$, if used for normalization: another positive slope variable (1/distance); $q$: dimensionless threshold; $a$: firing-rate gain (Hz); $av$: rate slope at a boundary (Hz/distance). This slope variable $v$ differs from eye velocity and from unit-ball volume $v_d$.",
+    "paper_location": "Mainali et al. (2025), main Results prediction and Fig. 3E, PDF pp. 6–7; STAR Methods 'Boundary slopes', PDF p. 15, describes the 0.1 m finite-difference measurement. The slope-weighted Kac–Rice density and its normalization are derived explicitly in the guide; no numbered paper equation gives this density.",
+    "paper_url": "../papers/mainali-2025-universal-statistics.pdf#page=15",
+    "guide_location": "Chapter 11, section 11.4, Why slopes at field boundaries are Rayleigh",
+    "guide_url": "../chapters/ch-place-sizes.html#sec-place-slopes",
+    "status": "Paper boundary-slope prediction; guide exact density derivation under smooth stationary Gaussian assumptions, without a high-threshold limit."
+  },
+  "34": {
+    "symbols": "$q$: dimensionless normalized input threshold; $\\ell_c$: local spatial scale (distance); $d$: box dimension, 1,2,3; $j$: dimension of contributing interior/face/edge, an integer 1 through $d$; $L$: box side length (distance); $\\eta_j$: signed expected Euler-characteristic contribution per $j$ dimensional measure ($\\mathrm{distance}^{-j}$), not positive field density; $\\chi_d$: Euler characteristic of the active excursion set in the $d$ dimensional closed box (dimensionless signed count); $Q(q)$: standard Gaussian upper-tail probability. $\\chi_d$ is unrelated to the eye variance fraction $\\chi$, and $\\eta_j$ is unrelated to eye measurement noise $\\eta$. The final sum includes real boundaries; periodic boxes require other boundary terms.",
+    "paper_location": "Mainali et al. (2025), main STAR Methods 'Euler characteristics', Eqs. 8–10, PDF p. 15; comparisons Fig. 3F–H, PDF p. 7. The guide obtains eta_j by a signed critical-point Kac–Rice calculation and derives box face factors, relying on the underlying Morse/kinematic theorem.",
+    "paper_url": "../papers/mainali-2025-universal-statistics.pdf#page=15",
+    "guide_location": "Chapter 12, section 12.1, Holes distinguish maps with the same field count",
+    "guide_url": "../chapters/ch-place-tests.html#sec-place-topology",
+    "status": "Paper exact expected topology formulas; guide derivation of signed densities and boundary factors. Not an exact component-count formula at general threshold."
+  },
+  "35": {
+    "symbols": "$N$: number of connected active fields (count), not neuron number in this row; $q$: large positive normalized threshold (dimensionless); $d$: spatial dimension, not diffusion; $V$: environment length/area/volume ($\\mathrm{distance}^{d}$); $\\ell_c$: local spatial distance scale; $\\chi_d$: Euler characteristic (dimensionless signed count), approximately $N$ only when components are simple isolated blobs. The expression is dimensionless overall and omits boundary contributions.",
+    "paper_location": "Mainali et al. (2025), supplement Methods S3 'Field statistics in higher dimensions', Eq. S16, PDF p. 13; related exact Euler-characteristic Eqs. 8–10, main PDF p. 15. Guide keeps the leading volume term and high-q polynomial power explicitly.",
+    "paper_url": "../papers/mainali-2025-supplement.pdf#page=13",
+    "guide_location": "Chapter 12, section 12.1, Holes distinguish maps with the same field count",
+    "guide_url": "../chapters/ch-place-tests.html#sec-place-topology",
+    "status": "Paper supporting high-threshold, volume-dominated component-count approximation; not an exact count at ordinary thresholds."
+  }
+}

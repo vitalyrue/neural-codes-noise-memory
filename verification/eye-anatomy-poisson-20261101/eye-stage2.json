@@ -1,0 +1,178 @@
+{
+  "review_type": "stage2_terminology_necessity_deletion",
+  "reviewer": "independent subagent eye_mechanics_sources",
+  "reviewed_utc": "2026-11-01T10:16:48Z",
+  "task_start_utc": "2026-11-01T10:03:05Z",
+  "timing": {
+    "wall_clock_elapsed_seconds": 880,
+    "awake_execution_time": "unverified; no Windows sleep/resume event audit",
+    "seconds_since_previous_review_checkpoint": 57
+  },
+  "scope": "Actual 01b-persistence opening, eye anatomy/mechanics section and transition to attractors;04-eye-drift altered introduction and pathway bridge. Nearby01-foundations read only to check whether axon was already defined. No Stage3, no canonical edits, no whole-book review.",
+  "source_files": [
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "405409A620971899EFB42B4F2337235ACED549EFB3DD88B26F8015B31961460C",
+      "reviewed_lines": "1-71,259-265"
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "E244C6CFE129CCBD3C33ED590225B7F8B889056FF5BA9AB18EDE12E17F4BF4A5",
+      "reviewed_lines": "1-22"
+    },
+    {
+      "path": "content/chapters/glossary.md",
+      "sha256": "482DD41D515CA3D150B78DD68FA98781DCB3524A1A5F074C4634FC3ED550A87D",
+      "reviewed_lines": "5,34,75-77,85,100,115"
+    },
+    {
+      "path": "content/chapters/references.md",
+      "sha256": "13D0C541DAF2CD4731EA95A812BFC0F27CBD2B17BCEF0FEE372C924F2D226055",
+      "reviewed_lines": "27-35;entries7-11"
+    }
+  ],
+  "decision": "pass_scoped_after_corrections",
+  "strongest_substantive_objection": {
+    "file": "content/chapters/01b-persistence.md",
+    "line": 13,
+    "issue": "Axon is the physical link between a motor neuron's cell body and muscle, but appears twice without a local explanation. Earlier foundations teaches spikes and synapses but not axons.",
+    "requested_change": "Explain axons once as the long fibres carrying the neuron's output, or describe the signal-carrying nerve fibres in plain words.",
+    "status": "resolved",
+    "resolution": "Actual line13 replaces axons with long nerve fibres and then explains that these fibres travel through cranial nerves."
+  },
+  "findings": [
+    {
+      "id": "EYE-S2-01",
+      "severity": "required",
+      "file": "content/chapters/01b-persistence.md",
+      "line": 13,
+      "issue": "Axon missing a plain first-use explanation.",
+      "reason": "Reader asks for actual anatomy. The word is part of how the command reaches muscle and should have a concrete meaning.",
+      "suggestion": "OMNs are neurons whose axons, the long fibres carrying their output, activate these muscles.",
+      "status": "resolved",
+      "rechecked_utc": "2026-11-01T10:17:45Z",
+      "resolution": "Line13 now uses long nerve fibres, preserving the physical signal route without an unnecessary extra term."
+    },
+    {
+      "id": "EYE-S2-02",
+      "severity": "optional",
+      "file": "content/chapters/01b-persistence.md",
+      "line": 33,
+      "issue": "Eye-plant model introduces plant terminology before its later explicit definition.",
+      "suggestion": "Use full model of the muscles and eye mechanics here; retain ocular plant definition in04 where the technical term becomes useful.",
+      "status": "resolved",
+      "rechecked_utc": "2026-11-01T10:17:45Z",
+      "resolution": "Line33 now says full model of eye mechanics; early plant terminology removed."
+    }
+  ],
+  "deletion_test": [
+    {
+      "content": "Six muscles and orientation-dependent actions,lines11-13",
+      "keep": "Requested actual anatomy. Horizontal antagonists connect directly to net turning force; remaining four delimit the horizontal simplification."
+    },
+    {
+      "content": "CNIII/IV/VI routes,line13",
+      "keep": "Shows what carries motor output to which muscles. One concise sentence supplies the requested actual anatomical connection; no clinical anatomy added."
+    },
+    {
+      "content": "Repeated spikes and tonic firing,line15",
+      "keep": "Answers periodic pulls question and separates continuing firing from isolated eyeball jerks."
+    },
+    {
+      "content": "Saccade and pulse-and-step,line15",
+      "keep": "Explains why ending a movement does not mean ending muscle drive."
+    },
+    {
+      "content": "Elasticity/viscosity/inertia distinctions,lines19-23",
+      "keep": "Directly answers what holds an angle versus only smoothing or slowing changes."
+    },
+    {
+      "content": "Folded mechanical calculation,lines25-53",
+      "keep": "Exposes the torque balance and tests parameter changes. Reader knows mechanics/math; collapsible form keeps main path short."
+    },
+    {
+      "content": "Cannon and Robinson disruption,line55",
+      "keep": "Provides causal evidence that mechanics alone do not explain gaze persistence."
+    },
+    {
+      "content": "Feedback and Major plasticity,line57",
+      "keep": "Answers calibration question while separating longer learning from immediate mechanical behavior."
+    },
+    {
+      "content": "Opening overview,lines3-6;transition line59;bridge04 lines14-18",
+      "keep": "Explains why anatomy precedes attractor geometry and why the later drift chapter needs both neural command and muscle response."
+    }
+  ],
+  "terminology_checks": {
+    "locally_defined_sufficiently": [
+      "orbit",
+      "extraocular muscles",
+      "OMNs",
+      "torque",
+      "tonic firing",
+      "saccade",
+      "elasticity",
+      "viscosity",
+      "inertia",
+      "oculomotor integrator",
+      "plasticity",
+      "abducens nucleus",
+      "ocular plant"
+    ],
+    "already_taught_before_section": [
+      "spikes",
+      "firing rate",
+      "synapses",
+      "recurrent connectivity",
+      "neural population coding"
+    ],
+    "math_symbols": "I,B,K,phi,tau_m,tau_p introduced next to use. Derivatives explained physically. Time constant is illustrated by exponential decay in the fold; no further glossary expansion needed for this reader.",
+    "unnecessary_terms_added": "No major excess technical vocabulary. Optional removal of early eye-plant term above."
+  },
+  "links": {
+    "result": "source_targets_exist",
+    "details": "Anatomy/mechanics,attractor and memory-spikes target IDs found in actual chapter sources. This is a source check, not a rendered-HTML anchor or browser check."
+  },
+  "unsupported_physiology": "No new unsupported mechanism identified beyond the prior Stage1 source limits already recorded. Visual and vestibular roles and plasticity are scoped; model is labeled an approximation.",
+  "limits": "Not whole-book terminology/source coverage acceptance. Glossary and references examined only for the specific additions. Future reader-flow review remains separate.",
+  "token_stats": "unavailable",
+  "initial_source_files": [
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "114351B32905E546965012C7FE0DCA6417E688AA386CE391E65B22BF697F50E1",
+      "reviewed_lines": "1-71,259-265"
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "E244C6CFE129CCBD3C33ED590225B7F8B889056FF5BA9AB18EDE12E17F4BF4A5",
+      "reviewed_lines": "1-22"
+    }
+  ],
+  "last_reviewed_utc": "2026-11-01T10:17:45Z",
+  "literal_accuracy_addendum": {
+    "glossary": {
+      "result": "pass_scoped",
+      "checked_terms": [
+        "abducens nucleus",
+        "extraocular muscles",
+        "ocular motoneurons",
+        "ocular plant",
+        "oculomotor integrator",
+        "plasticity",
+        "saccade",
+        "tonic firing"
+      ],
+      "notes": "All eight new entries are literally accurate and match the chapter scope. Abducens entry correctly says the group contains recorded motor neurons and does not imply every neuron there innervates muscle. No further reader-flow judgment made in this addendum."
+    },
+    "references": {
+      "result": "pass_scoped",
+      "checked_entries": "7-11",
+      "notes": "Entry7 MIT official PDF opened and confirms Lecture22 Poisson process and rate-times-duration expected count. Course URL identifies spring2018. Entries8-11 match the current-turn checked anatomy and primary experiment metadata, including six-author Major order with Mensh. Notation warning correctly separates source lambda as rate from guide lambda as expected count."
+    },
+    "new_source_url": "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf"
+  },
+  "recheck": {
+    "scope": "Only two wording corrections, eight new glossary entries and references7-11 literal accuracy.04bridge unchanged hash confirmed.",
+    "result": "No remaining required Stage2 findings. Stage3 not started."
+  }
+}

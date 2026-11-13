@@ -1,0 +1,208 @@
+{
+  "request_id": "stage3-information-eye",
+  "stage": "3 reader understanding and flow",
+  "reviewer": "independent foundations-memory agent, GPT-6.1-sol/high",
+  "started_checkpoint": "2026-10-24T20:27:04.2399547+03:00",
+  "scope": "Changed information and eye path: every opening paragraph, preceding boundary ending, first section start and modified reference paragraph. Unchanged body is evidence context, not newly accepted whole chapters.",
+  "rule_file": "C:/dev/NBIS/publisher-releases/0.8.23/skills/course-study-guide-builder/references/pedagogy-language-contract.md",
+  "rule_sha256": "F4C1EB544CF640B708E1970D9572FDC758FCC6AEA806675D01A0256658DF847A",
+  "sources": [
+    {
+      "file": "03-memory-information.md",
+      "sha256": "258C636F81FB2DAF7741E1F6A0A955693439761C213FD32B4959291BBCCB2946",
+      "last_write_utc": "2026-10-24T17:23:47.0502634Z"
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "sha256": "8B68F20CAC79489A54E89B62818F79EEB861EEAD66F9DBECEFDE6AF9178E3D69",
+      "last_write_utc": "2026-10-24T17:23:47.052277Z"
+    },
+    {
+      "file": "04-eye-drift.md",
+      "sha256": "15C1A3B9157572762ED2C4C0DBC03B4602B25537530ED86FAC3F3F3E172628F0",
+      "last_write_utc": "2026-10-24T17:23:47.0542759Z"
+    },
+    {
+      "file": "04b-eye-timing.md",
+      "sha256": "557592B7F4E2C936390BD22F5C4CC6DEF23B1F8F24D365EDBDA162768E581977",
+      "last_write_utc": "2026-10-24T17:23:47.0552635Z"
+    },
+    {
+      "file": "04c-eye-circuit.md",
+      "sha256": "44E0E3B1811F66925288D21E7F586C1005BE39AAB146AB7D92DC9791BFD11127",
+      "last_write_utc": "2026-10-24T17:23:47.0572692Z"
+    }
+  ],
+  "source_verification": "All five hashes and timestamps reread in this separate call and unchanged.",
+  "chapter_flow": [
+    {
+      "file": "03-memory-information.md",
+      "opening_paragraphs": [
+        {
+          "line": 3,
+          "decision": "retain",
+          "adds": "Raises the two uses of spikes: perturbing the stored pattern and observing it. The prior chapter ends by asking for a statistical quantity from the same tuning curves, so this is its promised next question."
+        },
+        {
+          "line": 5,
+          "decision": "retain",
+          "adds": "Explains information as distinguishing nearby values before formal notation, then motivates comparing several networks under fixed choices. This prepares all three sections without requiring advance knowledge of Fisher information."
+        },
+        {
+          "line": 7,
+          "decision": "retain",
+          "adds": "Restores the symbols and the role of the projection immediately before the likelihood and bound use them."
+        }
+      ],
+      "reader_task": "Explain how rate slope relative to count variability measures distinguishability, then compare it with lasting random motion.",
+      "earlier_teaching": "The foundation chapters teach tuning, Poisson moments, covariance and Brownian displacement. The dynamics chapter teaches the left/right projection and D. The long-delay chapter teaches drift and boundaries. The current first section defines likelihood, score, J and unbiased estimation before the proof.",
+      "boundary": "The preceding chapter ends with D obtained from spikes and return dynamics and asks for a statistical constraint. This chapter completes that constraint and its controlled comparisons before readout raises the separate observation-duration question."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "opening_paragraphs": [
+        {
+          "line": 3,
+          "decision": "retain",
+          "adds": "Puts cue state, prior storage motion and later observations in time order. The reader can see why later spikes are not repeated measurements of the original value."
+        },
+        {
+          "line": 5,
+          "decision": "retain",
+          "adds": "Explains why error separation precedes weighting rules, then motivates partial access and time/noise checks. Each step raises a question the next section answers."
+        },
+        {
+          "line": 7,
+          "decision": "retain",
+          "adds": "Pins T and L to different intervals and links J to its immediately preceding teaching. It removes possible ambiguity introduced by the new chapter start."
+        }
+      ],
+      "reader_task": "Separate storage error from readout error and explain why more observations help differently under equal and motion-aware weighting.",
+      "earlier_teaching": "J and local unbiased estimation are visible in the preceding information chapter. Brownian covariance is visible in the persistence chapter. The present setup defines x, s, e and Gaussian y_k and states independence and translation invariance before the calculations.",
+      "boundary": "The prior information result later constrains saturation time. Starting from the estimation task makes that application understandable. The final paragraph asks for spike-statistics and movement-noise checks before animal application, which the eye chapter turns into a physical measurement problem."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "opening_paragraphs": [
+        {
+          "line": 3,
+          "decision": "retain",
+          "adds": "Starts with visible fixation movement, defines its movement labels, asks its source and separates recording evidence from the proposed mechanism."
+        },
+        {
+          "line": 5,
+          "decision": "retain",
+          "adds": "Explains why the neural law alone does not predict a measured eye trajectory and creates the need for the physical pathway taught next."
+        },
+        {
+          "line": 7,
+          "decision": "retain",
+          "adds": "Motivates larger-movement calibration before recordings, forward fit, inverse operation and covariance estimate. Same scale gives a concrete purpose to the calculations."
+        }
+      ],
+      "reader_task": "Follow which signal is physical, recorded or reconstructed, then explain why a small correlation can coexist with a large common variance fraction.",
+      "earlier_teaching": "Covariance and population noise are in foundations; stored coordinate and diffusion are in memory. The current first section defines integrator, OMNs and plant; the recording section establishes one cell at a time before the correlation interpretation. Gain is defined before the fraction formula.",
+      "boundary": "The six sections keep calibration and source estimation together. The final paragraph fixes the fraction to 350 ms and explains uncertainty limits. The timing opening then asks what changes across interval lengths rather than retesting the same fraction."
+    },
+    {
+      "file": "04b-eye-timing.md",
+      "opening_paragraphs": [
+        {
+          "line": 3,
+          "decision": "retain",
+          "adds": "Uses the fixed-interval fraction to raise the accumulation question. Recording error explains why correction must come before interpreting lag growth."
+        },
+        {
+          "line": 5,
+          "decision": "retain",
+          "adds": "Explains MSD in words and establishes the two input alternatives before filtering equations. It prepares smooth-output interpretation without claiming a uniquely identified source."
+        }
+      ],
+      "reader_task": "Explain the measurement-error offset and why the same decaying filter gives different long-lag MSDs for white and diffusive inputs.",
+      "earlier_teaching": "The preceding eye chapter teaches degree-scaled predictions and a decaying muscle response; foundations teach covariance and MSD. Here lag, measurement error, white noise, filter and stationarity are all taught visibly before their equations.",
+      "boundary": "Correction precedes temporal comparison. The last paragraph distinguishes the simple filter from the full model and keeps slow correlated alternatives open. The next opening retains that limit and asks whether a specific circuit matches amount and timing."
+    },
+    {
+      "file": "04c-eye-circuit.md",
+      "opening_paragraphs": [
+        {
+          "line": 3,
+          "decision": "retain",
+          "adds": "Combines the two earlier results while keeping their localization limit. This raises a model test rather than an unsupported experimental conclusion."
+        },
+        {
+          "line": 5,
+          "decision": "retain",
+          "adds": "Explains the need to check amplitude, timing and parameter freedom, then revisit what can be concluded. It supplies the purpose of scaling and limits after the circuit model."
+        }
+      ],
+      "reader_task": "Explain how the proposed integrator, motor outputs, muscles and feedback produce movement and why a successful match leaves other upstream sources possible.",
+      "earlier_teaching": "Physical roles and OMNs are taught in eye drift; smoothing and accumulating signals in eye timing. Every new model symbol is defined in the first circuit section. CV is recalled and its long-window count relation derived in visible text.",
+      "boundary": "The timing chapter leaves an accumulating command and surviving source alternatives. This chapter constructs one mechanism, checks scale, and ends with limits in two animals. The concluding figure table is not required to supply an earlier missing premise."
+    }
+  ],
+  "reference_flow": [
+    {
+      "file": "03-memory-information.md",
+      "lines": "7,82",
+      "decision": "retain",
+      "reason": "The links return to the established projection before it supplies the proof identities. The main scalar formula is visible; no folded proof is required."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": "133",
+      "decision": "retain",
+      "reason": "This link occurs inside an optional equality check. Visible lines 123-129 already give the pointwise condition and say exponential transfer is sufficient. The optional linear example is not a hidden premise of the new path."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": "7",
+      "decision": "retain",
+      "reason": "The link identifies the visible J definition before the current Gaussian observation model uses it."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": "251",
+      "decision": "retain",
+      "reason": "The paragraph gives the Gaussian equality condition itself. The linked optional linear counterexample adds checking rather than supplying an essential missing premise."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "lines": "11",
+      "decision": "retain",
+      "reason": "Both attractor links lead to earlier visible teaching. The paragraph defines the biological integrator before connecting it with the mathematical family."
+    },
+    {
+      "file": "04b-eye-timing.md",
+      "lines": "9",
+      "decision": "retain",
+      "reason": "The linked covariance section gives the earlier displacement identity; the present section immediately gives its own lag-based MSD definition."
+    },
+    {
+      "file": "04c-eye-circuit.md",
+      "lines": "89",
+      "decision": "retain",
+      "reason": "CV is recalled before regularity changes the scale; the relation to accumulated count variability is derived in the current visible main text."
+    },
+    {
+      "file": "04c-eye-circuit.md",
+      "lines": "101,109",
+      "decision": "retain",
+      "reason": "Links follow the current renewal calculation and precede the scale relation. Projection and information were taught earlier, and fixed geometry remains explicit."
+    }
+  ],
+  "closed_notes_check": "All selected notes remain closed for this first-pass judgment. Scalar J, the bound, readout setup and observers, measurement correction, temporal alternatives, circuit roles and CV scale are visible. Optional equality counterexample, residual matrix proof, impulse-response coefficient derivation and equal-time check are not new prerequisites caused by the splits.",
+  "alternative": {
+    "option": "Move time/noise extensions into the preceding information chapter, and put the circuit model before the eye timing comparison.",
+    "benefit": "Groups abstract bound variants together and introduces a candidate circuit earlier.",
+    "reason_to_keep_current": "The extensions explain which time constant matters after readout duration has been derived; moving them earlier would delay the observer problem with unused variants. Timing should precede the candidate circuit because it establishes what any model must explain. Current order lets the reader compare the model against known amount and timing constraints."
+  },
+  "final_connected_read": "The path moves from network information to observation duration, then from a behavioral source estimate to temporal evidence and a proposed mechanism. Every opening adds a specific question and the following first section begins answering it. No new gap or misleading transition found within this changed path.",
+  "defects": [],
+  "unresolved_questions": [],
+  "verdict": "pass within declared stage 3 scope",
+  "limits": "No edits. Does not accept unchanged whole-paper derivations, image pixels, build navigation, or the whole book.",
+  "awake_execution": "unverified",
+  "token_stats": "Token stats unavailable",
+  "completed_at": "2026-10-24T20:28:39.6745979+03:00"
+}

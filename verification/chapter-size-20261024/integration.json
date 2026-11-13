@@ -1,0 +1,794 @@
+{
+  "at": "2026-10-24T20:23:47.967080+03:00",
+  "chapters": [
+    {
+      "chapter": "ch:FOUNDATIONS",
+      "file": "content/chapters/01-foundations.md",
+      "url": "chapters/ch-foundations.html",
+      "title": "Patterns of variable spikes can represent a value",
+      "original": "content/chapters/01-foundations.md",
+      "sections": [
+        "sec:FOUNDATIONS-SPIKES",
+        "sec:FOUNDATIONS-POISSON",
+        "sec:FOUNDATIONS-COVARIANCE"
+      ],
+      "opening": [
+        "The eyes can hold a position after a brief movement command has ended. An animal can also keep track of its location while the activity of individual neurons fluctuates. Both abilities require a useful quantity to remain represented in a changing biological system. The three papers study different parts of this problem: the loss of a stored value, the origin of slow eye motion, and the arrangement of spatial firing patterns.",
+        "Before asking how a circuit keeps a value, we need to know how its activity represents that value and what makes the activity variable. We begin with the spikes that cells send and the patterns of firing rates across a population. A model of spike counts then shows why one brief observation can be uncertain and how combining counts from several cells can help. We then learn how to tell whether measurements vary together and how to separate random spreading from a change in the average value. Those distinctions will let us interpret both a memory model and measurements of eye motion."
+      ],
+      "edits": [
+        {
+          "before": "Chapter 4 supplies that model for eye displacement.",
+          "after": "The [eye-drift covariance calculation](ch-eye-drift.html#sec-eye-chi) supplies that model for eye displacement."
+        }
+      ],
+      "figures": 1,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:PERSISTENCE",
+      "file": "content/chapters/01b-persistence.md",
+      "url": "chapters/ch-persistence.html",
+      "title": "Stable representations can accumulate error",
+      "original": "content/chapters/01-foundations.md",
+      "sections": [
+        "sec:FOUNDATIONS-ATTRACTOR",
+        "sec:FOUNDATIONS-DIFFUSION",
+        "sec:FOUNDATIONS-RANDOMNESS"
+      ],
+      "opening": [
+        "The next distinction is between a value and the activity that represents it. Eye position is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.[^f-memory]",
+        "We first build a small example in which some disturbances fade while others leave a different stored angle. We then ask what happens when small lasting changes arrive repeatedly, deriving how their spread grows with time and how a fixed bias changes that prediction. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals."
+      ],
+      "edits": [
+        {
+          "before": "Chapter 2 derives the correct projection from the network's linearized dynamics.",
+          "after": "The [network calculation](ch-memory-dynamics.html#sec-memory-linearization) derives the correct projection from the network's linearized dynamics."
+        }
+      ],
+      "figures": 3,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:MEMORY-DYNAMICS",
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "chapters/ch-memory-dynamics.html",
+      "title": "Spiking noise produces diffusion along the memory attractor",
+      "original": "content/chapters/02-memory-dynamics.md",
+      "sections": [
+        "sec:MEMORY-SPIKES",
+        "sec:MEMORY-LINEARIZATION",
+        "sec:MEMORY-DIFFUSION",
+        "sec:MEMORY-SYMMETRIC"
+      ],
+      "opening": [
+        "A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied. The important question is whether the activity pattern stays in the right place, not just whether activity continues. Burak and Fiete study this distinction in a network whose stable activity patterns form a continuous set.[^p1-model]",
+        "To calculate the loss of accuracy, we first describe how spikes renew synaptic activity as it decays. We then follow a small disturbance through the circuit's return toward a stable pattern and identify the change in stored value that remains. Adding these lasting random changes gives a local rate of spreading. When connections have equal weights in both directions, we can express that rate using the cells' tuning curves and check its meaning in a two-cell example. The following chapter asks how this local prediction extends to longer delays.",
+        "Paper and Supporting Information (SI) links open the cited PDF page, near the passage where the viewer supports it. Use the equation, figure, or paragraph label to find the passage; the PDFs have no numbered text lines.",
+        "The memory coordinate is $\\theta$. Its initial value is $\\Theta$. A bar denotes a noise free steady state, so $\\bar r_i(\\theta)$ is neuron $i$'s steady firing rate at memory value $\\theta$. The common synaptic time constant is $\\tau$. A one dimensional diffusion coefficient $D$ has units of memory coordinate squared per time, with the convention $\\operatorname{Var}[\\theta(t)-\\Theta]=2Dt$ when $D$ is constant and boundaries do not matter.\n"
+      ],
+      "edits": [
+        {
+          "before": "Systematic drift requires a separate check below.",
+          "after": "Systematic drift requires a [separate check in the next chapter](ch-memory-long-delays.html#sec-memory-drift-scope)."
+        }
+      ],
+      "figures": 3,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:MEMORY-LONG-DELAYS",
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "url": "chapters/ch-memory-long-delays.html",
+      "title": "Boundaries and drift change memory error over long delays",
+      "original": "content/chapters/02-memory-dynamics.md",
+      "sections": [
+        "sec:MEMORY-LONG-TIME",
+        "sec:MEMORY-DRIFT-SCOPE",
+        "sec:MEMORY-FIGURES"
+      ],
+      "opening": [
+        "A rate of random spreading measured near one stored value does not yet tell us how memory error behaves after a long wait. The value may approach a boundary, wrap around an angular range, or reach a region where the spreading rate differs. A consistent movement of the average value would also change the error without being captured by the rate of random spreading alone.",
+        "We begin by following the distribution of stored values across repeated trials, using the local diffusion coefficient derived in the preceding chapter. This shows why errors can keep growing on a line but level off when angular error is measured within one turn. We then separate random spreading from systematic drift and make the noise assumptions explicit. Finally, the paper's figures show what its network simulations test and distinguish movement of the memory from uncertainty when another circuit reads it. That second uncertainty motivates the information calculation that follows.",
+        "Here $\\theta$ is the current stored value and $\\Theta$ its common initial value across trials. The local diffusion coefficient $D(\\theta)$ comes from the weak spike fluctuations derived in the [preceding chapter](ch-memory-dynamics.html#sec-memory-diffusion), after stable disturbances have relaxed. For constant $D$, displacement variance is $2Dt$ before boundaries matter and when there is no systematic drift."
+      ],
+      "edits": [
+        {
+          "before": "as in the tilted two variable example above.",
+          "after": "as in the [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization)."
+        },
+        {
+          "before": "The next chapter derives this second uncertainty and relates it to the first.",
+          "after": "The [information calculation](ch-memory-information.html#sec-memory-fi) measures this second uncertainty and relates it to diffusion; the [readout chapter](ch-memory-readout.html) then follows observation of the moving state."
+        }
+      ],
+      "figures": 1,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:MEMORY-INFORMATION",
+      "file": "content/chapters/03-memory-information.md",
+      "url": "chapters/ch-memory-information.html",
+      "title": "Spike information limits memory stability",
+      "original": "content/chapters/03-memory-information.md",
+      "sections": [
+        "sec:MEMORY-FI",
+        "sec:MEMORY-BOUND",
+        "sec:MEMORY-COMPARISONS"
+      ],
+      "opening": [
+        "A downstream neuron reads a memory through spikes. Collecting more spikes helps distinguish nearby activity patterns, but during collection the pattern itself keeps moving. The same variability that limits readout also perturbs the recurrent network. Burak and Fiete connect these two effects by deriving a lower bound on memory diffusion from the information in the spikes.[^p1-info-main]",
+        "The useful quantity is how clearly a short spike sample distinguishes nearby memory values. Comparing that quantity with the random motion already derived gives a minimum rate of memory spreading. This is a limit for a particular network, so using it to compare different networks also requires keeping track of what changes and what stays fixed. More information can permit better stability without ensuring that a particular circuit achieves it.",
+        "We retain the memory coordinate $\\theta$, initial value $\\Theta$, firing rate $\\bar r_i(\\theta)$, synaptic time constant $\\tau$, and diffusion convention $\\operatorname{Var}(\\Delta\\theta)=2D\\Delta t$. The [network projection](ch-memory-dynamics.html#sec-memory-linearization) determines which activity changes remain as changes in the stored value."
+      ],
+      "edits": [
+        {
+          "before": "From the preceding chapter,",
+          "after": "From the [projection and diffusion calculation](ch-memory-dynamics.html#sec-memory-diffusion),"
+        },
+        {
+          "before": "The mutual-excitation example in Chapter 2 supplies",
+          "after": "The [mutual-excitation example](ch-memory-long-delays.html#sec-memory-long-time) supplies"
+        }
+      ],
+      "figures": 2,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:MEMORY-READOUT",
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "chapters/ch-memory-readout.html",
+      "title": "Readout accuracy depends on how a moving memory is observed",
+      "original": "content/chapters/03-memory-information.md",
+      "sections": [
+        "sec:MEMORY-READOUT-SETUP",
+        "sec:MEMORY-NAIVE",
+        "sec:MEMORY-IDEAL",
+        "sec:MEMORY-PARTIAL",
+        "sec:MEMORY-EXTENSIONS",
+        "sec:MEMORY-FIG3-AND-CAUTION"
+      ],
+      "opening": [
+        "When a recall cue arrives, the stored value has already moved. Later spikes can help estimate the value present at that cue, but they cannot reveal the particular random displacements that occurred before it. Waiting for more spikes also allows the network to move further. The question is how much observation helps when the value being read keeps changing.",
+        "Separating the error accumulated during storage from the error of reading the cue state makes that question precise. Equal weighting of later observations shows why simply waiting can become harmful. Allowing for the state's motion then shows how observation can keep helping toward a limit, and how access to only some spikes changes the useful duration. The time constants and noise assumptions also need checking before the resulting limits can be compared with the paper's final error claim.",
+        "As before, the memory coordinate is $\\theta$, its initial value is $\\Theta$, and its displacement variance is $2Dt$ for constant diffusion coefficient $D$ without boundaries or systematic drift. The storage delay $T$ ends at the recall cue; the observation interval $L$ begins there. The [spike information rate $J$](ch-memory-information.html#sec-memory-fi) measures how clearly nearby present states can be distinguished, and $\\tau$ is the basic model's common synaptic time constant."
+      ],
+      "edits": [
+        {
+          "before": "including the linear-family counterexample already derived.",
+          "after": "including the [linear-family counterexample](ch-memory-information.html#sec-memory-bound) already derived."
+        }
+      ],
+      "figures": 2,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:EYE-DRIFT",
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "chapters/ch-eye-drift.html",
+      "title": "Eye drift points to a shared neural drive",
+      "original": "content/chapters/04-eye-drift.md",
+      "sections": [
+        "sec:EYE-PATHWAY",
+        "sec:EYE-RECORDINGS",
+        "sec:EYE-FORWARD-FIT",
+        "sec:EYE-INVERSE-FILTER",
+        "sec:EYE-SHARED-VARIANCE",
+        "sec:EYE-CHI"
+      ],
+      "opening": [
+        "Looking steadily at a small spot does not hold the eye perfectly still. Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style=\"Definition Term\"}, the eye makes a small, smooth, irregular movement called [**fixational drift**]{.definition-term custom-style=\"Definition Term\"}. Does this movement begin as noise in the muscles, or does the brain send a changing command to them? Ben-Shushan and colleagues answer this in two stages. Their recordings support a large shared drive upstream of the motor neurons. Their model then proposes a particular source: random motion of the eye position stored in a memory circuit.[^p2-question]",
+        "This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory.",
+        "A recording from one motor neuron becomes useful for this comparison only after its spikes and the eye's movement can be expressed on the same scale. The larger movements provide that calibration. Applying it during fixation then lets us ask whether independent motor noise could explain the observed relationship, and estimate the shared contribution under explicit gain and independence assumptions."
+      ],
+      "edits": [
+        {
+          "before": "the continuous attractor described in Chapters 1 and 2",
+          "after": "the continuous attractor described in the [foundations](ch-persistence.html#sec-foundations-attractor) and [network model](ch-memory-dynamics.html#sec-memory-spikes)"
+        }
+      ],
+      "figures": 2,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:EYE-TIMING",
+      "file": "content/chapters/04b-eye-timing.md",
+      "url": "chapters/ch-eye-timing.html",
+      "title": "Drift growth distinguishes diffusion from filtered white noise",
+      "original": "content/chapters/04-eye-drift.md",
+      "sections": [
+        "sec:EYE-MEASUREMENT-NOISE",
+        "sec:EYE-FILTERED-MSD"
+      ],
+      "opening": [
+        "The shared movement estimate concerns a single interval length. It leaves open whether the command merely fluctuates around a stable value or keeps accumulating changes. Comparing displacements over different time separations can distinguish these possibilities, but the smallest measured displacements may include a large contribution from recording error.",
+        "The mean squared displacement measures the average squared position change over a chosen interval. Separating the recording error from that quantity is necessary before interpreting its growth. The next comparison follows two possible inputs through a decaying muscle response: fluctuations that do not accumulate and a position that wanders by diffusion. Their different long interval behavior explains how a smooth eye movement can still reflect a wandering stored value."
+      ],
+      "edits": [
+        {
+          "before": "As in Chapter 1,",
+          "after": "Using the [earlier definition of mean squared displacement](ch-foundations.html#sec-foundations-covariance),"
+        }
+      ],
+      "figures": 2,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:EYE-CIRCUIT",
+      "file": "content/chapters/04c-eye-circuit.md",
+      "url": "chapters/ch-eye-circuit.html",
+      "title": "A noisy memory circuit can produce eye drift",
+      "original": "content/chapters/04-eye-drift.md",
+      "sections": [
+        "sec:EYE-CIRCUIT-MODEL",
+        "sec:EYE-SCALING",
+        "sec:EYE-FIGURES",
+        "sec:EYE-LIMITS"
+      ],
+      "opening": [
+        "The recordings support a shared source before the motor neurons, and the movement's timing is compatible with a stored position that wanders. Neither result identifies the circuit that supplies that command. A noisy memory circuit is a proposed explanation whose output must pass through the motor neurons and muscles before it can be compared with eye movement.",
+        "Following that complete path lets the model test whether neural noise can produce both the amount and timing of the observed drift. Its spike variability, neuron count and time constants determine how much freedom this match allows. Comparing the model with the separate recording and timing results then shows what the study supports, and why it still leaves other upstream sources possible."
+      ],
+      "edits": [
+        {
+          "before": "Chapter 1 defined the interspike interval coefficient of variation (CV) as",
+          "after": "The [spike variability section](ch-foundations.html#sec-foundations-poisson) defined the interspike interval coefficient of variation (CV) as"
+        },
+        {
+          "before": "Chapters 2 and 3 show how projecting those fluctuations",
+          "after": "The [diffusion calculation](ch-memory-dynamics.html#sec-memory-diffusion) and [information bound](ch-memory-information.html#sec-memory-bound) show how projecting those fluctuations"
+        },
+        {
+          "before": "Using the information-diffusion relation of Chapter 3 as a scale,",
+          "after": "Using the [information-diffusion relation](ch-memory-information.html#sec-memory-bound) as a scale,"
+        },
+        {
+          "before": "connected to Chapters 2–3.",
+          "after": "connected to the guide’s diffusion and information calculations."
+        }
+      ],
+      "figures": 0,
+      "tables": 1
+    },
+    {
+      "chapter": "ch:PLACE-FIELDS",
+      "file": "content/chapters/05-place-fields.md",
+      "url": "chapters/ch-place-fields.html",
+      "title": "Field counts and gaps reveal threshold and scale",
+      "original": "content/chapters/05-place-fields.md",
+      "sections": [
+        "sec:PLACE-GP",
+        "sec:PLACE-KAC-RICE",
+        "sec:PLACE-INFERENCE"
+      ],
+      "opening": [
+        "A cell recorded on a short track may have one smooth firing hill. On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?",
+        "Mainali, Azeredo da Silveira, and Burak propose that a cell's spatial input is a smooth random function. The cell fires where this function exceeds a threshold. The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests ask whether fitting field sizes and counts also explains field shapes and holes.[^p3-question]",
+        "We begin on a track, where a field starts when the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+        "Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning."
+      ],
+      "edits": [],
+      "figures": 2,
+      "tables": 0
+    },
+    {
+      "chapter": "ch:PLACE-SIZES",
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "chapters/ch-place-sizes.html",
+      "title": "High peaks explain size laws across dimensions",
+      "original": "content/chapters/05-place-fields.md",
+      "sections": [
+        "sec:PLACE-RARE-PEAKS",
+        "sec:PLACE-SIZE-LAW",
+        "sec:PLACE-SLICES",
+        "sec:PLACE-SLOPES"
+      ],
+      "opening": [
+        "Knowing the average field length does not tell us how often very small or very large fields occur. Why should the same spatial model give one size distribution on a track, another in an arena, and a third in a room? The next step is to find the shape of a typical field when only unusually high input peaks rise above the threshold.",
+        "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, and converting that radius into length, area or volume gives the different size laws. Cuts through a map and slopes at field edges provide further checks of its spatial structure. The slope calculation also provides a separate check on the predicted field widths. The size laws use a high threshold approximation; the boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.",
+        "We keep the earlier notation: $z(x)$ is the spatial input normalized to variance one, $q$ is its threshold, $\\sigma$ is its local distance scale, and $a$ converts positive excess input into firing rate. The number of spatial dimensions is $d$. The firing rule remains $F(x)=a[z(x)-q]_+$, where $[u]_+=\\max(u,0)$."
+      ],
+      "edits": [
+        {
+          "before": "the Euler characteristic calculation below.",
+          "after": "the [Euler characteristic calculation](ch-place-tests.html#sec-place-topology)."
+        },
+        {
+          "before": "Return to the crossing integral and retain",
+          "after": "Return to the [crossing integral](ch-place-fields.html#sec-place-kac-rice) and retain"
+        },
+        {
+          "before": "compared with the exact stationary crossing result $3.746$ m,",
+          "after": "compared with the [exact stationary crossing result](ch-place-fields.html#sec-place-inference) $3.746$ m,"
+        }
+      ],
+      "figures": 2,
+      "tables": 1
+    },
+    {
+      "chapter": "ch:PLACE-TESTS",
+      "file": "content/chapters/05c-place-tests.md",
+      "url": "chapters/ch-place-tests.html",
+      "title": "Holes and measurements test the spatial explanation",
+      "original": "content/chapters/05-place-fields.md",
+      "sections": [
+        "sec:PLACE-TOPOLOGY",
+        "sec:PLACE-DATA",
+        "sec:PLACE-WIRING"
+      ],
+      "opening": [
+        "Two maps can have the same field sizes and counts while arranging their active regions differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial model account for these differences, and how much would that agreement tell us about the circuit that produced the maps?",
+        "We first count connected regions and holes together, which gives a prediction across activity thresholds. The boundary of the observed environment matters for this calculation, so we keep its contributions. We then examine which measured quantities set the model's parameters and which provide further tests. Finally, a sum of many randomly weighted inputs shows one way a circuit could produce Gaussian spatial input, while making clear which assumptions and circuit measurements that explanation still needs.",
+        "The map is still fixed over space. As before, $q$ is the normalized activity threshold, $\\sigma$ is the local spatial scale, and $a$ converts normalized input above threshold into firing rate. The number of spatial dimensions is $d$; it is separate from the diffusion coefficient $D$ used in the memory chapters."
+      ],
+      "edits": [],
+      "figures": 1,
+      "tables": 1
+    },
+    {
+      "chapter": "ch:SYNTHESIS",
+      "file": "content/chapters/06-synthesis.md",
+      "url": "chapters/ch-synthesis.html",
+      "title": "Spatial maps and memory dynamics need separate tests",
+      "original": "content/chapters/06-synthesis.md",
+      "sections": [
+        "sec:SYNTHESIS-QUESTIONS",
+        "sec:SYNTHESIS-JOINT-CALCULATION",
+        "sec:SYNTHESIS-EVIDENCE",
+        "sec:SYNTHESIS-RELATED",
+        "sec:SYNTHESIS-NEXT"
+      ],
+      "opening": [
+        "A model can explain the shape of a neural code without explaining how that code is maintained. It can also explain fluctuations inside a circuit without uniquely locating the source of a measured behavior. The three papers become more useful together when these different claims are kept attached to their actual mathematical and experimental tests.",
+        "To connect them, we first separate the spatial map, the changing represented position, and the movement measured downstream. A short calculation then shows how a common position error can make cells with different tuning change together. Comparing that calculation with each paper's evidence and related studies identifies what a joint experiment would still need to measure."
+      ],
+      "edits": [],
+      "figures": 1,
+      "tables": 1
+    }
+  ],
+  "owners": {
+    "sec:FOUNDATIONS-POISSON": {
+      "file": "content/chapters/01-foundations.md",
+      "url": "ch-foundations.html",
+      "chapter": "ch:FOUNDATIONS"
+    },
+    "sec:FOUNDATIONS-COVARIANCE": {
+      "file": "content/chapters/01-foundations.md",
+      "url": "ch-foundations.html",
+      "chapter": "ch:FOUNDATIONS"
+    },
+    "fig:FOUNDATIONS-POISSON-POPULATION": {
+      "file": "content/chapters/01-foundations.md",
+      "url": "ch-foundations.html",
+      "chapter": "ch:FOUNDATIONS"
+    },
+    "sec-foundations-count-example": {
+      "file": "content/chapters/01-foundations.md",
+      "url": "ch-foundations.html",
+      "chapter": "ch:FOUNDATIONS"
+    },
+    "sec:FOUNDATIONS-SPIKES": {
+      "file": "content/chapters/01-foundations.md",
+      "url": "ch-foundations.html",
+      "chapter": "ch:FOUNDATIONS"
+    },
+    "sec:FOUNDATIONS-RANDOMNESS": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "fig:FOUNDATIONS-PAPER-MAP": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "fig:FOUNDATIONS-ATTRACTOR": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "sec-foundations-attractor-example": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "fig:FOUNDATIONS-DIFFUSION-BIAS": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "sec:FOUNDATIONS-ATTRACTOR": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "sec:FOUNDATIONS-DIFFUSION": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "sec-foundations-diffusion-example": {
+      "file": "content/chapters/01b-persistence.md",
+      "url": "ch-persistence.html",
+      "chapter": "ch:PERSISTENCE"
+    },
+    "sec:MEMORY-LINEARIZATION": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "sec:MEMORY-SYMMETRIC": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "sec:MEMORY-SPIKES": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "sec:MEMORY-DIFFUSION": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "fig:MEMORY-SPIKE-TRACE": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "fig:MEMORY-INHIBITION-RATES": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "fig:MEMORY-TILTED-DECAY": {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "url": "ch-memory-dynamics.html",
+      "chapter": "ch:MEMORY-DYNAMICS"
+    },
+    "sec:MEMORY-LONG-TIME": {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "url": "ch-memory-long-delays.html",
+      "chapter": "ch:MEMORY-LONG-DELAYS"
+    },
+    "sec:MEMORY-DRIFT-SCOPE": {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "url": "ch-memory-long-delays.html",
+      "chapter": "ch:MEMORY-LONG-DELAYS"
+    },
+    "fig:MEMORY-LINE-RING": {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "url": "ch-memory-long-delays.html",
+      "chapter": "ch:MEMORY-LONG-DELAYS"
+    },
+    "sec:MEMORY-FIGURES": {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "url": "ch-memory-long-delays.html",
+      "chapter": "ch:MEMORY-LONG-DELAYS"
+    },
+    "sec:MEMORY-BOUND": {
+      "file": "content/chapters/03-memory-information.md",
+      "url": "ch-memory-information.html",
+      "chapter": "ch:MEMORY-INFORMATION"
+    },
+    "fig:MEMORY-TUNING-INFORMATION": {
+      "file": "content/chapters/03-memory-information.md",
+      "url": "ch-memory-information.html",
+      "chapter": "ch:MEMORY-INFORMATION"
+    },
+    "sec:MEMORY-COMPARISONS": {
+      "file": "content/chapters/03-memory-information.md",
+      "url": "ch-memory-information.html",
+      "chapter": "ch:MEMORY-INFORMATION"
+    },
+    "fig:MEMORY-BOUND-STRICTNESS": {
+      "file": "content/chapters/03-memory-information.md",
+      "url": "ch-memory-information.html",
+      "chapter": "ch:MEMORY-INFORMATION"
+    },
+    "sec:MEMORY-FI": {
+      "file": "content/chapters/03-memory-information.md",
+      "url": "ch-memory-information.html",
+      "chapter": "ch:MEMORY-INFORMATION"
+    },
+    "fig:MEMORY-READOUT-CURVES": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "fig:MEMORY-READOUT-TIMELINE": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "sec:MEMORY-READOUT-SETUP": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "sec:MEMORY-PARTIAL": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "sec:MEMORY-NAIVE": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "sec:MEMORY-FIG3-AND-CAUTION": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "sec:MEMORY-IDEAL": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "sec:MEMORY-EXTENSIONS": {
+      "file": "content/chapters/03b-memory-readout.md",
+      "url": "ch-memory-readout.html",
+      "chapter": "ch:MEMORY-READOUT"
+    },
+    "fig:EYE-SHARED-PRIVATE-VARIANCE": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "fig:EYE-PHYSICAL-AND-RECORDED": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "sec:EYE-SHARED-VARIANCE": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "sec:EYE-FORWARD-FIT": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "sec:EYE-PATHWAY": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "sec:EYE-CHI": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "sec:EYE-INVERSE-FILTER": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "sec:EYE-RECORDINGS": {
+      "file": "content/chapters/04-eye-drift.md",
+      "url": "ch-eye-drift.html",
+      "chapter": "ch:EYE-DRIFT"
+    },
+    "fig:EYE-MSD-MEASUREMENT-OFFSET": {
+      "file": "content/chapters/04b-eye-timing.md",
+      "url": "ch-eye-timing.html",
+      "chapter": "ch:EYE-TIMING"
+    },
+    "sec:EYE-MEASUREMENT-NOISE": {
+      "file": "content/chapters/04b-eye-timing.md",
+      "url": "ch-eye-timing.html",
+      "chapter": "ch:EYE-TIMING"
+    },
+    "fig:EYE-FILTERED-NOISE-MSD": {
+      "file": "content/chapters/04b-eye-timing.md",
+      "url": "ch-eye-timing.html",
+      "chapter": "ch:EYE-TIMING"
+    },
+    "sec:EYE-FILTERED-MSD": {
+      "file": "content/chapters/04b-eye-timing.md",
+      "url": "ch-eye-timing.html",
+      "chapter": "ch:EYE-TIMING"
+    },
+    "sec:EYE-CIRCUIT-MODEL": {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "url": "ch-eye-circuit.html",
+      "chapter": "ch:EYE-CIRCUIT"
+    },
+    "tbl:EYE-FIGURE-GUIDE": {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "url": "ch-eye-circuit.html",
+      "chapter": "ch:EYE-CIRCUIT"
+    },
+    "sec:EYE-FIGURES": {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "url": "ch-eye-circuit.html",
+      "chapter": "ch:EYE-CIRCUIT"
+    },
+    "sec:EYE-SCALING": {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "url": "ch-eye-circuit.html",
+      "chapter": "ch:EYE-CIRCUIT"
+    },
+    "sec:EYE-LIMITS": {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "url": "ch-eye-circuit.html",
+      "chapter": "ch:EYE-CIRCUIT"
+    },
+    "sec:PLACE-KAC-RICE": {
+      "file": "content/chapters/05-place-fields.md",
+      "url": "ch-place-fields.html",
+      "chapter": "ch:PLACE-FIELDS"
+    },
+    "fig:PLACE-GP-TO-FIRING": {
+      "file": "content/chapters/05-place-fields.md",
+      "url": "ch-place-fields.html",
+      "chapter": "ch:PLACE-FIELDS"
+    },
+    "sec:PLACE-INFERENCE": {
+      "file": "content/chapters/05-place-fields.md",
+      "url": "ch-place-fields.html",
+      "chapter": "ch:PLACE-FIELDS"
+    },
+    "sec:PLACE-GP": {
+      "file": "content/chapters/05-place-fields.md",
+      "url": "ch-place-fields.html",
+      "chapter": "ch:PLACE-FIELDS"
+    },
+    "fig:PLACE-CROSSINGS": {
+      "file": "content/chapters/05-place-fields.md",
+      "url": "ch-place-fields.html",
+      "chapter": "ch:PLACE-FIELDS"
+    },
+    "sec:PLACE-RARE-PEAKS": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "sec:PLACE-SLOPES": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "fig:PLACE-SIZE-DENSITY-COLLAPSE": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "sec:PLACE-SIZE-LAW": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "tbl:PLACE-SIZE-LAWS": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "fig:PLACE-SIZE-GEOMETRY": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "sec:PLACE-SLICES": {
+      "file": "content/chapters/05b-place-sizes.md",
+      "url": "ch-place-sizes.html",
+      "chapter": "ch:PLACE-SIZES"
+    },
+    "tbl:PLACE-DATA-COMPARISONS": {
+      "file": "content/chapters/05c-place-tests.md",
+      "url": "ch-place-tests.html",
+      "chapter": "ch:PLACE-TESTS"
+    },
+    "fig:PLACE-TOPOLOGY": {
+      "file": "content/chapters/05c-place-tests.md",
+      "url": "ch-place-tests.html",
+      "chapter": "ch:PLACE-TESTS"
+    },
+    "sec:PLACE-DATA": {
+      "file": "content/chapters/05c-place-tests.md",
+      "url": "ch-place-tests.html",
+      "chapter": "ch:PLACE-TESTS"
+    },
+    "sec:PLACE-WIRING": {
+      "file": "content/chapters/05c-place-tests.md",
+      "url": "ch-place-tests.html",
+      "chapter": "ch:PLACE-TESTS"
+    },
+    "sec:PLACE-TOPOLOGY": {
+      "file": "content/chapters/05c-place-tests.md",
+      "url": "ch-place-tests.html",
+      "chapter": "ch:PLACE-TESTS"
+    },
+    "sec:SYNTHESIS-RELATED": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "sec:SYNTHESIS-QUESTIONS": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "sec:SYNTHESIS-EVIDENCE": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "tbl:SYNTHESIS-MODELS": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "sec:SYNTHESIS-JOINT-CALCULATION": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "fig:SYNTHESIS-SHARED-POSITION": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "sec:SYNTHESIS-NEXT": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    },
+    "sec:SYNTHESIS-COVARIANCE-EXAMPLE": {
+      "file": "content/chapters/06-synthesis.md",
+      "url": "ch-synthesis.html",
+      "chapter": "ch:SYNTHESIS"
+    }
+  },
+  "approved_assets": {
+    "assets/approved/visuals/attractor-directions.svg": "42be8b1bee6869b3f2218d8b7618c30c7ad59986f14a2ed994094c7fadb93fe9",
+    "assets/approved/visuals/eye-filtered-noise-msd.png": "04b19d849fe507f1b3896af426e05f95500e864f51315cd8508444640de0c5b1",
+    "assets/approved/visuals/eye-filtered-noise-msd.svg": "e3c75efe3d2208c743e8eaef11a903ea11707d8edab6a40ea1e0e5c963e6678e",
+    "assets/approved/visuals/eye-msd-measurement-offset.png": "3b3d82f99e11d6bbc106e7d51e8a456778faf3fb3743e5e52e771229a1358328",
+    "assets/approved/visuals/eye-msd-measurement-offset.svg": "beedbd24293adf718ed24997657d2a309e0d542a4ce7e8e058df3821d95e6e64",
+    "assets/approved/visuals/eye-physical-and-recorded.png": "8bee428b9e097dbe2411116b794dc40906a2089eca4a5c76479d65e908842988",
+    "assets/approved/visuals/eye-physical-and-recorded.svg": "7ff616f90f3810fd8bd154851fd608218d03b3b15b783625f8694358695e0f92",
+    "assets/approved/visuals/eye-shared-private-variance.png": "3a3168bb23476aeefafdf062a13bd9870f8cc421e2fa49c273687735cfdbfa68",
+    "assets/approved/visuals/eye-shared-private-variance.svg": "d5f92793a4368a9c43940527f24d1733f31d52c3177c2f9602f54280fe296387",
+    "assets/approved/visuals/foundations-diffusion-bias.png": "ff4d2072bf05a74df776f06ab0e943ec40620aec2706627b9b926b1dde003e73",
+    "assets/approved/visuals/foundations-diffusion-bias.svg": "74229d3f64b6f15aecea732e78d786b6ec54c59328eff60c92031c98a3c4eb3d",
+    "assets/approved/visuals/foundations-paper-map.png": "aa64c871368bf733f254181ac8bd82dd111ad8eac54c0e64cfc1cea5b48297f1",
+    "assets/approved/visuals/foundations-paper-map.svg": "104f9b7355e6ed72330e75a7f5ae6b413b829a56a3a76002208ff15671e54357",
+    "assets/approved/visuals/foundations-poisson-population.png": "08625d38a6133fe9b96e13238e1ef32775e32c6b55f405b046537779c80ca603",
+    "assets/approved/visuals/foundations-poisson-population.svg": "66c658310c2c8affdb7eb31ecb230ecba7a4a31d64292962fb0482c25b562d94",
+    "assets/approved/visuals/memory-bound-strictness.png": "14eba75d7d43a6514b1c48c28064edc09e4f7c18edad10301c9dbf1985c3485b",
+    "assets/approved/visuals/memory-bound-strictness.svg": "10d66ace4a37e7c1533e559a555a8e29dcd1a0aa67080e1173902c8c8a216c51",
+    "assets/approved/visuals/memory-inhibition-rates.png": "d470d6afd0be8ce3dc53f49cdbd0db067e5cd0da42e752307bd77ea1a03f3160",
+    "assets/approved/visuals/memory-inhibition-rates.svg": "f1e14fd1d5197ecbe984fb61078c888691412d985512e9e4a86db8ddb8c93154",
+    "assets/approved/visuals/memory-line-ring.png": "9448a16b772b17fadef6849413180ef84e457aeec80a66a13f4687574cd54554",
+    "assets/approved/visuals/memory-line-ring.svg": "8322a99604c34ee7f48c8e05cce980b18b764f5ec1dc4ac1a1637099b51bf917",
+    "assets/approved/visuals/memory-readout-curves.png": "6a6fe01d97849db103f754eaa3bd4ed837ed7e214d819a6598f9204b178b4f3b",
+    "assets/approved/visuals/memory-readout-curves.svg": "8cf7c1e2833d085f0b2be7bc5cde471e7c5dff66b0183ab88a6e97eae1bfc590",
+    "assets/approved/visuals/memory-readout-timeline.png": "5810a3ae334641b7a151b746628dd3d858e7ac541fcfad6e6bc5bcd11ca4d8e0",
+    "assets/approved/visuals/memory-readout-timeline.svg": "a849a3a5768fa16e738934ffdbd7b6088e2b3710018b8f8257767e2943baf6ec",
+    "assets/approved/visuals/memory-spike-trace.png": "5d51dc7c682dde46d0847bf6d8b724168505c177ff7b9f688f9752d4392c8b54",
+    "assets/approved/visuals/memory-spike-trace.svg": "93f4a6aaa04aa2674de4f5d803b9453d4f57e104969b807ae15eec2246bae083",
+    "assets/approved/visuals/memory-tilted-decay.png": "be48c41b4f6d54fc17200a87b8a76f023d19cd9f7d0c2ef2955b4c8aae99a2e1",
+    "assets/approved/visuals/memory-tilted-decay.svg": "c34f6ae35d3d0daefe64a46df9d0938cadf96071a3c337abb825ffde62870578",
+    "assets/approved/visuals/memory-tuning-information.png": "043d067e7ee2b76bd7db1fd752c6e15aae8fbbb5af672127cab75dd117425442",
+    "assets/approved/visuals/memory-tuning-information.svg": "d3c01b93267813c751bb96b2fc192f15327dd170e3f497024d5b0f395236a86f",
+    "assets/approved/visuals/place-crossings.png": "66dac28373320612b5434483ea0993edee0527dba800da24689a173415fbd897",
+    "assets/approved/visuals/place-crossings.svg": "f5d8fba8f2e6f30897b4555bf5914fb13bc3263490cf9cac223655a3cd0932ec",
+    "assets/approved/visuals/place-gp-to-firing.png": "1897c2826138f8b59a799785285770949a58a2b5ad7146129e07404003c9a8e4",
+    "assets/approved/visuals/place-gp-to-firing.svg": "bb6b7098b4dd2919839d557b3943635bcd45e2c3bea026f41df3531263b31e8e",
+    "assets/approved/visuals/place-size-density-collapse.png": "58440786316e224e2d0d3005c2ac2b5c6d59dc702229e1872d23f38723bc480f",
+    "assets/approved/visuals/place-size-density-collapse.svg": "6ebefbf0c1bb2d5189b09085e531af41fa99dfddf34ee88dd09472694117b133",
+    "assets/approved/visuals/place-size-geometry.png": "03a317800e4e2c5b083889740306eec05d6f50ac8ca90e3171b549a50b0cd1d2",
+    "assets/approved/visuals/place-size-geometry.svg": "f96f3272f224728b07adbc6a99453166e1f466223d270a960e8d0ce2478432ae",
+    "assets/approved/visuals/place-topology.png": "cd856122094777b05cd9ea4a9354100c291743da7b64caf374ccdc9ad7d2581a",
+    "assets/approved/visuals/place-topology.svg": "8e5e34597e427ea270e06a4a3064029f431b7e29d705ed60ed02b898a8b4fa60",
+    "assets/approved/visuals/synthesis-shared-position.png": "b9ab2327531a339571dcf54d9d894cf5fb34944cdbdebdcd2c065ecef6eb71d8",
+    "assets/approved/visuals/synthesis-shared-position.svg": "c9e02e457037f9ca2ae2ef9e5e8e4fbd11f308b1138e95a23b1fe9aa658e1cd1"
+  },
+  "moved_anchors": 41,
+  "limits": "Original section bodies retained except explicit reference edits. Openings replaced or carried according to selected-plan. Scientific reviews of unchanged bodies remain historical."
+}

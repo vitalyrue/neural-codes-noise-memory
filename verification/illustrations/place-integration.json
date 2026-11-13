@@ -1,0 +1,93 @@
+{
+  "root_task_started_at": "2026-10-23T21:56:31.9322700+03:00",
+  "checkpoint_at": "2026-10-23T22:06:21.058432+03:00",
+  "wall_elapsed_seconds": 589.126162,
+  "awake_execution_time": "unverified",
+  "token_stats": "unavailable",
+  "scope": "V06/V07/V08 candidate figures and integration suggestions only; root owns chapter and ledger integration",
+  "figures": [
+    {
+      "asset_id": "V06",
+      "visual_id": "fig:PLACE-CROSSINGS",
+      "section": "sec:PLACE-KAC-RICE",
+      "insert_after": "The curve lies in the vertical band $|z-q|<\\varepsilon$ for a spatial distance approximately $2\\varepsilon/v$. Integrating $z'(x)/(2\\varepsilon)$ over that interval contributes one. Restricting to positive slopes counts only upward crossings. Under the usual regularity conditions, averaging this counting identity gives the [**Kac–Rice formula**]{.definition-term custom-style=\"Definition Term\"} for the mean upcrossing density,",
+      "anchor_type": "paragraph",
+      "placement_note": "The final sentence of this paragraph introduces the following Kac-Rice display. Keep that sentence with its display if root splits the paragraph around the new figure.",
+      "intro": "A fixed smooth curve shows both the endpoint correction and the slope weighting behind the crossing integral.",
+      "caption": "Two upcrossings start two new fields, and one field is already active at the left edge. The local tangent panels show that a steeper crossing occupies a narrower threshold band, while slope weighting makes each crossing contribute one. This is a guide construction, not a sampled cell or a new fit; it illustrates Mainali et al. (2025), Figure 1A–B and Supplemental Methods S3, Equations S11–S15.",
+      "alt": "A constructed smooth curve crosses q upward twice and has three active intervals because the first begins before the left edge of the track. One full field and one gap are marked. Two local tangent plots use the same vertical band q plus or minus epsilon; the steeper slope has a narrower horizontal width 2 epsilon divided by v, and slope times width divided by 2 epsilon equals one in both cases.",
+      "interpretation": "The count includes every connected active interval intersecting the track. Discarding clipped boundary fields would change this convention.",
+      "author_check": "Viewed final original-size and 700-pixel PNGs. The two real crossing slopes now differ visibly. The tangent-band labels describe a local approximation, and the actual-curve slope integrals were also computed.",
+      "expert_objection": "The finite band has a width only approximately 2 epsilon/v on a curved trace. Resolution: the lower panels explicitly draw local tangent lines, and the caption calls them local tangent panels.",
+      "chapter_path": "content/chapters/05-place-fields.md",
+      "svg": "candidate-content/visuals/candidates/20261023/V06/figure.svg",
+      "png": "candidate-content/visuals/candidates/20261023/V06/figure.png",
+      "book_width": "candidate-content/visuals/candidates/20261023/V06/book-width.png",
+      "qa": "candidate-content/visuals/candidates/20261023/V06/qa.json",
+      "source": "verification/illustrations/draw_place.py",
+      "insertion_width_px": 700,
+      "review_status": "author inspected; separate independent review pending"
+    },
+    {
+      "asset_id": "V07",
+      "visual_id": "fig:PLACE-SIZE-GEOMETRY",
+      "section": "sec:PLACE-SIZE-LAW",
+      "insert_after": "$$\ns\\simeq v_d\\left(\\frac{\\sqrt2\\sigma}{q}\\right)^d U^{d/2},\n\\qquad\nU=\\beta s^{2/d},\\qquad\n\\beta=\\frac{q^2}{2\\sigma^2v_d^{2/d}}.\n$$",
+      "anchor_type": "math-block",
+      "intro": "The same local radius gives a length, an area, or a volume depending on the dimension of the region.",
+      "caption": "In the high-threshold approximation, excess peak height fixes a radius, and converting that radius into length, area, or volume gives powers 2, 1, and 2/3 in U = beta s^(2/d). The round regions are a guide reconstruction of the limiting geometry, not observed field shapes; see Mainali et al. (2025), Equation 1 and Supplemental Methods S4, with the parabola constants checked in this chapter.",
+      "alt": "A local parabola stands epsilon above threshold q, and its full width is twice r star. U equals q times epsilon and r star is approximately square root of two times sigma divided by q times square root of U. The same radius gives an interval of length 2 r star, a disk of area pi r star squared, or a ball of volume four pi r star cubed over three. Therefore U depends on size to powers 2, 1, and 2/3.",
+      "interpretation": "The changing power comes from geometry. The round shape and exponential excess belong to the high-threshold limit, so they do not make every measured place field spherical.",
+      "author_check": "Viewed final original-size and 700-pixel PNGs. Radius, full width, epsilon and q are distinct. Moved the three size formulas below the shapes to remove crowding.",
+      "expert_objection": "Using an exactly round blob could hide finite-threshold shape fluctuations. Resolution: the image says local high-peak approximation, and the caption and interpretation explicitly limit the construction.",
+      "chapter_path": "content/chapters/05-place-fields.md",
+      "svg": "candidate-content/visuals/candidates/20261023/V07/figure.svg",
+      "png": "candidate-content/visuals/candidates/20261023/V07/figure.png",
+      "book_width": "candidate-content/visuals/candidates/20261023/V07/book-width.png",
+      "qa": "candidate-content/visuals/candidates/20261023/V07/qa.json",
+      "source": "verification/illustrations/draw_place.py",
+      "insertion_width_px": 700,
+      "review_status": "author inspected; separate independent review pending"
+    },
+    {
+      "asset_id": "V08",
+      "visual_id": "fig:PLACE-TOPOLOGY",
+      "section": "sec:PLACE-TOPOLOGY",
+      "insert_after": "The [**Euler characteristic**]{.definition-term custom-style=\"Definition Term\"}, written $\\chi$, combines these counts. In 1D it equals the number of connected active intervals. In 2D it is the number of connected components minus the number of independent holes. Three disjoint disks have $\\chi=3$; one connected ring has $\\chi=1-1=0$. In 3D it is components minus independent tunnels plus enclosed cavities. A solid ball has $\\chi=1$, a solid ring has $\\chi=0$, and a hollow spherical shell has $\\chi=2$. These counts are the first three [**Betti numbers**]{.definition-term custom-style=\"Definition Term\"}: numbers of independent components, loops, and cavities, respectively.[^p3-ec-source]",
+      "anchor_type": "paragraph",
+      "intro": "Thresholding one fixed smooth map separates the number of connected fields from the number of holes.",
+      "caption": "As the threshold rises on one constructed smooth map, components and holes change separately, giving Euler characteristics -1, 0, 4, and 3. The masks are nested even though this signed count is not monotone. This guide example is not an observed place-field map or a Gaussian-process sample; it illustrates Mainali et al. (2025), Figure 3F–H and STAR Methods Equations 8–10.",
+      "alt": "Four thresholds of the same smooth two-dimensional map show one component with two holes and chi minus one; one component with one hole and chi zero; four components with no holes and chi four; and three components with no holes and chi three. Each active set is contained in the preceding one as q increases from 0.3 to 0.5, 0.8 and 1.0.",
+      "interpretation": "A negative chi means that holes outnumber components in this 2D example. It does not mean a negative number of fields. When holes are absent, chi equals the component count.",
+      "author_check": "Viewed final original-size and 700-pixel PNGs. Both holes at q=0.3, the single joined hole at q=0.5, the fourth small component at q=0.8 and its disappearance at q=1 are visible. Counts match connected-mask calculations at two resolutions.",
+      "expert_objection": "A sequence of unrelated shapes could wrongly suggest thresholding one map, and raster connectivity can change near a saddle. Resolution: every mask uses the same explicit analytic smooth function, nesting is checked elementwise, and counts agree on 701 and 1001 grids. All activity stays away from the domain boundary.",
+      "chapter_path": "content/chapters/05-place-fields.md",
+      "svg": "candidate-content/visuals/candidates/20261023/V08/figure.svg",
+      "png": "candidate-content/visuals/candidates/20261023/V08/figure.png",
+      "book_width": "candidate-content/visuals/candidates/20261023/V08/book-width.png",
+      "qa": "candidate-content/visuals/candidates/20261023/V08/qa.json",
+      "source": "verification/illustrations/draw_place.py",
+      "insertion_width_px": 700,
+      "review_status": "author inspected; separate independent review pending"
+    }
+  ],
+  "author_review_limit": "Number/count/canvas/color checks and author visual inspection are complete. No independent figure acceptance is claimed.",
+  "checkpoints": [
+    {
+      "at": "2026-10-23T22:00:01.6119049+03:00",
+      "stage": "source and style read"
+    },
+    {
+      "at": "2026-10-23T22:03:12.7024409+03:00",
+      "stage": "first numeric checks complete"
+    },
+    {
+      "at": "2026-10-23T22:04:43.7703131+03:00",
+      "stage": "repaired book-width previews inspected"
+    },
+    {
+      "at": "2026-10-23T22:06:21.058432+03:00",
+      "stage": "original-size inspection and integration handoff"
+    }
+  ]
+}

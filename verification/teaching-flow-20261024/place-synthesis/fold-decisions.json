@@ -1,0 +1,50 @@
+[
+  {
+    "file": "05-place-fields.md",
+    "title": "Derivation: normalization and higher size moments",
+    "source_start": "Normalization needs no special integral:",
+    "source_end": "=\\beta^{-kd/2}\\Gamma(1+kd/2).\n$$",
+    "exact_body": "Normalization needs no special integral: $\\int_0^\\infty p_d(s)\\,ds=\\int_0^\\infty e^{-u}\\,du=1$. The same substitution supplies every positive moment,\n\n$$\n\\mathbb E[s^k]\n=\\beta^{-kd/2}\\int_0^\\infty u^{kd/2}e^{-u}\\,du\n=\\beta^{-kd/2}\\Gamma(1+kd/2).\n$$",
+    "body_sha256": "689e5ad49c1560355f3c2e701add497d43c4a7d66ee218af04596c1ea3b29e8e",
+    "visible_premise_result_conditions": "High-threshold conditions and size law are visible above; the mean/scale equations precede the fold.",
+    "later_dependent_uses": "Units; dimensionless size; numeric means and approximation error.",
+    "closed_path_reason": "The limiting density, U transformation and mean formula stay visible; later units, dimensionless curves and mean examples need those formulas, not the general kth-moment integral.",
+    "moved_after": "\\beta=\\left[\\frac{\\Gamma(1+d/2)}{\\mu_s}\\right]^{2/d}.\n$$"
+  },
+  {
+    "file": "05-place-fields.md",
+    "title": "Source check: three printed steps in the supplement",
+    "source_start": "**Reading the supplement carefully.**",
+    "source_end": "they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]",
+    "exact_body": "**Reading the supplement carefully.** The printed supplement appears to contain algebraic errors in this calculation. Its Equation S18 prints multiplication by mean size where the preceding moment formula requires division. Its Equation S23 omits a factor $\\sqrt2$ when solving the parabola in S22 for full width. In S25 the finite-height quadratic exponent should be negative. The derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation; they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]",
+    "body_sha256": "803929ac82caf82979be0b2772f0e73098c8ff2e4a06e52f32333cfe00ef62f3",
+    "visible_premise_result_conditions": "The reconstructed argument was labeled before derivation and the corrected size-law constants have been derived visibly.",
+    "later_dependent_uses": "No later dependency on the printed-step comparison.",
+    "closed_path_reason": "The corrected derivation, exact-versus-asymptotic distinction and numerical error remain visible. The printed-step comparison is an optional source check, and no following argument requires its text.",
+    "moved_after": null
+  },
+  {
+    "file": "05-place-fields.md",
+    "title": "Independent check: recover field width from its boundary slope",
+    "source_start": "There is also an independent check on the high threshold width constant.",
+    "source_end": "the same constant as the peak calculation for $v_1=2$.",
+    "exact_body": "There is also an independent check on the high threshold width constant. Starting at an upcrossing with slope $v$, the local excursion is approximately\n\n$$\nz(x)-q\\simeq vx-\\frac{q}{2\\sigma^2}x^2.\n$$\n\nIts second root is $s=2\\sigma^2v/q$. Changing variables in the exact crossing slope law gives $p(s)=2\\beta s e^{-\\beta s^2}$ with $\\beta=q^2/(8\\sigma^2)$, the same constant as the peak calculation for $v_1=2$.",
+    "body_sha256": "025e7fbab6d4e4e73b92a2d3b330e51259fc50e681bd9bb7b00fbf908fb61c9c",
+    "visible_premise_result_conditions": "Smooth stationary Gaussian conditions, Rayleigh crossing slopes, and high-threshold peak/width result are visible.",
+    "later_dependent_uses": "Finite-difference slope measurement; no use of the alternative proof.",
+    "closed_path_reason": "The visible peak argument already establishes the width constant, and the exact crossing-slope law is taught just before this fold. The later measurement paragraph requires only the slope law.",
+    "moved_after": null
+  },
+  {
+    "file": "05-place-fields.md",
+    "title": "Derivation: the Gaussian determinant average and its integrals",
+    "source_start": "Here are the Gaussian algebra steps behind the determinant average.",
+    "source_end": "For example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above.",
+    "exact_body": "Here are the Gaussian algebra steps behind the determinant average. Write the conditional Hessian as $H=-b\\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,\n\n$$\n\\mathbb E[G_{ii}G_{kk}]=\\kappa-\\lambda^2,\n\\qquad\n\\mathbb E[G_{ik}^2]=\\kappa.\n$$\n\nThe constant $\\kappa$ describes a fourth derivative of covariance. Conditioning on height subtracts $\\lambda^2$ from the covariance of the two diagonal entries, but not from the off-diagonal variance. Hence each pair contributes\n\n$$\n\\mathbb E[G_{ii}G_{kk}-G_{ik}^2]=-\\lambda^2.\n$$\n\nFor $j=1$, $\\mathbb E[\\det(-H)\\mid b]=b\\lambda$. For $j=2$, expand the two by two determinant to obtain $\\lambda^2(b^2-1)$. For $j=3$, the leading term is $b^3\\lambda^3$; the three index pairs each contribute $-b\\lambda^3$, and all odd centered Gaussian products vanish. The result is $\\lambda^3(b^3-3b)$. The unknown fourth derivative $\\kappa$ has canceled.\n\nIntegrating the three polynomials gives\n\n$$\n\\begin{aligned}\n\\int_q^\\infty b\\phi(b)\\,db&=\\phi(q),\\\\\n\\int_q^\\infty(b^2-1)\\phi(b)\\,db&=q\\phi(q),\\\\\n\\int_q^\\infty(b^3-3b)\\phi(b)\\,db&=(q^2-1)\\phi(q).\n\\end{aligned}\n$$\n\nFor example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above.",
+    "body_sha256": "18300fc9b551ac74b8e9b2cdecc93ef26655a853573d4073ca5b7238270fd0d7",
+    "visible_premise_result_conditions": "Smooth compact-domain critical-point assumptions, signed Kac-Rice expression, phi and lambda, and all three eta formulas appear before the fold.",
+    "later_dependent_uses": "Box face factors; exact box expectations; high-threshold count approximation; cutoff interpretation.",
+    "closed_path_reason": "The signed-count mechanism, assumptions, eta integral, resulting eta formulas and signed-density meaning stay visible. Boundary factors use eta values, not the canceled fourth-derivative constant or determinant expansion.",
+    "moved_after": "These are signed densities per length, area, and volume, not three formulas for positive field counts."
+  }
+]

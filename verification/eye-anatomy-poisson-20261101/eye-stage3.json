@@ -1,0 +1,78 @@
+{
+  "review_type": "stage3_connected_reader_flow",
+  "reviewer": "independent subagent eye_mechanics_sources",
+  "reviewed_utc": "2026-11-01T10:20:01Z",
+  "task_start_utc": "2026-11-01T10:03:05Z",
+  "timing": {
+    "wall_clock_elapsed_seconds": 1016,
+    "awake_execution_time": "unverified; Windows sleep/resume logs not inspected",
+    "seconds_since_previous_review_checkpoint": 136
+  },
+  "scope": "Source-based first-pass reading of revised chapter2 opening, anatomy/mechanics, new fold, neural command/plasticity discussion and transition into retained attractor teaching. Also changed chapter7 bridge and eight glossary/five reference additions already literal-checked in Stage2. No browser, figure or whole-book review.",
+  "source_files": [
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "405409A620971899EFB42B4F2337235ACED549EFB3DD88B26F8015B31961460C",
+      "reviewed_lines": "1-130;new source footnotes carried from previous stages"
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "E244C6CFE129CCBD3C33ED590225B7F8B889056FF5BA9AB18EDE12E17F4BF4A5",
+      "reviewed_lines": "1-22"
+    },
+    {
+      "path": "content/chapters/glossary.md",
+      "sha256": "482DD41D515CA3D150B78DD68FA98781DCB3524A1A5F074C4634FC3ED550A87D",
+      "reviewed_lines": "5,34,75-77,85,100,115"
+    },
+    {
+      "path": "content/chapters/references.md",
+      "sha256": "13D0C541DAF2CD4731EA95A812BFC0F27CBD2B17BCEF0FEE372C924F2D226055",
+      "reviewed_lines": "27-35;entries7-11"
+    }
+  ],
+  "decision": "pass_scoped",
+  "required_findings": [],
+  "first_pass_fold_closed": {
+    "method": "Read source while omitting lines25-53, corresponding to the intended closed fold. No claim of rendered UI behavior.",
+    "result": "pass",
+    "reader_chain": "Six outside muscles turn the eye; named nerves carry motor output; repeated activation maintains smooth tension; active torque balances elastic pull; damping and inertia have different jobs; brain maintains the command; feedback and slower plasticity adjust control; attractor model then asks why the retained command can wander.",
+    "understanding_checks": {
+      "actual_anatomy": "Reader can identify medial/lateral rectus as the horizontal opposing pair and distinguish the other four muscles without an unnecessary anatomy tour.",
+      "repeated_pulls": "Explains why brief spikes can support continuing tension, and says exact periodicity is unnecessary.",
+      "inertia": "Explicitly denies static holding by inertia and distinguishes acceleration from maintained angle.",
+      "plasticity": "Defines experience-dependent neural change, identifies goldfish evidence/timescale and reversibility, and avoids claiming an identified cellular learning mechanism.",
+      "neural_persistence": "Reversible disruption experiment makes the need for a sustained neural command concrete before abstract attractor geometry."
+    }
+  },
+  "first_pass_fold_open": {
+    "result": "pass",
+    "detail": "The torque balance uses already introduced physical ideas. Setting derivatives to zero answers static holding; removing torque answers return toward rest; changing stiffness/viscosity clarifies parameter effects. The approximation and multiple actual relaxation times are explicit. Main-path understanding does not depend on opening the calculation."
+  },
+  "placement_judgment": {
+    "result": "coherent_and_preserves_existing_teaching",
+    "detail": "Adding the one section before the attractor sections is coherent. It first establishes what the neural circuit must physically accomplish. The existing distinction between restoring activity disturbances and persistent coordinate errors then has a concrete purpose, without pretending that mechanical inertia explains memory.",
+    "transition": "Line59 explicitly moves from physical gaze holding to the remaining neural question; retained lines65-73 introduce pattern versus stored value and the two-cell example.",
+    "preservation_check": {
+      "method": "Compared current text beginning at the Stable activity with a vulnerable stored value heading against the saved baseline block, including its original remaining chapter text and original footnotes.",
+      "retained_verbatim": true,
+      "retained_baseline_characters": 14208,
+      "retained_block_sha256": "5bc06fec2c49520a965a4c940d15ba4883f7e56c9293f43158e3fa6c712f6e45",
+      "limit": "This verifies preservation of that existing source block, not its whole-book semantic acceptance."
+    }
+  },
+  "chapter7_bridge": {
+    "result": "pass",
+    "detail": "Recalls the physical explanation by link, keeps continuous-attractor source explicitly proposed, then identifies recorded OMNs and distinguishes other cells in the abducens nucleus. This supports the coming spike-to-displacement analysis without repeating the full anatomy section."
+  },
+  "glossary_and_references": {
+    "result": "pass_scoped",
+    "detail": "Hashes match Stage2 literal check. The eight glossary entries supply compact reminders without replacing local explanations. Five references identify probability background, anatomy, mechanics, neural disruption and visual calibration with distinct roles. No further factual or reader-flow correction required."
+  },
+  "strongest_substantive_objection_tested": {
+    "objection": "Placing mechanical stability immediately before neural attractor stability might make a reader treat them as the same cause, or infer that inertia/plasticity alone holds a chosen angle.",
+    "resolution": "The text repeatedly separates smoothing/torque balance, maintained neural drive and slower calibration; the transition asks the separate neural error question. This objection is resolved in the reviewed text."
+  },
+  "limits": "Scoped text/pedagogy pass only. No browser/visual test, figure acceptance, full-book review or release/publication acceptance. Canonical files were not edited by this reviewer.",
+  "token_stats": "unavailable"
+}

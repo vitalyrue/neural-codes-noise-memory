@@ -1,0 +1,642 @@
+schema_version: 1
+book_id: burak-three-papers
+book_model_hash: 2f7df3fd1d8b11b4339ddebff8588660a19afd090edb4fd98a823724ae7f0421
+counts:
+  parts: 2
+  chapters: 6
+  sections: 49
+  subsections: 4
+  instructional_sections: 53
+  appendices: 2
+  front_matter: 1
+front_matter:
+- id: ch:READING-GUIDE
+  title: Research questions and reading guide
+  purpose: A remembered direction must remain useful after its cue disappears. The
+    eyes must maintain a position while we look at a target. An animal moving through
+    an environment must represent where it is. How do groups of nerve cells perform
+    these tasks when their electrical signals are brief and variable?
+  guide_locus: ch:READING-GUIDE
+  source_loci: []
+  sections:
+  - id: sec:READING-FIELD
+    title: The field and the shared problem
+    summary: 'These questions belong to computational and systems neuroscience: explaining
+      how groups of neurons, the brain''s signaling cells, represent information and
+      support behavior. Mathematical models connect assumptions about cells and their
+      interactions to predictions; recordings test those predictions against neural
+      activity and movement. The three papers use these methods to study different
+      parts of the problem: maintaining a value, locating the source of an irregular
+      movement, and explaining the spatial patterns through which cells represent
+      position.'
+    guide_locus: sec:READING-FIELD
+    level: 2
+  - id: sec:READING-MEMORY
+    title: How can a noisy circuit retain a value?
+    summary: Burak and Fiete (2012) study short-term memory for a continuous quantity,
+      such as a direction or eye angle. A proposed mechanism is that interacting neurons
+      keep activity going after the original input ends. Yet the remembered value
+      can change while the activity persists. The problem is to explain how the properties
+      of the cells and their connections set the rate of this loss of accuracy.
+    guide_locus: sec:READING-MEMORY
+    level: 2
+  - id: sec:READING-EYE
+    title: What makes the eyes drift during fixation?
+    summary: Even while gaze is held on a stationary target, the eyes move smoothly
+      and irregularly between brief, rapid movements. This smooth motion is called
+      [**fixational drift**]{.definition-term custom-style="Definition Term"}. It
+      changes the image reaching the retina, the light-sensitive tissue at the back
+      of the eye. Understanding its source is therefore part of understanding the
+      visual signals the brain receives. Ben-Shushan and colleagues (2022) ask whether
+      the motion begins mainly in muscles or in neural commands sent to them.
+    guide_locus: sec:READING-EYE
+    level: 2
+  - id: sec:READING-PLACE
+    title: Why do place fields have different sizes and shapes?
+    summary: A [**place cell**]{.definition-term custom-style="Definition Term"} in
+      the hippocampus, a brain region involved in memory and navigation, becomes more
+      active in particular locations. Each connected region of elevated activity is
+      a [**place field**]{.definition-term custom-style="Definition Term"}. Small
+      environments encouraged a picture of one smooth field per cell. Larger environments
+      reveal multiple fields with widely varying sizes and shapes. Mainali, Azeredo
+      da Silveira, and Burak (2025) ask whether one statistical account can explain
+      this variety across species and spatial dimensions.
+    guide_locus: sec:READING-PLACE
+    level: 2
+  - id: sec:READING-START
+    title: Starting knowledge and reading paths
+    summary: The guide assumes undergraduate calculus, basic probability, and linear
+      algebra. Neuroscience terms and the required stochastic-process, information,
+      filtering, and random-field ideas are taught where needed. The first chapter
+      establishes spikes, population activity, fixed points, covariance, and diffusion.
+      Chapters 2 and 3 derive the persistent-activity model and its information bound.
+      Chapter 4 applies the dynamical ideas to eye drift. Chapter 5 develops spatial
+      Gaussian processes and place-field geometry. Chapter 6 brings the results together
+      and compares related work.
+    guide_locus: sec:READING-START
+    level: 2
+  - id: sec:READING-PAPERS
+    title: The original papers
+    summary: The copies are the published versions. Supporting information is linked
+      separately.
+    guide_locus: sec:READING-PAPERS
+    level: 2
+  - id: sec:READING-SCOPE
+    title: Scope and notation
+    summary: The central theory is derived step by step. Examples chosen for the guide
+      distinguish independent from shared fluctuations, complete from limited access
+      to neural signals, and exact formulas from approximations for rare fields. Their
+      numbers are checked separately from the published experimental measurements.
+      A teaching reconstruction is labeled when its simplified model differs from
+      the paper's full model.
+    guide_locus: sec:READING-SCOPE
+    level: 2
+parts:
+- id: part:MECHANISMS
+  title: Noise and persistent activity
+  purpose: A stable population pattern can retain a continuous value while fluctuations
+    move that value along its family of persistent states. These chapters establish
+    the neural and probability background, derive the surviving motion, and connect
+    it to limits on information and readout.
+  guide_locus: part:MECHANISMS
+  source_loci: []
+  chapters:
+  - id: ch:FOUNDATIONS
+    title: Neural activity, stored values, and random motion
+    purpose: 'The eyes can hold a position after a brief movement command has ended.
+      An animal can also keep track of its location while the activity of individual
+      neurons fluctuates. Both abilities require a useful quantity to remain represented
+      in a changing biological system. The three papers study different parts of this
+      problem: the loss of a stored value, the origin of slow eye motion, and the
+      arrangement of spatial firing patterns.'
+    guide_locus: ch:FOUNDATIONS
+    source_loci: []
+    sections:
+    - id: sec:FOUNDATIONS-SPIKES
+      title: Spikes, rates, and population patterns
+      summary: A neuron communicates through brief electrical events called [**spike**]{.definition-term
+        custom-style="Definition Term"}s. A [**firing rate**]{.definition-term custom-style="Definition
+        Term"} is the expected number of spikes per unit time. A rate of 20 hertz
+        means an average of 20 spikes per second under the specified conditions, rather
+        than a promise of one spike every 50 milliseconds.
+      guide_locus: sec:FOUNDATIONS-SPIKES
+      level: 2
+    - id: sec:FOUNDATIONS-POISSON
+      title: A variable spike count at a fixed rate
+      summary: 'Even when the represented value stays fixed, the spikes need not repeat
+        from trial to trial. The 2012 model starts with a tractable description of
+        this variability: a [**Poisson process**]{.definition-term custom-style="Definition
+        Term"}. At constant rate $r$, the number $K$ of spikes in an interval of length
+        $\Delta t$ obeys'
+      guide_locus: sec:FOUNDATIONS-POISSON
+      level: 2
+    - id: sec:FOUNDATIONS-COUNT-EXAMPLE
+      title: 'Example: an apparently silent cell and an informative population'
+      summary: Suppose the expected rate is 20 spikes per second and an observation
+        lasts 50 ms. The expected count is $20\times0.05=1$. The probability of seeing
+        no spike is $e^{-1}=0.368$. A silent interval is therefore common even though
+        the expected rate is positive.
+      guide_locus: sec:FOUNDATIONS-COUNT-EXAMPLE
+      level: 3
+    - id: sec:FOUNDATIONS-COVARIANCE
+      title: Variance, covariance, and displacement
+      summary: To identify where variability enters a pathway, the eye paper compares
+        measurements that share some fluctuations and have other fluctuations of their
+        own. The required probability identities are short, but their interpretation
+        matters.
+      guide_locus: sec:FOUNDATIONS-COVARIANCE
+      level: 2
+    - id: sec:FOUNDATIONS-ATTRACTOR
+      title: Stable activity with a vulnerable stored value
+      summary: A circuit's current activities are its [**state**]{.definition-term
+        custom-style="Definition Term"}. A dynamical equation specifies how that state
+        changes. A [**fixed point**]{.definition-term custom-style="Definition Term"}
+        is a state where the deterministic rate of change is zero. It is stable in
+        a direction if a small disturbance in that direction decays.
+      guide_locus: sec:FOUNDATIONS-ATTRACTOR
+      level: 2
+    - id: sec:FOUNDATIONS-ATTRACTOR-EXAMPLE
+      title: 'Example: two disturbances to the same stored angle'
+      summary: Consider a teaching model with two activities $r_1,r_2$ in spikes per
+        second. Let $b=40$ spikes per second and let $k=2$ spikes per second per degree.
+        A stored angle $\theta$ corresponds to
+      guide_locus: sec:FOUNDATIONS-ATTRACTOR-EXAMPLE
+      level: 3
+    - id: sec:FOUNDATIONS-DIFFUSION
+      title: Repeated perturbations become diffusion
+      summary: If persistent angular changes arrive repeatedly, their errors accumulate.
+        Divide time into intervals of length $\Delta t$. Let $\xi_j$ be the change
+        in the represented coordinate during interval $j$. Assume independent increments
+        with mean zero and variance $2D\Delta t$, where $D$ has units coordinate squared
+        per time. After $n$ intervals,
+      guide_locus: sec:FOUNDATIONS-DIFFUSION
+      level: 2
+    - id: sec:FOUNDATIONS-DIFFUSION-EXAMPLE
+      title: 'Example: why the noise grows slower than a fixed bias'
+      summary: Take an illustrative angular diffusion coefficient $D=0.02$ degrees
+        squared per second. At 0.35 s its variance is $0.014$ degrees squared and
+        its root mean squared displacement is 0.118 degrees, or about 7.10 arcminutes.
+        At 1 s the root mean squared displacement is 0.20 degrees. These are teaching
+        values, not a new estimate from either monkey.
+      guide_locus: sec:FOUNDATIONS-DIFFUSION-EXAMPLE
+      level: 3
+    - id: sec:FOUNDATIONS-RANDOMNESS
+      title: Randomness across time and across space
+      summary: The memory and eye papers study fluctuations that accumulate as time
+        passes. The place-field paper instead starts with a random function of physical
+        position. Once drawn for a cell and an environment, that function is fixed
+        while the animal moves through the map. Revisiting a place evaluates the same
+        expected-rate function, although the actual spikes can still vary from visit
+        to visit.
+      guide_locus: sec:FOUNDATIONS-RANDOMNESS
+      level: 2
+  - id: ch:MEMORY-DYNAMICS
+    title: How spiking noise moves a stored memory
+    purpose: A network can keep firing after a stimulus disappears and still lose
+      the value that the stimulus supplied. The important question is whether the
+      activity pattern stays in the right place, not just whether activity continues.
+      Burak and Fiete study this distinction in a network whose stable activity patterns
+      form a continuous set. This chapter derives how random spikes move the network
+      along that set. The next chapter asks how well another network can read the
+      moving memory.
+    guide_locus: ch:MEMORY-DYNAMICS
+    source_loci: []
+    sections:
+    - id: sec:MEMORY-SPIKES
+      title: From individual spikes to a slowly changing network state
+      summary: How can brief spikes maintain a state for much longer than the duration
+        of a spike? In this model, each spike leaves a synaptic activation that decays
+        gradually. Incoming activations determine new firing rates; the resulting
+        spikes renew those activations. This feedback can support activity after the
+        external stimulus has ended.
+      guide_locus: sec:MEMORY-SPIKES
+      level: 2
+    - id: sec:MEMORY-LINEARIZATION
+      title: Which part of a perturbation survives?
+      summary: 'A spike perturbs many aspects of a network''s state. Most of those
+        changes decay as the state returns to the attractor. To calculate memory loss,
+        we need the one change that survives: the displacement to a different fixed
+        point.'
+      guide_locus: sec:MEMORY-LINEARIZATION
+      level: 2
+    - id: sec:MEMORY-DIFFUSION
+      title: Projecting spike fluctuations gives the diffusion coefficient
+      summary: We can now calculate how much random displacement remains after the
+        stable components have relaxed. Multiply the linear stochastic equation by
+        $\mathbf v^T$. Since $\mathbf v^TK=0$,
+      guide_locus: sec:MEMORY-DIFFUSION
+      level: 2
+    - id: sec:MEMORY-SYMMETRIC
+      title: Symmetric weights make the projection measurable
+      summary: The general formula requires the left vector of the network dynamics.
+        When $W_{ij}=W_{ji}$, can we write it using tuning curves and the input to
+        rate rule?
+      guide_locus: sec:MEMORY-SYMMETRIC
+      level: 2
+    - id: sec:MEMORY-LONG-TIME
+      title: From local spreading to long delay errors
+      summary: A local diffusion coefficient answers how variance initially grows.
+        It does not by itself say that variance grows at the same rate forever. Boundaries
+        and variation of $D$ can change the long time behavior.
+      guide_locus: sec:MEMORY-LONG-TIME
+      level: 2
+    - id: sec:MEMORY-DRIFT-SCOPE
+      title: Random drift, systematic drift, and a mistuned network
+      summary: Repeated trials can spread apart even if their average stays at the
+        original value. That random spreading differs from a reproducible movement
+        in one direction. Both can occur, and the derivation of $D$ alone does not
+        settle the second question.
+      guide_locus: sec:MEMORY-DRIFT-SCOPE
+      level: 2
+    - id: sec:MEMORY-FIGURES
+      title: Reading the first two figures
+      summary: Figure 1A shows the definition of the memory coordinate. Start at a
+        green point off the attractor and follow the noise free flow to the black
+        point on it. This endpoint defines the instantaneous attractor state. After
+        one noisy interval, repeat that flow. The difference between the two endpoints
+        is the retained memory change. The relevant projection follows the flow, as
+        in the tilted two variable example above.
+      guide_locus: sec:MEMORY-FIGURES
+      level: 2
+  - id: ch:MEMORY-INFORMATION
+    title: Information, memory loss, and the time needed for recall
+    purpose: A downstream neuron reads a memory through spikes. Collecting more spikes
+      helps distinguish nearby activity patterns, but during collection the pattern
+      itself keeps moving. The same variability that limits readout also perturbs
+      the recurrent network. Burak and Fiete connect these two effects by deriving
+      a lower bound on memory diffusion from the information in the spikes.
+    guide_locus: ch:MEMORY-INFORMATION
+    source_loci: []
+    sections:
+    - id: sec:MEMORY-FI
+      title: Deriving information from the spike count likelihood
+      summary: Suppose two nearby memory values produce almost identical rates. A
+        short spike sample cannot reliably tell them apart. If a small change in memory
+        instead produces a large rate change relative to spike variability, that sample
+        is more useful. We need a quantity that measures this local distinction.
+      guide_locus: sec:MEMORY-FI
+      level: 2
+    - id: sec:MEMORY-BOUND
+      title: The information diffusion inequality, step by step
+      summary: The network has no access to its exact firing rates as noiseless numbers.
+        Its recurrent input is built from the same random spikes that an external
+        observer sees. The lower bound on diffusion follows directly by comparing
+        the state sensitivity of the network with the spike information.
+      guide_locus: sec:MEMORY-BOUND
+      level: 2
+    - id: sec:MEMORY-COMPARISONS
+      title: What changes actually improve persistence?
+      summary: The inequality compares diffusion and information for the same network.
+        To compare different networks, we must say what stays fixed. Otherwise an
+        apparent benefit of a parameter change may come from changing another property
+        at the same time.
+      guide_locus: sec:MEMORY-COMPARISONS
+      level: 2
+    - id: sec:MEMORY-READOUT-SETUP
+      title: Readout trades count noise against motion during observation
+      summary: At time $T$, a recall cue arrives. The observer now wants the original
+        value $\Theta$, but only has access to future spikes. The network has already
+        diffused during storage. Even perfect knowledge of the state $\theta(T)$ cannot
+        recover its particular earlier random displacements.
+      guide_locus: sec:MEMORY-READOUT-SETUP
+      level: 2
+    - id: sec:MEMORY-NAIVE
+      title: Why averaging for too long becomes harmful
+      summary: A decoder designed for a stationary state averages its observations
+        with equal weight. That reduces independent observation noise, but late observations
+        reflect a state that has moved further from $x$.
+      guide_locus: sec:MEMORY-NAIVE
+      level: 2
+    - id: sec:MEMORY-IDEAL
+      title: Deriving the ideal observer's readout curve
+      summary: An observer that accounts for diffusion can use later observations
+        without confusing them with direct measurements of $x$. Their value is limited
+        by the motion separating them from $x$. We can derive its error by combining
+        information backward from the end of the observation interval.
+      guide_locus: sec:MEMORY-IDEAL
+      level: 2
+    - id: sec:MEMORY-PARTIAL
+      title: Limited access can make observation slower
+      summary: A downstream area may receive only some of the memory network's spikes.
+        That reduces its information without reducing the fluctuations that already
+        move the full memory network.
+      guide_locus: sec:MEMORY-PARTIAL
+      level: 2
+    - id: sec:MEMORY-EXTENSIONS
+      title: Two cellular time scales and a different noise law
+      summary: The time constant in the inequality comes from the dynamics that carry
+        an activation fluctuation into a lasting memory change. If those dynamics
+        contain both synaptic and rate relaxation, which time constant matters?
+      guide_locus: sec:MEMORY-EXTENSIONS
+      level: 2
+    - id: sec:MEMORY-FIG3-AND-CAUTION
+      title: Reading the readout curves and the printed error bound
+      summary: Figure 3 isolates readout uncertainty, rescaling variance by $\sqrt{2D/J}$
+        and duration by $L^*$. In these axes the ideal curve is $\coth z$ and the
+        naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations because
+        too few spikes are available. The ideal solid curve approaches one. The naive
+        dashed curve reaches $2/\sqrt3$ at $z=\sqrt3$, then rises because its equal
+        weighting gives increasing importance to displaced states. The dotted vertical
+        line marks that naive optimum. The storage delay contribution $2DT$ is not
+        part of these rescaled curves. Figure S2 repeats the comparison for partial
+        access, showing the rightward and upward shifts when $\alpha=0.1$.[^p1-fig3]
+      guide_locus: sec:MEMORY-FIG3-AND-CAUTION
+      level: 2
+- id: part:OBSERVATIONS
+  title: Eye drift and spatial representations
+  purpose: Neural fluctuations reach behavior through a motor pathway, while spatial
+    tuning describes how a position is expressed across cells. The eye and place-field
+    studies constrain these different relationships. The final chapter connects their
+    results without treating a static map as a complete dynamical model.
+  guide_locus: part:OBSERVATIONS
+  source_loci: []
+  chapters:
+  - id: ch:EYE-DRIFT
+    title: Why the eyes drift during fixation
+    purpose: 'Looking steadily at a small spot does not hold the eye perfectly still.
+      Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style="Definition
+      Term"}, the eye makes a small, smooth, irregular movement called [**fixational
+      drift**]{.definition-term custom-style="Definition Term"}. Does this movement
+      begin as noise in the muscles, or does the brain send a changing command to
+      them? Ben-Shushan and colleagues answer this in two stages. Their recordings
+      support a large shared drive upstream of the motor neurons. Their model then
+      proposes a particular source: random motion of the eye position stored in a
+      memory circuit.'
+    guide_locus: ch:EYE-DRIFT
+    source_loci: []
+    sections:
+    - id: sec:EYE-PATHWAY
+      title: From stored eye position to muscle action
+      summary: 'The eye needs an ongoing command to maintain a position. A brief command
+        to move is therefore insufficient: after the movement, a circuit must maintain
+        activity representing the new position. The [**oculomotor integrator**]{.definition-term
+        custom-style="Definition Term"} is the neural circuit that performs this storage.
+        “Integrator” refers to turning a movement command into a lasting position
+        signal. In the proposed mechanism, the continuous attractor described in Chapters
+        1 and 2 stores horizontal eye position. Noise moves the stored value along
+        that attractor.[^p2-pathway]'
+      guide_locus: sec:EYE-PATHWAY
+      level: 2
+    - id: sec:EYE-RECORDINGS
+      title: What the recordings can and cannot reveal
+      summary: The authors reanalyzed earlier experiments in two male rhesus macaques.
+        The animals first fixated a stationary target and then tracked a moving target.
+        A wire search coil on one eye measured eye position while an electrode recorded
+        one neuron's spikes. There were 57 identified OMNs. Each recording paired
+        one OMN with eye movement; there were no simultaneous recordings of multiple
+        OMNs. Thus the analysis cannot directly measure the covariance between two
+        recorded motor neurons.[^p2-recordings][^p2-single]
+      guide_locus: sec:EYE-RECORDINGS
+      level: 2
+    - id: sec:EYE-FORWARD-FIT
+      title: Fitting movement to firing rate
+      summary: Position alone does not predict a motor neuron's activity during a
+        movement. At the same position, firing can differ when the eye is moving or
+        accelerating. The paper therefore fits
+      guide_locus: sec:EYE-FORWARD-FIT
+      level: 2
+    - id: sec:EYE-INVERSE-FILTER
+      title: Putting spikes in units of eye position
+      summary: 'To ask how much eye movement is shared with a neuron, it helps to
+        express both signals in degrees. The paper reverses the fitted relationship:
+        a cell''s spike train becomes the input, and its prediction of eye position
+        becomes the output. This operation is an inverse of the movement-to-rate fit,
+        rather than a new fit to small drift residuals.'
+      guide_locus: sec:EYE-INVERSE-FILTER
+      level: 2
+    - id: sec:EYE-SHARED-VARIANCE
+      title: Why a small correlation implies shared variation
+      summary: 'A correlation of 0.17 does not immediately tell us how much motion
+        comes from the common command. First we can ask a more limited question: could
+        all the motion come from independent motor neuron fluctuations?'
+      guide_locus: sec:EYE-SHARED-VARIANCE
+      level: 2
+    - id: sec:EYE-CHI
+      title: The fraction driven by the common command
+      summary: The variance bound establishes that a shared signal exists, but leaves
+        its size open. The next calculation uses the fact that the inverse filter
+        has a calibrated gain in degrees. For one 350 ms interval, write the measured
+        displacement and the single cell prediction as
+      guide_locus: sec:EYE-CHI
+      level: 2
+    - id: sec:EYE-MEASUREMENT-NOISE
+      title: Separating measurement noise from movement in the MSD
+      summary: The common variance calculation uses one interval length. To learn
+        what kind of process drives motion, the authors next compare displacements
+        at many time separations. As in Chapter 1,
+      guide_locus: sec:EYE-MEASUREMENT-NOISE
+      level: 2
+    - id: sec:EYE-FILTERED-MSD
+      title: Filtering white noise and filtering Brownian motion differ
+      summary: The corrected MSD keeps increasing over the observed range, toward
+        a second, while its logarithmic slope decreases and remains between one and
+        two. Define that local slope by
+      guide_locus: sec:EYE-FILTERED-MSD
+      level: 2
+    - id: sec:EYE-CIRCUIT-MODEL
+      title: The proposed circuit from memory to movement
+      summary: The recording analysis places much of the drive upstream of OMNs. To
+        test whether integrator noise could supply it, the authors build a model from
+        a noisy memory circuit through to the eye. The model adapts an earlier goldfish
+        integrator architecture to primate tuning and variability. There are two populations,
+        with excitation within each and inhibition between them. Their firing increases
+        for opposite directions of gaze. This supplies the recurrent interaction needed
+        to maintain a range of stored positions.[^p2-network]
+      guide_locus: sec:EYE-CIRCUIT-MODEL
+      level: 2
+    - id: sec:EYE-SCALING
+      title: Which neural parameters set the amount of drift?
+      summary: An agreement in amplitude is informative only if we know how much freedom
+        the model has. The paper uses regular spike trains. Chapter 1 defined the
+        interspike interval coefficient of variation (CV) as the interval standard
+        deviation divided by its mean. A Poisson process at constant rate has CV one;
+        the model uses about 0.22 for integrator neurons and about 0.07 for OMNs.
+        Such firing is called [**sub-Poisson spiking**]{.definition-term custom-style="Definition
+        Term"} here because its long window count variability is lower than a Poisson
+        process at the same rate, under the interval construction used in the model.[^p2-cv]
+      guide_locus: sec:EYE-SCALING
+      level: 2
+    - id: sec:EYE-FIGURES
+      title: Reading the figures as an argument
+      summary: The five figures address different steps. Their agreement is easier
+        to assess when those questions remain separate.
+      guide_locus: sec:EYE-FIGURES
+      level: 2
+    - id: sec:EYE-LIMITS
+      title: What remains uncertain
+      summary: The data and model answer different localization questions. The common
+        variance estimate supports a drive upstream of OMNs, given the calibration
+        and noise assumptions. The MSD comparison supports a command that accumulates
+        variation over the measured interval, rather than stationary white noise passed
+        through a decaying muscle filter. The circuit model shows that integrator
+        noise with plausible parameters can generate such a command and explain its
+        filtered amplitude and timing.
+      guide_locus: sec:EYE-LIMITS
+      level: 2
+  - id: ch:PLACE-FIELDS
+    title: Why place fields have different sizes and shapes
+    purpose: A cell recorded on a short track may have one smooth firing hill. On
+      a long track, the same kind of cell may have several separated fields, each
+      with a different width and height. In a room, its active regions can bend, split,
+      and surround inactive holes. How could one model produce this variety and still
+      make useful predictions?
+    guide_locus: ch:PLACE-FIELDS
+    source_loci: []
+    sections:
+    - id: sec:PLACE-GP
+      title: From a rate map to a random function
+      summary: 'To predict a field''s width, we need to relate activity at nearby
+        positions. A histogram of firing rates alone loses that information: rearranging
+        its values could turn one broad field into many tiny fields without changing
+        the histogram.'
+      guide_locus: sec:PLACE-GP
+      level: 2
+    - id: sec:PLACE-KAC-RICE
+      title: Count fields by counting crossings
+      summary: Finding every root of a random curve is difficult. Counting how often
+        the curve passes a level is easier because a small interval around a crossing
+        has a width determined by its slope.
+      guide_locus: sec:PLACE-KAC-RICE
+      level: 2
+    - id: sec:PLACE-INFERENCE
+      title: Infer a threshold and a spatial scale
+      summary: A low field count can result from a high threshold or a slowly varying
+        map. Field lengths help separate those possibilities.
+      guide_locus: sec:PLACE-INFERENCE
+      level: 2
+    - id: sec:PLACE-RARE-PEAKS
+      title: Why rare high fields are nearly parabolic
+      summary: The crossing calculation determines a mean length exactly, but it does
+        not yet explain the shape of the length histogram. To obtain that distribution,
+        we examine the small region around a peak that barely exceeds a high threshold.
+      guide_locus: sec:PLACE-RARE-PEAKS
+      level: 2
+    - id: sec:PLACE-SIZE-LAW
+      title: Derive the size law in each dimension
+      summary: A round region's radius and its volume have different units and different
+        distributions. This geometric conversion explains why the model predicts different
+        histograms in a track, an arena, and a room.
+      guide_locus: sec:PLACE-SIZE-LAW
+      level: 2
+    - id: sec:PLACE-SLICES
+      title: Why slices are a separate test
+      summary: A model can fit field volumes and still place activity incorrectly
+        within those volumes. Slicing the map tests that internal spatial structure.
+      guide_locus: sec:PLACE-SLICES
+      level: 2
+    - id: sec:PLACE-SLOPES
+      title: Why slopes at field boundaries are Rayleigh
+      summary: The derivative at an arbitrary position is Gaussian. A field boundary
+        is a selected position, however, and selecting it changes the derivative distribution.
+      guide_locus: sec:PLACE-SLOPES
+      level: 2
+    - id: sec:PLACE-TOPOLOGY
+      title: Count holes as well as connected fields
+      summary: Two maps can have the same field count and total active area but different
+        holes. To test this part of the geometry, raise the activity threshold and
+        watch how regions split, join, appear, and disappear.
+      guide_locus: sec:PLACE-TOPOLOGY
+      level: 2
+    - id: sec:PLACE-DATA
+      title: What was fitted and what was tested
+      summary: The experiments supply estimated firing rate maps, not the hidden Gaussian
+        input. To assess a prediction, we must therefore track both which summaries
+        set its parameters and which processing decisions change the map's geometry.
+      guide_locus: sec:PLACE-DATA
+      level: 2
+    - id: sec:PLACE-WIRING
+      title: What Gaussian maps imply about synaptic input
+      summary: The statistical model becomes biologically useful if it suggests how
+        a circuit could make the maps. A random weighted sum of many inputs is one
+        possible mechanism, and the supplement makes its assumptions explicit.
+      guide_locus: sec:PLACE-WIRING
+      level: 2
+  - id: ch:SYNTHESIS
+    title: Relating spatial codes, memory, and behavior
+    purpose: A model can explain the shape of a neural code without explaining how
+      that code is maintained. It can also explain fluctuations inside a circuit without
+      uniquely locating the source of a measured behavior. The three papers become
+      more useful together when these different claims are kept attached to their
+      actual mathematical and experimental tests.
+    guide_locus: ch:SYNTHESIS
+    source_loci: []
+    sections:
+    - id: sec:SYNTHESIS-QUESTIONS
+      title: Three questions about one represented quantity
+      summary: For a circuit representing position, three questions arise. What activity
+        pattern corresponds to each position? How does the represented position evolve
+        when there is no corrective input? How does a downstream physical system transform
+        that changing signal into an observable movement? The place-field model addresses
+        the first question. The persistent-activity model addresses the second. The
+        eye-drift model combines a candidate answer to the second with a detailed
+        answer to the third.[^s-three]
+      guide_locus: sec:SYNTHESIS-QUESTIONS
+      level: 2
+    - id: sec:SYNTHESIS-JOINT-CALCULATION
+      title: How a static map can carry a moving estimate
+      summary: Suppose a network maintains a one-dimensional estimate $x(t)$ and cell
+        $i$ has a fixed expected-rate function $f_i(x)$. Its time-dependent expected
+        rate is
+      guide_locus: sec:SYNTHESIS-JOINT-CALCULATION
+      level: 2
+    - id: sec:SYNTHESIS-COVARIANCE-EXAMPLE
+      title: 'Example: opposite rate changes from the same position error'
+      summary: Let the local slopes of two rate curves be $f_1'=2$ Hz/m and $f_2'=-1$
+        Hz/m. Suppose $D=0.01$ m²/s and the interval is 0.5 s. Then the variance of
+        the common position displacement is $2Dt=0.01$ m². The contributions to rate
+        variance and covariance are
+      guide_locus: sec:SYNTHESIS-COVARIANCE-EXAMPLE
+      level: 3
+    - id: sec:SYNTHESIS-EVIDENCE
+      title: What makes an experimental test restrictive
+      summary: A model that matches one distribution may have enough adjustable parameters
+        to do so for several different reasons. The place-field paper gains support
+        by fitting arrangement parameters and then comparing additional features,
+        including slices and shape statistics. The separate firing-rate multiplier
+        used in some comparisons should remain visible when counting how many quantities
+        were predicted without further fitting. A successful high-threshold formula
+        is also a statement about its limiting assumptions; finite-threshold simulations
+        and the original recordings provide different kinds of checks.
+      guide_locus: sec:SYNTHESIS-EVIDENCE
+      level: 2
+    - id: sec:SYNTHESIS-RELATED
+      title: Related work and what it changes
+      summary: 'The foundational eye-position account is Seung''s line-attractor model.
+        Aksay and colleagues then used recordings and perturbations in goldfish to
+        constrain integrator circuitry. These establish the dynamical problem and
+        experimental architecture behind the 2022 model. Neither supplies the macaque
+        displacement-variance estimate. Burak and Fiete''s earlier grid-cell study
+        puts a related integrator problem in navigation: recurrent population activity
+        is driven by velocity and accumulates path-integration errors. Its accuracy
+        ranges belong to the simulated networks and parameter choices, rather than
+        all biological grid circuits.[^s-attractors]'
+      guide_locus: sec:SYNTHESIS-RELATED
+      level: 2
+    - id: sec:SYNTHESIS-NEXT
+      title: A joint comparison that remains to be done
+      summary: The combined calculation suggests a concrete research direction. For
+        the same population, first estimate the tuning maps with their uncertainty.
+        Then measure fluctuations during periods where external anchoring is weak
+        and test whether their covariance is aligned with changes along those maps.
+        Fit diffusion only over a range where the local approximation and measurement
+        corrections are justified. A downstream behavioral comparison must additionally
+        include the physical or neural filters between representation and measurement.
+      guide_locus: sec:SYNTHESIS-NEXT
+      level: 2
+appendices:
+- id: ch:GLOSSARY
+  title: Glossary
+  purpose: These short definitions support lookup after the explanations and examples
+    in the main chapters.
+  guide_locus: ch:GLOSSARY
+  source_loci: []
+  sections: []
+- id: ch:REFERENCES
+  title: References
+  purpose: Entries follow their first use in the reading path and chapters. The paper's
+    supporting information shares its main article entry. The author's mathematical
+    notes are listed separately because the guide also uses them for the excursion
+    derivation.
+  guide_locus: ch:REFERENCES
+  source_loci: []
+  sections: []

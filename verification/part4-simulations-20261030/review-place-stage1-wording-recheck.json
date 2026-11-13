@@ -1,0 +1,102 @@
+{
+  "reviewer": "sim_sources_place; GPT-6.1-sol high",
+  "started_utc": "2026-10-30T17:10:42+00:00",
+  "completed_utc": "2026-10-30T17:11:27.787303+00:00",
+  "review_wall_elapsed_seconds": 45.79,
+  "root_wall_elapsed_seconds": 1689.79,
+  "awake_execution_time": "unverified",
+  "hashes": [
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\13-simulating-place-fields.md",
+      "sha256": "90ab42f47d8e8e55fb16f2ccf5803ef8e16cba86d8b6b789bb2ec102990a01f0"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\13-simulating-place-fields.yaml",
+      "sha256": "4d62e6fe80ffd75f31c4301263f2723262537758b0c88045eb66ab51ced05285"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\plan\\chapter-plan.yaml",
+      "sha256": "25893ba46e30df0f90fa0f42a37380d182fdb8ef3f82a369a34f9c1eede74eb2"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\index.md",
+      "sha256": "c970fdce84f3017d29bd01ccc844145b13f90051885a3132f66f4cd583038d51"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\guide-project.yaml",
+      "sha256": "8c987de81264d420a12d96a26252a2503352598b7f508cf1a0fab8157d175690"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\references.md",
+      "sha256": "c21bc038ebd58775e4d4e0c4777c8670a004792f31cee0d857c3e9eab28871dd"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\part4-simulations-20261030\\wording-repairs.json",
+      "sha256": "ea3dad4c3c5c32ed2f0dd638ccc56fe3134e20317de52b9f38228f845469a531"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\part4-simulations-20261030\\review-place-stage2.json",
+      "sha256": "511f8175ed698dfd32b1a4b8efc228693a0dec2b79b4de569c58e7a761070d71"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\part4-simulations-20261030\\place-sources.md",
+      "sha256": "305795ee23a5921f4ccd56b4eef7f416dbf0071560fbb2157304ea689e1a01ca"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\research\\mainali-2025-text-columns.txt",
+      "sha256": "cce98f83623e8304d96ca0c156587320eafb60ac81278a2c2863250371e04dc1"
+    },
+    {
+      "path": "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md",
+      "sha256": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+    },
+    {
+      "path": "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md",
+      "sha256": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+    }
+  ],
+  "limits": [
+    "Read-only review; no manuscript edits.",
+    "Stage3 was not requested or performed. No builds, visual checks or figure acceptance."
+  ],
+  "token_stats": "unavailable",
+  "stage": "1 focused meaning recheck after wording repair",
+  "local_request_id": "root-request-place-stage1-wording-recheck-20261030",
+  "scope": "RMS divisor, grid field edges, numerical volume exclusion, Gudhi role, and connected meaning changes only",
+  "verdict": "pass",
+  "findings": [],
+  "passage_answers": [
+    {
+      "location": "ch20 generation step3",
+      "actual": "Divide each map by the square root of the mean of its squared grid values, its root mean square. This sets its sampled root mean square to one.",
+      "answer": "The archived divisor is sqrt(mean(field**2)), not standard deviation after mean subtraction. For any nonzero array y, mean((y/sqrt(mean(y**2)))**2)=1. The generated nonzero continuous-noise arrays have positive RMS with probability one. The wording is correct for the described generated maps; no code listing promises behavior for an arbitrary zero array."
+    },
+    {
+      "location": "ch20 lengths/gaps bullet",
+      "actual": "The archived implementation places field edges at grid-bin boundaries.",
+      "answer": "The code groups consecutive nonzero/zero entries and uses count times resolution. It does not interpolate a continuous crossing between sample values. The repair states that same bin-based measurement in plain words."
+    },
+    {
+      "location": "ch20 volumes bullet",
+      "actual": "The reported analysis removes fields more than three standard deviations above the mean volume as probable mergers.",
+      "answer": "STAR Fields in 3D, e3/PDF15, identifies outliers larger than three standard deviations from the mean and removes them, including slices, as likely merged fields. The new explicit upper-tail mean+3SD wording correctly replaces exceptionally large; it does not substitute the package default fraction cutoff."
+    },
+    {
+      "location": "ch20 connectedness/holes bullet",
+      "actual": "use the Gudhi Python library to calculate Betti numbers and form their alternating sum, the Euler characteristic",
+      "answer": "STAR Euler characteristics explicitly uses Gudhi Python library and the alternating sum. Calling it a Python library establishes its role without changing the topological meaning."
+    },
+    {
+      "location": "ch20 finite-map and preprocessing paragraphs",
+      "answer": "The deleted distinction-matters announcement and very-objects sentence contained no unique premise. Smoothing, normalization and edge effects remain stated, and the concrete component/peak/hole consequences remain. No qualification was lost."
+    },
+    {
+      "location": "ch20 wiring/width/tools/code-note punctuation changes",
+      "answer": "Period splits preserve possible wiring origin, absence of a recurrent circuit in the code, ideal-width limits, software requirements, and the unexecuted-run qualification. No source claim was strengthened."
+    },
+    {
+      "location": "PartsII/III/IV author verbs, source labels, purpose and order wording",
+      "answer": "Changing author-group verbs to plural changes grammar only. The labels keep their definitions; the five distinct hardware contributions stay separate; proposed design and guide-derived experiment limits remain. Removing actual and simplest removes unneeded emphasis, not a scientific premise."
+    }
+  ]
+}

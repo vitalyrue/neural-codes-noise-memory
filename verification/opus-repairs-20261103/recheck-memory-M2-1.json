@@ -1,0 +1,23 @@
+{
+  "request_id": "local-request-root-recheck-memory-M2-1-20261103",
+  "reviewer": "/root/review_repaired_memory, independent Codex GPT-6; exact variant/reasoning not exposed",
+  "started_at": "2026-11-03T16:55:04.4032654+02:00",
+  "finished_at": "2026-11-03T14:55:21.888454+00:00",
+  "wall_clock_seconds": 17.485189,
+  "awake_execution_time": "Unverified; sleep/resume events not audited",
+  "finding_id": "M2-1",
+  "decision": "resolved",
+  "source": "content/chapters/03b-memory-readout.md",
+  "source_sha256": "474505bf2edc0e7817de9c6172e9b2baf16eddb7612033032741014faa0e0ca4",
+  "paragraph_line": 187,
+  "paragraph_text": "Applying $\\tanh$ to both sides and multiplying by $a$ gives the precision",
+  "paragraph_sha256": "86408e30adf23d41a2a5907d9e5d374f92665dd8ae6a711d854dca77f2e0876f",
+  "connected_lines": [
+    179,
+    197
+  ],
+  "operation_check": "From artanh(P/a)=kL, apply tanh to obtain P/a=tanh(kL), then multiply by a to obtain P=a*tanh(kL). Substituting a=sqrt(J/(2D)) and k=sqrt(2DJ) gives exactly line190. Taking 1/P is a distinct subsequent operation and is correctly assigned to variance at193.",
+  "wording_check": "The new sentence names both operations in their correct order and identifies the result as precision. It no longer assigns a reciprocal to the precision equation. Tanh/artanh and a/k are defined immediately at179.",
+  "scope_limit": "Focused operation and wording recheck only. No source edits and no full flow acceptance.",
+  "token_stats": "unavailable"
+}

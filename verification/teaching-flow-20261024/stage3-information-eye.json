@@ -1,0 +1,168 @@
+{
+  "stage": "3. Reader understanding and flow",
+  "reviewer": "independent information-eye reader",
+  "started_at": "2026-10-24T19:42:08.6884762+03:00",
+  "scope": "Current proposed Chapters 3 and 4, their YAML reader fields, needed earlier teaching, reading guide and Part framing. Separate focused wording recheck of equal decay times.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra. Neuroscience, stochastic processes, information and filtering must be taught by this guide.",
+  "method": "Read actual target prose and YAML first, without earlier verdicts or writer explanations. Trace closed-note path, then open each local note for proof re-entry. End with a connected read of the affected path. Do not repeat completed scientific source audit.",
+  "answers": [
+    {
+      "location": "00-reading-guide.md:3-55; proposed/plan/chapter-plan.yaml:7-28",
+      "question": "What is the book teaching, and why this order?",
+      "answer": "The reader must distinguish a constraint on memory dynamics, evidence about movement, and a model of spatial activity. The opening gives each paper's question, method, result and limit before the detailed route. The first Part builds stored-value dynamics then information; the second relates a stored value to eye motion and later distinguishes that from spatial tuning. The book title covers those three purposes. Moving eye drift before Chapter 3 would give an earlier experiment, but its later diffusion scaling would rely on information not yet taught. The present path is justified. This local call does not approve the unread teaching in Chapters 5 and 6.",
+      "verdict": "retain"
+    },
+    {
+      "location": "01-foundations.md:27-104,159-218; 02-memory-dynamics.md:105-214",
+      "question": "Which earlier knowledge is actually available?",
+      "answer": "The reader has Poisson means and variances, conditional versus whole-train independence, covariance and correlation, Brownian increments and their shared-time covariance, left/right zero vectors, their normalization and projected diffusion. Those visible passages supply the probability and dynamical relations used below. The Poisson variance proof may stay closed because the variance result and an averaging example stay visible. Linear algebra and differentiation belong to the audience baseline.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:1-74; YAML figure MEMORY-TUNING-INFORMATION",
+      "question": "Can the reader explain what information measures here?",
+      "answer": "The opening asks whether nearby memories give distinguishable spike counts. Likelihood precedes log likelihood, score and its expected square. Conditional independence removes cross terms and the Poisson variance supplies each denominator. Thus the reader can explain J as local distinction per time and Jh as information collected in a duration. The tuning figure compares equal slopes with extra baseline noise. The visible short Cramer Rao proof then explains why inverse information is an error scale. No folded note supplies a missing step.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:76-129",
+      "question": "Does the bound follow using previously taught quantities?",
+      "answer": "The reader must connect how a fluctuation changes stored value with how rates distinguish stored values. The chapter recalls 2D, u and v normalization before defining two vectors. Their dot product and squared lengths expose the Cauchy Schwarz step, and units and lower-bound interpretation follow the formula. The equality paragraph states the pointwise condition and explains why exponential transfer is sufficient. It also states that the common ratio may vary by state, preserving the limit with the following note closed.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:131-149",
+      "question": "Can the linear-rule check be closed and later reopened?",
+      "answer": "With it closed, the reader retains the general equality condition and the fact that exponential transfer is sufficient rather than necessary. No later calculation needs this counterexample's numerical values. On opening, the note identifies the Chapter 2 mutual-excitation family, resets bias and transfer rule, supplies u, v, rates and slopes, and computes 2DJ. The conclusion identifies the precise missing restriction in a converse. The later Gaussian-noise paragraph can use the already visible general condition even if this check is skipped.",
+      "verdict": "retain fold"
+    },
+    {
+      "location": "03-memory-information.md:151-176; YAML figure MEMORY-BOUND-STRICTNESS",
+      "question": "What does the visible two-cell example add?",
+      "answer": "It prevents a lower allowed bound from being mistaken for actual improvement. The same established inhibition model first attains the bound and then has higher information with unchanged diffusion. Rates, slopes, units and both calculations remain visible before the plot. The paragraph after the plot reads its gap. This is the simplest direct case for that distinction and does not depend on the folded mutual-excitation counterexample.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:178-194",
+      "question": "Can the matrix proof be closed without losing interpretation?",
+      "answer": "The visible path defines J by coordinates, defines the matrix order through every test vector, gives U and V and their three identities, and states the invertibility condition. The reader can interpret the result for a coupled direction before opening the short residual proof. The proof defines Q from those matrices and returns directly to the displayed bound. No later scalar comparison requires the residual expansion.",
+      "verdict": "retain fold"
+    },
+    {
+      "location": "03-memory-information.md:196-229",
+      "question": "Why are network comparisons here?",
+      "answer": "Once the reader knows a bound for one network, the next useful question is which changes improve it. Population, rate, time constant and width comparisons each state what is held fixed. The width integral counts both recruited cells and weaker slopes before interpreting dimensions. An alternative firing budget changes that interpretation. Moving this before the information calculation would leave the chosen comparison quantity unexplained.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:231-273; YAML figure MEMORY-READOUT-TIMELINE",
+      "question": "Can the reader distinguish storage loss and reading error?",
+      "answer": "The target is the original encoded value, while future spikes first estimate the cue state. The text defines both errors, expands total variance, and supplies the conditional-mean argument for zero covariance. Constant D, no drift, local unbiasedness, future independence and translation invariance appear before addition is used. The timeline restates these distinct times. The following Gaussian-bin model defines transition and observation variances and explains what y summarizes before either decoder uses it.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:275-327",
+      "question": "Can the reader explain why equal weighting has an optimum?",
+      "answer": "The Brownian covariance has already been taught and is recalled locally. The independent observation contribution falls as 1/L; the double integral computes the increasing motion contribution explicitly. Differentiating their sum gives the useful interval. The final paragraph links worsening after that interval to equal weighting of a moving state. The whole derivation remains visible, which is appropriate because the ideal-reader comparison relies on it.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:328-402",
+      "question": "Can the reader follow ideal readout without knowing a Kalman filter?",
+      "answer": "Precision is defined and its addition is checked by multiplying Gaussian likelihoods. Carrying later information backward adds transition variance; the next observation then adds precision. The recursion, expansion, differential equation and elementary integration are all shown. Hyperbolic functions are defined before use. The closing limits and numerical ratios explain characteristic saturation rather than an abrupt stopping time. No specialist filter knowledge is needed to supply the argument.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:404-427",
+      "question": "What changes with limited access?",
+      "answer": "Independent thinning changes both rates and slopes, so the reader can substitute into the already taught J formula. Network diffusion remains fixed while observed information falls. The numerical example then separates longer useful readout from unchanged storage loss. The selected-neuron qualification prevents equating any retained fraction with information fraction. Its placement after full access makes the controlled comparison readable.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:429-475",
+      "question": "Are the extensions properly prepared?",
+      "answer": "The two-time-constant case reuses the earlier left-vector method, but supplies the enlarged state, matrix blocks, normalization and noise placement before the new bound. The Gaussian case changes the variance law explicitly before changing J and equality weights. These are extensions of the core derivation, so they belong after the scalar and readout results. The calculations remain available in full and their scope stays visible.",
+      "verdict": "retain"
+    },
+    {
+      "location": "03-memory-information.md:477-512; 04-eye-drift.md:1-13; YAML figure MEMORY-READOUT-CURVES",
+      "question": "Does the chapter ending lead into behavior without overclaiming?",
+      "answer": "The normalized figure can now be read from both derived decoder formulas. The printed-bound caution uses the established inequality and readout limit, and the strict numerical case shows the logical difference. The final paragraph distinguishes diffusion from leak and lists the measurements needed in an animal. Chapter 4 then asks where eye movement starts and says that mechanics intervene between stored position and movement. This is a meaningful handoff, not a new unexplained biological conclusion.",
+      "verdict": "retain"
+    },
+    {
+      "location": "04-eye-drift.md:7-61; YAML figure EYE-PHYSICAL-AND-RECORDED",
+      "question": "Can the reader distinguish pathway, recording and calibration?",
+      "answer": "The text explains the continuing position command, integrator, OMNs and plant before introducing the recordings. It identifies paired single-cell measurements, segments and animal count before interpreting population evidence. Large movements motivate gain calibration before the fit formula appears. Rate prediction includes position, velocity, acceleration, units, time lead and fitting procedure. The diagram's text separates physical forward action from the later calculation. Thus reverse analysis does not look like a reversed physical signal.",
+      "verdict": "retain"
+    },
+    {
+      "location": "04-eye-drift.md:63-153",
+      "question": "Can the two inverse-filter notes be closed and reopened?",
+      "answer": "The visible path defines causality and response, explains exponential components, factors the quadratic, states the nonoscillatory conditions, displays both decay times and the kernel, and defines spike convolution and units. The first note only checks the two coefficients; it re-enters from the same differential equation and states the two initial jump conditions. The visible constructed example still checks static gain with actual numbers. The second note generalizes that check and supplies the equal-time limit. Closing both leaves the calibration and subsequent covariance reasoning intact. Opening either needs only the visible fit and kernel immediately before it.",
+      "verdict": "retain folds"
+    },
+    {
+      "location": "04-eye-drift.md:155-265; YAML figure EYE-SHARED-PRIVATE-VARIANCE",
+      "question": "Can the reader explain why R=0.17 and a common fraction near 0.82 differ?",
+      "answer": "The best linear prediction derives R squared before the independent-population residual bound. Only then does the text estimate common variance using covariance on the calibrated degree scale. It gives the unit common-gain and uncorrelated-contribution conditions before reducing the covariance. The constructed example makes the different denominators numerical, and its figure uses the same variance scale. Weighting and uncertainty are taught after the single-cell estimate. This order keeps evidence for shared drive separate from its estimated size.",
+      "verdict": "retain"
+    },
+    {
+      "location": "04-eye-drift.md:267-410; YAML figures EYE-MSD-MEASUREMENT-OFFSET and EYE-FILTERED-NOISE-MSD",
+      "question": "Can the reader explain the measurement correction and the different MSD shapes?",
+      "answer": "The text moves from one displacement interval to many lags, recalls MSD, and expands the two-endpoint measurement error before subtracting its offset. The uncertainty example explains why a positive corrected point can still be unreliable. Local logarithmic slope, white noise and stationary process are then defined before the kernel covariance calculation. For Brownian input the velocity equation, exponential covariance and integrated displacement provide the alternative shape. The plot captions explicitly use different vertical normalizations and identify the one-exponential teaching model. The full muscle model's differences are described afterward, preventing the simple example from replacing it.",
+      "verdict": "retain"
+    },
+    {
+      "location": "04-eye-drift.md:412-549",
+      "question": "Can the reader follow the model and interpret its adjustable scale?",
+      "answer": "The common-drive evidence first motivates testing a noisy integrator. Rates, synaptic variables, saturation and their units are supplied before the fixed-point reduction. G(z)=z and its derivative distinguish approximate persistence from merely recurrent equations. Motor filtering reuses the previously taught forward equation; visual feedback then adds a separately interpreted loop. Scaling follows the complete mechanism, recalls CV, derives the regular-interval count variance, and distinguishes absolute and fractional slopes before interpreting parameter changes. Earlier Chapter 3 supplies J and the conditional nature of scaling. Moving this before the measurement argument would blur a tested shared contribution with one possible source.",
+      "verdict": "retain"
+    },
+    {
+      "location": "04-eye-drift.md:551-569; YAML table EYE-FIGURE-GUIDE",
+      "question": "Does the ending preserve the evidence hierarchy?",
+      "answer": "The figure table maps the five figures onto calibration, shared variance, MSD, internal diffusion and the full coupled model. Its cells tell readers what each axis or comparison establishes. The closing paragraphs separate the upstream inference from unique localization inside integrator neurons, identify the missing direct measurement and intervention, and return to stored value versus mechanical output. That prepares the next Part-level distinction between dynamics and spatial maps without requiring new biology.",
+      "verdict": "retain"
+    }
+  ],
+  "focused_wording_recheck": {
+    "location": "04-eye-drift.md:139-149",
+    "before": "Check: static gain and coincident decay times",
+    "after": "Check: static gain and equal decay times",
+    "answer": "Equal decay times directly says that tau plus and tau minus have the same value. The note already describes that limit and r squared equals 4km. No mathematical condition or neighboring connection changes. Static gain is explained immediately in the note by constant input and kernel area, and checked numerically in the preceding visible example.",
+    "verdict": "retain replacement; focused wording recheck complete"
+  },
+  "final_connected_read": "The path begins with information in rates, links it to already taught projected motion, distinguishes a bound from achieved diffusion, then asks how a moving state can be read. It ends by identifying the extra biological and mechanical checks needed for eye movement. Chapter 4 follows physical pathway, paired recordings, calibrated prediction, shared-drive evidence, common fraction, MSD correction, temporal explanation and one possible circuit. All four local notes can remain closed without withholding a premise needed by the next main-text section. Full calculations re-enter beside the result they check. No passage encountered in this final connected read requires a new repair within the assigned scope.",
+  "unresolved_findings": [],
+  "optional_preferences": [],
+  "limits": [
+    "Source text and reader-field review only. Browser fold controls, pixels and image fidelity are handled separately by the coordinator.",
+    "Earlier scientific source and arithmetic checks are not repeated by this flow call.",
+    "Book and Part order judged for the Chapter 3 and 4 reading path. Unread Chapter 5 and 6 teaching is not accepted by this call.",
+    "Awake execution time is unverified; no Windows sleep/resume audit was performed in this bounded review."
+  ],
+  "verdict": "pass for the declared Stage 3 scope",
+  "token_stats": "Token stats unavailable",
+  "source_hashes": {
+    "proposed/content/chapters/00-reading-guide.md": "f42b99456307264d4db911e1c0e25dce4f2b8cac4cc14fbc5e9562768085a67d",
+    "proposed/content/chapters/00-reading-guide.yaml": "5aeea6f89aa0931428768553757e3b8075106920a37659af467215756afad94b",
+    "proposed/content/chapters/01-foundations.md": "b0d93525d1351460a7c293bfdf87adbe6aa33a19e60e4f863ff542c1b0945660",
+    "proposed/content/chapters/01-foundations.yaml": "b7ed82ddaeb1f91c8af7feaca859c73a025b198d48e72dbd569fdd3a46359170",
+    "proposed/content/chapters/02-memory-dynamics.md": "52da9b34db42a3231571ec0b8ecf3a90e840039cf889eba40d18443c4ff2e0a6",
+    "proposed/content/chapters/02-memory-dynamics.yaml": "ad1823460af904ea6f545a12871973a824de9d0a7e54e10bedfb54042ca99512",
+    "proposed/content/chapters/03-memory-information.md": "3b7b31f18eede72f48ffce697f4dee991616fcb923f68a02dc2291bdd18cf035",
+    "proposed/content/chapters/03-memory-information.yaml": "c42aa864ed858e5a6d27eb1b10bcd41fb03a617808d675d1e8594f7a980f8d4f",
+    "proposed/content/chapters/04-eye-drift.md": "c46c3199f76ebaa22de5a1a199d3de01206e21bdf010067e6b44b695f34380ea",
+    "proposed/content/chapters/04-eye-drift.yaml": "18bd1fcaad4752ec5fce029c43f91c6e8bf78969b0f830d2f0fbd3b9a9ee6c0f",
+    "proposed/plan/chapter-plan.yaml": "ec3e334f2be0d71ffe12f8e61dbce06a356e1abd47c67341e4d98e2277722aac"
+  },
+  "rule_hashes": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+  },
+  "finished_at": "2026-10-24T19:44:29.4885179+03:00",
+  "review_wall_seconds": 141.0,
+  "root_wall_minutes": 50.1
+}

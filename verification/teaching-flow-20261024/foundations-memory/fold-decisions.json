@@ -1,0 +1,55 @@
+{
+  "accepted_candidates": [
+    {
+      "file": "01-foundations.md",
+      "section": "sec:FOUNDATIONS-POISSON",
+      "title": "Derivation: why a Poisson count has variance equal to its mean",
+      "visible_premise": "Constant-rate Poisson law and lambda=r*Delta t, with dimensionless expected count.",
+      "visible_result": "E[K]=lambda and Var(K)=lambda, immediately before the fold.",
+      "visible_conditions": "Constant rate, stated count interval and distribution.",
+      "hidden_exact_span": "The variance follows directly from the first two factorial moments. Summing $k\\Pr(K=k)$ gives $\\lambda$. Likewise, summing $k(k-1)\\Pr(K=k)$ gives $\\lambda^2$. Since $K^2=K(K-1)+K$,\n\n$$\n\\mathbb E[K^2]=\\lambda^2+\\lambda,\n\\qquad\n\\operatorname{Var}(K)=\\mathbb E[K^2]-\\mathbb E[K]^2=\\lambda.\n$$",
+      "hidden_sha256": "7cafccb83d771abba215b7e20115100e5b336742819d4df94667788070877a1e",
+      "later_uses": "Relative standard deviation, silent-cell example and pooled population counts; Chapter 2 uses conditional Poisson covariance.",
+      "closed_path": "All uses need the visible distribution and moments, not the factorial-moment proof. No definitions, figures, IDs or typed blocks enter the fold."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "section": "sec:MEMORY-LONG-TIME",
+      "title": "Derivation: from random increments to the memory density equation",
+      "visible_premise": "p(theta,t) is a trial density initialized at Theta; Itô evaluates the noise coefficient at the beginning of each increment.",
+      "visible_result": "The zero-drift Fokker Planck equation and point-mass initial condition precede the proof, followed by Gaussian line and wrapped-ring interpretations.",
+      "visible_conditions": "Zero-drift diffusion approximation, constant D and unbounded line for the Gaussian; the ring wrapping and error convention remain visible. The variable-D moment paragraph separately retains its vanishing-boundary-term condition.",
+      "hidden_exact_span": "To pass from random increments to a density equation, choose any smooth function $F(\\theta)$. In a short interval $dt$, the zero-drift Itô increment has conditional mean zero and conditional second moment $2D(\\theta)dt$. Taylor expansion at the starting coordinate gives\n\n$$\n\\begin{aligned}\n\\mathbb E[F(\\theta+d\\theta)-F(\\theta)\\mid\\theta]\n&=F'(\\theta)\\mathbb E[d\\theta\\mid\\theta]\n+\\tfrac12F''(\\theta)\\mathbb E[(d\\theta)^2\\mid\\theta]+o(dt)\\\\\n&=D(\\theta)F''(\\theta)dt+o(dt).\n\\end{aligned}\n$$\n\nThe higher-order terms vanish faster than $dt$ in this diffusion approximation. Averaging over the starting-coordinate density and dividing by $dt$ gives\n\n$$\n\\frac{d}{dt}\\int F(\\theta)p(\\theta,t)\\,d\\theta\n=\\int F''(\\theta)D(\\theta)p(\\theta,t)\\,d\\theta.\n$$\n\nTake $F$ to vanish outside an interior region, or use boundaries for which the integration terms vanish. Integrating by parts twice moves both derivatives from $F$ onto the product $Dp$. Because the resulting identity holds for every such smooth $F$, it gives the Fokker Planck equation shown above.",
+      "hidden_sha256": "28d9e06d478a40266094159b8aefc0eb1e82f1bdba05ff24abdd978139050434",
+      "later_uses": "Gaussian spreading and wrapped-ring error, then dE[theta]/dt and dVar(theta)/dt identities. Chapter 3 uses the constant-D Brownian model taught in Chapter 1.",
+      "closed_path": "All needed equations, meanings, limits and figures are visible. The optional smooth-test-function/Taylor/integration-by-parts calculation only verifies the density equation. Its local compact-support or boundary-term premise remains inside its own proof. No main heading, first-definition span, typed block or image is hidden."
+    }
+  ],
+  "retained_visible": [
+    {
+      "section": "sec:FOUNDATIONS-DIFFUSION",
+      "span": "Brownian covariance proof and 2D min(s,t) result",
+      "reason": "Chapter 3 needs the path-covariance reasoning for observation error. Keep the short proof connected to its result."
+    },
+    {
+      "section": "sec:MEMORY-DIFFUSION",
+      "span": "Multiple-coordinate diffusion tensor",
+      "reason": "The first definition must remain visible; its matrix formula also teaches why independent cell noise can couple represented coordinates."
+    },
+    {
+      "section": "sec:MEMORY-LINEARIZATION",
+      "span": "Left/right vector construction and tilted-flow example",
+      "reason": "This is the chapter mechanism and needed for Chapter 3 information-bound reasoning."
+    },
+    {
+      "section": "sec:MEMORY-SYMMETRIC",
+      "span": "Symmetric-weight derivation and inhibition example",
+      "reason": "The normalization and squared numerator prepare the next chapter and make the source discrepancy checkable."
+    },
+    {
+      "section": "sec:MEMORY-LONG-TIME",
+      "span": "Variable-D moment calculation and mutual-excitation example",
+      "reason": "This shows that varying D need not curve variance; hiding it would leave the section title and long-time claim less well explained."
+    }
+  ]
+}

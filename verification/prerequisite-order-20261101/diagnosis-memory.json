@@ -1,0 +1,784 @@
+{
+  "schema_version": 1,
+  "review": "initial diagnosis only; later acceptance calls separate",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "review_completed_utc": "2026-11-01T13:39:55Z",
+  "awake_execution_time": "unverified",
+  "scope": "Frontmatter and Part I; all seven canonical Markdown files and all seven sidecars read fully, including equations, tables, captions, alt text and fold contents. Plan global and Part purposes/order read.",
+  "audience": "Undergraduate calculus, basic linear algebra and ordinary expectation, variance, standard deviation and probability density. Neuroscience and specialized process/information tools must be taught.",
+  "historical_verdicts_read": false,
+  "memory_files_used": false,
+  "method": "Direct passage review; do not claim semantic acceptance from extraction or hashes. Parent coordinates any whole-guide concept-index tooling.",
+  "overall": {
+    "chapter_order": "Sound: signals/model -> persistence/neutral geometry -> projected diffusion -> long delay/boundaries/drift -> information bound -> readout. No chapter move justified.",
+    "main_path_issue": "Several definitions/results needed by later main text occur only in always-folded explanations, despite reading-guide lines 118 and 145 offering a first pass in which necessary explanations stay in main text.",
+    "full_expanded_path": "Most teaching is earlier when folds are opened. Remaining local repairs concern symbol roles and continuous-noise notation."
+  },
+  "findings": [
+    {
+      "id": "MEM-P2-01",
+      "priority": "P2",
+      "concept": "Brownian increments and their scale",
+      "earliest_dependent_use": {
+        "file": "content/chapters/02-memory-dynamics.md",
+        "lines": [
+          40,
+          46
+        ],
+        "reason": "The model replaces count fluctuations with sqrt(r_i)dB_i; reader must know what random increment dB_i is and its variance to interpret the replacement and units."
+      },
+      "teaching": [
+        {
+          "file": "content/chapters/01b-persistence.md",
+          "lines": [
+            124,
+            152
+          ],
+          "status": "adequate Brownian process definition inside always-folded note, especially line142; does not explicitly bridge dB to B(t+dt)-B(t)"
+        },
+        {
+          "file": "content/chapters/02-memory-dynamics.md",
+          "lines": [
+            180,
+            185
+          ],
+          "status": "increment covariance appears later at dependent diffusion calculation"
+        }
+      ],
+      "minimal_repair": "Keep a short Brownian definition/scale on main reading path before first stochastic equation. Explicitly connect dB_i to a Brownian increment with mean zero and variance dt; leave derivation in fold. This is not a request to teach general stochastic integration."
+    },
+    {
+      "id": "MEM-P2-02",
+      "priority": "P2",
+      "concept": "Likelihood meaning before Gaussian readout",
+      "earliest_dependent_use": {
+        "file": "content/chapters/03b-memory-readout.md",
+        "lines": [
+          19,
+          32
+        ],
+        "reason": "Gaussian likelihood is converted to an equivalent observation model; later backward precision calculation combines likelihoods."
+      },
+      "teaching": [
+        {
+          "file": "content/chapters/03-memory-information.md",
+          "lines": [
+            80,
+            115
+          ],
+          "status": "adequate likelihood and score teaching, but entirely inside always-folded derivation; definition at82"
+        }
+      ],
+      "minimal_repair": "Make the short likelihood definition available in main text near Fisher information, with its distinction from a probability over angles. Retain log-likelihood/score algebra folded. A short reminder in readout may suffice if it supplies this meaning before the observation model."
+    },
+    {
+      "id": "MEM-P2-03",
+      "priority": "P2",
+      "concept": "Finite-time ideal readout result and coth",
+      "earliest_dependent_use": {
+        "file": "content/chapters/03b-memory-readout.md",
+        "lines": [
+          212,
+          218
+        ],
+        "reason": "The main text gives numerical finite-duration variance ratios that require the finite-time solution, and line330 later states a coth curve."
+      },
+      "teaching": [
+        {
+          "file": "content/chapters/03b-memory-readout.md",
+          "lines": [
+            166,
+            203
+          ],
+          "status": "solution, finite-time formula and hyperbolic function definitions only inside always-folded mathematical solution"
+        }
+      ],
+      "minimal_repair": "Keep finite-time result and compact function meaning on main path before numerical interpretation; fold only integration steps. Do not move the whole proof."
+    },
+    {
+      "id": "MEM-P2-04",
+      "priority": "P2",
+      "concept": "Continuous white-noise term in two-time-scale model",
+      "earliest_dependent_use": {
+        "file": "content/chapters/03b-memory-readout.md",
+        "lines": [
+          273,
+          278
+        ],
+        "reason": "xi_i is added to a time derivative. Earlier model used increments sqrt(r_i)dB_i, while xi_i is described only as zero-mean noise with 'same Poisson strength'. Without temporal covariance/increment meaning the reader cannot see what random process is specified or why diffusion remains sum a_i^2 r_i at298."
+      },
+      "teaching": [
+        {
+          "file": "content/chapters/02-memory-dynamics.md",
+          "lines": [
+            40,
+            46
+          ],
+          "status": "increment form for noise; no corresponding definition of white-noise derivative xi_i"
+        },
+        {
+          "file": "content/chapters/03b-memory-readout.md",
+          "lines": [
+            278,
+            298
+          ],
+          "status": "strength and placement are mentioned, but bridge between xi_i dt and Brownian increments absent"
+        }
+      ],
+      "minimal_repair": "Introduce xi_i as idealized white noise through its increment meaning or write this equation using the already-taught increment form. State independence and local variance scale at the same point. No extra white-noise calculus chapter needed."
+    },
+    {
+      "id": "MEM-P3-05",
+      "priority": "P3",
+      "concept": "Centered spike-count increment dM_i",
+      "earliest_dependent_use": {
+        "file": "content/chapters/02-memory-dynamics.md",
+        "lines": [
+          28,
+          37
+        ],
+        "reason": "The text says the count is split, then introduces dM_i without explicitly equating it to count minus conditional mean."
+      },
+      "teaching": [
+        {
+          "file": "content/chapters/02-memory-dynamics.md",
+          "lines": [
+            28,
+            37
+          ],
+          "status": "role is strongly implied by split and moment conditions; short explicit definition would remove inference"
+        }
+      ],
+      "minimal_repair": "Give dM_i=dN_i-r_i dt before or in the split. This is a local symbol-role repair, not a missing probability prerequisite."
+    }
+  ],
+  "optional_role_repairs": [
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "lines": [
+        40,
+        46
+      ],
+      "symbol": "F_i",
+      "assessment": "Algebra defines F_i adequately; useful short lead-in would call it mean activation change per time."
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "lines": [
+        79,
+        88
+      ],
+      "symbols": [
+        "K",
+        "R"
+      ],
+      "assessment": "Definitions are mathematically available within the matrix equation. Useful plain lead-in: K gives first-order return/feedback response acting on activation disturbances; R collects local spike increment variance strengths. Do not label this missing standard linear algebra."
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "lines": [
+        108,
+        116
+      ],
+      "symbol": "v",
+      "assessment": "Existing purpose appears just after equations. Moving that purpose sentence before equations helps the reader know why v is introduced; retain normalization explanation after."
+    }
+  ],
+  "false_positives_resolved": [
+    {
+      "item": "Frontmatter paper results, appendix map and Part introductions",
+      "resolution": "Previews with plain descriptions and future links; no dependent calculation requires full Fisher information, filtering, random-field or matrix proofs here."
+    },
+    {
+      "item": "Poisson process first appears before its binomial-limit derivation",
+      "resolution": "Distribution, count/rate meanings and mean/variance are explicitly supplied before examples. Proof may remain folded; ordinary expectation and variance are assumed."
+    },
+    {
+      "item": "Dirac delta follows first spike equation by one paragraph",
+      "resolution": "The equation is immediately unpacked into pulse, time constant and one-unit activation jump before reasoning continues. No displaced teaching or glossary dependence."
+    },
+    {
+      "item": "Covariance and correlation",
+      "resolution": "Plain definitions in Ch1 main text at278 precede their later use. Formal formula folded but Ch6 supplies Brownian covariance formula and shared-increment explanation at74-80 before integrating; no need to move full Ch2 covariance derivation."
+    },
+    {
+      "item": "State/fixed point/continuous attractor",
+      "resolution": "Definitions in Persistence57-59 precede two-cell disturbance reasoning and the later linearized model."
+    },
+    {
+      "item": "Left/right eigenvectors and projection",
+      "resolution": "Ch3 derives tangent and zero-eigenvector meaning before projecting noise; no prerequisite for a full abstract eigentheory lesson beyond assumed linear algebra."
+    },
+    {
+      "item": "Multidimensional diffusion tensor appears in equation before name",
+      "resolution": "Coordinate tangents, dual normalization and same covariance calculation define entries at196-200; meaning is then unpacked at211. A short lead-in is possible but no substantial concept-order gap."
+    },
+    {
+      "item": "Information formula before score derivation",
+      "resolution": "Main text defines local distinguishability, explains sensitivity vs noise with a count example and gives single/population formulas before Cramer Rao use. Score proof can stay folded except its likelihood definition is needed later."
+    },
+    {
+      "item": "Cramer Rao and Cauchy Schwarz proofs folded",
+      "resolution": "Main text supplies estimator, unbiasedness, smoothness scope and bound before use; undergraduate linear algebra plus immediate dot-product explanation supports following information-diffusion proof."
+    },
+    {
+      "item": "Mutual excitation and inhibition transfer rule",
+      "resolution": "Ch3 defines phi(g)=g/tau on positive range before Ch4 says same linear rule; coordinate and positive-domain restrictions are explicit."
+    },
+    {
+      "item": "Ito and Stratonovich",
+      "resolution": "Beginning-of-increment vs midpoint conventions are taught in Ch4 main text before convention-dependent drift interpretation; details may stay folded."
+    },
+    {
+      "item": "tau_m has prior torque meaning in folded eye mechanics",
+      "resolution": "Readout explicitly redefines it as response time; different chapter/domain and units prevent an order gap."
+    },
+    {
+      "item": "Dimensionless z in Fig3 text",
+      "resolution": "Line330 states duration is rescaled by L*, from which z=L/L* follows; sidecar alt explicitly writes z=L sqrt(2DJ). A local explicit equality could help but not a separate substantial prerequisite gap."
+    }
+  ],
+  "dependency_map": [
+    {
+      "concept": "spike, firing rate, motor neurons, tension, torque, elasticity/viscosity/inertia",
+      "teaching": "01-foundations.md:16-31",
+      "availability": "main",
+      "supports": "Eye chapters, hardware and eye simulation interpretations."
+    },
+    {
+      "concept": "synapse, excitation/inhibition, recurrent connectivity",
+      "teaching": "01-foundations.md:37-44",
+      "availability": "main",
+      "supports": "All recurrent circuit chapters."
+    },
+    {
+      "concept": "activation s_i, count N_i, decay tau, spike times/pulses",
+      "teaching": "01-foundations.md:48-78",
+      "availability": "main",
+      "supports": "Memory projection, two-stage models and simulation updates."
+    },
+    {
+      "concept": "input g_i, weights W_ij, bias b_i, transfer phi, feedback cycle",
+      "teaching": "01-foundations.md:80-104",
+      "availability": "main",
+      "supports": "Memory dynamics, eye circuits, hardware, simulations."
+    },
+    {
+      "concept": "tuning curve, population code, encoding and decoding",
+      "teaching": "01-foundations.md:108-118",
+      "availability": "main",
+      "supports": "Fisher information, eye rate calibration, spatial models."
+    },
+    {
+      "concept": "place cell/field, rate map, CA3/CA1, grid cells",
+      "teaching": "01-foundations.md:123-131",
+      "availability": "main",
+      "supports": "Part II place-field and Part IV spatial-simulation chapters."
+    },
+    {
+      "concept": "Poisson count distribution, rate-dependent variance, conditional independence",
+      "teaching": "01-foundations.md:135-148,226-264",
+      "availability": "main with worked example folded",
+      "supports": "Spike noise, information rate and simulation spike draws."
+    },
+    {
+      "concept": "shared/private variation, covariance, correlation, displacement MSD/bias separation",
+      "teaching": "01-foundations.md:268-352",
+      "availability": "plain meaning main; formal covariance algebra folded",
+      "supports": "Eye shared-drive inference, lag statistics, synthesis and measurement cautions."
+    },
+    {
+      "concept": "neural integrator and plasticity",
+      "teaching": "01b-persistence.md:43-45",
+      "availability": "main",
+      "supports": "Eye circuit model, hardware persistence and integrator examples."
+    },
+    {
+      "concept": "state, fixed point, continuous attractor/manifold and neutral direction",
+      "teaching": "01b-persistence.md:53-61",
+      "availability": "main; explicit two-cell numerical example folded65-116",
+      "supports": "All later dynamical comparisons."
+    },
+    {
+      "concept": "diffusion coefficient and variance/MSD convention",
+      "teaching": "01b-persistence.md:121,154-164",
+      "availability": "main",
+      "supports": "All Parts that measure random spreading."
+    },
+    {
+      "concept": "Brownian process and shared-history covariance",
+      "teaching": "01b-persistence.md:124-152,200-213",
+      "availability": "fold only; see MEM-P2-01",
+      "supports": "Stochastic dynamics and readout."
+    },
+    {
+      "concept": "fixed spatial randomness vs temporal noise",
+      "teaching": "01b-persistence.md:219-237",
+      "availability": "main",
+      "supports": "Part II place fields, synthesis, hardware maps and spatial simulations."
+    },
+    {
+      "concept": "weak-noise approximation and controlled large-population limit",
+      "teaching": "02-memory-dynamics.md:15-62",
+      "availability": "main",
+      "supports": "Leading-order diffusion predictions and simulation-size checks."
+    },
+    {
+      "concept": "linearization, tangent, dual projection and retained shift",
+      "teaching": "02-memory-dynamics.md:66-133",
+      "availability": "main; explicit tilted example folded",
+      "supports": "Information inequality, hardware drift/noise tests, simulations."
+    },
+    {
+      "concept": "projected D and multidimensional diffusion",
+      "teaching": "02-memory-dynamics.md:169-211",
+      "availability": "main",
+      "supports": "Later theoretical comparisons and measured vs predicted spreading."
+    },
+    {
+      "concept": "symmetric connectivity diffusion formula, mutual inhibition",
+      "teaching": "02-memory-dynamics.md:216-260;266-282",
+      "availability": "formula main; mutual inhibition example folded",
+      "supports": "Information bound comparisons and network simulations."
+    },
+    {
+      "concept": "density evolution, boundaries, wrapped angular error",
+      "teaching": "02b-memory-long-delays.md:15-76",
+      "availability": "main; PDE derivation folded",
+      "supports": "Eye timing cautions and long-delay simulation interpretation."
+    },
+    {
+      "concept": "state-dependent D, systematic drift, noise conventions",
+      "teaching": "02b-memory-long-delays.md:78-158",
+      "availability": "main; midpoint derivation folded",
+      "supports": "Drift/noise separation across hardware and simulation tests."
+    },
+    {
+      "concept": "Fisher information rate, estimator, unbiasedness and Cramer Rao bound",
+      "teaching": "03-memory-information.md:19-78,117-153",
+      "availability": "main",
+      "supports": "Readout and circuit/hardware information comparisons."
+    },
+    {
+      "concept": "likelihood and score",
+      "teaching": "03-memory-information.md:80-115",
+      "availability": "fold only; see MEM-P2-02",
+      "supports": "Gaussian readout/precision and alternative noise law."
+    },
+    {
+      "concept": "information-diffusion inequality and equality conditions",
+      "teaching": "03-memory-information.md:165-224,283-311",
+      "availability": "main, with matrix residual proof folded",
+      "supports": "Readout limits and hardware benchmarks."
+    },
+    {
+      "concept": "controlled resource comparisons, N/rate/tau/width scaling",
+      "teaching": "03-memory-information.md:323-399",
+      "availability": "main",
+      "supports": "Hardware and simulation parameter comparisons."
+    },
+    {
+      "concept": "storage vs cue readout error, Gaussian observation model",
+      "teaching": "03b-memory-readout.md:17-58",
+      "availability": "main",
+      "supports": "Later total-error measurements and simulation comparisons."
+    },
+    {
+      "concept": "equal-weight readout and covariance across times",
+      "teaching": "03b-memory-readout.md:72-125",
+      "availability": "main",
+      "supports": "Readout time optimization."
+    },
+    {
+      "concept": "precision recursion and ideal limit",
+      "teaching": "03b-memory-readout.md:130-164,205-228",
+      "availability": "main, finite solution folded; see MEM-P2-03",
+      "supports": "Ideal-readout benchmark in hardware experiments."
+    },
+    {
+      "concept": "partial access and thinning",
+      "teaching": "03b-memory-readout.md:233-252",
+      "availability": "main",
+      "supports": "Limited measurement access comparisons."
+    },
+    {
+      "concept": "two-stage dynamics and noise-law dependence",
+      "teaching": "03b-memory-readout.md:267-324",
+      "availability": "main; see MEM-P2-04",
+      "supports": "Physical time-constant and alternative-noise comparisons."
+    },
+    {
+      "concept": "printed total-error inequality caution",
+      "teaching": "03b-memory-readout.md:364-389",
+      "availability": "main",
+      "supports": "Avoid using 2D(T+tau) as a universal benchmark away from equality."
+    }
+  ],
+  "limitations": [
+    "Read-only diagnosis, no manuscript edits.",
+    "No extended pixel review, original PDF reread or simulation runs; no factual ambiguity required them.",
+    "No independent acceptance calls included here. Token stats unavailable."
+  ],
+  "file_hashes": [
+    {
+      "file": "content/chapters/00-reading-guide.md",
+      "sha256": "e7b4a9f9c211997f035ae54d01a639837e26df327af064edd40365702bb8943a"
+    },
+    {
+      "file": "content/chapters/00-reading-guide.yaml",
+      "sha256": "1eb936a5476da28dbb263d230f1d70cd92c2a582b0ce446c1272c23e45f5f545"
+    },
+    {
+      "file": "content/chapters/01-foundations.md",
+      "sha256": "d3c50fdf61fd363919369d13f246ec263d003836da21337a0b89a1fc5b2db410"
+    },
+    {
+      "file": "content/chapters/01-foundations.yaml",
+      "sha256": "356ea6ef6ff17e3247d182aad14c7981c1e60ec4cb7639e2c8cc9e0caaefd9f3"
+    },
+    {
+      "file": "content/chapters/01b-persistence.md",
+      "sha256": "86c4f2fdf0d023cf960908d2698a462b6cffee0d31263e37f743fbdc155205c8"
+    },
+    {
+      "file": "content/chapters/01b-persistence.yaml",
+      "sha256": "26abf2c72d8535770acda2d5320a8b4158495ea5570889c5ff8659918351ec28"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "sha256": "3ba6ab1511bf25357d5491cd6d8a4a3db3a8d664066fb51446ab9ed696cf5663"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.yaml",
+      "sha256": "45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "sha256": "a088bae67645f1ceaa3389c8ed71700ecd24c9fcd010b8997f6adee0ced978a7"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.yaml",
+      "sha256": "c7367b86d14e6ef36c2f2693a4981c3e5b69ba4222177e74ae33ee64cfc0845b"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "sha256": "65060c277a2e3deb1638d31485cfec8c983262d1b0900d45e4e9f2a7abc99222"
+    },
+    {
+      "file": "content/chapters/03-memory-information.yaml",
+      "sha256": "980e32b4180729ed0e7e133e238afae4fd27ae8eeec5a673e240d31dfda9171d"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "sha256": "3825584be21265f8553ca806c71bd45d213e31e55c651152bb395283b390cdf3"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.yaml",
+      "sha256": "339bbb09ed573ac6146f77c33a7535eb4ec8060d7d68f33b68a4d0bf64ba8d2d"
+    },
+    {
+      "file": "plan/chapter-plan.yaml",
+      "sha256": "be170be65f3ea6667deb296fdf72c05f1f2f2c2fe58db92978e5a971b1583f36"
+    }
+  ],
+  "coverage": [
+    {
+      "file": "content/chapters/00-reading-guide.md",
+      "sidecar": "content/chapters/00-reading-guide.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:READING-FIELD",
+          "title": "Variable neural signals must support reliable behavior",
+          "line": 11,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-MEMORY",
+          "title": "Persistent activity can still lose memory accuracy",
+          "line": 17,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-EYE",
+          "title": "Eye drift points to a shared neural source",
+          "line": 29,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-PLACE",
+          "title": "Smooth random maps explain the variety of place fields",
+          "line": 45,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-HARDWARE",
+          "title": "Electronic implementations make memory mechanisms testable",
+          "line": 71,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-SIMULATIONS",
+          "title": "Simulations separate the model from the evidence used to test it",
+          "line": 77,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-START",
+          "title": "Starting knowledge and reading paths",
+          "line": 83,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-MECHANISM-MATH",
+          "title": "Neural mechanisms and mathematical derivations answer different questions",
+          "line": 120,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-SCOPE",
+          "title": "How to interpret the calculations and evidence",
+          "line": 154,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:READING-PAPERS",
+          "title": "The original papers",
+          "line": 173,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "tbl:READING-APPENDIX"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    },
+    {
+      "file": "content/chapters/01-foundations.md",
+      "sidecar": "content/chapters/01-foundations.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:FOUNDATIONS-EYE-ACTION",
+          "title": "Repeated spikes maintain eye muscle tension",
+          "line": 11,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-SPIKES",
+          "title": "Recurrent spikes renew decaying synaptic activity",
+          "line": 35,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:FOUNDATIONS-SPIKES",
+          "title": "Patterns of firing rates represent a value",
+          "line": 106,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:FOUNDATIONS-POISSON",
+          "title": "A variable spike count at a fixed rate",
+          "line": 133,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:FOUNDATIONS-COVARIANCE",
+          "title": "Shared neural signals and a biased command leave different signs in eye motion",
+          "line": 266,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "fig:MEMORY-SPIKE-TRACE",
+        "fig:FOUNDATIONS-POISSON-POPULATION"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    },
+    {
+      "file": "content/chapters/01b-persistence.md",
+      "sidecar": "content/chapters/01b-persistence.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:PERSISTENCE-EYE-MECHANICS",
+          "title": "Sustained muscle tension holds the eye against elastic restoring forces",
+          "line": 9,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:FOUNDATIONS-ATTRACTOR",
+          "title": "Stable activity with a vulnerable stored value",
+          "line": 49,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:FOUNDATIONS-DIFFUSION",
+          "title": "Independent steps with equal duration and variance give linear variance growth",
+          "line": 118,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:FOUNDATIONS-RANDOMNESS",
+          "title": "A fixed spatial map differs from a value that wanders over time",
+          "line": 219,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "fig:FOUNDATIONS-ATTRACTOR",
+        "fig:FOUNDATIONS-PAPER-MAP",
+        "fig:FOUNDATIONS-DIFFUSION-BIAS"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "sidecar": "content/chapters/02-memory-dynamics.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:MEMORY-WEAK-NOISE",
+          "title": "Many weak inputs allow a continuous approximation to spike noise",
+          "line": 11,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-LINEARIZATION",
+          "title": "The network's return flow determines the lasting memory change",
+          "line": 64,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-DIFFUSION",
+          "title": "Projecting spike fluctuations gives the diffusion coefficient",
+          "line": 167,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-SYMMETRIC",
+          "title": "Symmetric weights express diffusion through tuning curves",
+          "line": 213,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "fig:MEMORY-TILTED-DECAY",
+        "fig:MEMORY-INHIBITION-RATES"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "sidecar": "content/chapters/02b-memory-long-delays.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:MEMORY-LONG-TIME",
+          "title": "Long delay errors depend on boundaries and local diffusion",
+          "line": 13,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-DRIFT-SCOPE",
+          "title": "A diffusion calculation does not determine systematic drift",
+          "line": 127,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-FIGURES",
+          "title": "Figures distinguish memory motion from readout error and test diffusion",
+          "line": 160,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "fig:MEMORY-LINE-RING",
+        "fig:PAPER-MEMORY-1",
+        "fig:PAPER-MEMORY-2",
+        "fig:PAPER-MEMORY-S1"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "sidecar": "content/chapters/03-memory-information.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:MEMORY-FI",
+          "title": "Rate slopes and spike variability determine local information",
+          "line": 15,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-BOUND",
+          "title": "Spike information sets a lower bound on memory diffusion",
+          "line": 163,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-COMPARISONS",
+          "title": "Improving persistence depends on what a comparison holds fixed",
+          "line": 316,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "fig:MEMORY-TUNING-INFORMATION",
+        "fig:MEMORY-BOUND-STRICTNESS"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "sidecar": "content/chapters/03b-memory-readout.yaml",
+      "status": "complete direct read",
+      "sections": [
+        {
+          "id": "sec:MEMORY-READOUT-SETUP",
+          "title": "Storage loss and readout error add under specific assumptions",
+          "line": 15,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-NAIVE",
+          "title": "Equal weighting becomes harmful when observation lasts too long",
+          "line": 70,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-IDEAL",
+          "title": "Accounting for diffusion makes readout improve toward a limit",
+          "line": 127,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-PARTIAL",
+          "title": "Limited access can make observation slower",
+          "line": 231,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-EXTENSIONS",
+          "title": "Time scales and noise laws change the bound and its equality condition",
+          "line": 264,
+          "status": "read and assessed"
+        },
+        {
+          "id": "sec:MEMORY-FIG3-AND-CAUTION",
+          "title": "Readout saturates, and one printed error bound needs qualification",
+          "line": 328,
+          "status": "read and assessed"
+        }
+      ],
+      "blocks": [
+        "fig:MEMORY-READOUT-TIMELINE",
+        "fig:MEMORY-READOUT-CURVES",
+        "fig:PAPER-MEMORY-3",
+        "fig:PAPER-MEMORY-S2"
+      ],
+      "captions_alt_tables_equations_folds": "read"
+    }
+  ]
+}

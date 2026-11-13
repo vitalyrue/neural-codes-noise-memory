@@ -1,0 +1,140 @@
+brief:
+  asset_id: fig:FOUNDATIONS-DIFFUSION-BIAS
+  scope: chapter
+  book: burak-three-papers
+  chapter: ch:FOUNDATIONS
+  purpose: Distinguish nonmonotonic individual motion, square root ensemble spread and
+    linear systematic motion.
+  target_use: sec:FOUNDATIONS-DIFFUSION
+  generation_authorized: true
+  insertion_authorized: true
+author: /root/all_draw_foundations_information
+figure_role: quantitative-figure
+visual_explanation:
+  applicable: true
+  figure_role: quantitative-figure
+  required_scene_ids: &id001
+  - zero-drift-ensemble
+  - rms-versus-bias
+  reference_reason: Exact mathematical plots; no structural template or opener reference
+    applies.
+chapter_map_coverage:
+  applicable: false
+  reason: Section calculation figure, not an opening map.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    colors_and_roles:
+      ink: '#17365D'
+      blue: '#1F4E79'
+      text: '#19202C'
+      muted: '#5D6876'
+      flow: '#0B7F95'
+      success: '#0F6B78'
+      risk: '#C4580B'
+      risk_deep: '#B85209'
+      line: '#9AA7B5'
+      fill_blue: '#EAF2F8'
+      fill_teal: '#E4F2F0'
+      fill_orange: '#FCEEE3'
+      fill_gray: '#F1F3F6'
+      paper: '#FFFFFF'
+      paper_warm: '#FFFDF7'
+      panel_warm: '#F8F4EC'
+    color_distance: Exact SVG color token membership; no raster pixel deviation claim.
+    maximum_deviation_fraction: 0
+    allowed_special_purpose_colors: []
+parameters:
+  D_deg2_per_s: 0.02
+  v_deg_per_s: 0.1
+  duration_s: 8
+  sample_dt_s: 0.01
+  paths: 7
+  random_seed: 2026102402
+required_items:
+- Seven sampled Gaussian independent-increment paths start at zero.
+- Exact ±sqrt(2Dt) envelope identified as RMS, not confidence or hard boundary.
+- RMS and vt cross at t=4 s, displacement .40 deg.
+- No periodic coordinate or saturation; do not duplicate line-versus-ring figure.
+source_locator: Guide sec:FOUNDATIONS-DIFFUSION, exact D=.02 and v=.10 example; Burak
+  and Fiete (2012), main PDF p. 2, Diffusive Drift due to Ongoing Neural Noise; SI PDF
+  pp. 4–5, Systematic drift, and p. 7, Eq. S30.
+language_contract:
+  book_loci:
+  - sec:FOUNDATIONS-DIFFUSION
+  caption: Simulated Brownian teaching paths and analytic displacement scales for $D=0.02$
+    degrees squared per second and $v=0.10$ degrees per second. The upper paths have zero
+    drift and start at zero; the dashed envelope is the exact root mean squared displacement,
+    not a boundary on individual paths. Below, $\sqrt{2Dt}$ and $vt$ are equal at 4 s,
+    when each is 0.40 degrees. Their squares are the separate contributions to the biased
+    model’s MSD. The coordinate is unbounded, and these chosen values are not estimates
+    from animal recordings.
+  alt_text: Seven Brownian sample paths move irregularly above and below zero. A dashed
+    positive and negative root mean squared envelope grows with the square root of time;
+    some paths cross it. A second plot compares the positive root mean squared displacement
+    with a linearly growing bias displacement. Both equal 0.40 degrees at four seconds,
+    after which the bias line is higher.
+  teaching_introduction: Sample paths show the irregular motion; exact displacement scales
+    show how its spread differs from a fixed bias.
+  conclusion: A single path can turn back toward zero even while the root mean squared
+    displacement grows. A constant bias grows linearly, so it eventually exceeds the square
+    root growth of the random displacement scale.
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/all_draw_foundations_information
+  role_reason: Distinguish nonmonotonic individual motion, square root ensemble spread
+    and linear systematic motion.
+  source_files:
+  - content/chapters/01-foundations.md
+  - content/chapters/01-foundations.yaml
+  - verification/all-illustrations-20261024/draw_foundations_information.py
+  - verification/all-illustrations-20261024/A02-brief.yaml
+  - verification/illustrations/figure_style.py
+  - assets/papers/burak-fiete-2012-persistent-activity.pdf
+  - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+  - verification/all-illustrations-20261024/foundation-information-source-extracts.txt
+  - verification/all-illustrations-20261024/foundation-information-source-extra.txt
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024-all/A02/qa.json
+  vector_spec: verification/all-illustrations-20261024/draw_foundations_information.py
+  insertion_width_px: 700
+  required_scene_ids: *id001
+  coverage:
+    applicable: false
+    reason: Internal mathematical teaching figure, not an opening map; no chapter coverage
+      claim.
+limitations:
+- Analytic or simulated teaching construction using explicitly chosen parameters; not
+  new experimental data.
+- No structural vector template gate or raster pixel audit is claimed; computed checks
+  and pixel inspection support independent review.
+manual_rule_disposition:
+  applicable:
+  - semantic correspondence
+  - numerical accuracy
+  - units and domain assumptions
+  - full size and 700px readability
+  - palette color roles
+  - canvas clipping
+  not_applicable:
+  - opening-map coverage
+  - generic structural-template geometry gates
+  - raster pixel-deviation measurement

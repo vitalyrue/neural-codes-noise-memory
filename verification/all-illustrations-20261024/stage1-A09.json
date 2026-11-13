@@ -1,0 +1,227 @@
+{
+  "request_id": "stage1-A09-20261024",
+  "reviewer": "/root/all_illustrations_review",
+  "author": "/root",
+  "stage": "1 correctness and figure criteria",
+  "figure_id": "A09",
+  "visual_id": "fig:SYNTHESIS-SHARED-POSITION",
+  "decision": "candidate suitable for local insertion; final canonical bindings and stages 2 and 3 pending",
+  "binding_status": "Candidate bytes and connected baseline/packet only. No compiled final source hash claimed.",
+  "reviewed_png_sha256": "b9ab2327531a339571dcf54d9d894cf5fb34944cdbdebdcd2c065ecef6eb71d8",
+  "reviewed_svg_sha256": "c9e02e457037f9ca2ae2ef9e5e8e4fbd11f308b1138e95a23b1fe9aa658e1cd1",
+  "reviewed_book_width_sha256": "0e39e0188bfb0a35762eba16c28a0cc536787ca44dced2e794fa86718d6f8563",
+  "connected_source": "content/chapters/06-synthesis.md:21-73; exact proposed passage in synthesis-integration.json",
+  "source_kind": "Existing local guide construction. The source chapter explicitly says this is not a joint tested model; no direct paper-data claim requires a paper figure locator.",
+  "independent_calculation": {
+    "method": "Direct scalar arithmetic separate from the plotting generator",
+    "var_dx_m2": 0.01,
+    "marked_dx_m": 0.1,
+    "absolute_rates_Hz": [
+      10.2,
+      9.9
+    ],
+    "rate_changes_Hz": [
+      0.2,
+      -0.1
+    ],
+    "variances_Hz2": [
+      0.04,
+      0.01
+    ],
+    "covariance_Hz2": -0.02,
+    "correlation": -1,
+    "reason": "2Dt = 2(0.01)(0.5) = 0.01. For slope vector (2,-1), covariance is 0.01 times its outer product. The common-source covariance matrix is rank one and the lower curve has slope -1/2."
+  },
+  "strongest_objection": "Perfect negative correlation might be read as evidence of inhibition or as a prediction for complete spike activity. The upper finite display might also be mistaken for a globally linear biological map.",
+  "objection_resolution": "The chapter limits the calculation to local expected-rate changes from one shared displacement and explicitly rejects the inhibition inference. The figure legend says common position change only, the caption calls the lines a local guide example, and the preceding chapter paragraph excludes extra private/shared noise and large-displacement or threshold uses. No wiring or time-evolving tuning curve is drawn.",
+  "checks": {
+    "technical_accuracy": {
+      "verdict": "pass",
+      "evidence": [
+        "Direct recalculation gives upper marked points (0.1,10.2) and (0.1,9.9), lower marked point (0.2,-0.1), covariance -0.02 Hz squared and correlation -1 for the stated single shared source.",
+        "Upper horizontal coordinate is displacement in metres; its vertical coordinate is expected rate in Hz. Lower axes are rate changes in Hz, and must not be interpreted as physical positions.",
+        "Caption, alt, introduction and interpretation match the inspected pixels, the connected guide example and the generator. No counterpart figure asserts a different mapping."
+      ]
+    },
+    "visual_explanation": {
+      "verdict": "pass",
+      "reference_comparison": "Internal exact scientific plot, not an illustrated opener or structural template.",
+      "evidence": [
+        "The two actual tuning lines and the separate rate-change plane show how two different rate responses share one varying coordinate, beyond the equations alone."
+      ],
+      "scenes": [
+        {
+          "id": "fixed-tuning-curves",
+          "depiction": "comparison",
+          "visible_objects": [
+            "increasing navy rate curve",
+            "decreasing teal rate curve",
+            "shared 10 Hz origin",
+            "0.1 m reference and two marked rates"
+          ],
+          "relationship": "The same positive displacement raises one rate and lowers the other.",
+          "teaching_contribution": "Separates the fixed spatial rate functions from changes produced by moving through them."
+        },
+        {
+          "id": "shared-rate-changes",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "downward line through the origin",
+            "rate-change axes",
+            "marked paired change",
+            "dashed coordinate guides"
+          ],
+          "relationship": "Every shared displacement gives a point with delta R2 = -delta R1/2.",
+          "teaching_contribution": "Shows the single direction of population change and why negative covariance can arise without inhibitory wiring."
+        }
+      ]
+    },
+    "readability": {
+      "verdict": "pass",
+      "reviewed_width_px": 700,
+      "full_size_inspected": true,
+      "evidence": [
+        "Inspected original 1722 by 1575 pixels and separate 700 px preview. Both axis-label sets, units, ticks, legends and the three point annotations are readable, with no clipping or overlap. Thin gray guides remain distinct from the colored quantitative curves. Approval assumes the existing narrow-screen horizontal scrolling, not a shrink to 390 px."
+      ]
+    },
+    "palette": {
+      "verdict": "pass",
+      "evidence": [
+        "Current qa.json reports seven exact SVG color tokens, all within the selected house profile, and no warnings. This is a vector-token check, not an all-pixel raster deviation claim. Manual inspection confirms navy and teal identify the two mathematical rates, gray identifies references, white the plotting area, and warm paper the outer canvas; no biological success/risk meaning is assigned by color."
+      ]
+    },
+    "coverage": {
+      "verdict": "not-applicable",
+      "covered_ids": [],
+      "visible_evidence": {},
+      "evidence": [
+        "Internal two-panel calculation figure. Both required scenes are reviewed; no chapter or book map coverage is claimed."
+      ]
+    }
+  },
+  "claims": [
+    {
+      "claim": "f1: slope +2 Hz/m",
+      "verdict": "correct",
+      "evidence": "Guide slope f1'=2; pixels and generator increase from 9.4 to 10.6 over 0.6 m."
+    },
+    {
+      "claim": "f2: slope -1 Hz/m",
+      "verdict": "correct",
+      "evidence": "Guide slope f2'=-1; pixels and generator decrease from 10.3 to 9.7 over 0.6 m."
+    },
+    {
+      "claim": "Position displacement delta x (m)",
+      "verdict": "correct",
+      "evidence": "Chapter defines delta x=x(t)-x0. The upper axis sets x0 to zero displacement without claiming that zero is an absolute environmental origin."
+    },
+    {
+      "claim": "Expected rate (Hz)",
+      "verdict": "correct",
+      "evidence": "Chapter defines Ri(t)=fi(x(t)); baseline 10 is declared as a display choice."
+    },
+    {
+      "claim": "+0.2 Hz annotation and leader",
+      "verdict": "correct",
+      "evidence": "Leader terminates at upper increasing curve at 0.1 m and 10.2 Hz, a 0.2 Hz increase from 10."
+    },
+    {
+      "claim": "-0.1 Hz annotation and leader",
+      "verdict": "correct",
+      "evidence": "Leader terminates at upper decreasing curve at 0.1 m and 9.9 Hz, a 0.1 Hz decrease from 10."
+    },
+    {
+      "claim": "Common position change only",
+      "verdict": "correct",
+      "evidence": "Chapter excludes private spike noise from this contribution. All displayed paired changes obey the same scalar displacement."
+    },
+    {
+      "claim": "Rate 1 change delta R1 (Hz)",
+      "verdict": "correct",
+      "evidence": "Lower horizontal coordinate is 2 delta x, not physical position; generator values span -0.6 to 0.6."
+    },
+    {
+      "claim": "Rate 2 change delta R2 (Hz)",
+      "verdict": "correct",
+      "evidence": "Lower vertical coordinate is -delta x and spans 0.3 to -0.3."
+    },
+    {
+      "claim": "delta x=+0.1 m annotation and leader",
+      "verdict": "correct",
+      "evidence": "Leader terminates at lower point (0.2,-0.1) Hz. Dashed guides meet that same point, not a different position."
+    },
+    {
+      "claim": "Upper zero and +0.1 m vertical references",
+      "verdict": "correct",
+      "evidence": "Zero line meets both tuning functions at 10 Hz; +0.1 m line meets each marked rate at the same displacement."
+    },
+    {
+      "claim": "Lower origin and coordinate guides",
+      "verdict": "correct",
+      "evidence": "Zero displacement maps to (0,0); projection guides identify 0.2 and -0.1 Hz and make no causal-arrow claim."
+    },
+    {
+      "claim": "Caption: +0.1 m gives +0.2 and -0.1 Hz",
+      "verdict": "correct",
+      "evidence": "Slope times displacement; independently recalculated and displayed in both planes."
+    },
+    {
+      "claim": "Caption: changes lie on one line",
+      "verdict": "correct",
+      "evidence": "Two-dimensional change vector equals (2,-1) delta x, a one-dimensional subspace."
+    },
+    {
+      "claim": "Caption: variance 0.01 m squared gives covariance -0.02 Hz squared and correlation -1",
+      "verdict": "correct",
+      "evidence": "Matches preceding guide calculation and separate arithmetic, under its one-source restriction."
+    },
+    {
+      "claim": "Caption: 10 Hz baseline is chosen to display positive rates",
+      "verdict": "correct",
+      "evidence": "Displayed rates range 9.4 to 10.6 and 9.7 to 10.3. Adding constants changes neither slopes nor covariance."
+    },
+    {
+      "claim": "Caption: exact lines from local guide example, not recorded data",
+      "verdict": "correct",
+      "evidence": "Generator uses analytic linear functions, no imported recordings. Exact refers to the chosen linear construction, with the existing local qualifier retained."
+    },
+    {
+      "claim": "Introduction: both expected rates 10 Hz at starting position; upper fixed curves, lower changes",
+      "verdict": "correct",
+      "evidence": "Directly describes the two rendered axes and declared baseline; symbols and slopes have already been taught."
+    },
+    {
+      "claim": "Alt: two fixed curves cross at ten with slopes +2 and -1; +0.1 m gives stated changes; downward change line",
+      "verdict": "correct",
+      "evidence": "All listed objects and relationships are visible and match the corresponding rendered values."
+    },
+    {
+      "claim": "Interpretation: one shared displacement gives one rate-change direction; independent private fluctuations spread points away",
+      "verdict": "correct",
+      "evidence": "Rank-one shared covariance; nonzero independent private contributions generally add variance outside that direction. This remains a conditional comparison, not an observed result."
+    }
+  ],
+  "unresolved_findings": [],
+  "acceptance_limits": [
+    "Stages 2 and 3 not requested by this record",
+    "No reader source changed by reviewer",
+    "Final compiled source and canonical insertion bindings pending"
+  ],
+  "candidate_input_sha256": {
+    "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+    "candidate-content/visuals/candidates/20261024-all/A09/figure.svg": "c9e02e457037f9ca2ae2ef9e5e8e4fbd11f308b1138e95a23b1fe9aa658e1cd1",
+    "verification/all-illustrations-20261024/draw_synthesis.py": "0badc512e22133e69a40afa1f696fd84025d474003c3c59d57a95edbe55b3542",
+    "content/chapters/06-synthesis.md": "c50e2af72cbeeae1616bcc7649a763790f16ffde46f34cfdc527254dac0ac50b",
+    "verification/all-illustrations-20261024/A09-brief.yaml": "a5ed7ca31aa88f4780320ca11417d010b841c692ea8e12fcb0b33508000aa390",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+    "verification/all-illustrations-20261024/synthesis-integration.json": "0928361cbc25d345bf9d538592d44cd57c03c3e263fa5038bda948492ecfdcf3",
+    "candidate-content/visuals/candidates/20261024-all/A09/figure.png": "b9ab2327531a339571dcf54d9d894cf5fb34944cdbdebdcd2c065ecef6eb71d8",
+    "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+    "candidate-content/visuals/candidates/20261024-all/A09/book-width.png": "0e39e0188bfb0a35762eba16c28a0cc536787ca44dced2e794fa86718d6f8563",
+    "content/chapters/06-synthesis.yaml": "07da076bbd8878bb41f3efb6ebbf22fe68c6c3d442a6d50b25fb3c27e051a823",
+    "candidate-content/visuals/candidates/20261024-all/A09/qa.json": "8cb12b9bd426bbecd9169774520e025082f040431cba0ab33ac7236ab44d7c89",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b"
+  },
+  "reviewed_at": "2026-10-24T18:36:24.9578431+03:00"
+}

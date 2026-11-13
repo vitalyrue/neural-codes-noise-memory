@@ -1,0 +1,17 @@
+# Review reuse after explicit example folds
+
+Start UTC: 2026-11-04T13:43:17.776905+00:00. End UTC: 2026-11-04T13:44:20.688738+00:00. Wall-clock elapsed: 62.9 seconds. Awake execution is unverified. Token stats unavailable.
+
+Current chapter raw SHA256: `14DF82C74EDA232413EA814DA2EB9A6C48E63BAF241F82C089909AC96F511867`.
+
+Comparison backup raw SHA256: `575D28BA7BBDF0A04962CD70B3E21AF7C0A47BCFB55422CC9194B99DB78B7530`. The backup uses CRLF line endings; converting only CRLF to LF gives `3DC399536618C64EF88063996EF8528C7A4D098ED97E143CC5458FFE96D77913`, exactly the hash reviewed at the end of stage 3. This resolves the apparent mismatch between the backup's raw hash and the manifest's before hash. It is an encoding/line-ending difference, not a content change.
+
+I independently compared the actual files with a diff and with byte-based extraction of both example wrappers. There are exactly two old fenced worked-calculation wrappers and exactly two new details/summary/div wrappers. Both summary titles and both complete raw body byte strings are exactly preserved. Replacing each wrapper with the same comparison marker and retaining its title and body makes the complete raw documents byte-identical. Thus the only content-bearing structure changed is the two fold wrappers; no prose, mathematical expression, source note, definition, link, or example result changed. The manifest's body-preservation assertion is independently confirmed; its selected-body hash convention need not be assumed for this comparison.
+
+The first folded body begins with the two-unit parameter specification and contains the total/difference calculation and the b=20 numerical states. Its preceding main paragraph already explains mutual inhibition, the particular balance needed and the memory-bearing difference. The following main paragraph still explains the W=0 comparison and fixed weights versus changing activity. Hiding this example therefore removes a check of the mechanism, not a prerequisite needed to understand the next paragraph.
+
+The second folded body contains the chosen 20-spikes-per-second cells and their numerical FI comparison. The main text before it still defines tuning slope, Poisson count variance, I_h, J, independence, units and the role of numerator and denominator. The following main text retains the shared-fluctuation caution and formal-definition pointer. Hiding this example removes worked arithmetic, not the explanation required for the information bound.
+
+Both explicit details elements omit the open attribute, preserving the intended initially closed examples under native HTML behavior. Their summary labels remain visible and descriptive. Essential physical mechanisms, definitions, formulas, assumptions, distinctions and later-chapter bridges remain outside the details bodies. The reader can omit both examples on a first pass while following the complete main explanation.
+
+Reuse decision: adopt the completed stage 1 correctness, stage 2 terminology and stage 3 connected-reading judgments for the exact unchanged content at the new chapter hash above. The fold-only change adds no new scientific or teaching issue and does not require repeating those three full reviews. This decision covers source text and what the explicit wrapper contains. It does not establish the final rendered browser behavior, mathematical rendering inside expanded details, stylesheet behavior, print layout, whole-book acceptance or artwork acceptance. The main task's representative HTML check remains separate. No guide edits were made.

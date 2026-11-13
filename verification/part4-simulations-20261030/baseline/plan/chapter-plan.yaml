@@ -1,0 +1,89 @@
+schema_version: 3
+book:
+  title: 'Neural Codes, Noise, and Memory: A Guide to Three Papers'
+  contributors: []
+  front_matter:
+  - ch:READING-GUIDE
+  parts:
+  - part_id: part:MECHANISMS
+    title: Noise limits memory accuracy in continuous attractor models
+    purpose: In a model neural circuit, the pattern of firing rates across many nerve cells can represent a remembered
+      angle. Random spike timing can change that angle even while the circuit sustains its activity. Chapters 1–2
+      explain neural signals and how activity stores a value. Chapters 3–4 derive how that value wanders over time.
+      Chapters 5–6 connect its stability to how accurately it can be estimated from the cells’ spikes.
+    chapters:
+    - ch:FOUNDATIONS
+    - ch:PERSISTENCE
+    - ch:MEMORY-DYNAMICS
+    - ch:MEMORY-LONG-DELAYS
+    - ch:MEMORY-INFORMATION
+    - ch:MEMORY-READOUT
+  - part_id: part:OBSERVATIONS
+    title: Eye motion and place fields constrain different parts of a neural code
+    purpose: The next studies connect neural activity to eye control in monkeys and to location in rodents and bats.
+      Chapters 7–9 follow the path from a neural command through eye muscles to measured movement, and test a possible
+      source of drift. Chapters 10–12 explain where hippocampal nerve cells fire as an animal moves and compare
+      a spatial model with recordings. Chapter 13 asks what these findings establish together and which connections
+      remain untested.
+    chapters:
+    - ch:EYE-DRIFT
+    - ch:EYE-TIMING
+    - ch:EYE-CIRCUIT
+    - ch:PLACE-FIELDS
+    - ch:PLACE-SIZES
+    - ch:PLACE-TESTS
+    - ch:SYNTHESIS
+  - part_id: part:HARDWARE
+    title: Neural memory in electronic hardware
+    purpose: Electronic circuits can store connection settings, changing neuron states, and values represented by
+      a network. Part III starts with von Neumann's comparison of neural and electronic memory, then asks how these
+      forms of storage differ physically. Chapters 14–15 explain storage and feedback; Chapter 16 examines selected
+      neuromorphic results through 30 October 2026; Chapter 17 develops experiments that separate device errors
+      from the loss of a remembered value.
+    content:
+    - type: paragraph
+      text: '<!-- vale ai-tells.SequencingMarkers = NO -->
+
+        <!-- vale ai-tells.VerbTricolon = NO -->
+
+        > “Lastly, I would like to mention that systems of nerve cells, which stimulate each other in various possible
+        cyclical ways, also constitute memories.”
+
+        <!-- vale ai-tells.VerbTricolon = YES -->
+
+        <!-- vale ai-tells.SequencingMarkers = YES -->'
+    - type: paragraph
+      text: John von Neumann, *The Computer and the Brain* (1958), [printed page 66, PDF page 78](https://vpb.smallyu.net/%5BAuthor%5D%20John.Von.Neumann/The%20Computer%20and%20The%20Brain.pdf#page=78).
+    - type: paragraph
+      text: Von Neumann compares mutually stimulating nerve cells with electronic circuits that preserve a state
+        through feedback. In the following pages he also questions whether active elements alone could provide the
+        nervous system's main large-capacity store. His comparison invites us to distinguish a memory's physical
+        mechanism from the information it keeps. It does not establish that every brain memory uses persistent activity,
+        or that present hardware follows one historical line from his book.
+    - type: paragraph
+      text: The setting here is experimental and computational neuroscience joined with electronic engineering.
+        We ask how a silicon circuit can retain a quantity such as an angle, and what physical processes limit its
+        accuracy. [A durable connection weight, a lasting activity pattern, and an accurately remembered value are
+        three different achievements.]{.key-statement}
+    - type: paragraph
+      text: '<!-- vale ai-tells.VerbTricolon = NO -->
+
+        The path starts with what is stored and where, then explains what feedback preserves. With those distinctions
+        in place, we compare digital spiking processors, analog neural circuits, and phase-change weight storage.
+        The final chapter turns the comparison into measurements of drift, noise, decoding error, and energy. Parts
+        I and II provide the neural models and experimental reasoning. This Part extends them to selected hardware
+        research current to **October 30, 2026**.
+
+        <!-- vale ai-tells.VerbTricolon = YES -->'
+    - type: paragraph
+      text: For a first pass, read the physical explanations, main results, and interpretations. Worked calculations
+        and deeper derivations are folded. The comparison assumes the calculus, basic probability, and linear algebra
+        used earlier. Electronics terms are introduced as they become necessary.
+    chapters:
+    - ch:HARDWARE-MEMORY
+    - ch:HARDWARE-DYNAMICS
+    - ch:NEUROMORPHIC-SYSTEMS
+    - ch:HARDWARE-TESTS
+  appendices:
+  - ch:GLOSSARY
+  - ch:REFERENCES

@@ -1,0 +1,15 @@
+# Part I paper-centered rewrite: focused review
+
+Started 2026-11-10 16:24:37 +02:00. The user rejected a notes-only pass and requested a rewritten Part I with in-text distinction between the paper and guide interpretation. The six chapter sources, sidecars, chapter plan and prior structural lock were saved in `baseline/` with hashes in `baseline.json` before their revisions.
+
+The Part I opening now states the paper's chain of results, explains the five in-text labels, and retains the article-order route. Three separate writers revised chapters 1–2, 3–4 and 5–6. They integrated article/SI locations into `[Paper]` statements, marked guide interpretation, derivation, examples and background, and preserved the prior teaching. Chapter 3 adds the explicit S7–S9 substitution and fixed-point cancellation.
+
+Three reviewers worked on source groups they did not write, with separate sequential stages for truth, terminology and reading flow. Their focused findings were repaired:
+
+- Chapters 1–2: qualified tuning-curve variability, separated paper and guide simulation interpretations, labeled standalone interpretations, and specified the independent-count condition for a predetermined Poisson rate. Direct main-article links were added to Eqs. 7–9. The reviewer rechecked the final simulation and source-boundary changes.
+- Chapters 3–4: separated the paper's S8–S9 from the guide's Brownian notation; distinguished the Dirac explanation, mutual-excitation vectors, wrapped-density interpretation and figure interpretation. A wrong supplement page for S38–S39 was corrected to PDF p. 9, and the finite-ring symmetry was stated for cyclic shifts. The independent 2017 author correction and the guide's S40/S41 check remain distinct. The reviewer rechecked the source-link and split; the finite-ring wording was tightened afterwards.
+- Chapters 5–6: labeled several standalone guide calculations, separated paper claims from the guide's multidimensional explanation and Gaussian-noise comparison, and preserved the distinction between the authors' published correction and guide checks. The reviewer rechecked the changes and the added Eq. 3 source link.
+
+An independent check of the Part I opening found the paper overview and label key correct, and suggested changing the map's generalizations/saturation page range from p. 3 to pp. 3–4; repaired. The full unchanged book and original research record were not re-reviewed. These focused reviewer calls do not constitute whole-guide acceptance.
+
+After the repairs, an automated comparison found that all 123 pre-existing displayed equations occur unchanged and in order; Chapter 3 adds two intermediate equations. Existing chapter and section headings, figure blocks and worked-example titles are unchanged. The 56 paragraphs explicitly labeled `[Paper]` each have a direct paper link or footnote in the paragraph. All five labels follow the Part key. The structural lock was refreshed after all previous IDs and chapter order were verified unchanged. Validation and rendered checks are recorded in `RESULTS.md`.

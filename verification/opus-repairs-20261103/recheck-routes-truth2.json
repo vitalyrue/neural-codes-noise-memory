@@ -1,0 +1,59 @@
+{
+  "request_id": "local-root-review_repaired_routes-focused-stage1-recheck2-20261103",
+  "stage": "Focused truth recheck only",
+  "reviewer": "/root/review_repaired_routes; inherited GPT-6, exact version/reasoning not exposed",
+  "started_local": "2026-11-03T16:55:11.8665436+02:00",
+  "completed_utc": "2026-11-03T14:55:39.200550+00:00",
+  "awake_time": "unverified",
+  "current_sha256": {
+    "content/chapters/references.md": "867d90af398bd27e9d124ae7d928fb469493a862e4268640d12403ed8f25bf73",
+    "content/chapters/12-simulating-eye-drift.md": "c707d3cd85817d4da89548aec063aa6a320b6d400c4459863a24a5cf170758fb",
+    "plan/chapter-plan.yaml": "87725d499b1be577703891cf78cdc2f0b0dbe5cf127037dadc77195facfcb1bf"
+  },
+  "note": "No new freeze manifest supplied for this small follow-up; current hashes bind this recheck. Earlier review and recheck records are preserved.",
+  "dispositions": [
+    {
+      "finding": "S1-R1",
+      "status": "resolved, unchanged accepted correction",
+      "evidence": "12-simulating-eye-drift.md current hash equals previously accepted recheck hash",
+      "unchanged": true
+    },
+    {
+      "finding": "S1-R2a",
+      "status": "resolved",
+      "evidence": "references.md:125 entry39 now links Associated paper to DOI 10.1126/science.abg4020, matching Eliav2021 paper in entry11; no numeric pointer can become stale."
+    },
+    {
+      "finding": "S1-R2b",
+      "status": "resolved",
+      "evidence": "Current entries24-27 are Pehle, Intel, Scholze, LeGallo, exactly matching actual author-year sequence in plan/chapter-plan.yaml:190. Earlier Chapter1 order repair remains intact."
+    },
+    {
+      "finding": "S1-R2",
+      "status": "resolved in checked reference order and pointer scope",
+      "reason": "Both remaining issues resolved, no missing or duplicated entry and no new affected guide numeric pointer found."
+    }
+  ],
+  "preservation_checks": {
+    "entries": 43,
+    "contiguous_1_to_43": true,
+    "unique_entries": 43,
+    "entry_texts_preserved_except_recorded_pointer": true,
+    "all_primary_source_urls_unique": true
+  },
+  "numeric_pointer_scan": [
+    {
+      "path": "content\\chapters\\05b-place-sizes.md",
+      "line": 297,
+      "text": "[^p3-rare-source]: Mainali et al. (2025), *Universal statistics of hippocampal place fields across species and dimensionalities*, Neuron, 113, 1110–1120.e3, [doi:10.1016/j.neuron.2025.01.017](https://doi.org/10.1016/j.neuron.2025.01.017), Supplemental Methods S4, pp. 12–14, especially Equations S22–S25. The supplement cites Adler (1981) for the peak approximation. The main article cites Nosko (1988), reference 32, for asymptotic field statistics. This chapter supplies a local derivation and does not claim to reproduce either full theorem proof."
+    }
+  ],
+  "pointer_judgment": "Only remaining numeric reference label is 05b-place-sizes.md:297 reference32, explicitly belonging to Mainali main article; it must stay. No affected guide numeric entry pointer remains.",
+  "new_required_findings": [],
+  "limits": [
+    "Stage2 and3 not performed here.",
+    "No source URL reachability, bibliographic full audit, pixel check, author simulation run or release acceptance.",
+    "Source/rule and related-primary limits from stage1 remain."
+  ],
+  "token_stats": "unavailable"
+}

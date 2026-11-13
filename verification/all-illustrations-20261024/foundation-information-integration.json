@@ -1,0 +1,253 @@
+[
+  {
+    "id": "A01",
+    "visual_id": "fig:FOUNDATIONS-POISSON-POPULATION",
+    "chapter": "content/chapters/01-foundations.md",
+    "placement_section": "sec:FOUNDATIONS-POISSON",
+    "insert_after": "Now suppose 20 conditionally independent cells each have that rate. Their total count is Poisson with mean 20 and standard deviation $\\sqrt{20}=4.47$. The total rate estimate has a relative standard deviation of about 22.4%, compared with 100% for one cell. Population averaging helps because the independent count variances add while the mean signal adds directly. If cells share an additional fluctuating drive, that common variation will not disappear in the same way.",
+    "intro": "The two count distributions can be compared on the same rate per cell scale.",
+    "caption": "Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell $K/(N\\Delta t)$, so both estimates have mean 20 Hz; their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains.",
+    "alt": "Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters around twenty hertz. Their means match, but the rate standard deviation falls from twenty to 4.47 hertz.",
+    "interpretation": "Dividing the pooled rate estimate by 20 keeps the expected rate per cell fixed, while independent averaging reduces its relative spread.",
+    "source_locator": "Guide sec:FOUNDATIONS-POISSON, exact 20 Hz / 50 ms example; Burak and Fiete (2012), main PDF p. 1, Results, Poisson model; SI PDF p. 9, Eq. S43, conditional count likelihood.",
+    "source_link": "../../assets/papers/burak-fiete-2012-persistent-activity-si.pdf#page=9",
+    "candidate_svg": "candidate-content/visuals/candidates/20261024-all/A01/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261024-all/A01/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261024-all/A01/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261024-all/A01/qa.json",
+    "editable_source": "verification/all-illustrations-20261024/draw_foundations_information.py",
+    "brief": "verification/all-illustrations-20261024/A01-brief.yaml",
+    "review_contract": {
+      "schema_version": 1,
+      "figure_role": "quantitative-figure",
+      "route": "vector",
+      "unit_scope": "chapter",
+      "author": "/root/all_draw_foundations_information",
+      "role_reason": "Show both the frequent silent interval and the lower relative noise from independent population averaging.",
+      "source_files": [
+        "content/chapters/01-foundations.md",
+        "content/chapters/01-foundations.yaml",
+        "verification/all-illustrations-20261024/draw_foundations_information.py",
+        "verification/all-illustrations-20261024/A01-brief.yaml",
+        "verification/illustrations/figure_style.py",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt"
+      ],
+      "rule_files": [
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md"
+      ],
+      "style_lock": "source-maps/book-style-lock.yaml",
+      "style_profile": "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml",
+      "reference_images": [],
+      "palette_audit": "candidate-content/visuals/candidates/20261024-all/A01/qa.json",
+      "vector_spec": "verification/all-illustrations-20261024/draw_foundations_information.py",
+      "insertion_width_px": 700,
+      "required_scene_ids": [
+        "one-cell-count",
+        "pooled-count-normalization"
+      ],
+      "coverage": {
+        "applicable": false,
+        "reason": "Internal mathematical teaching figure, not an opening map; no chapter coverage claim."
+      }
+    },
+    "author": "/root/all_draw_foundations_information",
+    "acceptance": "pending independent review"
+  },
+  {
+    "id": "A02",
+    "visual_id": "fig:FOUNDATIONS-DIFFUSION-BIAS",
+    "chapter": "content/chapters/01-foundations.md",
+    "placement_section": "sec:FOUNDATIONS-DIFFUSION",
+    "insert_after": "The deterministic and random contributions are equal at $t=2D/v^2=4$ seconds. Their equal contributions there are each $0.16$ degrees squared. At longer times the bias dominates this unbounded model even though it was small over a short observation. Removing systematic drift is therefore a substantive assumption in a theory devoted to random diffusion.",
+    "intro": "Sample paths show the irregular motion; exact displacement scales show how its spread differs from a fixed bias.",
+    "caption": "Simulated Brownian teaching paths and analytic displacement scales for $D=0.02$ degrees squared per second and $v=0.10$ degrees per second. The upper paths have zero drift and start at zero; the dashed envelope is the exact root mean squared displacement, not a boundary on individual paths. Below, $\\sqrt{2Dt}$ and $vt$ are equal at 4 s, when each is 0.40 degrees. Their squares are the separate contributions to the biased model’s MSD. The coordinate is unbounded, and these chosen values are not estimates from animal recordings.",
+    "alt": "Seven Brownian sample paths move irregularly above and below zero. A dashed positive and negative root mean squared envelope grows with the square root of time; some paths cross it. A second plot compares the positive root mean squared displacement with a linearly growing bias displacement. Both equal 0.40 degrees at four seconds, after which the bias line is higher.",
+    "interpretation": "A single path can turn back toward zero even while the root mean squared displacement grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+    "source_locator": "Guide sec:FOUNDATIONS-DIFFUSION, exact D=.02 and v=.10 example; Burak and Fiete (2012), main PDF p. 2, Diffusive Drift due to Ongoing Neural Noise; SI PDF pp. 4–5, Systematic drift, and p. 7, Eq. S30.",
+    "source_link": "../../assets/papers/burak-fiete-2012-persistent-activity-si.pdf#page=7",
+    "candidate_svg": "candidate-content/visuals/candidates/20261024-all/A02/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261024-all/A02/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261024-all/A02/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261024-all/A02/qa.json",
+    "editable_source": "verification/all-illustrations-20261024/draw_foundations_information.py",
+    "brief": "verification/all-illustrations-20261024/A02-brief.yaml",
+    "review_contract": {
+      "schema_version": 1,
+      "figure_role": "quantitative-figure",
+      "route": "vector",
+      "unit_scope": "chapter",
+      "author": "/root/all_draw_foundations_information",
+      "role_reason": "Distinguish nonmonotonic individual motion, square root ensemble spread and linear systematic motion.",
+      "source_files": [
+        "content/chapters/01-foundations.md",
+        "content/chapters/01-foundations.yaml",
+        "verification/all-illustrations-20261024/draw_foundations_information.py",
+        "verification/all-illustrations-20261024/A02-brief.yaml",
+        "verification/illustrations/figure_style.py",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt"
+      ],
+      "rule_files": [
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md"
+      ],
+      "style_lock": "source-maps/book-style-lock.yaml",
+      "style_profile": "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml",
+      "reference_images": [],
+      "palette_audit": "candidate-content/visuals/candidates/20261024-all/A02/qa.json",
+      "vector_spec": "verification/all-illustrations-20261024/draw_foundations_information.py",
+      "insertion_width_px": 700,
+      "required_scene_ids": [
+        "zero-drift-ensemble",
+        "rms-versus-bias"
+      ],
+      "coverage": {
+        "applicable": false,
+        "reason": "Internal mathematical teaching figure, not an opening map; no chapter coverage claim."
+      }
+    },
+    "author": "/root/all_draw_foundations_information",
+    "acceptance": "pending independent review"
+  },
+  {
+    "id": "A03",
+    "visual_id": "fig:MEMORY-TUNING-INFORMATION",
+    "chapter": "content/chapters/03-memory-information.md",
+    "placement_section": "sec:MEMORY-FI",
+    "insert_after": "Each cell contributes squared slope divided by its count variance per unit time. High rates with zero slope do not distinguish neighboring values, so they contribute no local information. A sharply changing rate can be informative even if it is smaller than another cell's peak rate. The coordinate here describes the network's present internal state. It need not be a currently visible external stimulus. Sensory Fisher information has the same Poisson formula only when the stimulus dependent tuning curves are the relevant rates.",
+    "intro": "Two positive tuning curves with the same changing part isolate the effect of extra baseline firing.",
+    "caption": "Analytic teaching curves $r_A(\\theta)=5+35e^{-\\theta^2/(2w^2)}$ and $r_B(\\theta)=r_A(\\theta)+20$, in spikes per second, with chosen width $w=0.6$ rad. The rates have the same derivative. Their individual Poisson information contributions $(r_i^{\\prime})^2/r_i$ vanish at the rate peak, where the slope is zero, and are positive on the flanks. Adding baseline firing raises the count noise without changing the slope, reducing local information. These are illustrative tuning curves, not recorded neurons or a demonstrated attractor network.",
+    "alt": "The first plot shows two positive peaked rate curves separated by a constant twenty spikes per second. The second shows their shared derivative, positive to the left, zero at the central peak and negative to the right. The third shows squared slope divided by rate for each curve. Both contributions vanish at the center and rise on the flanks; the higher baseline curve contributes less at every point with nonzero slope.",
+    "interpretation": "The rate peak has zero local slope, so it contributes no local information at that point. Extra spikes from a constant baseline increase Poisson variability without making nearby values easier to distinguish.",
+    "source_locator": "Guide sec:MEMORY-FI, J=sum_i (r_i prime)^2/r_i and positive-rate condition; Burak and Fiete (2012), main PDF p. 2, Eq. 3; SI PDF pp. 9–10, Eqs. S42–S44.",
+    "source_link": "../../assets/papers/burak-fiete-2012-persistent-activity.pdf#page=2",
+    "candidate_svg": "candidate-content/visuals/candidates/20261024-all/A03/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261024-all/A03/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261024-all/A03/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261024-all/A03/qa.json",
+    "editable_source": "verification/all-illustrations-20261024/draw_foundations_information.py",
+    "brief": "verification/all-illustrations-20261024/A03-brief.yaml",
+    "review_contract": {
+      "schema_version": 1,
+      "figure_role": "quantitative-figure",
+      "route": "vector",
+      "unit_scope": "chapter",
+      "author": "/root/all_draw_foundations_information",
+      "role_reason": "Show why high firing alone does not imply high local Poisson information.",
+      "source_files": [
+        "content/chapters/03-memory-information.md",
+        "content/chapters/03-memory-information.yaml",
+        "verification/all-illustrations-20261024/draw_foundations_information.py",
+        "verification/all-illustrations-20261024/A03-brief.yaml",
+        "verification/illustrations/figure_style.py",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt"
+      ],
+      "rule_files": [
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md"
+      ],
+      "style_lock": "source-maps/book-style-lock.yaml",
+      "style_profile": "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml",
+      "reference_images": [],
+      "palette_audit": "candidate-content/visuals/candidates/20261024-all/A03/qa.json",
+      "vector_spec": "verification/all-illustrations-20261024/draw_foundations_information.py",
+      "insertion_width_px": 700,
+      "required_scene_ids": [
+        "rate-and-baseline",
+        "shared-slope",
+        "individual-information"
+      ],
+      "coverage": {
+        "applicable": false,
+        "reason": "Internal mathematical teaching figure, not an opening map; no chapter coverage claim."
+      }
+    },
+    "author": "/root/all_draw_foundations_information",
+    "acceptance": "pending independent review"
+  },
+  {
+    "id": "A04",
+    "visual_id": "fig:MEMORY-BOUND-STRICTNESS",
+    "chapter": "content/chapters/03-memory-information.md",
+    "placement_section": "sec:MEMORY-BOUND",
+    "insert_after": "The actual diffusion remains $1000$. The inequality is strict because these two unequal rates no longer align the network's projection weights with the information optimal weights. This also shows why equality at a special state does not force the transfer function to be exponential on its whole domain. A constant lower bound attained everywhere and an accidental equality at one state are different claims.",
+    "intro": "The chapter’s two cell example makes the difference between a lower bound and the actual diffusion visible.",
+    "caption": "Analytic teaching calculation for the chapter’s mutual inhibition example, with $b=200$ activation units and $\\tau=0.1$ s. The coordinate $\\theta$ is an activation difference. For positive rates $r_{1,2}=(b\\pm\\theta)/(2\\tau)$, $J=2000/(40000-\\theta^2)$ while $D=1000$ activation units squared per second. The lower bound $1/(2\\tau^2J)$ equals $D$ at $\\theta=0$ and falls to 750 at $\\theta=100$. Higher local information permits a lower diffusion bound but leaves the actual diffusion unchanged in this model. The plotted range stays inside the positive-rate domain $|\\theta|<200$.",
+    "alt": "Across memory coordinates from minus one hundred sixty to one hundred sixty activation units, internal information has a minimum of 0.05 at zero and grows toward either side. Actual diffusion is a horizontal line at one thousand. The information lower bound meets it at zero and bends downward, reaching seven hundred fifty at coordinate one hundred. A marked gap separates actual diffusion from the bound there.",
+    "interpretation": "The gap at $\\theta=100$ shows why a lower minimum allowed by the inequality is not a reduction in the network’s actual diffusion.",
+    "source_locator": "Guide sec:MEMORY-BOUND, exact b=200, tau=.1 mutual inhibition example; Ch. 2 mutual inhibition derivation; Burak and Fiete (2012), main PDF p. 3, Eq. 4 and Fig. 2E–G; SI PDF pp. 10–11, Eqs. S45–S49.",
+    "source_link": "../../assets/papers/burak-fiete-2012-persistent-activity.pdf#page=3",
+    "candidate_svg": "candidate-content/visuals/candidates/20261024-all/A04/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261024-all/A04/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261024-all/A04/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261024-all/A04/qa.json",
+    "editable_source": "verification/all-illustrations-20261024/draw_foundations_information.py",
+    "brief": "verification/all-illustrations-20261024/A04-brief.yaml",
+    "review_contract": {
+      "schema_version": 1,
+      "figure_role": "quantitative-figure",
+      "route": "vector",
+      "unit_scope": "chapter",
+      "author": "/root/all_draw_foundations_information",
+      "role_reason": "Show by an existing exact example that higher information can loosen a bound while actual diffusion stays fixed.",
+      "source_files": [
+        "content/chapters/03-memory-information.md",
+        "content/chapters/03-memory-information.yaml",
+        "verification/all-illustrations-20261024/draw_foundations_information.py",
+        "verification/all-illustrations-20261024/A04-brief.yaml",
+        "verification/illustrations/figure_style.py",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt",
+        "content/chapters/02-memory-dynamics.md",
+        "content/chapters/02-memory-dynamics.yaml"
+      ],
+      "rule_files": [
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md"
+      ],
+      "style_lock": "source-maps/book-style-lock.yaml",
+      "style_profile": "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml",
+      "reference_images": [],
+      "palette_audit": "candidate-content/visuals/candidates/20261024-all/A04/qa.json",
+      "vector_spec": "verification/all-illustrations-20261024/draw_foundations_information.py",
+      "insertion_width_px": 700,
+      "required_scene_ids": [
+        "state-dependent-information",
+        "constant-diffusion-and-lower-bound"
+      ],
+      "coverage": {
+        "applicable": false,
+        "reason": "Internal mathematical teaching figure, not an opening map; no chapter coverage claim."
+      }
+    },
+    "author": "/root/all_draw_foundations_information",
+    "acceptance": "pending independent review"
+  }
+]

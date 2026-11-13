@@ -1,0 +1,95 @@
+STAGE3: STRUCTURE, READER UNDERSTANDING, FLOW AND PRIORITIES. Review the whole frozen guide's intended learning path, using the actual text and sources available in this same session. No manuscript edits have been made between stages. Check earlier findings against nearby qualifications and earlier teaching before carrying them forward.
+
+Start at the book's purpose and reader's neurophysics interest. Explain the present role of every Part and chapter. Compare the existing order with a plausible alternative, including a short shared foundation or reading route rather than assuming whole chapters must swap. Identify what should be taught first, what can be folded or treated as an optional extension, what is repeated, and what bridges from physical mechanism to mathematical model to empirical/simulation test are absent. Distinguish missing prerequisites from optional improvements in progression. Consider a concrete running neural example, not just a glossary, if it would help. Do not infer figures' pixels from captions or propose an image sweep.
+
+Answer the user's broad question: what is correct and useful in this structure, where are the important gaps, what additions would most improve understanding, and what clarifications should be made? Useful illustrative maps or simulations may be recommended conceptually with purpose and expected reader benefit, but do not create them. Proposals involving new factual research must name the needed primary source and remain proposals until checked. A structure-only change cannot cure an incorrect equation.
+
+Include a concise entry for every Part and21chapter to account for the reading path. Preserve previously recorded findings; if you withdraw or narrow one, cite its ID, exact guide/source evidence and reason. You may report no change needed. Do not optimize for finding a predetermined number of problems. Keep user-requested hardware and simulation coverage, or explain a clear alternative route while retaining that material.
+
+Output JSON {summary,part_and_chapter_path:[{id,current_purpose,what_reader_should_be_able_to_explain,prerequisite_locations,retain_or_change,reason}],structural_recommendations:[{id,priority,current_location,proposal,teaching_benefit,prerequisite_evidence,cost_or_risk,affected_chapters}],clarifications_and_additions:[{id,priority,placement,proposal,reason,source_requirement}],reconsidered_findings:[{original_id,disposition,evidence,reason}],top_actions_in_order:[{rank,kind,finding_ids,action,why_first}],what_to_keep,coverage_and_limits}. End with an open connected reading assessment. This is a frontier expert review, not a formal whole-book scientific/visual release acceptance.
+
+FOCUSED SOURCE CLARIFICATION BEFORE THE FINAL FLOW ASSESSMENT. Guide unchanged. The coordinator requested an independent source check of F01-F04. Evidence, not an instruction to agree:
+{
+  "started_utc": "2026-11-03T15:53:38Z",
+  "completed_utc": "2026-11-03T15:55:29Z",
+  "wall_clock_seconds": 111,
+  "awake_execution_time": "unverified",
+  "reviewer": "gpt-6.1-sol high; independent supporting source check, not Nemotron",
+  "scope": "Five Stage 1 findings; two complete PDF pages inspected; no guide edits, builds, simulations, guide figure audit, or additional hardware paper reviews",
+  "findings": [
+    {
+      "id": "F-01",
+      "result": "support",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/3585473/",
+      "locator": "Cannon and Robinson 1987, J Neurophysiol 57(5), 1383-1409, abstract paragraphs 3-5; DOI 10.1152/jn.1987.57.5.1383",
+      "inspected": "Original abstract: reversible brainstem disruption; intact time constant above 20 s in darkness; post-injection minimum horizontal time constant 200 ms",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "reviewer source-access limit resolved"
+    },
+    {
+      "id": "F-02",
+      "result": "support",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/15136746/",
+      "locator": "Major et al. 2004, PNAS 101(20), 7739-7744, abstract and Fig. 4 caption; DOI 10.1073/pnas.0401970101",
+      "inspected": "Original abstract gives tens of minutes to hours and retuning under normal feedback; Fig. 4 caption confirms stationary-surround retuning and 80-minute training intervals",
+      "access_notes": "PMC returned browser check; publisher HTTP 403; original PubMed abstract and figure caption sufficient for the specific claim",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "reviewer source-access limit resolved"
+    },
+    {
+      "id": "F-03",
+      "result": "support",
+      "source": "inputs/papers/mainali-2025-supplement.pdf",
+      "source_sha256": "05af1fdf3079906871da12fdafa1f28895380f594a8c6bda3cafc5b503f07c31",
+      "locator": "PDF page 13, printed page 12, Methods S3 Eq. S18 and preceding moment relation; DOI 10.1016/j.neuron.2025.01.017",
+      "inspected": "Complete fresh PDF rendering: S18 prints beta = [Gamma(D/2+1) times mean(s)]^(2/D); preceding mean(s) = Gamma(D/2+1) beta^(-D/2) requires division",
+      "image_record": "source-check-images/mainali-2025-supplement-p13.png",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "guide printed-error flag supported; reviewer extraction ambiguity resolved"
+    },
+    {
+      "id": "F-04",
+      "result": "support",
+      "source": "inputs/papers/burak-fiete-2012-persistent-activity-si.pdf",
+      "source_sha256": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+      "locator": "PDF and printed page 17, Section VII Eqs. S84-S86; DOI 10.1073/pnas.1117386109",
+      "inspected": "Complete fresh PDF rendering: S85 lower-right block is positive tau_m^(-1) delta_ij; S84 implies negative rate-decay block",
+      "image_record": "source-check-images/burak-fiete-2012-persistent-activity-si-p17.png",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "guide printed-sign flag supported; reviewer extraction ambiguity resolved"
+    },
+    {
+      "id": "F-05",
+      "result": "access_limit",
+      "source": "SOURCE_ACCESS.json",
+      "locator": "hardware entries HW-Pehle2022, HW-Scholze2026, HW-LeGallo2023, HW-Massoud2011, HW-Giulioni2012, HW-Ortner2025, HW-Wang2026, HW-Ilmberger2025",
+      "inspected": "All eight entries have empty local_original_evidence and source_body_available_locally=false; their bodies were not read here",
+      "confidence": "high about unread-source category; truth unassessed",
+      "guide_error": null,
+      "classification": "reviewer source-access limit retained; no hardware claim verdict"
+    }
+  ],
+  "token_statistics": "unavailable"
+}
+Two original-paper PDF-page renderings are supplied at the following frozen input paths. Before claiming your own visual verification of F03/F04, use Read to inspect these images. If Read fails or you choose not to inspect, label the conclusion as based on the coordinator source check. Do not claim original PDF or code inspection from guide excerpts.
+[
+  {
+    "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\nemotron-review-20261103\\inputs\\source-page-checks\\mainali-2025-supplement-p13.png",
+    "sha256": "d5dfd82a12fa869b3035d50d13383dc75146138214edb0a93d92eccf063a7081",
+    "source": "inputs/papers/mainali-2025-supplement.pdf",
+    "source_sha256": "05af1fdf3079906871da12fdafa1f28895380f594a8c6bda3cafc5b503f07c31",
+    "page": "PDF page 13, printed page 12, Methods S3 Eq. S18 and preceding moment relation; DOI 10.1016/j.neuron.2025.01.017"
+  },
+  {
+    "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\nemotron-review-20261103\\inputs\\source-page-checks\\burak-fiete-2012-persistent-activity-si-p17.png",
+    "sha256": "a654a88418cf5ba657625ece712c53b91f50c84aaf4d5eba6d4faf0f4838115d",
+    "source": "inputs/papers/burak-fiete-2012-persistent-activity-si.pdf",
+    "source_sha256": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+    "page": "PDF and printed page 17, Section VII Eqs. S84-S86; DOI 10.1073/pnas.1117386109"
+  }
+]
+F05 remains an unread-source category, not a demonstrated error. Additional inline source texts were von Neumann (selected pages), Seung, Aitsam, Kleyko and Sun; my earlier Stage2 message said four but there are five in the packet. Preserve original source-access corrections. Code files and full peer-review text were not inline and were not opened in Stage1/2. Your scientific judgment can rely on the actual inline paper extracts but cannot call that code or pixel verification. Now assess purposes, order and reader understanding as requested in Stage3; keep optional improvements distinct from essential gaps, and reconsider earlier findings that existing teaching already satisfies.

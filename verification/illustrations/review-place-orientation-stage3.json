@@ -1,0 +1,231 @@
+{
+  "stage": "Stage3 connected reader-understanding review",
+  "reviewer": "/root/draw_eye_figures",
+  "verdict": "pass",
+  "root_task_started_at": "2026-10-23T21:56:31.932270+03:00",
+  "review_started_at": "2026-10-23T22:19:26.381403+03:00",
+  "checkpoint_at": "2026-10-23T22:21:32.145535+03:00",
+  "previous_checkpoint_at": "2026-10-23T22:19:55.826377+03:00",
+  "wall_elapsed_since_root_seconds": 1500.213265,
+  "seconds_since_previous_checkpoint": 96.319158,
+  "awake_execution_time": "unverified",
+  "token_stats": "unavailable",
+  "scope": "V01,V06,V07,V08 new figure integration and connected prerequisites only. No full-book acceptance, build, chapter edit or new image inspection. Stage1 final pixels reused only after exact hash comparison.",
+  "source_hashes": {
+    "content/chapters/01-foundations.md": "49904000f9a8559f7da74037843fcf1d95d26747fea5e4eb17291e2107677bd6",
+    "content/chapters/01-foundations.yaml": "3611c0982e1d302cee8a02137b4af9cf0174b84777a63a4b5d7e34d06e4dc4fe",
+    "content/chapters/05-place-fields.md": "16b2c2f1ca469b9d854b705dd34ce2b1f2abb1eec6e5b6d48de99d8eac78a254",
+    "content/chapters/05-place-fields.yaml": "9ea76dec856356614c4a221f173bc108162413a0e98268fcbfe22ded864d82cf",
+    "verification/illustrations/integration.json": "3a1abe64eeea759ce7d36029bb764b91c2b1a630ea944a4c371c0366986ef961",
+    "verification/illustrations/current-bindings.json": "98cbec382fe385784396a92fbd0e2ddcff363dacc82d12080e04bb8ae94cd421",
+    "verification/illustrations/review-place-orientation-stage1.json": "276825e1e089578cd0be4b7e5359fccad572a1b2c4fa5f259370ad10712b2579",
+    "verification/illustrations/review-place-orientation-stage2-recheck.json": "206cc3d5ec47f301e9e7ff64ee281ba9cf7a1e2700389efb1209ca4742089c34"
+  },
+  "compiled_book_model_matches_bindings": true,
+  "figures": [
+    {
+      "id": "V01",
+      "visual_id": "fig:FOUNDATIONS-PAPER-MAP",
+      "verdict": "pass",
+      "prerequisites_and_order": "Foundations firing-rate and place-field definitions precede sec:FOUNDATIONS-RANDOMNESS. Both new paragraphs in that section follow the time-versus-space distinction.",
+      "paragraph_purposes": "The introduction sets the comparison, the caption gives its conclusion and source limits, and the interpretation prevents a shared-circuit claim.",
+      "transition_after_figure": "The section then ends into source footnotes; there is no interrupted derivation.",
+      "open_ended_reader_checks": [
+        {
+          "question": "Why can a random spatial map give the same expected response on a second visit?",
+          "answer_supported": "The map is drawn once for the cell and environment. A second visit evaluates that same expected-rate function at the same position; actual spike counts can still differ.",
+          "passage_reasoning": "The immediately preceding fixed-map/revisit paragraph and the lower expected-rate row support the answer.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Do these rows identify one biological circuit connecting all three papers?",
+          "answer_supported": "No. They compare questions about different kinds of variation. Only the middle row depicts the proposed changing-command mechanism behind eye drift.",
+          "passage_reasoning": "The rows remain separate; the interpretation explicitly blocks the joint-circuit reading.",
+          "verdict": "pass"
+        }
+      ],
+      "passage_coverage": {
+        "intro": "The three questions can now be placed beside the kind of variation each paper studies.",
+        "caption": "Memory loss and eye drift concern changes over time; place-field statistics concern variation across a fixed spatial map. The eye pathway shows the proposed changing-command mechanism. Original guide schematic based on the three papers, with illustrative traces rather than recorded data.",
+        "alt": "Three separate rows compare a wandering stored value over time, a proposed changing command passing through muscles to eye position, and one fixed spatial rate curve evaluated twice at the same place. They link to the 2012 memory, 2022 eye-drift and 2025 place-field papers respectively.",
+        "interpretation": "The rows compare different questions; they do not establish a single circuit connecting all three papers.",
+        "all_four_read_in_actual_reader_files": true
+      },
+      "binding_verification": {
+        "policy": true,
+        "context": true,
+        "image": true,
+        "contract": true,
+        "all_input_files": true,
+        "input_path_set": true,
+        "compiled_source_scope": true,
+        "same_stage1_candidate_image": true,
+        "approved_asset_same_candidate": true
+      },
+      "findings": []
+    },
+    {
+      "id": "V06",
+      "visual_id": "fig:PLACE-CROSSINGS",
+      "verdict": "pass",
+      "prerequisites_and_order": "q, z, connected fields, positive crossing and local slope/band width are taught first. The introduction now uses the actual left-edge field rather than an undefined formal term.",
+      "paragraph_purposes": "The example separates a deterministic count from the stochastic mean-upcrossing integral. Its tangent bands explain slope weighting; its count strip prepares the finite-track identity later.",
+      "transition_after_figure": "The figure follows the Kac–Rice display and density explanation. The next paragraph evaluates the same integral; the formal endpoint equation comes later after the concrete example.",
+      "open_ended_reader_checks": [
+        {
+          "question": "Why are there three fields but only two upcrossings?",
+          "answer_supported": "The track begins inside an active field, so it needs no upcrossing within the visible track. Two later upward crossings start the other two fields.",
+          "passage_reasoning": "The new plain introduction, caption, count strip and later finite-track identity all give this same boundary convention.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Why does the crossing integral multiply by slope?",
+          "answer_supported": "For a local positive tangent slope v, the band width is approximately 2epsilon/v. Multiplying that width by v/(2epsilon) makes one crossing contribute one, including a steeper crossing with a narrower band.",
+          "passage_reasoning": "The local linear equation and band derivation come before the Kac–Rice display; the two drawn tangents then make the compensation visible.",
+          "verdict": "pass"
+        },
+        {
+          "question": "What changes if fields cut by the track boundary are discarded?",
+          "answer_supported": "The three-field convention no longer applies unchanged. The reader must change the boundary-count rule before using the endpoint identity.",
+          "passage_reasoning": "The interpretation states inclusion of every intersecting active interval, and the later endpoint paragraph explicitly warns about discarding incomplete fields.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Can the derivation resume after the figure without a missing step?",
+          "answer_supported": "Yes. The original introduction of the Kac–Rice formula is immediately followed by its display and density explanation. The inserted example comes after them; the next paragraph then evaluates the same integral using Gaussian height/slope independence.",
+          "passage_reasoning": "Actual final order read in sec:PLACE-KAC-RICE.",
+          "verdict": "pass"
+        }
+      ],
+      "passage_coverage": {
+        "intro": "A fixed smooth curve shows how to count a field already active at the left edge and why the crossing integral weights each slope.",
+        "caption": "Two upcrossings start two new fields, and one field is already active at the left edge. The local tangent panels show that a steeper crossing occupies a narrower threshold band, while slope weighting makes each crossing contribute one. This is a guide construction, not a sampled cell or a new fit; it illustrates Mainali et al. (2025), Figure 1A–B and Supplemental Methods S3, Equations S11–S15.",
+        "alt": "A constructed smooth curve crosses q upward twice and has three active intervals because the first begins before the left edge of the track. One full field and one gap are marked. Two local tangent plots use the same vertical band q plus or minus epsilon; the steeper slope has a narrower horizontal width 2 epsilon divided by v, and slope times width divided by 2 epsilon equals one in both cases.",
+        "interpretation": "The count includes every connected active interval intersecting the track. Discarding clipped boundary fields would change this convention.",
+        "all_four_read_in_actual_reader_files": true
+      },
+      "binding_verification": {
+        "policy": true,
+        "context": true,
+        "image": true,
+        "contract": true,
+        "all_input_files": true,
+        "input_path_set": true,
+        "compiled_source_scope": true,
+        "same_stage1_candidate_image": true,
+        "approved_asset_same_candidate": true
+      },
+      "findings": []
+    },
+    {
+      "id": "V07",
+      "visual_id": "fig:PLACE-SIZE-GEOMETRY",
+      "verdict": "pass",
+      "prerequisites_and_order": "The earlier rare-peak section defines q, epsilon, r*, U and complete length. The size-law section defines d, v_d and beta before this figure.",
+      "paragraph_purposes": "The illustration turns the radius-to-size conversion into the source of the dimensional powers. Its interpretation keeps the limiting assumption visible.",
+      "transition_after_figure": "The next paragraph uses the already taught exponential density of U and the already displayed change of variables. The image does not introduce a later formula too early.",
+      "open_ended_reader_checks": [
+        {
+          "question": "Why do the powers become 2, 1 and 2/3?",
+          "answer_supported": "For the local parabola, U grows as radius squared. Size in d dimensions grows as radius to d, so U grows as size to power 2/d. Thus d=1,2,3 gives 2,1,2/3.",
+          "passage_reasoning": "The displayed beta/s/U relation is immediately before the figure; the three size shapes and formulas show the geometric conversion.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Which quantity is the complete field length?",
+          "answer_supported": "In one dimension it is 2r*, the distance between the two threshold roots. One r* is the radius, not the complete field.",
+          "passage_reasoning": "The earlier rare-peak paragraph derives complete length and the figure separately labels full width and radius.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Are these exact finite-threshold field shapes or measured cells?",
+          "answer_supported": "No. The round regions and exponential excess are the leading high-threshold approximation. They are guide constructions, and the following prose separately discusses finite-threshold scale and error.",
+          "passage_reasoning": "The figure approximation label, caption, interpretation and later explicit 46.0 percent versus 3.73 percent examples retain the limit.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Why can the next step change variables using U?",
+          "answer_supported": "The preceding section established the limiting exponential excess U, and this section has now supplied U=beta*s^(2/d). Its derivative therefore gives the size density immediately after the figure.",
+          "passage_reasoning": "No new symbol or unintroduced distribution is needed at the transition.",
+          "verdict": "pass"
+        }
+      ],
+      "passage_coverage": {
+        "intro": "The same local radius gives a length, an area, or a volume depending on the dimension of the region.",
+        "caption": "In the high-threshold approximation, excess peak height fixes a radius, and converting that radius into length, area, or volume gives powers 2, 1, and 2/3 in $U=\\beta s^{2/d}$. The round regions are a guide reconstruction of the limiting geometry, not observed field shapes; see Mainali et al. (2025), Equation 1 and Supplemental Methods S4, with the parabola constants checked in this chapter.",
+        "alt": "A local parabola stands epsilon above threshold q, and its full width is twice r star. U equals q times epsilon and r star is approximately square root of two times sigma divided by q times square root of U. The same radius gives an interval of length 2 r star, a disk of area pi r star squared, or a ball of volume four pi r star cubed over three. Therefore U depends on size to powers 2, 1, and 2/3.",
+        "interpretation": "The changing power comes from geometry. The round shape and exponential excess belong to the high-threshold limit, so they do not make every measured place field spherical.",
+        "all_four_read_in_actual_reader_files": true
+      },
+      "binding_verification": {
+        "policy": true,
+        "context": true,
+        "image": true,
+        "contract": true,
+        "all_input_files": true,
+        "input_path_set": true,
+        "compiled_source_scope": true,
+        "same_stage1_candidate_image": true,
+        "approved_asset_same_candidate": true
+      },
+      "findings": []
+    },
+    {
+      "id": "V08",
+      "visual_id": "fig:PLACE-TOPOLOGY",
+      "verdict": "pass",
+      "prerequisites_and_order": "The immediately preceding paragraph defines components, holes, chi and the 2D subtraction rule. The chapter already defines active regions/excursion sets.",
+      "paragraph_purposes": "The example provides explicit counts and separates nesting of sets from changes in topology. The interpretation explains a negative value and the hole-free equality with field count.",
+      "transition_after_figure": "The next paragraph moves to expected chi and explicitly warns that identifying it with field count can be wrong. This builds on the example rather than silently treating chi as field count.",
+      "open_ended_reader_checks": [
+        {
+          "question": "How can the active regions shrink while the number of components increases?",
+          "answer_supported": "Removing a thin above-threshold connection can split one region into several components. No active point needs to be added. A later increase can remove an entire small component.",
+          "passage_reasoning": "The same-map threshold sequence and repaired shrinking-regions caption explain both the split and later disappearance.",
+          "verdict": "pass"
+        },
+        {
+          "question": "What does a negative chi mean here?",
+          "answer_supported": "In two dimensions it means holes outnumber connected components. At the first threshold one component has two holes, so chi=1-2=-1.",
+          "passage_reasoning": "The immediately preceding definition, first mask counts and interpretation support this without a new technical term.",
+          "verdict": "pass"
+        },
+        {
+          "question": "When can chi be read as field count?",
+          "answer_supported": "When holes are absent in this two-dimensional example, chi equals the number of connected components. The general later Gaussian expected-chi formula is not automatically a field-count formula.",
+          "passage_reasoning": "The interpretation states the hole-free condition before the next paragraph introduces the expected Euler characteristic calculation.",
+          "verdict": "pass"
+        },
+        {
+          "question": "Are these observed maps or a Gaussian-process sample?",
+          "answer_supported": "Neither. They are thresholds of one constructed smooth map used to explain the counts.",
+          "passage_reasoning": "The caption explicitly labels the guide construction and does not turn these exact example counts into an empirical or GP claim.",
+          "verdict": "pass"
+        }
+      ],
+      "passage_coverage": {
+        "intro": "Thresholding one fixed smooth map separates the number of connected fields from the number of holes.",
+        "caption": "As the threshold rises on one constructed smooth map, components and holes change separately, giving Euler characteristics -1, 0, 4, and 3. The above-threshold regions shrink as the threshold rises, even though this signed count does not change in one direction. This guide example is not an observed place-field map or a Gaussian-process sample; it illustrates Mainali et al. (2025), Figure 3F–H and STAR Methods Equations 8–10.",
+        "alt": "Four thresholds of the same smooth two-dimensional map show one component with two holes and chi minus one; one component with one hole and chi zero; four components with no holes and chi four; and three components with no holes and chi three. Each active set is contained in the preceding one as q increases from 0.3 to 0.5, 0.8 and 1.0.",
+        "interpretation": "A negative chi means that holes outnumber components in this 2D example. It does not mean a negative number of fields. When holes are absent, chi equals the component count.",
+        "all_four_read_in_actual_reader_files": true
+      },
+      "binding_verification": {
+        "policy": true,
+        "context": true,
+        "image": true,
+        "contract": true,
+        "all_input_files": true,
+        "input_path_set": true,
+        "compiled_source_scope": true,
+        "same_stage1_candidate_image": true,
+        "approved_asset_same_candidate": true
+      },
+      "findings": []
+    }
+  ],
+  "findings": [],
+  "remaining_required_repairs": [],
+  "judgment_records": "verification/illustrations/diagram-review-place-orientation.json",
+  "record_validation": "All four completed records pass the read-only visual_review.validate_visual_review contract and current-file binding checks. This validates records, not a substitute for the separate human-readable semantic judgments above."
+}

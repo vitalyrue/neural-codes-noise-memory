@@ -1,0 +1,152 @@
+{
+  "status": "draft; independent acceptance pending",
+  "started_utc": "2026-11-04T14:20:12Z",
+  "draft_completed_utc": "2026-11-04T14:23:29Z",
+  "awake_execution_time": "unverified",
+  "token_stats": "unavailable",
+  "scope": "Two proposed mathematical-tools sections only. No shared manuscript edits.",
+  "audience": "Physics/CS reader; expected value, variance, standard deviation and density assumed.",
+  "source_texts_read": [
+    "research/ben-shushan-2022-main-text.txt",
+    "research/ben-shushan-2022-si1.txt"
+  ],
+  "consistency_context": [
+    "content/chapters/00-mathematical-tools.md",
+    "content/chapters/01-foundations.md:314-349",
+    "content/chapters/04-eye-drift.md",
+    "content/chapters/04b-eye-timing.md"
+  ],
+  "sections": [
+    {
+      "id": "sec:MATH-TOOLS-SHARED",
+      "source_results": [
+        {
+          "claim": "Calibrated prediction and common displacement inference with independence limits",
+          "pdf": "assets/papers/ben-shushan-2022-fixational-drift.pdf",
+          "pages": [
+            9,
+            10
+          ],
+          "equations": "4-7, 11-15"
+        },
+        {
+          "claim": "Population bound for independent OMN contributions",
+          "pdf": "assets/papers/ben-shushan-2022-supplement-1.pdf",
+          "pages": [
+            2
+          ],
+          "equations": "S1-S2"
+        }
+      ],
+      "teaching_constructions": [
+        "X=aS+eta_x and Y=bS+eta_y with explicit calibrated gains",
+        "rho approximately 0.18 while shared variance fraction is 0.80"
+      ],
+      "limits_kept_visible": [
+        "Correlation is not a shared variance fraction",
+        "Gain and uncorrelated component assumptions are required",
+        "Actual single cell private contribution produces a small residual covariance"
+      ]
+    },
+    {
+      "id": "sec:MATH-TOOLS-FILTERS",
+      "source_results": [
+        {
+          "claim": "Causal inversion of the neural-to-eye response",
+          "pdf": "assets/papers/ben-shushan-2022-fixational-drift.pdf",
+          "pages": [
+            9
+          ],
+          "equations": "2-7"
+        },
+        {
+          "claim": "Decaying filter driven by white noise yields stationary covariance and saturating MSD",
+          "pdf": "assets/papers/ben-shushan-2022-fixational-drift.pdf",
+          "pages": [
+            10
+          ],
+          "equations": "20-22"
+        },
+        {
+          "claim": "Measurement noise changes short lag MSD",
+          "pdf": "assets/papers/ben-shushan-2022-fixational-drift.pdf",
+          "pages": [
+            10
+          ],
+          "equations": "18-19"
+        },
+        {
+          "claim": "Full model needs visual feedback for quantitative fit",
+          "pdf": "assets/papers/ben-shushan-2022-supplement-1.pdf",
+          "pages": [
+            4,
+            5
+          ]
+        }
+      ],
+      "teaching_constructions": [
+        "Unit static gain first order exponential filter",
+        "Single exponential filtered white noise covariance",
+        "Filtered Brownian command and resulting stationary velocity covariance and MSD"
+      ],
+      "limits_kept_visible": [
+        "Lag is separation between readings, not absolute time",
+        "Filtered white position stationary after transients",
+        "Filtered Brownian position not stationary; increments become stationary after velocity transient",
+        "Single exponential white input has linear short lag MSD; squared short lag result belongs to Brownian position input",
+        "Two timescale muscle model and feedback remain in detailed chapters"
+      ]
+    }
+  ],
+  "first_definition_terms_to_move_or_remove_later_duplicates": [
+    {
+      "term": "covariance",
+      "existing": [
+        "content/chapters/01-foundations.md:314"
+      ]
+    },
+    {
+      "term": "correlation coefficient",
+      "existing": [
+        "content/chapters/01-foundations.md:314"
+      ]
+    },
+    {
+      "term": "causal filter",
+      "existing": [
+        "content/chapters/04-eye-drift.md:150"
+      ]
+    },
+    {
+      "term": "impulse response",
+      "existing": [
+        "content/chapters/04-eye-drift.md:150"
+      ]
+    },
+    {
+      "term": "convolution",
+      "existing": [
+        "content/chapters/04-eye-drift.md:188"
+      ]
+    },
+    {
+      "term": "low pass filter",
+      "existing": [
+        "content/chapters/04b-eye-timing.md:91"
+      ]
+    },
+    {
+      "term": "white noise",
+      "existing": [
+        "content/chapters/03b-memory-readout.md, inspect existing linked treatment before changing"
+      ]
+    }
+  ],
+  "checks": {
+    "shared_manuscript_edits": false,
+    "exact_example_panels": 2,
+    "word_count_whitespace_approx": 947,
+    "independent_semantic_review": "pending coordinator",
+    "render_or_build": "not run; draft only"
+  }
+}

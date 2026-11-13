@@ -1,0 +1,73 @@
+chapter_id: ch:HARDWARE-MEMORY
+part_id: part:HARDWARE
+title: A stored weight and a remembered value are different states
+purpose: A silicon circuit can keep a connection strength unchanged while losing the angle it was asked to
+  remember. It can also keep that angle while its individual electrical signals change. To compare electronic
+  memory with the neural memory in Part I, we first need to identify what information each physical quantity
+  represents. This chapter separates the connection settings, the changing state of each artificial neuron,
+  and the value represented by their joint activity. That separation will let us ask what feedback actually
+  preserves.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+- ch:PERSISTENCE
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:HARDWARE
+section_list:
+- id: sec:HARDWARE-MEMORY-ROLES
+  title: A connection setting shapes activity. The activity can represent a cue
+  summary: 'Imagine giving a circuit a brief cue for an angle of $30^\circ$. After the cue ends, a connected
+    group of artificial neurons remains active. We estimate the remembered angle from which neurons are active
+    and how strongly. The experiment involves:'
+  level: 2
+- id: sec:HARDWARE-MEMORY-STORAGE
+  title: Bits, capacitor voltages, and material conductances store different physical states
+  summary: The neural model still needs a physical implementation. If the model has a variable called membrane
+    voltage, a chip may store it as a binary number or as an actual circuit voltage. Those choices expose the
+    computation to different errors. [[**Current**]{.definition-term custom-style="Definition Term"} is electric
+    charge flowing per unit time, measured in amperes (coulombs per second).]{.definition-explanation} [[**Voltage**]{.definition-term
+    custom-style="Definition Term"} is an electrical energy difference per unit charge, measured in volts (joules
+    per coulomb).]{.definition-explanation}
+  level: 2
+- id: sec:HARDWARE-MEMORY-UPDATES
+  title: The stored state matters through the update it produces
+  summary: To understand a machine's memory, follow one input through it. On a digital spiking processor, an
+    arriving event identifies connections, their weights contribute to inputs, and a program updates stored
+    neuron variables. Those variables determine whether to send further events. Loihi 2 provides local digital
+    state and weight memory with programmable neuron and learning rules. SpiNNaker2 uses many processor cores
+    whose software updates neural states stored with weights in local SRAM. Their event communication does
+    not make every model variable evolve continuously in physical time.[^hardware-intel][^hardware-spinnaker]
+  level: 2
+blocks:
+- id: tbl:HARDWARE-STORAGE
+  kind: table
+  placement: sec:HARDWARE-MEMORY-STORAGE
+  headers:
+  - Implementation
+  - Quantity representing information
+  - Example role
+  - Error relevant to that role
+  rows:
+  - - Digital memory word
+    - A pattern of bits
+    - Connection weight or current neuron state
+    - Finite precision, an incorrect update, or a bit error
+  - - Capacitor in an analog neuron
+    - Charge and voltage
+    - Changing membrane or synaptic state
+    - Leakage, physical noise, or unequal circuit parameters
+  - - PCM cell
+    - Material configuration read as conductance
+    - Trained or adapted connection weight
+    - Programming error, read noise, or conductance drift
+  - - Recurrent network
+    - Joint activity of many units
+    - A remembered angle
+    - Drift, random spreading, or loss of the activity pattern
+  caption: Physical states and the information they can represent.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

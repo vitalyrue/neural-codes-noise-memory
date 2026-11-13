@@ -1,0 +1,101 @@
+asset_id: A07
+visual_id: fig:PLACE-GP-TO-FIRING
+author: /root/all_draw_eye_place
+created_at: '2026-10-24T18:37:13.708733+03:00'
+teaching_goal: A simulated Gaussian input map with covariance $C(\Delta x)=\exp[-(\Delta
+  x/\sigma)^2/2]$ gives the firing map below when $q=0.8$ and $a=6$ Hz. Position is
+  shown in units of $\sigma$.
+source_locator: Mainali et al. (2025), Fig. 1A, p. 1112 / PDF page 4; STAR Methods
+  Model details, Eqs. 2–3, p. e1 / PDF page 13; supplement Methods S1, printed p.
+  8 / PDF page 9.
+source_files: &id001
+- content/chapters/05-place-fields.md
+- content/chapters/05-place-fields.yaml
+- verification/all-illustrations-20261024/draw_eye_place.py
+- verification/all-illustrations-20261024/A07-brief.yaml
+- verification/illustrations/figure_style.py
+- assets/papers/mainali-2025-universal-statistics.pdf
+- assets/papers/mainali-2025-supplement.pdf
+guide_only_parameters:
+  q: 0.8
+  gain_a_Hz: 6
+  sigma_distance_unit: 1
+  track_length_sigma: 24
+  grid_points: 601
+  numpy_seed: 16
+  covariance: exp(-0.5*(dx/sigma)^2)
+  numerical_diagonal_jitter: 1.0e-10
+  origin: Finite-grid multivariate Gaussian simulation with fixed seed; no fit or
+    experimental data.
+required_scene_ids: &id002
+- input-map
+- thresholded-rate
+route: deterministic-scientific-vector
+style_lock: source-maps/book-style-lock.yaml
+palette_family:
+  id: technical-editorial-blueprint
+  version: 1.0.0
+style_profile:
+  path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  id: house-graphic-v1
+  version: 0.1.0
+palette_colors_and_roles:
+  ink: '#17365D'
+  blue: '#1F4E79'
+  text: '#19202C'
+  muted: '#5D6876'
+  flow: '#0B7F95'
+  success: '#0F6B78'
+  risk: '#C4580B'
+  risk_deep: '#B85209'
+  line: '#9AA7B5'
+  fill_blue: '#EAF2F8'
+  fill_teal: '#E4F2F0'
+  fill_orange: '#FCEEE3'
+  fill_gray: '#F1F3F6'
+  paper: '#FFFFFF'
+  paper_warm: '#FFFDF7'
+  panel_warm: '#F8F4EC'
+palette_gate: Exact SVG token membership; not a raster pixel-deviation claim.
+forbidden_claims:
+- No experimental-data claim
+- No full chapter coverage claim
+- No self approval
+insertion_width_px: 700
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/all_draw_eye_place
+  role_reason: Internal mathematical detail figure using calculated curves, not an
+    opening map or experimental plot.
+  source_files: *id001
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024-all/A07/qa.json
+  vector_spec: verification/all-illustrations-20261024/draw_eye_place.py
+  insertion_width_px: 700
+  required_scene_ids: *id002
+  coverage:
+    applicable: false
+    reason: Internal explanation of specific equations; no chapter-opening coverage
+      claim.
+brief:
+  asset_id: A07
+style_contract:
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    allowed_special_purpose_colors: []
+    check: Exact SVG token membership in selected profile.

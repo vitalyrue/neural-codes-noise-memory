@@ -1,0 +1,86 @@
+chapter_id: ch:SIMULATION-TOOLS
+part_id: part:SIMULATIONS
+title: Reproduction depends on the model, numerical method, and measurement
+purpose: "A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Beyond the paper-specific methods in the preceding chapters, a reproduction needs checks that its software, resolution, and saved run record preserve the intended comparison. This chapter explains how to choose those checks and distinguish the authors' program from an independent implementation or a smaller teaching model."
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:SIMULATING-MEMORY
+- ch:SIMULATING-EYE
+- ch:SIMULATING-PLACE
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:SIMULATIONS
+section_list:
+- id: sec:SIMULATION-TOOLS-ROUTES
+  title: The original code and a teaching reconstruction serve different purposes
+  summary: The starting point depends on the intended result. Running the authors' program tests whether its implementation
+    produces the reported output. Rebuilding the equations in another program tests whether an independent implementation
+    agrees. A smaller teaching model can isolate a mechanism, but its numerical output belongs to that smaller
+    model.
+  level: 2
+- id: sec:SIMULATION-TOOLS-SOFTWARE
+  title: Tools should match the operation being tested
+  summary: The authors' implementation is the first choice when the goal is to reproduce their figures. Other
+    libraries are useful when the goal is to isolate a mechanism or change a model. The following tools have distinct
+    roles. The optional tools are suggestions for a new implementation, not claims about what all three papers
+    used.
+  level: 2
+- id: sec:SIMULATION-TOOLS-RESOLUTION
+  title: Time and space resolution must preserve the modeled physics
+  summary: A simulated trajectory is recorded at finitely many times, and a generated field is sampled at finitely
+    many positions. [[**Discretization**]{.definition-term custom-style="Definition Term"} replaces a continuous
+    variable such as time or position by a finite set of sample points.]{.definition-explanation} The resulting
+    numerical approximation can introduce its own drift, missed spikes, or merged fields.
+  level: 2
+- id: sec:SIMULATION-TOOLS-RECORD
+  title: A useful reproduction saves the choices that determine the conclusion
+  summary: 'To reproduce one panel, identify its target quantity before running the model. Figure 2 of Burak and
+    Fiete (2012) tests memory diffusion, whereas a field-size histogram in Mainali et al. (2025) tests a spatial
+    distribution. The following record connects a computation to the claim it can support:'
+  level: 2
+blocks:
+- id: fig:DRAFT-MAP-CH22-A
+  kind: figure
+  placement: ch:SIMULATION-TOOLS
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch22-a-draft-v1.png
+  caption: "Unreviewed draft diagram, first part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them."
+  alt: "Unreviewed generated draft: first diagram for the chapter Reproduction depends on the model, numerical method, and measurement."
+  width_inches: 7.0
+  html_fold: never
+- id: fig:DRAFT-MAP-CH22-B
+  kind: figure
+  placement: ch:SIMULATION-TOOLS
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch22-b-draft-v1.png
+  caption: "Unreviewed draft diagram, second part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them."
+  alt: "Unreviewed generated draft: second diagram for the chapter Reproduction depends on the model, numerical method, and measurement."
+  width_inches: 7.0
+  html_fold: never
+- id: tbl:SIMULATION-TOOLS
+  kind: table
+  placement: sec:SIMULATION-TOOLS-SOFTWARE
+  headers:
+  - Tool or package
+  - Role
+  - Status in this guide
+  rows:
+  - - MATLAB author code
+    - Time-stepped integrator and eye model; parameter fitting and MSD analysis
+    - Released for Ben-Shushan et al. (2022); source inspected, full runs not repeated
+  - - Python 3.11, NumPy and SciPy
+    - Generate and process spatial maps; measure fields, peaks and distributions
+    - Reported or verified in Mainali et al. (2025) and its archived code
+  - - Gudhi
+    - Compute Betti numbers used in Euler characteristic measurements
+    - Reported by Mainali et al. (2025)
+  - - SciPy solve_ivp
+    - Integrate deterministic ordinary differential equations
+    - Optional reconstruction tool; stochastic events need additional rules
+  - - Brian 2
+    - Specify spiking-network equations and event handling
+    - Optional alternative; equations and spike statistics must match the chosen model
+  caption: Software roles and the evidence for their use.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

@@ -1,0 +1,524 @@
+brief:
+  asset_id: fig:MAP-PART03
+  scope: part
+  book: burak-three-papers
+  part: part:HARDWARE
+  chapter: null
+  purpose: Electronic storage, feedback architectures, noise and readout become comparable only when the encoded
+    value, physical state and measured task are specified.
+  target_use: part-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Concrete circuit and simulation scenes make the connections and distinctions across chapters inspectable.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Four distinct scenes, one for each major idea. Exact content and reading-width legibility need an
+    image-level check; omitted inventory points remain in the text.
+  scenes:
+  - source_item_ids: &id001
+    - P01
+    - P02
+    - P04
+    - P05
+    - P06
+    - P17
+    exact_label: Weights, activity and represented angle
+    visible_objects_and_relation: Show a fixed synaptic connection alongside two activity bumps, with a digital
+      word, capacitor and PCM cell as visibly distinct physical states.
+    teaching_contribution_beyond_labels: The same fixed weight settings can support different population states;
+      physical weight, activity and decoded value are different roles.
+  - source_item_ids: &id002
+    - P10
+    - P11
+    - P13
+    - P14
+    - P22
+    exact_label: Feedback architectures
+    visible_objects_and_relation: Place a cross-coupled bistable pair, a few discrete voltage levels and an activity
+      ring side by side.
+    teaching_contribution_beyond_labels: Show separate architectures with two states, several preferred states,
+      and a position encoded by a bump; do not equate discrete levels with a continuum.
+  - source_item_ids: &id003
+    - P19
+    - P21
+    - P23
+    - P24
+    exact_label: Stability and noise
+    visible_objects_and_relation: Show a ball returning to one basin, alongside an activity bump moving along an
+      attractor and a weakly pinned case.
+    teaching_contribution_beyond_labels: Show how restoration suppresses small deviations while a neutral direction
+      wanders, and how pinning adds a preferred value.
+  - source_item_ids: &id004
+    - P37
+    - P38
+    - P40
+    - P43
+    exact_label: Retention and readout
+    visible_objects_and_relation: Depict cue, fixed delay, repeated decoded angles, a separate measurement-noise
+      contribution and distributions of outcomes.
+    teaching_contribution_beyond_labels: Distinguish write error, average drift and trial spread; identify readout
+      as a separate measurement.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    verdict: pending
+part_map_coverage:
+  applicable: true
+  source_scope:
+    part_plan: plan/chapter-plan.yaml
+    part_plan_sha256: 159cdfe975b868390674861b26b68f1f079bc23c98286feaa3fc67fb5ee1380a
+    chapters:
+    - chapter: ch:HARDWARE-MEMORY
+      source_path: content/chapters/07-hardware-memory.md
+      source_sha256: abe4b9a61da190992ff6a455d7396390887a5f2eba071cbbde981b87a8757b38
+      sidecar_path: content/chapters/07-hardware-memory.yaml
+      sidecar_sha256: 7bc6e17efe0e24caa3dfe6f6ed7be4e39eaf54556b8b907a9143072310d8cf0d
+    - chapter: ch:ELECTRONIC-ARCHITECTURES
+      source_path: content/chapters/11-electronic-architectures.md
+      source_sha256: 4eb5b085b3678707f55eaea9dafaf5bb24c989c27bbc15ee6fa4b439bb96dc7d
+      sidecar_path: content/chapters/11-electronic-architectures.yaml
+      sidecar_sha256: e5ea63ac3beffe937d6b6995481f402f1634b967e1c0f2b4ce863e23c727a6c2
+    - chapter: ch:HARDWARE-DYNAMICS
+      source_path: content/chapters/08-hardware-dynamics.md
+      source_sha256: 0c6ce3fe69e00170f423c0b74ad7da4ed62f3994287ecff010cc206cd692ca07
+      sidecar_path: content/chapters/08-hardware-dynamics.yaml
+      sidecar_sha256: 7fa0087f0dd37f9032d2b56c12b5d7b8748e64c6329ba0886f1aaa5797ca31d6
+    - chapter: ch:NEUROMORPHIC-SYSTEMS
+      source_path: content/chapters/09-neuromorphic-systems.md
+      source_sha256: 49578c3cb5777a93150f442891b287fc7f37c6ca2345969105885145aaa0b31f
+      sidecar_path: content/chapters/09-neuromorphic-systems.yaml
+      sidecar_sha256: bf3ce5d526007f082b99d4e29aa3ecd1f26a962496ba9dbb563152f1e12a1393
+    - chapter: ch:HARDWARE-TESTS
+      source_path: content/chapters/10-hardware-tests.md
+      source_sha256: 22e32a1ba43d04c4ca57ff2266dcfded6bc8992c75b4d945b7a49d48219bfb50
+      sidecar_path: content/chapters/10-hardware-tests.yaml
+      sidecar_sha256: fadeeb46c9b8fc055f1610028248b0dd2c0865cd4d2247d654ab8daa0f3ce998
+  teaching_points:
+  - id: P01
+    point: Connection weights set influence; changing neuron and synapse states collectively encode a remembered
+      angle.
+    source_locus: content/chapters/07-hardware-memory.md:5-26 (#sec:HARDWARE-MEMORY-ROLES)
+  - id: P02
+    point: The same weights can support different cued angles and a shifting activity bump can lose the cue without
+      changing weights.
+    source_locus: content/chapters/07-hardware-memory.md:5-26 (#sec:HARDWARE-MEMORY-ROLES)
+  - id: P03
+    point: Working memory and persistent activity are not synonymous; a buffer or slowly decaying state can also
+      retain information.
+    source_locus: content/chapters/07-hardware-memory.md:5-26 (#sec:HARDWARE-MEMORY-ROLES)
+  - id: P04
+    point: SRAM stores discrete bits through powered transistor feedback; finite words have finite precision.
+    source_locus: content/chapters/07-hardware-memory.md:27-50 (#sec:HARDWARE-MEMORY-STORAGE)
+  - id: P05
+    point: Capacitor charge and voltage evolve under current and leakage; analog signals may be mixed with digital
+      storage.
+    source_locus: content/chapters/07-hardware-memory.md:27-50 (#sec:HARDWARE-MEMORY-STORAGE)
+  - id: P06
+    point: Phase-change material retains a programmed conductance as a weight even after a changing activity state
+      vanishes.
+    source_locus: content/chapters/07-hardware-memory.md:27-50 (#sec:HARDWARE-MEMORY-STORAGE)
+  - id: P07
+    point: Device mismatch is repeatable variation between components; moment-to-moment noise can differ between
+      trials.
+    source_locus: content/chapters/07-hardware-memory.md:27-50 (#sec:HARDWARE-MEMORY-STORAGE)
+  - id: P08
+    point: Digital chips update stored neural variables from incoming events, while analog circuits physically evolve
+      voltage.
+    source_locus: content/chapters/07-hardware-memory.md:51-79 (#sec:HARDWARE-MEMORY-UPDATES)
+  - id: P09
+    point: A PCM conductance with an applied voltage and pulse duration yields a weighted electrical contribution;
+      several currents add.
+    source_locus: content/chapters/07-hardware-memory.md:51-79 (#sec:HARDWARE-MEMORY-UPDATES)
+  - id: P10
+    point: Feedback means output affects later input; different architectures store different variables.
+    source_locus: content/chapters/11-electronic-architectures.md:9-24 (#sec:ELECTRONIC-OVERVIEW)
+  - id: P11
+    point: Two cross-coupled inverters hold one of two powered stable states, and small perturbations return within
+      a basin.
+    source_locus: content/chapters/11-electronic-architectures.md:25-32 (#sec:ELECTRONIC-FLIPFLOP)
+  - id: P12
+    point: A recurrent spiking circuit can maintain low or high population activity, without holding an arbitrary
+      angle.
+    source_locus: content/chapters/11-electronic-architectures.md:25-32 (#sec:ELECTRONIC-FLIPFLOP)
+  - id: P13
+    point: A multistable CMOS circuit can restore one of several preferred voltages; many levels are not automatically
+      a continuum.
+    source_locus: content/chapters/11-electronic-architectures.md:33-46 (#sec:ELECTRONIC-MULTILEVEL)
+  - id: P14
+    point: A recurrent ring represents a direction in the position of an activity bump; actual circuit implementations
+      can be finite and hybrid.
+    source_locus: content/chapters/11-electronic-architectures.md:47-54 (#sec:ELECTRONIC-RING)
+  - id: P15
+    point: A sustained oscillator normally advances in phase; a disturbance can leave a persistent phase offset
+      relative to its expected cycle.
+    source_locus: content/chapters/11-electronic-architectures.md:55-62 (#sec:ELECTRONIC-OSCILLATOR)
+  - id: P16
+    point: Pulses are events, rate summarizes expected event frequency, and decaying synaptic activation accumulates
+      pulse effects.
+    source_locus: content/chapters/11-electronic-architectures.md:63-72 (#sec:ELECTRONIC-SPIKES)
+  - id: P17
+    point: Programmable conductance can store a weight rather than the current neuron state or remembered angle.
+    source_locus: content/chapters/11-electronic-architectures.md:63-72 (#sec:ELECTRONIC-SPIKES)
+  - id: P18
+    point: Drift describes evolution of a represented state; Fisher information concerns distinguishability in observed
+      signals and a neural bound does not automatically transfer to hardware.
+    source_locus: content/chapters/11-electronic-architectures.md:73-103 (#sec:ELECTRONIC-READOUT)
+  - id: P19
+    point: Recurrent feedback can replace a fraction of a leaking state, extending its collective persistence time.
+    source_locus: content/chapters/08-hardware-dynamics.md:7-44 (#sec:HARDWARE-DYNAMICS-FEEDBACK)
+  - id: P20
+    point: As gain approaches one from below the effective decay time increases; gain above one invalidates the
+      simple linear stable model.
+    source_locus: content/chapters/08-hardware-dynamics.md:7-44 (#sec:HARDWARE-DYNAMICS-FEEDBACK)
+  - id: P21
+    point: A small displacement inside a bit state’s basin returns, while a large enough disturbance can switch
+      states.
+    source_locus: content/chapters/08-hardware-dynamics.md:45-83 (#sec:HARDWARE-DYNAMICS-ERRORS)
+  - id: P22
+    point: In an ideal continuous attractor shape disturbances decay while displacements along the state family
+      persist.
+    source_locus: content/chapters/08-hardware-dynamics.md:45-83 (#sec:HARDWARE-DYNAMICS-ERRORS)
+  - id: P23
+    point: Repeated noise produces bounded local spread with restoration but growing variance along a neutral direction.
+    source_locus: content/chapters/08-hardware-dynamics.md:45-83 (#sec:HARDWARE-DYNAMICS-ERRORS)
+  - id: P24
+    point: Pinning can reduce spread by drawing values to preferred states, at the cost of bias.
+    source_locus: content/chapters/08-hardware-dynamics.md:45-83 (#sec:HARDWARE-DYNAMICS-ERRORS)
+  - id: P25
+    point: The 2012 information bound is conditional on its neural model and cannot be assumed for every electronic
+      memory.
+    source_locus: content/chapters/08-hardware-dynamics.md:45-83 (#sec:HARDWARE-DYNAMICS-ERRORS)
+  - id: P26
+    point: The 32-position head-direction demonstration has finite spatial resolution, not a proven continuous family
+      or Brownian law.
+    source_locus: content/chapters/08-hardware-dynamics.md:84-108 (#sec:HARDWARE-DYNAMICS-EVIDENCE)
+  - id: P27
+    point: A separate recurrent spiking device exhibited bistable persistent activity and noise-related switching.
+    source_locus: content/chapters/08-hardware-dynamics.md:84-108 (#sec:HARDWARE-DYNAMICS-EVIDENCE)
+  - id: P28
+    point: Digital systems calculate states; analog circuits evolve physical variables, and hybrid systems combine
+      these.
+    source_locus: content/chapters/09-neuromorphic-systems.md:9-22 (#sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES)
+  - id: P29
+    point: Accelerated analog model time changes the relation between physical communication delays and simulated
+      time.
+    source_locus: content/chapters/09-neuromorphic-systems.md:9-22 (#sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES)
+  - id: P30
+    point: On-chip learning updates weights on chip and differs from loading previously trained weights.
+    source_locus: content/chapters/09-neuromorphic-systems.md:9-22 (#sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES)
+  - id: P31
+    point: Loihi 2 input-history computation provides temporal features to a trained readout, not indefinite cue
+      retention.
+    source_locus: content/chapters/09-neuromorphic-systems.md:23-38 (#sec:NEUROMORPHIC-SYSTEMS-ADVANCES)
+  - id: P32
+    point: A SpiNNaker2 recurrent sheet maintained an activity center over a reported delay; host processing, jitter
+      and lag limit its interpretation.
+    source_locus: content/chapters/09-neuromorphic-systems.md:23-38 (#sec:NEUROMORPHIC-SYSTEMS-ADVANCES)
+  - id: P33
+    point: PCM weighted multiplication can support adaptation while other operations run on a host.
+    source_locus: content/chapters/09-neuromorphic-systems.md:23-38 (#sec:NEUROMORPHIC-SYSTEMS-ADVANCES)
+  - id: P34
+    point: Reduced drift in a material concerns stability of programmed conductance, not an already complete processor.
+    source_locus: content/chapters/09-neuromorphic-systems.md:23-38 (#sec:NEUROMORPHIC-SYSTEMS-ADVANCES)
+  - id: P35
+    point: A slow input-history pathway holds decaying recent information and differs from a cue stored on a continuous
+      attractor.
+    source_locus: content/chapters/09-neuromorphic-systems.md:39-91 (#sec:NEUROMORPHIC-SYSTEMS-LIMITS)
+  - id: P36
+    point: Comparison of systems must include task, error, delay, communication, conversion, and host computation.
+    source_locus: content/chapters/09-neuromorphic-systems.md:39-91 (#sec:NEUROMORPHIC-SYSTEMS-LIMITS)
+  - id: P37
+    point: Calibrate a decoder separately; present a cue, remove it, retain fixed weights and decode after multiple
+      delays over repeated trials.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P38
+    point: Separate initial writing error, mean displacement and trial-to-trial spread; test multiple cue angles.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P39
+    point: A circular angle requires suitable unwrapping, and local variance cannot be extended indefinitely around
+      the circle.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P40
+    point: Readout noise adds displacement variance and observation filtering changes temporal shape, so calibrate
+      both.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P41
+    point: Leak and recurrent-weight changes alter decay or pinning; only projected neural disturbances shift a
+      remembered value.
+    source_locus: content/chapters/10-hardware-tests.md:43-78 (#sec:HARDWARE-TESTS-PARAMETERS)
+  - id: P42
+    point: 'Noise correlation matters: shared fluctuations need not average away like independent fluctuations.'
+    source_locus: content/chapters/10-hardware-tests.md:43-78 (#sec:HARDWARE-TESTS-PARAMETERS)
+  - id: P43
+    point: A valid information comparison matches observed signals, noise, dynamics, observation time and decoder.
+    source_locus: content/chapters/10-hardware-tests.md:79-97 (#sec:HARDWARE-TESTS-COMPARISON)
+  - id: P44
+    point: Output filtering and spatial field statistics do not by themselves prove internal memory stability.
+    source_locus: content/chapters/10-hardware-tests.md:79-97 (#sec:HARDWARE-TESTS-COMPARISON)
+  - id: P45
+    point: 'Hassabis and colleagues describe a two-way exchange: neuroscience can suggest AI methods and AI can
+      help formulate and test ideas about brains.'
+    source_locus: content/chapters/11-electronic-architectures.md:3-7
+  - id: P46
+    point: A slowly decaying input-history state has an effective retention time determined by the update interval
+      and retained fraction; it is not the same as stable continuous-attractor memory.
+    source_locus: content/chapters/09-neuromorphic-systems.md:41-55
+  - id: P47
+    point: Compare physical and model time explicitly in accelerated hardware, and include writing, waiting, reading,
+      communication and host work in an energy comparison.
+    source_locus: content/chapters/10-hardware-tests.md:91-95
+  - id: P48
+    point: Finite precision or bit errors affect digital words, leakage and physical noise affect capacitor states,
+      PCM programming/read error and drift affect conductance, and network drift or pattern loss affects a represented
+      angle.
+    source_locus: content/chapters/07-hardware-memory.yaml:45-75 (tbl:HARDWARE-STORAGE)
+  - id: P49
+    point: Loihi 2 and SpiNNaker2 store and update state digitally; BrainScaleS-2 uses digital SRAM weights and
+      physical analog membrane states; PCM systems use conductances for weighted reads while other components implement
+      remaining computation.
+    source_locus: content/chapters/09-neuromorphic-systems.yaml:43-70 (tbl:NEUROMORPHIC-ARCHITECTURES)
+  - id: P50
+    point: 'Controlled hardware tests relate feedback, noise, calibration, numerical precision and PCM aging to
+      different outcomes: persistence, variance, drift, quantization or changes in connection strengths.'
+    source_locus: content/chapters/10-hardware-tests.yaml:41-66 (tbl:HARDWARE-TEST-PARAMETERS)
+  planned_point_ids:
+  - P01
+  - P02
+  - P04
+  - P05
+  - P06
+  - P17
+  - P10
+  - P11
+  - P13
+  - P14
+  - P22
+  - P19
+  - P21
+  - P23
+  - P24
+  - P37
+  - P38
+  - P40
+  - P43
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 50
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P03: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P07: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P08: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P09: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P12: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P15: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P16: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P18: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P20: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P25: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P26: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P27: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P28: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P29: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P30: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P31: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P32: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P33: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P34: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P35: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P36: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P39: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P41: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P42: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P44: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P45: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P46: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P47: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P48: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P49: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P50: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - plan/chapter-plan.yaml
+  - content/chapters/07-hardware-memory.md
+  - content/chapters/11-electronic-architectures.md
+  - content/chapters/08-hardware-dynamics.md
+  - content/chapters/09-neuromorphic-systems.md
+  - content/chapters/10-hardware-tests.md
+  caption: Electronic storage, feedback architectures, noise and readout become comparable only when the encoded
+    value, physical state and measured task are specified.
+  alt_text: 'Part overview: Fixed weighted links beside two different population activity patterns; Two cues create
+    differently positioned bumps; one later moves; Separate persistent pattern and buffer alternatives; Cross-coupled
+    inverters hold a bit and a short binary word; Current charges a leaking capacitor; digital weight store is separate;
+    PCM conductance cell remains set while adjacent activity trace decays; Two offset device responses and separate
+    trial fluctuations; Side-by-side digital update and analog capacitor evolution; Input pulse through conductance
+    into a current summing node; Compare actual feedback loops and indicate state for each; Two linked inverter
+    symbols with high-low complementary states and return arrows; Two population activity levels connected to separate
+    basins; Several voltage wells and a state descending to the nearby level; Ring of units with highlighted bump
+    shifted by motion signal; Reference and shifted cycles with phase difference; Pulse train and distinct decaying
+    activation trace; Separate conductance, capacitor state and decoded bump label; Separate moving-position distribution
+    and nearby-signal likelihood comparison; Leaky capacitor with a returning current path; Three decay curves with
+    increasing gain and separately marked unstable branch; Two wells with small return and separate cross-boundary
+    disturbance; Perturbed bump relaxes in shape but retains its shifted position; Side-by-side bounded and expanding
+    trial distributions; Preferred positions and biased endpoints versus initial cues; Model assumptions adjoining
+    bound, with no arrow to universal hardware claim; Finite labeled bump positions around a ring; Two stable firing
+    states and an indicated transition; Digital update blocks, analog capacitor dynamics and mixed data flow; Aligned
+    wall-clock and accelerated model-clock traces; Weight update inside chip versus external weight loading; Input
+    timeline creates a reservoir state feeding a trained readout; Host event processing to chip sheet with cue-off
+    interval and output center; Separate PCM weight array and host computation; Programmed resistance trajectories
+    for material samples; Fading input-history register beside a stationary bump; Shared comparison envelope showing
+    chip, communication and host; Repeated cue-off-delay-readout timelines and fixed decoder; Starting offsets and
+    subsequent mean and spread plots; A trace crossing zero degrees beside circular endpoints; Noisy readout and
+    low-pass filter separated from state dynamics; Leak, weight bias and projected-noise arrows on network state;
+    Aligned common noise versus independent fluctuations across cells; Matched signal-and-time windows feeding two
+    decoders; Separate internal trajectory, filtered output and static spatial map.'
+required_items:
+- id: S1
+  exact_label: Weights, activity and represented angle
+  teaching_point: The same fixed weight settings can support different population states; physical weight, activity
+    and decoded value are different roles.
+  visual_role: mechanism and comparison
+- id: S2
+  exact_label: Feedback architectures
+  teaching_point: Show separate architectures with two states, several preferred states, and a position encoded
+    by a bump; do not equate discrete levels with a continuum.
+  visual_role: mechanism and comparison
+- id: S3
+  exact_label: Stability and noise
+  teaching_point: Show how restoration suppresses small deviations while a neutral direction wanders, and how pinning
+    adds a preferred value.
+  visual_role: mechanism and comparison
+- id: S4
+  exact_label: Retention and readout
+  teaching_point: Distinguish write error, average drift and trial spread; identify readout as a separate measurement.
+  visual_role: mechanism and comparison
+communication_plan:
+  segments:
+  - id: S1
+    purpose: Weights, activity and represented angle
+    source_item_ids: *id001
+  - id: S2
+    purpose: Feedback architectures
+    source_item_ids: *id002
+  - id: S3
+    purpose: Stability and noise
+    source_item_ids: *id003
+  - id: S4
+    purpose: Retention and readout
+    source_item_ids: *id004
+  layout: Use a small number of integrated explanatory scenes; do not use arrows between independent cases. The
+    large inventory may require significant simplification and a coverage review before generation.
+  keep_in_text:
+  - All derivations
+  - Numerical details and references
+  independent_example_groups:
+  - Different hardware demonstrations or different paper simulations have no implied causal connection.
+  sidecar_scene_impacts:
+  - source_locus: content/chapters/07-hardware-memory.yaml:45-75 (tbl:HARDWARE-STORAGE)
+    impact: Distinguish error source at the device, stored weight, and represented-angle levels; do not depict all
+      as one noise source.
+    planned_scene_status: pending redesign
+  - source_locus: content/chapters/09-neuromorphic-systems.yaml:43-70 (tbl:NEUROMORPHIC-ARCHITECTURES)
+    impact: Show weights, changing states and update mechanisms in separate platforms, including the need to locate
+      host work; do not present PCM alone as a recurrent memory.
+    planned_scene_status: pending redesign
+  - source_locus: content/chapters/10-hardware-tests.yaml:41-66 (tbl:HARDWARE-TEST-PARAMETERS)
+    impact: Make measurement targets distinct for each controlled intervention; do not equate fixed mismatch or
+      PCM aging with ongoing trial noise.
+    planned_scene_status: pending redesign
+  readability_risk: The four-scene plan is a draft; even these scenes may be too dense at book width. If labels,
+    relationships or necessary conditions cannot be seen clearly, redesign rather than claim acceptance.
+normal_flow:
+- Use only causal and computational relationships supported by each source chapter.
+secondary_relationships:
+- Show separate demonstrations and measurements as comparisons rather than one connected experiment.
+exact_text:
+  required:
+  - Weights, activity and represented angle
+  - Feedback architectures
+  - Stability and noise
+  - Retention and readout
+  prohibited:
+  - part title banner
+  - review notes or captions in the artwork
+  - misleading causal arrows between separate studies
+constraints:
+- Keep all figure claims and relationships source-grounded.
+- Do not equate physical memory, persistent activity and decoded value.
+- Do not claim a simulation proves a biological mechanism.
+- Preserve actual-width readability.
+- Coverage and independent review remain pending.
+dispositions: []
+actual_design_note: The source inventory is deliberately more detailed than this overview. Planned IDs are intentions
+  only and are not proof of visual coverage.

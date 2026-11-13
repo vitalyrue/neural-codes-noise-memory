@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "review": "Narrow editorial judgment of two Vale flags",
+  "status": "retain both; no teaching defect found",
+  "checked_utc": "2026-11-01T13:56:13Z",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "wall_elapsed_seconds_since_task_start": 1411,
+  "awake_execution_time": "unverified",
+  "file": "content/chapters/03b-memory-readout.md",
+  "sha256": "9ebe00e5eb4e62a81fc4b70f01fceab59e938ba08e48366d40a91fecdc0daf3e",
+  "line": 278,
+  "judgments": [
+    {
+      "rule": "ai-tells.StrawmanContrast",
+      "flagged_text": ", rather than a finite variance at an individual time.",
+      "decision": "retain",
+      "reason": "This is a necessary mathematical caveat about the ideal continuous-time noise being introduced. The reader has learned finite count variance and Brownian increment variance. Without the caveat, 'noise strength' could be mistaken for a finite pointwise variance of xi. The very next sentence states the usable increment interpretation xi dt=sqrt(r)dB. It distinguishes two different mathematical objects, not an invented inferior alternative."
+    },
+    {
+      "rule": "ai-tells.CataphoricForecasting",
+      "flagged_text": "The two dynamical",
+      "decision": "retain",
+      "reason": "'The two dynamical equations are' directly introduces the immediately following two equations after their states, time constants, noise placement and noise scale have been explained. It neither delays a definition nor makes a promise about later teaching. A brief equation lead-in helps connect prose to notation."
+    }
+  ],
+  "required_repairs": [],
+  "scope": "Only these two flags and their immediate source context. No renewed broad audit. Native warnings remain editorial warnings; a green linter alone is not a reason to change accepted teaching.",
+  "source_edits_made": false,
+  "token_stats": "unavailable"
+}

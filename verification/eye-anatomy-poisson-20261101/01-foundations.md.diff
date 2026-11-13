@@ -1,0 +1,95 @@
+--- baseline/content\chapters\01-foundations.md
++++ content\chapters\01-foundations.md
+@@ -63,11 +63,72 @@
+ \qquad \operatorname{Var}(K)=\lambda.
+ $$
+ 
+-::: {.publisher-clarification-note .publisher-fold-always title="Derivation: why a Poisson count has variance equal to its mean"}
+-
+-<!-- vale ai-tells.FormalTransitions = NO -->
+-Summing $k\Pr(K=k)$ gives $\lambda$. Likewise, summing $k(k-1)\Pr(K=k)$ gives $\lambda^2$. Since $K^2=K(K-1)+K$,
+-<!-- vale ai-tells.FormalTransitions = YES -->
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: where the Poisson count formula and its variance come from"}
++
++**From random spike times to a count.** Hold the rate $r$ fixed over the observation of length $\Delta t$. Divide that observation into $n$ short bins of width $\delta t=\Delta t/n$. Approximate each bin by one independent spike-or-no-spike trial, with spike probability
++
++$$
++p=r\delta t=\frac{\lambda}{n},\qquad \lambda=r\Delta t.
++$$
++
++Take $n$ large enough that $p<1$. This construction assumes a constant chance of a spike per unit time and independence between nonoverlapping bins. In the continuous-time limit, the chance of two or more spikes in one bin becomes negligible compared with its width. These are assumptions of the Poisson model, not properties of every recorded neuron.[^f-poisson-limit]
++
++A particular pattern with spikes in exactly $k$ bins and silence in the other $n-k$ bins has probability $p^k(1-p)^{n-k}$. There are
++
++$$
++\binom nk=\frac{n(n-1)\cdots(n-k+1)}{k!}
++$$
++
++ways to choose the occupied bins. The numerator chooses them in order; dividing by $k!=1\cdot2\cdots k$ removes the repeated counting of the same set in different orders. For $k=0$, there is one empty set and $0!=1$. Adding the probabilities of all these patterns gives
++
++$$
++\begin{aligned}
++\Pr(K_n=k)
++&=\binom nk\left(\frac{\lambda}{n}\right)^k
++  \left(1-\frac{\lambda}{n}\right)^{n-k}\\
++&=\frac{\lambda^k}{k!}
++  \left[\prod_{j=0}^{k-1}\left(1-\frac{j}{n}\right)\right]
++  \left(1-\frac{\lambda}{n}\right)^{n-k}.
++\end{aligned}
++$$
++
++Here $K_n$ is the count in the finite-bin construction. Keep the observation duration, $\lambda$, and the integer $k$ fixed while making the bins finer. The finite product tends to one. The remaining factor tends to
++
++$$
++\lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^{n-k}
++=e^{-\lambda}.
++$$
++
++For example, its logarithm is $(n-k)\log(1-\lambda/n)$, which tends to $-\lambda$ because $\log(1-u)/u\to-1$ as $u\to0$. Exponentiating gives the displayed limit. The limiting count $K$ therefore obeys
++
++$$
++\boxed{\Pr(K=k)=e^{-\lambda}\frac{\lambda^k}{k!}.}
++$$
++
++[The exponential comes from requiring silence in all the unoccupied bins. The factor $\lambda^k$ comes from the $k$ spike probabilities together with the number of possible bin locations, and $k!$ corrects repeated counting.]{.key-statement} In particular, $e^{-\lambda}$ is the probability of no spikes. A positive expected count can therefore coexist with a silent observation.
++
++**From the count formula to its mean and variance.** Shifting the summation index by one gives
++
++$$
++\begin{aligned}
++\mathbb E[K]
++&=e^{-\lambda}\sum_{k=1}^{\infty}k\frac{\lambda^k}{k!}\\
++&=\lambda e^{-\lambda}\sum_{j=0}^{\infty}\frac{\lambda^j}{j!}
++=\lambda,
++\end{aligned}
++$$
++
++where the last sum is $e^\lambda$. Shifting by two similarly gives
++
++$$
++\mathbb E[K(K-1)]
++=e^{-\lambda}\sum_{k=2}^{\infty}
++  \frac{\lambda^k}{(k-2)!}
++=\lambda^2e^{-\lambda}\sum_{j=0}^{\infty}\frac{\lambda^j}{j!}
++=\lambda^2.
++$$
++
++Since $K^2=K(K-1)+K$,
+ 
+ $$
+ \mathbb E[K^2]=\lambda^2+\lambda,
+@@ -106,7 +167,7 @@
+ </div>
+ 
+ <!-- vale ai-tells.FormalTransitions = NO -->
+-For changing rates, the expected count is the integral $\lambda=\int r(t)\,dt$. In a recurrent network, $r(t)$ itself depends on past activity. The useful independence statement is therefore conditional: given the current modeled state, the elementary spike-generation noise is independent across cells in the basic 2012 model. Averaging over the changing state can still produce correlations across time and across neurons. This qualification prevents treating a recurrent Poisson network as a collection of independent complete spike trains.
++For a predetermined rate function $r(t)$, the time-varying Poisson model has a count parameter $\lambda=\int r(t)\,dt$ over the observation. In a recurrent network, however, $r(t)$ itself depends on earlier spikes. The whole-interval count need not then be Poisson. The useful independence statement is local and conditional: given the current modeled state, the elementary spike-generation noise is independent across cells in the basic 2012 model. The changing state can still produce correlations across time and across neurons. This qualification prevents treating a recurrent Poisson network as a collection of independent complete spike trains.
+ <!-- vale ai-tells.FormalTransitions = YES -->
+ 
+ <!-- vale ai-tells.CataphoricForecasting = NO -->
+@@ -224,3 +285,5 @@
+ <!-- vale ai-tells.EmDashUsage = NO -->
+ [^f-poisson]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Results and Methods, Eqs. 7–10, describe the Poisson spike model and weak-fluctuation approximation. The finite count calculations in this section are direct consequences of the Poisson distribution and are guide derivations.
+ <!-- vale ai-tells.EmDashUsage = YES -->
++
++[^f-poisson-limit]: Massachusetts Institute of Technology, OpenCourseWare (2018). *Introduction to Probability: Lecture 22 notes, the Poisson process*. [PDF, pp. 3–5](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3). The guide reconstructs the independent-bin limit using $r$ for rate and $\lambda=r\Delta t$ for expected count.

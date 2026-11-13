@@ -1,0 +1,136 @@
+brief:
+  asset_id: fig:MEMORY-LINE-RING
+  scope: chapter
+  book: burak-three-papers
+  chapter: ch:MEMORY-DYNAMICS
+  purpose: Show how constant local diffusion yields unbounded line error but bounded reported
+    angular error.
+  target_use: sec:MEMORY-LONG-TIME
+  generation_authorized: true
+  insertion_authorized: true
+author: /root/draw_memory_additions
+figure_role: quantitative-figure
+visual_explanation:
+  applicable: true
+  figure_role: quantitative-figure
+  composition: Two vertically stacked plots compare wrapped densities and then squared
+    errors over time.
+  required_scene_ids:
+  - wrapped-density
+  - line-ring-msd
+  reference_reason: Exact mathematical plots; no structural template or illustrated-opener
+    reference applies.
+chapter_map_coverage:
+  applicable: false
+  reason: Section calculation figure, not an opening map.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    colors_and_roles:
+      ink: '#17365D'
+      blue: '#1F4E79'
+      text: '#19202C'
+      muted: '#5D6876'
+      flow: '#0B7F95'
+      success: '#0F6B78'
+      risk: '#C4580B'
+      risk_deep: '#B85209'
+      line: '#9AA7B5'
+      fill_blue: '#EAF2F8'
+      fill_teal: '#E4F2F0'
+      fill_orange: '#FCEEE3'
+      fill_gray: '#F1F3F6'
+      paper: '#FFFFFF'
+      paper_warm: '#FFFDF7'
+      panel_warm: '#F8F4EC'
+    color_distance: exact SVG color token membership; no raster pixel-deviation claim
+    maximum_deviation_fraction: 0
+    allowed_special_purpose_colors: []
+parameters:
+  D_rad_squared_per_s: 0.5
+  initial_angle_rad: 0
+  density_times_s:
+  - 0.2
+  - 1
+  - 5
+  density_method: Gaussian image sum k=-12..12
+  MSD_method: integral of x^2 times exact wrapped density; Fourier series for curve
+  angular_error_interval: '[-pi,pi)'
+  uniform_density: 1/(2*pi)
+  limiting_angular_MSD: pi^2/3
+required_items:
+- Wrapped Gaussian densities widen toward the uniform density 1/(2pi).
+- The line MSD is 2Dt.
+- The reported angular MSD tends to pi^2/3 on [-pi,pi).
+- Both use the same constant D=0.5 rad squared/s and start at zero.
+language_contract:
+  book_loci:
+  - sec:MEMORY-LONG-TIME
+  caption: With the same constant D = 0.5 rad²/s, wrapped Gaussian error densities widen
+    toward 1/(2π). The unbounded line has mean squared error 2Dt; reporting angular error
+    in $[-\pi,\pi)$ instead gives a mean squared error that approaches π²/3. The flattening
+    comes from the bounded error convention while local diffusion stays constant. All
+    curves are analytic teaching calculations, not paper simulation data.
+  alt_text: Wrapped Gaussian densities at 0.2, 1 and 5 seconds broaden toward a dashed
+    uniform density over angular errors from minus pi to pi. Below, line mean squared
+    error rises linearly while wrapped angular mean squared error approaches a horizontal
+    pi squared over three reference, with the same constant diffusion coefficient.
+  teaching_introduction: For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the plots show how the
+    density and squared error change with delay.
+  conclusion: As the upper density approaches uniform, the wrapped error below approaches
+    $\pi^2/3$; the line error keeps growing.
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/draw_memory_additions
+  role_reason: Show how constant local diffusion yields unbounded line error but bounded
+    reported angular error.
+  source_files:
+  - content/chapters/02-memory-dynamics.md
+  - content/chapters/02-memory-dynamics.yaml
+  - verification/memory-illustrations-20261024/draw_additions.py
+  - verification/memory-illustrations-20261024/M03-brief.yaml
+  - verification/illustrations/figure_style.py
+  - assets/papers/burak-fiete-2012-persistent-activity.pdf
+  - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+  - verification/memory-illustrations-20261024/source-locators.json
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024/M03/qa.json
+  vector_spec: verification/memory-illustrations-20261024/draw_additions.py
+  insertion_width_px: 700
+  required_scene_ids:
+  - wrapped-density
+  - line-ring-msd
+  coverage:
+    applicable: false
+    reason: Internal quantitative figure, not an opening map; no chapter coverage claim.
+limitations:
+- Analytic teaching construction with specified illustrative parameters; not experimental
+  or simulated paper data.
+- No generic vector-template gate is claimed; computed checks and image inspection support
+  independent review.
+manual_rule_disposition:
+  applicable:
+  - semantic correspondence
+  - label and numerical accuracy
+  - readability at full size and 700px
+  - units and domain conditions
+  - palette color roles
+  - canvas clipping
+  not_applicable:
+  - opening-map coverage
+  - generic structural-template geometry gates
+  - raster palette measurement

@@ -1,0 +1,178 @@
+--- canonical/04-eye-drift.md
++++ proposed/04-eye-drift.md
+@@ -1,4 +1,4 @@
+-# Why the eyes drift during fixation {#ch:EYE-DRIFT}
++# Eye drift points to a shared neural drive {#ch:EYE-DRIFT}
+ 
+ Looking steadily at a small spot does not hold the eye perfectly still. Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style="Definition Term"}, the eye makes a small, smooth, irregular movement called [**fixational drift**]{.definition-term custom-style="Definition Term"}. Does this movement begin as noise in the muscles, or does the brain send a changing command to them? Ben-Shushan and colleagues answer this in two stages. Their recordings support a large shared drive upstream of the motor neurons. Their model then proposes a particular source: random motion of the eye position stored in a memory circuit.[^p2-question]
+ 
+@@ -12,7 +12,7 @@
+ 
+ There are three possible contributions to an observed drift: a changing shared command sent to many OMNs, private spike variability in individual OMNs, and variability after those neurons, including muscle and measurement noise. Private spike fluctuations can partly cancel when many neurons act together. A common command survives this averaging. This is why the noisy activity of one neuron can reveal a source that dominates the much smoother eye movement.
+ 
+-## What the recordings can and cannot reveal {#sec:EYE-RECORDINGS}
++## The recordings pair one motor neuron with movement at a time {#sec:EYE-RECORDINGS}
+ 
+ The authors reanalyzed earlier experiments in two male rhesus macaques. The animals first fixated a stationary target and then tracked a moving target. A wire search coil on one eye measured eye position while an electrode recorded one neuron's spikes. There were 57 identified OMNs. Each recording paired one OMN with eye movement; there were no simultaneous recordings of multiple OMNs. Thus the analysis cannot directly measure the covariance between two recorded motor neurons.[^p2-recordings][^p2-single]
+ 
+@@ -30,7 +30,7 @@
+ 
+ The upper path describes a possible physical source and its output. The recording design provides one cell and eye movement at a time; it does not measure covariance between simultaneously recorded motor neurons. The predicted position is a later analysis result, not a signal sent backward through the physical pathway.
+ 
+-## Fitting movement to firing rate {#sec:EYE-FORWARD-FIT}
++## A fitted model links movement to firing rate {#sec:EYE-FORWARD-FIT}
+ 
+ Position alone does not predict a motor neuron's activity during a movement. At the same position, firing can differ when the eye is moving or accelerating. The paper therefore fits
+ 
+@@ -60,7 +60,7 @@
+ 
+ During fixation, the authors subtracted each segment's mean firing rate, joined the segments, and compared observed and predicted rate fluctuations. Figure 1c illustrates a weak relationship for one cell; Fig. 1d shows a positive population effect. The one sided test asks whether the mean correlation is positive, compared with a zero-mean reference. Its [**p value**]{.definition-term custom-style="Definition Term"} is the probability, under that reference, of a test statistic at least as large as observed. Across 57 cells it gave $p=3\times10^{-9}$. A weak single cell relationship is expected here because the tiny movement produces small rate changes against much larger spike variability. This is the first evidence of a relationship, before any estimate of the fraction of common motion.[^p2-rate-result]
+ 
+-## Putting spikes in units of eye position {#sec:EYE-INVERSE-FILTER}
++## A calibrated filter predicts eye position from one cell's spikes {#sec:EYE-INVERSE-FILTER}
+ 
+ To ask how much eye movement is shared with a neuron, it helps to express both signals in degrees. The paper reverses the fitted relationship: a cell's spike train becomes the input, and its prediction of eye position becomes the output. This operation is an inverse of the movement-to-rate fit, rather than a new fit to small drift residuals.
+ 
+@@ -91,20 +91,7 @@
+ \tau_++\tau_-=\frac{r}{k}.
+ $$
+ 
+-We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as
+-
+-$$
+-h_0(u)=A e^{-u/\tau_+}+B e^{-u/\tau_-},\qquad u>0.
+-$$
+-
+-To find $A$ and $B$, treat the spike as a short pulse of unit area and shrink its duration to zero. The position change during that pulse tends to zero, so $h_0(0^+)=0$. Integrating $m h_0''+r h_0'+k h_0$ across the pulse gives $m h_0'(0^+)=1$: the velocity changes by $1/m$, while position and velocity before the causal response are zero. Therefore
+-
+-$$
+-A+B=0,\qquad
+--\frac{A}{\tau_+}-\frac{B}{\tau_-}=\frac1m.
+-$$
+-
+-Substituting $B=-A$ gives $A(1/\tau_- -1/\tau_+)=1/m$, hence $A=\tau_+\tau_-/[m(\tau_+-\tau_-)]$. Making the response zero before the spike gives
++The corresponding impulse response is
+ 
+ $$
+ h_0(u)=\frac{\Theta(u)}{m}\,
+@@ -121,6 +108,36 @@
+ 
+ These expressions reproduce Eqs. 4–6, including the factor $\tau_+\tau_-/m$ and the delay. The [**convolution**]{.definition-term custom-style="Definition Term"} integral adds the responses to all past spikes. With spike count treated as a count, $\xi$ has units spikes/s and $h$ has units degrees/spike. Each spike contributes a decaying position response; adding those responses produces degrees.[^p2-inversion]
+ 
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: the weights of the two decaying responses"}
++
++We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as
++
++$$
++h_0(u)=A e^{-u/\tau_+}+B e^{-u/\tau_-},\qquad u>0.
++$$
++
++To find $A$ and $B$, treat the spike as a short pulse of unit area and shrink its duration to zero. The position change during that pulse tends to zero, so $h_0(0^+)=0$. Integrating $m h_0''+r h_0'+k h_0$ across the pulse gives $m h_0'(0^+)=1$: the velocity changes by $1/m$, while position and velocity before the causal response are zero. Therefore
++
++$$
++A+B=0,\qquad
++-\frac{A}{\tau_+}-\frac{B}{\tau_-}=\frac1m.
++$$
++
++Substituting $B=-A$ gives $A(1/\tau_- -1/\tau_+)=1/m$, hence $A=\tau_+\tau_-/[m(\tau_+-\tau_-)]$. Making the response zero before the spike gives
++
++:::
++
++For a constructed example, take $k=4$ spikes/(s deg), $\tau_+=0.120$ s, and $\tau_-=0.005$ s. The identities above require $r=0.500$ spikes/deg and $m=0.00240$ spikes s/deg. Then
++
++$$
++h_0(u)=2.174\left(e^{-u/0.120}-e^{-u/0.005}\right)
++\ \text{deg/spike},\quad u>0,
++$$
++
++and its area is $2.174(0.120-0.005)=0.250$ deg s/spike, equal to $1/k$. A steady rate of 80 spikes/s predicts an offset of 20 degrees above $E_T$. This checks the gain as well as the time constants; it is not a fit to a recorded cell.
++
++::: {.publisher-clarification-note .publisher-fold-always title="Check: static gain and coincident decay times"}
++
+ The kernel's area checks its normalization:
+ 
+ $$
+@@ -131,18 +148,11 @@
+ 
+ Thus a constant input rate $f_0$ predicts $E_T+f_0/k$, exactly the static forward relation. A kernel with unit area would give the wrong conversion unless $k$ had already been absorbed into the input. When the two decay times coincide, $r^2=4km$, the limit is $h_0(u)=\Theta(u)u e^{-u/\tau}/m$. The distinct exponential formula is used for the fitted responses in the paper.
+ 
+-For a constructed example, take $k=4$ spikes/(s deg), $\tau_+=0.120$ s, and $\tau_-=0.005$ s. The identities above require $r=0.500$ spikes/deg and $m=0.00240$ spikes s/deg. Then
+-
+-$$
+-h_0(u)=2.174\left(e^{-u/0.120}-e^{-u/0.005}\right)
+-\ \text{deg/spike},\quad u>0,
+-$$
+-
+-and its area is $2.174(0.120-0.005)=0.250$ deg s/spike, equal to $1/k$. A steady rate of 80 spikes/s predicts an offset of 20 degrees above $E_T$. This checks the gain as well as the time constants; it is not a fit to a recorded cell.
++:::
+ 
+ Figure 2a–b shows typical fitted times of about 5 ms and 120 ms. Figure 2c shows that a single cell's reconstructed drift is much noisier than the measured movement. Across 350 ms displacement pairs, the mean Pearson correlation was $\langle R\rangle=0.17\pm0.02$, where the error is the [**standard error of the mean (SEM)**]{.definition-term custom-style="Definition Term"}. SEM estimates uncertainty in the across-cell mean, rather than the spread of individual cells or uncertainty across animals. The one sided test gave $p=3.8\times10^{-12}$. Shuffling which measured segment was paired with which spike prediction centered the comparison near zero. Here and below $\langle\cdot\rangle$ over cells means a population average.[^p2-correlation]
+ 
+-## Why a small correlation implies shared variation {#sec:EYE-SHARED-VARIANCE}
++## The measured correlation challenges independent motor noise alone {#sec:EYE-SHARED-VARIANCE}
+ 
+ A correlation of 0.17 does not immediately tell us how much motion comes from the common command. First we can ask a more limited question: could all the motion come from independent motor neuron fluctuations?
+ 
+@@ -178,7 +188,7 @@
+ 
+ This step finds shared variation. Locating its source upstream also uses a biological premise: the private variability generated within OMNs is taken to be independent across cells. The paper supports that premise using anatomical and stimulation studies indicating little local recurrent coupling in the relevant motor nuclei. It was not tested by simultaneous recordings in this data set. Common inputs can correlate the total activity of OMNs even when their privately generated spike noise is independent.[^p2-independence]
+ 
+-## The fraction driven by the common command {#sec:EYE-CHI}
++## Calibrated covariance estimates the common share of movement variance {#sec:EYE-CHI}
+ 
+ The variance bound establishes that a shared signal exists, but leaves its size open. The next calculation uses the fact that the inverse filter has a calibrated gain in degrees. For one 350 ms interval, write the measured displacement and the single cell prediction as
+ 
+@@ -254,7 +264,7 @@
+ 
+ To see the weighting, let normalized weights $a_i$ sum to one. Independent errors give variance $\sum_i a_i^2(\Delta\chi_i)^2$ for $\sum_i a_i\chi_i$. Minimizing this subject to $\sum_i a_i=1$ gives $a_i\propto1/(\Delta\chi_i)^2$ and the error above. The paper additionally assumes approximately normal errors around a common value. The last expression is a propagated estimation error under those assumptions. It does not measure variation across animals or uncertainty in the gain and independence assumptions. The reported result was $0.82\pm0.07$, a weighted mean and weighted error for horizontal displacement over 350 ms. It is neither a fraction of distance traveled nor the fraction that one neuron's spikes accurately predict.[^p2-chi-error]
+ 
+-## Separating measurement noise from movement in the MSD {#sec:EYE-MEASUREMENT-NOISE}
++## Independent measurement error adds a constant offset to the MSD {#sec:EYE-MEASUREMENT-NOISE}
+ 
+ The common variance calculation uses one interval length. To learn what kind of process drives motion, the authors next compare displacements at many time separations. As in Chapter 1,
+ 
+@@ -292,7 +302,7 @@
+ 
+ The offset comes from two independent position errors, one at each endpoint. Its removal changes the average MSD; it does not recover each trajectory’s unknown error. The Brownian movement is chosen only to make the constant offset visible. See [Measurement noise correction, Eqs. 18–19, p. 10](../papers/ben-shushan-2022-fixational-drift.pdf#page=10).
+ 
+-## Filtering white noise and filtering Brownian motion differ {#sec:EYE-FILTERED-MSD}
++## The MSD plateaus for filtered white noise but grows for filtered diffusion {#sec:EYE-FILTERED-MSD}
+ 
+ The corrected MSD keeps increasing over the observed range, toward a second, while its logarithmic slope decreases and remains between one and two. Define that local slope by
+ 
+@@ -399,7 +409,7 @@
+ 
+ The actual muscle response contains fast and slow exponential components, and the full model also contains motor neuron filtering and feedback. Those ingredients change the detailed curve. The one exponential derivation teaches the distinction relevant to Fig. 3: a decaying low pass filter of stationary white noise saturates, whereas the same filter, with nonzero static gain, retains accumulating displacement from a wandering position. A slow correlated peripheral source is a different hypothesis from the temporally uncorrelated noise rejected by this comparison.
+ 
+-## The proposed circuit from memory to movement {#sec:EYE-CIRCUIT-MODEL}
++## A noisy integrator can reproduce drift after muscle filtering {#sec:EYE-CIRCUIT-MODEL}
+ 
+ The recording analysis places much of the drive upstream of OMNs. To test whether integrator noise could supply it, the authors build a model from a noisy memory circuit through to the eye. The model adapts an earlier goldfish integrator architecture to primate tuning and variability. There are two populations, with excitation within each and inhibition between them. Their firing increases for opposite directions of gaze. This supplies the recurrent interaction needed to maintain a range of stored positions.[^p2-network]
+ 
+@@ -479,7 +489,7 @@
+ 
+ The effect on the ongoing MSD must be checked from the coupled model, rather than inferred from the delay alone. A short MSD lag is a separation between two samples in a running process, not the time since a new perturbation. Past measurements can already affect both samples, and $F$ also contains the immediate term $-A E_{OI}(t)$. Extended Data Fig. 3 compares the model with and without feedback: feedback changes amplitude across lags, while its larger effect on logarithmic slope occurs at longer lags. Figure 5 shows the full model. Muscle filtering supplies the short-lag smoothness, and feedback improves the detailed longer-lag fit. These are results of this model comparison, not a hard delay-based cutoff or a claim excluding visual control under other tasks.[^p2-feedback]
+ 
+-## Which neural parameters set the amount of drift? {#sec:EYE-SCALING}
++## Spike regularity and circuit parameters set the model's drift scale {#sec:EYE-SCALING}
+ 
+ An agreement in amplitude is informative only if we know how much freedom the model has. The paper uses regular spike trains. Chapter 1 defined the interspike interval coefficient of variation (CV) as the interval standard deviation divided by its mean. A Poisson process at constant rate has CV one; the model uses about 0.22 for integrator neurons and about 0.07 for OMNs. Such firing is called [**sub-Poisson spiking**]{.definition-term custom-style="Definition Term"} here because its long window count variability is lower than a Poisson process at the same rate, under the interval construction used in the model.[^p2-cv]
+ 
+@@ -538,7 +548,7 @@
+ 
+ With the supplement's values $a=1/15$ spikes/(s arcmin), $2D=100$ arcmin$^2$/s, $T=0.5$ s, and $\bar\lambda=80$ Hz, this is about $0.0024$, well below the OMN CV near 0.07. These are an order of magnitude check, not a fitted diffusion constant for the whole model. Since one degree is 60 arcmin, that $2D$ equals $0.0278$ deg$^2$/s, or $D=0.0139$ deg$^2$/s.[^p2-cv-drift]
+ 
+-## Reading the figures as an argument {#sec:EYE-FIGURES}
++## The figures test shared drive, diffusion, and the full circuit model {#sec:EYE-FIGURES}
+ 
+ The five figures address different steps. Their agreement is easier to assess when those questions remain separate.
+ 
+@@ -550,7 +560,7 @@
+ 
+ The most useful supplemental comparisons are Extended Data Fig. 1 for individual uncertainty, Fig. 2 for noise subtraction and its simulated control, Fig. 3 for feedback, Fig. 4 for a no-central-drive control, and Fig. 5 for the other monkey's fit. In the no-central-drive control, $\widehat\chi=-0.09\pm0.22$ is compatible with zero; that negative estimate is sampling variation. Figures 6–8 document cell classification, segment sampling, and a rank correlation check. Figure 9 shows the heterogeneous model parameters. Figure 10 separates spiking noise passed directly to the output from spiking noise that drives diffusion inside the integrator: internal stochastic spikes remain in the latter comparison. Its caption reports little direct output-noise effect beyond 50 ms.[^p2-supp-figures]
+ 
+-## What remains uncertain {#sec:EYE-LIMITS}
++## The evidence places shared drive upstream without identifying one circuit {#sec:EYE-LIMITS}
+ 
+ The data and model answer different localization questions. The common variance estimate supports a drive upstream of OMNs, given the calibration and noise assumptions. The MSD comparison supports a command that accumulates variation over the measured interval, rather than stationary white noise passed through a decaying muscle filter. The circuit model shows that integrator noise with plausible parameters can generate such a command and explain its filtered amplitude and timing.
+ 

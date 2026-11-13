@@ -1,0 +1,152 @@
+[
+  {
+    "file": "content/chapters/01b-persistence.md",
+    "old": "Writing $t=n\\Delta t$ gives linear variance growth $2Dt$. [To describe this limit with a continuous path, use [**Brownian motion**]{.definition-term custom-style=\"Definition Term\"} $W(t)$. It starts at zero, has continuous paths and independent Gaussian increments with mean zero, and satisfies $\\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\\geq s$.]{.definition-explanation} It describes the limit of many small, suitably independent fluctuations. A physical network need only approach this description over the time and noise scales relevant to the calculation.",
+    "new": "Writing $t=n\\Delta t$ gives linear variance growth $2Dt$. The continuous approximation expresses this accumulated change through Brownian motion.",
+    "reason": "Move the needed process meaning out of the optional derivation; retain the variance calculation."
+  },
+  {
+    "file": "content/chapters/01b-persistence.md",
+    "old": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical model: independent steps and Brownian motion\"}",
+    "new": "[**Brownian motion**]{.definition-term custom-style=\"Definition Term\"} [$W(t)$ models the accumulated effect of many small fluctuations. It starts at zero, has continuous paths and independent Gaussian increments with mean zero, and satisfies $\\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\\geq s$.]{.definition-explanation} The independence concerns changes over disjoint time intervals. A physical network need only approach this description over the time and noise scales relevant to the calculation.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical model: independent steps and Brownian motion\"}",
+    "reason": "Make Brownian paths and their increment scale available before later stochastic equations."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "Conditioned on the present rates, spike counts over a short interval $dt$ are independent Poisson variables. Thus",
+    "new": "Conditioned on the present rates, spike counts over a short interval $dt$ are independent Poisson variables. Let $\\delta_{ij}$ be one when $i=j$ and zero otherwise. Thus",
+    "reason": "Introduce the index-matching symbol before the count-covariance equation."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "The symbol $\\delta_{ij}$ is one when $i=j$ and zero otherwise. Splitting the count into its mean and fluctuation gives",
+    "new": "Write $dM_i=dN_i-r_i\\,dt$ for the spike count minus its conditional mean: the surplus or deficit of spikes in this interval. Splitting the count into its mean and this fluctuation gives",
+    "reason": "Define the centered count rather than asking the reader to infer it from moment conditions."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "$$\nds_i=F_i(\\mathbf s)dt+\\sqrt{r_i}\\,dB_i,\n\\qquad\nF_i(\\mathbf s)=-s_i/\\tau+\\phi\\!\\left(\\sum_jW_{ij}s_j+b_i\\right),",
+    "new": "Let $F_i(\\mathbf s)$ be the mean rate of change of neuron $i$'s activation. Let $B_i$ be independent standard [Brownian motions](ch-persistence.html#sec-foundations-diffusion). The increment $dB_i=B_i(t+dt)-B_i(t)$ has mean zero and variance $dt$. Multiplying it by $\\sqrt{r_i}$ gives the same leading variance $r_i\\,dt$ as the centered spike count. The stochastic equation is\n\n$$\nds_i=F_i(\\mathbf s)dt+\\sqrt{r_i}\\,dB_i,\n\\qquad\nF_i(\\mathbf s)=-s_i/\\tau+\\phi\\!\\left(\\sum_jW_{ij}s_j+b_i\\right),",
+    "reason": "Explain what changes, the Brownian increment and its noise scale before the first stochastic equation."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "where the $B_i$ are independent standard Brownian processes. The noise coefficient has units",
+    "new": "The noise coefficient has units",
+    "reason": "Remove the now-redundant post-equation introduction."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "The constant terms cancel because $\\bar{\\mathbf s}$ is a fixed point. Therefore",
+    "new": "The constant terms cancel because $\\bar{\\mathbf s}$ is a fixed point. Let $K$ be the linear response matrix: $K\\delta\\mathbf s$ is the mean rate of change of the activation disturbance. Let $R$ be the diagonal matrix of spike-count variance rates, evaluated at that fixed point. Then",
+    "reason": "State the physical roles of K and R before their matrix equation."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "[We also need a [**left zero eigenvector**]{.definition-term custom-style=\"Definition Term\"}, a vector $\\mathbf v$ satisfying]{.definition-explanation}",
+    "new": "[To extract the lasting memory displacement from a general perturbation, we need a [**left zero eigenvector**]{.definition-term custom-style=\"Definition Term\"}, a vector $\\mathbf v$ satisfying]{.definition-explanation}",
+    "reason": "Place the existing purpose of v before its defining equations."
+  },
+  {
+    "file": "content/chapters/02-memory-dynamics.md",
+    "old": "Its purpose is to extract the lasting memory displacement from a general perturbation. The normalization makes",
+    "new": "The normalization makes",
+    "reason": "The purpose has moved to the introduction; retain the normalization argument."
+  },
+  {
+    "file": "content/chapters/03-memory-information.md",
+    "old": "::: {.publisher-clarification-note .publisher-fold-always title=\"Derivation: likelihood, score, and Fisher information\"}",
+    "new": "To compare possible angles, hold the observed spike counts fixed and vary the proposed $\\theta$. [A [**likelihood**]{.definition-term custom-style=\"Definition Term\"} compares proposed parameter values by the probability each assigns to those observations.]{.definition-explanation} It is not, by itself, a probability distribution over the proposed angles.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Derivation: likelihood, score, and Fisher information\"}",
+    "reason": "Make likelihood meaning available before later main-text Gaussian readout; keep score algebra folded."
+  },
+  {
+    "file": "content/chapters/03-memory-information.md",
+    "old": "Here the parameter being estimated is $\\theta$ during the short observation. [A [**likelihood**]{.definition-term custom-style=\"Definition Term\"} compares proposed parameter values by the probability each assigns to the observations already obtained.]{.definition-explanation} Suppose four spikes were recorded. A candidate angle predicting four spikes on average and one predicting sixteen assign different probabilities to that same count. Evaluating those probabilities as the proposed angle changes gives the likelihood. It is not, by itself, a probability distribution over the proposed angles.",
+    "new": "Suppose four spikes were recorded during the short observation. A candidate angle predicting four spikes on average and one predicting sixteen assign different probabilities to that same count. Evaluating those probabilities as the proposed angle changes gives the likelihood.",
+    "reason": "Retain the concrete count comparison in the derivation after moving its general definition."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "To solve the readout problem, the supplement approximates the likelihood from each short bin of duration $h$ as Gaussian. Let $x=\\theta(T)$ and index subsequent bins by $k$. The equivalent observation model is",
+    "new": "To solve the readout problem, the supplement approximates the [likelihood](ch-memory-information.html#sec-memory-fi) from each short bin of duration $h$ as Gaussian. Let $x=\\theta(T)$ and index subsequent bins by $k$, starting with $\\theta_0=x$. The increment $\\eta_k$ is the change in the stored value between bins. The observation $y_k$ summarizes the bin's population spikes as an estimate of $\\theta_k$, and $\\epsilon_k$ is its estimation error. In this approximation, these increments and errors are independent, zero-mean Gaussian variables. The equivalent observation model is",
+    "reason": "Name the state change and readout error before they enter the bin equations."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "The Gaussian increments and observation errors are independent in this approximation. The value $y_k$ summarizes information about the state from that bin's population spikes. It is not an additional directly measured physical coordinate.",
+    "new": "The value $y_k$ is inferred from spikes, not an additional directly measured physical coordinate.",
+    "reason": "Retain the measurement distinction without repeating the moved variable roles."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "$$\n\\boxed{V_{\\mathrm{ideal}}(L)\n=\\sqrt{\\frac{2D}{J}}\\coth(\\sqrt{2DJ}\\,L).}\n$$",
+    "new": "Taking the reciprocal of $P(L)$ gives the displayed finite-time readout variance.",
+    "reason": "Move the result before the optional integration details."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical solution: hyperbolic functions and finite-time readout error\"}",
+    "new": "The solution gives the readout variance at any observation duration $L>0$:\n\n$$\n\\boxed{V_{\\mathrm{ideal}}(L)\n=\\sqrt{\\frac{2D}{J}}\\coth(\\sqrt{2DJ}\\,L).}\n$$\n\n[The [**hyperbolic cotangent**]{.definition-term custom-style=\"Definition Term\"} is $\\coth z=(e^{2z}+1)/(e^{2z}-1)$.]{.definition-explanation} For positive $z$, it falls from large values toward one. This function describes how the extra error from limited observation decreases toward the diffusion-limited value.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical solution: hyperbolic functions and finite-time readout error\"}",
+    "reason": "Expose the finite-time result and function meaning before numerical ratios and figure interpretation."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "[The [**hyperbolic cotangent**]{.definition-term custom-style=\"Definition Term\"} is $\\coth z=1/\\tanh z$.]{.definition-explanation} This backward precision derivation",
+    "new": "The identity $\\coth z=1/\\tanh z$ connects this result to the finite-time variance. This backward precision derivation",
+    "reason": "Keep the proof identity, with the main definition now before use."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "In the basic model, the firing rate changes immediately when the summed input changes. Assume symmetric weights. The extension instead lets $r_i$ approach $\\phi(g_i)$ gradually, with time constant $\\tau_m$, while synaptic activation still decays with time constant $\\tau$:",
+    "new": "In the basic model, the firing rate changes immediately when the summed input changes. Assume symmetric weights. The extension instead lets $r_i$ approach $\\phi(g_i)$ gradually, with time constant $\\tau_m$, while synaptic activation still decays with time constant $\\tau$.\n\nThe symbol $\\xi_i$ writes the spike fluctuation as a drive in a rate-of-change equation. [[**White noise**]{.definition-term custom-style=\"Definition Term\"} is an ideal zero-mean input whose fluctuations at different times are uncorrelated. Its continuous-time strength is defined through a delta-function covariance, rather than a finite variance at an individual time.]{.definition-explanation} In the Gaussian approximation used here, $\\xi_i\\,dt=\\sqrt{r_i}\\,dB_i$, with independent Brownian increments $dB_i$. Conditional on the current rates, its contribution over $dt$ has variance $r_i\\,dt$, the same spike-count variance as in the basic model. The two dynamical equations are",
+    "reason": "Teach the white-noise notation as the same already-taught random increment before using xi in a derivative equation."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "Here $\\xi_i$ is the zero mean noise from variable spike generation, with the same Poisson strength as in the basic model.\n\n",
+    "new": "",
+    "reason": "Replace the vague strength reminder with the explicit preceding increment bridge."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "old": "Figure 3 isolates readout uncertainty, rescaling variance by $\\sqrt{2D/J}$ and duration by $L^*$. In these axes the ideal curve is $\\coth z$",
+    "new": "Figure 3 isolates readout uncertainty, rescaling variance by $\\sqrt{2D/J}$ and duration by $L^*$. Write $z=L/L^*=\\sqrt{2DJ}\\,L$ for this dimensionless observation duration. In these axes the ideal curve is $\\coth z$",
+    "reason": "Define the figure coordinate z before using it in its curves."
+  },
+  {
+    "file": "content/chapters/04b-eye-timing.md",
+    "old": "[[**White noise**]{.definition-term custom-style=\"Definition Term\"} here is an ideal zero mean input whose fluctuations at different times are uncorrelated. In continuous time its strength is defined by an intensity multiplying a delta function, rather than a finite variance at an individual time.]{.definition-explanation}",
+    "new": "The input is idealized as [white noise](ch-memory-readout.html#sec-memory-extensions), so fluctuations at unequal times are uncorrelated.",
+    "reason": "Keep a local reminder and link after moving the first white-noise definition to the earlier dependent model."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "old": "The model assigns an input $h(x)$ to each position $x$, with nearby values linked so that a cell can have a continuous active region. [A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} specifies a distribution of such maps.]{.definition-explanation} Its mean sets the average input, and its spatial covariance describes how inputs at two positions vary together across possible maps. The chosen covariance must also make the maps smooth enough for the derivatives used below. After a map is drawn, moving the animal changes which position is evaluated, not the map itself.",
+    "new": "The model assigns an input $h(x)$ to each position $x$, with nearby values linked so that a cell can have a continuous active region. [A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} specifies a distribution of maps such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} [A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} This joint rule constrains how inputs at different positions can vary together, beyond requiring a Gaussian histogram at each position.\n\nThe mean sets the average input, and the spatial covariance describes how inputs at two positions vary together across possible maps. These functions determine the joint Gaussian laws. The chosen covariance must also make the maps smooth enough for the derivatives used below. After a map is drawn, moving the animal changes which position is evaluated, not the map itself.",
+    "reason": "Put the defining joint-Gaussian property on the main reading path before the crossing calculation uses it."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "old": "[A Gaussian process is a probability distribution over functions such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} For positions $x_1,\\ldots,x_n$, the vector $(h(x_1),\\ldots,h(x_n))$ therefore has a multivariate Gaussian distribution. Its mean vector and covariance matrix are obtained by evaluating two functions,",
+    "new": "For chosen positions $x_1,\\ldots,x_n$, the input vector is $(h(x_1),\\ldots,h(x_n))$. Its mean vector and covariance matrix are obtained by evaluating two functions,",
+    "reason": "The optional fold now gives notation for the property already explained in visible text."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "old": "The expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine every finite joint distribution. A Gaussian process can thus produce many different curves while keeping a precise rule for their spatial dependence. [A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} For this family, zero covariance between two subvectors implies their independence.",
+    "new": "The expectation runs over possible maps, or over cells assumed to share these statistics. For jointly Gaussian vectors, zero covariance between two subvectors implies their independence.",
+    "reason": "Remove duplicate definitions after moving them, retaining the special independence property and its limits."
+  },
+  {
+    "file": "content/chapters/12-simulating-eye-drift.md",
+    "old": "::: {.publisher-clarification-note .publisher-fold-always title=\"Published parameters and public-code settings have different sources\"}",
+    "new": "Simulating the random events requires a rule for generating repeatable sample sequences. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} fixes the starting state of a pseudorandom generator so that a specified implementation can repeat its sample sequence.]{.definition-explanation} The seed controls which sequence is drawn; it does not set the intended firing-rate distribution. The code uses a trajectory index to choose that starting state.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Published parameters and public-code settings have different sources\"}",
+    "reason": "Move the seed purpose before its concrete MATLAB setting and later reproduction instructions."
+  },
+  {
+    "file": "content/chapters/14-simulation-tools.md",
+    "old": "NumPy's `Generator` supplies random samples for a Python implementation. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} fixes the starting state of a pseudorandom generator so that a specified implementation can repeat its sample sequence.]{.definition-explanation} Record the generator, software versions, and order of calls as well as the seed.",
+    "new": "NumPy's `Generator` supplies random samples for a Python implementation. To repeat a sequence using a [random seed](ch-simulating-eye.html#sec-simulating-eye-path), record the generator, software versions, and order of calls as well as the seed.",
+    "reason": "Retain practical reproducibility cautions and link back to the now-earlier seed explanation."
+  }
+]

@@ -1,0 +1,424 @@
+schema_version: 1
+visual_ledger_version: 1
+visuals:
+- visual_id: fig:EYE-SHARED-PRIVATE-VARIANCE
+  block_id: fig:EYE-SHARED-PRIVATE-VARIANCE
+  asset: candidate-content/visuals/candidates/20261024-all/A05/figure.png
+  status: candidate
+  embedded: false
+  origin: Original analytic or simulated teaching construction; not experimental data.
+  source_status: Ben-Shushan et al. (2022), main p. 10 / PDF page 10, Eqs. 11–15; Chapter
+    4 EYE-CHI constructed 0.17/0.82 example.
+  rights: Original guide figure
+  generator: verification/all-illustrations-20261024/draw_eye_place.py
+  vector_source: candidate-content/visuals/candidates/20261024-all/A05/figure.svg
+  placement: sec:EYE-CHI
+  caption: The same common variance enters movement and the single cell predictor, but
+    the predictor has much more private noise. Increasing only private predictor variance
+    lowers correlation R while the common movement fraction χ stays at 0.82. The marked
+    point uses the chapter’s constructed example. Calculations assume unit common gain
+    and mutually uncorrelated contributions; they are not recorded cell data. Based on
+    Ben-Shushan et al. (2022), main p. 10, Eqs. 11–15.
+  accessibility_description: 'Horizontal stacked bars use one variance axis in degrees
+    squared: movement has common variance 0.00820 and other variance 0.00180; the single
+    cell prediction has the same common variance and private variance 0.22446. A curve
+    shows R falling as private predictor variance increases, reaching 0.170 at the constructed
+    point, while χ remains 0.820.'
+  teaching_introduction: The constructed variance example above gives a small correlation
+    even though the common command supplies most of the movement variance.
+  interpretation: Private prediction noise enlarges the denominator of R without changing
+    the covariance. The bars use the same physical scale, so the equal common pieces have
+    equal lengths.
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/all_draw_eye_place
+    role_reason: Internal mathematical detail figure using calculated curves, not an opening
+      map or experimental plot.
+    source_files:
+    - content/chapters/04-eye-drift.md
+    - content/chapters/04-eye-drift.yaml
+    - verification/all-illustrations-20261024/draw_eye_place.py
+    - verification/all-illustrations-20261024/A05-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/ben-shushan-2022-fixational-drift.pdf
+    rule_files: &id001
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+    - C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md
+    - C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024-all/A05/qa.json
+    vector_spec: verification/all-illustrations-20261024/draw_eye_place.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - variance-components
+    - correlation-denominator
+    coverage:
+      applicable: false
+      reason: Internal explanation of specific equations; no chapter-opening coverage
+        claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+        reference_comparison: null
+        scenes:
+        - id: variance-components
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+        - id: correlation-denominator
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+      readability:
+        verdict: pending
+        evidence: []
+        full_size_inspected: false
+        reviewed_width_px: null
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []
+        covered_ids: []
+        visible_evidence: {}
+- visual_id: fig:EYE-MSD-MEASUREMENT-OFFSET
+  block_id: fig:EYE-MSD-MEASUREMENT-OFFSET
+  asset: candidate-content/visuals/candidates/20261024-all/A06/figure.png
+  status: candidate
+  embedded: false
+  origin: Original analytic or simulated teaching construction; not experimental data.
+  source_status: Ben-Shushan et al. (2022), main p. 10 / PDF page 10, Removal of measurement
+    noise, Eqs. 18–19; Chapter 4 EYE-MEASUREMENT-NOISE subtraction example. Brownian M=2Dℓ
+    is the guide’s earlier diffusion model.
+  rights: Original guide figure
+  generator: verification/all-illustrations-20261024/draw_eye_place.py
+  vector_source: candidate-content/visuals/candidates/20261024-all/A06/figure.svg
+  placement: sec:EYE-MEASUREMENT-NOISE
+  caption: For positive lags, independent measurement error adds $2\sigma_m^2$ to the
+    movement MSD, here $M(\ell)=2D\ell$. The isolated point at zero lag stays zero because
+    each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg²
+    leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that
+    remainder. Original analytic example, not experimental data, using Ben-Shushan et
+    al. (2022), main p. 10, Eqs. 18–19.
+  accessibility_description: Movement MSD rises linearly from zero. For all strictly positive
+    lags, observed MSD is higher by 0.0010 degrees squared. The observed curve has an
+    open endpoint at lag zero, above the actual zero-lag point at zero. At 20 milliseconds
+    the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket
+    showing the subtraction and an uncertainty bar on the corrected value.
+  teaching_introduction: For a constructed Brownian movement with $D=0.010$ deg$^2$/s,
+    adding independent position measurement errors with $2\sigma_m^2=0.0010$ deg$^2$ shifts
+    every positive-lag MSD upward by the same amount.
+  interpretation: The offset comes from two independent position errors, one at each endpoint.
+    Its removal changes the average MSD; it does not recover each trajectory’s unknown
+    error. The Brownian movement is chosen only to make the constant offset visible.
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/all_draw_eye_place
+    role_reason: Internal mathematical detail figure using calculated curves, not an opening
+      map or experimental plot.
+    source_files:
+    - content/chapters/04-eye-drift.md
+    - content/chapters/04-eye-drift.yaml
+    - verification/all-illustrations-20261024/draw_eye_place.py
+    - verification/all-illustrations-20261024/A06-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/ben-shushan-2022-fixational-drift.pdf
+    - content/chapters/01-foundations.md
+    - content/chapters/01-foundations.yaml
+    rule_files: *id001
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024-all/A06/qa.json
+    vector_spec: verification/all-illustrations-20261024/draw_eye_place.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - positive-lag-offset
+    - zero-lag
+    - subtraction-uncertainty
+    coverage:
+      applicable: false
+      reason: Internal explanation of specific equations; no chapter-opening coverage
+        claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+        reference_comparison: null
+        scenes:
+        - id: positive-lag-offset
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+        - id: zero-lag
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+        - id: subtraction-uncertainty
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+      readability:
+        verdict: pending
+        evidence: []
+        full_size_inspected: false
+        reviewed_width_px: null
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []
+        covered_ids: []
+        visible_evidence: {}
+- visual_id: fig:PLACE-GP-TO-FIRING
+  block_id: fig:PLACE-GP-TO-FIRING
+  asset: candidate-content/visuals/candidates/20261024-all/A07/figure.png
+  status: candidate
+  embedded: false
+  origin: Original analytic or simulated teaching construction; not experimental data.
+  source_status: Mainali et al. (2025), Fig. 1A, p. 1112 / PDF page 4; STAR Methods Model
+    details, Eqs. 2–3, p. e1 / PDF page 13; supplement Methods S1, printed p. 8 / PDF
+    page 9.
+  rights: Original guide figure
+  generator: verification/all-illustrations-20261024/draw_eye_place.py
+  vector_source: candidate-content/visuals/candidates/20261024-all/A07/figure.svg
+  placement: sec:PLACE-GP
+  caption: One fixed Gaussian input draw becomes a nonnegative firing map through $F(x)=a[z(x)-q]_+$.
+    Values below $q$ become zero; values above $q$ keep their relative heights after subtraction
+    and scaling. The shaded connected intervals are the model fields. This is a simulated
+    teaching map with chosen parameters, not a recorded cell. Based on Mainali et al.
+    (2025), Fig. 1A and STAR Methods Eqs. 2–3, p. e1.
+  accessibility_description: The upper plot shows one fixed smooth input against spatial
+    position, with a threshold at 0.8 and shaded intervals above it. The lower plot uses
+    the same positions and plots six times the positive excess above the threshold in
+    hertz. Its connected positive intervals align with the upper shading; all other positions
+    have zero firing.
+  teaching_introduction: A simulated Gaussian input map with covariance $C(\Delta x)=\exp[-(\Delta
+    x/\sigma)^2/2]$ gives the firing map below when $q=0.8$ and $a=6$ Hz. Position is
+    shown in units of $\sigma$.
+  interpretation: Thresholding changes the distribution of values and can separate one
+    smooth input curve into several fields. Both panels describe the same fixed map over
+    space, so neither curve is a trajectory over time.
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/all_draw_eye_place
+    role_reason: Internal mathematical detail figure using calculated curves, not an opening
+      map or experimental plot.
+    source_files:
+    - content/chapters/05-place-fields.md
+    - content/chapters/05-place-fields.yaml
+    - verification/all-illustrations-20261024/draw_eye_place.py
+    - verification/all-illustrations-20261024/A07-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/mainali-2025-universal-statistics.pdf
+    - assets/papers/mainali-2025-supplement.pdf
+    rule_files: *id001
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024-all/A07/qa.json
+    vector_spec: verification/all-illustrations-20261024/draw_eye_place.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - input-map
+    - thresholded-rate
+    coverage:
+      applicable: false
+      reason: Internal explanation of specific equations; no chapter-opening coverage
+        claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+        reference_comparison: null
+        scenes:
+        - id: input-map
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+        - id: thresholded-rate
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+      readability:
+        verdict: pending
+        evidence: []
+        full_size_inspected: false
+        reviewed_width_px: null
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []
+        covered_ids: []
+        visible_evidence: {}
+- visual_id: fig:PLACE-SIZE-DENSITY-COLLAPSE
+  block_id: fig:PLACE-SIZE-DENSITY-COLLAPSE
+  asset: candidate-content/visuals/candidates/20261024-all/A08/figure.png
+  status: candidate
+  embedded: false
+  origin: Original analytic or simulated teaching construction; not experimental data.
+  source_status: Mainali et al. (2025), main p. 1111 / PDF page 3, Eq. 1; supplement Methods
+    S3, printed p. 12 / PDF page 13, high-threshold distributions and moment relation
+    before S18. Chapter 5 PLACE-SIZE-LAW corrects the printed S18 mean-scale algebra.
+  rights: Original guide figure
+  generator: verification/all-illustrations-20261024/draw_eye_place.py
+  vector_source: candidate-content/visuals/candidates/20261024-all/A08/figure.svg
+  placement: sec:PLACE-SIZE-LAW
+  caption: 'The limiting size densities differ with spatial dimension: one dimensional
+    length is Rayleigh, two dimensional area is exponential, and three dimensional volume
+    has a density that rises without bound as size approaches zero, while its integral
+    remains one. Their survival probabilities, the probabilities of exceeding a threshold,
+    coincide after transformation to $U=\beta s^{2/d}$, where $\Pr(U>u)=e^{-u}$. These
+    are exact calculations from the high-threshold limiting law, not finite-threshold
+    simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p.
+    1111, and Methods S3.'
+  accessibility_description: Three density curves against dimensionless size w show the
+    one dimensional curve starting at zero, the two dimensional curve starting at one,
+    and the three dimensional curve rising without bound toward zero size. An arrow marks
+    the unbounded end. In the second panel, three differently styled survival curves coincide
+    on exp(-u) after U=w^(2/d).
+  teaching_introduction: Writing dimensionless size as $w=\beta^{d/2}s$ removes the size
+    scale. The dimensional size laws then differ in shape, while the transformed variable
+    $U=\beta s^{2/d}=w^{2/d}$ has the same exponential law.
+  interpretation: Removing units does not erase the difference between length, area, and
+    volume distributions. The nonlinear transformation to U removes that shape difference;
+    its shared exponential law is the assumption used in the change of variables.
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/all_draw_eye_place
+    role_reason: Internal mathematical detail figure using calculated curves, not an opening
+      map or experimental plot.
+    source_files:
+    - content/chapters/05-place-fields.md
+    - content/chapters/05-place-fields.yaml
+    - verification/all-illustrations-20261024/draw_eye_place.py
+    - verification/all-illustrations-20261024/A08-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/mainali-2025-universal-statistics.pdf
+    - assets/papers/mainali-2025-supplement.pdf
+    rule_files: *id001
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024-all/A08/qa.json
+    vector_spec: verification/all-illustrations-20261024/draw_eye_place.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - dimension-densities
+    - exponential-survival
+    coverage:
+      applicable: false
+      reason: Internal explanation of specific equations; no chapter-opening coverage
+        claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+        reference_comparison: null
+        scenes:
+        - id: dimension-densities
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+        - id: exponential-survival
+          depiction: null
+          visible_objects: []
+          relationship: null
+          teaching_contribution: null
+      readability:
+        verdict: pending
+        evidence: []
+        full_size_inspected: false
+        reviewed_width_px: null
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []
+        covered_ids: []
+        visible_evidence: {}

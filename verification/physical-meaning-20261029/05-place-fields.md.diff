@@ -1,0 +1,31 @@
+--- before/05-place-fields.md
++++ after/05-place-fields.md
+@@ -13,6 +13,10 @@
+ ## Thresholding a smooth Gaussian input produces place fields {#sec:PLACE-GP}
+ 
+ To predict a field's width, we need to relate activity at nearby positions. A histogram of firing rates alone loses that information: rearranging its values could turn one broad field into many tiny fields without changing the histogram.
++
++The model assigns an input $h(x)$ to each position $x$, with nearby values linked so that a cell can have a continuous active region. [A **Gaussian process** specifies a distribution of such maps.]{.definition-explanation} Its mean sets the average input, and its spatial covariance describes how inputs at two positions vary together across possible maps. The chosen covariance must also make the maps smooth enough for the derivatives used below. After a map is drawn, moving the animal changes which position is evaluated, not the map itself.
++
++::: {.publisher-clarification-note .publisher-fold-always title="Mathematical definitions: Gaussian processes and spatial covariance"}
+ 
+ [A [**Gaussian process**]{.definition-term custom-style="Definition Term"} is a probability distribution over functions such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} For positions $x_1,\ldots,x_n$, the vector $(h(x_1),\ldots,h(x_n))$ therefore has a multivariate Gaussian distribution. Its mean vector and covariance matrix are obtained by evaluating two functions,
+ 
+@@ -22,6 +26,8 @@
+ $$
+ 
+ The expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine every finite joint distribution. A Gaussian process can thus produce many different curves while keeping a precise rule for their spatial dependence. [A [**jointly Gaussian vector**]{.definition-term custom-style="Definition Term"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} For this family, zero covariance between two subvectors implies their independence. That extra property, which does not hold for general distributions, will simplify the crossing calculation. The values after thresholding will generally not have a Gaussian distribution.[^p3-model]
++
++:::
+ 
+ Three assumptions have different jobs:
+ 
+@@ -40,6 +46,8 @@
+ $$
+ 
+ Here $z$ has variance one, $q$ is a dimensionless threshold, and $a>0$ converts normalized input to firing rate, in Hz. The paper writes $\theta$ for $q$, $r$ for covariance, and $D$ for spatial dimension; this guide uses $q,C,d$ to avoid conflicts with earlier chapters. The original input threshold is $q\sigma_h$. In the paper's Equation 3 the firing rate is proportional to $[h-q\sigma_h]_+$, which is equivalent to this form after choosing the gain.[^p3-model]
++
++The input threshold summarizes how much combined input is needed before the model cell fires. It can reflect the cell's own response properties and inhibitory input. Raising $q$ at a fixed input map leaves fewer positions active. If the absolute threshold above the input mean is positive and held fixed, increasing the input standard deviation $\sigma_h$ lowers $q$, making activity more widespread. Changing $a$ instead changes rates within active regions while preserving their zero-rate boundaries. A fixed positive detection cutoff in Hz would change this last conclusion. [A fitted threshold describes the balance of input and response; it does not identify which biological quantity changed.]{.key-statement}
+ 
+ <details class="publisher-long-content publisher-source-figure">
+ <summary>Original paper figure: Mainali, Azeredo da Silveira, and Burak (2025), Figure 1</summary>

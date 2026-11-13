@@ -1,0 +1,141 @@
+brief:
+  asset_id: fig:MEMORY-TUNING-INFORMATION
+  scope: chapter
+  book: burak-three-papers
+  chapter: ch:MEMORY-INFORMATION
+  purpose: Show why high firing alone does not imply high local Poisson information.
+  target_use: sec:MEMORY-FI
+  generation_authorized: true
+  insertion_authorized: true
+author: /root/all_draw_foundations_information
+figure_role: quantitative-figure
+visual_explanation:
+  applicable: true
+  figure_role: quantitative-figure
+  required_scene_ids: &id001
+  - rate-and-baseline
+  - shared-slope
+  - individual-information
+  reference_reason: Exact mathematical plots; no structural template or opener reference
+    applies.
+chapter_map_coverage:
+  applicable: false
+  reason: Section calculation figure, not an opening map.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    colors_and_roles:
+      ink: '#17365D'
+      blue: '#1F4E79'
+      text: '#19202C'
+      muted: '#5D6876'
+      flow: '#0B7F95'
+      success: '#0F6B78'
+      risk: '#C4580B'
+      risk_deep: '#B85209'
+      line: '#9AA7B5'
+      fill_blue: '#EAF2F8'
+      fill_teal: '#E4F2F0'
+      fill_orange: '#FCEEE3'
+      fill_gray: '#F1F3F6'
+      paper: '#FFFFFF'
+      paper_warm: '#FFFDF7'
+      panel_warm: '#F8F4EC'
+    color_distance: Exact SVG color token membership; no raster pixel deviation claim.
+    maximum_deviation_fraction: 0
+    allowed_special_purpose_colors: []
+parameters:
+  baseline_A_Hz: 5
+  baseline_B_Hz: 25
+  peak_above_baseline_Hz: 35
+  width_rad: 0.6
+  theta_range_rad:
+  - -2
+  - 2
+required_items:
+- Strictly positive rate curves.
+- Same derivative in both examples.
+- Zero slope and zero information at theta=0.
+- Individual information contributions use squared slope divided by own rate.
+- Chosen curves are not claimed to form a full recurrent attractor.
+source_locator: Guide sec:MEMORY-FI, J=sum_i (r_i prime)^2/r_i and positive-rate condition;
+  Burak and Fiete (2012), main PDF p. 2, Eq. 3; SI PDF pp. 9–10, Eqs. S42–S44.
+language_contract:
+  book_loci:
+  - sec:MEMORY-FI
+  caption: Analytic teaching curves $r_A(\theta)=5+35e^{-\theta^2/(2w^2)}$ and $r_B(\theta)=r_A(\theta)+20$,
+    in spikes per second, with chosen width $w=0.6$ rad. The rates have the same derivative.
+    Their individual Poisson information contributions $(r_i^{\prime})^2/r_i$ vanish at
+    the rate peak, where the slope is zero, and are positive on the flanks. Adding baseline
+    firing raises the count noise without changing the slope, reducing local information.
+    These are illustrative tuning curves, not recorded neurons or a demonstrated attractor
+    network.
+  alt_text: The first plot shows two positive peaked rate curves separated by a constant
+    twenty spikes per second. The second shows their shared derivative, positive to the
+    left, zero at the central peak and negative to the right. The third shows squared
+    slope divided by rate for each curve. Both contributions vanish at the center and
+    rise on the flanks; the higher baseline curve contributes less at every point with
+    nonzero slope.
+  teaching_introduction: Two positive tuning curves with the same changing part isolate
+    the effect of extra baseline firing.
+  conclusion: The rate peak has zero local slope, so it contributes no local information
+    at that point. Extra spikes from a constant baseline increase Poisson variability
+    without making nearby values easier to distinguish.
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/all_draw_foundations_information
+  role_reason: Show why high firing alone does not imply high local Poisson information.
+  source_files:
+  - content/chapters/03-memory-information.md
+  - content/chapters/03-memory-information.yaml
+  - verification/all-illustrations-20261024/draw_foundations_information.py
+  - verification/all-illustrations-20261024/A03-brief.yaml
+  - verification/illustrations/figure_style.py
+  - assets/papers/burak-fiete-2012-persistent-activity.pdf
+  - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+  - verification/all-illustrations-20261024/foundation-information-source-extracts.txt
+  - verification/all-illustrations-20261024/foundation-information-source-extra.txt
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024-all/A03/qa.json
+  vector_spec: verification/all-illustrations-20261024/draw_foundations_information.py
+  insertion_width_px: 700
+  required_scene_ids: *id001
+  coverage:
+    applicable: false
+    reason: Internal mathematical teaching figure, not an opening map; no chapter coverage
+      claim.
+limitations:
+- Analytic or simulated teaching construction using explicitly chosen parameters; not
+  new experimental data.
+- No structural vector template gate or raster pixel audit is claimed; computed checks
+  and pixel inspection support independent review.
+manual_rule_disposition:
+  applicable:
+  - semantic correspondence
+  - numerical accuracy
+  - units and domain assumptions
+  - full size and 700px readability
+  - palette color roles
+  - canvas clipping
+  not_applicable:
+  - opening-map coverage
+  - generic structural-template geometry gates
+  - raster pixel-deviation measurement

@@ -1,0 +1,130 @@
+chapter_id: ch:PLACE-FIELDS
+part_id: part:OBSERVATIONS
+title: Why place fields have different sizes and shapes
+purpose: A cell recorded on a short track may have one smooth firing hill. On a long
+  track, the same kind of cell may have several separated fields, each with a different
+  width and height. In a room, its active regions can bend, split, and surround inactive
+  holes. How could one model produce this variety and still make useful predictions?
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:PLACE-GP
+  title: From a rate map to a random function
+  summary: 'To predict a field''s width, we need to relate activity at nearby positions.
+    A histogram of firing rates alone loses that information: rearranging its values
+    could turn one broad field into many tiny fields without changing the histogram.'
+  level: 2
+- id: sec:PLACE-KAC-RICE
+  title: Count fields by counting crossings
+  summary: Finding every root of a random curve is difficult. Counting how often the
+    curve passes a level is easier because a small interval around a crossing has
+    a width determined by its slope.
+  level: 2
+- id: sec:PLACE-INFERENCE
+  title: Infer a threshold and a spatial scale
+  summary: A low field count can result from a high threshold or a slowly varying
+    map. Field lengths help separate those possibilities.
+  level: 2
+- id: sec:PLACE-RARE-PEAKS
+  title: Why rare high fields are nearly parabolic
+  summary: The crossing calculation determines a mean length exactly, but it does
+    not yet explain the shape of the length histogram. To obtain that distribution,
+    we examine the small region around a peak that barely exceeds a high threshold.
+  level: 2
+- id: sec:PLACE-SIZE-LAW
+  title: Derive the size law in each dimension
+  summary: A round region's radius and its volume have different units and different
+    distributions. This geometric conversion explains why the model predicts different
+    histograms in a track, an arena, and a room.
+  level: 2
+- id: sec:PLACE-SLICES
+  title: Why slices are a separate test
+  summary: A model can fit field volumes and still place activity incorrectly within
+    those volumes. Slicing the map tests that internal spatial structure.
+  level: 2
+- id: sec:PLACE-SLOPES
+  title: Why slopes at field boundaries are Rayleigh
+  summary: The derivative at an arbitrary position is Gaussian. A field boundary is
+    a selected position, however, and selecting it changes the derivative distribution.
+  level: 2
+- id: sec:PLACE-TOPOLOGY
+  title: Count holes as well as connected fields
+  summary: Two maps can have the same field count and total active area but different
+    holes. To test this part of the geometry, raise the activity threshold and watch
+    how regions split, join, appear, and disappear.
+  level: 2
+- id: sec:PLACE-DATA
+  title: What was fitted and what was tested
+  summary: The experiments supply estimated firing rate maps, not the hidden Gaussian
+    input. To assess a prediction, we must therefore track both which summaries set
+    its parameters and which processing decisions change the map's geometry.
+  level: 2
+- id: sec:PLACE-WIRING
+  title: What Gaussian maps imply about synaptic input
+  summary: The statistical model becomes biologically useful if it suggests how a
+    circuit could make the maps. A random weighted sum of many inputs is one possible
+    mechanism, and the supplement makes its assumptions explicit.
+  level: 2
+blocks:
+- id: tbl:PLACE-SIZE-LAWS
+  kind: table
+  placement: sec:PLACE-SIZE-LAW
+  headers:
+  - Space
+  - Meaning of $s$
+  - Density
+  - Consequence
+  rows:
+  - - $d=1$
+    - length
+    - $2\beta s e^{-\beta s^2}$
+    - Rayleigh; density vanishes at zero
+  - - $d=2$
+    - area
+    - $\beta e^{-\beta s}$
+    - exponential; mean area $1/\beta$
+  - - $d=3$
+    - volume
+    - $(2\beta/3)s^{-1/3}e^{-\beta s^{2/3}}$
+    - Weibull with shape $2/3$; density rises without bound near zero but is integrable
+  caption: Field-size laws in one, two, and three dimensions.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:PLACE-DATA-COMPARISONS
+  kind: table
+  placement: sec:PLACE-DATA
+  headers:
+  - Condition
+  - Quantities used to choose parameters
+  - Main additional comparisons
+  rows:
+  - - Bats, 200 m tunnel
+    - mean field length and mean gap
+    - full distributions, log-length moments, peaks, boundary slopes, rate versus
+      width, EC
+  - - Bats, 6 m tunnel
+    - mean field length and occupied fraction
+    - length distribution and simpler field shapes; Figure 5D reports 40 cells
+  - - Bats, 130 m tunnel; rats, 48 m maze
+    - mean length and mean field count
+    - length distributions and parameter trends; rat details in Figure S1
+  - - Mice, 40 m virtual track
+    - direct fit of $\beta$ to available length histograms
+    - qualitative Rayleigh comparison for four mice in Figure 1F
+  - - Rats, 18.6 m$^2$ arena
+    - mean area and count, with silent-cell exclusion correction
+    - areas, counts, line slices, and EC; raw-map slice/EC analyses use 20 supplied
+      cells
+  - - Bats, 5.8 by 4.6 by 2.7 m room
+    - mean volume and occupied volume fraction
+    - volumes, line/plane slices, rate versus linear size, EC, surface curvature
+  caption: Fitted quantities and additional comparisons.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

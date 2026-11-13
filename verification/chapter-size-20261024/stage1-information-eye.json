@@ -1,0 +1,95 @@
+{
+  "request_id": "stage1-information-eye",
+  "stage": "1 truth and reasoning",
+  "reviewer": "independent foundations-memory agent, GPT-6.1-sol/high",
+  "review_started_checkpoint": "2026-10-24T20:24:18.5887556+03:00",
+  "last_source_read_checkpoint": "2026-10-24T20:24:36.7114946+03:00",
+  "completed_at": "2026-10-24T20:25:27.9550479+03:00",
+  "scope": "New titles, chapter openings and notation reminders, explicit cross-reference changes in the five information and eye chapters, and their new section boundaries. Unchanged bodies read as evidence context, not newly accepted. No whole-paper audit.",
+  "rule_file": "C:/dev/NBIS/publisher-releases/0.8.23/skills/course-study-guide-builder/references/pedagogy-language-contract.md",
+  "rule_sha256": "F4C1EB544CF640B708E1970D9572FDC758FCC6AEA806675D01A0256658DF847A",
+  "sources": [
+    {"file":"content/chapters/03-memory-information.md","sha256":"258C636F81FB2DAF7741E1F6A0A955693439761C213FD32B4959291BBCCB2946","last_write_utc":"2026-10-24T17:23:47.0502634Z"},
+    {"file":"content/chapters/03b-memory-readout.md","sha256":"8B68F20CAC79489A54E89B62818F79EEB861EEAD66F9DBECEFDE6AF9178E3D69","last_write_utc":"2026-10-24T17:23:47.0522770Z"},
+    {"file":"content/chapters/04-eye-drift.md","sha256":"15C1A3B9157572762ED2C4C0DBC03B4602B25537530ED86FAC3F3F3E172628F0","last_write_utc":"2026-10-24T17:23:47.0542759Z"},
+    {"file":"content/chapters/04b-eye-timing.md","sha256":"557592B7F4E2C936390BD22F5C4CC6DEF23B1F8F24D365EDBDA162768E581977","last_write_utc":"2026-10-24T17:23:47.0552635Z"},
+    {"file":"content/chapters/04c-eye-circuit.md","sha256":"44E0E3B1811F66925288D21E7F586C1005BE39AAB146AB7D92DC9791BFD11127","last_write_utc":"2026-10-24T17:23:47.0572692Z"}
+  ],
+  "initial_read": "No misplaced section, new scientific contradiction, or missing notation needed by the split was found. The information-to-readout boundary separates the constraint on a network from observing its moving state. The two eye boundaries separate source estimation, timing, and a proposed circuit without treating any of them as a unique biological localization.",
+  "passage_decisions": [
+    {
+      "file":"03-memory-information.md",
+      "location":"title; lines 3, 5, 7",
+      "decision":"retain",
+      "truth_answer":"The title and opening describe a lower bound, not an achieved optimum. Line 5 explicitly says more information permits stability without guaranteeing it. The body defines information through locally fixed Poisson spike counts at lines 13-46 and proves D >= 1/(2 tau^2 J) at lines 82-113. The comparison section at lines 200-229 supports the opening's requirement to hold other quantities fixed.",
+      "definitions_and_qualifiers":"The notation paragraph carries theta, Theta, rate, tau, and the diffusion convention. Its lack of a repeated constant-D qualification is supplied by the earlier local-diffusion teaching and the first section's locally constant state assumption; it is not a newly broadened global formula. J and Fisher information are taught in the first section before the proof uses them.",
+      "boundary_answer":"The three sections complete one question: define spike information, derive the constraint, then explain controlled comparisons. No readout derivation is required before this result."
+    },
+    {
+      "file":"03b-memory-readout.md",
+      "location":"title; lines 3, 5, 7",
+      "decision":"retain",
+      "truth_answer":"The opening's distinction between storage motion and later observation matches lines 11-27. Its claim about equal weighting becoming harmful is shown by V_naive = 2DL/3 + 1/(JL), and its claim that accounting for motion keeps helping toward a limit matches the ideal variance and saturation discussion at lines 152-180. Limited access is treated at lines 184-205. The opening does not claim that every biological reader reaches that ideal result.",
+      "definitions_and_qualifiers":"The reminder defines T and L on opposite sides of the cue and restores J, tau, D and the constant, unbounded, zero-drift setting. The first section explicitly adds locally unbiased readout, future noise independent of storage history, translation invariance, and Gaussian approximation before the formulas depend on them.",
+      "boundary_answer":"Beginning with the error decomposition gives the readout chapter a complete starting problem. The end's time-scale/noise extensions and printed-bound caution are foreshadowed by line 5 rather than presented as an unexplained change of topic."
+    },
+    {
+      "file":"04-eye-drift.md",
+      "location":"title; lines 3, 5, 7",
+      "decision":"retain",
+      "truth_answer":"The title says 'points to' shared drive. The opening keeps the recordings separate from the proposed memory source. The shared estimate is supported within the chapter by the independent-motor-noise bound at lines 159-191 and calibrated covariance at lines 195-267. The new calibration paragraph expressly retains gain and independence assumptions and matches the large-movement fit followed by its application to fixation at lines 23, 37-67.",
+      "definitions_and_qualifiers":"Microsaccades and fixational drift are defined in the opening. The pathway section defines the storage circuit, OMNs and ocular plant before later analysis uses them. The reminder about mechanical stages is a reason to follow the full path, not a claim that this first chapter already tests the complete circuit.",
+      "boundary_answer":"Ending after the 350 ms variance estimate keeps a complete source-estimation argument together. It avoids importing the timing or circuit model as evidence for the numerical fraction."
+    },
+    {
+      "file":"04b-eye-timing.md",
+      "location":"title; lines 3, 5",
+      "decision":"retain",
+      "truth_answer":"The opening correctly treats the previous estimate as using one interval length, then asks how displacement changes across lags. Its comparison is specifically between nonaccumulating fluctuations passed through a decaying response and a diffusing position. The body derives a plateau for filtered white noise at lines 56-84 and accumulating filtered diffusion at lines 86-150. It retains the restriction that a slow correlated peripheral input is a different possibility, so the title does not become a claim of unique source identification.",
+      "definitions_and_qualifiers":"MSD is described in familiar words in the opening and defined with E and lag ell at lines 9-15. Measurement-noise subtraction assumptions are established at lines 17-33 before use. White noise, stationarity, filter, D and the exponential response time are introduced where their calculation requires them.",
+      "boundary_answer":"Measurement correction and the temporal comparison answer one question in sequence. The earlier motor calibration supplies the physical context; no undefined parameter is carried silently across the chapter boundary."
+    },
+    {
+      "file":"04c-eye-circuit.md",
+      "location":"title; lines 3, 5",
+      "decision":"retain",
+      "truth_answer":"The title uses 'can produce', and the opening calls the circuit proposed and leaves other upstream sources possible. This agrees with the model equations, the parameter discussion, and the explicit localization limits at lines 160-164. The new opening promises an amplitude/timing comparison rather than a proof that the recorded noise originates in the integrator.",
+      "definitions_and_qualifiers":"OMNs and muscle filtering are taught in earlier eye chapters. The first circuit section defines E_OI, tuning slope, baseline, feedback, synaptic state and motor output before its reasoning uses them. It also retains the approximate fixed-point condition and residual deterministic drift qualification at line 53.",
+      "boundary_answer":"The full circuit, its scale choices, figure comparisons and limits form a coherent test of one possible mechanism. Separating it from the recording estimate and timing calculation makes the evidence strength explicit."
+    },
+    {
+      "file":"03-memory-information.md",
+      "location":"line 82 projection/diffusion link; line 133 mutual-excitation link",
+      "decision":"retain",
+      "truth_answer":"The first target supplies 2D = sum v_i^2 r_i and is preceded there by the tangent and left-vector definitions. The new target correctly replaces the now-false 'preceding chapter'. The mutual-excitation example is in sec:MEMORY-LONG-TIME of the long-delay chapter and supplies the linear family used in the equality counterexample. Source equation and figure locators are unchanged."
+    },
+    {
+      "file":"03b-memory-readout.md",
+      "location":"line 251 linear-family counterexample link",
+      "decision":"retain",
+      "truth_answer":"The target sec:MEMORY-BOUND contains the positive linear mutual-excitation family and explicitly qualifies the exponential converse. The linked result supports this sentence about the pointwise equality condition without changing its noise-law comparison."
+    },
+    {
+      "file":"04-eye-drift.md",
+      "location":"line 11 continuous-attractor links",
+      "decision":"retain",
+      "truth_answer":"The foundations target teaches restoring and neutral directions; the network target teaches the fixed-point family. Both are now earlier chapters. The surrounding sentence still says 'In the proposed mechanism', so the links do not turn the model into an experimentally located circuit."
+    },
+    {
+      "file":"04b-eye-timing.md",
+      "location":"line 9 earlier-MSD-definition link",
+      "decision":"retain",
+      "truth_answer":"The linked covariance section defines displacement and its mean-square decomposition. The current passage immediately supplies the explicit lag-based MSD formula, so the new link is useful background and does not leave the definition dependent on a wrong destination."
+    },
+    {
+      "file":"04c-eye-circuit.md",
+      "location":"lines 89, 101, 109 cross-reference paragraphs",
+      "decision":"retain",
+      "truth_answer":"The spike-variability target defines interspike CV and distinguishes it from count Fano factor. The surrounding circuit passage independently derives the long-window CV-squared factor for its renewal construction. The diffusion and information links lead to the model calculation and constraint invoked as a scale; line 109 explicitly fixes network geometry, and line 124 says the result is not exact for every recurrent circuit. These qualifiers prevent applying the Poisson bound unchanged to arbitrary regular spike trains."
+    }
+  ],
+  "defects": [],
+  "verdict": "pass within declared stage 1 scope",
+  "remaining_work": "Separate wording and reader-flow stages remain. This verdict does not approve unchanged whole-paper claims, image pixels, sidecar rendering, links after build, or the final book as a whole.",
+  "timing": {"awake_execution":"unverified", "token_stats":"Token stats unavailable"}
+}

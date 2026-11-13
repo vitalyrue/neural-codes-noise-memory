@@ -1,0 +1,237 @@
+[
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "# Why place fields have different sizes and shapes {#ch:PLACE-FIELDS}",
+    "after": "# A thresholded Gaussian map predicts field sizes and shapes {#ch:PLACE-FIELDS}",
+    "reason": "The whole chapter connects one spatial-input model to sizes, slices, slopes and topology; its opening limits this to distributions, not field locations."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## From a rate map to a random function {#sec:PLACE-GP}",
+    "after": "## Thresholding a smooth Gaussian input produces place fields {#sec:PLACE-GP}",
+    "reason": "The section defines the probability law, covariance, assumptions, normalization and connected active regions; the heading states the model transformation."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## Count fields by counting crossings {#sec:PLACE-KAC-RICE}",
+    "after": "## Upcrossings count fields, with an endpoint correction {#sec:PLACE-KAC-RICE}",
+    "reason": "The crossing identity and finite-track equation establish this exact count under the stated regularity and counting convention."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## Infer a threshold and a spatial scale {#sec:PLACE-INFERENCE}",
+    "after": "## Mean field and gap lengths separate threshold from scale {#sec:PLACE-INFERENCE}",
+    "reason": "The two stationary mean formulas lead to separate inversions for q and sigma; the finite-sample and selection caveats remain visible."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## Derive the size law in each dimension {#sec:PLACE-SIZE-LAW}",
+    "after": "## Geometry gives different size laws in each dimension {#sec:PLACE-SIZE-LAW}",
+    "reason": "The ball-volume conversion and change of variables explain why the limiting length, area and volume histograms differ."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## Why slices are a separate test {#sec:PLACE-SLICES}",
+    "after": "## Slices test spatial structure beyond field volume {#sec:PLACE-SLICES}",
+    "reason": "Gaussian restriction and the spherical-field comparison show what the slice measurements add after volume fitting."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## Count holes as well as connected fields {#sec:PLACE-TOPOLOGY}",
+    "after": "## Holes distinguish maps with the same field count {#sec:PLACE-TOPOLOGY}",
+    "reason": "The opening counterexample and Euler characteristic explain the extra observable; the title avoids equating signed topology with positive counts."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "title",
+    "before": "## What Gaussian maps imply about synaptic input {#sec:PLACE-WIRING}",
+    "after": "## Random input weights can generate Gaussian maps {#sec:PLACE-WIRING}",
+    "reason": "The weighted-sum model and central-limit conditions give a sufficient mechanism; can preserves the visible non-uniqueness limit."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "connection",
+    "before": "In particular,\n\n$$\n\\mu_s=",
+    "after": "The mean and its corresponding scale are\n\n$$\n\\mu_s=",
+    "reason": "The general moment proof moves behind the mean, so replace a connector that otherwise points backward to hidden material."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "move-and-fold",
+    "before": "Normalization needs no special integral: $\\int_0^\\infty p_d(s)\\,ds=\\int_0^\\infty e^{-u}\\,du=1$. The same substitution supplies every positive moment,\n\n$$\n\\mathbb E[s^k]\n=\\beta^{-kd/2}\\int_0^\\infty u^{kd/2}e^{-u}\\,du\n=\\beta^{-kd/2}\\Gamma(1+kd/2).\n$$",
+    "after": "::: {.publisher-clarification-note .publisher-fold-always title=\"Derivation: normalization and higher size moments\"}\n\nNormalization needs no special integral: $\\int_0^\\infty p_d(s)\\,ds=\\int_0^\\infty e^{-u}\\,du=1$. The same substitution supplies every positive moment,\n\n$$\n\\mathbb E[s^k]\n=\\beta^{-kd/2}\\int_0^\\infty u^{kd/2}e^{-u}\\,du\n=\\beta^{-kd/2}\\Gamma(1+kd/2).\n$$\n\n:::",
+    "reason": "The limiting density, U transformation and mean formula stay visible; later units, dimensionless curves and mean examples need those formulas, not the general kth-moment integral.",
+    "moved_after": "\\beta=\\left[\\frac{\\Gamma(1+d/2)}{\\mu_s}\\right]^{2/d}.\n$$"
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "fold",
+    "before": "**Reading the supplement carefully.** The printed supplement appears to contain algebraic errors in this calculation. Its Equation S18 prints multiplication by mean size where the preceding moment formula requires division. Its Equation S23 omits a factor $\\sqrt2$ when solving the parabola in S22 for full width. In S25 the finite-height quadratic exponent should be negative. The derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation; they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]",
+    "after": "::: {.publisher-clarification-note .publisher-fold-always title=\"Source check: three printed steps in the supplement\"}\n\n**Reading the supplement carefully.** The printed supplement appears to contain algebraic errors in this calculation. Its Equation S18 prints multiplication by mean size where the preceding moment formula requires division. Its Equation S23 omits a factor $\\sqrt2$ when solving the parabola in S22 for full width. In S25 the finite-height quadratic exponent should be negative. The derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation; they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]\n\n:::",
+    "reason": "The corrected derivation, exact-versus-asymptotic distinction and numerical error remain visible. The printed-step comparison is an optional source check, and no following argument requires its text.",
+    "moved_after": null
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "fold",
+    "before": "There is also an independent check on the high threshold width constant. Starting at an upcrossing with slope $v$, the local excursion is approximately\n\n$$\nz(x)-q\\simeq vx-\\frac{q}{2\\sigma^2}x^2.\n$$\n\nIts second root is $s=2\\sigma^2v/q$. Changing variables in the exact crossing slope law gives $p(s)=2\\beta s e^{-\\beta s^2}$ with $\\beta=q^2/(8\\sigma^2)$, the same constant as the peak calculation for $v_1=2$.",
+    "after": "::: {.publisher-clarification-note .publisher-fold-always title=\"Independent check: recover field width from its boundary slope\"}\n\nThere is also an independent check on the high threshold width constant. Starting at an upcrossing with slope $v$, the local excursion is approximately\n\n$$\nz(x)-q\\simeq vx-\\frac{q}{2\\sigma^2}x^2.\n$$\n\nIts second root is $s=2\\sigma^2v/q$. Changing variables in the exact crossing slope law gives $p(s)=2\\beta s e^{-\\beta s^2}$ with $\\beta=q^2/(8\\sigma^2)$, the same constant as the peak calculation for $v_1=2$.\n\n:::",
+    "reason": "The visible peak argument already establishes the width constant, and the exact crossing-slope law is taught just before this fold. The later measurement paragraph requires only the slope law.",
+    "moved_after": null
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "connection",
+    "before": "For example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral yields",
+    "after": "For example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above.",
+    "reason": "The optional Gaussian algebra moves after its result. Point its final sentence to that visible result."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "move-and-fold",
+    "before": "Here are the Gaussian algebra steps behind the determinant average. Write the conditional Hessian as $H=-b\\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,\n\n$$\n\\mathbb E[G_{ii}G_{kk}]=\\kappa-\\lambda^2,\n\\qquad\n\\mathbb E[G_{ik}^2]=\\kappa.\n$$\n\nThe constant $\\kappa$ describes a fourth derivative of covariance. Conditioning on height subtracts $\\lambda^2$ from the covariance of the two diagonal entries, but not from the off-diagonal variance. Hence each pair contributes\n\n$$\n\\mathbb E[G_{ii}G_{kk}-G_{ik}^2]=-\\lambda^2.\n$$\n\nFor $j=1$, $\\mathbb E[\\det(-H)\\mid b]=b\\lambda$. For $j=2$, expand the two by two determinant to obtain $\\lambda^2(b^2-1)$. For $j=3$, the leading term is $b^3\\lambda^3$; the three index pairs each contribute $-b\\lambda^3$, and all odd centered Gaussian products vanish. The result is $\\lambda^3(b^3-3b)$. The unknown fourth derivative $\\kappa$ has canceled.\n\nIntegrating the three polynomials gives\n\n$$\n\\begin{aligned}\n\\int_q^\\infty b\\phi(b)\\,db&=\\phi(q),\\\\\n\\int_q^\\infty(b^2-1)\\phi(b)\\,db&=q\\phi(q),\\\\\n\\int_q^\\infty(b^3-3b)\\phi(b)\\,db&=(q^2-1)\\phi(q).\n\\end{aligned}\n$$\n\nFor example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above.",
+    "after": "::: {.publisher-clarification-note .publisher-fold-always title=\"Derivation: the Gaussian determinant average and its integrals\"}\n\nHere are the Gaussian algebra steps behind the determinant average. Write the conditional Hessian as $H=-b\\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,\n\n$$\n\\mathbb E[G_{ii}G_{kk}]=\\kappa-\\lambda^2,\n\\qquad\n\\mathbb E[G_{ik}^2]=\\kappa.\n$$\n\nThe constant $\\kappa$ describes a fourth derivative of covariance. Conditioning on height subtracts $\\lambda^2$ from the covariance of the two diagonal entries, but not from the off-diagonal variance. Hence each pair contributes\n\n$$\n\\mathbb E[G_{ii}G_{kk}-G_{ik}^2]=-\\lambda^2.\n$$\n\nFor $j=1$, $\\mathbb E[\\det(-H)\\mid b]=b\\lambda$. For $j=2$, expand the two by two determinant to obtain $\\lambda^2(b^2-1)$. For $j=3$, the leading term is $b^3\\lambda^3$; the three index pairs each contribute $-b\\lambda^3$, and all odd centered Gaussian products vanish. The result is $\\lambda^3(b^3-3b)$. The unknown fourth derivative $\\kappa$ has canceled.\n\nIntegrating the three polynomials gives\n\n$$\n\\begin{aligned}\n\\int_q^\\infty b\\phi(b)\\,db&=\\phi(q),\\\\\n\\int_q^\\infty(b^2-1)\\phi(b)\\,db&=q\\phi(q),\\\\\n\\int_q^\\infty(b^3-3b)\\phi(b)\\,db&=(q^2-1)\\phi(q).\n\\end{aligned}\n$$\n\nFor example, differentiate $-q\\phi(q)$ to get $(q^2-1)\\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above.\n\n:::",
+    "reason": "The signed-count mechanism, assumptions, eta integral, resulting eta formulas and signed-density meaning stay visible. Boundary factors use eta values, not the canceled fourth-derivative constant or determinant expansion.",
+    "moved_after": "These are signed densities per length, area, and volume, not three formulas for positive field counts."
+  },
+  {
+    "file": "05-place-fields.md",
+    "kind": "connection",
+    "before": "$$\n\\eta_1=\\frac{e^{-q^2/2}}{2\\pi\\sigma},",
+    "after": "The resulting signed densities are\n\n$$\n\\eta_1=\\frac{e^{-q^2/2}}{2\\pi\\sigma},",
+    "reason": "The moved derivation previously supplied the lead into eta. Supply that connection on the visible reading path."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "title: Why place fields have different sizes and shapes",
+    "after": "title: A thresholded Gaussian map predicts field sizes and shapes",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: From a rate map to a random function",
+    "after": "  title: Thresholding a smooth Gaussian input produces place fields",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Count fields by counting crossings",
+    "after": "  title: Upcrossings count fields, with an endpoint correction",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Infer a threshold and a spatial scale",
+    "after": "  title: Mean field and gap lengths separate threshold from scale",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Derive the size law in each dimension",
+    "after": "  title: Geometry gives different size laws in each dimension",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Why slices are a separate test",
+    "after": "  title: Slices test spatial structure beyond field volume",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Count holes as well as connected fields",
+    "after": "  title: Holes distinguish maps with the same field count",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "05-place-fields.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: What Gaussian maps imply about synaptic input",
+    "after": "  title: Random input weights can generate Gaussian maps",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "06-synthesis.md",
+    "kind": "title",
+    "before": "# Relating spatial codes, memory, and behavior {#ch:SYNTHESIS}",
+    "after": "# Spatial maps and memory dynamics need separate tests {#ch:SYNTHESIS}",
+    "reason": "The chapter separates the three claims, derives one possible connection and proposes measurements that would test it."
+  },
+  {
+    "file": "06-synthesis.md",
+    "kind": "title",
+    "before": "## Three questions about one represented quantity {#sec:SYNTHESIS-QUESTIONS}",
+    "after": "## The three papers constrain maps, dynamics, and movement {#sec:SYNTHESIS-QUESTIONS}",
+    "reason": "The section attaches each question to its mathematical object and observable; it preserves the difference between memory state and physical location."
+  },
+  {
+    "file": "06-synthesis.md",
+    "kind": "title",
+    "before": "## What makes an experimental test restrictive {#sec:SYNTHESIS-EVIDENCE}",
+    "after": "## Each model needs a test matched to its claim {#sec:SYNTHESIS-EVIDENCE}",
+    "reason": "The section contrasts extra spatial predictions, shared movement covariance and a mathematical inequality, rather than suggesting one test fits all three."
+  },
+  {
+    "file": "06-synthesis.md",
+    "kind": "title",
+    "before": "## Related work and what it changes {#sec:SYNTHESIS-RELATED}",
+    "after": "## Related studies change assumptions and leave circuit choices open {#sec:SYNTHESIS-RELATED}",
+    "reason": "Each paragraph identifies what nearby research adds or changes, while preserving what the three main papers have not uniquely measured."
+  },
+  {
+    "file": "06-synthesis.md",
+    "kind": "title",
+    "before": "## A joint comparison that remains to be done {#sec:SYNTHESIS-NEXT}",
+    "after": "## A joint test would compare tuning maps with population fluctuations {#sec:SYNTHESIS-NEXT}",
+    "reason": "The proposed procedure measures both maps and dynamical alignment; would makes the unperformed status explicit."
+  },
+  {
+    "file": "06-synthesis.yaml",
+    "kind": "sidecar-title",
+    "before": "title: Relating spatial codes, memory, and behavior",
+    "after": "title: Spatial maps and memory dynamics need separate tests",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "06-synthesis.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Three questions about one represented quantity",
+    "after": "  title: The three papers constrain maps, dynamics, and movement",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "06-synthesis.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: What makes an experimental test restrictive",
+    "after": "  title: Each model needs a test matched to its claim",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "06-synthesis.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: Related work and what it changes",
+    "after": "  title: Related studies change assumptions and leave circuit choices open",
+    "reason": "Match the individually reviewed Markdown title."
+  },
+  {
+    "file": "06-synthesis.yaml",
+    "kind": "sidecar-title",
+    "before": "  title: A joint comparison that remains to be done",
+    "after": "  title: A joint test would compare tuning maps with population fluctuations",
+    "reason": "Match the individually reviewed Markdown title."
+  }
+]

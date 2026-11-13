@@ -1,0 +1,78 @@
+chapter_id: ch:MATHEMATICAL-TOOLS
+part_id: part:MECHANISMS
+title: Mathematical tools connect neural signals to the papers' predictions
+purpose: 'Before Part I, explain the mathematical tools behind all three papers: feedback and Fisher information
+  for memory; covariance and filtering for eye drift; Gaussian spatial maps, crossings and peak geometry for
+  place fields. Keep physical meanings, assumptions and exact versus limiting results visible.'
+role: frontmatter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:READING-GUIDE
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies: []
+section_list:
+- id: sec:MATH-TOOLS-WEIGHTS
+  title: Connection weights determine how neurons sustain activity
+  summary: A single neural signal is brief, so retaining a value requires something to carry its effect forward.
+    [A [**spike**]{.definition-term custom-style="Definition Term"} is a brief electrical event emitted by
+    a neuron.]{.definition-explanation} [Its [**firing rate**]{.definition-term custom-style="Definition Term"}
+    is the expected number of spikes per unit time.]{.definition-explanation} A rate gives an expectation;
+    it does not specify an evenly spaced sequence of spikes.
+  level: 2
+- id: sec:MATH-TOOLS-FISHER
+  title: Fisher information measures how clearly spikes distinguish nearby values
+  summary: Suppose a circuit currently represents an angle near $30^\circ$. A receiving cell sees spikes rather
+    than an angle label. If $30^\circ$ and $31^\circ$ produce almost identical probabilities of spike patterns,
+    a short observation gives little evidence about which value is represented. If their spike probabilities
+    differ strongly, the distinction is easier.
+  level: 2
+- id: sec:MATH-TOOLS-BOUND
+  title: Information limits how slowly a neural memory can spread
+  summary: The same uncertain spikes that tell a receiving cell about the value also renew activity inside
+    the memory circuit. Synaptic effects fade, so the network must carry the value forward through those new
+    events. This links the precision of the signals to the persistence of the memory.
+  level: 2
+- id: sec:MATH-TOOLS-SHARED
+  title: Covariance tests which fluctuations are shared
+  summary: If one neuron's spikes predict some eye movement, is the neuron passing on a common command or adding
+    its own noise? Both can make its activity vary. Comparing the prediction with measured movement helps separate
+    the part they share from fluctuations present in only one signal.
+  level: 2
+- id: sec:MATH-TOOLS-FILTERS
+  title: Filtering changes how noise appears in eye motion
+  summary: Muscles take time to respond to neural commands. Could their response turn rapidly changing noise
+    into the smooth, continuing motion seen during fixation? The answer depends on whether the input merely
+    fluctuates or accumulates changes.
+  level: 2
+- id: sec:MATH-TOOLS-RANDOM-FIELDS
+  title: Random fields describe a fixed spatial map
+  summary: Why does a cell stay active over a stretch of track, rather than change its response independently
+    at every position? Mainali, Azeredo da Silveira, and Burak (2025) describe the cell's combined input as
+    a spatial map $h(x)$. Nearby values depend on one another. A distribution of such maps can predict field
+    sizes without predicting where a particular cell's fields will occur.[^tools-place-map]
+  level: 2
+- id: sec:MATH-TOOLS-CROSSINGS-PEAKS
+  title: Crossings and peak geometry predict field counts and sizes
+  summary: 'On a track, a field begins where the input crosses upward through threshold. [An [**upcrossing**]{.definition-term
+    custom-style="Definition Term"} is a crossing of $z=q$ with positive spatial slope.]{.definition-explanation}
+    The mean number per unit distance is the threshold density multiplied by the mean positive slope conditional
+    on being at threshold:'
+  level: 2
+- id: sec:MATH-TOOLS-RESULTS
+  title: Major results connect formulas to physical questions
+  summary: The separate Exam review organizes all35results by physical question, with symbol definitions and
+    exact paper/guide locations.
+  level: 2
+blocks: []
+source_loci:
+- P1-p02
+- P1-p03
+- P1-p05
+- P1-p06
+- P2-p09
+- P2-p10
+- P3-p03
+- P3-p13
+- P3-p14
+- P3-p15

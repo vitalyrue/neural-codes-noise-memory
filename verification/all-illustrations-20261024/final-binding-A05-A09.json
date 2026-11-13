@@ -1,0 +1,565 @@
+{
+  "reviewer": "/root/all_illustrations_review",
+  "reviewed_at": "2026-10-24T18:49:58.976482+03:00",
+  "book_model_hash": "a853f7a996cf5c54f254d458c93442377608dec60fe17e9aaba1fecf28925957",
+  "figures": {
+    "fig:EYE-SHARED-PRIVATE-VARIANCE": {
+      "id": "A05",
+      "diagram_review": {
+        "schema_version": 1,
+        "status": "approved",
+        "reviewer": "/root/all_illustrations_review",
+        "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+        "context_sha256": "af405d58e9cfec386f092d52020f0e35769562d293df9c96a3c4573b2fcca9be",
+        "reviewed_sha256": "3a3168bb23476aeefafdf062a13bd9870f8cc421e2fa49c273687735cfdbfa68",
+        "input_sha256": {
+          "content/chapters/04-eye-drift.md": "6704d46f75118ae21d1b336f8ea59ce523aa9824e3e809ba8fd2e26da93f7323",
+          "content/chapters/04-eye-drift.yaml": "2b0de2b57e1142fb7a1dd4e9fccd684bbdf12f414142517ca013ed8baa60efdd",
+          "verification/all-illustrations-20261024/draw_eye_place.py": "c7005217586f414900a6be73a5d318e20fe73fcc7cf652bd73b0f52c49c8d4de",
+          "verification/all-illustrations-20261024/A05-brief.yaml": "24c5c697edce209c1357fa5f4c4804b30d9e7e415e4c5c1649584b15778c26e6",
+          "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+          "assets/papers/ben-shushan-2022-fixational-drift.pdf": "15f273f99bd8d8e8daa09a9f7809e04c53da514b146750c0ec517812e3478caa",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+          "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+          "candidate-content/visuals/candidates/20261024-all/A05/qa.json": "0910381c5b08f1c4fe4cc627627f5bd9459a4a4901e4d0ff9aa5111d76139c3d"
+        },
+        "source_scope_sha256": {
+          "ch:EYE-DRIFT": "e42d75861a2e73bfb1566b69c890cf2f89b5fb5a5e7efa7cec771a0a17fbe520"
+        },
+        "strongest_objection": "Two stacked bars might be read as percentages, or low single-cell correlation might be read as only 17 percent common movement.",
+        "objection_resolution": "The common variance uses the same absolute deg-squared axis in both bars, not normalized lengths. A separate plot explicitly distinguishes fraction chi from correlation R. Caption and chapter state calibrated unit gain, uncorrelated contributions and constructed data.",
+        "checks": {
+          "technical_accuracy": {
+            "verdict": "pass",
+            "evidence": [
+              "The original Ben-Shushan PDF page 10 Eqs. 11-15 gives E=EC+eta and Ehat=EC+epsilon, with covariance approximately Var(EC) under the uncorrelated-noise assumption. Original source read directly using pdftotext, not copied reviewer findings.",
+              "The chapter uses centered displacements X,Y in degrees. Independent calculation gives Var(Y)=0.01000, Var(X)=0.23266, covariance=0.00820 deg squared, R=0.17000159 and chi=0.82. Changing only private predictor variance leaves chi fixed and makes R decrease from 0.90554 toward 0.16137 over the displayed range.",
+              "The common segments use one variance axis and exactly the same width. The predictor has a much larger private component. The graph shows a changing example family, not one curve fitted to recordings.",
+              "Final canonical caption/alt/intro/interpretation reread in Stage3. W1-W4 repaired fields rechecked in a distinct call. Actual source, generator/spec, current QA, current rules, exact asset bytes and independently recomputed BookModel chapter hashes match current-bindings.json."
+            ]
+          },
+          "visual_explanation": {
+            "verdict": "pass",
+            "evidence": [
+              "Each required scene is a plotted mathematical object with a distinct explanatory role."
+            ],
+            "reference_comparison": "Internal quantitative figure, not an illustrated opener or structural-template figure.",
+            "scenes": [
+              {
+                "id": "variance-components",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "two stacked absolute-variance bars",
+                  "same-width teal common pieces",
+                  "much larger predictor private segment"
+                ],
+                "relationship": "Equal common displacement variance enters both measurements, with different private noise.",
+                "teaching_contribution": "Makes the denominator difference concrete without converting variance into normalized percentages."
+              },
+              {
+                "id": "correlation-denominator",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "decreasing R curve",
+                  "constant chi reference",
+                  "marked chapter example"
+                ],
+                "relationship": "R decreases as private predictor variance increases while chi stays at 0.82.",
+                "teaching_contribution": "Explains why a weak single-cell predictor can share the source dominating actual movement."
+              }
+            ]
+          },
+          "readability": {
+            "verdict": "pass",
+            "full_size_inspected": true,
+            "reviewed_width_px": 700,
+            "evidence": [
+              "At 700 px the small common segments remain visible, private prediction text fits inside its large bar, the two curve identities are readable, and both marked values have clear targets. The complete 1890 by 903 original also has no clipping.",
+              "Narrow-screen review assumes the existing horizontal scrolling at 700 px; no approval of a proportionally shrunken390px image.",
+              "Retained only after exact PNG/SVG/700px preview hash comparison; current source integration has not changed pixels. Browser rendering is separate and pending."
+            ]
+          },
+          "palette": {
+            "verdict": "pass",
+            "evidence": [
+              "Current exact SVG token QA has no out-of-profile colors, issues or warnings. Manual color roles checked: mathematical series and thresholds are distinct, reference guides are muted, plot panels white and outer paper warm. Teal/orange here distinguish quantities, without assigning a biological success or danger claim. This is vector token membership, not raster pixel-deviation measurement."
+            ]
+          },
+          "coverage": {
+            "verdict": "not-applicable",
+            "evidence": [
+              "Internal equation-detail figure; required scenes reviewed, with no chapter-map coverage claim."
+            ],
+            "covered_ids": [],
+            "visible_evidence": {}
+          }
+        }
+      }
+    },
+    "fig:EYE-MSD-MEASUREMENT-OFFSET": {
+      "id": "A06",
+      "diagram_review": {
+        "schema_version": 1,
+        "status": "approved",
+        "reviewer": "/root/all_illustrations_review",
+        "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+        "context_sha256": "cad36cd3e16425618a727b8e94d14bf902faa73408838a9c1365e919daafa027",
+        "reviewed_sha256": "3b3d82f99e11d6bbc106e7d51e8a456778faf3fb3743e5e52e771229a1358328",
+        "input_sha256": {
+          "content/chapters/04-eye-drift.md": "6704d46f75118ae21d1b336f8ea59ce523aa9824e3e809ba8fd2e26da93f7323",
+          "content/chapters/04-eye-drift.yaml": "2b0de2b57e1142fb7a1dd4e9fccd684bbdf12f414142517ca013ed8baa60efdd",
+          "verification/all-illustrations-20261024/draw_eye_place.py": "c7005217586f414900a6be73a5d318e20fe73fcc7cf652bd73b0f52c49c8d4de",
+          "verification/all-illustrations-20261024/A06-brief.yaml": "9d76a222468799e4250d2dd86f668e53c2d150942e51b7d4ae689dbfd5197dc3",
+          "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+          "assets/papers/ben-shushan-2022-fixational-drift.pdf": "15f273f99bd8d8e8daa09a9f7809e04c53da514b146750c0ec517812e3478caa",
+          "content/chapters/01-foundations.md": "ad3e8305a73c3ca5b777bcaf17e409dbb3f35d6e550a28a532ed680b44bbd84f",
+          "content/chapters/01-foundations.yaml": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+          "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+          "candidate-content/visuals/candidates/20261024-all/A06/qa.json": "4a666026e249e7565dbf76843f399f27e003851a4e689d76efb2727d469311fd"
+        },
+        "source_scope_sha256": {
+          "ch:EYE-DRIFT": "e42d75861a2e73bfb1566b69c890cf2f89b5fb5a5e7efa7cec771a0a17fbe520"
+        },
+        "strongest_objection": "The line toward zero lag might falsely imply a measured nonzero value at lag zero, or the uncertainty bar could be read as the full experimental confidence interval.",
+        "objection_resolution": "The open endpoint at .001, separate labeled zero-lag dot and positive-lag legend distinguish the discontinuous sampled-white-error limit. Caption explicitly calls the shown quantity subtraction uncertainty in an original analytic example.",
+        "checks": {
+          "technical_accuracy": {
+            "verdict": "pass",
+            "evidence": [
+              "Read the original Ben-Shushan PDF page 10 Removal of measurement noise, Eqs.18-19. Independent endpoint errors add two copies of their position variance to positive-lag MSD; at exactly zero the two endpoint errors are the same sample and cancel.",
+              "For D=.01 deg squared/s and lag .020 s, independent scalar calculation gives movement .0004, offset .0010, observed .0014 deg squared. Subtraction uncertainty .0001/.0004=.25. Movement and observed slopes are identical, with an open positive-lag endpoint at .001 and an isolated actual zero-lag point at zero.",
+              "The Brownian input is explicitly chosen for illustration; this curve is not the measured eye MSD or the paper full filtered model. The chapter already derives the factor two and the temporally correlated-error qualification.",
+              "Final canonical caption/alt/intro/interpretation reread in Stage3. W1-W4 repaired fields rechecked in a distinct call. Actual source, generator/spec, current QA, current rules, exact asset bytes and independently recomputed BookModel chapter hashes match current-bindings.json."
+            ]
+          },
+          "visual_explanation": {
+            "verdict": "pass",
+            "evidence": [
+              "Each required scene is a plotted mathematical object with a distinct explanatory role."
+            ],
+            "reference_comparison": "Internal quantitative figure, not an illustrated opener or structural-template figure.",
+            "scenes": [
+              {
+                "id": "positive-lag-offset",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "parallel movement and observed lines",
+                  "horizontal noise reference"
+                ],
+                "relationship": "Observed MSD equals movement MSD plus the same .001 deg-squared contribution at every positive lag.",
+                "teaching_contribution": "Shows why constant noise can dominate the smallest movement displacements."
+              },
+              {
+                "id": "zero-lag",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "open endpoint at .001",
+                  "solid origin point",
+                  "zero-lag leader"
+                ],
+                "relationship": "The positive-lag limiting offset is excluded at exactly zero lag.",
+                "teaching_contribution": "Prevents treating two evaluations of the same error sample as independent."
+              },
+              {
+                "id": "subtraction-uncertainty",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "20 ms points",
+                  "double-headed subtraction bracket",
+                  "corrected error bar"
+                ],
+                "relationship": "Subtracting .0010 leaves .0004, with .0001 uncertainty.",
+                "teaching_contribution": "Shows that the relative uncertainty grows after subtracting a large offset."
+              }
+            ]
+          },
+          "readability": {
+            "verdict": "pass",
+            "full_size_inspected": true,
+            "reviewed_width_px": 700,
+            "evidence": [
+              "The full 1806 by 1008 pixels and 700 px preview show readable units, three distinct line identities, both endpoint conventions, the subtraction bracket and its small error bar. Labels do not overlap the plotted values.",
+              "Narrow-screen review assumes the existing horizontal scrolling at 700 px; no approval of a proportionally shrunken390px image.",
+              "Retained only after exact PNG/SVG/700px preview hash comparison; current source integration has not changed pixels. Browser rendering is separate and pending."
+            ]
+          },
+          "palette": {
+            "verdict": "pass",
+            "evidence": [
+              "Current exact SVG token QA has no out-of-profile colors, issues or warnings. Manual color roles checked: mathematical series and thresholds are distinct, reference guides are muted, plot panels white and outer paper warm. Teal/orange here distinguish quantities, without assigning a biological success or danger claim. This is vector token membership, not raster pixel-deviation measurement."
+            ]
+          },
+          "coverage": {
+            "verdict": "not-applicable",
+            "evidence": [
+              "Internal equation-detail figure; required scenes reviewed, with no chapter-map coverage claim."
+            ],
+            "covered_ids": [],
+            "visible_evidence": {}
+          }
+        }
+      }
+    },
+    "fig:PLACE-GP-TO-FIRING": {
+      "id": "A07",
+      "diagram_review": {
+        "schema_version": 1,
+        "status": "approved",
+        "reviewer": "/root/all_illustrations_review",
+        "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+        "context_sha256": "870b241f3a7af7343e3c519e12b617e35946362d9e1288b8b1453ec6854bffc5",
+        "reviewed_sha256": "1897c2826138f8b59a799785285770949a58a2b5ad7146129e07404003c9a8e4",
+        "input_sha256": {
+          "content/chapters/05-place-fields.md": "76c748cd30a98eaca19f26f360eb9dafa7b39c930cf5af622b73b4fee1a641a7",
+          "content/chapters/05-place-fields.yaml": "fb7583604b5645eef855582f3c06f0587918c2242d83cae8a205cbb8d58c8ee7",
+          "verification/all-illustrations-20261024/draw_eye_place.py": "c7005217586f414900a6be73a5d318e20fe73fcc7cf652bd73b0f52c49c8d4de",
+          "verification/all-illustrations-20261024/A07-brief.yaml": "c2b7dc93f0e04497ad8c4983a05502932ea28a86a617bd0a6a6e07e1b80b2daf",
+          "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+          "assets/papers/mainali-2025-universal-statistics.pdf": "de2ca50a46f5b0d8d14e86269f1beacf6aadde7122bb348568aad92b12fd802e",
+          "assets/papers/mainali-2025-supplement.pdf": "05af1fdf3079906871da12fdafa1f28895380f594a8c6bda3cafc5b503f07c31",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+          "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+          "candidate-content/visuals/candidates/20261024-all/A07/qa.json": "18d648a4d93bbb1b3e150d5fd991ab313522a45656f784f93480ee8694ebf7e3"
+        },
+        "source_scope_sha256": {
+          "ch:PLACE-FIELDS": "1da29cc037fc5f37b4c8aa0b4318547ce2d9afc1a1575f21fc692f36151fab71"
+        },
+        "strongest_objection": "An arbitrary smooth curve might be passed off as a Gaussian-process simulation, or spatial position could be mistaken for a neural trajectory.",
+        "objection_resolution": "The explicit finite-grid Cholesky covariance, fixed seed and normalization establish the stated simulated input. The upper label says one fixed simulated map, the x-axis says position/sigma, and connected text explicitly separates spatial maps from time dynamics. No claim of empirical recovery or a full GP test is made.",
+        "checks": {
+          "technical_accuracy": {
+            "verdict": "pass",
+            "evidence": [
+              "Read original Mainali PDF page 13, Model details Eqs.2-3: stationary Gaussian h is rectified after subtracting q times its SD. Read the current PLACE-GP normalization z=h/sigma_h, rate F=a[z-q]+, excursion-set definition and sigma definition. Normalized unit variance makes the displayed construction equivalent.",
+              "The generator uses a fixed 601-point multivariate Gaussian draw with squared-exponential covariance on spacing .04 sigma, seed16 and diagonal jitter 1e-10. The 4 positive components match the upper threshold crossings and lower support. Jitter is a numerical regularization, not a claim that a continuum path acquires independent roughness.",
+              "The latest insertion anchor follows the sigma definition, so x/sigma, q and a have already been introduced. Both axes represent the same fixed map over physical position, not time.",
+              "Also read actual Mainali supplement PDF page9, printed8, MethodsS1: finite-position values jointly Gaussian and x indexes animal location; threshold nonlinearity maps excursions to fields.",
+              "Final canonical caption/alt/intro/interpretation reread in Stage3. W1-W4 repaired fields rechecked in a distinct call. Actual source, generator/spec, current QA, current rules, exact asset bytes and independently recomputed BookModel chapter hashes match current-bindings.json."
+            ]
+          },
+          "visual_explanation": {
+            "verdict": "pass",
+            "evidence": [
+              "Each required scene is a plotted mathematical object with a distinct explanatory role."
+            ],
+            "reference_comparison": "Internal quantitative figure, not an illustrated opener or structural-template figure.",
+            "scenes": [
+              {
+                "id": "input-map",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "smooth fixed input curve",
+                  "q=.8 threshold",
+                  "four shaded active intervals"
+                ],
+                "relationship": "The same spatial function is above threshold on four disconnected intervals.",
+                "teaching_contribution": "Introduces the concrete object whose law is Gaussian before rectification."
+              },
+              {
+                "id": "thresholded-rate",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "aligned spatial axis",
+                  "nonnegative rate curve",
+                  "zero inactive parts",
+                  "positive fields"
+                ],
+                "relationship": "Rate is six times the positive excess above .8 at each same position.",
+                "teaching_contribution": "Shows that rectification creates separated fields and changes the value distribution without evolving the map."
+              }
+            ]
+          },
+          "readability": {
+            "verdict": "pass",
+            "full_size_inspected": true,
+            "reviewed_width_px": 700,
+            "evidence": [
+              "Full 1806 by 1197 and 700 px views preserve both axes, q line, normalization and rectification formula. Four shaded upper intervals align with the lower rate hills; the shading is faint but visible at 700 px and is supported by the actual curve/threshold intersections. No clipping or label collision.",
+              "Narrow-screen review assumes the existing horizontal scrolling at 700 px; no approval of a proportionally shrunken390px image.",
+              "Retained only after exact PNG/SVG/700px preview hash comparison; current source integration has not changed pixels. Browser rendering is separate and pending."
+            ]
+          },
+          "palette": {
+            "verdict": "pass",
+            "evidence": [
+              "Current exact SVG token QA has no out-of-profile colors, issues or warnings. Manual color roles checked: mathematical series and thresholds are distinct, reference guides are muted, plot panels white and outer paper warm. Teal/orange here distinguish quantities, without assigning a biological success or danger claim. This is vector token membership, not raster pixel-deviation measurement."
+            ]
+          },
+          "coverage": {
+            "verdict": "not-applicable",
+            "evidence": [
+              "Internal equation-detail figure; required scenes reviewed, with no chapter-map coverage claim."
+            ],
+            "covered_ids": [],
+            "visible_evidence": {}
+          }
+        }
+      }
+    },
+    "fig:PLACE-SIZE-DENSITY-COLLAPSE": {
+      "id": "A08",
+      "diagram_review": {
+        "schema_version": 1,
+        "status": "approved",
+        "reviewer": "/root/all_illustrations_review",
+        "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+        "context_sha256": "dc260bf11c2c41a59b9cfc0fa389989054b51a89e28045ccec3ec87e823c39eb",
+        "reviewed_sha256": "58440786316e224e2d0d3005c2ac2b5c6d59dc702229e1872d23f38723bc480f",
+        "input_sha256": {
+          "content/chapters/05-place-fields.md": "76c748cd30a98eaca19f26f360eb9dafa7b39c930cf5af622b73b4fee1a641a7",
+          "content/chapters/05-place-fields.yaml": "fb7583604b5645eef855582f3c06f0587918c2242d83cae8a205cbb8d58c8ee7",
+          "verification/all-illustrations-20261024/draw_eye_place.py": "c7005217586f414900a6be73a5d318e20fe73fcc7cf652bd73b0f52c49c8d4de",
+          "verification/all-illustrations-20261024/A08-brief.yaml": "2c64eb0254c4872c43030cf797f867a681bd964d70a9c5e3ddb2081aa3f1606b",
+          "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+          "assets/papers/mainali-2025-universal-statistics.pdf": "de2ca50a46f5b0d8d14e86269f1beacf6aadde7122bb348568aad92b12fd802e",
+          "assets/papers/mainali-2025-supplement.pdf": "05af1fdf3079906871da12fdafa1f28895380f594a8c6bda3cafc5b503f07c31",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+          "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+          "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+          "candidate-content/visuals/candidates/20261024-all/A08/qa.json": "80fcb35a61c60fc9fc39ea51eaba521f2c22d653e8c5d62ffb8e516b7ac39057"
+        },
+        "source_scope_sha256": {
+          "ch:PLACE-FIELDS": "1da29cc037fc5f37b4c8aa0b4318547ce2d9afc1a1575f21fc692f36151fab71"
+        },
+        "strongest_objection": "Divergent 3D density could be misread as many exactly zero-volume fields, or the universal transformed law as a finite-threshold empirical collapse.",
+        "objection_resolution": "The chapter immediately after the size table explains no zero-size point mass, and the figure caption explicitly says the high-threshold limiting law, not finite-threshold simulations or measured histograms. The plot labels a density and marks the unbounded limit, while the survival axes show the nonlinear U transformation.",
+        "checks": {
+          "technical_accuracy": {
+            "verdict": "pass",
+            "evidence": [
+              "Read original Mainali PDF page3 Eq.1 and the guide PLACE-SIZE-LAW change of variables. For s>0, p_d(s)=(2 beta/d)s^(2/d-1)exp(-beta s^(2/d)). For w=beta^(d/2)s, density is (2/d)w^(2/d-1)exp(-w^(2/d)). This removes scale but preserves the d-dependent shape.",
+              "Independently integrated the displayed dimensionless densities and their means without importing the drawing code. All masses are one to numerical precision and means match Gamma(1+d/2). Pr(w>v)=exp(-v^(2/d)); U=w^(2/d) has Pr(U>u)=exp(-u).",
+              "d1 density is zero at the origin and peaks at 1/sqrt(2); d2 starts at one; d3 behaves as (2/3)w^(-1/3) near zero. This singularity is integrable and has no point mass. The arrow explicitly marks the clipped divergent end. Coincident survival traces use distinct dashes and widths without shifting data.",
+              "Also read actual Mainali supplement PDF page13, printed12, high-threshold distribution and moment text immediately before S18. The displayed law and transformed exponential agree; this figure does not use the printed S18 scale formula that the guide qualifies.",
+              "Final canonical caption/alt/intro/interpretation reread in Stage3. W1-W4 repaired fields rechecked in a distinct call. Actual source, generator/spec, current QA, current rules, exact asset bytes and independently recomputed BookModel chapter hashes match current-bindings.json."
+            ]
+          },
+          "visual_explanation": {
+            "verdict": "pass",
+            "evidence": [
+              "Each required scene is a plotted mathematical object with a distinct explanatory role."
+            ],
+            "reference_comparison": "Internal quantitative figure, not an illustrated opener or structural-template figure.",
+            "scenes": [
+              {
+                "id": "dimension-densities",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "three dimension-specific density curves",
+                  "dimensionless size axis",
+                  "marked divergent 3D end"
+                ],
+                "relationship": "The same removal of size scale leaves Rayleigh, exponential and integrably divergent shapes.",
+                "teaching_contribution": "Shows a qualitative difference the existing radius/size geometry alone does not display."
+              },
+              {
+                "id": "exponential-survival",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "three exactly coincident styled traces",
+                  "U transformation axis",
+                  "exp(-u) formula"
+                ],
+                "relationship": "The nonlinear power transformation makes every limiting survival curve the same exponential.",
+                "teaching_contribution": "Separates removal of units from removal of the dimension-dependent distribution shape."
+              }
+            ]
+          },
+          "readability": {
+            "verdict": "pass",
+            "full_size_inspected": true,
+            "reviewed_width_px": 700,
+            "evidence": [
+              "Full 1890 by 945 and 700 px views show readable exponents, units-free axes, legends, divergence arrow and coincident survival traces. Three line styles and different widths keep all three exact overlaid laws visible. No label clipping or overlap.",
+              "Narrow-screen review assumes the existing horizontal scrolling at 700 px; no approval of a proportionally shrunken390px image.",
+              "Retained only after exact PNG/SVG/700px preview hash comparison; current source integration has not changed pixels. Browser rendering is separate and pending."
+            ]
+          },
+          "palette": {
+            "verdict": "pass",
+            "evidence": [
+              "Current exact SVG token QA has no out-of-profile colors, issues or warnings. Manual color roles checked: mathematical series and thresholds are distinct, reference guides are muted, plot panels white and outer paper warm. Teal/orange here distinguish quantities, without assigning a biological success or danger claim. This is vector token membership, not raster pixel-deviation measurement."
+            ]
+          },
+          "coverage": {
+            "verdict": "not-applicable",
+            "evidence": [
+              "Internal equation-detail figure; required scenes reviewed, with no chapter-map coverage claim."
+            ],
+            "covered_ids": [],
+            "visible_evidence": {}
+          }
+        }
+      }
+    },
+    "fig:SYNTHESIS-SHARED-POSITION": {
+      "id": "A09",
+      "diagram_review": {
+        "schema_version": 1,
+        "status": "approved",
+        "reviewer": "/root/all_illustrations_review",
+        "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+        "context_sha256": "d1853904d407dd5490b5b80a954f6bdba230782283a4a52ed3a62b9533eb9da3",
+        "reviewed_sha256": "b9ab2327531a339571dcf54d9d894cf5fb34944cdbdebdcd2c065ecef6eb71d8",
+        "input_sha256": {
+          "content/chapters/06-synthesis.md": "32703a4a29b396b4952bafe287c60c917cc4f0ca56733eefbac0f274cada8557",
+          "content/chapters/06-synthesis.yaml": "30f4334052488ed71449232a8a558df117d3fd0ceb97c25f30f8722e2528496a",
+          "verification/all-illustrations-20261024/draw_synthesis.py": "0badc512e22133e69a40afa1f696fd84025d474003c3c59d57a95edbe55b3542",
+          "verification/all-illustrations-20261024/A09-brief.yaml": "a5ed7ca31aa88f4780320ca11417d010b841c692ea8e12fcb0b33508000aa390",
+          "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+          "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+          "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+          "candidate-content/visuals/candidates/20261024-all/A09/qa.json": "8cb12b9bd426bbecd9169774520e025082f040431cba0ab33ac7236ab44d7c89"
+        },
+        "source_scope_sha256": {
+          "ch:SYNTHESIS": "509d63b63706ae5cf3b0fea5f84f12acddccd7940125bdb169a7c3dd98d5d009"
+        },
+        "strongest_objection": "Perfect negative correlation might be read as evidence of inhibition or as a prediction for complete spike activity. The upper finite display might also be mistaken for a globally linear biological map.",
+        "objection_resolution": "The chapter limits the calculation to local expected-rate changes from one shared displacement and explicitly rejects the inhibition inference. The figure legend says common position change only, the caption calls the lines a local guide example, and the preceding chapter paragraph excludes extra private/shared noise and large-displacement or threshold uses. No wiring or time-evolving tuning curve is drawn.",
+        "checks": {
+          "technical_accuracy": {
+            "verdict": "pass",
+            "evidence": [
+              "Direct recalculation gives upper marked points (0.1,10.2) and (0.1,9.9), lower marked point (0.2,-0.1), covariance -0.02 Hz squared and correlation -1 for the stated single shared source.",
+              "Upper horizontal coordinate is displacement in metres; its vertical coordinate is expected rate in Hz. Lower axes are rate changes in Hz, and must not be interpreted as physical positions.",
+              "Caption, alt, introduction and interpretation match the inspected pixels, the connected guide example and the generator. No counterpart figure asserts a different mapping.",
+              "Final canonical caption/alt/intro/interpretation reread in Stage3. W1-W4 repaired fields rechecked in a distinct call. Actual source, generator/spec, current QA, current rules, exact asset bytes and independently recomputed BookModel chapter hashes match current-bindings.json."
+            ]
+          },
+          "visual_explanation": {
+            "verdict": "pass",
+            "reference_comparison": "Internal exact scientific plot, not an illustrated opener or structural template.",
+            "evidence": [
+              "The two actual tuning lines and the separate rate-change plane show how two different rate responses share one varying coordinate, beyond the equations alone."
+            ],
+            "scenes": [
+              {
+                "id": "fixed-tuning-curves",
+                "depiction": "comparison",
+                "visible_objects": [
+                  "increasing navy rate curve",
+                  "decreasing teal rate curve",
+                  "shared 10 Hz origin",
+                  "0.1 m reference and two marked rates"
+                ],
+                "relationship": "The same positive displacement raises one rate and lowers the other.",
+                "teaching_contribution": "Separates the fixed spatial rate functions from changes produced by moving through them."
+              },
+              {
+                "id": "shared-rate-changes",
+                "depiction": "data-representation",
+                "visible_objects": [
+                  "downward line through the origin",
+                  "rate-change axes",
+                  "marked paired change",
+                  "dashed coordinate guides"
+                ],
+                "relationship": "Every shared displacement gives a point with delta R2 = -delta R1/2.",
+                "teaching_contribution": "Shows the single direction of population change and why negative covariance can arise without inhibitory wiring."
+              }
+            ]
+          },
+          "readability": {
+            "verdict": "pass",
+            "reviewed_width_px": 700,
+            "full_size_inspected": true,
+            "evidence": [
+              "Inspected original 1722 by 1575 pixels and separate 700 px preview. Both axis-label sets, units, ticks, legends and the three point annotations are readable, with no clipping or overlap. Thin gray guides remain distinct from the colored quantitative curves. Approval assumes the existing narrow-screen horizontal scrolling, not a shrink to 390 px.",
+              "Retained only after exact PNG/SVG/700px preview hash comparison; current source integration has not changed pixels. Browser rendering is separate and pending."
+            ]
+          },
+          "palette": {
+            "verdict": "pass",
+            "evidence": [
+              "Current qa.json reports seven exact SVG color tokens, all within the selected house profile, and no warnings. This is a vector-token check, not an all-pixel raster deviation claim. Manual inspection confirms navy and teal identify the two mathematical rates, gray identifies references, white the plotting area, and warm paper the outer canvas; no biological success/risk meaning is assigned by color."
+            ]
+          },
+          "coverage": {
+            "verdict": "not-applicable",
+            "covered_ids": [],
+            "visible_evidence": {},
+            "evidence": [
+              "Internal two-panel calculation figure. Both required scenes are reviewed; no chapter or book map coverage is claimed."
+            ]
+          }
+        }
+      }
+    }
+  },
+  "binding_checks": {
+    "A05": {
+      "canonical_asset_matches_reviewed_candidate": true,
+      "preview_unchanged": true,
+      "qa_binds_current_spec": true,
+      "all_declared_inputs_rehashed": true,
+      "policy_recomputed": true,
+      "context_recomputed": true,
+      "chapter_scope_recompiled": true,
+      "stage3": "stage3-review.json",
+      "focused_recheck": "focused-W1-W4-recheck.json"
+    },
+    "A06": {
+      "canonical_asset_matches_reviewed_candidate": true,
+      "preview_unchanged": true,
+      "qa_binds_current_spec": true,
+      "all_declared_inputs_rehashed": true,
+      "policy_recomputed": true,
+      "context_recomputed": true,
+      "chapter_scope_recompiled": true,
+      "stage3": "stage3-review.json",
+      "focused_recheck": "focused-W1-W4-recheck.json"
+    },
+    "A07": {
+      "canonical_asset_matches_reviewed_candidate": true,
+      "preview_unchanged": true,
+      "qa_binds_current_spec": true,
+      "all_declared_inputs_rehashed": true,
+      "policy_recomputed": true,
+      "context_recomputed": true,
+      "chapter_scope_recompiled": true,
+      "stage3": "stage3-review.json",
+      "focused_recheck": "focused-W1-W4-recheck.json"
+    },
+    "A08": {
+      "canonical_asset_matches_reviewed_candidate": true,
+      "preview_unchanged": true,
+      "qa_binds_current_spec": true,
+      "all_declared_inputs_rehashed": true,
+      "policy_recomputed": true,
+      "context_recomputed": true,
+      "chapter_scope_recompiled": true,
+      "stage3": "stage3-review.json",
+      "focused_recheck": "focused-W1-W4-recheck.json"
+    },
+    "A09": {
+      "canonical_asset_matches_reviewed_candidate": true,
+      "preview_unchanged": true,
+      "qa_binds_current_spec": true,
+      "all_declared_inputs_rehashed": true,
+      "policy_recomputed": true,
+      "context_recomputed": true,
+      "chapter_scope_recompiled": true,
+      "stage3": "stage3-review.json",
+      "focused_recheck": "focused-W1-W4-recheck.json"
+    }
+  },
+  "browser_status": "Pending root browser/render checks; no browser pass claimed"
+}

@@ -1,0 +1,498 @@
+{
+  "local_request_id": "current-eye-noise-truth-20261029-03",
+  "reviewer": "accept_eye; GPT-6 Astra high as assigned",
+  "stage": "truth_reasoning",
+  "context": "reviewer_continuation",
+  "started_at": "2026-10-29T13:49:09.0541529+02:00",
+  "completed_at": "2026-10-29T13:50:40.4244443+02:00",
+  "input_hash": "9f0a39deb00485620bcd26154f68eec0f7b2dcd002687073df8013f86be406a8",
+  "review_contract_hash": "593934f3af51c49175417df3e4263df20a0835575d099bad4f0070163b4a17dc",
+  "status": "pass",
+  "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+  "paragraph_refs": [
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p11",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p17",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p19",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p21",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p22",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p23",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p25",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p49",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p55",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p64",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p66",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p70",
+    "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p72"
+  ],
+  "questions": [
+    {
+      "question": "Did deleting the two introductory sentences remove a premise needed for the measurement-error calculation?",
+      "answer": "No. Opening p7 still defines the measured statistic in ordinary words and states why measurement error must be separated before interpreting growth. Current p11 introduces the earlier definition, followed immediately by the full MSD formula and its lag interpretation. The error model and its three assumptions remain explicit.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::ch:EYE-TIMING::p7",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p11",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p17",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p19",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p21",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p22",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p23"
+      ]
+    },
+    {
+      "question": "Why is the positive-lag correction twice the single-position error variance, and when does it fail?",
+      "answer": "Each difference contains two position errors. Equal variances add, movement/error mixed terms vanish, and absent temporal error correlation removes the remaining cross term. Exact zero lag cancels the identical error; temporally correlated errors require a lag-dependent correction.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p19",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p21",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p22",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p23",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p25",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58"
+      ]
+    },
+    {
+      "question": "What can the next section infer from the corrected statistic?",
+      "answer": "It can compare the corrected MSD's growth across lags subject to subtraction uncertainty. This unit does not establish Brownian motion of the actual command; the Brownian illustration shows only the measurement offset. The next section explicitly examines the observed logarithmic slope and alternative filtered inputs.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p64",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p72",
+        "content/chapters/04b-eye-timing.md::sec:EYE-FILTERED-MSD::p78"
+      ]
+    }
+  ],
+  "fields": {
+    "System setup and component relationships": {
+      "setting": "Eye position sampled by a search coil during microsaccade-free fixation segments.",
+      "roles": {
+        "E": "True horizontal eye position",
+        "nu": "Position measurement error",
+        "E_obs": "Measured position E plus nu",
+        "M": "Mean squared displacement of true position",
+        "M_obs": "Mean squared displacement computed from measured position"
+      },
+      "flow": "Difference two position samples at a chosen lag, square and average; remove the estimated displacement-error variance from the statistic.",
+      "assumptions": "Zero-mean errors with the same variance, independence from true movement, and no correlation between distinct sampled times.",
+      "verdict": "adequate",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p17",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p19",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p21",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p22",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p23",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p25",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45"
+      ]
+    },
+    "Mechanism, calculation, or state change": {
+      "evidence": "The two error variances add for positive lag. The cross-time error product vanishes by no temporal correlation, and movement/error mixed terms vanish by independence and zero mean. At zero lag the identical error is subtracted from itself. The unchanged numerical example yields 0.0004 deg² and 25% relative subtraction uncertainty. With D=0.010 deg²/s and lag0.020s, true Brownian MSD is0.0004deg². These earlier checked calculations are reused after verifying the current inputs and caption.",
+      "verdict": "supported",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p19",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p21",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p22",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p23",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p25",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p64",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p72"
+      ],
+      "equation_source_lines": [
+        13,
+        27
+      ],
+      "figure_refs": [
+        "fig:EYE-MSD-MEASUREMENT-OFFSET",
+        "fig:PAPER-EYE-ED2"
+      ]
+    },
+    "Assumptions, limits, trade-offs, or failure modes": {
+      "evidence": "The offset is constant only under the stated error covariance assumptions. With temporal correlation it becomes2[sigma_m²-Cnu(lag)]. At short lags an uncertain estimated plateau can dominate the corrected movement statistic. Smoothing trajectories would change the movement statistics. Larger lags have fewer eligible segments. The Brownian movement is a constructed illustration, not an inference about the measured command.",
+      "verdict": "adequate",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p17",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p19",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p21",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p22",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p23",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p64",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p72"
+      ]
+    },
+    "Expert objection": {
+      "objection": "Does a nonzero short-lag plateau imply nonzero zero-lag MSD, or does subtracting it reveal each trial's true trajectory?",
+      "kind": "correctness",
+      "target": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58"
+      ],
+      "disposition": "does not apply",
+      "reason": "The source explicitly preserves exact zero-lag cancellation, limits subtraction to an average statistic and explains its uncertainty. It does not claim recovery of individual unknown errors."
+    }
+  },
+  "claim_checks": [
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c1",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 17,
+      "claim": "\"The 1 ms sampling sets the available lag spacing.[^p2-msd]\"",
+      "verdict": "true as written",
+      "check": "Original empirical-MSD Methods specifies 1 ms sampled eye resolution and integer-millisecond lags.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p17"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Original empirical-MSD Methods specifies 1 ms sampled eye resolution and integer-millisecond lags.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c2",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 27,
+      "claim": "\"$$ \\begin{aligned} M_{\\rm obs}(\\ell) &=\\mathbb E[(\\delta E+\\delta\\nu)^2]\\\\ &=M(\\ell)+\\mathbb E[\\nu(t+\\ell)^2]+\\mathbb E[\\nu(t)^2] -2\\mathbb E[\\nu(t+\\ell)\\nu(t)]\\\\ &=M(\\ell)+2\\sigma_m^2. \\end{aligned} $$\"",
+      "verdict": "condition stated",
+      "check": "Expanded squared displacement with independent zero-mean movement errors: positive-lag correction 2 sigma². Zero-lag cancellation is explicitly retained.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Expanded squared displacement with independent zero-mean movement errors: positive-lag correction 2 sigma². Zero-lag cancellation is explicitly retained.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c3",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 37,
+      "claim": "\"A positive lag plateau near zero lag can still occur when successive measurement errors are independent.[^p2-msd-noise] <!-- vale ai-tells.StrawmanContrast = YES --> <!-- vale ai-tells.FillerIntensifier = YES --> <!-- vale ai-tells.EmDashUsage = YES -->\"",
+      "verdict": "condition stated",
+      "check": "Expanded squared displacement with independent zero-mean movement errors: positive-lag correction 2 sigma². Zero-lag cancellation is explicitly retained.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p37"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Expanded squared displacement with independent zero-mean movement errors: positive-lag correction 2 sigma². Zero-lag cancellation is explicitly retained.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c4",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 45,
+      "claim": "\"<!-- vale ai-tells.VerbTricolon = NO --> The authors estimated the plateau contribution at order $10^{-3}$ deg$^2$, checked its scale with a coil fixed in space, and subtracted that contribution from the observed MSD.\"",
+      "verdict": "true as written",
+      "check": "Original ED2 says the plateau contribution is about 10^-3 deg², independently compared with a fixed coil, then subtracted.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Original ED2 says the plateau contribution is about 10^-3 deg², independently compared with a fixed coil, then subtracted.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c5",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 45,
+      "claim": "\"If the plateau estimate has uncertainty $10^{-4}$ deg$^2$, a corrected MSD of that size is unreliable even when the plateau itself is much larger.\"",
+      "verdict": "true as written",
+      "check": "Published peer response pp. 20–21 explicitly uses noise contribution 10^-3±10^-4 and explains unreliability when corrected motion is around 10^-4.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Published peer response pp. 20–21 explicitly uses noise contribution 10^-3±10^-4 and explains unreliability when corrected motion is around 10^-4.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c6",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 45,
+      "claim": "\"The peer review response uses this example to explain the shortest lag limitation.[^p2-noise-limit] <!-- vale ai-tells.VerbTricolon = YES -->\"",
+      "verdict": "true as written",
+      "check": "Published peer response pp. 20–21 explicitly uses noise contribution 10^-3±10^-4 and explains unreliability when corrected motion is around 10^-4.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p45"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Published peer response pp. 20–21 explicitly uses noise contribution 10^-3±10^-4 and explains unreliability when corrected motion is around 10^-4.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c7",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 49,
+      "claim": "\"(2022), Extended Data Figure 2</summary> <div class=\"publisher-fold-body\">\"",
+      "verdict": "not a claim",
+      "check": "Visible fold label identifies ED2.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p49"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Visible fold label identifies ED2.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c8",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 53,
+      "claim": "\"Caption: Noise subtraction removes the short lag measurement plateau and is checked in simulation. Original Extended Data Figure 2 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 8](../papers/ben-shushan-2022-supplement-1.pdf#page=8). [Open image at full size](../assets/fig-paper...\"",
+      "verdict": "condition stated",
+      "check": "Original ED2 caption describes raw/corrected data and a simulated added-noise control; exact excerpt pixels deferred.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE"
+      ],
+      "acceptance_limit": "Image fidelity not accepted by this text check",
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Original ED2 caption describes raw/corrected data and a simulated added-noise control; exact excerpt pixels deferred.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c9",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 58,
+      "claim": "\"<!-- vale ai-tells.ExplainerLeads = NO --> <!-- vale ai-tells.FormalTransitions = NO --> For instance, a constructed measured MSD of $0.0014$ deg$^2$ with an estimated noise contribution $0.0010$ deg$^2$ leaves $0.0004$ deg$^2$.\"",
+      "verdict": "true as written",
+      "check": "Original Stage1 recomputed; current call verifies unchanged inputs: .0014-.0010=.0004 and .0001/.0004=.25.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Recomputed .0014-.0010=.0004 and .0001/.0004=.25.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c10",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 58,
+      "claim": "\"A $0.0001$ deg$^2$ uncertainty in the subtraction is already 25% of that result.\"",
+      "verdict": "true as written",
+      "check": "Original Stage1 recomputed; current call verifies unchanged inputs: .0014-.0010=.0004 and .0001/.0004=.25.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Recomputed .0014-.0010=.0004 and .0001/.0004=.25.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c11",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 58,
+      "claim": "\"If measurement errors were temporally correlated, the correction would instead be $2[\\sigma_m^2-C_\\nu(\\ell)]$, where $C_\\nu$ is their covariance at lag $\\ell$.\"",
+      "verdict": "condition stated",
+      "check": "For stationary observation-error covariance Cnu, variance of its difference is 2(sigma²-Cnu(lag)); text retains movement-error independence.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p58"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "For stationary observation-error covariance Cnu, variance of its difference is 2(sigma²-Cnu(lag)); text retains movement-error independence.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c12",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 64,
+      "claim": "\"For a constructed Brownian movement with $D=0.010$ deg$^2$/s, adding independent position measurement errors with $2\\sigma_m^2=0.0010$ deg$^2$ shifts every positive-lag MSD upward by the same amount.\"",
+      "verdict": "condition stated",
+      "check": "With D=.010, Brownian MSD at .020 s is .0004 deg²; adding .001 gives .0014 for positive lag. Zero-lag exception is stated. Pixel correspondence deferred.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p64"
+      ],
+      "acceptance_limit": "Image fidelity not accepted by this text check",
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "With D=.010, Brownian MSD at .020 s is .0004 deg²; adding .001 gives .0014 for positive lag. Zero-lag exception is stated. Pixel correspondence deferred.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c13",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 68,
+      "claim": "\"Caption: For positive lags, independent measurement error adds $2\\sigma_m^2$ to the movement MSD, here $M(\\ell)=2D\\ell$. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg...\"",
+      "verdict": "condition stated",
+      "check": "With D=.010, Brownian MSD at .020 s is .0004 deg²; adding .001 gives .0014 for positive lag. Zero-lag exception is stated. Pixel correspondence deferred.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE"
+      ],
+      "acceptance_limit": "Image fidelity not accepted by this text check",
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "With D=.010, Brownian MSD at .020 s is .0004 deg²; adding .001 gives .0014 for positive lag. Zero-lag exception is stated. Pixel correspondence deferred.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c14",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 72,
+      "claim": "\"<!-- vale ai-tells.EmDashUsage = NO --> The Brownian movement is chosen only to make the constant offset visible.\"",
+      "verdict": "not a claim",
+      "check": "Explicit statement of the constructed illustration’s teaching purpose, not a biological inference.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p72"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Explicit statement of the constructed illustration’s teaching purpose, not a biological inference.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    },
+    {
+      "claim_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::c15",
+      "unit_id": "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+      "source_line": 72,
+      "claim": "\"See [Measurement noise correction, Eqs. 18–19, p. 10](../papers/ben-shushan-2022-fixational-drift.pdf#page=10). <!-- vale ai-tells.EmDashUsage = YES -->\"",
+      "verdict": "not a claim",
+      "check": "Source pointer correctly identifies original Eqs. 18–19 p. 10.",
+      "source_refs": [
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE",
+        "content/chapters/04b-eye-timing.md::sec:EYE-MEASUREMENT-NOISE::p72"
+      ],
+      "acceptance_limit": null,
+      "current_check": "Re-read in the complete current unit; claim text and all relevant equations/assumptions unchanged from the original Stage1.",
+      "evidence_reuse": {
+        "from_request": "final-eye-truth-20261029-01",
+        "original_check": "Source pointer correctly identifies original Eqs. 18–19 p. 10.",
+        "current_inputs_verified": true,
+        "new_arithmetic_run": false
+      }
+    }
+  ],
+  "unresolved": [],
+  "repair_verification": {
+    "changed_paragraphs": [
+      "p11"
+    ],
+    "selected_claim_rows_identical": true,
+    "unchanged_paragraph_records": 15,
+    "total_paragraph_records": 16,
+    "current_markdown_sha256": "4d7395f284ca8a2e09b2d301c97cef98070c0528b756ceb06ca75570badac3bc",
+    "sidecar_sha256": "0269c4f78ff2566c7ff78e51cc7d025e1cacd9c3a587a115e38de500b3d787be",
+    "sidecar_unchanged": true,
+    "result": "Only the first two p11 sentences were removed. No assumption, formula, parameter, caption, source locator or error interpretation changed.",
+    "scope": "Truth of repaired unit and connections only. This call does not perform current language or Stage3 acceptance."
+  },
+  "source_evidence_reuse": {
+    "original_completed_reading": "Original Stage1 read Ben-Shushan main p10 Eqs18–19 and empirical-MSD Methods; SI1 p8 ED2 caption; published peer response pp20–21 on noise subtraction and uncertainty.",
+    "current_action": "Read complete current unit and neighboring p7/next-section opening; compare all current claim rows and paragraph hashes, and verify unchanged extracted primary-source files. Adopt original source support and numerical calculations for unchanged inputs, without relabeling them as new computations.",
+    "source_hash_checks": [
+      {
+        "path": "C:\\dev\\clsc\\burak-papers\\research\\ben-shushan-2022-main-text.txt",
+        "hash": "b52b017ad8d63af12d7301407e3cace4c0725b1f906ab3543b8a8014666c8eb5",
+        "unchanged": true
+      },
+      {
+        "path": "C:\\dev\\clsc\\burak-papers\\research\\ben-shushan-2022-si1.txt",
+        "hash": "b636bfa42abc26bd1bc2dea5b3224ae14f92723ba5783f2aea3e1db8280b53b0",
+        "unchanged": true
+      },
+      {
+        "path": "C:\\dev\\clsc\\burak-papers\\research\\ben-shushan-2022-si2.txt",
+        "hash": "7f2256b88297e1278cce72ef7b2adc9e5339e9da86bc4bb459a442d971396755",
+        "unchanged": true
+      }
+    ]
+  },
+  "metadata_and_visual_limits": "Unchanged sidecar summary remains an internal lead-in. Its conditional standalone concern from Stage2 is preserved; no reader-summary output is established. Captions/alt text and fold labels were read; pixels and exact artwork excerpt fidelity are not accepted.",
+  "timing": {
+    "wall_clock_seconds": 91.37,
+    "awake_execution_time": "unverified",
+    "checkpoints": [
+      {
+        "at": "2026-10-29T13:49:09.0541529+02:00",
+        "note": "Started narrow current truth call."
+      },
+      {
+        "at": "2026-10-29T13:49:44.9122171+02:00",
+        "note": "Only p11 changed; all15claims and primary-source extracts unchanged."
+      },
+      {
+        "at": "2026-10-29T13:50:40.4244443+02:00",
+        "note": "Complete current truth assessment saved."
+      }
+    ]
+  },
+  "token_stats": "unavailable"
+}

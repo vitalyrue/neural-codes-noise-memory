@@ -1,0 +1,672 @@
+{
+  "at": "2026-10-25T20:26:10.678325+02:00",
+  "author": "/root",
+  "edits": [
+    {
+      "file": "content/chapters/01b-persistence.md",
+      "before": "Writing $t=n\\Delta t$ gives linear variance growth $2Dt$. In the continuous diffusion approximation this becomes\n\n$$\n\\theta(t)=\\theta(0)+\\sqrt{2D}\\,W(t),\n\\qquad\n\\mathbb E[(\\theta(t)-\\theta(0))^2]=2Dt.\n$$\n\nThe [**Brownian motion**]{.definition-term custom-style=\"Definition Term\"} $W(t)$ starts at zero, has independent Gaussian increments, and satisfies $\\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\\geq s$. It describes the limit of many small, suitably independent fluctuations. A physical network need only approach this description over the time and noise scales relevant to the calculation. The parameter $D$ is its diffusion coefficient. It measures the rate of variance growth; a single trajectory need not move monotonically away from its starting value.",
+      "after": "Writing $t=n\\Delta t$ gives linear variance growth $2Dt$. To describe this limit with a continuous path, use [**Brownian motion**]{.definition-term custom-style=\"Definition Term\"} $W(t)$. It starts at zero, has continuous paths and independent Gaussian increments with mean zero, and satisfies $\\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\\geq s$. It describes the limit of many small, suitably independent fluctuations. A physical network need only approach this description over the time and noise scales relevant to the calculation.\n\nIn this continuous diffusion approximation,\n\n$$\n\\theta(t)=\\theta(0)+\\sqrt{2D}\\,W(t),\n\\qquad\n\\mathbb E[(\\theta(t)-\\theta(0))^2]=2Dt.\n$$\n\nThe parameter $D$ is the diffusion coefficient. It measures the rate of variance growth; a single trajectory need not move monotonically away from its starting value.",
+      "reason": "Explain the new process before its equation and make the zero-mean and continuity properties explicit; these distinguish random spreading from the bias comparison that follows.",
+      "finding": "ROOT-S1-01",
+      "before_sha256": "5894d917c1affb0a54de4a9bd1487558a602609d5ee990938b63aa341eeafed7",
+      "after_sha256": "fbb20bff286b1a051a3a3edcb10f1e63ae71a5fb23d0d771d4f02b4f036954ac"
+    },
+    {
+      "file": "content/chapters/glossary.md",
+      "before": "A continuous random process starting at zero with independent Gaussian increments and increment variance equal to elapsed time.",
+      "after": "A continuous random process starting at zero with independent Gaussian increments of mean zero and variance equal to elapsed time.",
+      "reason": "Match the explicit Brownian increment assumptions used by the displacement calculation.",
+      "finding": "ROOT-S1-01",
+      "before_sha256": "80d11d379b97c0f6bb227f4cbc8aaf803c23ea4af0383fd63fa362953b26005c",
+      "after_sha256": "2fa4efe4f904fb91bfa2b3739e7a97f91d777486318cb47c3bee8558d7978b80"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "Under these assumptions $J\\propto w^{d-2}$. In an equality achieving isotropic exponential network, diffusion in each coordinate consequently scales as $D\\propto w^{2-d}$. The resulting comparisons are:",
+      "after": "Each diagonal entry therefore scales as $J_{\\alpha\\alpha}\\propto w^{d-2}$. Now restrict the tuning shape $f$ to depend only on distance from its center. Uniformly distributing those centers makes every coordinate direction equivalent: off-diagonal information terms vanish, and all diagonal entries are equal. For an exponential network that attains the matrix bound, $D_{\\alpha\\alpha}=1/(2\\tau^2J_{\\alpha\\alpha})\\propto w^{2-d}$. The resulting comparisons are:",
+      "reason": "State the extra directional symmetry before reducing the matrix bound to a scalar per-coordinate result; avoid requiring the as-yet untaught term isotropic.",
+      "finding": "M-S1-01",
+      "before_sha256": "24875192fd2c1c6aec56ce1e286f9b550b9154bbbb4e614b6a8a3d9d440378ee",
+      "after_sha256": "2272ab713c7814166d9ac77abe5733dc211194a468cbb0824d3e2fcf9d13153d"
+    },
+    {
+      "file": "content/chapters/04b-eye-timing.md",
+      "before": "Velocity loses its past value over time $\\tau$ and receives new random input. After its velocity transient has decayed, its solution is\n\n$$\nv(t)=\\frac{\\sqrt{2D}}{\\tau}\\int_{-\\infty}^{t}e^{-(t-u)/\\tau}\\,dW(u),\n\\qquad\nC_v(s)=\\frac D\\tau e^{-|s|/\\tau}.\n$$\n\nThe covariance follows by multiplying the two integrals: only their shared increments contribute, with the same exponential overlap as in the white noise calculation. Integrating velocity over an interval gives position change. The double integral over its covariance reduces to",
+      "after": "Velocity loses its past value over time $\\tau$ and receives new random input. To add the surviving effect of those inputs, divide the past into short intervals of width $h$. The Brownian change $\\Delta W_j=W(u_j+h)-W(u_j)$ has mean zero and variance $h$. Changes in disjoint intervals are independent. Its contribution to the velocity at time $t$ is approximately $(\\sqrt{2D}/\\tau)e^{-(t-u_j)/\\tau}\\Delta W_j$: the initial change has decayed between $u_j$ and $t$.\n\nThe integral against $dW(u)$ denotes the limit of these weighted sums as $h$ tends to zero. It does not require an ordinary derivative of the Brownian path. After the initial velocity has decayed, extending the input history into the distant past gives\n\n$$\nv(t)=\\frac{\\sqrt{2D}}{\\tau}\\int_{-\\infty}^{t}e^{-(t-u)/\\tau}\\,dW(u).\n$$\n\nFor a lag $s\\geq0$, multiply the sums for $v(t)$ and $v(t+s)$ and average. Products of distinct increments have zero mean. The same increment contributes its variance $h$, so the sum becomes an ordinary overlap integral over their shared past:\n\n$$\n\\begin{aligned}\nC_v(s)\n&=\\frac{2D}{\\tau^2}\\int_{-\\infty}^{t}\ne^{-(t-u)/\\tau}e^{-(t+s-u)/\\tau}\\,du\\\\\n&=\\frac{2D}{\\tau^2}e^{-s/\\tau}\\int_0^\\infty e^{-2r/\\tau}\\,dr\n=\\frac D\\tau e^{-s/\\tau}.\n\\end{aligned}\n$$\n\nHere $r=t-u$ is the age of an input increment. Covariance is even in the lag, so $C_v(s)=(D/\\tau)e^{-|s|/\\tau}$ for either sign of $s$. Integrating velocity over an interval gives position change. The double integral over its covariance reduces to",
+      "reason": "Teach the weighted-increment integral from a finite-step interpretation, then show why independence reduces its covariance to the exponential overlap; retain the stationary-velocity qualification.",
+      "finding": "EYE-S1-01",
+      "before_sha256": "b896b155391e6555e16921b845a3119ddfe0dc78811132d8c5a90c67d5772159",
+      "after_sha256": "3b8b95de82d068c5fd70f42b3929f0c0fbc42541b78a6df4aa17485051ecf999"
+    },
+    {
+      "file": "content/chapters/01-foundations.md",
+      "before": "[^f-eye]: Ben-Shushan, N., Shaham, N., Joshua, M., and Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [https://doi.org/10.1038/s41467-022-29201-y](https://doi.org/10.1038/s41467-022-29201-y). Introduction, Figs. 1–2, and Methods, Eqs. 2–7.",
+      "after": "[^f-eye]: Ben-Shushan, N., Shaham, N., Joshua, M., and Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Introduction, Figs. 1–2, and Methods, Eqs. 2–7.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "6891834eb47f0cce93b27052fb69b59f26c27f0ae8b9aafd1bac41f187078785",
+      "after_sha256": "dccb3d717d1146f462d4d1fdfb1952e6f32b4748b4eda025faa40749b2bcb264"
+    },
+    {
+      "file": "content/chapters/01-foundations.md",
+      "before": "[^f-place]: Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [https://doi.org/10.1016/j.neuron.2025.01.017](https://doi.org/10.1016/j.neuron.2025.01.017). Introduction, Results, and STAR Methods. The distinction between map randomness and visit-to-visit spike variation follows from what the model's random function indexes.",
+      "after": "[^f-place]: Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [DOI](https://doi.org/10.1016/j.neuron.2025.01.017). Introduction, Results, and STAR Methods. The distinction between map randomness and visit-to-visit spike variation follows from what the model's random function indexes.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "dccb3d717d1146f462d4d1fdfb1952e6f32b4748b4eda025faa40749b2bcb264",
+      "after_sha256": "d5b8b116b24fcb995da2c24dc499c01e97d841d9353b0fe8cfd02d4b7cf19440"
+    },
+    {
+      "file": "content/chapters/01-foundations.md",
+      "before": "[^f-anatomy]: Maimon, S. R., and colleagues (2026). *Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1*. Nature. [https://doi.org/10.1038/s41586-026-10537-0](https://doi.org/10.1038/s41586-026-10537-0). Main text, Introduction and Figs. 1–2. The present guide uses this later comparison for anatomical and coding context; it is not evidence reported in the 2025 paper.",
+      "after": "[^f-anatomy]: Maimon, S. R., and colleagues (2026). *Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1*. Nature. [DOI](https://doi.org/10.1038/s41586-026-10537-0). Main text, Introduction and Figs. 1–2. The present guide uses this later comparison for anatomical and coding context; it is not evidence reported in the 2025 paper.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "d5b8b116b24fcb995da2c24dc499c01e97d841d9353b0fe8cfd02d4b7cf19440",
+      "after_sha256": "adf70d388e3c3d3a21b5b0386c684bf6abcf1c09587f785e5390ede9983161b3"
+    },
+    {
+      "file": "content/chapters/01b-persistence.md",
+      "before": "[^f-memory]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [https://doi.org/10.1073/pnas.1117386109](https://doi.org/10.1073/pnas.1117386109). Introduction, Fig. 1, and SI I–III. The two-activity example is a guide construction illustrating the geometry, not the paper's simulated network.",
+      "after": "[^f-memory]: Burak, Y., and Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). Introduction, Fig. 1, and SI I–III. The two-activity example is a guide construction illustrating the geometry, not the paper's simulated network.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "fbb20bff286b1a051a3a3edcb10f1e63ae71a5fb23d0d771d4f02b4f036954ac",
+      "after_sha256": "70e920066f44627df5267fc4fffa9990a37db400fe94c4c7d04daa8c38ad5f3e"
+    },
+    {
+      "file": "content/chapters/01b-persistence.md",
+      "before": "[^f-place]: Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [https://doi.org/10.1016/j.neuron.2025.01.017](https://doi.org/10.1016/j.neuron.2025.01.017). Introduction, Results, and STAR Methods. The distinction between map randomness and visit-to-visit spike variation follows from what the model's random function indexes.",
+      "after": "[^f-place]: Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [DOI](https://doi.org/10.1016/j.neuron.2025.01.017). Introduction, Results, and STAR Methods. The distinction between map randomness and visit-to-visit spike variation follows from what the model's random function indexes.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "70e920066f44627df5267fc4fffa9990a37db400fe94c4c7d04daa8c38ad5f3e",
+      "after_sha256": "299f9015cac9ef69cc5581e7d71f088bc5704a10589c16c2f2c6a5d97b461bcb"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-model]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. https://doi.org/10.1073/pnas.1117386109. [Main Eq. 1 and the steady state, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,60); [Model, Eqs. 7–9, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,372).",
+      "after": "[^p1-model]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). [Main Eq. 1 and the steady state, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,60); [Model, Eqs. 7–9, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,372).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "9cfdae15ea5dea46508323d6bda6cbb7e8acaf34618107e37df592c27bbed471",
+      "after_sha256": "18503baa6a42b9dd287754fd965ccfd8718bff8c1ee73942955346a0da91e4b2"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-weak]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650. https://doi.org/10.1073/pnas.1117386109. [Weak Fluctuations, Eqs. 10–11, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,550), [continuation, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22); [SI Eqs. S2–S5, p. 2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&zoom=125,0,128). Brownian increment notation is a teaching rewrite of the paper's white noise notation.",
+      "after": "[^p1-weak]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650. [DOI](https://doi.org/10.1073/pnas.1117386109). [Weak Fluctuations, Eqs. 10–11, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,550), [continuation, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22); [SI Eqs. S2–S5, p. 2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&zoom=125,0,128). Brownian increment notation is a teaching rewrite of the paper's white noise notation.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "18503baa6a42b9dd287754fd965ccfd8718bff8c1ee73942955346a0da91e4b2",
+      "after_sha256": "7d5d2b452228b8a9db7b7d5ef140e37ab5366d2c4ceef8dce0e98e96f5b168f8"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-large]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [Eq. S1, p. 1](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1&zoom=125,0,548); [Eqs. S2–S5, p. 2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&zoom=125,0,128); [ring population limit, Eq. S6, p. 2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&zoom=125,0,539). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-large]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [Eq. S1, p. 1](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1&zoom=125,0,548); [Eqs. S2–S5, p. 2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&zoom=125,0,128); [ring population limit, Eq. S6, p. 2](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&zoom=125,0,539). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "7d5d2b452228b8a9db7b7d5ef140e37ab5366d2c4ceef8dce0e98e96f5b168f8",
+      "after_sha256": "21f9c3136c55a63a2a78c93e38bc64c83d17632442f497f651c70ba28b63f46b"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-projection]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 3: [linearization, Eqs. S7–S10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,82); [tangent, Eq. S11](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,328); [left vector, Eqs. S12–S13](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,409); [projected diffusion, Eqs. S14–S15](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,576). https://doi.org/10.1073/pnas.1117386109. The left vector interpretation is expanded here for teaching.",
+      "after": "[^p1-projection]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 3: [linearization, Eqs. S7–S10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,82); [tangent, Eq. S11](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,328); [left vector, Eqs. S12–S13](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,409); [projected diffusion, Eqs. S14–S15](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&zoom=125,0,576). [DOI](https://doi.org/10.1073/pnas.1117386109). The left vector interpretation is expanded here for teaching.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "21f9c3136c55a63a2a78c93e38bc64c83d17632442f497f651c70ba28b63f46b",
+      "after_sha256": "5ed0470820419c7a8053ba5faa37b18df6c64a1da87ee0f6c12a7d23234ca151"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-multid]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [Eq. S21, p. 5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5&zoom=125,0,592); [Eqs. S22–S27, p. 6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6&zoom=125,0,48). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-multid]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [Eq. S21, p. 5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5&zoom=125,0,592); [Eqs. S22–S27, p. 6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6&zoom=125,0,48). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "5ed0470820419c7a8053ba5faa37b18df6c64a1da87ee0f6c12a7d23234ca151",
+      "after_sha256": "62d363b97f02afde7a5f69671229aacbe4ad77b5df570266d11f4b7234d1bbee"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-symmetric]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [main Eq. 2, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,88); [Supporting Text, Eqs. S16–S18, p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,48). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-symmetric]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [main Eq. 2, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,88); [Supporting Text, Eqs. S16–S18, p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,48). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "62d363b97f02afde7a5f69671229aacbe4ad77b5df570266d11f4b7234d1bbee",
+      "after_sha256": "6bb6d3686e1015355324be8b0ecfd162935571807855155a10653d5db2ce79ee"
+    },
+    {
+      "file": "content/chapters/02-memory-dynamics.md",
+      "before": "[^p1-two]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 2E–G and caption, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,205); [Network Simulations, mutual inhibition, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22). https://doi.org/10.1073/pnas.1117386109. The activation coordinate is made explicit here to avoid confusing it with a rate difference, which rescales $D$ by $1/\\tau^2$.",
+      "after": "[^p1-two]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 2E–G and caption, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,205); [Network Simulations, mutual inhibition, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22). [DOI](https://doi.org/10.1073/pnas.1117386109). The activation coordinate is made explicit here to avoid confusing it with a rate difference, which rescales $D$ by $1/\\tau^2$.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "6bb6d3686e1015355324be8b0ecfd162935571807855155a10653d5db2ce79ee",
+      "after_sha256": "e01fde36ef7ae5a307abced500b74aa74673fa2198d587beec23c73d2fd33208"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-fp]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [density equation, Eqs. S28–S29, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,48); [Gaussian on a line, Eq. S30, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,329); [wrapped density and uniform limit, Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483); [angular error, Eq. S32, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,48). https://doi.org/10.1073/pnas.1117386109. The uniform angular variance calculation is a teaching reconstruction.",
+      "after": "[^p1-fp]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [density equation, Eqs. S28–S29, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,48); [Gaussian on a line, Eq. S30, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,329); [wrapped density and uniform limit, Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483); [angular error, Eq. S32, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,48). [DOI](https://doi.org/10.1073/pnas.1117386109). The uniform angular variance calculation is a teaching reconstruction.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "3467980cb583b8340dc3c689cb333349fe8163a80963e27ba13dca6bfa451f4e",
+      "after_sha256": "2a411f5136efb04516eabaa834d4bc697faaf9804986e929650b0c3f623e6df3"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-variable]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, [Supporting Text, Eqs. S33–S37, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,139). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-variable]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, [Supporting Text, Eqs. S33–S37, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,139). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "2a411f5136efb04516eabaa834d4bc697faaf9804986e929650b0c3f623e6df3",
+      "after_sha256": "535b2228fbad739f2c51d16bbd13b071e0042ed2b2ccc324e35058f4064f1338"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-excitation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, [Supporting Text, Eqs. S38–S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,48); [Fig. S1, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10&zoom=125,0,45). https://doi.org/10.1073/pnas.1117386109. The factor discrepancy between S40, S41, and the projection calculation is visible in the supplied PDF; no author correction is asserted.",
+      "after": "[^p1-excitation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, [Supporting Text, Eqs. S38–S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,48); [Fig. S1, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10&zoom=125,0,45). [DOI](https://doi.org/10.1073/pnas.1117386109). The factor discrepancy between S40, S41, and the projection calculation is visible in the supplied PDF; no author correction is asserted.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "535b2228fbad739f2c51d16bbd13b071e0042ed2b2ccc324e35058f4064f1338",
+      "after_sha256": "74faf62f1620293f4b8ae517ffe67b95be616b50fb71f5b6b0b403d97c4767fa"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-systematic]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [“Systematic drift,” p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,362); [Eqs. S19–S20 and continuation, p. 5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5&zoom=125,0,48). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-systematic]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [“Systematic drift,” p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,362); [Eqs. S19–S20 and continuation, p. 5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5&zoom=125,0,48). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "74faf62f1620293f4b8ae517ffe67b95be616b50fb71f5b6b0b403d97c4767fa",
+      "after_sha256": "9cd8b8cead1c23c8d8be568050b350a28e59942454d8c0c064ae875bc2dbd813"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-correlation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142). https://doi.org/10.1073/pnas.1117386109. The covariance projection is an immediate linear algebra extension; the paper's proposed general correlated noise inequality remains a conjecture there.",
+      "after": "[^p1-correlation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142). [DOI](https://doi.org/10.1073/pnas.1117386109). The covariance projection is an immediate linear algebra extension; the paper's proposed general correlated noise inequality remains a conjecture there.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "9cd8b8cead1c23c8d8be568050b350a28e59942454d8c0c064ae875bc2dbd813",
+      "after_sha256": "db7e9faf23ab74fbbe0e9a8b672ae86031580d0861ab03d64ab2e2764de597f2"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-fig1]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 1 and caption, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439); [flow definition, “In what follows,” p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,191). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-fig1]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 1 and caption, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439); [flow definition, “In what follows,” p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,191). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "db7e9faf23ab74fbbe0e9a8b672ae86031580d0861ab03d64ab2e2764de597f2",
+      "after_sha256": "952864c311beaafa0035bccc5445aef4d71f72fae328527bb1b1b134ceae7c43"
+    },
+    {
+      "file": "content/chapters/02b-memory-long-delays.md",
+      "before": "[^p1-fig2]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 2 and caption, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,18); Network Simulations: [ring model, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,103) and [mutual inhibition, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22). https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-fig2]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 2 and caption, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,18); Network Simulations: [ring model, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,103) and [mutual inhibition, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22). [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "952864c311beaafa0035bccc5445aef4d71f72fae328527bb1b1b134ceae7c43",
+      "after_sha256": "d5058b517a2d639cba2a4cc6bc7aa0e29b869a448dbb525085611d65181477d0"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-info-main]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650, main pp. 2–4, Eqs. 3–5. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-info-main]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. Proceedings of the National Academy of Sciences, 109(43), 17645–17650, main pp. 2–4, Eqs. 3–5. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "2272ab713c7814166d9ac77abe5733dc211194a468cbb0824d3e2fcf9d13153d",
+      "after_sha256": "bd3cba61ef31cc522e27b4d1e20501c0db7e52643707dd31453975f77b133591"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-fi-source]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 9–10, Section IV, Eqs. S42–S44; main Eq. 3. https://doi.org/10.1073/pnas.1117386109. The score variance calculation is expanded for teaching.",
+      "after": "[^p1-fi-source]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 9–10, Section IV, Eqs. S42–S44; main Eq. 3. [DOI](https://doi.org/10.1073/pnas.1117386109). The score variance calculation is expanded for teaching.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "bd3cba61ef31cc522e27b4d1e20501c0db7e52643707dd31453975f77b133591",
+      "after_sha256": "daff7968a9ea3c37d89bb75e411cee4b1ff3118064434c4d0901be80c287ae45"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-cr]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, p. 3, Information-Diffusion Inequality and Saturation. https://doi.org/10.1073/pnas.1117386109. The scalar Cramér Rao proof is a teaching reconstruction of the bound invoked there.",
+      "after": "[^p1-cr]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, p. 3, Information-Diffusion Inequality and Saturation. [DOI](https://doi.org/10.1073/pnas.1117386109). The scalar Cramér Rao proof is a teaching reconstruction of the bound invoked there.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "daff7968a9ea3c37d89bb75e411cee4b1ff3118064434c4d0901be80c287ae45",
+      "after_sha256": "75fc93e89d1ca3f3c4924384c1373f4607075b9fe2a70d67c8bb75e3027a95b6"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-bound-source]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 10–11, Eqs. S45–S49; main Eq. 4. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-bound-source]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 10–11, Eqs. S45–S49; main Eq. 4. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "75fc93e89d1ca3f3c4924384c1373f4607075b9fe2a70d67c8bb75e3027a95b6",
+      "after_sha256": "f51dec5de869be867112ac57be88c9477ae1d76c9df810580f7662ca2abdf573"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-equality]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 11, Eqs. S47–S51. https://doi.org/10.1073/pnas.1117386109. The linear-family counterexample is a guide calculation qualifying the source's converse.",
+      "after": "[^p1-equality]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 11, Eqs. S47–S51. [DOI](https://doi.org/10.1073/pnas.1117386109). The linear-family counterexample is a guide calculation qualifying the source's converse.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "f51dec5de869be867112ac57be88c9477ae1d76c9df810580f7662ca2abdf573",
+      "after_sha256": "35daaeedfd73dfde28d944d4a1804c26e374ff64d8d3446b330666b6396d0806"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-matrix]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 10–12, Eqs. S44 and S52–S56. https://doi.org/10.1073/pnas.1117386109. The residual matrix proof here is an equivalent teaching reconstruction.",
+      "after": "[^p1-matrix]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 10–12, Eqs. S44 and S52–S56. [DOI](https://doi.org/10.1073/pnas.1117386109). The residual matrix proof here is an equivalent teaching reconstruction.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "35daaeedfd73dfde28d944d4a1804c26e374ff64d8d3446b330666b6396d0806",
+      "after_sha256": "5aba6381ee0323fe0688f742b4e08a74246dfb4859c34c6424ec8548ad371ff4"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-scaling]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, p. 2, discussion after Eq. 2; pp. 5–6, Weak Fluctuations. https://doi.org/10.1073/pnas.1117386109. Comparisons with different held quantities are made explicit here.",
+      "after": "[^p1-scaling]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, p. 2, discussion after Eq. 2; pp. 5–6, Weak Fluctuations. [DOI](https://doi.org/10.1073/pnas.1117386109). Comparisons with different held quantities are made explicit here.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "5aba6381ee0323fe0688f742b4e08a74246dfb4859c34c6424ec8548ad371ff4",
+      "after_sha256": "1c2c9cbf1f92325e29f713a68c4c6d81a3ef82b5a7158a60f6f5ec1c0f90a67a"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-width]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, p. 4, tuning width discussion. https://doi.org/10.1073/pnas.1117386109. The paper cites Zhang and Sejnowski's tuning work. The integral scaling and alternative firing budget here are teaching derivations, not a separate verification of that cited paper.",
+      "after": "[^p1-width]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, p. 4, tuning width discussion. [DOI](https://doi.org/10.1073/pnas.1117386109). The paper cites Zhang and Sejnowski's tuning work. The integral scaling and alternative firing budget here are teaching derivations, not a separate verification of that cited paper.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "1c2c9cbf1f92325e29f713a68c4c6d81a3ef82b5a7158a60f6f5ec1c0f90a67a",
+      "after_sha256": "a0a7737cf59226d76245495a3de2e45802426be839ee5bb42ca687de3a313331"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "[^p1-colocation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, pp. 4–5, sensory representation comparison and footnote concerning similarity of sensory and persistent tuning. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-colocation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, pp. 4–5, sensory representation comparison and footnote concerning similarity of sensory and persistent tuning. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "a0a7737cf59226d76245495a3de2e45802426be839ee5bb42ca687de3a313331",
+      "after_sha256": "6b5a4a965f3f1517d8245b7e441066b17c30981ed3313d0ae5e36659787336f7"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-read-setup]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 12, Eq. S57. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-read-setup]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 12, Eq. S57. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "d23064e7c8043588c9bddca58635923bcd0240ca13e2178ad56ae1924fdeebcc",
+      "after_sha256": "f397c399cf45c001c4dee1d4b671480407da12a339fd1d74d8eeeb383f17f441"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-read-gaussian]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 13, Eqs. S58–S63 and the approximation paragraph preceding them. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-read-gaussian]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 13, Eqs. S58–S63 and the approximation paragraph preceding them. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "f397c399cf45c001c4dee1d4b671480407da12a339fd1d74d8eeeb383f17f441",
+      "after_sha256": "6eb9c9cfd02d12867f8fa8b4d5b34f0f9b04180a1f4c620cade71cb93fbd2da7"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-naive]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 15–16, Eqs. S76–S81. https://doi.org/10.1073/pnas.1117386109. The double integral calculation exposes the cross time covariance terms compressed in the printed derivation.",
+      "after": "[^p1-naive]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 15–16, Eqs. S76–S81. [DOI](https://doi.org/10.1073/pnas.1117386109). The double integral calculation exposes the cross time covariance terms compressed in the printed derivation.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "6eb9c9cfd02d12867f8fa8b4d5b34f0f9b04180a1f4c620cade71cb93fbd2da7",
+      "after_sha256": "fb8f8f21add731b35fce63044a4a7218cd30736727d50986052b104067dc3880"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-ideal]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 13–15, Eqs. S58–S75. https://doi.org/10.1073/pnas.1117386109. The supplement identifies the solution with a reverse Kalman filter. Here the equivalent precision recursion supplies a derivation without assuming prior knowledge of that filter. The printed plus sign in S71 does not match its hyperbolic cosine solution S73; the recursion independently gives the final S75 result.",
+      "after": "[^p1-ideal]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 13–15, Eqs. S58–S75. [DOI](https://doi.org/10.1073/pnas.1117386109). The supplement identifies the solution with a reverse Kalman filter. Here the equivalent precision recursion supplies a derivation without assuming prior knowledge of that filter. The printed plus sign in S71 does not match its hyperbolic cosine solution S73; the recursion independently gives the final S75 result.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "fb8f8f21add731b35fce63044a4a7218cd30736727d50986052b104067dc3880",
+      "after_sha256": "d742b863c21d3bc181b599f8ece80733316255eeaf92d8dc87ffdcf4a5ad5b19"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-time]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, main Eq. 5 and Optimal Observation Time; Supporting Text, Eqs. S75 and S80–S81. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-time]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, main Eq. 5 and Optimal Observation Time; Supporting Text, Eqs. S75 and S80–S81. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "d742b863c21d3bc181b599f8ece80733316255eeaf92d8dc87ffdcf4a5ad5b19",
+      "after_sha256": "c7a46b7d6bf37dfe0ea8473b74db27befad251306a90c806289da25ea2debf7c"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-partial]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 16, Incomplete readout, Eq. S82 and Fig. S2. https://doi.org/10.1073/pnas.1117386109. The random thinning derivation states when the fraction of spikes equals the fraction of information.",
+      "after": "[^p1-partial]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 16, Incomplete readout, Eq. S82 and Fig. S2. [DOI](https://doi.org/10.1073/pnas.1117386109). The random thinning derivation states when the fraction of spikes equals the fraction of information.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "c7a46b7d6bf37dfe0ea8473b74db27befad251306a90c806289da25ea2debf7c",
+      "after_sha256": "c3f9a9c571ecd507c2890b5df5db8b43a310792910b13e3da8befaab90e3ed91"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-two-times]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 17–18, Eqs. S84–S92. https://doi.org/10.1073/pnas.1117386109. The linear matrix here follows directly from S84; its rate decay block is negative, as required by that differential equation, despite the positive sign printed in the corresponding block of S85.",
+      "after": "[^p1-two-times]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, pp. 17–18, Eqs. S84–S92. [DOI](https://doi.org/10.1073/pnas.1117386109). The linear matrix here follows directly from S84; its rate decay block is negative, as required by that differential equation, despite the positive sign printed in the corresponding block of S85.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "c3f9a9c571ecd507c2890b5df5db8b43a310792910b13e3da8befaab90e3ed91",
+      "after_sha256": "bcfc3008e6bfeabf7753fe9145a38f069f037a53a39c32f5b2a5b8b4e9adf783"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-gaussian]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 19, White Gaussian noise, Eqs. S93–S95; main pp. 3–4. https://doi.org/10.1073/pnas.1117386109. Constant noise strength $q$ and its likelihood are retained explicitly in the guide's reconstruction.",
+      "after": "[^p1-gaussian]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text, p. 19, White Gaussian noise, Eqs. S93–S95; main pp. 3–4. [DOI](https://doi.org/10.1073/pnas.1117386109). Constant noise strength $q$ and its likelihood are retained explicitly in the guide's reconstruction.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "bcfc3008e6bfeabf7753fe9145a38f069f037a53a39c32f5b2a5b8b4e9adf783",
+      "after_sha256": "93f46a4956f06f4d5bb0ce073d62f8806f083fdc3d82b320341e0de5b2c214d3"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-fig3]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, Fig. 3, p. 4; Supporting Text, Fig. S2, p. 16. https://doi.org/10.1073/pnas.1117386109. The caption's readout equation numbers are stale relative to the supplied supplement; the corresponding results are S75 and S79–S81.",
+      "after": "[^p1-fig3]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, Fig. 3, p. 4; Supporting Text, Fig. S2, p. 16. [DOI](https://doi.org/10.1073/pnas.1117386109). The caption's readout equation numbers are stale relative to the supplied supplement; the corresponding results are S75 and S79–S81.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "93f46a4956f06f4d5bb0ce073d62f8806f083fdc3d82b320341e0de5b2c214d3",
+      "after_sha256": "b3afcbcfbf55ecdfa2412d428613544677fad8584d7b4258f38e3d8adf592396"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-printed]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, main Eqs. 4–6; Supporting Text, Eqs. S75 and S83. https://doi.org/10.1073/pnas.1117386109. The inequality direction is checked algebraically here, without assuming an author correction or changing the supplied source.",
+      "after": "[^p1-printed]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, main Eqs. 4–6; Supporting Text, Eqs. S75 and S83. [DOI](https://doi.org/10.1073/pnas.1117386109). The inequality direction is checked algebraically here, without assuming an author correction or changing the supplied source.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "b3afcbcfbf55ecdfa2412d428613544677fad8584d7b4258f38e3d8adf592396",
+      "after_sha256": "e3195dad0abe07acb44ee2fdb0b97d43db81816613de3e5bbe1fed19b0b449e0"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[^p1-integrator]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, Discussion, p. 5; Supporting Text, Integration time constant, p. 17. https://doi.org/10.1073/pnas.1117386109.",
+      "after": "[^p1-integrator]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, Discussion, p. 5; Supporting Text, Integration time constant, p. 17. [DOI](https://doi.org/10.1073/pnas.1117386109).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "e3195dad0abe07acb44ee2fdb0b97d43db81816613de3e5bbe1fed19b0b449e0",
+      "after_sha256": "6e557dfbab12dc54a0d8b4c5f28b842a0c5c1083a3bf9b49316926ed02d6fc66"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-question]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 1–2, abstract and introduction.",
+      "after": "[^p2-question]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 1–2, abstract and introduction.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "1c0006b82e9ab80edd99bb54922a9c455a379ca1974649be74133e5cd1198569",
+      "after_sha256": "263d41e0a1127e7cc3226f9cc52cd9338fae79e244715e7e03621a6e4a2c2a18"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-pathway]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 5–8, “Stochastic diffusion in a memory circuit,” Figs. 4–5.",
+      "after": "[^p2-pathway]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 5–8, “Stochastic diffusion in a memory circuit,” Figs. 4–5.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "263d41e0a1127e7cc3226f9cc52cd9338fae79e244715e7e03621a6e4a2c2a18",
+      "after_sha256": "e3f554d145d494e298fff3ad39eb7926e201ed5717ddae475117172a3b1daa4b"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-recordings]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 9, “Behavioral task and recordings”; Supplementary Information, p. 11, Extended Data Fig. 6.",
+      "after": "[^p2-recordings]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 9, “Behavioral task and recordings”; Supplementary Information, p. 11, Extended Data Fig. 6.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "e3f554d145d494e298fff3ad39eb7926e201ed5717ddae475117172a3b1daa4b",
+      "after_sha256": "9c88ab10e14d794a35f593aadb61087de134487b909cb82a1b6eadea2d932b77"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-single]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697, peer review file, p. 19, authors' response to Reviewer 3: recordings did not contain multiple simultaneous OMNs. https://doi.org/10.1038/s41467-022-29201-y.",
+      "after": "[^p2-single]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697, peer review file, p. 19, authors' response to Reviewer 3: recordings did not contain multiple simultaneous OMNs. [DOI](https://doi.org/10.1038/s41467-022-29201-y).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "9c88ab10e14d794a35f593aadb61087de134487b909cb82a1b6eadea2d932b77",
+      "after_sha256": "8d4e4b6d22b08e0af2b6c206cf0d7526b993888e8f02f55feb16134cdc599e5c"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-segments]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 4, Fig. 2 caption; pp. 9–10, “Extracting the fixational segments” and “Eye position correlation coefficients”; Supplementary Information, p. 12, Extended Data Fig. 7.",
+      "after": "[^p2-segments]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 4, Fig. 2 caption; pp. 9–10, “Extracting the fixational segments” and “Eye position correlation coefficients”; Supplementary Information, p. 12, Extended Data Fig. 7.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "8d4e4b6d22b08e0af2b6c206cf0d7526b993888e8f02f55feb16134cdc599e5c",
+      "after_sha256": "a36ccb0cb91ed562302e2c43391993891b82bed0b8fdda15d98bd223ddeec24c"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-forward]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 9, “OMN firing rate estimators,” Eqs. 2–3.",
+      "after": "[^p2-forward]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 9, “OMN firing rate estimators,” Eqs. 2–3.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "a36ccb0cb91ed562302e2c43391993891b82bed0b8fdda15d98bd223ddeec24c",
+      "after_sha256": "d871d1ba8566f8538825f98f7081de993810de1aee34acc2af8f11a32ffcb42e"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-rate-result]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 3, Fig. 1; p. 9, “Firing rate correlation coefficients.”",
+      "after": "[^p2-rate-result]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 3, Fig. 1; p. 9, “Firing rate correlation coefficients.”",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "d871d1ba8566f8538825f98f7081de993810de1aee34acc2af8f11a32ffcb42e",
+      "after_sha256": "e9619541406e802df787415bdcd5939815095fbcd7639950798dff17b0e1607b"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-inversion]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 9, “Model inversion,” Eqs. 4–7. Factorization, units, static gain check, and repeated-pole limit are guide derivations of those equations.",
+      "after": "[^p2-inversion]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 9, “Model inversion,” Eqs. 4–7. Factorization, units, static gain check, and repeated-pole limit are guide derivations of those equations.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "e9619541406e802df787415bdcd5939815095fbcd7639950798dff17b0e1607b",
+      "after_sha256": "5e4683f9ca923d7f11369603e4f380f469c82e3cbe565caebbc5c2eab2e68e08"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-correlation]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 2–4, Fig. 2; pp. 9–10, “Eye position correlation coefficients,” Eq. 8 and shuffle procedure.",
+      "after": "[^p2-correlation]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 2–4, Fig. 2; pp. 9–10, “Eye position correlation coefficients,” Eq. 8 and shuffle procedure.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "5e4683f9ca923d7f11369603e4f380f469c82e3cbe565caebbc5c2eab2e68e08",
+      "after_sha256": "2c9584f4a2972281763c36f829b1e99d99052ecda9192efc1d667f7f9d0efda1"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-independent-bound]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 3, “Central source”; Supplementary Information, p. 2, “The explanatory power of a single OMN,” Eqs. S1–S2. The residual-variance proof is expanded here for teaching.",
+      "after": "[^p2-independent-bound]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 3, “Central source”; Supplementary Information, p. 2, “The explanatory power of a single OMN,” Eqs. S1–S2. The residual-variance proof is expanded here for teaching.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "2c9584f4a2972281763c36f829b1e99d99052ecda9192efc1d667f7f9d0efda1",
+      "after_sha256": "d12f1e848515047cee45118233ba3416771514f0fd5b983abb5b38acabeb64b1"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-independence]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 7, Discussion, anatomical and stimulation support for independent intrinsic OMN variability; peer review file, pp. 19, 21, 23.",
+      "after": "[^p2-independence]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 7, Discussion, anatomical and stimulation support for independent intrinsic OMN variability; peer review file, pp. 19, 21, 23.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "d12f1e848515047cee45118233ba3416771514f0fd5b983abb5b38acabeb64b1",
+      "after_sha256": "cd03e2bb536d8979a229c8f0d7358a34dbde51bb19da90a87b3d36735e6e3195"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-chi-method]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 4–5, Fig. 2e–f; p. 10, Eqs. 11–15.",
+      "after": "[^p2-chi-method]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 4–5, Fig. 2e–f; p. 10, Eqs. 11–15.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "cd03e2bb536d8979a229c8f0d7358a34dbde51bb19da90a87b3d36735e6e3195",
+      "after_sha256": "391f01729dfc3deb0e0ccdcd2d8db33ce477e865e04ddd5a71a833b65e402ef8"
+    },
+    {
+      "file": "content/chapters/04-eye-drift.md",
+      "before": "[^p2-chi-error]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 4, Fig. 2f; p. 10, Eqs. 9, 16–17. The explanation distinguishes the reported weighted estimation error from unmodeled biological and calibration uncertainty.",
+      "after": "[^p2-chi-error]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 4, Fig. 2f; p. 10, Eqs. 9, 16–17. The explanation distinguishes the reported weighted estimation error from unmodeled biological and calibration uncertainty.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "391f01729dfc3deb0e0ccdcd2d8db33ce477e865e04ddd5a71a833b65e402ef8",
+      "after_sha256": "3970914397254a2bd95042f0bbfcce0a9b3c317f32f68668c9d6c5854297e8ba"
+    },
+    {
+      "file": "content/chapters/04b-eye-timing.md",
+      "before": "[^p2-msd]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 10, “Calculation of empirical MSD.”",
+      "after": "[^p2-msd]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 10, “Calculation of empirical MSD.”",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "3b8b95de82d068c5fd70f42b3929f0c0fbc42541b78a6df4aa17485051ecf999",
+      "after_sha256": "f303bb9f1bdb6dffa09e3a5b503912d97545701ea85527ae1ad6cb7a9edc1efe"
+    },
+    {
+      "file": "content/chapters/04b-eye-timing.md",
+      "before": "[^p2-msd-noise]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 10, “Removal of measurement noise,” Eqs. 18–19; Supplementary Information, p. 8, Extended Data Fig. 2. The plotted plateau is the displacement noise contribution, twice the single position noise variance.",
+      "after": "[^p2-msd-noise]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 10, “Removal of measurement noise,” Eqs. 18–19; Supplementary Information, p. 8, Extended Data Fig. 2. The plotted plateau is the displacement noise contribution, twice the single position noise variance.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "f303bb9f1bdb6dffa09e3a5b503912d97545701ea85527ae1ad6cb7a9edc1efe",
+      "after_sha256": "769bed1bb6f68af247b177da6c62cacb63c3af90f4c20d0a671ab62b8035f26c"
+    },
+    {
+      "file": "content/chapters/04b-eye-timing.md",
+      "before": "[^p2-noise-limit]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697, peer review file, pp. 20–21, measurement noise subtraction, uncertainty example, and short lag restriction. https://doi.org/10.1038/s41467-022-29201-y.",
+      "after": "[^p2-noise-limit]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697, peer review file, pp. 20–21, measurement noise subtraction, uncertainty example, and short lag restriction. [DOI](https://doi.org/10.1038/s41467-022-29201-y).",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "769bed1bb6f68af247b177da6c62cacb63c3af90f4c20d0a671ab62b8035f26c",
+      "after_sha256": "1e1e5fb7fb47ed49212bf30f5d99512bedba99128578b7434fdf421395e324bb"
+    },
+    {
+      "file": "content/chapters/04b-eye-timing.md",
+      "before": "[^p2-msd-result]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 5–6, “Central source” timing argument and Fig. 3.",
+      "after": "[^p2-msd-result]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 5–6, “Central source” timing argument and Fig. 3.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "1e1e5fb7fb47ed49212bf30f5d99512bedba99128578b7434fdf421395e324bb",
+      "after_sha256": "f83d2102247858c857ac258ce13ffc6118d92223217fb2c6cce4db6a2ce4f300"
+    },
+    {
+      "file": "content/chapters/04b-eye-timing.md",
+      "before": "[^p2-white-noise]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 10, “MSD curve of low-pass filtered white noise,” Eqs. 20–22. The normalized one exponential example and filtered Brownian derivation are teaching reconstructions.",
+      "after": "[^p2-white-noise]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 10, “MSD curve of low-pass filtered white noise,” Eqs. 20–22. The normalized one exponential example and filtered Brownian derivation are teaching reconstructions.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "f83d2102247858c857ac258ce13ffc6118d92223217fb2c6cce4db6a2ce4f300",
+      "after_sha256": "bdfbec009be758d492904f440d03cd1e9517586bbbcda7a07c69a54845abab7f"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-network]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 10–11, “Oculomotor integrator network,” Eqs. 23–27; Supplementary Information, p. 13, Extended Data Fig. 9.",
+      "after": "[^p2-network]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 10–11, “Oculomotor integrator network,” Eqs. 23–27; Supplementary Information, p. 13, Extended Data Fig. 9.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "ac42cc49f56a95c2d0368f71e5c9a8c2724a6dafe6864ab1d82d902e3af1783e",
+      "after_sha256": "8f3a379503f967b97e2eaa859ca05728e46751137bd375373f1af1e9490bdd00"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-motor]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 11, “OMN activity and actual eye position,” Eqs. 28–33 and simulation parameters; p. 6, Fig. 3 caption, private OMN comparison.",
+      "after": "[^p2-motor]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 11, “OMN activity and actual eye position,” Eqs. 28–33 and simulation parameters; p. 6, Fig. 3 caption, private OMN comparison.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "8f3a379503f967b97e2eaa859ca05728e46751137bd375373f1af1e9490bdd00",
+      "after_sha256": "fd91dea11882cb93b7026b705d45a97bc1adadc4070b11f8ab4868ad0f00adf2"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-feedback]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 7, 9, 11, “Visual feedback,” Eq. 34; Supplementary Information, pp. 4–5 and p. 9, Extended Data Fig. 3. Some supplement cross references use earlier figure/equation numbers; p. 5 also mentions 15K integrator neurons, whereas final main Methods specify 30,000. This guide uses final main paper numbering and its main simulation parameters.",
+      "after": "[^p2-feedback]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 7, 9, 11, “Visual feedback,” Eq. 34; Supplementary Information, pp. 4–5 and p. 9, Extended Data Fig. 3. Some supplement cross references use earlier figure/equation numbers; p. 5 also mentions 15K integrator neurons, whereas final main Methods specify 30,000. This guide uses final main paper numbering and its main simulation parameters.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "fd91dea11882cb93b7026b705d45a97bc1adadc4070b11f8ab4868ad0f00adf2",
+      "after_sha256": "6b5c48f50bbf735ffec05964ed4dfcc92c651ecd6114b78704dd35171e887d8f"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-cv]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 11, “Sub-Poisson spike trains,” Eq. 35 and integrator variability specification. The interval-sum derivation expands the construction given there.",
+      "after": "[^p2-cv]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 11, “Sub-Poisson spike trains,” Eq. 35 and integrator variability specification. The interval-sum derivation expands the construction given there.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "6b5c48f50bbf735ffec05964ed4dfcc92c651ecd6114b78704dd35171e887d8f",
+      "after_sha256": "aaac0755c2fe322a8270afdcb78412cc94bff934b7bed18f0f6d3c0d3c773c56"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-scaling]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main p. 6, Eq. 1 and its parameter discussion; peer review file, p. 23, changes in slope, synaptic time constant, and neuron count. The absolute versus fractional slope distinction is the guide's dimensional interpretation of the printed normalization ambiguity, connected to the guide’s diffusion and information calculations.",
+      "after": "[^p2-scaling]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main p. 6, Eq. 1 and its parameter discussion; peer review file, p. 23, changes in slope, synaptic time constant, and neuron count. The absolute versus fractional slope distinction is the guide's dimensional interpretation of the printed normalization ambiguity, connected to the guide’s diffusion and information calculations.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "aaac0755c2fe322a8270afdcb78412cc94bff934b7bed18f0f6d3c0d3c773c56",
+      "after_sha256": "f4e135cc6165c4c9642ab643b16a7ea755c1e41ba353c54895420743c9480e66"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-cv-drift]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Supplementary Information, pp. 2–3, “Contribution of oculomotor state to the CV of OMNs,” Eqs. S3–S6. https://doi.org/10.1038/s41467-022-29201-y. Intermediate covariance integrals and numerical evaluation are expanded here.",
+      "after": "[^p2-cv-drift]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Supplementary Information, pp. 2–3, “Contribution of oculomotor state to the CV of OMNs,” Eqs. S3–S6. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Intermediate covariance integrals and numerical evaluation are expanded here.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "f4e135cc6165c4c9642ab643b16a7ea755c1e41ba353c54895420743c9480e66",
+      "after_sha256": "a778f68d3c85a6209787f2f62e4c7071a2fa6b0956cc7e03c90aafded6e66e61"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-supp-figures]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697, Supplementary Information, pp. 7–14, Extended Data Figs. 1–10. https://doi.org/10.1038/s41467-022-29201-y. The no-central-drive result is Extended Data Fig. 4, p. 10; the output-noise comparison is Extended Data Fig. 10, p. 14.",
+      "after": "[^p2-supp-figures]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697, Supplementary Information, pp. 7–14, Extended Data Figs. 1–10. [DOI](https://doi.org/10.1038/s41467-022-29201-y). The no-central-drive result is Extended Data Fig. 4, p. 10; the output-noise comparison is Extended Data Fig. 10, p. 14.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "a778f68d3c85a6209787f2f62e4c7071a2fa6b0956cc7e03c90aafded6e66e61",
+      "after_sha256": "93589e9236b48e01732fb5ef811e0f24ce2cda7a7dbeb60de815ee4c686f0512"
+    },
+    {
+      "file": "content/chapters/04c-eye-circuit.md",
+      "before": "[^p2-localization]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. https://doi.org/10.1038/s41467-022-29201-y. Main pp. 7, 9, Discussion; peer review file, pp. 12–13, distinction between recording-based upstream localization and the integrator hypothesis. The XFA reporting summary in Supplementary File 5 was inaccessible to ordinary extraction; this guide makes no claims based on its form contents.",
+      "after": "[^p2-localization]: Ben-Shushan, N., Shaham, N., Joshua, M., & Burak, Y. (2022). *Fixational drift is driven by diffusive dynamics in central neural circuitry*. Nature Communications, 13, 1697. [DOI](https://doi.org/10.1038/s41467-022-29201-y). Main pp. 7, 9, Discussion; peer review file, pp. 12–13, distinction between recording-based upstream localization and the integrator hypothesis. The XFA reporting summary in Supplementary File 5 was inaccessible to ordinary extraction; this guide makes no claims based on its form contents.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "93589e9236b48e01732fb5ef811e0f24ce2cda7a7dbeb60de815ee4c686f0512",
+      "after_sha256": "f204c89c6423db74da80be61aa5e32152c08d5ca8718115fcfc33ece4bf55e57"
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "before": "[^p3-question]: Mainali, N., Azeredo da Silveira, R., & Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113, 1110–1120.e3. [https://doi.org/10.1016/j.neuron.2025.01.017](https://doi.org/10.1016/j.neuron.2025.01.017), Introduction and Results, pp. 1110–1111; Figure 1.",
+      "after": "[^p3-question]: Mainali, N., Azeredo da Silveira, R., & Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113, 1110–1120.e3. [DOI](https://doi.org/10.1016/j.neuron.2025.01.017), Introduction and Results, pp. 1110–1111; Figure 1.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "7c06caea1c9ec32bbadb6c0a919d51cdf3fbe5146e9299a381f7eaedf18e1a21",
+      "after_sha256": "1e5d2daeb91a91cc8e9bb31eb35a11a4900d2a555500a39206c6c413856a240f"
+    },
+    {
+      "file": "content/chapters/05c-place-tests.md",
+      "before": "[^p3-taylor]: Taylor, J. E. (2006). *A Gaussian kinematic formula*. The Annals of Probability, 34(1), 122–158. [https://doi.org/10.1214/009117905000000594](https://doi.org/10.1214/009117905000000594); [author preprint](https://arxiv.org/pdf/math/0602545), Equation 1.4, Theorem 4.1, Section 5.1 and Equation 5.1. This chapter uses the signed critical-point and boundary-counting framework, then derives the Gaussian algebra for dimensions at most three and the face factors for a box, matching Mainali et al.'s Equations 8–10. It does not prove the underlying Morse or kinematic theorem.",
+      "after": "[^p3-taylor]: Taylor, J. E. (2006). *A Gaussian kinematic formula*. The Annals of Probability, 34(1), 122–158. [DOI](https://doi.org/10.1214/009117905000000594); [author preprint](https://arxiv.org/pdf/math/0602545), Equation 1.4, Theorem 4.1, Section 5.1 and Equation 5.1. This chapter uses the signed critical-point and boundary-counting framework, then derives the Gaussian algebra for dimensions at most three and the face factors for a box, matching Mainali et al.'s Equations 8–10. It does not prove the underlying Morse or kinematic theorem.",
+      "reason": "Replace a displayed raw DOI URL with a descriptive DOI link label. Full citation, locator and target remain unchanged.",
+      "finding": "ROOT-FORMAT-01",
+      "before_sha256": "1255a4099e19f876397a063769cdf45c22013f4a0c7dda28ebe85d491d63771e",
+      "after_sha256": "db905206694f88312c96c3549e1b6e1beecdd2dec2b73463828dc2a2025376c3"
+    },
+    {
+      "file": "verification/illustrations/draw_orientation.py",
+      "before": "Chapters 2–3",
+      "after": "Chapters 3–6",
+      "reason": "Correct the existing map label to the current thirteen-chapter reading path.",
+      "finding": "M-S1-02",
+      "before_sha256": "7e418ed91445766d422bbbdec56313b0bfc5de0e0588a7bf2e08eed981c403f8",
+      "after_sha256": "ce9003bbac58633fba6ed5c59e611f342ec2bbd8a99b0d5781d6c4d54b13a86c"
+    },
+    {
+      "file": "verification/illustrations/draw_orientation.py",
+      "before": "Chapter 4",
+      "after": "Chapters 7–9",
+      "reason": "Correct the existing map label to the current thirteen-chapter reading path.",
+      "finding": "M-S1-02",
+      "before_sha256": "ce9003bbac58633fba6ed5c59e611f342ec2bbd8a99b0d5781d6c4d54b13a86c",
+      "after_sha256": "41c2db5775c1575b17206f49ae5d52e1d210d734d42ff3f355d5594d97dd82db"
+    },
+    {
+      "file": "verification/illustrations/draw_orientation.py",
+      "before": "Chapter 5",
+      "after": "Chapters 10–12",
+      "reason": "Correct the existing map label to the current thirteen-chapter reading path.",
+      "finding": "M-S1-02",
+      "before_sha256": "41c2db5775c1575b17206f49ae5d52e1d210d734d42ff3f355d5594d97dd82db",
+      "after_sha256": "2dd33f4a64eb0dafe6bbfb3697d22268b2ab76228a9c6501c155add67e8a34ae"
+    }
+  ]
+}

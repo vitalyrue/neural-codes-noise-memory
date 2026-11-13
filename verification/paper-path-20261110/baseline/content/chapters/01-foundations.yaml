@@ -1,0 +1,80 @@
+chapter_id: ch:FOUNDATIONS
+part_id: part:MECHANISMS
+title: Patterns of variable spikes can represent a value
+purpose: Start from eye muscles and neural spikes, establish the dynamical model in Burak and Fiete (2012),
+  Eqs. 7–9, then explain coding, variable spike counts and the network simulation that tests the theory.
+  These foundations precede the stability and diffusion arguments.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites: []
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:FOUNDATIONS-EYE-ACTION
+  title: Repeated spikes maintain eye muscle tension
+  summary: Brief spikes activate the eye muscles. Repeated firing maintains tension, while elasticity,
+    viscosity and inertia have different mechanical roles. This physical pathway precedes the eye-angle
+    coding example.
+  level: 2
+- id: sec:MEMORY-SPIKES
+  title: Recurrent spikes renew decaying synaptic activity
+  summary: Burak and Fiete (2012), Eqs. 7–9, define how spikes renew a decaying activation, weighted activations
+    set neural input, and input sets the rate of new spikes. This model precedes coding, noise and stability
+    calculations.
+  level: 2
+- id: sec:FOUNDATIONS-SPIKES
+  title: Patterns of firing rates represent a value
+  summary: Tuning curves relate expected firing rates to an eye angle or location. A population code represents
+    the value across neurons; the rate baseline is distinguished from the model input bias.
+  level: 2
+- id: sec:FOUNDATIONS-POISSON
+  title: A variable spike count at a fixed rate
+  summary: A tuning curve describes expected activity, but a brief spike observation can differ each time
+    the same value is represented. The 2012 model describes this variability with a [**Poisson process**]{.definition-term
+    custom-style="Definition Term"}. At constant rate $r$, the number $K$ of spikes in an interval of
+    length $\Delta t$ obeys
+  level: 2
+- id: sec:FOUNDATIONS-SIMULATION
+  title: Network simulations test whether spike noise moves a stored value
+  summary: Burak and Fiete (2012) simulate synaptic activations and random spikes in recurrent networks
+    with fixed parameters. The ring and mutual-inhibition examples test the predicted memory spreading
+    against simulated trajectories; biological recordings are a separate comparison.
+  level: 2
+- id: sec:FOUNDATIONS-COVARIANCE
+  title: Shared neural signals and a biased command leave different signs in eye motion
+  summary: Shared neural commands, private spike variability, directional bias and muscle response affect
+    different features of eye displacement. Covariance and mean squared displacement help distinguish
+    these effects under explicit assumptions.
+  level: 2
+blocks:
+- id: fig:MEMORY-SPIKE-TRACE
+  kind: figure
+  placement: sec:MEMORY-SPIKES
+  asset: assets/approved/visuals/memory-spike-trace.png
+  caption: Each spike adds one activation unit, which then decays with a 50 ms time constant. Closely
+    spaced spikes add to the activation left by earlier spikes. The five spike times are an illustrative
+    input, and the activation is calculated exactly from Burak and Fiete (2012), Eq. 7.
+  alt: Five spike marks share a time axis with an activation trace. Each mark aligns with a vertical rise
+    of one activation unit. The activation decays smoothly between spikes, and nearby spikes build on
+    the remaining activation.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:FOUNDATIONS-POISSON-POPULATION
+  kind: figure
+  placement: sec:FOUNDATIONS-POISSON
+  asset: assets/approved/visuals/foundations-poisson-population.png
+  caption: Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson
+    with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the
+    rate per cell $K/(N\Delta t)$, so both estimates have mean 20 Hz. Their standard deviations are 20
+    Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density.
+    Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates,
+    not complete recurrent spike trains.
+  alt: Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible
+    estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell
+    estimate has possible values one hertz apart and clusters around twenty hertz. Their means match,
+    but the rate standard deviation falls from twenty to 4.47 hertz.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

@@ -1,0 +1,1391 @@
+reviewer: /root/review_memory_illustrations
+model: GPT 6.1 sol, high reasoning
+stage: 1 truth and reasoning plus independent asset criteria
+local_request_id: memory-illustrations-20261024-stage1
+recorded_at: '2026-10-24T18:15:04.752843+03:00'
+root_start: '2026-10-24T18:06:16.7630300+03:00'
+awake_execution_time: unverified; sleep/resume logs not checked
+token_stats: unavailable
+scope: Three Chapter 2 candidate figures, their connected proposed chapter and sidecar, exact source evidence
+  and current rule files. No whole-book acceptance.
+final_canonical_hash_binding: pending; canonical chapter has not yet been frozen and is not asserted to
+  match proposed files
+snapshot_hashes:
+  verification\memory-illustrations-20261024\proposed-chapter.md: 954f651997b2818862b5f125142b8ca866437c9cd073e5da402107bca60e02de
+  verification\memory-illustrations-20261024\proposed-chapter.yaml: c511f7aef991b7010b5a36354db3ba63686afff78edca623c7796110bd8b3af0
+  verification\memory-illustrations-20261024\integration-rows.yaml: 35041fc1b6483af009316b56761246e40db16d091e3d06592f80663c7e0b282c
+  verification\memory-illustrations-20261024\source-locators.json: 77b6e32be5dce559080bfc29f5e435e714ac5c18778771729c1a22c30f17b1d7
+  verification\memory-illustrations-20261024\draw_additions.py: 58a7fa5e78b6aef0a6178f460f70bab5488d416c52a26445701d27f89a179bf1
+  verification\illustrations\figure_style.py: 624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f
+  source-maps\book-style-lock.yaml: 7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676
+  assets\papers\burak-fiete-2012-persistent-activity.pdf: 6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea
+  assets\papers\burak-fiete-2012-persistent-activity-si.pdf: 9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb
+unresolved_asset_defects: []
+figure_judgments:
+- asset_id: M01
+  visual_id: fig:MEMORY-SPIKE-TRACE
+  asset_decision: accept candidate for local insertion, subject to unchanged pixels/captions and final
+    canonical binding
+  reviewed_png_sha256: 5d51dc7c682dde46d0847bf6d8b724168505c177ff7b9f688f9752d4392c8b54
+  reviewed_book_width_sha256: a39574a321c6c58d3542f45b45b11da78002a16f7ce3ef72082cd8b15daf3fc9
+  reviewed_brief_sha256: 81e03887ef7dd5b90591e5c423663279e909b4c138d9fcec1cda012dcc82242d
+  strongest_objection: The graph could be mistaken for a self-consistent neural network simulation, or
+    the value exactly at a spike could conflict with the strict inequality in the sum.
+  objection_resolution: The caption calls the times illustrative input and the activation a calculation.
+    Vertical segments display left and right limits; the value at an instantaneous jump has no finite-time
+    effect and no false smooth approximation is drawn.
+  calculation: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+    0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+    activation is zero.
+  checks:
+    technical_accuracy:
+      verdict: pass
+      evidence:
+      - For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+        0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms.
+        Initial activation is zero.
+      - Original source inspected using main-model. Full-size pixels and 700px preview match code and
+        captions.
+    visual_explanation:
+      verdict: pass
+      scenes:
+      - scene_id: event-train
+        depiction_kind: data-representation
+        verdict: pass
+        evidence: Five equal-height navy event marks share x positions with five activation jumps; this
+          separates discrete events from their later effect.
+      - scene_id: activation-trace
+        depiction_kind: state-change
+        verdict: pass
+        evidence: A teal sum of exponentials decays between unit jumps and remains higher after nearby
+          spikes; this makes the synaptic memory of earlier events visible.
+    readability:
+      verdict: pass
+      insertion_width_px: 700
+      evidence:
+      - Actual full-resolution PNG and separate 700px PNG viewed. Axis labels, legend symbols, tick numbers
+        and line identities remain readable; no clipped labels or ambiguous intersections.
+      - The 700px judgment assumes the preserved horizontal-scroll treatment at narrow widths; a proportionally
+        shrunk 390px rendering is not approved by this check.
+    palette:
+      verdict: pass
+      evidence:
+      - Current QA lists only seven house-profile tokens, with outside_profile empty; exact SVG colors,
+        not a raster all-pixel fraction.
+      - Manual inspection confirms navy and teal distinguish mathematical series, muted gray gives references,
+        white plot panels and warm outside paper match existing scientific figures. No success or risk
+        claim is implied by series colors.
+    coverage:
+      verdict: not-applicable
+      evidence:
+      - This is an internal quantitative illustration, not a chapter map. All required scenes were individually
+        reviewed; no whole-chapter coverage is claimed.
+  claim_level_review:
+  - claim_id: M01-label-01
+    kind: visible_label
+    text: 'Spike
+
+      events'
+    verdict: correct
+    evidence: The upper marks are discrete spike times, not rates or activation amplitudes.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-02
+    kind: visible_label
+    text: '+1'
+    verdict: correct
+    evidence: The leader ends on the fourth jump; independently calculated before/after levels differ
+      by exactly one.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-03
+    kind: visible_label
+    text: Time (ms)
+    verdict: correct
+    evidence: Both panels share a 0 to 300 millisecond time axis; generator spike and tau units are milliseconds.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-04
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-05
+    kind: visible_label
+    text: '50'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-06
+    kind: visible_label
+    text: '100'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-07
+    kind: visible_label
+    text: '150'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-08
+    kind: visible_label
+    text: '200'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-09
+    kind: visible_label
+    text: '250'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-10
+    kind: visible_label
+    text: '300'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-11
+    kind: visible_label
+    text: Activation s (units)
+    verdict: correct
+    evidence: The lower trace is the dimensionless s sum; one spike contributes one activation unit.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-12
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-13
+    kind: visible_label
+    text: '1'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-label-14
+    kind: visible_label
+    text: '2'
+    verdict: correct
+    evidence: 'Numeric tick agrees with its axis scale: time ticks 0..300 by 50 ms, activation ticks 0,1,2.
+      These are illustrative plot coordinates.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-model; chosen numerical parameters are guide-only values explicitly presented as calculated
+        examples.
+  - claim_id: M01-caption-01
+    kind: caption
+    text: Each spike adds one activation unit, which then decays with a 50 ms time constant.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-caption-02
+    kind: caption
+    text: Closely spaced spikes add to the activation left by earlier spikes.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-caption-03
+    kind: caption
+    text: The five spike times are an illustrative input, and the activation is calculated exactly from
+      the chapter equation.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-alt-01
+    kind: alt
+    text: Five spike marks share a time axis with an activation trace.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-alt-02
+    kind: alt
+    text: Each mark aligns with a vertical rise of one activation unit.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-alt-03
+    kind: alt
+    text: The activation decays smoothly between spikes, and nearby spikes build on the remaining activation.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-introduction-01
+    kind: introduction
+    text: For five illustrative spike times, the plot shows the events and the activation they leave behind.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-interpretation-01
+    kind: interpretation
+    text: The activation retains a decaying contribution from earlier spikes, so a spike train and its
+      activation trace are different objects.
+    verdict: correct
+    evidence: For spikes at 20,55,70,130,210 ms, pre-jump levels are 0, 0.4965853038, 1.1086976619, 0.6351275304,
+      0.3301265549. Adding one gives plotted post-jump values. Every segment solves ds/dt=-s/50 ms. Initial
+      activation is zero.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-model; caption keeps the construction separate from paper simulation data.
+  - claim_id: M01-leader
+    kind: leader_line
+    text: +1 leader to fourth vertical jump
+    verdict: correct
+    evidence: The thin line joins the label to the middle of the jump at 130 ms; it is not a causal arrow
+      or a separate trajectory.
+- asset_id: M02
+  visual_id: fig:MEMORY-INHIBITION-RATES
+  asset_decision: accept candidate for local insertion, subject to unchanged pixels/captions and final
+    canonical binding
+  reviewed_png_sha256: d470d6afd0be8ce3dc53f49cdbd0db067e5cd0da42e752307bd77ea1a03f3160
+  reviewed_book_width_sha256: a82ba33ec9148f2104d4cd7b15133b32b4bd043783234511f6a553f24eff94dd
+  reviewed_brief_sha256: 08c7db35f60afb1d1ef8257643dc8e58945be34b707ff1b4107d978ad0943acb
+  strongest_objection: The finite two-cell model can leave the positive-rate interior under noise, and
+    paper Fig.2 also describes memory using a rate difference. A global constant-error claim or copied
+    paper-scale interpretation would be false.
+  objection_resolution: Open circles exclude theta=+-20; caption and preceding paragraph restrict the
+    result to local D in the interior. The coordinate axis explicitly uses activation units. The retained
+    footnote distinguishes activation from rate coordinates and their tau-squared rescaling. The chosen
+    b=20 is an illustrative guide value, whereas the paper uses b=5000.
+  calculation: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2,
+    r2=(20-theta)/0.2. At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200
+    and D=sum/2=100 in activation-coordinate units squared/s.
+  checks:
+    technical_accuracy:
+      verdict: pass
+      evidence:
+      - From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+        At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+        in activation-coordinate units squared/s.
+      - Original source inspected using main-two-sim; main-fig2-caption; si-project. Full-size pixels
+        and 700px preview match code and captions.
+    visual_explanation:
+      verdict: pass
+      scenes:
+      - scene_id: opposite-rates
+        depiction_kind: comparison
+        verdict: pass
+        evidence: Two straight rate curves cross at 100 while their dashed sum stays at 200; their common
+          coordinate makes opposite changes and constant total visible.
+      - scene_id: constant-diffusion
+        depiction_kind: data-representation
+        verdict: pass
+        evidence: A second aligned horizontal trace remains at 100 over the same open-ended coordinate
+          domain, connecting constant total variability to constant local D.
+    readability:
+      verdict: pass
+      insertion_width_px: 700
+      evidence:
+      - Actual full-resolution PNG and separate 700px PNG viewed. Axis labels, legend symbols, tick numbers
+        and line identities remain readable; no clipped labels or ambiguous intersections.
+      - The 700px judgment assumes the preserved horizontal-scroll treatment at narrow widths; a proportionally
+        shrunk 390px rendering is not approved by this check.
+    palette:
+      verdict: pass
+      evidence:
+      - Current QA lists only seven house-profile tokens, with outside_profile empty; exact SVG colors,
+        not a raster all-pixel fraction.
+      - Manual inspection confirms navy and teal distinguish mathematical series, muted gray gives references,
+        white plot panels and warm outside paper match existing scientific figures. No success or risk
+        claim is implied by series colors.
+    coverage:
+      verdict: not-applicable
+      evidence:
+      - This is an internal quantitative illustration, not a chapter map. All required scenes were individually
+        reviewed; no whole-chapter coverage is claimed.
+  claim_level_review:
+  - claim_id: M02-label-01
+    kind: visible_label
+    text: Firing rate (spikes/s)
+    verdict: correct
+    evidence: Both individual curves and their sum have spikes-per-second units; no firing-rate coordinate
+      is used on x.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-02
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-03
+    kind: visible_label
+    text: '100'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-04
+    kind: visible_label
+    text: '200'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-05
+    kind: visible_label
+    text: $\bar r_1$
+    verdict: correct
+    evidence: Legend matches navy increasing r1, teal decreasing r2, or gray dashed sum; curves follow
+      r=s/tau and the fixed states.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-06
+    kind: visible_label
+    text: $\bar r_2$
+    verdict: correct
+    evidence: Legend matches navy increasing r1, teal decreasing r2, or gray dashed sum; curves follow
+      r=s/tau and the fixed states.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-07
+    kind: visible_label
+    text: $\bar r_1+\bar r_2$
+    verdict: correct
+    evidence: Legend matches navy increasing r1, teal decreasing r2, or gray dashed sum; curves follow
+      r=s/tau and the fixed states.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-08
+    kind: visible_label
+    text: Memory coordinate $\theta$ (activation units)
+    verdict: correct
+    evidence: The horizontal variable is theta=s1-s2, measured in activation units, as explicitly defined
+      in the connected example.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-09
+    kind: visible_label
+    text: âˆ’20
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-10
+    kind: visible_label
+    text: âˆ’10
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-11
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-12
+    kind: visible_label
+    text: '10'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-13
+    kind: visible_label
+    text: '20'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-14
+    kind: visible_label
+    text: $D$ (coordinate units$^2$/s)
+    verdict: correct
+    evidence: The lower trace is half the rate sum in the chosen activation coordinate, with squared coordinate
+      units per second.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-15
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-label-16
+    kind: visible_label
+    text: '100'
+    verdict: correct
+    evidence: Numeric tick agrees with theta ticks -20,-10,0,10,20, rate ticks 0,100,200, or D ticks 0,100
+      at its recorded occurrence. Boundary values are excluded by open markers.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: main-two-sim; main-fig2-caption; si-project; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M02-caption-01
+    kind: caption
+    text: For the chapterâ€™s two mutually inhibiting cells, b = 20 activation units and tau = 0.1 s give
+      opposite changes in the two rates.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-caption-02
+    kind: caption
+    text: Their sum remains 200 spikes/s, so local D remains 100 coordinate units squared/s.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-caption-03
+    kind: caption
+    text: Open endpoints mark the excluded boundaries; the linear interior model does not determine boundary
+      behavior.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-caption-04
+    kind: caption
+    text: These curves are calculated examples, not simulation data.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-alt-01
+    kind: alt
+    text: As theta increases through the interior from minus 20 to 20 activation units, r1 increases toward
+      200 spikes per second and r2 decreases toward zero.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-alt-02
+    kind: alt
+    text: Their dashed sum stays at 200.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-alt-03
+    kind: alt
+    text: A lower aligned plot shows D constant at 100 coordinate units squared per second.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-alt-04
+    kind: alt
+    text: Open endpoint circles exclude both boundaries.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-introduction-01
+    kind: introduction
+    text: The mutual inhibition example makes the distinction between individual rates and their contribution
+      to diffusion visible.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-interpretation-01
+    kind: interpretation
+    text: The individual rates vary with the stored value, but their summed variability and therefore
+      the local diffusion coefficient remain constant inside the valid range.
+    verdict: correct
+    evidence: From s1=(b+theta)/2, s2=(b-theta)/2 and r=s/tau with b=20, tau=0.1, r1=(20+theta)/0.2, r2=(20-theta)/0.2.
+      At theta=-19,0,19, rates are (5,195),(100,100),(195,5) spikes/s. The sum is 200 and D=sum/2=100
+      in activation-coordinate units squared/s.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: main-two-sim; main-fig2-caption; si-project; caption keeps the construction separate from
+        paper simulation data.
+  - claim_id: M02-open-endpoints
+    kind: markers
+    text: Open circles at both ends of all curves
+    verdict: correct
+    evidence: The finite positive-rate model is restricted to -20<theta<20. The circles consistently denote
+      limiting values outside the included interior, as the caption explains.
+- asset_id: M03
+  visual_id: fig:MEMORY-LINE-RING
+  asset_decision: accept candidate for local insertion, subject to unchanged pixels/captions and final
+    canonical binding
+  reviewed_png_sha256: 9448a16b772b17fadef6849413180ef84e457aeec80a66a13f4687574cd54554
+  reviewed_book_width_sha256: 085fb6663717a9d8ace39605936a41f5b3d4461ecbe3fa52950f0e9239f32cf6
+  reviewed_brief_sha256: 1186ec00e7b830d7d5e9cd054e6cd8f0b5def117964a4b6fe99ad6f32645984c
+  strongest_objection: A saturating angular error curve could be read as declining noise, or as a general
+    limit for any angular variance definition.
+  objection_resolution: The caption fixes D=0.5, the axis and caption state [-pi,pi), and the line comparison
+    keeps the same D. The chapter derives the uniform integral. The claim is confined to this reported
+    squared-error convention.
+  calculation: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+    one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+    the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+    rad inverse and angular limit is 3.2898681337 rad squared.
+  checks:
+    technical_accuracy:
+      verdict: pass
+      evidence:
+      - Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is one.
+        The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+        the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+        rad inverse and angular limit is 3.2898681337 rad squared.
+      - Original source inspected using si-gaussian-line; si-wrapped; si-wrapped-moment. Full-size pixels
+        and 700px preview match code and captions.
+    visual_explanation:
+      verdict: pass
+      scenes:
+      - scene_id: wrapped-density
+        depiction_kind: state-change
+        verdict: pass
+        evidence: Three continuous densities widen with time and approach the horizontal uniform reference
+          over the same angular interval. The area remains probability, not a rate curve.
+      - scene_id: line-ring-msd
+        depiction_kind: comparison
+        verdict: pass
+        evidence: Two mean-squared-error curves share time and units; the line keeps rising while wrapped
+          error approaches pi squared over three. The visual demonstrates a change in reported long-delay
+          error under fixed diffusion.
+    readability:
+      verdict: pass
+      insertion_width_px: 700
+      evidence:
+      - Actual full-resolution PNG and separate 700px PNG viewed. Axis labels, legend symbols, tick numbers
+        and line identities remain readable; no clipped labels or ambiguous intersections.
+      - The 700px judgment assumes the preserved horizontal-scroll treatment at narrow widths; a proportionally
+        shrunk 390px rendering is not approved by this check.
+    palette:
+      verdict: pass
+      evidence:
+      - Current QA lists only seven house-profile tokens, with outside_profile empty; exact SVG colors,
+        not a raster all-pixel fraction.
+      - Manual inspection confirms navy and teal distinguish mathematical series, muted gray gives references,
+        white plot panels and warm outside paper match existing scientific figures. No success or risk
+        claim is implied by series colors.
+    coverage:
+      verdict: not-applicable
+      evidence:
+      - This is an internal quantitative illustration, not a chapter map. All required scenes were individually
+        reviewed; no whole-chapter coverage is claimed.
+  claim_level_review:
+  - claim_id: M03-label-01
+    kind: visible_label
+    text: Angular error (rad), reported in $[-\pi,\pi)$
+    verdict: correct
+    evidence: The x variable is the centered displacement after wrapping into [-pi,pi); plotting the pi
+      endpoint only shows the limiting continuous density.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-02
+    kind: visible_label
+    text: âˆ’Ï€
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-03
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-04
+    kind: visible_label
+    text: Ï€
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-05
+    kind: visible_label
+    text: Probability density (rad$^{-1}$)
+    verdict: correct
+    evidence: The upper ordinate integrates to one over an angular interval, so its units are inverse
+      radians.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-06
+    kind: visible_label
+    text: '0.0'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-07
+    kind: visible_label
+    text: '0.3'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-08
+    kind: visible_label
+    text: '0.6'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-09
+    kind: visible_label
+    text: '0.9'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-10
+    kind: visible_label
+    text: 0.2 s
+    verdict: correct
+    evidence: 'Legend time matches the actual density calculation: narrow navy 0.2s, medium teal 1s, near-uniform
+      gray 5s.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-11
+    kind: visible_label
+    text: 1 s
+    verdict: correct
+    evidence: 'Legend time matches the actual density calculation: narrow navy 0.2s, medium teal 1s, near-uniform
+      gray 5s.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-12
+    kind: visible_label
+    text: 5 s
+    verdict: correct
+    evidence: 'Legend time matches the actual density calculation: narrow navy 0.2s, medium teal 1s, near-uniform
+      gray 5s.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-13
+    kind: visible_label
+    text: Uniform
+    verdict: correct
+    evidence: Dashed horizontal line is 1/(2*pi), the limiting normalized density.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-14
+    kind: visible_label
+    text: Time (s)
+    verdict: correct
+    evidence: The lower x variable is delay in seconds from 0 through 10.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-15
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-16
+    kind: visible_label
+    text: '2'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-17
+    kind: visible_label
+    text: '4'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-18
+    kind: visible_label
+    text: '6'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-19
+    kind: visible_label
+    text: '8'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-20
+    kind: visible_label
+    text: '10'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-21
+    kind: visible_label
+    text: Mean squared error (rad$^2$)
+    verdict: correct
+    evidence: Lower curves integrate squared centered displacement, with radian-squared units.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-22
+    kind: visible_label
+    text: '0'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-23
+    kind: visible_label
+    text: Ï€Â²/3
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-24
+    kind: visible_label
+    text: '6'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-25
+    kind: visible_label
+    text: '10'
+    verdict: correct
+    evidence: 'Numeric or pi tick agrees with the recorded axis: angular -pi,0,pi; density 0,.3,.6,.9;
+      time 0,2,4,6,8,10; squared error 0,pi squared/3,6,10.'
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-26
+    kind: visible_label
+    text: 'Line: $2Dt$'
+    verdict: correct
+    evidence: Navy line is 2*0.5*t and rises to 10 at t=10 seconds.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-27
+    kind: visible_label
+    text: Wrapped angle
+    verdict: correct
+    evidence: Teal lower curve is the squared-error integral of the wrapped density under the displayed
+      interval convention.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-label-28
+    kind: visible_label
+    text: $\pi^2/3$
+    verdict: correct
+    evidence: Dashed lower reference is the integral of x squared against the uniform density; it is not
+      an additional data series.
+    four_way_check:
+      drawing: Actual full PNG and 700px preview inspected; label matches the plotted object or tick.
+      chapter: Connected proposed Chapter 2 equations, example and stated coordinate convention.
+      counterpart_figures: Other candidate figures and preserved tilted-decay illustration checked; different
+        examples keep their own units and parameters.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; chosen numerical parameters are guide-only
+        values explicitly presented as calculated examples.
+  - claim_id: M03-caption-01
+    kind: caption
+    text: With the same constant D = 0.5 radÂ²/s, wrapped Gaussian error densities widen toward 1/(2Ï€).
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-caption-02
+    kind: caption
+    text: The unbounded line has mean squared error 2Dt; reporting angular error in [âˆ’Ï€, Ï€) instead
+      gives a mean squared error that approaches Ï€Â²/3.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-caption-03
+    kind: caption
+    text: The flattening comes from the bounded error convention while local diffusion stays constant.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-caption-04
+    kind: caption
+    text: All curves are analytic teaching calculations, not paper simulation data.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-alt-01
+    kind: alt
+    text: Wrapped Gaussian densities at 0.2, 1 and 5 seconds broaden toward a dashed uniform density over
+      angular errors from minus pi to pi.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-alt-02
+    kind: alt
+    text: Below, line mean squared error rises linearly while wrapped angular mean squared error approaches
+      a horizontal pi squared over three reference, with the same constant diffusion coefficient.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-introduction-01
+    kind: introduction
+    text: Wrapping the Gaussian around a circle changes long delay errors even when the local diffusion
+      coefficient stays constant.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+  - claim_id: M03-interpretation-01
+    kind: interpretation
+    text: A flattening angular error curve can follow from the bounded way error is reported; it does
+      not require the local noise mechanism to weaken.
+    verdict: correct
+    evidence: Wrapped density is the sum of N(0,2Dt) images at offsets 2*pi*k. Its mass on [-pi,pi) is
+      one. The independent Fourier identity E[x^2]=pi^2/3+4*sum((-1)^n exp(-D*n^2*t)/n^2) follows by integrating
+      the Fourier series of x^2. At D=0.5, line slope is 1 rad squared/s; uniform density is 0.1591549431
+      rad inverse and angular limit is 3.2898681337 rad squared.
+    four_way_check:
+      drawing: Matches the inspected panels, legends, endpoints and visible relationships.
+      chapter: Matches the connected formula and preserved model limits.
+      counterpart_figures: No conflicting parameter or coordinate claim in the other illustrations.
+      source: si-gaussian-line; si-wrapped; si-wrapped-moment; caption keeps the construction separate
+        from paper simulation data.
+focused_recheck:
+  recorded_at: '2026-10-24T18:15:28.903515+03:00'
+  reason: Coordinator qualified viewer-position behavior, synchronized M01 introduction, added actual
+    source inputs to contracts and narrowed three inline equation targets. Pixels, mathematical equations
+    and captions unchanged.
+  verdict: pass
+  evidence:
+  - Current intro says near passage only where viewer supports it and explicitly says PDFs have no numbered
+    text lines.
+  - All three current briefs include both source PDFs and source-locators.json. insertion_authorized true
+    records user scope, not reviewer acceptance.
+  - M01 current introduction matches the actual proposed paragraph.
+  - Inline S18, S37, S41 links retain their correct page and use narrower equation box offsets; exact
+    locator rows listed below.
+  equation_locators:
+  - key: si-symmetric
+    label: Symmetric W derivation, S16-S18
+    page: 4
+    bbox:
+    - 71
+    - 73
+    - 540
+    - 360
+  - key: si-variable
+    label: State-dependent diffusion, Ito convention and short-time expansion S33-S37
+    page: 8
+    bbox:
+    - 71
+    - 164
+    - 540
+    - 645
+  - key: si-excitation
+    label: Mutual excitation weights, states, displayed diffusion and variance, S38-S41
+    page: 9
+    bbox:
+    - 71
+    - 73
+    - 540
+    - 479
+  - key: si-s18
+    label: Eq. S18, symmetric-weight diffusion formula
+    page: 4
+    bbox:
+    - 219.11
+    - 263.69
+    - 538.26
+    - 335.72
+  - key: si-s37
+    label: Eq. S37, state-dependent variance expansion
+    page: 8
+    bbox:
+    - 207.14
+    - 626.75
+    - 538.26
+    - 642.17
+  - key: si-s41
+    label: Eq. S41, mutual-excitation variance
+    page: 9
+    bbox:
+    - 257.06
+    - 408.39
+    - 538.26
+    - 434.16
+  pdf_link_count: 48
+  unique_pdf_targets: 33
+  snapshot_hashes:
+    verification\memory-illustrations-20261024\proposed-chapter.md: 954f651997b2818862b5f125142b8ca866437c9cd073e5da402107bca60e02de
+    verification\memory-illustrations-20261024\proposed-chapter.yaml: c511f7aef991b7010b5a36354db3ba63686afff78edca623c7796110bd8b3af0
+    verification\memory-illustrations-20261024\integration-rows.yaml: 35041fc1b6483af009316b56761246e40db16d091e3d06592f80663c7e0b282c
+    verification\memory-illustrations-20261024\source-locators.json: 77b6e32be5dce559080bfc29f5e435e714ac5c18778771729c1a22c30f17b1d7
+    verification\memory-illustrations-20261024\pending-visual-ledger.yaml: 4c62603ccb94f5f7d7054b07deef587c68190d84039e6bf0876ba1e0d6996c9c
+    verification\memory-illustrations-20261024\M01-brief.yaml: 81e03887ef7dd5b90591e5c423663279e909b4c138d9fcec1cda012dcc82242d
+    verification\memory-illustrations-20261024\M02-brief.yaml: 08c7db35f60afb1d1ef8257643dc8e58945be34b707ff1b4107d978ad0943acb
+    verification\memory-illustrations-20261024\M03-brief.yaml: 1186ec00e7b830d7d5e9cd054e6cd8f0b5def117964a4b6fe99ad6f32645984c

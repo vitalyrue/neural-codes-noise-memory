@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "local_request_id": "stage1-recheck-eye-20261025",
+  "stage": 1,
+  "reviewer": "/root/compliance_eye independent reviewer retained from Stage1",
+  "scope": "Focused correctness and dependency recheck of proposed 04b timing repair, prior Brownian teaching and glossary, unchanged Part2 purpose and global description. No Stage2 wording or Stage3 flow acceptance.",
+  "started_at": "2026-10-25T20:27:26.8605905+02:00",
+  "task_start": "2026-10-25T20:11:31.8244846+02:00",
+  "awake_execution_time": "unverified",
+  "decision": "accept EYE-S1-01 repair; no new Stage1 finding in the checked connected passages",
+  "findings": [],
+  "resolved": [
+    {
+      "id": "EYE-S1-01",
+      "status": "resolved",
+      "location": "proposed/content/chapters/04b-eye-timing.md:106-126",
+      "quote": "The integral against dW(u) denotes the limit of these weighted sums as h tends to zero.",
+      "judgment": "The reader now has an operation they can construct from the previously taught independent Brownian increments. The same-increment variance h and vanishing distinct-increment products explicitly justify replacing the covariance sum by the ordinary exponential overlap integral. This supplies the missing reasoning rather than only naming stochastic integration."
+    }
+  ],
+  "passage_judgments": [
+    {
+      "path": "proposed/content/chapters/01b-persistence.md",
+      "lines": [
+        58,
+        86
+      ],
+      "quote": "It starts at zero, has continuous paths and independent Gaussian increments with mean zero",
+      "decision": "retain",
+      "reason": "These properties are stated before θ=θ0+√(2D)W and MSD=2Dt. The earlier finite-step assumptions supply the scale 2Ddt; mean zero distinguishes variance from uncentered MSD, and continuity distinguishes Brownian paths from jump processes. No equation changed and the ensuing bias example still has both contributions v²t²+2Dt."
+    },
+    {
+      "path": "proposed/content/chapters/01b-persistence.md",
+      "lines": [
+        112,
+        123
+      ],
+      "quote": "The bracketed increment is independent of W(s) and has mean zero",
+      "decision": "retain",
+      "reason": "Min(s,t) covariance still follows from the newly explicit assumptions. The local/unbounded qualification remains after the covariance derivation and before later eye use."
+    },
+    {
+      "path": "proposed/content/chapters/glossary.md",
+      "lines": [
+        9,
+        9
+      ],
+      "quote": "independent Gaussian increments of mean zero and variance equal to elapsed time",
+      "decision": "retain",
+      "reason": "Matches the main-text Brownian definition and the later increment mean/variance used in the weighted-sum covariance. Glossary supplements actual earlier teaching rather than supplying the dependency alone."
+    },
+    {
+      "path": "proposed/content/chapters/04b-eye-timing.md",
+      "lines": [
+        62,
+        104
+      ],
+      "quote": "Define velocity v=dot E=(B-E)/τ. Taking its increment gives τdv=-vdt+√(2D)dW.",
+      "decision": "retain",
+      "reason": "Low-pass/white-noise/covariance stationarity and Brownian coefficient are taught before the repair. Differentiating B-E by increments uses dE=vdt, giving a negative velocity-restoring term and positive random input. With τ>0, the exponential attenuation is stable."
+    },
+    {
+      "path": "proposed/content/chapters/04b-eye-timing.md",
+      "lines": [
+        106,
+        108
+      ],
+      "quote": "Its contribution to the velocity at time t is approximately (√(2D)/τ)e^{-(t-u_j)/τ}ΔW_j",
+      "decision": "retain",
+      "reason": "For past times u_j≤t the age t-u_j is nonnegative, so the factor decays as required. Using the start of a short interval is an approximation whose difference vanishes as h→0. ΔW has mean0, varianceh and independent disjoint increments, all supplied by earlier Brownian teaching. √(2D)/τ has units deg/s^(3/2), while ΔW has units s^(1/2), giving velocity deg/s. This is enough for the deterministic-weight integral used here; no state-dependent integration rule is needed."
+    },
+    {
+      "path": "proposed/content/chapters/04b-eye-timing.md",
+      "lines": [
+        108,
+        112
+      ],
+      "quote": "After the initial velocity has decayed, extending the input history into the distant past gives",
+      "decision": "retain",
+      "reason": "This preserves the stationary-velocity idealization. It denotes the limiting long-running stable filter after the finite-start initial term has decayed; it does not assert that Brownian position has stationary variance. A finite starting time t0 would give e^{-(t-t0)/τ}v(t0) plus an integral from t0 to t. Taking the distant-past limit removes that term and makes the stated covariance independent of t. The passage explicitly presents this history extension, so a separate lesson on two-sided Brownian construction is unnecessary for the calculation."
+    },
+    {
+      "path": "proposed/content/chapters/04b-eye-timing.md",
+      "lines": [
+        114,
+        126
+      ],
+      "quote": "The same increment contributes its variance h",
+      "decision": "retain",
+      "reason": "Zero mean makes distinct independent increment products vanish. Shared history stops at t for s≥0, and the product weights are exp[-(t-u)/τ]exp[-(t+s-u)/τ]. Setting r=t-u reverses the integration endpoints, producing an ordinary positive integral from0 to∞; its value is τ/2. Thus (2D/τ²)e^{-s/τ}(τ/2)=D/τ e^{-s/τ}. Velocity mean0 makes this covariance equal to the raw product expectation. C_v has units deg²/s². Symmetry in positive/negative lag follows because this is the covariance of one stationary real-valued velocity."
+    },
+    {
+      "path": "proposed/content/chapters/04b-eye-timing.md",
+      "lines": [
+        126,
+        168
+      ],
+      "quote": "M_Brownian(ℓ)=2D[ℓ-τ(1-e^{-ℓ/τ})]",
+      "decision": "retain",
+      "reason": "The repair connects directly to the unchanged position-displacement double covariance integral. Integrating the positive even exponential covariance gives the displayed MSD, its short-lag (D/τ)ℓ² and long-lag2D(ℓ-τ) limits. The local-slope values and guide-model qualification remain valid. The repair adds no input that changes the earlier amplitude-normalization or full-muscle-model comparison."
+    },
+    {
+      "path": "proposed/plan/chapter-plan.yaml",
+      "lines": [
+        22,
+        26
+      ],
+      "quote": "Neural fluctuations reach behavior through a motor pathway, while spatial tuning describes how a position is expressed across cells.",
+      "decision": "retain",
+      "reason": "Part2 purpose agrees with the eye sequence and the frontmatter's separate statistical map study. It does not claim that observed place-field statistics provide a dynamical noise law or that χ uniquely identifies integrator neurons."
+    },
+    {
+      "path": "proposed/guide-project.yaml",
+      "lines": [
+        8,
+        11
+      ],
+      "quote": "This guide teaches the neural background and central derivations",
+      "decision": "retain",
+      "reason": "Description matches the selected three papers and explicit reading-path orientation. The repaired weighted Brownian derivation remains a clearly labeled guide teaching reconstruction rather than falsely attributed original-paper algebra."
+    }
+  ],
+  "source_basis": "Analytical recomputation from τdv=−vdt+√(2D)dW and the earlier Brownian increment definition. Original source main p.10 Eqs.20–22 remains the connected white-noise overlap argument; the one-pole Brownian example is explicitly a guide reconstruction.",
+  "limits": "Only focused Stage1 acceptance. No wording, full paragraph-flow, rendered-layout or link-health claim.",
+  "token_stats": "Token stats unavailable",
+  "source_hashes": [
+    {
+      "path": "proposed/content/chapters/04b-eye-timing.md",
+      "sha256": "bdfbec009be758d492904f440d03cd1e9517586bbbcda7a07c69a54845abab7f"
+    },
+    {
+      "path": "proposed/content/chapters/01b-persistence.md",
+      "sha256": "299f9015cac9ef69cc5581e7d71f088bc5704a10589c16c2f2c6a5d97b461bcb"
+    },
+    {
+      "path": "proposed/content/chapters/glossary.md",
+      "sha256": "2fa4efe4f904fb91bfa2b3739e7a97f91d777486318cb47c3bee8558d7978b80"
+    },
+    {
+      "path": "proposed/plan/chapter-plan.yaml",
+      "sha256": "20ba449269de19bd8559ea3f58086c9ff7b5b1c24a1f2a270768b096accc7857"
+    },
+    {
+      "path": "proposed/guide-project.yaml",
+      "sha256": "b3cf4085a471ceaed9ce0649b5985d222d5a42417e68b9f285608dd72e0ecc8e"
+    },
+    {
+      "path": "repairs-v1.json",
+      "sha256": "2818f3d9bbf4a7f39b0b2b9e3877ce0d60d2ffedc1ede38c16a7ed5a9d46569b"
+    },
+    {
+      "path": "stage1-eye.json",
+      "sha256": "024d72d8070dc7405a27101b00235e1726176893d085215d28b44df8ba1008b4"
+    }
+  ],
+  "previous_source_hashes": [
+    {
+      "path": "content/chapters/04b-eye-timing.md",
+      "sha256": "b896b155391e6555e16921b845a3119ddfe0dc78811132d8c5a90c67d5772159"
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "5894d917c1affb0a54de4a9bd1487558a602609d5ee990938b63aa341eeafed7"
+    },
+    {
+      "path": "content/chapters/glossary.md",
+      "sha256": "80d11d379b97c0f6bb227f4cbc8aaf803c23ea4af0383fd63fa362953b26005c"
+    }
+  ],
+  "rule_hashes": [
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\SKILL.md",
+      "sha256": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a"
+    },
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md",
+      "sha256": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+    },
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md",
+      "sha256": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+    },
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\concept-prerequisites.md",
+      "sha256": "4c8d4af325fb63af8dbe41d447d4bac7197df550b0ddb9f4cdb0dea3b1fe9f9a"
+    }
+  ],
+  "unchanged_scope_comparison": [
+    {
+      "file": "00-reading-guide.md",
+      "equal_after_repair_and_DOI_markup_normalization": true
+    },
+    {
+      "file": "04-eye-drift.md",
+      "equal_after_repair_and_DOI_markup_normalization": true
+    },
+    {
+      "file": "04b-eye-timing.md",
+      "equal_after_repair_and_DOI_markup_normalization": true
+    },
+    {
+      "file": "04c-eye-circuit.md",
+      "equal_after_repair_and_DOI_markup_normalization": true
+    }
+  ],
+  "completed_at": "2026-10-25T20:28:41.7456061+02:00",
+  "recheck_wall_seconds": 75.747948,
+  "task_wall_seconds": 1030.7686901
+}

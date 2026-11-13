@@ -1,0 +1,188 @@
+{
+  "review_id": "stage1-foundations-memory",
+  "stage": "1: correctness",
+  "reviewer": "Independent agent assigned foundations and memory drafts; did not draft these chapter groups",
+  "model": "GPT-6.1-sol/high as assigned",
+  "started_at": "2026-10-24T20:24:25.8684374+03:00",
+  "shared_task_started_at": "2026-10-24T20:17:28.7375959+03:00",
+  "previous_checkpoint_at": "2026-10-24T20:24:49.5645088+03:00",
+  "scope": "Current titles and openings in 01-foundations.md, 01b-persistence.md, 02-memory-dynamics.md and 02b-memory-long-delays.md; their changed cross-reference paragraphs; changed reading paths in 00-reading-guide.md; adequacy of new boundaries and notation against actual sections",
+  "scope_records": [
+    "integration.json",
+    "reference-edits.json",
+    "orientation-edits.json"
+  ],
+  "verdict": "No correctness defect found within the assigned changed passages",
+  "defects": [],
+  "retained_evidence": [
+    {
+      "id": "F1",
+      "passage": "content/chapters/01-foundations.md:1-5",
+      "claim": "Variable spikes can carry a value; count pooling can help; covariance and MSD distinguish shared variation, spreading and mean movement",
+      "evidence": "The population-rate code is defined at lines 13-21. The independent 20-cell count example at lines 58-74 explicitly restricts the averaging benefit and distinguishes elementary conditional noise from correlations in full recurrent trains. The covariance and MSD identities at lines 82-113 support the opening's final claim.",
+      "qualifiers_retained": "The opening says pooling 'can help', not that it removes every source of noise. The actual count example preserves the independence qualification.",
+      "result": "Retain"
+    },
+    {
+      "id": "F2",
+      "passage": "content/chapters/01-foundations.md:104",
+      "claim": "The eye-drift covariance calculation provides a signal/noise/gain model for interpreting correlation as a common variance fraction",
+      "evidence": "The target sec:EYE-CHI is present in 04-eye-drift.md at line 193. Lines 195-227 define centered variables in degrees, unit gain, pairwise uncorrelated contributions, covariance ratio and its relation to Pearson correlation. The changed link therefore points to the correct calculation, not merely an empirical correlation plot.",
+      "result": "Retain"
+    },
+    {
+      "id": "F3",
+      "passage": "content/chapters/01b-persistence.md:1-5",
+      "claim": "A disturbance may preserve a stored angle or move to a different angle while activity stays coherent; repeated changes can spread and a fixed bias behaves differently",
+      "evidence": "Lines 15-43 derive the two-activity example. Adding (+3,+3) preserves 5 degrees and decays; adding (+3,-3) produces 6.5 degrees on the fixed-point line. Lines 53-87 derive variance 2Dt and the separate v-squared t-squared MSD contribution. Lines 112-126 distinguish a fixed spatial map from a changing estimate.",
+      "qualifiers_retained": "The opening describes possible disturbances rather than claiming every disturbance has the same fate. The section labels the two-activity construction as a teaching model and keeps its positive-rate range.",
+      "result": "Retain"
+    },
+    {
+      "id": "F4",
+      "passage": "content/chapters/01b-persistence.md:49",
+      "claim": "A network's return dynamics can require a projection different from ordinary perpendicular projection",
+      "evidence": "The changed reference reaches sec:MEMORY-LINEARIZATION in 02-memory-dynamics.md at line 90. Lines 125-147 define the tangent and normalized left vector, remove stable modes, and state why perpendicular projection can differ. Lines 149-171 supply the tilted return example.",
+      "result": "Retain"
+    },
+    {
+      "id": "M1",
+      "passage": "content/chapters/02-memory-dynamics.md:1-9",
+      "claim": "Spike renewal, return flow and the surviving displacement lead to a local diffusion rate, with a tuning-curve expression for symmetric weights",
+      "evidence": "Sections MEMORY-SPIKES, MEMORY-LINEARIZATION, MEMORY-DIFFUSION and MEMORY-SYMMETRIC occur in exactly that order. The spike activation equation is at lines 16-28; the lasting projection at 125-147; local 2D=sum(v_i squared r_i) at 173-198; symmetric weights and tuning formula at 208-243; two-cell illustration at 245-268.",
+      "qualifiers_retained": "The opening calls the rate local and makes equal weights in both directions the condition for the special formula. The connected text preserves the weak-noise and coarse-time assumptions. The notation paragraph keeps theta, initial Theta, barred steady rates, tau and coordinate-squared/time units.",
+      "result": "Retain"
+    },
+    {
+      "id": "M2",
+      "passage": "content/chapters/02-memory-dynamics.md:198",
+      "claim": "A local variance derivation does not settle systematic drift",
+      "evidence": "The next-chapter reference reaches sec:MEMORY-DRIFT-SCOPE at 02b-memory-long-delays.md:96. Lines 98-106 distinguish spreading from mean motion, discuss tuning and possible noise-induced drift, distinguish Itô and Stratonovich conventions, and preserve the conditional-independence scope.",
+      "result": "Retain"
+    },
+    {
+      "id": "M3",
+      "passage": "content/chapters/02b-memory-long-delays.md:1-7",
+      "claim": "Local spreading is insufficient for long-delay error; boundary conventions, state dependence and mean drift affect interpretation",
+      "evidence": "Lines 13-34 derive the zero-drift density equation, line Gaussian and wrapped angular limit. Lines 70-94 treat state dependence. Lines 96-106 separately discuss drift and correlation scope. The opening explicitly limits 2Dt to constant D without boundaries or systematic drift.",
+      "qualifiers_retained": "The opening says errors 'can' keep growing on a line. It ties leveling off to measuring angular error within one turn, rather than claiming neural noise disappears. Its current/initial notation matches the first density equation and the earlier chapter.",
+      "result": "Retain"
+    },
+    {
+      "id": "M4",
+      "passage": "content/chapters/02b-memory-long-delays.md:87-94",
+      "claim": "The new chapter boundary does not deprive the mutual-excitation example of its transfer-rule context",
+      "evidence": "The preceding chapter ends with the corresponding linear two-cell rule phi(g)=g/tau in sec:MEMORY-SYMMETRIC at lines 245-258. The new opening preserves tau and the memory coordinate. The continuation explicitly provides new weights, biases, fixed states, tangent and left vectors. The phrase 'same linear transfer rule' therefore has a concrete preceding referent on the required sequential reading path.",
+      "result": "Retain; no extra proof or full model recap required for correctness"
+    },
+    {
+      "id": "M5",
+      "passage": "content/chapters/02b-memory-long-delays.md:110-112",
+      "claim": "The tilted return example explains the figure's projection; information and readout address uncertainty beyond state diffusion",
+      "evidence": "The tilted-example link reaches MEMORY-LINEARIZATION at 02-memory-dynamics.md:90 and its explicit example at lines 149-171. The information link reaches MEMORY-FI at 03-memory-information.md:9, with J and its local estimator lower bound derived thereafter. The readout chapter's first section at 03b-memory-readout.md:9 separates storage and cue-state readout error and preserves its independence/unbiasedness qualifications.",
+      "qualifiers_retained": "No edited sentence claims that the original value can be reconstructed exactly from future spikes, or that Fisher information determines every possible readout error.",
+      "result": "Retain"
+    },
+    {
+      "id": "O1",
+      "passage": "content/chapters/00-reading-guide.md:15,23,31,33,37-41,51",
+      "claim": "New chapter numbers and reading paths match the revised outline",
+      "evidence": "plan/chapter-plan.yaml puts foundations/persistence at 1-2; memory dynamics/long delays/information/readout at 3-6; eye drive/timing/circuit at 7-9; place model/sizes/tests at 10-12; synthesis at 13. The changed number ranges and path statements match. The map block is in 01b-persistence.md:122 and the diffusion section is at line 51, matching the redirected map and Chapter 2 links.",
+      "qualifiers_retained": "The place-field path requires both foundations chapters and does not require the readout derivation. The scope paragraph still distinguishes D from dimension d and the place threshold q from the paper's theta.",
+      "result": "Retain"
+    }
+  ],
+  "boundary_assessment": [
+    "Between foundations and persistence: complete rate/noise/covariance teaching precedes the new geometry example. Persistence defines its state, fixed point, attractor and local example notation before equations depend on them.",
+    "Between memory dynamics and long delays: the local diffusion derivation and symmetric example remain complete. The next chapter restarts with its question and a concise notation/assumption recap before density evolution.",
+    "Between long delays and information: the modified final figure paragraph distinguishes motion of the stored state from finite-spike readout uncertainty, and points to the two chapters that treat them."
+  ],
+  "limits": [
+    "This is stage 1 only. Wording and reader-understanding reviews remain separate.",
+    "Unchanged sections were read for local context and prerequisite checks; they receive no new whole-body or whole-paper approval.",
+    "No new paper finding was introduced by these openings. Their summaries were checked against the retained connected teaching, not through a fresh audit of every cited paper or figure.",
+    "No visual, typography, build or live-page verification was performed by this reviewer.",
+    "The source hashes describe the inspected current files. Any later edits require a bounded recheck of affected passages."
+  ],
+  "awake_execution_time": "Unverified",
+  "token_stats": "Token stats unavailable",
+  "source_snapshots": [
+    {
+      "path": "content/chapters/01-foundations.md",
+      "sha256": "47485b84424e2dacb6daad07b3d4cedd64a54281418b3d6971b4796278c1bc23",
+      "last_write_utc": "2026-10-24T17:23:47.0436821Z",
+      "bytes": 12374
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "1cc3061cfc840b1903a116de7641d1b99b76f40f5f7a8bb4760b48b2a7eca29a",
+      "last_write_utc": "2026-10-24T17:23:47.0456933Z",
+      "bytes": 11005
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "sha256": "e6f86ac4902afe56562e41e9e4a19068b2d80cf35a544af8bc715461a173a092",
+      "last_write_utc": "2026-10-24T17:23:47.0471853Z",
+      "bytes": 18379
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "sha256": "9f0db00d7aee4de3918c53cd4875d746e31fbcc2feba0e304b3632eee3f29f49",
+      "last_write_utc": "2026-10-24T17:23:47.0482835Z",
+      "bytes": 16221
+    },
+    {
+      "path": "content/chapters/00-reading-guide.md",
+      "sha256": "5a70f680341ed5141ff59f5740cbeeca7b61476de6175c2c3660066bb8e22ccc",
+      "last_write_utc": "2026-10-24T17:24:07.3796106Z",
+      "bytes": 14003
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "sha256": "258c636f81fb2daf7741e1f6a0a955693439761c213fd32b4959291bbccb2946",
+      "last_write_utc": "2026-10-24T17:23:47.0502634Z",
+      "bytes": 19332
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "sha256": "8b68f20cac79489a54e89b62818f79eeb861eead66f9dbecefde6af9178e3d69",
+      "last_write_utc": "2026-10-24T17:23:47.052277Z",
+      "bytes": 21739
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "15c1a3b9157572762ed2c4c0dbc03b4602b25537530ed86fac3f3f3e172628f0",
+      "last_write_utc": "2026-10-24T17:23:47.0542759Z",
+      "bytes": 26056
+    },
+    {
+      "path": "plan/chapter-plan.yaml",
+      "sha256": "20ba449269de19bd8559ea3f58086c9ff7b5b1c24a1f2a270768b096accc7857",
+      "last_write_utc": "2026-10-24T17:23:47.0729987Z",
+      "bytes": 1384
+    },
+    {
+      "path": "verification/chapter-size-20261024/integration.json",
+      "sha256": "4c80941db70cd77772e289b30c042021ab6aa02c688d6177a8ddeeaa62b4e802",
+      "last_write_utc": "2026-10-24T17:23:47.9606052Z",
+      "bytes": 44877
+    },
+    {
+      "path": "verification/chapter-size-20261024/reference-edits.json",
+      "sha256": "82b94cc1dddbe631a02b891a49142bb7ea83e23e3df41e12c4efb5f864c6195b",
+      "last_write_utc": "2026-10-24T17:23:46.4727576Z",
+      "bytes": 3662
+    },
+    {
+      "path": "verification/chapter-size-20261024/orientation-edits.json",
+      "sha256": "e15a4805c9e0ebe68c683585e0ec7edad0f4863f64c2645b2fcb141ac48fe453",
+      "last_write_utc": "2026-10-24T17:24:07.6748847Z",
+      "bytes": 3187
+    }
+  ],
+  "completed_at": "2026-10-24T20:25:48.4477681+03:00",
+  "review_wall_clock_seconds": 83.4,
+  "task_wall_clock_seconds": 500.4,
+  "since_previous_checkpoint_seconds": 59.4,
+  "sources_changed_since_hash_capture": []
+}

@@ -1,0 +1,146 @@
+[
+  {
+    "file": "01b-persistence.md",
+    "old": "## Stable activity with a vulnerable stored value {#sec:FOUNDATIONS-ATTRACTOR}",
+    "new": "## Stable activity with a vulnerable stored value {#sec:FOUNDATIONS-ATTRACTOR}\n\nImagine a group of neurons maintaining a pattern that represents an eye angle after a movement command has ended. Random spikes disturb that pattern. Recurrent input can correct some disturbances by changing the cells' firing back toward a persistent pattern. But if a disturbance produces the pattern for a different angle, an ideal memory circuit has no record of which angle was originally intended. [Keeping a pattern stable is therefore different from keeping the stored value correct.]{.key-statement}",
+    "reason": "Establish the physical memory problem before dynamical definitions."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "A line attractor has one represented coordinate; a ring can represent a periodic coordinate such as heading.[^f-memory]",
+    "new": "A line attractor has one represented coordinate; a ring can represent a periodic coordinate such as heading.[^f-memory]\n\nIn the illustrative two-cell model below, the difference between the firing rates represents the angle. Raising both rates equally leaves that difference unchanged; the model's feedback removes the common increase. Raising one rate while lowering the other changes the represented angle. That second change persists. The calculation makes these two responses explicit; it is not a fitted biological circuit.",
+    "reason": "Keep the essential two-disturbance contrast visible outside the example."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "The second equation retains any angle set by the initial state.",
+    "new": "The second equation retains any angle set by the initial state.\n\nIncreasing $a$ shortens the recovery time $1/a$ for the common activity disturbance. It does not correct the angle error, because $\\dot\\theta$ is still zero. At fixed rate disturbance, a larger tuning slope $k$ gives a smaller decoded angle change through division by $2k$; changing $k$ in an actual circuit may also change its dynamics.",
+    "reason": "Explain parameter changes in the existing numerical model."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "If persistent angular changes arrive repeatedly, their errors accumulate. Divide time into intervals of length $\\Delta t$.",
+    "new": "Each extra or missing spike changes synaptic input. After the circuit has corrected the disturbances it can remove, a small change in the represented angle may remain. Repeating this process makes trials that began at the same angle gradually spread apart. We first model these lasting changes as independent, with no preferred direction and a constant variance per unit time. These are assumptions about the surviving changes, not about complete spike trains.\n\nDivide time into intervals of length $\\Delta t$.",
+    "reason": "Link random steps to retained neural disturbances and state the approximation before its algebra."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "Divide time into intervals of length $\\Delta t$. Let $\\xi_j$ be the change in the represented coordinate during interval $j$. The calculation assumes:\n\n- increments are independent;\n- each increment has mean zero;\n- each increment has variance $2D\\Delta t$, where $D$ has units coordinate squared per time.\n\nAfter $n$ intervals,\n\n$$\n\\theta_n-\\theta_0=\\sum_{j=1}^{n}\\xi_j,\n\\qquad\n\\operatorname{Var}(\\theta_n-\\theta_0)\n=\\sum_{j=1}^{n}\\operatorname{Var}(\\xi_j)\n=2Dn\\Delta t.\n$$\n\nWriting $t=n\\Delta t$ gives linear variance growth $2Dt$. [To describe this limit with a continuous path, use [**Brownian motion**]{.definition-term custom-style=\"Definition Term\"} $W(t)$. It starts at zero, has continuous paths and independent Gaussian increments with mean zero, and satisfies $\\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\\geq s$.]{.definition-explanation} It describes the limit of many small, suitably independent fluctuations. A physical network need only approach this description over the time and noise scales relevant to the calculation.\n\nIn this continuous diffusion approximation,\n\n$$\n\\theta(t)=\\theta(0)+\\sqrt{2D}\\,W(t),\n\\qquad\n\\mathbb E[(\\theta(t)-\\theta(0))^2]=2Dt.\n$$",
+    "new": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical model: independent steps and Brownian motion\"}\n\nDivide time into intervals of length $\\Delta t$. Let $\\xi_j$ be the change in the represented coordinate during interval $j$. The calculation assumes:\n\n- increments are independent;\n- each increment has mean zero;\n- each increment has variance $2D\\Delta t$, where $D$ has units coordinate squared per time.\n\nAfter $n$ intervals,\n\n$$\n\\theta_n-\\theta_0=\\sum_{j=1}^{n}\\xi_j,\n\\qquad\n\\operatorname{Var}(\\theta_n-\\theta_0)\n=\\sum_{j=1}^{n}\\operatorname{Var}(\\xi_j)\n=2Dn\\Delta t.\n$$\n\nWriting $t=n\\Delta t$ gives linear variance growth $2Dt$. [To describe this limit with a continuous path, use [**Brownian motion**]{.definition-term custom-style=\"Definition Term\"} $W(t)$. It starts at zero, has continuous paths and independent Gaussian increments with mean zero, and satisfies $\\operatorname{Var}[W(t)-W(s)]=t-s$ for $t\\geq s$.]{.definition-explanation} It describes the limit of many small, suitably independent fluctuations. A physical network need only approach this description over the time and noise scales relevant to the calculation.\n\nIn this continuous diffusion approximation,\n\n$$\n\\theta(t)=\\theta(0)+\\sqrt{2D}\\,W(t),\n\\qquad\n\\mathbb E[(\\theta(t)-\\theta(0))^2]=2Dt.\n$$\n\n:::",
+    "reason": "Fold formal mathematics while retaining its interpretation in the main reading path."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "[The parameter $D$ is the diffusion coefficient. It measures the rate of variance growth; a single trajectory need not move monotonically away from its starting value.]{.key-statement}",
+    "new": "[The **diffusion coefficient** $D$ measures half the rate at which the variance of the stored angle grows.]{.definition-explanation} With independent, zero-mean increments of constant variance per unit time,\n\n$$\n\\operatorname{Var}[\\theta(t)-\\theta(0)]=2Dt.\n$$\n\nHere $D$ has units degrees squared per second when $\\theta$ is in degrees. More frequent retained disturbances, or larger ones at the same frequency, increase $D$. At a fixed delay, doubling $D$ doubles error variance and multiplies its standard deviation by $\\sqrt{2}$. [A single memory trajectory can turn back even while the spread across trials grows.]{.key-statement} The [network calculation](ch-memory-dynamics.html#sec-memory-diffusion) obtains $D$ from the spike variability and the lasting effect of each cell's disturbance.",
+    "reason": "Give the spreading parameter a visible neural cause and quantitative consequence."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "Two times along a Brownian path are correlated even though its increments are independent. For $0\\leq s\\leq t$, write $W(t)=W(s)+[W(t)-W(s)]$. The bracketed increment is independent of $W(s)$ and has mean zero, giving\n\n$$\n\\operatorname{Cov}(W(s),W(t))\n=\\operatorname{Var}(W(s))=s,\n\\qquad\n\\operatorname{Cov}(W(s),W(t))=\\min(s,t).\n$$\n\nThe same argument gives covariance $2D\\min(s,t)$ for a diffusing coordinate started at a fixed value. This identity is the intermediate step needed to compute the error from averaging a memory that moves during readout. It also helps explain why smoothing a diffusive input is different from smoothing a stationary noise source.",
+    "new": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical detail: why two times share accumulated noise\"}\n\nTwo times along a Brownian path are correlated even though its increments are independent. For $0\\leq s\\leq t$, write $W(t)=W(s)+[W(t)-W(s)]$. The bracketed increment is independent of $W(s)$ and has mean zero, giving\n\n$$\n\\operatorname{Cov}(W(s),W(t))\n=\\operatorname{Var}(W(s))=s,\n\\qquad\n\\operatorname{Cov}(W(s),W(t))=\\min(s,t).\n$$\n\nThe same argument gives covariance $2D\\min(s,t)$ for a diffusing coordinate started at a fixed value. This identity is the intermediate step needed to compute the error from averaging a memory that moves during readout. It also helps explain why smoothing a diffusive input is different from smoothing a stationary noise source.\n\n:::",
+    "reason": "Fold formal mathematics while retaining its interpretation in the main reading path."
+  },
+  {
+    "file": "01b-persistence.md",
+    "old": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical detail: why two times share accumulated noise\"}",
+    "new": "A later memory state contains earlier accumulated errors as well as new ones. Observing it twice therefore does not give two independent copies of the original memory. The covariance calculation below quantifies the shared history used in the readout chapter.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical detail: why two times share accumulated noise\"}",
+    "reason": "Keep physical meaning visible before the covariance proof."
+  },
+  {
+    "file": "02-memory-dynamics.md",
+    "old": "The paper allows general connectivity and transfer functions at first ([Model, Eqs. 7\u20139, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,372)).[^p1-model]",
+    "new": "The paper allows general connectivity and transfer functions at first ([Model, Eqs. 7\u20139, p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,372)).[^p1-model]\n\nA spike from cell $j$ raises $s_j$ by one and therefore changes the input to cell $i$ by $W_{ij}$. That contribution then decays over time $\\tau$. For an increasing transfer function, a positive weight raises the receiving cell's rate and a negative weight lowers it. The resulting new spikes affect other cells in turn. Thus the weights set where a disturbance goes, the transfer function sets the rate response, and $\\tau$ sets how long each synaptic contribution lasts. The input $g_i$ is in the model's input units; it is not specified as a measured membrane voltage.",
+    "reason": "Complete the spike-to-input-to-rate causal chain."
+  },
+  {
+    "file": "02-memory-dynamics.md",
+    "old": "The entries of $K$ have units of inverse time.[^p1-projection]",
+    "new": "The entries of $K$ have units of inverse time.[^p1-projection]\n\nThe term $-\\delta_{ij}/\\tau$ removes a disturbance as synaptic activation fades. The term $\\phi'(\\bar g_i)W_{ij}$ describes recurrent renewal: the connection converts a change in cell $j$'s activation into input to cell $i$, and the local slope of the transfer function converts that input into a rate change. A steeper slope makes this response stronger. [Whether a disturbance decays, persists, or grows depends on the combined feedback through the whole network.]{.key-statement} A stronger connection alone does not establish better memory.",
+    "reason": "Read the two matrix terms as decay versus recurrent renewal."
+  },
+  {
+    "file": "02b-memory-long-delays.md",
+    "old": "Now $\\mathbf u=(1,1)^T$, $\\mathbf v=(1/2,1/2)^T$.",
+    "new": "Now $\\mathbf u=(1,1)^T$, $\\mathbf v=(1/2,1/2)^T$.\n\nHere $\\theta$ is an activation coordinate, not an angle, and both steady rates are positive only when $\\theta>|b_0|/2$. When both activations rise together, each cell raises the other's firing enough to replace the extra synaptic decay. This common increase persists and changes the stored value. A disturbance in their difference instead decays toward the difference set by the biases. Larger $\\theta$ raises both firing rates and hence both Poisson count variances. Because the projection weights stay fixed in this example, more of that variability remains as memory error.",
+    "reason": "Explain mutual excitation and why the noise changes with the stored activation."
+  },
+  {
+    "file": "03-memory-information.md",
+    "old": "Maintaining those curves requires retuning the network, because $\\bar s=\\tau\\bar r$.",
+    "new": "Maintaining those curves requires retuning the network, because $\\bar s=\\tau\\bar r$.\n\nAt fixed rates, longer-lasting spike effects give larger mean activations. The activation difference between two nearby stored values also grows in proportion to $\\tau$. In this symmetric comparison, one spike's unit activation change therefore produces a smaller displacement of the stored value: the projection weights scale as $1/\\tau$. The spike variance per unit time stays fixed, so the retained variance scales as $1/\\tau^2$.",
+    "reason": "Explain why slower synaptic decay changes diffusion in the controlled comparison."
+  },
+  {
+    "file": "03-memory-information.md",
+    "old": "The spike variance per unit time stays fixed, so the retained variance scales as $1/\\tau^2$. In contrast,",
+    "new": "The spike variance per unit time stays fixed, so the retained variance scales as $1/\\tau^2$.\n\nIn contrast,",
+    "reason": "Separate the two different controlled comparisons."
+  },
+  {
+    "file": "03b-memory-readout.md",
+    "old": "[The [**hyperbolic tangent**]{.definition-term custom-style=\"Definition Term\"} is $\\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$.]{.definition-explanation} [Its [**inverse hyperbolic tangent**]{.definition-term custom-style=\"Definition Term\"} on $(-1,1)$ is $\\operatorname{artanh}z=\\tfrac12\\log[(1+z)/(1-z)]$, whose derivative is $1/(1-z^2)$.]{.definition-explanation} Initially no observation means zero precision. The term $J$ adds new information; the term $2DP^2$ accounts for uncertainty when carrying that information backward through diffusion. Set $a=\\sqrt{J/(2D)}$ and $k=\\sqrt{2DJ}$. Separating variables gives\n\n$$\n\\int_0^{P/a}\\frac{dz}{1-z^2}=kL,\n\\qquad\n\\operatorname{artanh}(P/a)=kL.\n$$\n\nTaking the inverse function and then the reciprocal yields\n\n$$\nP(L)=\\sqrt{\\frac{J}{2D}}\\tanh(\\sqrt{2DJ}\\,L),\n$$\n\n$$\n\\boxed{V_{\\mathrm{ideal}}(L)\n=\\sqrt{\\frac{2D}{J}}\\coth(\\sqrt{2DJ}\\,L).}\n$$\n\n[The [**hyperbolic cotangent**]{.definition-term custom-style=\"Definition Term\"} is $\\coth z=1/\\tanh z$.]{.definition-explanation} This backward precision derivation is a teaching reconstruction equivalent to the Gaussian covariance calculation in SI Eqs. S58\u2013S75. It makes explicit how diffusion limits the value of later observations.[^p1-ideal]\n\nFor short intervals, $\\coth z=1/z+z/3+O(z^3)$, so\n\n$$\nV_{\\mathrm{ideal}}(L)=\\frac1{JL}+\\frac{2DL}{3}+O(L^3).\n$$\n\nThe naive and ideal estimators therefore agree through the displayed terms.",
+    "new": "Initially no observation means zero precision. The term $J$ adds new information; the term $2DP^2$ accounts for uncertainty when carrying that information backward through diffusion.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical solution: hyperbolic functions and finite-time readout error\"}\n\n[The [**hyperbolic tangent**]{.definition-term custom-style=\"Definition Term\"} is $\\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$.]{.definition-explanation} [Its [**inverse hyperbolic tangent**]{.definition-term custom-style=\"Definition Term\"} on $(-1,1)$ is $\\operatorname{artanh}z=\\tfrac12\\log[(1+z)/(1-z)]$, whose derivative is $1/(1-z^2)$.]{.definition-explanation} Set $a=\\sqrt{J/(2D)}$ and $k=\\sqrt{2DJ}$. Separating variables gives\n\n$$\n\\int_0^{P/a}\\frac{dz}{1-z^2}=kL,\n\\qquad\n\\operatorname{artanh}(P/a)=kL.\n$$\n\nTaking the inverse function and then the reciprocal yields\n\n$$\nP(L)=\\sqrt{\\frac{J}{2D}}\\tanh(\\sqrt{2DJ}\\,L),\n$$\n\n$$\n\\boxed{V_{\\mathrm{ideal}}(L)\n=\\sqrt{\\frac{2D}{J}}\\coth(\\sqrt{2DJ}\\,L).}\n$$\n\n[The [**hyperbolic cotangent**]{.definition-term custom-style=\"Definition Term\"} is $\\coth z=1/\\tanh z$.]{.definition-explanation} This backward precision derivation is a teaching reconstruction equivalent to the Gaussian covariance calculation in SI Eqs. S58\u2013S75. It makes explicit how diffusion limits the value of later observations.[^p1-ideal]\n\nFor short intervals, $\\coth z=1/z+z/3+O(z^3)$, so\n\n$$\nV_{\\mathrm{ideal}}(L)=\\frac1{JL}+\\frac{2DL}{3}+O(L^3).\n$$\n\nThe naive and ideal estimators therefore agree through the displayed terms.\n\n:::",
+    "reason": "Fold formal function definitions and solution while keeping information gain and loss visible."
+  },
+  {
+    "file": "04-eye-drift.md",
+    "old": "These are the paired signs in the paper's Eq. 7, with $\\tau_+>\\tau_-$ when $k,r,m>0$ and $r^2>4km$.",
+    "new": "These are the paired signs in the paper's Eq. 7, with $\\tau_+>\\tau_-$ when $k,r,m>0$ and $r^2>4km$.\n\nAt rest, the inverse equation gives $x=f/k$: with the threshold fixed, doubling $k$ halves the position offset predicted from the same steady firing rate. During a change, $r$ and $m$ also affect the response through the two timescales. This is a consequence of the fitted relationship, not evidence that changing one recorded neuron's rate alone sets eye position.",
+    "reason": "Interpret fitted parameters without reversing a descriptive fit into a single-cell causal claim."
+  },
+  {
+    "file": "04-eye-drift.md",
+    "old": "Multiplying by position, velocity, and acceleration gives spikes/s in all three terms.",
+    "new": "Multiplying by position, velocity, and acceleration gives spikes/s in all three terms.\n\nThe position term describes ongoing firing associated with holding the eye at an angle. The velocity term allows a different rate while the eye passes through that same angle; the acceleration term allows another change while its velocity changes. Thus $k$, $r$, and $m$ describe different demands on the motor signal. They are fitted coefficients of the combined neural and mechanical relationship. In particular, $m$ is not a direct measurement of the eye's mass.",
+    "reason": "Explain why position, velocity and acceleration affect the motor signal differently."
+  },
+  {
+    "file": "04b-eye-timing.md",
+    "old": "\\tau\\dot E+E=B,\\qquad dB=\\sqrt{2D}\\,dW.\n$$",
+    "new": "\\tau\\dot E+E=B,\\qquad dB=\\sqrt{2D}\\,dW.\n$$\n\nHere $B$ is the changing position command and $E$ is the eye angle that follows it, both in degrees. The mismatch $B-E$ drives velocity: a command to the right of the current position makes the eye move right. For the same mismatch, a larger response time $\\tau$ gives a smaller velocity, so the eye takes longer to catch up and smooths rapid command changes more strongly. This response time belongs to the simplified eye filter; it is not automatically the synaptic decay time used in the memory model.",
+    "reason": "Translate the filter equation into a physical command-response mechanism."
+  },
+  {
+    "file": "04b-eye-timing.md",
+    "old": "which grows linearly rather than approaching a plateau.",
+    "new": "which grows linearly rather than approaching a plateau.\n\nHolding the internal diffusion coefficient $D$ fixed, increasing $\\tau$ reduces short-lag displacement and moves the transition to linear growth to longer lags. It does not stop accumulating error: the long-lag MSD growth rate still approaches $2D$. Increasing $D$ instead raises the entire MSD curve in proportion, at fixed $\\tau$.",
+    "reason": "Separate input noise strength from response speed in the observable curve."
+  },
+  {
+    "file": "05-place-fields.md",
+    "old": "In the paper's Equation 3 the firing rate is proportional to $[h-q\\sigma_h]_+$, which is equivalent to this form after choosing the gain.[^p3-model]",
+    "new": "In the paper's Equation 3 the firing rate is proportional to $[h-q\\sigma_h]_+$, which is equivalent to this form after choosing the gain.[^p3-model]\n\nThe input threshold summarizes how much combined input is needed before the model cell fires. It can reflect the cell's own response properties and inhibitory input. Raising $q$ at a fixed input map leaves fewer positions active. If the absolute threshold above the input mean is positive and held fixed, increasing the input standard deviation $\\sigma_h$ lowers $q$, making activity more widespread. Changing $a$ instead changes rates within active regions while preserving their zero-rate boundaries. A fixed positive detection cutoff in Hz would change this last conclusion. [A fitted threshold describes the balance of input and response; it does not identify which biological quantity changed.]{.key-statement}",
+    "reason": "Map normalized threshold and firing gain to different biological or measurement changes."
+  },
+  {
+    "file": "05-place-fields.md",
+    "old": "[A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} is a probability distribution over functions such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} For positions $x_1,\\ldots,x_n$, the vector $(h(x_1),\\ldots,h(x_n))$ therefore has a multivariate Gaussian distribution. Its mean vector and covariance matrix are obtained by evaluating two functions,\n\n$$\nm(x)=\\mathbb E[h(x)],\\qquad\nC(x,y)=\\mathbb E[(h(x)-m(x))(h(y)-m(y))].\n$$\n\nThe expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine every finite joint distribution. A Gaussian process can thus produce many different curves while keeping a precise rule for their spatial dependence. [A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} For this family, zero covariance between two subvectors implies their independence. That extra property, which does not hold for general distributions, will simplify the crossing calculation. The values after thresholding will generally not have a Gaussian distribution.[^p3-model]",
+    "new": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical definitions: Gaussian processes and spatial covariance\"}\n\n[A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} is a probability distribution over functions such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} For positions $x_1,\\ldots,x_n$, the vector $(h(x_1),\\ldots,h(x_n))$ therefore has a multivariate Gaussian distribution. Its mean vector and covariance matrix are obtained by evaluating two functions,\n\n$$\nm(x)=\\mathbb E[h(x)],\\qquad\nC(x,y)=\\mathbb E[(h(x)-m(x))(h(y)-m(y))].\n$$\n\nThe expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine every finite joint distribution. A Gaussian process can thus produce many different curves while keeping a precise rule for their spatial dependence. [A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} For this family, zero covariance between two subvectors implies their independence. That extra property, which does not hold for general distributions, will simplify the crossing calculation. The values after thresholding will generally not have a Gaussian distribution.[^p3-model]\n\n:::",
+    "reason": "Fold formal mathematics while retaining its interpretation in the main reading path."
+  },
+  {
+    "file": "05-place-fields.md",
+    "old": "::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical definitions: Gaussian processes and spatial covariance\"}",
+    "new": "The model assigns a random input value to each position, with nearby values linked so that a cell can have a continuous active region. A **Gaussian process** specifies a distribution of such maps. Its mean sets the average input, and its spatial covariance describes how inputs at two positions vary together across possible maps. The chosen covariance must also make the maps smooth enough for the derivatives used below. After a map is drawn, moving the animal changes which position is evaluated, not the map itself.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Mathematical definitions: Gaussian processes and spatial covariance\"}",
+    "reason": "Keep the physical map and covariance roles visible ahead of the formal definition."
+  },
+  {
+    "file": "05c-place-tests.md",
+    "old": "The statistical model becomes biologically useful if it suggests how a circuit could make the maps. A random weighted sum of many inputs is one possible mechanism, and the supplement makes its assumptions explicit.",
+    "new": "The statistical model becomes biologically useful if it suggests how a circuit could make the maps. A random weighted sum of many inputs is one possible mechanism, and the supplement makes its assumptions explicit.\n\nAt position $x$, each input cell contributes according to its spatial firing profile. Fixed connection weights determine how those contributions combine at the receiving cell. The source treats the sum as effective input relative to a background that can be balanced through inhibition or regulation of excitation and inhibition. The signed random weights below are part of this simplified input model; they do not establish the signs of individual biological synapses.",
+    "reason": "Explain the physical objects and the scope of signed random weights before summation."
+  },
+  {
+    "file": "05c-place-tests.md",
+    "old": "&=v_W\\sum_i u_i(x)u_i(y).\n\\end{aligned}\n$$",
+    "new": "&=v_W\\sum_i u_i(x)u_i(y).\n\\end{aligned}\n$$\n\nThe same fixed weight multiplies an input cell's activity at both positions. For positive input profiles, cells active at both $x$ and $y$ therefore make positive contributions to covariance across possible weight choices. Little overlap gives a smaller contribution. For profiles defined as deviations from background, the products can also be negative. Broad input profiles can produce broad spatial covariance, as the Gaussian example below shows.",
+    "reason": "Interpret spatial covariance as shared weighted spatial input, retaining sign qualifications."
+  },
+  {
+    "file": "05c-place-tests.md",
+    "old": "For input profiles with different shapes, average the last integral over the distribution of those shapes, as in Methods S2, Equation S8.",
+    "new": "For input profiles with different shapes, average the last integral over the distribution of those shapes, as in Methods S2, Equation S8.\n\nAt fixed profile shape, increasing the weight variance $v_W$ or input density $\\rho$ increases the covariance amplitude. It does not change the normalized spatial dependence in this construction. Widening each input profile instead broadens the distances over which positions share input. These are different changes: input amplitude can alter the effective threshold $q$ when the absolute threshold is held fixed, whereas input width changes the spatial scale.",
+    "reason": "Separate input strength and density from spatial width in the model parameters."
+  }
+]

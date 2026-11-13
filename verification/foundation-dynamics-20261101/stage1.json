@@ -1,0 +1,83 @@
+{
+  "stage": 1,
+  "kind": "truth-and-reasoning",
+  "local_request_id": "foundation-dynamics-review-stage1-20261101",
+  "reviewer": "/root/foundation_dynamics_review",
+  "scope": "Chapter 1 opening through tuning paragraph; Chapter 3 opening through weak-noise section; corresponding sidecar and changed glossary entries. No whole-book or visual acceptance.",
+  "started_utc": "2026-11-01T11:42:33Z",
+  "completed_utc": "2026-11-01T11:43:47.610211+00:00",
+  "task_start_utc": "2026-11-01T11:36:24Z",
+  "awake_execution_time": "unverified",
+  "source_hashes_sha256": {
+    "content/chapters/01-foundations.md": "8f6ec9650dc8116466813c8d55004bd90ad63af7f70b4247c706ed1ec509c6f3",
+    "content/chapters/01-foundations.yaml": "356ea6ef6ff17e3247d182aad14c7981c1e60ec4cb7639e2c8cc9e0caaefd9f3",
+    "content/chapters/02-memory-dynamics.md": "3ba6ab1511bf25357d5491cd6d8a4a3db3a8d664066fb51446ab9ed696cf5663",
+    "content/chapters/02-memory-dynamics.yaml": "45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac",
+    "content/chapters/glossary.md": "8b616c8b2336eeb82cfea945b2406a2422381fcdc3c599d5763be6872d438218"
+  },
+  "rule_hashes_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "references/structural-preservation-contract.md": "8f7b052a3a2ccf194966574da3ad88e69d5d5746f195ffffa59e97d25dbe8a35"
+  },
+  "verdict": "pass within reviewed scope",
+  "checks": [
+    {
+      "passage": "01-foundations.md:1-34",
+      "answer": "Eye holding motivates sustained neural firing; motor spikes, muscle torque, and damping remain separate from circuit synaptic dynamics. The new transition explicitly changes from motor output to neurons acting on one another. No anatomical or physical claim changed except this transition.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:36-55",
+      "answer": "Eq. 7 has one unit delta pulse per spike. Integrating over a spike gives jump +1; between spikes ds/dt=-s/tau. There is no missing tau multiplier under the declared dimensionless activation convention. A delta pulse has inverse-time units, so both sides have inverse-time units. The coordinator supplied a direct page-5 source check; this review checks the mathematical consequences.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:57-78",
+      "answer": "The count-process increment form is the integrated delta-train equation. The exponential sum is the decaying response to past unit jumps, with initial-state transients explicitly excluded. The same sum and count form were moved from the frozen Chapter 3 baseline without changing their mathematics. The existing figure caption keeps five illustrative spikes, unit jumps, and 50 ms decay, and its block is now placed beside this explanation.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:80-104",
+      "answer": "W_ij acts from presynaptic j onto receiving i. Because s_j increases by one, the immediate g_i change is W_ij. Positive/negative rate effects are explicitly conditional on an increasing transfer function. Fixed weights, constant input biases, and common decay time are preserved. Nonnegative rate and input units are stated, and no membrane-voltage measurement is asserted. Rate-setting equations are correctly distinguished from a complete spike-time rule.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:108-110",
+      "answer": "r_i,0 is a firing-rate baseline in spikes per second. b_i is an input bias in input units; the revision explicitly distinguishes them. k_i has rate-per-angle units. The local linear model is restricted where negative firing would otherwise occur.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:1-37",
+      "answer": "The new opening refers back to the complete circuit model and keeps the tuned-continuous-family and weak-input-fluctuation hypotheses here. Conditional independence across cells is not mistaken for unconditional independence of recurrent spike trains. Poisson count means/covariances and the compensated-noise split remain unchanged from baseline.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:39-63",
+      "answer": "The Gaussian approximation is restricted to small aggregate input fluctuations; the text explicitly avoids claiming that each whole spike train is Gaussian. Brownian coefficient units are correct. Population replication with weights 1/n keeps the mean and reduces leading input variance as 1/n. Noise-free fixed points satisfy sbar=tau*rbar. The tuned-network limit and warning about arbitrary recurrent networks remain.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.yaml:21-57; 02-memory-dynamics.yaml:16-20; glossary.md:25,114",
+      "answer": "Section entries match the moved model and new weak-noise heading. The existing spike-trace block has moved with its caption, alt text, dimensions, and asset path intact. The new synaptic-activation glossary definition agrees with the outgoing trace and weighted receiving input. The Dirac-delta glossary entry is unchanged and still describes its later probability-initial-condition use; the new dynamics paragraph supplies the impulse meaning directly.",
+      "verdict": "retain"
+    }
+  ],
+  "defects": [],
+  "optional_notes": [
+    {
+      "location": "01-foundations.md:67-71",
+      "note": "Inherited strict spike-time inequality gives the value immediately before a spike. A <= convention would give the usual right-continuous count-process value at spike instants. Away from the isolated events they agree, so this does not alter the dynamics or any claim under review."
+    },
+    {
+      "location": "glossary.md:25",
+      "note": "Optional lookup improvement: the existing Dirac-delta entry could also mention the unit time impulse now taught in Chapter 1. The current entry is true but covers only its probability use."
+    }
+  ],
+  "limits": [
+    "Source equation page check supplied by coordinator, not independently rediscovered.",
+    "Existing figure metadata reviewed, image pixels not reviewed.",
+    "Stages 2 and 3 not performed."
+  ]
+}

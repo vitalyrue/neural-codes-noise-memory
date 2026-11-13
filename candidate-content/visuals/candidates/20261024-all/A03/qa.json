@@ -1,0 +1,83 @@
+{
+  "asset_id": "A03",
+  "route": "deterministic-scientific-vector",
+  "status": "pass",
+  "checks": {
+    "all_rates_positive": true,
+    "baseline_difference_constant_20": true,
+    "peak_slope_and_information_zero": true,
+    "extra_baseline_reduces_information": true,
+    "svg_color_tokens_in_profile": true
+  },
+  "text_outside_canvas": [],
+  "visible_labels": [
+    "Rate (spikes/s)",
+    "0",
+    "20",
+    "40",
+    "60",
+    "80",
+    "$r_A$: baseline 5 Hz",
+    "$r_B$: baseline 25 Hz",
+    "Same derivative for both curves",
+    "Slope (spikes s$^{-1}$ rad$^{-1}$)",
+    "\u221240",
+    "\u221220",
+    "0",
+    "20",
+    "40",
+    "Memory coordinate $\\theta$ (rad)",
+    "\u22122",
+    "\u22121",
+    "0",
+    "1",
+    "2",
+    "Contribution (rad$^{-2}$ s$^{-1}$)",
+    "0",
+    "30",
+    "60"
+  ],
+  "insertion_width_px": 700,
+  "svg_sha256": "d3c01b93267813c751bb96b2fc192f15327dd170e3f497024d5b0f395236a86f",
+  "png_sha256": "043d067e7ee2b76bd7db1fd752c6e15aae8fbbb5af672127cab75dd117425442",
+  "spec_sha256": "faae6cfb12b88eedbc328debb1ce1312becb47cdc83a998c382aa75387e280b5",
+  "profile": "house-graphic-v1",
+  "profile_version": "0.1.0",
+  "automatic_gates": "pass",
+  "issues": [],
+  "warnings": [],
+  "palette_token_check": {
+    "used": [
+      "#0f6b78",
+      "#17365d",
+      "#19202c",
+      "#5d6876",
+      "#9aa7b5",
+      "#fffdf7",
+      "#ffffff"
+    ],
+    "outside_profile": []
+  },
+  "palette_family": "technical-editorial-blueprint",
+  "palette_profile": "house-graphic-v1",
+  "limits": "Computed checks and canvas bounds only; independent image/meaning/readability review required.",
+  "details": {
+    "parameters": {
+      "baseline_A_Hz": 5,
+      "baseline_B_Hz": 25,
+      "peak_above_baseline_Hz": 35,
+      "width_rad": 0.6,
+      "theta_range_rad": [
+        -2,
+        2
+      ]
+    },
+    "formulas": {
+      "rA": "5+35 exp(-theta\u00b2/(2*.6\u00b2))",
+      "rB": "rA+20",
+      "derivative": "-theta/.6\u00b2 *35 exp(-theta\u00b2/(2*.6\u00b2))",
+      "information": "derivative\u00b2 / own rate"
+    },
+    "data_status": "Analytic teaching functions, no claim of a realized recurrent attractor."
+  }
+}

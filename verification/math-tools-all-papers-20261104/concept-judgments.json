@@ -1,0 +1,599 @@
+{
+  "audience": {
+    "status": "reviewed",
+    "description": "Physics and computer science baseline with calculus, linear algebra, probability, expected value, variance, standard deviation and density. Neural shared-source, filtering and spatial-map meanings need teaching.",
+    "assumed_concepts": [
+      "calculus",
+      "linear algebra",
+      "probability",
+      "expected value",
+      "variance",
+      "standard deviation",
+      "probability density"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "shared-covariance",
+      "aliases": [
+        "covariance",
+        "correlation",
+        "calibrated shared fraction"
+      ]
+    },
+    {
+      "id": "causal-filter",
+      "aliases": [
+        "causal filter",
+        "impulse response",
+        "convolution"
+      ]
+    },
+    {
+      "id": "filtered-noise-diffusion",
+      "aliases": [
+        "filtered white noise",
+        "filtered diffusion"
+      ]
+    },
+    {
+      "id": "gaussian-map",
+      "aliases": [
+        "Gaussian random field",
+        "jointly Gaussian",
+        "spatial covariance"
+      ]
+    },
+    {
+      "id": "upcrossing",
+      "aliases": [
+        "upcrossing",
+        "Kac Rice"
+      ]
+    },
+    {
+      "id": "high-peak-size",
+      "aliases": [
+        "peak excess",
+        "high peak geometry"
+      ]
+    }
+  ],
+  "sections": {
+    "ch:MATHEMATICAL-TOOLS/s0": "unreviewed",
+    "ch:MATHEMATICAL-TOOLS/s1": "unreviewed",
+    "ch:MATHEMATICAL-TOOLS/s2": "unreviewed",
+    "ch:MATHEMATICAL-TOOLS/s3": "unreviewed",
+    "ch:MATHEMATICAL-TOOLS/s4": "reviewed",
+    "ch:MATHEMATICAL-TOOLS/s5": "reviewed",
+    "ch:MATHEMATICAL-TOOLS/s6": "reviewed",
+    "ch:MATHEMATICAL-TOOLS/s7": "reviewed",
+    "ch:FOUNDATIONS/s0": "unreviewed",
+    "ch:FOUNDATIONS/s1": "unreviewed",
+    "ch:FOUNDATIONS/s2": "unreviewed",
+    "ch:FOUNDATIONS/s3": "unreviewed",
+    "ch:FOUNDATIONS/s4": "unreviewed",
+    "ch:FOUNDATIONS/s5": "unreviewed",
+    "ch:FOUNDATIONS/s6": "reviewed",
+    "ch:MEMORY-READOUT/s0": "unreviewed",
+    "ch:MEMORY-READOUT/s1": "unreviewed",
+    "ch:MEMORY-READOUT/s2": "unreviewed",
+    "ch:MEMORY-READOUT/s3": "unreviewed",
+    "ch:MEMORY-READOUT/s4": "unreviewed",
+    "ch:MEMORY-READOUT/s5": "reviewed",
+    "ch:MEMORY-READOUT/s6": "unreviewed",
+    "ch:EYE-DRIFT/s0": "unreviewed",
+    "ch:EYE-DRIFT/s1": "unreviewed",
+    "ch:EYE-DRIFT/s2": "unreviewed",
+    "ch:EYE-DRIFT/s3": "unreviewed",
+    "ch:EYE-DRIFT/s4": "reviewed",
+    "ch:EYE-DRIFT/s5": "unreviewed",
+    "ch:EYE-DRIFT/s6": "reviewed",
+    "ch:EYE-TIMING/s0": "unreviewed",
+    "ch:EYE-TIMING/s1": "unreviewed",
+    "ch:EYE-TIMING/s2": "reviewed",
+    "ch:PLACE-FIELDS/s0": "reviewed",
+    "ch:PLACE-FIELDS/s1": "reviewed",
+    "ch:PLACE-FIELDS/s2": "reviewed",
+    "ch:PLACE-FIELDS/s3": "unreviewed",
+    "ch:PLACE-SIZES/s0": "reviewed",
+    "ch:PLACE-SIZES/s1": "reviewed",
+    "ch:PLACE-SIZES/s2": "unreviewed",
+    "ch:PLACE-SIZES/s3": "unreviewed",
+    "ch:PLACE-SIZES/s4": "unreviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p131",
+      "role": "teach",
+      "span": [
+        0,
+        530
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Main visible text defines centered shared variation, correlation normalization and private-noise dilution. Generic formulas in a fold are optional for the physical explanation.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p153",
+      "role": "teach",
+      "span": [
+        0,
+        437
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines shared displacement, gains, private contributions and independence before the displayed calibrated-share algebra.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p161",
+      "role": "teach",
+      "span": [
+        0,
+        323
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Main visible limit: correlation alone is not a variance fraction; calibrated gain and shared/private model are needed.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p153",
+      "role": "use",
+      "span": [
+        426,
+        436
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Covariance meaning is already complete in p131.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:FOUNDATIONS/p316",
+      "role": "use",
+      "span": [
+        0,
+        10
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Later neural displacement comparison uses covariance and correlation after the tools shared-signal section.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:EYE-DRIFT/p303",
+      "role": "use",
+      "span": [
+        179,
+        194
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "First calibrated shared-size calculation is preceded by explicit gain/independence teaching and its limits.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-covariance",
+      "passage_id": "ch:EYE-DRIFT/p319",
+      "role": "use",
+      "span": [
+        14,
+        24
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Expansion uses already taught covariance model; local assumptions p312-p317 restate its paper-specific version.",
+      "need": "required"
+    },
+    {
+      "concept_id": "causal-filter",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p185",
+      "role": "teach",
+      "span": [
+        0,
+        526
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines causal history dependence, surviving response to one unit impulse and summation by convolution before the displayed integral.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "causal-filter",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p191",
+      "role": "teach",
+      "span": [
+        0,
+        427
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Explains response time, units, differential equation and slow/fast response, making filtering physically meaningful before noise comparison.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "causal-filter",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p193",
+      "role": "use",
+      "span": [
+        309,
+        315
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "White-noise response depends on the decay filter already explained in p185-p191.",
+      "need": "required"
+    },
+    {
+      "concept_id": "causal-filter",
+      "passage_id": "ch:EYE-DRIFT/p152",
+      "role": "use",
+      "span": [
+        101,
+        117
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Reconstruction from spikes uses causal impulse response after the main-text tools definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "filtered-noise-diffusion",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p193",
+      "role": "teach",
+      "span": [
+        0,
+        637
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines continuous white-noise intensity without pointwise variance, then states stationary position and MSD plateau in main text.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "filtered-noise-diffusion",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p195",
+      "role": "teach",
+      "span": [
+        0,
+        420
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines accumulated position changes and continued long-lag MSD growth after filtering; distinguishes stationary increments from nonstationary position.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "filtered-noise-diffusion",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p201",
+      "role": "use",
+      "span": [
+        13,
+        24
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Worked calculation uses the already visible white-input meaning; the delta definition is taught inside its own explanatory example.",
+      "need": "required"
+    },
+    {
+      "concept_id": "filtered-noise-diffusion",
+      "passage_id": "ch:MEMORY-READOUT/p280",
+      "role": "use",
+      "span": [
+        237,
+        248
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "The continuous white-noise convention is already taught and is restated with its increment variance here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "filtered-noise-diffusion",
+      "passage_id": "ch:EYE-TIMING/p91",
+      "role": "use",
+      "span": [
+        317,
+        328
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Observed-MSD argument uses the already taught filtered-white-noise/accumulating-position distinction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p227",
+      "role": "teach",
+      "span": [
+        0,
+        614
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines a random field through all finite joint Gaussian laws and all linear combinations; explicitly rejects marginal Gaussianity alone.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p229",
+      "role": "teach",
+      "span": [
+        0,
+        249
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Separates drawing a fixed spatial map from redrawing values during movement.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p231",
+      "role": "teach",
+      "span": [
+        0,
+        780
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines spatial covariance across maps, joint-law determination by mean/covariance, stationarity and isotropy in visible main text.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p252",
+      "role": "teach",
+      "span": [
+        0,
+        457
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "States derivative and nondegeneracy requirements, and warns Gaussian values alone do not guarantee smoothness.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p243",
+      "role": "use",
+      "span": [
+        276,
+        279
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Correlation scale is introduced after the joint law and spatial covariance explanation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:PLACE-FIELDS/p25",
+      "role": "use",
+      "span": [
+        136,
+        152
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "The model uses finite joint Gaussian laws after their frontmatter meaning; p21 provides a backward link.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-map",
+      "passage_id": "ch:PLACE-FIELDS/p31",
+      "role": "use",
+      "span": [
+        151,
+        168
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Mean/covariance matrix evaluation applies the previously taught joint model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "upcrossing",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p256",
+      "role": "teach",
+      "span": [
+        0,
+        356
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Defines an upward threshold crossing and gives conditional positive-slope weighting before the displayed crossing-density result.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "upcrossing",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p263",
+      "role": "teach",
+      "span": [
+        0,
+        496
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Visible text explains why slope corrects threshold occupancy and states exactness under the smooth stationary Gaussian assumptions. Longer derivation is optional.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "upcrossing",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p276",
+      "role": "use",
+      "span": [
+        35,
+        40
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Endpoint field-count correction applies the upcrossing result already explained.",
+      "need": "required"
+    },
+    {
+      "concept_id": "upcrossing",
+      "passage_id": "ch:PLACE-FIELDS/p15",
+      "role": "preview",
+      "span": [
+        48,
+        58
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Chapter overview states the simple upcrossing meaning while previewing the later derivation."
+    },
+    {
+      "concept_id": "upcrossing",
+      "passage_id": "ch:PLACE-FIELDS/p127",
+      "role": "use",
+      "span": [
+        21,
+        31
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "First dependent counting argument has the conditional-slope and regularity teaching before Part II.",
+      "need": "required"
+    },
+    {
+      "concept_id": "upcrossing",
+      "passage_id": "ch:PLACE-FIELDS/p135",
+      "role": "use",
+      "span": [
+        272,
+        280
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Kac Rice derivation applies the previously explained slope-weighted count.",
+      "need": "required"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p278",
+      "role": "teach",
+      "span": [
+        0,
+        562
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Main text states per-field sampling, high-threshold isolated peaks, quadratic geometry and dimension-dependent size as excess to d/2.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p280",
+      "role": "teach",
+      "span": [
+        0,
+        339
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Main text supplies the missing probabilistic step: scaled excess has a unit exponential limiting law for per-field sampling.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p282",
+      "role": "teach",
+      "span": [
+        0,
+        563
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Visible text combines excess and geometry into different 1D/2D/3D survival laws and explains dimensional scale units.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p295",
+      "role": "use",
+      "span": [
+        28,
+        41
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Worked example applies a law already explained outside its fold.",
+      "need": "required"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:PLACE-SIZES/p9",
+      "role": "use",
+      "span": [
+        12,
+        16
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Later chapter overview explains deriving dimensional laws from the previously taught peak picture.",
+      "need": "required"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:PLACE-SIZES/p47",
+      "role": "use",
+      "span": [
+        8,
+        12
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Quadratic expansion uses already taught peak height/excess geometry; local Hessian meaning is independently supplied in p30.",
+      "need": "required"
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_id": "ch:PLACE-SIZES/p59",
+      "role": "use",
+      "span": [
+        78,
+        85
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Per-field excess calculation follows the prior main-text exponential limit and explicit sampling meaning.",
+      "need": "required"
+    }
+  ],
+  "teaching_sets": [
+    {
+      "concept_id": "filtered-noise-diffusion",
+      "passage_ids": [
+        "ch:MATHEMATICAL-TOOLS/p193",
+        "ch:MATHEMATICAL-TOOLS/p195"
+      ],
+      "adequacy": "adequate",
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "Together the visible paragraphs establish the critical fluctuating-versus-accumulating input distinction before folded calculations or later eye-timing comparisons."
+    },
+    {
+      "concept_id": "high-peak-size",
+      "passage_ids": [
+        "ch:MATHEMATICAL-TOOLS/p278",
+        "ch:MATHEMATICAL-TOOLS/p280",
+        "ch:MATHEMATICAL-TOOLS/p282"
+      ],
+      "adequacy": "adequate",
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T143717Z",
+      "evidence": "The entire necessary geometry, per-field excess distribution and change in dimensional size laws appears in main text before the optional worked example."
+    }
+  ]
+}

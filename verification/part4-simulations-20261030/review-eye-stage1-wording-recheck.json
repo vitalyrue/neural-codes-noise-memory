@@ -1,0 +1,47 @@
+{
+  "review_stage": "Focused Stage1 meaning recheck after wording repairs",
+  "local_request_id": "eye-stage1-wording-recheck-20261030-171046",
+  "reviewer": "/root/sim_sources_eye",
+  "started_utc": "2026-10-30T17:10:46.7510113Z",
+  "finished_utc": "2026-10-30T17:13:09.0871615Z",
+  "input_hashes": {
+    "content/chapters/12-simulating-eye-drift.md": "0779a13e44fbe1c236d735aee46d088be6ff3dc82ec43315c2a3a3508b869eca",
+    "content/chapters/12-simulating-eye-drift.yaml": "fbac628357558caabadd4453eb84e37c170a0691130b29a68a529ac8da4c0a76",
+    "content/chapters/14-simulation-tools.md": "1a724a61fd26b530d38e49fa5d846bec03189331f24ddbf2e001f33a8f1dd1a3",
+    "content/chapters/14-simulation-tools.yaml": "a3680dc6a5b4d191f09c3e400ae1a998173a0241b6a0bf2a5dc020cc86883fd3",
+    "content/chapters/00-reading-guide.md": "e7b4a9f9c211997f035ae54d01a639837e26df327af064edd40365702bb8943a",
+    "content/chapters/00-reading-guide.yaml": "2c2e155e813fff4ecfee69548ea35e455c656e9f925aacde7b4db2255ddb1ccd",
+    "content/chapters/glossary.md": "72e50eae89687eac9b98e9b53e227bb28801d2276bc24bbd59222bbff24794bd",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "verification/part4-simulations-20261030/wording-repairs.json": "ea3dad4c3c5c32ed2f0dd638ccc56fe3134e20317de52b9f38228f845469a531",
+    "verification/part4-simulations-20261030/vale-current.json": "5fa40f7f5c7b88906babf9c6051e41f05bf05124aadeb5f20c4736c565cc0eee"
+  },
+  "rule_hashes": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:/dev/clsc/burak-papers/guide/.vale.ini": "8e482af74d0d52cac20c6586b0ec53e21e59a103083675a0734fb230e2fb2c5a"
+  },
+  "verdict": "pass; no new meaning finding",
+  "focused_claim": {
+    "id": "EYE-S2-04",
+    "file": "content/chapters/12-simulating-eye-drift.md",
+    "line": 26,
+    "answer": "Correct for the constant-rate thinning construction described in the paragraph. Candidate events have rate M*lambda. Keeping every Mth event gives retained interval mean M/(M*lambda)=1/lambda and variance M/(M*lambda)^2=1/(M*lambda^2). Hence mean rate remains lambda and CV is 1/sqrt(M). The stated more-regular-than-Poisson model has M>1; M=1 would leave variability unchanged. The paragraph does not apply independent constant-rate intervals to the complete recurrent network at changing rates.",
+    "source": "Ben-Shushan et al.2022 main p.11, Sub-Poisson spike trains, explicitly states average firing unchanged and CV reduced; earlier 04c-eye-circuit.md lines130-146 gives the interval derivation."
+  },
+  "other_repairs": {
+    "EYE_S2_01": "Authors now perform the causal test; physiological constraints and parameter nonuniqueness retained.",
+    "EYE_S2_02": "Sentence split changes no filter role or cross-reference.",
+    "EYE_S2_03": "Circuit structure denotes inherited arrangement; range of persistent mean-rate commands and distinction from trace fitting remain. Deleted sentence repeated this, not a condition.",
+    "EYE_S2_05": "Both neuron-count ambiguity and Eq35/code regression mismatch remain; redundant source-management conclusion removed.",
+    "EYE_S2_06": "Retained internal spiking and removal of output noise remain distinct.",
+    "EYE_S2_07": "Data columns, time resolution and empirical/model/processed-MSD tasks all retained.",
+    "EYE_S2_08": "A run now tests behavior; original, independent and reduced models remain distinct.",
+    "EYE_S2_09": "Full simulations preserves the no-full-run scope of campaigns; no animal reprocessing remains explicit.",
+    "EYE_S2_10": "Remains after reasonable changes preserves numerical-robustness scope.",
+    "EYE_S2_11": "Removing now changes only editing-history wording; labels unchanged."
+  },
+  "findings": [],
+  "limits": "No Stage3 approval, full simulation, visual check or manuscript edit. Old whole-book and figure holds remain. Awake time unverified; elapsed time uses UTC.",
+  "token_stats": "unavailable"
+}

@@ -1,0 +1,423 @@
+{
+  "audience": {
+    "status": "reviewed",
+    "description": "Undergraduate calculus, linear algebra and basic probability, with expectation/variance/SD/density known. At ch20 entry, the earlier place-field sequence has taught Gaussian fields, covariance, thresholds, scale, likelihood comparisons, high-threshold laws, Betti/EC and median filtering; these specific prior teachings were checked, not inferred from expertise.",
+    "assumed_concepts": [
+      "elementary_probability",
+      "normal_distribution",
+      "spatial_gaussian_field",
+      "spatial_covariance",
+      "rate_threshold",
+      "spatial_scale",
+      "connected_field",
+      "parameter_fitting",
+      "lognormal_likelihood",
+      "high_threshold_limit",
+      "betti_euler",
+      "median_filter"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "elementary_probability",
+      "aliases": [
+        "expectation",
+        "variance",
+        "standard deviation",
+        "probability density"
+      ]
+    },
+    {
+      "id": "normal_distribution",
+      "aliases": [
+        "normally distributed",
+        "Gaussian"
+      ]
+    },
+    {
+      "id": "spatial_gaussian_field",
+      "aliases": [
+        "Gaussian input field",
+        "Gaussian process"
+      ]
+    },
+    {
+      "id": "spatial_covariance",
+      "aliases": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "rate_threshold",
+      "aliases": [
+        "threshold",
+        "gain"
+      ]
+    },
+    {
+      "id": "spatial_scale",
+      "aliases": [
+        "spatial correlation scale",
+        "local correlation scale"
+      ]
+    },
+    {
+      "id": "connected_field",
+      "aliases": [
+        "connected nonzero regions",
+        "fields"
+      ]
+    },
+    {
+      "id": "parameter_fitting",
+      "aliases": [
+        "match",
+        "fitted statistic"
+      ]
+    },
+    {
+      "id": "lognormal_likelihood",
+      "aliases": [
+        "lognormal",
+        "likelihood-based criteria"
+      ]
+    },
+    {
+      "id": "high_threshold_limit",
+      "aliases": [
+        "high-threshold analytical laws",
+        "limiting formulas"
+      ]
+    },
+    {
+      "id": "betti_euler",
+      "aliases": [
+        "Betti numbers",
+        "Euler characteristic"
+      ]
+    },
+    {
+      "id": "median_filter",
+      "aliases": [
+        "median filter"
+      ]
+    },
+    {
+      "id": "gaussian_filter",
+      "aliases": [
+        "Gaussian filter",
+        "Gaussian smoothing filter"
+      ]
+    },
+    {
+      "id": "rms_normalization",
+      "aliases": [
+        "root mean square"
+      ]
+    },
+    {
+      "id": "bin_measurement",
+      "aliases": [
+        "grid-bin boundaries",
+        "physical lengths"
+      ]
+    },
+    {
+      "id": "volume_measurement",
+      "aliases": [
+        "bin volume",
+        "mean volume"
+      ]
+    }
+  ],
+  "sections": {
+    "ch:SIMULATING-PLACE/s0": "reviewed",
+    "ch:SIMULATING-PLACE/s1": "reviewed",
+    "ch:SIMULATING-PLACE/s2": "reviewed",
+    "ch:SIMULATING-PLACE/s3": "reviewed",
+    "ch:SIMULATING-PLACE/s4": "reviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "spatial_gaussian_field",
+      "passage_id": "ch:SIMULATING-PLACE/p7",
+      "role": "use",
+      "span": [
+        42,
+        69
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier ch:PLACE-FIELDS/sec:PLACE-GP teaches a distribution over functions with jointly Gaussian finite samples; this passage recaps the object, rather than defining it from a name.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_covariance",
+      "passage_id": "ch:SIMULATING-PLACE/p7",
+      "role": "use",
+      "span": [
+        111,
+        178
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-GP gives C(x,y)=E[(h(x)-m(x))(h(y)-m(y))] and states the expectation runs over maps. This recap is enough for the covariance role used here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "rate_threshold",
+      "passage_id": "ch:SIMULATING-PLACE/p13",
+      "role": "use",
+      "span": [
+        12,
+        39
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-GP teaches z, q, a and positive-part firing rule; the local formula and symbol paragraph preserve those meanings and units.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_scale",
+      "passage_id": "ch:SIMULATING-PLACE/p13",
+      "role": "use",
+      "span": [
+        153,
+        178
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-FIELDS derives the local spatial scale from covariance curvature. The guide is not asking the reader to infer it from a bare name here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "normal_distribution",
+      "passage_id": "ch:SIMULATING-PLACE/p17",
+      "role": "use",
+      "span": [
+        17,
+        37
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Elementary probability is declared; earlier jointly Gaussian teaching and the spatial model establish why these random input values belong to the construction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p18",
+      "role": "teach",
+      "span": [
+        28,
+        43
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The repaired sentence defines weighted averaging of nearby values and immediately explains shared inputs as the reason neighboring outputs correlate. Gaussian distance profile is given by the matching glossary and Gaussian-width material. Adequate for this methods summary before p54 uses filter width.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p18",
+      "role": "teach",
+      "span": [
+        194,
+        251
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "This supplies the causal step from the averaging operation to spatial correlation; it is no longer a label plus unexplained consequence.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "rms_normalization",
+      "passage_id": "ch:SIMULATING-PLACE/p19",
+      "role": "teach",
+      "span": [
+        19,
+        95
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The divisor is fully specified for the generated map and the next sentence states the resulting sampled RMS of one. The required averaging and squaring operations belong to the audience baseline.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "rate_threshold",
+      "passage_id": "ch:SIMULATING-PLACE/p20",
+      "role": "use",
+      "span": [
+        0,
+        61
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier threshold rule and current formula establish what the two actions do; the ordered procedure applies them after normalization.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connected_field",
+      "passage_id": "ch:SIMULATING-PLACE/p21",
+      "role": "use",
+      "span": [
+        12,
+        47
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-GP excursion sets and PLACE-TESTS connected components teach the geometry. This is the measurement that turns the array into fields.",
+      "need": "required"
+    },
+    {
+      "concept_id": "parameter_fitting",
+      "passage_id": "ch:SIMULATING-PLACE/p31",
+      "role": "teach",
+      "span": [
+        75,
+        133
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The 200m/6m/2D/3D summaries immediately before this sentence instantiate the definition. The remaining paragraph explains why fitted and additional quantities supply different evidence.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "lognormal_likelihood",
+      "passage_id": "ch:SIMULATING-PLACE/p33",
+      "role": "use",
+      "span": [
+        55,
+        115
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-DATA defines lognormal through log lengths, explains likelihood as assigned probability/density and distinguishes in-sample comparisons. This passage summarizes the same comparison, not a new criterion requiring a tutorial.",
+      "need": "required"
+    },
+    {
+      "concept_id": "high_threshold_limit",
+      "passage_id": "ch:SIMULATING-PLACE/p33",
+      "role": "use",
+      "span": [
+        225,
+        255
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-SIZES motivates the high-peak/parabolic limit and distinguishes exact slope laws; the current sentence states why finite-threshold simulation adds a different comparison.",
+      "need": "required"
+    },
+    {
+      "concept_id": "elementary_probability",
+      "passage_id": "ch:SIMULATING-PLACE/p35",
+      "role": "use",
+      "span": [
+        164,
+        208
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Known variance/spread plus the stated repeat unit are sufficient to interpret sampling variation; no new estimator formula is required by the claim.",
+      "need": "required"
+    },
+    {
+      "concept_id": "bin_measurement",
+      "passage_id": "ch:SIMULATING-PLACE/p43",
+      "role": "teach",
+      "span": [
+        28,
+        111
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Specifies which bins are grouped and the physical output. Earlier source processing identifies spatial grid bins; next sentence makes edge placement explicit.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "volume_measurement",
+      "passage_id": "ch:SIMULATING-PLACE/p44",
+      "role": "teach",
+      "span": [
+        58,
+        97
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The physical volume is reconstructed from resolved components and spatial voxel volume. Undergraduate geometry supplies multiplication of axis lengths; the 10cm resolution is stated two paragraphs later as source-specific context, not a prerequisite for the general operation.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "betti_euler",
+      "passage_id": "ch:SIMULATING-PLACE/p46",
+      "role": "use",
+      "span": [
+        71,
+        141
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-TESTS explicitly teaches components, loops and cavities and their signs in each dimension. This passage identifies the implementing library and recalls the operation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "median_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p48",
+      "role": "use",
+      "span": [
+        63,
+        76
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-DATA defines replacement by the middle-ranked neighboring rate and explains effects on small features. The recap need not supply another full definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p54",
+      "role": "use",
+      "span": [
+        152,
+        194
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The repaired p18 teaches the weighted averaging mechanism before this use; known Gaussian width/standard deviation and the supplied covariance expression support interpreting b.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_scale",
+      "passage_id": "ch:SIMULATING-PLACE/p54",
+      "role": "use",
+      "span": [
+        49,
+        75
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Local correlation scale was taught from derivative variance in PLACE-FIELDS. Here it is applied to a distinct smoothing convention; undergraduate differentiation supplies the shown conversion.",
+      "need": "required"
+    }
+  ],
+  "teaching_sets": [],
+  "review": "root-request-place-stage3-20261030",
+  "packet_sha256": "ea3de4833a0c24f766560218c12c9477be80851f823121eada54a4897f024df3",
+  "reviewed_utc": "2026-10-30T17:17:50.794050+00:00",
+  "source_sha256": {
+    "content\\chapters\\13-simulating-place-fields.md": "cbd21926ec5977a209226e3218761009b69ee040afed5c58f090da6a65aca881",
+    "content\\chapters\\13-simulating-place-fields.yaml": "4d62e6fe80ffd75f31c4301263f2723262537758b0c88045eb66ab51ced05285",
+    "plan\\chapter-plan.yaml": "d0c4c0c6ee34d9e20ae3e2938c532ed582596935a9ef3602da5c7833f128babc",
+    "content\\index.md": "c970fdce84f3017d29bd01ccc844145b13f90051885a3132f66f4cd583038d51",
+    "guide-project.yaml": "8c987de81264d420a12d96a26252a2503352598b7f508cf1a0fab8157d175690",
+    "content\\chapters\\references.md": "c21bc038ebd58775e4d4e0c4777c8670a004792f31cee0d857c3e9eab28871dd",
+    "content\\chapters\\glossary.md": "e3f8c0eec14a7e59fc6601473553019599074f4dfbebd50e0b054568e851580b",
+    "verification\\part4-simulations-20261030\\concept-packet-final.json": "ea3de4833a0c24f766560218c12c9477be80851f823121eada54a4897f024df3",
+    "verification\\part4-simulations-20261030\\flow-repairs.json": "50ded69f375af91db810f6c45d28cbb5407d544974e640459fbd288ad37e6e60"
+  },
+  "baseline_evidence": {
+    "spatial_gaussian_field/spatial_covariance/rate_threshold/spatial_scale/connected_field": "05-place-fields.md sec:PLACE-GP and sec:PLACE-KAC-RICE: finite jointly Gaussian definition, covariance expression, threshold/gain, scale and excursion-set explanation.",
+    "high_threshold_limit": "05b-place-sizes.md opening and sec:PLACE-RARE-PEAKS, explicit q→infinity/local-peak assumptions.",
+    "lognormal_likelihood/parameter_fitting/median_filter": "05c-place-tests.md sec:PLACE-DATA, definitions of lognormal, assigned density likelihood, fitted means versus further distributions, and median filter.",
+    "betti_euler": "05c-place-tests.md sec:PLACE-TOPOLOGY, first three Betti numbers and dimension-specific alternating sums."
+  }
+}

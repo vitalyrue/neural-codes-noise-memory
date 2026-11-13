@@ -1,0 +1,180 @@
+{
+  "recorded_before_edits_utc": "2026-11-03T14:36:03.474445+00:00",
+  "started_local": "2026-11-03T16:32:34.1889505+02:00",
+  "edits": [
+    {
+      "path": "content/chapters/00-reading-guide.md",
+      "original": "- **Place fields:** read the two foundations chapters and then chapters 10–12. The spatial calculation does not require the readout derivation in chapter 6.",
+      "replacement": "- **Place fields:** start with [tuning curves, population codes, and rate maps](../chapters/ch-foundations.html#sec-foundations-spikes), then [variable spike counts](../chapters/ch-foundations.html#sec-foundations-poisson), and [fixed spatial maps versus values that change over time](../chapters/ch-persistence.html#sec-foundations-randomness). Continue with chapters 10–12. This short route supplies the shared foundations without requiring the eye-mechanics or memory-readout calculations.",
+      "reason": "SR3: give the place-field reader the exact relevant foundation sections while retaining chapter order.",
+      "source": "Guide sec:FOUNDATIONS-SPIKES, sec:FOUNDATIONS-POISSON, sec:FOUNDATIONS-RANDOMNESS; Opus stage3 SR3."
+    },
+    {
+      "path": "content/chapters/00-reading-guide.md",
+      "original": "Throughout the guide, $D$ denotes the",
+      "replacement": "The following map is a **guide-derived comparison** of the source papers' contributions. Read each paper's column downward: the mathematical prediction, numerical comparison, and animal-data comparison answer different questions.[^orientation-memory][^orientation-eye][^orientation-place]\n\n<div class=\"table-responsive\">\n\n{{block:tbl:READING-EVIDENCE}}\n\n</div>\n\nThroughout the guide, $D$ denotes the",
+      "reason": "C3: collect the physical system, model, prediction, simulation, data, and limits in one visible map.",
+      "source": "Burak and Fiete main PDF pp.1–3,5–6, Fig.2; Ben-Shushan main pp.3–8,10–11, Figs.2–5; Mainali main pp.3–8,13–15, Figs.1–5."
+    },
+    {
+      "path": "content/chapters/00-reading-guide.yaml",
+      "original": "source_loci: []",
+      "replacement": "- id: tbl:READING-EVIDENCE\n  kind: table\n  placement: sec:READING-SCOPE\n  headers:\n  - Step in the evidence\n  - Burak and Fiete (2012)\n  - Ben-Shushan et al. (2022)\n  - Mainali et al. (2025)\n  rows:\n  - - Physical system and question\n    - A proposed neural circuit maintaining a continuous value after a cue ends. How quickly does its accuracy deteriorate?\n    - Motor-neuron activity and eye motion during macaque fixation. Where does the shared motion originate?\n    - Place-cell responses in rodent and bat environments. Why do field sizes and shapes vary?\n  - - Actors, variables, and interactions\n    - Recurrent weights couple synaptic activations to firing rates. Random spikes renew activation and disturb the represented coordinate.\n    - Two neural populations produce an internal eye-position command. Motor spikes, muscles, and delayed feedback connect it to actual eye angle.\n    - Each cell receives a smooth Gaussian spatial input function. Thresholding gives its active regions; the map itself is fixed during analysis.\n  - - Derived prediction\n    - Spike fluctuations produce memory diffusion. An information bound limits stability under the model assumptions.\n    - Shared and private fluctuations imply displacement-covariance relations. Filtering a diffusing command predicts the time dependence of eye motion.\n    - Covariance, threshold, and dimension determine field statistics, with exact results and high-threshold approximations kept separate.\n  - - Simulation comparison\n    - Stochastic ring and two-population networks test theoretical memory diffusion. These are model tests, not animal-data validation.\n    - A noisy integrator and motor pathway test whether the proposed mechanism can produce the observed motion and analysis results.\n    - Generated spatial maps test analytical approximations and provide finite-threshold comparisons with recorded field statistics.\n  - - Empirical comparison\n    - This study does not directly test the bound against animal recordings.\n    - Paired single-neuron and eye recordings support a substantial shared source upstream of the final motor neurons, under the inference assumptions.\n    - Existing rodent and bat recordings test field sizes, arrangements, shapes, and connectedness. Parameters fitted to summaries remain distinct from additional comparisons.\n  - - What remains unknown\n    - Whether a biological memory circuit meets the assumptions or approaches the bound.\n    - Whether the shared source is specifically the modeled integrator. A successful model does not uniquely locate it.\n    - Which connections, learning rules, and dynamics generate the spatial inputs. A statistical fit does not establish a memory circuit.\n  caption: Guide-derived map of the three source papers' evidence. Each column follows a separate study; the table does not claim a jointly tested circuit.\n  first_column_role: row-labels\n  html_fold: never\nsource_loci: []",
+      "reason": "Render the evidence map with the guide existing native table pattern, inside its responsive wrapper.",
+      "source": "Same source pages as the reading-guide map introduction."
+    },
+    {
+      "path": "content/chapters/06-synthesis.md",
+      "original": "Nghiem, T. E., Witten",
+      "replacement": "Nghiem, T. A. E., Witten",
+      "reason": "F11: align initials with the original article.",
+      "source": "Original PNAS article DOI 10.1073/pnas.2416266122; confirmed Opus review F11."
+    },
+    {
+      "path": "content/chapters/11-simulating-memory.md",
+      "original": "Burak and Fiete (2012) derive memory diffusion from assumptions about recurrent connections and random spike timing. To test that prediction, they simulate individual spikes and measure how the stored value moves. The central result remains an analytical bound. The simulations check its predicted motion in different network designs, including the limits imposed by an angular coordinate.",
+      "replacement": "To compare a simulated memory trace with Burak and Fiete's (2012) theory, the numerical update and the measurement of the stored value must match the model. The [foundation chapter](ch-foundations.html#sec-foundations-simulation) explains the spike-update cycle, and the [long-delay chapter](ch-memory-long-delays.html) interprets its diffusion tests. Here the additional task is to recover the published network settings, distinguish a numerical position measurement from the theoretical coordinate, and identify choices left open for an independent reproduction.",
+      "reason": "SR2: lead with the methods chapter additional purpose and link existing teaching.",
+      "source": "Guide Chapters 1 and 4; Burak and Fiete main Methods pp.5–6."
+    },
+    {
+      "path": "content/chapters/11-simulating-memory.yaml",
+      "original": "purpose: Burak and Fiete (2012) derive memory diffusion from assumptions about recurrent connections and random\n  spike timing. To test that prediction, they simulate individual spikes and measure how the stored value moves.\n  The central result remains an analytical bound. The simulations check its predicted motion in different network\n  designs, including the limits imposed by an angular coordinate.\n",
+      "replacement": "purpose: \"To compare a simulated memory trace with Burak and Fiete's (2012) theory, the numerical update and the measurement of the stored value must match the model. The [foundation chapter](ch-foundations.html#sec-foundations-simulation) explains the spike-update cycle, and the [long-delay chapter](ch-memory-long-delays.html) interprets its diffusion tests. Here the additional task is to recover the published network settings, distinguish a numerical position measurement from the theoretical coordinate, and identify choices left open for an independent reproduction.\"\n",
+      "reason": "Keep chapter metadata aligned with the revised methods opening.",
+      "source": "Guide methods organization; no new scientific claim."
+    },
+    {
+      "path": "content/chapters/11-simulating-memory.md",
+      "original": "In the ring model, neurons are ordered by their preferred angles. Their connections support a localized activity pattern whose position represents an angle. Figure 2A–D compares the wandering position with predictions calculated from the network's steady tuning curves. Two transfer functions test different relationships between diffusion and spike information: the exponential case attains the bound under the model assumptions, while the illustrated sigmoid case lies above it.[^simmem-ring]",
+      "replacement": "In the ring model, neurons are ordered by preferred angle, and the position of their localized activity pattern represents the stored angle. The [earlier Figure 2 discussion](ch-memory-long-delays.html) explains the diffusion and information comparison. To reproduce that comparison, keep the exponential and sigmoid transfer functions as separate runs, with a theoretical prediction calculated from each run's steady tuning curves.[^simmem-ring]",
+      "reason": "SR2: replace repeated result interpretation with the operational distinction between runs.",
+      "source": "Burak and Fiete main Fig.2A–D p.3 and Network Simulations p.6."
+    },
+    {
+      "path": "content/chapters/11-simulating-memory.yaml",
+      "original": "  summary: 'In the ring model, neurons are ordered by their preferred angles. Their connections support a localized\n    activity pattern whose position represents an angle. Figure 2A–D compares the wandering position with predictions\n    calculated from the network''s steady tuning curves. Two transfer functions test different relationships between\n    diffusion and spike information: the exponential case attains the bound under the model assumptions, while\n    the illustrated sigmoid case lies above it.[^simmem-ring]'\n",
+      "replacement": "  summary: \"In the ring model, neurons are ordered by preferred angle, and the position of their localized activity pattern represents the stored angle. The [earlier Figure 2 discussion](ch-memory-long-delays.html) explains the diffusion and information comparison. To reproduce that comparison, keep the exponential and sigmoid transfer functions as separate runs, with a theoretical prediction calculated from each run's steady tuning curves.[^simmem-ring]\"\n",
+      "reason": "Keep section summary aligned.",
+      "source": "Same Figure 2 and Methods sources."
+    },
+    {
+      "path": "content/chapters/11-simulating-memory.md",
+      "original": "For this simulation the authors decode the angle of the neuron with the largest instantaneous rate. That convenient numerical readout differs from the ideal spike-based estimator studied later in the paper.",
+      "replacement": "For this simulation the authors record the preferred angle of the neuron with the largest instantaneous rate. This is a numerical proxy for the represented position. The theoretical coordinate $\\theta$ is assigned by following noise-free relaxation back to the attractor; the largest-rate rule does not carry out that projection. Its output lies on the finite lattice of preferred angles, and brief changes in the pattern's shape can shift its maximum during relaxation. These effects matter when interpreting very short lags. This rule also differs from the ideal spike-based estimator studied later in the paper.",
+      "reason": "F09: distinguish maximum-rate measurement, flow-projected theoretical coordinate, and spike estimator; expose finite lattice and transient limits.",
+      "source": "Burak and Fiete main Fig.1A p.2, Network Simulations p.6; guide ch:MEMORY-LONG-DELAYS projection explanation. Finite lattice and transient caution are guide-derived consequences of this measurement rule."
+    },
+    {
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "original": "Ben-Shushan et al. (2022) ask whether fluctuations in a neural memory circuit can explain the small eye movements that continue during fixation. Their simulation must turn a changing neural command into muscle action and eye position. It must also produce signals that can be analyzed like the recordings. The paper's central evidence combines a shared-source inference from data with a model showing that a noisy integrator can account for the observed motion.",
+      "replacement": "A reproduction of Ben-Shushan et al. (2022) must distinguish the recording analysis from the simulated eye-control pathway. The [circuit chapter](ch-eye-circuit.html) explains why a noisy internal command is a possible source of drift. Here the added detail is how the published parameters, spike generator, update intervals, saved samples, and MATLAB files determine the numerical experiment, and which code or data gaps limit reproduction. The pathway below gives the mechanism needed to interpret those choices.",
+      "reason": "SR2: introduce the unique numerical, code, and data content while keeping the causal pathway for methods readers.",
+      "source": "Ben-Shushan main Methods pp.9–12 and inspected code; no new implementation claim."
+    },
+    {
+      "path": "content/chapters/12-simulating-eye-drift.yaml",
+      "original": "purpose: Ben-Shushan et al. (2022) ask whether fluctuations in a neural memory circuit can explain the small eye\n  movements that continue during fixation. Their simulation must turn a changing neural command into muscle action\n  and eye position. It must also produce signals that can be analyzed like the recordings. The paper's central\n  evidence combines a shared-source inference from data with a model showing that a noisy integrator can account\n  for the observed motion.\n",
+      "replacement": "purpose: \"A reproduction of Ben-Shushan et al. (2022) must distinguish the recording analysis from the simulated eye-control pathway. The [circuit chapter](ch-eye-circuit.html) explains why a noisy internal command is a possible source of drift. Here the added detail is how the published parameters, spike generator, update intervals, saved samples, and MATLAB files determine the numerical experiment, and which code or data gaps limit reproduction. The pathway below gives the mechanism needed to interpret those choices.\"\n",
+      "reason": "Keep chapter metadata aligned with the revised methods opening.",
+      "source": "Guide methods organization; no new scientific claim."
+    },
+    {
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "original": "The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of all 57 neurons. The authors fit each cell's relation to eye position, velocity, and acceleration, then use it to reconstruct movement from that cell's spikes. A trial held out of the fit tests prediction on data that did not determine the fitted parameters.[^simeye-data]",
+      "replacement": "The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of all 57 neurons. The authors fit each cell's firing-rate relation to eye position, velocity, and acceleration. For firing-rate prediction, they fit all trials except one and predict the firing rate in the omitted trial, repeating this leave-one-out procedure across trials. The analysis also uses the fitted movement relation to reconstruct motion from that cell's spikes.[^simeye-data]",
+      "reason": "F03: attach leave-one-out validation specifically to firing-rate prediction without inferring the validation scheme for movement reconstruction.",
+      "source": "Ben-Shushan main Methods p.9, extracted lines929–931 explicitly specify firing-rate prediction."
+    },
+    {
+      "path": "content/chapters/12-simulating-eye-drift.yaml",
+      "original": "  summary: The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired\n    with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of\n    all 57 neurons. The authors fit each cell's relation to eye position, velocity, and acceleration, then use\n    it to reconstruct movement from that cell's spikes. A trial held out of the fit tests prediction on data that\n    did not determine the fitted parameters.[^simeye-data]\n",
+      "replacement": "  summary: \"The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of all 57 neurons. The authors fit each cell's firing-rate relation to eye position, velocity, and acceleration. For firing-rate prediction, they fit all trials except one and predict the firing rate in the omitted trial, repeating this leave-one-out procedure across trials. The analysis also uses the fitted movement relation to reconstruct motion from that cell's spikes.[^simeye-data]\"\n",
+      "reason": "Keep the sidecar from retaining the broader held-out wording.",
+      "source": "Same p.9 firing-rate prediction passage."
+    },
+    {
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "original": "- **Private motor noise alone:** with a constant central command, independent motor-neuron fluctuations produce limited, saturating displacement variance. Figure 3 compares this contribution with the larger continued drift in the recordings.\n- **Noisy integrator before the muscles:** Figure 4 measures the simulated internal command. At sufficiently long lags, its mean squared displacement approaches the linear dependence expected for diffusion.\n- **Full pathway:** Figure 5 compares the final eye output with the recordings. Muscle filtering shapes the short-lag behavior, while delayed feedback changes the longer-lag behavior.\n- **Measurement procedure applied to simulated signals:** simulated motor spikes and eye motion are passed through the same reconstruction and covariance analysis used for the recordings. This tests whether the analysis can recover the shared contribution under a model where its origin is known.[^simeye-figures]",
+      "replacement": "- **Change the noise source:** compare a fixed command with private motor noise (Figure 3), the noisy internal command before muscle filtering (Figure 4), and the complete pathway (Figure 5). The [circuit chapter](ch-eye-circuit.html) explains these comparisons. Keep the measured signal explicit: internal command and final eye angle are different outputs.\n- **Check the measurement procedure:** apply the recording reconstruction and covariance analysis to simulated motor spikes and eye motion. This tests recovery of the shared contribution where its origin is known. Muscle filtering and delayed feedback must remain in the complete-pathway comparison.[^simeye-figures]",
+      "reason": "SR2: shorten repeated figure interpretation while preserving control operations and measurement cautions.",
+      "source": "Ben-Shushan main Figs.3–5 pp.6–8; existing circuit chapter."
+    },
+    {
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "original": "Mainali et al. (2025) ask whether one statistical model can explain the many firing regions observed in hippocampal place cells across different environments. Their simulation generates a cell's firing-rate map over space and measures the active regions. Position is the independent variable. The generated map is fixed while it is analyzed, so this simulation addresses spatial coding rather than how a neural circuit retains a position over time.",
+      "replacement": "To reproduce Mainali et al.'s (2025) place-field comparisons, a random map and a recorded map must be generated, fitted, and measured with compatible rules. The [spatial-model chapter](ch-place-fields.html) explains the statistical assumptions, and the [tests chapter](ch-place-tests.html) interprets the evidence. Here the additional detail is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors, and access to code and recordings. Position is the independent variable; each generated map is fixed during analysis, so these computations do not simulate a remembered position changing over time.",
+      "reason": "SR2: lead with implementation and measurement content while retaining the static-map distinction.",
+      "source": "Mainali main STAR Methods pp.13–15; inspected source code; existing Chapters10–12."
+    },
+    {
+      "path": "content/chapters/13-simulating-place-fields.yaml",
+      "original": "purpose: Mainali et al. (2025) ask whether one statistical model can explain the many firing regions observed\n  in hippocampal place cells across different environments. Their simulation generates a cell's firing-rate map\n  over space and measures the active regions. Position is the independent variable. The generated map is fixed\n  while it is analyzed, so this simulation addresses spatial coding rather than how a neural circuit retains a\n  position over time.\n",
+      "replacement": "purpose: \"To reproduce Mainali et al.'s (2025) place-field comparisons, a random map and a recorded map must be generated, fitted, and measured with compatible rules. The [spatial-model chapter](ch-place-fields.html) explains the statistical assumptions, and the [tests chapter](ch-place-tests.html) interprets the evidence. Here the additional detail is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors, and access to code and recordings. Position is the independent variable; each generated map is fixed during analysis, so these computations do not simulate a remembered position changing over time.\"\n",
+      "reason": "Keep chapter metadata aligned with the revised methods opening.",
+      "source": "Guide methods organization; no new scientific claim."
+    },
+    {
+      "path": "content/chapters/14-simulation-tools.md",
+      "original": "A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Reproducing a result requires matching those choices before comparing curves. This chapter collects the practical decisions shared by the three papers and identifies tools for making those decisions visible.",
+      "replacement": "A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Beyond the paper-specific methods in the preceding chapters, a reproduction needs checks that its software, resolution, and saved run record preserve the intended comparison. This chapter explains how to choose those checks and distinguish the authors' program from an independent implementation or a smaller teaching model.",
+      "reason": "SR2: identify the cross-paper numerical checks that this final methods chapter adds.",
+      "source": "Guide-derived reproduction guidance; existing chapter explains each check."
+    },
+    {
+      "path": "content/chapters/14-simulation-tools.yaml",
+      "original": "purpose: A simulated eye trace can look convincing while answering the wrong question. It may use different spike\n  statistics, a different muscle response, or a different definition of displacement from the experiment. Reproducing\n  a result requires matching those choices before comparing curves. This chapter collects the practical decisions\n  shared by the three papers and identifies tools for making those decisions visible.\n",
+      "replacement": "purpose: \"A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Beyond the paper-specific methods in the preceding chapters, a reproduction needs checks that its software, resolution, and saved run record preserve the intended comparison. This chapter explains how to choose those checks and distinguish the authors' program from an independent implementation or a smaller teaching model.\"\n",
+      "reason": "Keep chapter metadata aligned with the revised methods opening.",
+      "source": "Guide methods organization; no new scientific claim."
+    },
+    {
+      "path": "content/chapters/00-reading-guide.yaml",
+      "original": "Recurrent weights couple synaptic activations to firing rates. Random spikes renew activation and disturb the represented coordinate.",
+      "replacement": "Synaptic activations $s_i$ set rates $r_i=\\phi(\\sum_j W_{ij}s_j+b_i)$ through weights $W_{ij}$ and constant inputs $b_i$. Spikes renew activation and disturb the represented coordinate.",
+      "reason": "C3: include the central interaction equation with its variable roles in the evidence map.",
+      "source": "Burak and Fiete main Eqs.7–9, PDF p.5.",
+      "recorded_before_edit_utc": "2026-11-03T14:37:18.219437+00:00"
+    },
+    {
+      "path": "content/chapters/00-reading-guide.yaml",
+      "original": "Two neural populations produce an internal eye-position command. Motor spikes, muscles, and delayed feedback connect it to actual eye angle.",
+      "replacement": "Two neural populations produce command $E_{\\mathrm{OI}}$. Motor spikes, muscles, and delayed feedback connect it to actual eye angle $E$. The two angles are different signals.",
+      "reason": "C3: identify the command and measured-angle variables.",
+      "source": "Ben-Shushan main Eqs.23–34, PDF pp.10–11.",
+      "recorded_before_edit_utc": "2026-11-03T14:37:18.219473+00:00"
+    },
+    {
+      "path": "content/chapters/00-reading-guide.yaml",
+      "original": "Each cell receives a smooth Gaussian spatial input function. Thresholding gives its active regions; the map itself is fixed during analysis.",
+      "replacement": "Cell $i$ receives smooth Gaussian input $h_i(\\mathbf x)$ at position $\\mathbf x$. Activity occurs above a threshold; the spatial map is fixed during analysis.",
+      "reason": "C3: make the spatial model variables visible.",
+      "source": "Mainali main STAR Methods Eqs.2–4, PDF pp.13–14.",
+      "recorded_before_edit_utc": "2026-11-03T14:37:18.219482+00:00"
+    },
+    {
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "original": "To reproduce Mainali et al.'s (2025) place-field comparisons, a random map and a recorded map must be generated, fitted, and measured with compatible rules.",
+      "replacement": "To reproduce Mainali et al.'s (2025) place-field comparisons, we need the rules for generating and fitting model maps, and for measuring both model and recorded maps.",
+      "reason": "Clarify that model maps are generated and fitted, while both kinds of map are measured.",
+      "source": "Guide wording clarification; Mainali STAR Methods pp.13–15.",
+      "recorded_before_edit_utc": "2026-11-03T14:37:18.219490+00:00"
+    },
+    {
+      "path": "content/chapters/13-simulating-place-fields.yaml",
+      "original": "purpose: \"To reproduce Mainali et al.'s (2025) place-field comparisons, a random map and a recorded map must be generated, fitted, and measured with compatible rules. The [spatial-model chapter](ch-place-fields.html) explains the statistical assumptions, and the [tests chapter](ch-place-tests.html) interprets the evidence. Here the additional detail is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors, and access to code and recordings. Position is the independent variable; each generated map is fixed during analysis, so these computations do not simulate a remembered position changing over time.\"\n",
+      "replacement": "purpose: \"To reproduce Mainali et al.'s (2025) place-field comparisons, we need the rules for generating and fitting model maps, and for measuring both model and recorded maps. The [spatial-model chapter](ch-place-fields.html) explains the statistical assumptions, and the [tests chapter](ch-place-tests.html) interprets the evidence. Here the additional detail is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors, and access to code and recordings. Position is the independent variable; each generated map is fixed during analysis, so these computations do not simulate a remembered position changing over time.\"\n",
+      "reason": "Align metadata with the corrected model versus recording roles.",
+      "source": "Same source.",
+      "recorded_before_edit_utc": "2026-11-03T14:37:18.220068+00:00"
+    },
+    {
+      "path": "content/chapters/11-simulating-memory.md",
+      "original": "The ring simulation uses an [[**Euler update**]{.definition-term custom-style=\"Definition Term\"}, which approximates a variable's change over a short interval by its current derivative times that interval.]{.definition-explanation}",
+      "replacement": "The ring simulation uses the [Euler update introduced in Chapter 1](ch-foundations.html#sec-foundations-simulation): approximate a variable's change over a short interval by its current derivative times that interval.",
+      "reason": "S2-06, root follow-up: use a plain linked reminder of the first Chapter 1 definition, retaining the local numerical explanation and cautions.",
+      "source": "Guide Chapter 1 sec:FOUNDATIONS-SIMULATION and Burak and Fiete Network Simulations, main PDF p.6.",
+      "recorded_before_edit_utc": "2026-11-03T14:37:48.191885+00:00"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "kind": "focused-stage1-stage2-recheck",
+  "local_request_id": "foundation-dynamics-recheck-20261101",
+  "reviewer": "/root/foundation_dynamics_review",
+  "started_utc": "2026-11-01T11:46:44Z",
+  "completed_utc": "2026-11-01T11:47:35.632969+00:00",
+  "task_start_utc": "2026-11-01T11:36:24Z",
+  "awake_execution_time": "unverified",
+  "source_hashes_sha256": {
+    "content/chapters/01-foundations.md": "d3c50fdf61fd363919369d13f246ec263d003836da21337a0b89a1fc5b2db410",
+    "content/chapters/01-foundations.yaml": "356ea6ef6ff17e3247d182aad14c7981c1e60ec4cb7639e2c8cc9e0caaefd9f3",
+    "content/chapters/02-memory-dynamics.md": "3ba6ab1511bf25357d5491cd6d8a4a3db3a8d664066fb51446ab9ed696cf5663",
+    "content/chapters/02-memory-dynamics.yaml": "45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac",
+    "content/chapters/glossary.md": "7d9c1874f1b49f43e93fa38ac7a865ce53f9708a0734b3a177447b1ed3767ecf",
+    "plan/chapter-plan.yaml": "be170be65f3ea6667deb296fdf72c05f1f2f2c2fe58db92978e5a971b1583f36"
+  },
+  "prior_calls": [
+    "stage1.json",
+    "stage2.json"
+  ],
+  "verdict": "Stages 1 and 2 pass within the reviewed scope after the recorded repair",
+  "dispositions": [
+    {
+      "finding": "S2-01",
+      "status": "resolved",
+      "location": "01-foundations.md following exponential sum",
+      "answer": "The replacement gives the actual omitted contribution in plain language and preserves the condition under which the sum represents activation. No unexplained dynamics term remains here."
+    },
+    {
+      "finding": "Stage1 optional exact-spike convention",
+      "status": "resolved",
+      "location": "01-foundations.md exponential sum and following paragraph",
+      "answer": "The <= summation includes the current spike, and the immediately-after-spike sentence makes the convention explicit. This agrees with the count-process jump of +1."
+    },
+    {
+      "finding": "Stage1 optional Dirac lookup coverage",
+      "status": "resolved",
+      "location": "glossary.md Dirac delta entry",
+      "answer": "The definition now covers integral-one time impulses and the probability point mass. The two applications are distinguished, and neither unit nor probability meaning has been lost."
+    },
+    {
+      "finding": "Part I Chapter 1 map update",
+      "status": "pass",
+      "location": "plan/chapter-plan.yaml book.parts[0].content third paragraph, Chapter 1 map entry",
+      "answer": "Background and model accurately describes spikes to synaptic activation to input to rate, locates Eqs. 7-9 before stability/diffusion, and separates paper equations from guide examples. Each phrase is needed to state the revised chapter purpose. No extra term requires a new explanation in this short map."
+    }
+  ],
+  "defects": [],
+  "limits": [
+    "Only repaired terms, convention, glossary and short map rechecked.",
+    "Original stage1.json and stage2.json retained without rewriting their initial verdicts.",
+    "Stage 3 not performed in this call."
+  ]
+}

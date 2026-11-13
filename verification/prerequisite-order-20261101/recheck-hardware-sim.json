@@ -1,0 +1,44 @@
+{
+  "review_id": "focused-recheck-hardware-sim-seed-20261101",
+  "reviewer": "/root/prereq_hardware_sim",
+  "scope": "Narrow meaning and terminology recheck of revised seed paragraph and its concrete setting/later recap; not Stage3",
+  "completed_utc": "2026-11-01T13:50:56.081954+00:00",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "wall_elapsed_seconds": 1094.081954,
+  "awake_execution_time": "unverified",
+  "source_sha256": {
+    "content/chapters/12-simulating-eye-drift.md": "8bcc9a97ce8ce089a53e1227919f5ee864efb5fa466801256195afbbca72e079",
+    "content/chapters/14-simulation-tools.md": "9eadfaa635cdc9ffa4fd58e19d57769e8445ba86cefffbe9cc8bfbf964ea8629"
+  },
+  "paragraph": {
+    "file": "content/chapters/12-simulating-eye-drift.md",
+    "line": 28,
+    "text": "Simulated spike times are drawn by a program that generates a repeatable sequence of random-looking numbers. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} sets its starting state, allowing the same implementation and sequence of calls to reproduce those samples.]{.definition-explanation} The spike-generation rule specifies the intended distribution; the seed chooses the sample sequence.",
+    "sha256_utf8": "64e9f05b805508ef7842c3b6eb00fa56083b75025fdd754dd7a4ef61c1e428cc"
+  },
+  "verdict": "pass for the focused repair",
+  "meaning_recheck": {
+    "status": "pass",
+    "evidence": "The first sentence now identifies the actor as the program generating repeatable random-looking numbers. The definition tells what the seed changes, its starting state, with reproduction limited to the same implementation and call sequence. The final sentence distinguishes the event-law distribution from the particular generated samples. Thus changing a seed is not presented as changing the scientific noise law. The concrete trajectory-index setting at line34 and later version/program warning remain consistent."
+  },
+  "terminology_recheck": {
+    "status": "pass",
+    "evidence": "The unexplained specialist phrase pseudorandom generator has been replaced by its necessary role. Each of the three sentences adds a distinct point: how computer samples are produced, what the seed controls, and why this differs from the intended distribution. The earlier announcement sentence and duplicate setting outside the fold are removed. Repeating seed/sequence identifies the two objects precisely rather than adding filler."
+  },
+  "resolved_findings": [
+    "HS-01",
+    "HS-S2-01"
+  ],
+  "required_repairs": [],
+  "preserved_records": [
+    "diagnosis-hardware-sim.json",
+    "stage1-hardware-sim.json",
+    "stage2-hardware-sim.json"
+  ],
+  "limits": [
+    "Stage3 reader-understanding/flow not performed.",
+    "No new source/code run or manuscript edit by reviewer.",
+    "This is a focused recheck, not an independent whole-book acceptance."
+  ],
+  "token_stats": "unavailable"
+}

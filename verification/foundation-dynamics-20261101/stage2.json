@@ -1,0 +1,88 @@
+{
+  "stage": 2,
+  "kind": "necessity-and-terminology",
+  "local_request_id": "foundation-dynamics-review-stage2-20261101",
+  "reviewer": "/root/foundation_dynamics_review",
+  "started_utc": "2026-11-01T11:45:23Z",
+  "completed_utc": "2026-11-01T11:46:33.540021+00:00",
+  "task_start_utc": "2026-11-01T11:36:24Z",
+  "awake_execution_time": "unverified",
+  "source_hashes_sha256": {
+    "content/chapters/01-foundations.md": "d3c50fdf61fd363919369d13f246ec263d003836da21337a0b89a1fc5b2db410",
+    "content/chapters/01-foundations.yaml": "356ea6ef6ff17e3247d182aad14c7981c1e60ec4cb7639e2c8cc9e0caaefd9f3",
+    "content/chapters/02-memory-dynamics.md": "3ba6ab1511bf25357d5491cd6d8a4a3db3a8d664066fb51446ab9ed696cf5663",
+    "content/chapters/02-memory-dynamics.yaml": "45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac",
+    "content/chapters/glossary.md": "7d9c1874f1b49f43e93fa38ac7a865ce53f9708a0734b3a177447b1ed3767ecf"
+  },
+  "rule_hashes_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+  },
+  "scope": "Same connected local passages as Stage 1, with necessity and terminology only. No full-book or image-pixel review.",
+  "audience": "Undergraduate calculus, basic probability, and linear algebra, as recorded in the current structural lock.",
+  "verdict": "one required wording repair before Stage 2 acceptance",
+  "checks": [
+    {
+      "passage": "01-foundations.md:9,33-46",
+      "answer": "The roadmap and motor-to-circuit transition are needed to make the new location understandable. Synapse, excitatory input, inhibitory input, and recurrent connectivity explain what later weights do. The words occur before the equations rely on them. The repeated feedback summary at the end of this setup is optional, not a required correction.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:48-55",
+      "answer": "The original Eq. 7 is necessary because the user explicitly requested the paper dynamics here. Synaptic activation and Dirac delta are exact terms worth keeping; both are immediately defined in terms of spike effects and unit integral. The dot and decay time are explained. The balance reading provides a different purpose from the equation itself.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:57-71",
+      "answer": "The count form connects Eq. 7 to the later stochastic derivation, and the exponential sum connects decay to the retained spike-trace example. These are useful representations rather than unnecessary repeats. The restriction after initial transients matters, but its specialist dynamics word is unexplained. Replace the restriction with its plain meaning; do not delete the condition.",
+      "verdict": "revise restriction wording"
+    },
+    {
+      "passage": "01-foundations.md:78-104",
+      "answer": "The trace comparison distinguishes spike events from their lasting effects. Equations 8 and 9 then complete the feedback cycle. Transfer function is defined by its action on total input, with units and weight direction given. The causal one-spike walkthrough is needed because it explains how the formal terms act on cells. The final cycle summary supplies the bridge to representation.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "01-foundations.md:108-110",
+      "answer": "Tuning curve is introduced where a represented angle first enters the firing-rate formula. Rate baseline and input bias must stay separate now that the two equations are near each other. The nonnegative-rate limit is needed and should not be shortened away.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:3-17",
+      "answer": "The chapter now asks what the already-taught model loses over time. The cross-reference and brief count-equation reminder are sufficient; repeating the full Eq. 7 explanation here would have no new purpose. Conditional spike-generation independence is needed immediately before the count covariance.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "02-memory-dynamics.md:19-63",
+      "answer": "Mean/fluctuation splitting, weak fluctuation approximation, population scaling, and deterministic fixed points belong in this later analysis. The weak-fluctuation term is defined by the small-total-input condition before its consequence. Brownian processes are the formal carrier of the Gaussian increment approximation, with dimensions given; this retained technical development need not move to Chapter 1. Repeating the unit spike jump briefly is justified because it explains why compensation has not yet made the events Gaussian.",
+      "verdict": "retain"
+    },
+    {
+      "passage": "glossary.md:25,114; affected YAML model and figure entries",
+      "answer": "Synaptic activation is a useful lookup term with the same meaning as the chapter definition. The old Dirac-delta entry is true but covers only the later probability setting; adding the time-impulse use is an optional improvement already planned by the coordinator. Sidecar section summaries identify distinct teaching jobs, and the moved figure metadata introduces no extra terminology requiring new text.",
+      "verdict": "retain"
+    }
+  ],
+  "defects": [
+    {
+      "id": "S2-01",
+      "severity": "required wording repair",
+      "location": "content/chapters/01-foundations.md:71",
+      "passage": "after initial transients. Here s_i is dimensionless in the convention that each spike adds one unit.",
+      "failed_check": "The condition on the exponential sum uses a dynamics term outside the declared calculus/probability/linear-algebra baseline without teaching it.",
+      "missing_point": "The omitted part is the decaying contribution of activation already present when observation starts.",
+      "prerequisite_locations_checked": [
+        "01-foundations.md:36-69",
+        "plan/structural-locks/current.yaml audience summary near line 96"
+      ],
+      "proposed_repair": "Replace after initial transients with once the contribution from any activation present at the starting time has decayed. Preserve the following dimensionless-activation sentence.",
+      "status": "reported to coordinator; reviewer did not edit canonical sources"
+    }
+  ],
+  "optional_notes": [
+    "The second feedback-can-maintain-activity sentence in the model setup could be removed as repetition, but keeping it does not obstruct the explanation.",
+    "Explicitly saying alpha indexes the spikes would be a small optional help; the present spike-time description already supplies its role."
+  ],
+  "stage1_status": "Stage 1 correctness judgment retained; this finding does not change the equation or its mathematical condition."
+}

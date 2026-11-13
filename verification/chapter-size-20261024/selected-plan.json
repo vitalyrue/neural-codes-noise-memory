@@ -1,0 +1,310 @@
+{
+  "status": "root selected draft for independent review",
+  "originals": [
+    {
+      "file": "01-foundations.md",
+      "groups": [
+        {
+          "file": "01-foundations.md",
+          "id": "ch:FOUNDATIONS",
+          "title": "Patterns of variable spikes can represent a value",
+          "sections": [
+            "sec:FOUNDATIONS-SPIKES",
+            "sec:FOUNDATIONS-POISSON",
+            "sec:FOUNDATIONS-COVARIANCE"
+          ],
+          "opening": [
+            "The eyes can hold a position after a brief movement command has ended. An animal can also keep track of its location while the activity of individual neurons fluctuates. Both abilities require a useful quantity to remain represented in a changing biological system. The three papers study different parts of this problem: the loss of a stored value, the origin of slow eye motion, and the arrangement of spatial firing patterns.",
+            "Before asking how a circuit keeps a value, we need to know how its activity represents that value and what makes the activity variable. We begin with the spikes that cells send and the patterns of firing rates across a population. A model of spike counts then shows why one brief observation can be uncertain and how combining counts from several cells can help. We then learn how to tell whether measurements vary together and how to separate random spreading from a change in the average value. Those distinctions will let us interpret both a memory model and measurements of eye motion."
+          ],
+          "prerequisites": [],
+          "rationale": "The reader first learns what the cells represent, then how variable spike counts affect reading that representation, then how to separate shared fluctuations and mean motion. This is a complete preparation chapter for both the dynamical and measurement questions.",
+          "original_opening_disposition": "Retain original foundations opening paragraph 1 verbatim here. Move original paragraph 2 to foundations-persistence, changing its initial phrase from 'The first distinction' to 'The next distinction' to fit the new path; record that small rewrite."
+        },
+        {
+          "file": "01b-persistence.md",
+          "id": "ch:PERSISTENCE",
+          "title": "Stable representations can accumulate error",
+          "sections": [
+            "sec:FOUNDATIONS-ATTRACTOR",
+            "sec:FOUNDATIONS-DIFFUSION",
+            "sec:FOUNDATIONS-RANDOMNESS"
+          ],
+          "opening": [
+            "The next distinction is between a value and the activity that represents it. Eye position is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.[^f-memory]",
+            "We first build a small example in which some disturbances fade while others leave a different stored angle. We then ask what happens when small lasting changes arrive repeatedly, deriving how their spread grows with time and how a fixed bias changes that prediction. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals."
+          ],
+          "prerequisites": [
+            "ch:FOUNDATIONS"
+          ],
+          "rationale": "The two-activity example explains which disturbances change a stored value. Repeated surviving disturbances then motivate diffusion, including its covariance and limits. The final section distinguishes temporal motion from a fixed spatial map and places the three papers on that common footing.",
+          "original_opening_disposition": "The first paragraph above preserves original foundations opening paragraph 2, apart from first-to-next. Its existing f-memory footnote must follow it. Original paragraph 1 stays in foundations-signals."
+        }
+      ]
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "groups": [
+        {
+          "file": "02-memory-dynamics.md",
+          "id": "ch:MEMORY-DYNAMICS",
+          "title": "Spiking noise produces diffusion along the memory attractor",
+          "sections": [
+            "sec:MEMORY-SPIKES",
+            "sec:MEMORY-LINEARIZATION",
+            "sec:MEMORY-DIFFUSION",
+            "sec:MEMORY-SYMMETRIC"
+          ],
+          "opening": [
+            "A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied. The important question is whether the activity pattern stays in the right place, not just whether activity continues. Burak and Fiete study this distinction in a network whose stable activity patterns form a continuous set.[^p1-model]",
+            "To calculate the loss of accuracy, we first describe how spikes renew synaptic activity as it decays. We then follow a small disturbance through the circuit's return toward a stable pattern and identify the change in stored value that remains. Adding these lasting random changes gives a local rate of spreading. When connections have equal weights in both directions, we can express that rate using the cells' tuning curves and check its meaning in a two-cell example. The following chapter asks how this local prediction extends to longer delays.",
+            "Paper and Supporting Information (SI) links open the cited PDF page, near the passage where the viewer supports it. Use the equation, figure, or paragraph label to find the passage; the PDFs have no numbered text lines.",
+            "The memory coordinate is $\\theta$. Its initial value is $\\Theta$. A bar denotes a noise free steady state, so $\\bar r_i(\\theta)$ is neuron $i$'s steady firing rate at memory value $\\theta$. The common synaptic time constant is $\\tau$. A one dimensional diffusion coefficient $D$ has units of memory coordinate squared per time, with the convention $\\operatorname{Var}[\\theta(t)-\\Theta]=2Dt$ when $D$ is constant and boundaries do not matter.\n"
+          ],
+          "prerequisites": [
+            "ch:PERSISTENCE"
+          ],
+          "rationale": "This keeps a single calculation intact: define the spike-driven state, identify the displacement left after recovery, add its random contributions, and express the result using tuning curves in the symmetric case. The two-cell example supplies a concrete result before the chapter ends.",
+          "original_opening_disposition": "The first paragraph above retains the first three sentences of the original memory opening. The two remaining original sentences are replaced by the more precise path paragraph. Their promises about deriving memory motion and later readout remain in the respective chapter handoffs. Retain the original model footnote with the first paragraph."
+        },
+        {
+          "file": "02b-memory-long-delays.md",
+          "id": "ch:MEMORY-LONG-DELAYS",
+          "title": "Boundaries and drift change memory error over long delays",
+          "sections": [
+            "sec:MEMORY-LONG-TIME",
+            "sec:MEMORY-DRIFT-SCOPE",
+            "sec:MEMORY-FIGURES"
+          ],
+          "opening": [
+            "A rate of random spreading measured near one stored value does not yet tell us how memory error behaves after a long wait. The value may approach a boundary, wrap around an angular range, or reach a region where the spreading rate differs. A consistent movement of the average value would also change the error without being captured by the rate of random spreading alone.",
+            "We begin by following the distribution of stored values across repeated trials, using the local diffusion coefficient derived in the preceding chapter. This shows why errors can keep growing on a line but level off when angular error is measured within one turn. We then separate random spreading from systematic drift and make the noise assumptions explicit. Finally, the paper's figures show what its network simulations test and distinguish movement of the memory from uncertainty when another circuit reads it. That second uncertainty motivates the information calculation that follows.",
+            "Here $\\theta$ is the current stored value and $\\Theta$ its common initial value across trials. The local diffusion coefficient $D(\\theta)$ comes from the weak spike fluctuations derived in the [preceding chapter](ch-memory-dynamics.html#sec-memory-diffusion), after stable disturbances have relaxed. For constant $D$, displacement variance is $2Dt$ before boundaries matter and when there is no systematic drift."
+          ],
+          "prerequisites": [
+            "ch:MEMORY-DYNAMICS"
+          ],
+          "rationale": "The chapter asks how to interpret the local result. It first derives error distributions and explains boundary effects, then separates spreading from systematic motion and additional correlations, then shows how the paper's simulations test those claims. These are connected limits and tests rather than leftover material.",
+          "original_opening_disposition": "This continuation receives the new motivated opening and a short notation reminder. The original long-time section starts with a local-versus-long-time distinction; retain that section introduction, as required by whole-section preservation, unless root records a reviewed rewrite of the resulting small repetition."
+        }
+      ]
+    },
+    {
+      "file": "03-memory-information.md",
+      "groups": [
+        {
+          "file": "03-memory-information.md",
+          "id": "ch:MEMORY-INFORMATION",
+          "title": "Spike information limits memory stability",
+          "sections": [
+            "sec:MEMORY-FI",
+            "sec:MEMORY-BOUND",
+            "sec:MEMORY-COMPARISONS"
+          ],
+          "opening": [
+            "A downstream neuron reads a memory through spikes. Collecting more spikes helps distinguish nearby activity patterns, but during collection the pattern itself keeps moving. The same variability that limits readout also perturbs the recurrent network. Burak and Fiete connect these two effects by deriving a lower bound on memory diffusion from the information in the spikes.[^p1-info-main]",
+            "The useful quantity is how clearly a short spike sample distinguishes nearby memory values. Comparing that quantity with the random motion already derived gives a minimum rate of memory spreading. This is a limit for a particular network, so using it to compare different networks also requires keeping track of what changes and what stays fixed. More information can permit better stability without ensuring that a particular circuit achieves it.",
+            "We retain the memory coordinate $\\theta$, initial value $\\Theta$, firing rate $\\bar r_i(\\theta)$, synaptic time constant $\\tau$, and diffusion convention $\\operatorname{Var}(\\Delta\\theta)=2D\\Delta t$. The [network projection](ch-memory-dynamics.html#sec-memory-linearization) determines which activity changes remain as changes in the stored value."
+          ],
+          "prerequisites": [
+            "ch:MEMORY-DYNAMICS",
+            "ch:MEMORY-LONG-DELAYS"
+          ],
+          "rationale": "Measure how well nearby states can be distinguished, relate that quantity to the already derived diffusion, then interpret controlled changes of neuron count, firing, width and time constant. These form one question about stability.",
+          "original_opening_disposition": "Original first paragraph retained verbatim as opening paragraph 1, including footnote. Original notation paragraph retained below the added route paragraph. No original opening content omitted."
+        },
+        {
+          "file": "03b-memory-readout.md",
+          "id": "ch:MEMORY-READOUT",
+          "title": "Readout accuracy depends on how a moving memory is observed",
+          "sections": [
+            "sec:MEMORY-READOUT-SETUP",
+            "sec:MEMORY-NAIVE",
+            "sec:MEMORY-IDEAL",
+            "sec:MEMORY-PARTIAL",
+            "sec:MEMORY-EXTENSIONS",
+            "sec:MEMORY-FIG3-AND-CAUTION"
+          ],
+          "opening": [
+            "When a recall cue arrives, the stored value has already moved. Later spikes can help estimate the value present at that cue, but they cannot reveal the particular random displacements that occurred before it. Waiting for more spikes also allows the network to move further. The question is how much observation helps when the value being read keeps changing.",
+            "Separating the error accumulated during storage from the error of reading the cue state makes that question precise. Equal weighting of later observations shows why simply waiting can become harmful. Allowing for the state's motion then shows how observation can keep helping toward a limit, and how access to only some spikes changes the useful duration. The time constants and noise assumptions also need checking before the resulting limits can be compared with the paper's final error claim.",
+            "As before, the memory coordinate is $\\theta$, its initial value is $\\Theta$, and its displacement variance is $2Dt$ for constant diffusion coefficient $D$ without boundaries or systematic drift. The storage delay $T$ ends at the recall cue; the observation interval $L$ begins there. The [spike information rate $J$](ch-memory-information.html#sec-memory-fi) measures how clearly nearby present states can be distinguished, and $\\tau$ is the basic model's common synaptic time constant."
+          ],
+          "prerequisites": [
+            "ch:MEMORY-INFORMATION"
+          ],
+          "rationale": "Storage and observation are distinct sources of error. The complete readout derivation and its assumptions stay together. The extensions qualify the model before the final figure reading and apparent printed inequality issue. This is longer than its partner but avoids a short chapter mixing unrelated extensions and a readout conclusion.",
+          "original_opening_disposition": "Continuation opening is new. Original information opening remains in the first group. The short notation reminder deliberately repeats the distinction needed for this continuation."
+        }
+      ]
+    },
+    {
+      "file": "04-eye-drift.md",
+      "groups": [
+        {
+          "file": "04-eye-drift.md",
+          "id": "ch:EYE-DRIFT",
+          "title": "Eye drift points to a shared neural drive",
+          "sections": [
+            "sec:EYE-PATHWAY",
+            "sec:EYE-RECORDINGS",
+            "sec:EYE-FORWARD-FIT",
+            "sec:EYE-INVERSE-FILTER",
+            "sec:EYE-SHARED-VARIANCE",
+            "sec:EYE-CHI"
+          ],
+          "opening": [
+            "Looking steadily at a small spot does not hold the eye perfectly still. Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style=\"Definition Term\"}, the eye makes a small, smooth, irregular movement called [**fixational drift**]{.definition-term custom-style=\"Definition Term\"}. Does this movement begin as noise in the muscles, or does the brain send a changing command to them? Ben-Shushan and colleagues answer this in two stages. Their recordings support a large shared drive upstream of the motor neurons. Their model then proposes a particular source: random motion of the eye position stored in a memory circuit.[^p2-question]",
+            "This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory.",
+            "A recording from one motor neuron becomes useful for this comparison only after its spikes and the eye's movement can be expressed on the same scale. The larger movements provide that calibration. Applying it during fixation then lets us ask whether independent motor noise could explain the observed relationship, and estimate the shared contribution under explicit gain and independence assumptions."
+          ],
+          "prerequisites": [
+            "ch:PERSISTENCE",
+            "ch:MEMORY-DYNAMICS"
+          ],
+          "rationale": "The recordings and calibration serve one inference: whether a shared command exists and how much displacement variance it supplies. Ending before the covariance estimate would postpone the answer to the chapter's central question. Six sections are justified by this argument, rather than by a count target.",
+          "original_opening_disposition": "Both original opening paragraphs retained in the first eye group, followed by the new route paragraph. Their whole-paper two-stage orientation remains accurate because later eye chapters supply timing and modeling."
+        },
+        {
+          "file": "04b-eye-timing.md",
+          "id": "ch:EYE-TIMING",
+          "title": "Drift growth distinguishes diffusion from filtered white noise",
+          "sections": [
+            "sec:EYE-MEASUREMENT-NOISE",
+            "sec:EYE-FILTERED-MSD"
+          ],
+          "opening": [
+            "The shared movement estimate concerns a single interval length. It leaves open whether the command merely fluctuates around a stable value or keeps accumulating changes. Comparing displacements over different time separations can distinguish these possibilities, but the smallest measured displacements may include a large contribution from recording error.",
+            "The mean squared displacement measures the average squared position change over a chosen interval. Separating the recording error from that quantity is necessary before interpreting its growth. The next comparison follows two possible inputs through a decaying muscle response: fluctuations that do not accumulate and a position that wanders by diffusion. Their different long interval behavior explains how a smooth eye movement can still reflect a wandering stored value."
+          ],
+          "prerequisites": [
+            "ch:EYE-DRIFT"
+          ],
+          "rationale": "These two substantial sections form a complete comparison: first remove the measurement contribution to the timing statistic, then compare stationary filtered noise with filtered diffusion. The correction must precede interpreting the curve.",
+          "original_opening_disposition": "New continuation opening; original whole-paper opening retained in eye-shared-drive. No existing section introductions removed."
+        },
+        {
+          "file": "04c-eye-circuit.md",
+          "id": "ch:EYE-CIRCUIT",
+          "title": "A noisy memory circuit can produce eye drift",
+          "sections": [
+            "sec:EYE-CIRCUIT-MODEL",
+            "sec:EYE-SCALING",
+            "sec:EYE-FIGURES",
+            "sec:EYE-LIMITS"
+          ],
+          "opening": [
+            "The recordings support a shared source before the motor neurons, and the movement's timing is compatible with a stored position that wanders. Neither result identifies the circuit that supplies that command. A noisy memory circuit is a proposed explanation whose output must pass through the motor neurons and muscles before it can be compared with eye movement.",
+            "Following that complete path lets the model test whether neural noise can produce both the amount and timing of the observed drift. Its spike variability, neuron count and time constants determine how much freedom this match allows. Comparing the model with the separate recording and timing results then shows what the study supports, and why it still leaves other upstream sources possible."
+          ],
+          "prerequisites": [
+            "ch:EYE-DRIFT",
+            "ch:EYE-TIMING",
+            "ch:MEMORY-INFORMATION"
+          ],
+          "rationale": "The model, its parameter freedom and its evidence limits answer one question: can a concrete memory circuit explain the motion, and what would that establish? The figure guide then compares all earlier evidence without splitting its table.",
+          "original_opening_disposition": "New continuation opening. Its summary draws only on the two immediately preceding eye chapters. It preserves the original distinction between recording inference and a possible circuit mechanism."
+        }
+      ]
+    },
+    {
+      "file": "05-place-fields.md",
+      "groups": [
+        {
+          "file": "05-place-fields.md",
+          "id": "ch:PLACE-FIELDS",
+          "title": "Field counts and gaps reveal threshold and scale",
+          "sections": [
+            "sec:PLACE-GP",
+            "sec:PLACE-KAC-RICE",
+            "sec:PLACE-INFERENCE"
+          ],
+          "opening": [
+            "A cell recorded on a short track may have one smooth firing hill. On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?",
+            "Mainali, Azeredo da Silveira, and Burak propose that a cell's spatial input is a smooth random function. The cell fires where this function exceeds a threshold. The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests ask whether fitting field sizes and counts also explains field shapes and holes.[^p3-question]",
+            "We begin on a track, where a field starts when the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+            "Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning."
+          ],
+          "prerequisites": [
+            "ch:FOUNDATIONS",
+            "ch:PERSISTENCE"
+          ],
+          "rationale": "This is one complete inference path: define the random spatial map and its fields, derive crossing density, then combine occupied and inactive lengths to separate the model's two arrangement parameters. Stop before the shift from exact mean formulas to the high-threshold approximation for whole distributions.",
+          "original_opening_disposition": "Retain the first two original paragraphs exactly, with p3-question. Replace the third paragraph's generic chapter announcement with the proposed path paragraph, while retaining its full static-map scope statement as a separate paragraph. Nothing from the original scientific setup is dropped."
+        },
+        {
+          "file": "05b-place-sizes.md",
+          "id": "ch:PLACE-SIZES",
+          "title": "High peaks explain size laws across dimensions",
+          "sections": [
+            "sec:PLACE-RARE-PEAKS",
+            "sec:PLACE-SIZE-LAW",
+            "sec:PLACE-SLICES",
+            "sec:PLACE-SLOPES"
+          ],
+          "opening": [
+            "Knowing the average field length does not tell us how often very small or very large fields occur. Why should the same spatial model give one size distribution on a track, another in an arena, and a third in a room? The next step is to find the shape of a typical field when only unusually high input peaks rise above the threshold.",
+            "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, and converting that radius into length, area or volume gives the different size laws. Cuts through a map and slopes at field edges provide further checks of its spatial structure. The slope calculation also provides a separate check on the predicted field widths. The size laws use a high threshold approximation; the boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.",
+            "We keep the earlier notation: $z(x)$ is the spatial input normalized to variance one, $q$ is its threshold, $\\sigma$ is its local distance scale, and $a$ converts positive excess input into firing rate. The number of spatial dimensions is $d$. The firing rule remains $F(x)=a[z(x)-q]_+$, where $[u]_+=\\max(u,0)$."
+          ],
+          "prerequisites": [
+            "ch:PLACE-FIELDS"
+          ],
+          "rationale": "The rare-peak argument and geometric change of variables form an inseparable derivation. Slices then test what the geometry predicts inside a field, and boundary slopes check the local crossing structure and independently recover the width constant. This gives a complete size-and-local-shape argument before the next chapter changes to holes, whole-map tests and possible circuitry.",
+          "original_opening_disposition": "The original broad opening stays with place-1. This new opening supplies the question, path, notation reminder and distinction between limiting and exact claims. Do not copy the full Gaussian-process definition into this continuation."
+        },
+        {
+          "file": "05c-place-tests.md",
+          "id": "ch:PLACE-TESTS",
+          "title": "Holes and measurements test the spatial explanation",
+          "sections": [
+            "sec:PLACE-TOPOLOGY",
+            "sec:PLACE-DATA",
+            "sec:PLACE-WIRING"
+          ],
+          "opening": [
+            "Two maps can have the same field sizes and counts while arranging their active regions differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial model account for these differences, and how much would that agreement tell us about the circuit that produced the maps?",
+            "We first count connected regions and holes together, which gives a prediction across activity thresholds. The boundary of the observed environment matters for this calculation, so we keep its contributions. We then examine which measured quantities set the model's parameters and which provide further tests. Finally, a sum of many randomly weighted inputs shows one way a circuit could produce Gaussian spatial input, while making clear which assumptions and circuit measurements that explanation still needs.",
+            "The map is still fixed over space. As before, $q$ is the normalized activity threshold, $\\sigma$ is the local spatial scale, and $a$ converts normalized input above threshold into firing rate. The number of spatial dimensions is $d$; it is separate from the diffusion coefficient $D$ used in the memory chapters."
+          ],
+          "prerequisites": [
+            "ch:PLACE-FIELDS",
+            "ch:PLACE-SIZES"
+          ],
+          "rationale": "The chapter asks how much the successful size and shape description explains. Holes first supply a demanding whole-map prediction, the data section separates fitted quantities from further checks and processing choices, and the wiring section examines one possible source of Gaussian maps without treating it as uniquely identified. The long topology calculation remains complete, including its folded algebra and boundary terms.",
+          "original_opening_disposition": "The original broad opening stays with place-1. The new opening motivates the topology calculation as a stronger test, then explains why data processing and the proposed input mechanism follow it."
+        }
+      ]
+    },
+    {
+      "file": "06-synthesis.md",
+      "groups": [
+        {
+          "file": "06-synthesis.md",
+          "id": "ch:SYNTHESIS",
+          "title": "Spatial maps and memory dynamics need separate tests",
+          "sections": [
+            "sec:SYNTHESIS-QUESTIONS",
+            "sec:SYNTHESIS-JOINT-CALCULATION",
+            "sec:SYNTHESIS-EVIDENCE",
+            "sec:SYNTHESIS-RELATED",
+            "sec:SYNTHESIS-NEXT"
+          ],
+          "opening": [
+            "A model can explain the shape of a neural code without explaining how that code is maintained. It can also explain fluctuations inside a circuit without uniquely locating the source of a measured behavior. The three papers become more useful together when these different claims are kept attached to their actual mathematical and experimental tests.",
+            "To connect them, we first separate the spatial map, the changing represented position, and the movement measured downstream. A short calculation then shows how a common position error can make cells with different tuning change together. Comparing that calculation with each paper's evidence and related studies identifies what a joint experiment would still need to measure."
+          ],
+          "prerequisites": [
+            "ch:MEMORY-READOUT",
+            "ch:EYE-CIRCUIT",
+            "ch:PLACE-TESTS"
+          ],
+          "rationale": "Retain one synthesis chapter. Its comparison motivates a short shared-position calculation; that calculation explains what a joint test would measure; evidence and related studies state the limits before the research proposal. The example remains a level-3 child of the calculation. A split before evidence would separate the proposed connection from the qualifications and test that give it meaning.",
+          "original_opening_disposition": "Retain the original opening exactly and append the proposed path paragraph before the first section."
+        }
+      ]
+    }
+  ],
+  "decision": "13 chapters. Complete original sections retain order. Original six chapter URLs kept for first pieces, with redirects for moved stable anchors.",
+  "alternatives": "Compared 3-way memory split and 4/4/4 eye split; accepted reviewer rationale for keeping complete calculations and inferences together. Synthesis remains a single connected lesson."
+}

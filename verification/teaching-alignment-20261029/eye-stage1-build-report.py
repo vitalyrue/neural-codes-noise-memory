@@ -1,0 +1,426 @@
+"""Serialize passage judgments from the independent eye truth review; no manuscript edits."""
+import json
+import yaml
+from pathlib import Path
+from datetime import datetime
+
+root=Path(__file__).parent
+inp=json.loads((root/'eye-input.json').read_text(encoding='utf-8-sig'))
+out={'call':{'run_id':'local-request:eye-truth-20261029-01','reviewer_id':'/root/alignment_eye_truth','stage':'truth_reasoning','context':'fresh','started_at':'2026-10-29T12:32:45.0259180+02:00','completed_at':None,'input_hash':inp['input_hash'],'review_contract_hash':inp['review_contract_hash']},'scope':{'units':25,'paragraphs':236,'claim_rows':220,'manuscript_edits':False,'extended_figure_pixel_acceptance':'explicitly deferred; semantic figure text checked against source captions and editable SVG text, not artwork fidelity or final layout','open_ended_read':'Read the actual reader text before the packet questions. Tested source attribution, common-drive versus circuit localization, calibration, filtering and parameter-scaling claims. No confirmed truth correction remained after checking nearby qualifiers.','awake_execution_time':'unverified; elapsed time uses persisted wall-clock checkpoints','token_stats':'unavailable'},'checkpoints':['2026-10-29T12:32:45.0259180+02:00','2026-10-29T12:34:41.7616653+02:00','2026-10-29T12:35:56.0994773+02:00'],'units':{}}
+labels=[inp['review_fields'][i] for i in [0,1,2,5,6,7,8,9,10,11,12,15]]
+def U(suffix, paras, *answers):
+    key=next(k for k in inp['units'] if k.endswith(suffix))
+    assert len(answers)==12,(suffix,len(answers))
+    refs=[key]+paras.split(',') if paras else [key]
+    fields=dict(zip(labels,answers))
+    fields['Essential explanation beyond the checklist']=f'reader task: {answers[0]}; dependencies checked: {answers[1]}; reasoning chain: {answers[6]}; unresolved: none within the truth scope; artwork fidelity is deferred.'
+    out['units'][key]={'status':'pass','findings':[],'questions':[{'question':'What does this passage establish, and what stronger conclusion would not follow?','answer':answers[6]+' '+answers[9],'source_refs':refs},{'question':'Does its strongest reasonable reading survive a correctness objection?','answer':answers[11],'source_refs':refs}],'fields':fields,'claims':{}}
+    return key
+
+U('ch:READING-GUIDE','p3',
+'p3: How can variable neural activity support memory, eye control and navigation?',
+'p3 and READING-START p37: undergraduate mathematics is assumed; this opening uses only ordinary meanings of memory, eye and location.',
+'p3: neuroscience is explained by the cells, information and behavior it studies; no unexplained mathematical definition is used.',
+'p3: mathematical memory models, monkey recordings and rodent/bat recordings are distinct objects of study.',
+'setting: p3, three research settings; roles: models derive consequences and recordings supply observations; objects and flow: activity to represented value or behavior; assumptions: this is an orientation; verdict: adequate.',
+'p3: nerve-cell activity represents quantities such as angles; the numerical encoding is deferred until the foundations, before calculations.',
+'p3 asks three separate questions and does not claim that a single circuit explains all three; source abstracts support that separation.',
+'p3 uses angle, eye movement and multiple response locations as concrete examples, without invented measurements.',
+'p3: each example identifies the quantity the reader will explain; no additional model is needed for this orientation.',
+'p3 plus READING-PLACE p33 distinguish theoretical, empirical and statistical contributions.',
+'Not applicable: p3 is a subject orientation, not a choice between competing mechanisms; those choices occur in the paper introductions.',
+'objection: the three papers prove one biological circuit; kind: correctness; target: p3; disposition: does not apply; reason: three questions and three settings are expressly separate, reinforced at p33.')
+U('sec:READING-FIELD','p7',
+'p7: brief variable signals must support a useful direction, gaze angle or location.',
+'p7 explains neuron before using cells as the actors; READING-START p37 supplies the mathematical baseline.',
+'p7 defines neurons as brain signaling cells and marks the term; brief electrical signals refer to their emitted events, taught as spikes in FOUNDATIONS-SPIKES.',
+'p7 distinguishes mathematical model predictions from recording tests.',
+'setting: p7, memory/gaze/navigation tasks; roles: cells signal, models predict, recordings test; objects and flow: cell interactions to behavior; assumptions: general research motivation; verdict: adequate.',
+'p7 motivates the later conversion of signals into mathematical quantities; it makes no numerical representation claim yet.',
+'p7 explains why studying interaction matters: useful behavior must persist despite variable constituent signals.',
+'p7 supplies three concrete behavioral demands, not experimental outcome numbers.',
+'p7 examples share the same problem of reliable information and introduce no extra calculation.',
+'p7 uses must as the task requirement; it does not promise an eye is physically motionless.',
+'Not applicable: p7 establishes the common scientific problem before any model selection.',
+'objection: holding an angle contradicts drift; kind: correctness; target: p7; disposition: does not apply; reason: it states the behavioral goal, while READING-EYE p19 immediately explains actual drift.')
+U('sec:READING-MEMORY','p11,p13,p15',
+'p11: persistent firing can continue while the remembered value changes.',
+'p11-p15 need only the distinction between a value and its representation; foundations and chapters 3–6 teach attractors, diffusion and information before their detailed use.',
+'p13 describes the continuous family as patterns representing different values, rather than relying on an undefined attractor label.',
+'p13: network simulations test the calculation; an ideal reading accuracy is a theoretical benchmark, not animal performance.',
+'setting: p11-p15, input-free continuous-state memory model; roles: spikes disturb state and observer estimates it; objects and flow: random events to wandering value; assumptions: small fluctuations and specified noise; verdict: adequate.',
+'p13 maps each activity pattern to a stored value; no claim equates a single rate with that value.',
+'p15 states the information-diffusion lower bound qualitatively, consistent with Burak-Fiete abstract and Eqs. 2–4; weak-fluctuation and no-anchor scope is explicit.',
+'p11 direction or eye angle grounds the storage question; detailed numerical examples are appropriately in chapters 3–6.',
+'p13/p15 compare derivation with simulation and distinguish storage from readout in the footnote.',
+'p15 limits the growth statement to the analyzed assumptions; it is not a promise of unbounded ordinary angular error on a finite ring.',
+'common problem: p15, memory accuracy; options: maintaining activity and estimating its current value; relationship: coupled constraints, not rival techniques; criteria: diffusion and readout error; selection or scope: continuous-state family; verdict: adequate.',
+'objection: the bound predicts every recurrent network or says high information guarantees stability; kind: correctness; target: p15; disposition: does not apply; reason: family/noise/anchor qualifiers and lower-bound wording preserve the one-way implication.')
+U('sec:READING-EYE','p19,p21,p23',
+'p19: does smooth fixational motion begin in peripheral mechanics or a shared neural command?',
+'p19 defines drift and retina; p21 explains calibration in ordinary words before the statistical result.',
+'p19 marks and explains fixational drift and retina; the source uses both meanings.',
+'p21-p23 distinguish recorded OMNs, fitted prediction and proposed memory circuit.',
+'setting: two macaques, p21; roles: OMN recordings pair with measured movement and model tests a possible source; objects and flow: spikes to predicted displacement; assumptions: transfer of calibration and uncorrelated contributions at p23; verdict: adequate.',
+'p21 says the relation calibrated on larger movements is applied during fixation; p23 explains what the resulting variance fraction means.',
+'p23 gives the 0.82 common horizontal displacement-variance estimate at 350 ms, matching main p5 and Eqs. 11–17, and does not identify a unique circuit.',
+'p23 supplies a source measurement with interval, units of analysis and conditions, rather than treating 82% as a distance fraction.',
+'p21/p23 use the actual study as the example and explicitly separate its circuit model.',
+'p23: calibration and noise assumptions; recording-based localization stops upstream of motor neurons.',
+'common problem: p19, source of drift; options: muscle fluctuations or neural commands; relationship: possible contributions; criteria: movement covariance and timing; selection or scope: central contribution supported, specific circuit proposed; verdict: adequate.',
+'objection: 82% establishes integrator neurons as the source; kind: correctness; target: p23; disposition: does not apply; reason: the sentence expressly says the recordings do not uniquely locate the noise.')
+U('sec:READING-PLACE','p27,p29,p31,p33',
+'p27: why do larger environments reveal many irregular fields rather than one smooth response?',
+'p27 teaches place cell, hippocampus and connected active region before p29 threshold model; no Gaussian-process expertise is assumed here.',
+'p27 definitions match the paper’s operational spatial fields; cells may have multiple connected active regions.',
+'p29: sampled spatial function generates fields; simulations and existing animal recordings test statistics; p31 wiring remains an explanation.',
+'setting: p27-p31, spatial responses in rodent/bat environments; roles: model describes maps and recordings test distributions; objects and flow: smooth input plus threshold to active regions; assumptions: tested settings and exact/limiting distinctions; verdict: adequate.',
+'p29 maps physical location to a function value then to activity; p31 distinguishes that representation from actual measured synapses.',
+'p29-p31 accurately summarize Mainali main pp1111–1116: fitted sizes/arrangement support shape and topological predictions. The footnote preserves the extra rate-gain fit.',
+'p31 gives multiple peaks and inactive holes as tangible predictions; source Fig.3 and shape discussion support both.',
+'p29 identifies measured datasets rather than invented numbers; p33 explains what combining the results would still require.',
+'p31: no direct connectivity measurement and exact versus approximate versus empirical results remain distinct.',
+'common problem: p27, field heterogeneity; options: one-field picture and thresholded random maps; relationship: competing descriptions at different environmental scales; criteria: counts, sizes, shapes; selection or scope: examined species/dimensions; verdict: adequate.',
+'objection: fitted field statistics prove random synaptic wiring; kind: correctness; target: p31; disposition: does not apply; reason: can arise and does not directly measure those connections keep the circuit inference tentative.')
+U('sec:READING-START','p37,p39,p40,p41,p42,p43,p47,p48,p50,p52,p54',
+'p37/p45: choose a workable path given mathematical background and paper interests.',
+'p37 explicitly records calculus, basic probability and linear algebra, while requiring neuroscience and stochastic-process ideas to be taught.',
+'p37 uses no new technical definition as a premise; the listed advanced topics are promises of teaching, not assumed skills.',
+'p39-p48 assign foundations, memory theory, eye experiment, spatial theory and synthesis to distinct chapter groups.',
+'Not applicable: p37-p54 is navigation through explanations, not a multi-component scientific process.',
+'Not applicable: p39-p48 maps reader interests to chapters, with no data encoding transformation.',
+'p39-p48 matches the actual chapter headings and eye prerequisite path; the spatial path does not use the chapter6 readout calculation.',
+'p47/p48 give two concrete reading paths, preserving foundations for both.',
+'p47/p48 specialize the same guide for different paper interests without claiming either path proves the other paper.',
+'p54 is read as a conceptual first pass: main-text results/assumptions are retained while longer derivations can be opened; it does not license skipping a derivation when calculating.',
+'common problem: p45, select reading scope; options: memory/eye or place fields; relationship: two paths with shared foundations; criteria: requested paper and required concepts; selection or scope: p47/p48; verdict: adequate.',
+'objection: optional calculation notes make all prerequisites optional; kind: correctness; target: p54; disposition: does not apply; reason: it specifies a first reading and preserves assumptions/results, while p70 requires the derivation when checking or calculating. Full flow acceptance belongs to Stage3.')
+U('sec:READING-MECHANISM-MATH','p58,p60,p61,p62,p64,p66,p68,p70,p72',
+'p58/p64: distinguish an assumed neural response from a result derived from it.',
+'p60-p62 explain mechanism, mathematical derivation and interpretation; the appendix table is a map to later teaching, not a prerequisite replacement.',
+'p64 supplies the distinction directly; p66 describes the surviving change without depending on an unexplained projection formula.',
+'p60: circuit components act; p61: mathematical tools calculate; p68: observer access belongs to the readout assumption.',
+'setting: p60-p68, models and readout; roles: cells generate disturbances, interactions remove some, observer estimates; objects and flow: spike to retained angle error; assumptions: chosen circuit and spike law; verdict: adequate.',
+'p66 bridges an activity disturbance to its retained coordinate displacement; the linked linearization section provides the full calculation.',
+'p66’s remove/survive/spread sequence matches SI II and the guide’s left-vector projection; appendix I–VII entries point to correct PDF pages 1,3,6,9,10,12,17.',
+'p66 illustrates a spike disturbing several cells, then distinguishes corrected changes from a displaced angle.',
+'p66 is a qualitative example of projection; it does not falsely identify an orthogonal geometric projection in every network.',
+'p68 separates a best-estimator benchmark from evidence that neurons implement it; p72 identifies independent source-consistency checks.',
+'common problem: p70, how deeply to read; options: conceptual mechanism/result/interpretation or full derivation; relationship: complementary depths; criteria: understanding versus calculating; selection or scope: assumptions retained in both; verdict: adequate.',
+'objection: table titles misdescribe the source appendix or a model equation is presented as proof of physiology; kind: correctness; target: table READING-APPENDIX and p64; disposition: does not apply; reason: original SI contents and target chapter sections agree, and p64 explicitly separates assumption from consequence.')
+U('sec:READING-SCOPE','p78,p80,p82,p86,p87,p88,p89',
+'p78/p80: tell a checked example from reproduction of animal results.',
+'p82 gives coordinate, elapsed time and zero-bias/unbounded conditions before MSD=2Dt; calculus and basic expectation are within baseline.',
+'p82 defines diffusion coefficient and MSD; p86-p89 declare the symbols used later, including q versus the source’s theta.',
+'p78-p80 distinguish guide calculations, published measurements and full simulations.',
+'Not applicable: p78-p89 records evidence scope and notation, not a new multi-component process.',
+'p82 expresses average squared displacement as a mathematical statistic in the basic one-dimensional model.',
+'p82’s 2Dt follows the constant-D zero-mean independent-increment model taught in PERSISTENCE; source Mainali PDF p3 visually confirms theta despite text extraction returning q.',
+'p82 gives the basic symbolic law; independent numerical checks occur in the connected worked examples.',
+'p78 says invented numbers and source measurements are separate, matching the eye example labels.',
+'p80 denies rerunning original datasets/full simulations; p82 retains constant coefficient, no bias and no boundary.',
+'common problem: p80, assess strength of evidence; options: example check or empirical reproduction; relationship: different tasks; criteria: what was actually rerun; selection or scope: explanation and checks only; verdict: adequate.',
+'objection: 2Dt is claimed for bounded, biased or nonconstant diffusion; kind: correctness; target: p82; disposition: does not apply; reason: the sentence names the restrictive basic model and links the separate limitations.')
+U('sec:READING-PAPERS','p93,p95,p96,p97,p99',
+'p93-p99: locate original published versions and distinguish guide corrections from author corrections.',
+'p93 assumes only knowledge of linked PDFs; p95 explains Early Edition page count and p97 the cover offset.',
+'p95-p97 give bibliographic identities, not technical definitions requiring a new teaching block.',
+'p99 assigns printed formulas to source authors and independent mathematical checks to the guide.',
+'Not applicable: p93-p99 is a reference list, not a scientific system.',
+'p95/p97 distinguish printed page labels from file pages to prevent locating the wrong evidence.',
+'Local PDF metadata/content verified: memory main6/SI20 pages; eye main13/SI14/peer review35; place main15 with cover/SI16. DOI/title/authorship agree with source fronts.',
+'p95 gives concrete source page-locator rules; the eye and place listings identify separate supplements.',
+'p99 explains why readers may see a different intermediate formula in the original source.',
+'p99 says apparent inconsistencies and independent mathematical checks, not author-confirmed corrections.',
+'Not applicable: p93-p99 supplies source access, not a choice among scientific methods.',
+'objection: local source copies are preprints or appendix page count is wrong; kind: correctness; target: p95-p97; disposition: does not apply; reason: opening pages show publisher editions and direct PDF counts match the text.')
+U('ch:EYE-DRIFT','p3,p5,p7',
+'p3: why does the eye move during attempted fixation?',
+'p3 explains microsaccades and recalls drift; p5 relies on the already taught wandering memory coordinate.',
+'p3 gives microsaccades’ brief/rapid movement meaning and drift’s smooth irregular character.',
+'p3 distinguishes recordings supporting shared drive from a model proposing an integrator source.',
+'setting: p3-p7, eye control during fixation; roles: neural command, muscles, recordings and analysis; objects and flow: stored position through mechanics to eye trajectory; assumptions: gain/noise stated at p7; verdict: adequate.',
+'p7 motivates expressing prediction and motion on the same displacement scale for the common-variance comparison.',
+'p3/p5 lead from the internal diffusion hypothesis to measurable output without treating the model as direct physiological observation.',
+'p7 uses large movement calibration followed by fixation analysis as a concrete research sequence.',
+'p7 identifies why larger movements are informative for calibration, with gain transfer kept as an assumption.',
+'p3 model then proposes and p7 explicit assumptions restrict the claimed localization.',
+'common problem: p3, source of eye drift; options: peripheral noise or changing neural command; relationship: contributors whose variance can differ; criteria: covariance and timing; selection or scope: common drive before specific model; verdict: adequate.',
+'objection: only after same scale denies using unscaled correlations; kind: correctness; target: p7; disposition: does not apply; reason: for this comparison refers to the shared displacement-variance analysis, not every possible test of association.')
+U('sec:EYE-PATHWAY','p11,p13,p24,p26,p27,p28,p30',
+'p11: a brief movement command must become a maintained eye position.',
+'p11 links the previously explained continuous attractor; p13 introduces OMNs, nucleus and plant before use.',
+'p11/p13 define integrator, ocular motoneurons, abducens nucleus and ocular plant by role.',
+'p13 distinguishes muscle-driving OMNs from internuclear neurons; p26-p28 distinguish common, private and downstream contributions.',
+'setting: p11-p30, horizontal eye control; roles: integrator stores, OMNs activate muscle, plant moves eye; objects and flow: maintained command to motor spikes to mechanics; assumptions: attractor source is proposed; verdict: adequate.',
+'p11 associates a stored horizontal coordinate with a neural activity state; p13 connects that representation to physical action.',
+'p30 explains why independent private deviations partly cancel whereas common drive survives; basic averaging follows FOUNDATIONS-POISSON.',
+'p26-p28 traces three possible noise entry locations without adding unsupported measurements.',
+'p19 figure classification follows SI ED6 thresholds and eye-velocity sensitivity; it is a measurement criterion, not cell-type proof from anatomy.',
+'p11 says in the proposed mechanism; p30 says partly cancel rather than vanish completely.',
+'common problem: p24, contributions to drift; options: common input/private spike/downstream variability; relationship: additive possible sources; criteria: whether averaging reduces them; selection or scope: hypothesis setup; verdict: adequate.',
+'objection: the attractor is recorded or every abducens cell is an OMN; kind: correctness; target: p11/p13; disposition: does not apply; reason: proposed mechanism and other neurons in that nucleus expressly prevent both inferences.')
+U('sec:EYE-RECORDINGS','p34,p36,p47,p49,p57',
+'p34/p47: pair neural spikes with tiny movement and obtain a usable movement-to-rate calibration.',
+'p34 uses OMNs already taught; p47 defines gain before using calibration error to qualify variance inference.',
+'p47 defines gain as conversion scale; search coil and electrode roles are concrete in p34.',
+'p34: one recorded neuron plus eye angle, not simultaneous neural pairs; p57: predicted position is calculated.',
+'setting: p34-p36, two head-fixed rhesus macaques; roles: coil measures angle, electrode spikes; objects and flow: full trial to cleaned fixation intervals; assumptions: sampling/calibration transfer; verdict: adequate.',
+'p36 explains segmentation and p47 converts observed activity into a prediction through a fit; figure caption separates physical from analysis arrows.',
+'Main Methods p9 and peer review p19 confirm no simultaneous OMN records, 500–700ms fixation,25kHz neural sampling,1ms eye samples,30ms exclusions and350ms intervals.',
+'p36 gives the complete extraction sequence and302 intervals per cell on average, confirmed Fig2 caption.',
+'p34/p36 counts are actual study counts; the text explicitly denies 57 independent animal samples.',
+'p34 excludes direct OMN-pair covariance measurement; p47 calibration gain transfer may fail.',
+'common problem: p47, calibration at tiny drift scale; options: fit larger-motion relation then transfer or fit tiny residuals; relationship: different information quality; criteria: measurable rate change and valid transfer; selection or scope: paper’s full-trial calibration; verdict: adequate.',
+'objection: the diagram infers simultaneous neuron covariance or treats measurement error as force on the eye; kind: correctness; target: p53 caption/alt and p57; disposition: does not apply; reason: one-cell-at-a-time design and separate measurement-noise entry are explicit in text/SVG.')
+U('sec:EYE-FORWARD-FIT','p61,p68,p76,p78,p80,p87,p89',
+'p61: the same eye position can need different motor firing during motion or acceleration.',
+'p68/p78 define E, threshold, coefficients and delay; prior spike-rate meaning is in FOUNDATIONS-SPIKES.',
+'p68/p78 identify fitted coefficients and positive neural lead; p89 defines p value under the reference test.',
+'p80/p87 distinguish observed inverse-ISI rate, predicted rate and held-out trial; fitting is analysis, not a neural learning claim.',
+'setting: p61-p89, single-cell full trials; roles: movement predicts rate and held-out residuals test relation; objects and flow: E/velocity/acceleration to rate estimate; assumptions: active range above threshold; verdict: adequate.',
+'p68/p76 convert angle, angular velocity and acceleration into compatible spikes/s terms; m is not physical mass.',
+'Eq2 and Eq3 match main p9 including time shift/threshold; p87 correctly says full trials include fixation and pursuit, leave-one-out and21ms smoothing.',
+'p89 follows mean-subtracted fixation segments to a rate correlation and one-sided population test, source Fig1 p3.',
+'p89 uses published p=3e-9 and explains why a noisy single cell need not erase population evidence; it does not infer a variance fraction yet.',
+'p87 excludes rate<20Hz trials; p89 limits the p value to its reference rather than a probability that the hypothesis is true.',
+'common problem: p61, predict motor rate; options: position-only or position/velocity/acceleration fit; relationship: nested predictor terms; criteria: changing rate at same position; selection or scope: active-cell linear fit; verdict: adequate.',
+'objection: acceleration coefficient is eye mass or fitting includes the test trial; kind: correctness; target: p78/p87; disposition: does not apply; reason: fitted relationship and held-out trial language state the correct roles.')
+U('sec:EYE-INVERSE-FILTER','p102,p110,p124,p126,p141,p148,p158,p165,p169,p176,p188,p192',
+'p102: put a cell’s predicted movement and actual movement in degrees.',
+'p104 inherits k,r,m,threshold and lead; p110 teaches exponential differentiation before transfer factorization, not an unexplained Laplace transform.',
+'p110 defines causal filter and impulse response; p141 defines unit impulses/step function; p148 defines convolution; p192 defines SEM.',
+'p102/p126 keep reverse calculation distinct from causal control by one neuron.',
+'setting: p104-p148, calibrated linear ODE; roles: spike train input, kernel response, predicted position output; objects and flow: sum past spike responses; assumptions: positive coefficients and positive discriminant p124; verdict: adequate.',
+'p148 maps spikes/s through degree/spike kernel to degrees; static area1/k is the essential calibration.',
+'Factorization, paired signs, tau product=m/k and sum=r/k, impulse jump, delay and equal-root limit all rederived; they agree with source Eqs4–7.',
+'p169-p176 recomputed r=.5,m=.0024,amplitude2.173913,area.25,80Hz offset20deg.',
+'p169 explicitly constructs the example; it exposes normalization rather than claiming a recorded cell fit.',
+'p124 supplies nonoscillatory conditions; p188 separately treats coincident roots; p192 SEM is not animal uncertainty.',
+'common problem: p102, neural/motion common scale; options: inverse of fitted relation or new tiny-residual fit; relationship: alternative analyses; criteria: inherited calibrated gain; selection or scope: paper’s inverse; verdict: adequate.',
+'objection: missing tau-product/m causes a wrong static gain or the neural lead has the wrong sign; kind: correctness; target: p133-p148; disposition: does not apply; reason: integration gives1/k and h(u)=h0(u-Delta t) reproduces delayed movement after neural firing.')
+U('sec:EYE-SHARED-VARIANCE','p205,p207,p215,p217,p225,p227,p235,p237',
+'p205: can independent motor neuron fluctuations alone explain R=.17?',
+'p207/p217 use previously taught covariance and standardization; undergraduate variance algebra suffices.',
+'p215 defines R squared as explained variance after an optimized linear gain, avoiding raw-predictor error confusion.',
+'p217 uses independent standardized single-cell predictors; p225 distinguishes population result from representative sampling.',
+'setting: p205-p237, independent-noise null model; roles: predictors explain one motion signal; objects and flow: correlations to residual variance bound; assumptions: uncorrelated predictors and representative sample; verdict: adequate.',
+'p217 standardization changes numerical scale without changing correlations; independence makes cross terms zero.',
+'Recomputed Var(Y-sum R_iX_i)=1-sum R_i²; nonnegativity proves mean R²<=1/Nm; Jensen lower bound gives .0289 from .17.',
+'p235 compares2.9% with.1% at1000 cells, and states the inequality becomes tighter with larger counts.',
+'p235 numerical comparison uses an illustrative1000 and source few-thousand scale; it does not require equal cell muscle effects.',
+'p225/p237 retain sample representativeness and anatomically motivated independence of privately generated noise; simultaneous covariance was unavailable.',
+'common problem: p205, shared versus private source; options: independent OMN-only noise or shared variation; relationship: statistical hypotheses; criteria: explained-variance bound; selection or scope: reject independent-only, then localize using biology; verdict: adequate.',
+'objection: summing explained fractions assumes equal effects or merely correlated predictors can be summed; kind: correctness; target: p217-p225; disposition: does not apply; reason: standardization plus independent predictors gives the bound without equal weights; shared predictors are expressly exempt.')
+U('sec:EYE-CHI','p241,p248,p250,p251,p269,p279,p285,p293,p300,p310,p314,p322',
+'p241: estimate the size, not just existence, of the shared movement component.',
+'p248 defines C,eta,epsilon in degrees; inverse-filter unit gain was established earlier.',
+'p248-p251 explain common contribution and one-for-one gain; chi is explicitly a variance fraction.',
+'p241 distinguishes physical measured displacementY from computed single-cellX; common signal is one component of each.',
+'setting: p241-p269,350ms displacement pairs; roles: C shared,eta measured private,epsilon predictor private; objects and flow: calibrated covariance to Var(C); assumptions: unit gains and negligible cross covariances; verdict: adequate.',
+'p269 explicitly carries the calibration from larger movement to drift; p279 distinguishes a noisy prediction from noisy actual motion.',
+'Expanded covariance leaves Var(C) under stated assumptions; R and chi divide that covariance differently. Order1/Nm residual and weighting agree with source Eqs11–17.',
+'p293-p300 recomputed VarY=.01,VarX=.23266,Cov=.0082,R=.17000159,chi=.82,R²=.02890054.',
+'p285 labels the numbers constructed; figure caption preserves unit common gain and mutually uncorrelated components.',
+'p314 finite estimates may escape[0,1]; p322 inverse-variance error assumes independent approximately normal common-value errors and omits calibration/animal uncertainty.',
+'common problem: p241, quantify shared drive; options: R² after fitted rescaling or calibrated covariance fraction; relationship: different questions, not substitutes; criteria: explained predictor accuracy versus physical common variance; selection or scope: chi uses calibrated gain; verdict: adequate.',
+'objection: low R rules out82% shared movement or weighted error is uncertainty across animals; kind: correctness; target: p279/p322; disposition: does not apply; reason: worked variances explicitly demonstrate coexistence and the error limitation is stated.')
+U('ch:EYE-TIMING','p3,p5',
+'p3: does the command fluctuate around a value or accumulate changes?',
+'p5 recalls MSD and separates physical change from recording error already introduced in foundations.',
+'p5 explains the statistic in words before formulas in the next section.',
+'p5 distinguishes nonaccumulating input from diffusive position, both passed through a muscle response.',
+'setting: p3-p5, displacement at multiple lags; roles: input process, mechanical filter, noisy observation; objects and flow: command through response to measured MSD; assumptions: shortest lags may be noise dominated; verdict: adequate.',
+'p5 maps eye trajectories to lag-dependent mean squared change.',
+'p3/p5 correctly motivate timing as additional evidence after the single350ms variance estimate; they make no unique circuit claim.',
+'p5 names the two inputs and shared output filter, enough setup before their calculations.',
+'p5 is a plan for an analytic comparison; a new numerical example would add nothing here.',
+'p3 states that recording error can dominate small displacements; the next section conditions subtraction.',
+'common problem: p3, distinguish accumulated and bounded variation; options: fluctuating input versus wandering position; relationship: alternative stochastic inputs; criteria: lag-dependent MSD after filtering; selection or scope: compare after noise correction; verdict: adequate.',
+'objection: any finite rising MSD proves diffusion; kind: correctness; target: p3; disposition: does not apply; reason: can distinguish these possibilities is scoped to the two hypotheses, and FILTERED-MSD closes with the slow-correlated alternative.')
+U('sec:EYE-MEASUREMENT-NOISE','p9,p15,p17,p19,p20,p21,p35,p37,p48,p50,p58',
+'p17: true displacement at short lags can be smaller than search-coil error.',
+'p9 recalls MSD; p17-p21 specify observation as true position plus error before expanding its square.',
+'p19-p21 define mean, variance and lack of temporal correlation; no new probability tool beyond the baseline is assumed.',
+'p17 distinguishes measurement error from physical motion; p37 subtraction applies to a statistic, not each trajectory.',
+'setting: sampled positions p15; roles: true angle and independent apparatus error; objects and flow: endpoint subtraction to squared-displacement average; assumptions: zero-mean, motion-independent and temporally uncorrelated noise; verdict: adequate.',
+'p25 expands observed MSD into true MSD and two endpoint error variances, preserving degree² units.',
+'Source Eqs18–19 and ED2 agree: positive-lag offset2sigma²,exact zero lag0; correlated errors would require2[sigma²-Cnu(lag)].',
+'p48 recomputed .0014-.0010=.0004 and .0001/.0004=25%; p50 gives D=.010 so20ms true MSD=.0004.',
+'p48/p50 explicitly construct numbers; source empirical plateau is only order10^-3, not this exact example.',
+'p37 explains subtraction uncertainty; p48 states temporal-correlation failure; p35 excludes zero lag from constant shift.',
+'common problem: p37, remove apparatus effect; options: statistic subtraction or trajectory smoothing; relationship: different operations; criteria: preserve physical MSD shape; selection or scope: subtraction with independence/known offset; verdict: adequate.',
+'objection: the correction should be sigma², not2sigma², or stay nonzero at exactly zero lag; kind: correctness; target: p25/p35; disposition: does not apply; reason: two independent endpoints produce2sigma²; identical endpoints subtract the same error.')
+U('sec:EYE-FILTERED-MSD','p62,p69,p71,p77,p84,p90,p92,p99,p110,p118,p120,p126,p128,p134,p146,p157,p169,p178,p190',
+'p62/p71: can muscle filtering alone turn independent motor noise into continued growing displacement?',
+'p69 defines logarithmic slope; p71 teaches white noise and stationarity; Brownian increments are taught in PERSISTENCE and restated p126.',
+'p69 defines finite-lag superdiffusion; p71 defines low-pass/white-noise/stationary roles; p128 explains integration against dW as a weighted-sum limit.',
+'p110 distinguishes stored Brownian positionB from filtered eyeE and p118 distinguishes eye-response tau from synaptic tau.',
+'setting: p71-p190, two stochastic inputs through a stable one-pole filter; roles: white drive or position command, filtered position and velocity; objects and flow: convolution/covariance to MSD; assumptions: decaying kernel and settled velocity; verdict: adequate.',
+'p77/p84 converts kernel overlap to position covariance; p146 converts velocity covariance to displacement variance.',
+'Re-derived Cwhite=A exp(-lag/tau)/(2tau), Mwhite=A/tau(1-exp); Cv=D/tau exp(-|s|/tau); double covariance integral gives2D[lag-tau(1-exp)]. Short/long limits and alpha formula agree.',
+'p178 recomputed alpha(tau)=e-1=1.7182818 and alpha(5tau)=1.2394897; source Fig3 motor-only2000-cell result is about1% near900ms.',
+'p110 explicitly marks one-exponential example as teaching reconstruction; figure caption separately normalizes both amplitudes to compare shapes.',
+'p128 assumes initial velocity decayed; p190 limits rejection to temporally uncorrelated noise and leaves slow correlated peripheral sources open.',
+'common problem: p110, growing filtered MSD; options: stationary white input or Brownian stored position; relationship: alternative inputs through same filter; criteria: plateau versus long-lag growth and local slope; selection or scope: simple teaching model not full fitted curve; verdict: adequate.',
+'objection: superdiffusive output proves anomalously fast diffusion inside the network, or finite-lag growth excludes all peripheral noise; kind: correctness; target: p178/p190; disposition: does not apply; reason: derivation shows ordinary diffusion plus filtering and expressly retains slow correlated alternatives.')
+U('ch:EYE-CIRCUIT','p3,p5',
+'p3: what circuit could supply the shared wandering command?',
+'p3 recaps the recording and timing conclusions; the reader already knows integrator, OMN and plant.',
+'p3 defines the proposed explanation by its role and avoids a new technical label.',
+'p3/p5 separate recordings, timing and full path simulation.',
+'setting: p3-p5, proposed noisy memory network to eye; roles: circuit generates signal, muscles filter, measurements constrain; objects and flow: spikes to internal position to physical motion; assumptions: circuit origin is hypothetical; verdict: adequate.',
+'p3 says model output must pass through motor and muscle stages before comparison with movement.',
+'p5 makes amplitude/timing fit conditional on spike variability,count,time constants; it does not infer unique parameters from agreement.',
+'p5 identifies the model parameters whose freedom the chapter will examine.',
+'p5 offers a research test, not an empirical example requiring invented numbers.',
+'p3: neither upstream localization nor timing identifies the source circuit.',
+'common problem: p3, source identity; options: integrator noise or other upstream sources; relationship: alternative mechanisms consistent with some observations; criteria: full output statistics; selection or scope: plausibility test; verdict: adequate.',
+'objection: the opening upgrades model agreement to circuit identification; kind: correctness; target: p3; disposition: does not apply; reason: neither result identifies and proposed explanation state the inference limit directly.')
+U('sec:EYE-CIRCUIT-MODEL','p9,p18,p20,p28,p30,p38,p46,p53,p72,p81,p83,p85,p92,p94',
+'p9: test whether noisy integrator storage can supply observed amplitude and time dependence after the full output path.',
+'p9 recalls two populations/excitation/inhibition from foundations; p18/p28 define all new state,rate and weight symbols before derived persistence.',
+'p18 rectification prevents negative firing; p28 defines saturating synaptic drive and its rate scale60Hz; p72 defines motor output.',
+'p20: S is synaptic output,EOI represented angle; p81: Ei effective motor contribution,not a separately moving eye; p85: feedback model responds to recent image motion.',
+'setting: p9-p94, adapted goldfish architecture with primate parameters; roles: bilateral integrator,OMNs,plant,feedback; objects and flow: spikes to S to EOI to motor spikes to E to delayed F; assumptions: optimized approximate persistence and stated feedback; verdict: adequate.',
+'p28 gives dimensionless S/X and degree weights; p72 gives spikes/s motor output, so the two synaptic conventions cannot be silently swapped.',
+'Eqs23–31 checked against source: rate rectification,saturating spike weights,common-tau readout ODE,G(z)=z and derivative neutrality, motor average. Eq34 sign and slow-tracking approximation agree; this is an effective model.',
+'p28 traces spike jump1/[tau_s(lambda_t+lambda)] through synapse; p81 checks steady active-unit Ei=EOI; p92 follows rightward motion to negative feedback.',
+'p53 labels readout reduction a teaching derivation; p83 source main simulation30,000/1000/20ms is kept distinct from Fig3’s2000 OMNs.',
+'p53 approximate continuum can drift deterministically; p81 requires active units; p92 requires tracking/slow change; p94 rejects a hard delay cutoff for ongoing MSD.',
+'common problem: p94, detailed time dependence; options: muscle filtering with or without delayed feedback; relationship: feedback augments same model; criteria: amplitude and log slope across lags; selection or scope: ED3/mainFig5 comparisons; verdict: adequate.',
+'objection: tuned finite network is exactly neutral, or70ms delay guarantees no feedback effect at smaller MSD lags; kind: correctness; target: p53/p94; disposition: does not apply; reason: approximate fixed points and distinction between lag and perturbation age explicitly remove those stronger claims.')
+U('sec:EYE-SCALING','p116,p118,p120,p128,p130,p136,p143,p149,p155,p156,p157,p158,p160,p162,p169,p178',
+'p116: determine how much parameter freedom remains behind an amplitude match.',
+'p116 recalls CV from FOUNDATIONS-POISSON; p130 defines absolute rate slope; MEMORY-FI/BOUND supply J and diffusion relationship.',
+'p116 defines sub-Poisson only under the interval construction; p120 defines renewal process; p143 defines fractional slope b=a/lambda.',
+'p118 distinguishes underlying Poisson proposals from retained every-Mth events; p162 tests drift’s contribution to observed interval variation.',
+'setting: p116-p178, regular spike model and fixed-geometry scaling; roles: interval statistics set noise strength and rate slopes set coordinate sensitivity; objects and flow: spike variability to diffusion scale; assumptions: constant rate for renewal derivation, comparable independent cells; verdict: adequate.',
+'p130-p149 translate Hz/degree versus fractional1/degree slopes and preserve D units degree²/s; p178 converts arcminutes squared by3600.',
+'Re-derived gamma-interval CV=1/sqrt(M), long-window Fano≈CV², J≈Na²/lambda and both equivalent D scalings; printed Eq1 normalization ambiguity verified on PDFp6. Brownian temporal-centering integral yieldsDT/3.',
+'p155-p160 give parameter doubling consequences; p178 recomputed CVdrift=.002405626,D=.0138889deg²/s from sourceSI S3–S6.',
+'p162 states small relative rate changes; p178 calls the values an order-of-magnitude check rather than a fitted full-model D.',
+'p149 fixed network geometry/noise assumptions prevent treating proportionality as an exact universal equality; p118 constant-rate derivation is not claimed for arbitrary modulated intervals.',
+'common problem: p160, interpret a rate change; options: fixed absolute slope or fixed fractional slope; relationship: distinct controlled comparisons; criteria: which tuning quantity remains fixed; selection or scope: both equations displayed; verdict: adequate.',
+'objection: Eq1’s lambda inverse scaling with absolute Hz/degree sensitivity has correct units or proves increasing rate always helps; kind: correctness; target: p149/p160; disposition: does not apply; reason: dimensional ambiguity is explicitly identified and the two controlled comparisons give opposite rate dependence.')
+U('sec:EYE-FIGURES','p182,p190',
+'p182: assess what each figure tests without merging observation, inference and model fit.',
+'p182/p190 rely on the quantities already derived; table gives panel-by-panel guidance rather than introducing them.',
+'Table defines vertical axis inFig2f as chi estimation error; it does not relabel it as motion or variance.',
+'Table separates source dataFig1–3,integrator simulationFig4 and full output/method testFig5.',
+'setting: table and p190, paper figures; roles: panels test distinct inference steps; objects and flow: rate association to common variance to temporal comparison to model test; assumptions: source captions and preceding calculations; verdict: adequate.',
+'Table explains raw/corrected MSD and log-axis translation, as well as internal versus actual eye position.',
+'Main figure captions and SI ED1–10 support all table rows; ED4 giveschi=-.09±.22; ED10 retains internal stochastic spiking while removing direct output noise and reports negligible effect beyond50ms.',
+'TableFig5 traces integrator→OMNs→plant→feedback, then compares simulated and measured outputs; p190 identifies negative-estimate control.',
+'p190 interprets the negative sample estimate as compatible withzero,not a negative physical variance; model controls test the inference under known simulated sources.',
+'TableFig4 says energy surface is a sketch,not measured brain energy; Fig5 agreement is not unique circuit proof; artwork pixel fidelity remains deferred.',
+'common problem: p182, assess evidence strength; options: recording relations,noise-control curves and full model; relationship: complementary tests,not interchangeable proofs; criteria: claim each panel can establish; selection or scope: five main figures plus source SI controls; verdict: adequate.',
+'objection: the no-spiking-noise control turns off the very internal spikes producing diffusion; kind: correctness; target: p190/ED10 caption; disposition: does not apply; reason: the text explicitly preserves internal stochastic spikes, matching SI note and caption.')
+U('sec:EYE-LIMITS','p248,p250,p251,p252,p254,p256,p257,p259,p261',
+'p248: locate what the study supports and what remains undecided about source circuitry.',
+'p250-p252 reuse the three already established results, rather than expecting an undefined circuit inference.',
+'p259 alternatives name noise entering the integrator versus already diffusive input; both roles follow the preceding pathway.',
+'p250 recording inference,p251 timing comparison,p252 model demonstration have different evidence roles.',
+'setting: p248-p261,two-animal fixation study; roles: measurements constrain upstream drive and model demonstrates plausibility; objects and flow: evidence to bounded conclusions; assumptions: calibration/noise and task restrictions; verdict: adequate.',
+'p261 connects internal stored value to mechanical measured output, retaining the need for the output mapping.',
+'Main Discussion p7/p9 and peer review pp12–13 support the alternatives; no integrator recording or selective perturbation occurred. Parameter matching is nonunique.',
+'p250-p252 trace each evidence type to its corresponding inference, then p256/p257 name the absent tests.',
+'p259 uses candidate explanations rather than invented positive experimental results.',
+'p261 horizontal motion,two animals,task-dependent feedback; p259 multiple parameter combinations and upstream alternatives.',
+'common problem: p259, determine physical source; options: intrinsic integrator noise,noisy input or already diffusive input; relationship: competing mechanisms; criteria: recordings/perturbations that distinguish them; selection or scope: current evidence does not uniquely choose; verdict: adequate.',
+'objection: main paper title proves integrator origin or fitted D determines neuron count; kind: correctness; target: p259; disposition: does not apply; reason: explicit missing experiments and parameter degeneracy preserve the source-supported limits.')
+U('part:OBSERVATIONS::part-opening','',
+'Part purpose: connect neural activity to measured eye control and spatial location, then ask which links remain untested.',
+'Part follows foundations and memory theory; its purpose uses familiar eye/muscle/location roles rather than requiring unexplained random-field calculus.',
+'Part purpose describes hippocampal nerve-cell firing by place; detailed first definitions are in READING-PLACE and foundations.',
+'Part purpose assigns eye pathway to7–9,spatial model/recordings to10–12 and synthesis to13.',
+'setting: Part purpose,monkey eye control and rodent/bat spatial maps; roles: commands drive movement and spatial models predict firing; objects and flow: representation to observations; assumptions: different studies with untested links; verdict: adequate.',
+'Part purpose bridges neural command through muscles to measured motion, then physical location to firing maps.',
+'The actual chapter groups perform the tasks promised: shared-drive inference,timing,circuit proposal,spatial distribution and tests; synthesis keeps their joint circuit link open.',
+'The neural-command→muscle→measurement sequence supplies a concrete path without new numeric claims.',
+'No invented case is needed in a Part opening; the actual studies provide its two settings.',
+'The phrase possible source and final which connections remain untested preserve inferential scope.',
+'Not applicable: Part purpose introduces two complementary studies,not interchangeable methods for one task.',
+'objection: Part title implies a single experimentally established neural code/circuit; kind: correctness; target: Part title/purpose; disposition: does not apply; reason: different parts and the purpose’s untested connections preserve separation.')
+
+# Claim evidence is assigned from the actual unit and its checked line range.
+# Wrapper-only claims are explicitly not claims; scientific claims retain their conditions.
+evidence={
+'ch:READING-GUIDE':[(0,999,'Source abstracts distinguish memory modeling, macaque drift recordings and rodent/bat place fields.')],
+'sec:READING-FIELD':[(0,999,'Behavioral requirements at p7 motivate the actual three paper questions; must denotes task goal,not zero physical drift.')],
+'sec:READING-MEMORY':[(0,14,'Burak-Fiete main abstract and Results describe weak-fluctuation calculation,simulation and estimation bound.'),(15,999,'Actual chapters02,02b,03,03b contain diffusion,long-time,information and readout sections; bound is qualified by model/noise/anchor assumptions.')],
+'sec:READING-EYE':[(0,999,'Ben-Shushan mainp5,Eqs11–17: weighted common horizontal displacement-variance fraction.82 at350ms; actual04/04b/04c chapter roles match.')],
+'sec:READING-PLACE':[(0,30,'Mainali mainpp1111–1116 andFig3: connected threshold excursions,multiple fields and fitted size/shape tests.'),(31,999,'Actual05/05b/05c distinguish exact crossing laws,rare-field approximations and data;06 synthesis treats the joint circuit as untested.')],
+'sec:READING-START':[(0,53,'Actual chapter headings and requested reading paths checked;06 contains related work and synthesis.'),(54,999,'Read as first conceptual pass with main results/assumptions preserved; mathematical details must be opened when checking calculations. Stage3 must separately judge flow.')],
+'sec:READING-MECHANISM-MATH':[(0,73,'Actual memory mechanism/derivation/interpretation passages and readout setup compared with SI; ideal observer benchmark is not a biological implementation claim.'),(74,999,'Original20-page Burak-Fiete SI contents and sectionsI–VII checked atPDFpages1,3,6,9,10,12,17; actual guide target sections match neural questions.')],
+'sec:READING-SCOPE':[(0,999,'PERSISTENCE section derives2Dt with independent zero-mean steps and treats boundaries separately; sourceMainaliPDFp3 visually uses theta.')],
+'sec:READING-PAPERS':[(0,999,'Local publisher PDF fronts,DOIs,author order and counts verified using PyMuPDF; memorySI20pages/main6,eye supplements14/35,place main15with cover andSI16.')],
+'ch:EYE-DRIFT':[(0,6,'Ben-Shushan mainIntroduction andDiscussion support drift/shared neural drive and the separately proposed integrator source.'),(7,999,'Mainp5/Eqs11–15 require calibrated displacement gain for common-variance inference; the phrase for this comparison does not deny unscaled correlation tests.')],
+'sec:EYE-PATHWAY':[(0,12,'Mainpp5–8 describes integrator storage and continuous-attractor hypothesis; foundations teach attractor geometry.'),(13,29,'MainMethods p9 andSI ED6 distinguish abducensOMNs/INNs by movement response parameters; source caption content agrees; artwork pixel fidelity deferred.'),(30,999,'Independent private terms have variance of an average decreasing with count; common term remains under averaging,as source central-source argument states.')],
+'sec:EYE-RECORDINGS':[(0,37,'MainMethods p9–10,Fig2caption and peer-review p19: singleOMN at a time,fixation500–700ms,30ms exclusion,350ms pieces,twoanimals,302pieces average.'),(38,46,'SI ED7 caption has two animals’ interval and count histograms; semantic caption agreement checked,pixel fidelity deferred.'),(47,999,'Mainp5 calibration assumption and physical versus calculated output distinguish source/measurement noise. Editable SVG labels preserve onecell and separate apparatus error.')],
+'sec:EYE-FORWARD-FIT':[(0,88,'MainMethodsEqs2–3 and paragraph: correct threshold/lead and units; full-trial leave-one-out fit,21ms smoothing,active-rate20Hz exclusion.'),(89,999,'MainFig1caption p3 and rate-correlation Methods: mean-subtracted segments,57cells,one-sidedp=3e-9. pvalue defined under null reference; caption meaning matches; pixels deferred.')],
+'sec:EYE-INVERSE-FILTER':[(0,148,'Re-factored mp²+rp+k: paired times,product=m/k,sum=r/k; sourceEqs4–7 preserve tauProduct/m and causal neural lead.'),(149,168,'Integrated unit impulse through ODE: h(0+)=0,mhprime(0+)=1; solveA+B=0 to get amplitude tauProduct/[m(tauPlus-tauMinus)].'),(169,187,'Recomputed r=.500,m=.00240,kernel amplitude2.173913043478261,area.25,and80/4=20degree offset.'),(188,191,'Equal-pole derivative limit gives u exp(-u/tau)/m; kernel area1/k matches static forward gain.'),(192,999,'MainFig2pp2–4: typical5/120ms,meanR=.17±.02SEM,one-sidedp3.8e-12,shuffle nearzero; source caption semantics checked,pixel fidelity deferred.')],
+'sec:EYE-SHARED-VARIANCE':[(0,216,'MinimizeVar(Y-bX) to obtain b=Cov/VarX and explained fractionR²; this is rescaled linear prediction.'),(217,226,'Standardized independent predictors give residual variance1-sumRi²>=0; average bound1/Nm needs representative sampling,not equal effects.'),(227,236,'Variance of across-neuronR gives meanR²>=meanR squared=.0289;1/1000=.001. SourceSI S1–S2 and mainp3 agree.'),(237,999,'MainDiscussionp7 and peer-reviewpp19/21/23 give anatomical/stimulation basis for independent private noise; shared total activity remains possible.')],
+'sec:EYE-CHI':[(0,278,'MainEqs11–15 and direct expansion: unit common gain plus negligible cross covariances yieldsCov(X,Y)≈VarC; recorded private overlap isorder1/Nm.'),(279,286,'Under fixed common covariance,extra predictor variance enlarges Rdenominator; independent output averages suppress private contribution.'),(287,310,'Numerically recomputed VarY=.01000,VarX=.23266,Cov=.00820,R=.1700015928,chi=.82,R²=.0289005416; SVGlabels and caption retain constructed/independence/unit-gain conditions.'),(311,315,'Finite sample covariance ratio can be outside[0,1],while population variance fraction cannot; sourcep5 andEqs16–17.'),(316,999,'Constrained minimization of sum ai²sigmai² gives inverse-variance weights and1/sqrt(sumwi); sourceEq17 andp5 give.82±.07,not across-animal or calibration uncertainty.')],
+'ch:EYE-TIMING':[(0,999,'MainFig3andMethodsEqs18–22 require separating apparatus offset to interpret tiny-lag MSD; actual next section states noise assumptions.')],
+'sec:EYE-MEASUREMENT-NOISE':[(0,35,'MainMethods empiricalMSD uses1ms samples; expanding independent endpoint errors gives2sigma²forpositive lag and0atexact zero.'),(36,47,'MainMethods/ED2 plus peer-reviewpp20–21 support plateauorder1e-3,fixed-coil check,unknown single-trial noise and subtraction-uncertainty caveat; caption content checked,pixels deferred.'),(48,999,'Recomputed.0014-.001=.0004,.0001/.0004=.25;BrownianD=.010at20ms gives.0004. Correlated errors require2(sigma²-Cnu),notconstant subtraction; editable SVGlabels agree.')],
+'sec:EYE-FILTERED-MSD':[(0,70,'SourceFig3 measuredfinite-lag logslopes1to2; directly differentiated2Dlag andv²lag²to obtainslopes1and2.'),(71,98,'Convolution overlap for stationary white noise givesC=Aintegralhhshift;onepoleintegral=Aexp(-lag/tau)/(2tau);M=2(C0-C) plateaus.'),(99,109,'SourceFig3caption reports2000heterogeneousOMNs and≈1%near900ms; caption semantics match,pixels deferred.'),(110,147,'Teaching model tauEprime+E=B yields OUvelocity; independentBrownianincrement sums giveCv=Dexp(-|s|/tau)/tau after initial transient.'),(148,168,'Double integral reduces2integral(lag-s)Cv(s)ds=2D[lag-tau(1-exp)]; Taylor shortlimitDlag²/tau,longlimit2D(lag-tau).'),(169,999,'Differentiate exactMSD: alpha(tau)=1.718281828,alpha(5tau)=1.239489662; SVGtext labels independently normalized shapes. Decayingstationarynoise rejection is limited by slow-correlated alternative.')],
+'ch:EYE-CIRCUIT':[(0,999,'MainDiscussion and peer-reviewpp12–13 explicitly separate upstream inference from proposedintegrator origin; complete output path needed to compare motion.')],
+'sec:EYE-CIRCUIT-MODEL':[(0,29,'MainEqs23–26: rectified rate,saturating spike drive60Hz,dimensionlessS anddegree weights; integrated spike jump=1/[tau_s(lambda_t+lambda)].'),(30,54,'Directly weighted/subtracted deterministic synapticODE gives tauEprime=-E+G(E);neutralderivativeGprime=1;sourceoptimized approximatefixedpoints[-50,50]does not establish exact continuum.'),(55,64,'MainFig4caption depicts noise-driven along-attractor dynamics and internal simulation; semanticschecked,pixelsdeferred.'),(65,84,'MainEqs28–33: motorfilteredrate has1/tauMN spikejumps;steadyactiveunitEi=EOI;threshold[-45,-5],nonoscillatoryconstraint,30kOI/1kOMN/20ms main versus2kOMNFig3.'),(85,95,'MainEq34,A=.015,delay≈70ms. Slowtrackedexpansion gives-A delay velocity. SI ED3 says amplitudechangesalllags andslopemoreatlonglags; ongoingMSDlagisnotelapsedresponseage.'),(96,999,'MainFig5andSI ED3 captions agree with fullmodel/feedback descriptions; semanticcheck only,pixelacceptance deferred.')],
+'sec:EYE-SCALING':[(0,119,'MainMethods spikethinning: everyMth event fromrateMlambda has mean1/lambda,var1/(Mlambda²),CV1/sqrtM; typicalOI.22,OMN.07.'),(120,129,'Renewal longwindow inversion of interval-timevariance gives Varcount≈lambdaL CV²; earlierprojection gives synaptic/count factors under specified comparisons.'),(130,161,'PoissonJ=Na²/lambda; bound used onlyasfixedgeometryscale yieldsD∝CV²lambda/(Na²tau²),orCV²/(Nlambda b²tau²). PDFp6Eq1visuallyverified;absoluteunitsrequirelambda numerator;doubling rulesfollow.'),(162,177,'Browniancovariance2Dmin(t,s) gives timeaverage secondmomentDT,mean-squaretimeaverage2DT/3,differenceDT/3;firstorder reciprocal-rate expansion yields|a|/lambda sqrt(DT/3).'),(178,999,'SourceSI S3–S6 values independently recomputedCV=.002405626;100arcmin²/s divided3600=.02777778deg²/sfor2D,soD=.01388889.')],
+'sec:EYE-FIGURES':[(0,189,'Table checked against mainFig1–5captions: rate association,inversefilter/R/chi,noise-correctedMSD,internalmodel then fulloutput/methodsimulation; all inference restrictions match.'),(190,191,'SI ED4=-.09±.22 compatiblezero;ED6classification,ED7segments,ED8rankcheck,ED9parameters,ED10internalspikingretained/directnoiseeffectnegligible>50ms.'),(192,999,'SI ED1/4/5/8/9/10captioncontentsand page locators7/10/10/12/13/14match. Artwork identity/pixel fidelity is separately deferred,not certified by semantic caption check.')],
+'sec:EYE-LIMITS':[(0,999,'MainDiscussionp7/p9,peer-reviewpp12–13: integrator not recorded/perturbed;noisyinput anddiffusiveupstreamalternative remain;parameter degeneracy and2animalhorizontalfixationscope retained.')],
+'part:OBSERVATIONS::part-opening':[(0,999,'Actualeye/spatial/synthesis chapterroles match Part purpose; possible source and untested connections retain hypothesis scope.')]
+}
+for key,u in inp['units'].items():
+    suffix=key.split('::',1)[1] if not key.startswith('part:') else key
+    for cid,line,txt,changed in u['claims']:
+        detail=next(v for lo,hi,v in evidence[suffix] if lo<=line<=hi)
+        wrapper=('<summary>' in txt or '</summary>' in txt or txt.strip('"').startswith('<div'))
+        verdict='not a claim' if wrapper else 'condition stated'
+        out['units'][key]['claims'][cid]={'verdict':verdict,'checked':('Markup/figure disclosure label only; actual associated caption reviewed separately.' if wrapper else detail),'line':line}
+assert set(out['units'])==set(inp['units'])
+assert all(set(v['claims'])=={c[0] for c in inp['units'][k]['claims']} for k,v in out['units'].items())
+out['scope']['claim_rows']=sum(len(u['claims']) for u in inp['units'].values())
+out['scope']['paragraphs']=sum(len(u['paragraphs']) for u in inp['units'].values())
+out['numeric_checks']={'kernel_amplitude':2.173913043478261,'kernel_area':.25,'R':.17000159282428942,'R_squared':.028900541562795493,'chi':.82,'alpha_tau':1.718281828459045,'alpha_5tau':1.2394896623384555,'CV_drift':.0024056261216234406,'D_degrees_squared_per_second':.013888888888888888,'measurement_fraction_uncertainty':.25,'method':'Direct Python math and scipy.quad recomputation in this reviewer call; source simulation and recordings not rerun.'}
+guide=root.parent.parent
+out['landing_fields']={
+ 'content/index.md:1':{'verdict':'true as written','checked':'The title accurately groups the three studies around neural representation, noise and memory; it does not assert a single demonstrated biological mechanism.'},
+ 'content/index.md:3':{'verdict':'true as written','checked':'Burak-Fiete main abstract concerns continuous-state memory models; Ben-Shushan main Introduction/Methods concerns monkey eye recordings; Mainali main summary concerns spatial responses in rodents and bats. Connects describes the guide comparison, not a source claim of one shared circuit.'},
+ 'content/index.md:5':{'verdict':'condition stated','checked':'Calculus, basic probability and linear algebra are the recorded audience baseline. Assigned eye computations use earlier Poisson/CV, covariance, Brownian and Fisher-information teaching, with filtering explained locally. This reviewer checked the eye-dependent path and frontmatter promises; final all-chapter prerequisite acceptance requires the other assigned groups and the separate flow stage.'},
+ 'guide-project.yaml:guide.description':{'verdict':'true as written','checked':'The three research settings match the original source abstracts. The reading guide supplies the setting, contribution and limitations for each, followed by foundations and calculations in the actual chapter sequence. This statement describes the guide organization, not independent reproduction of source experiments.'}
+}
+out['sidecar_reader_fields']={}
+purpose_checks={
+ '00-reading-guide':'Purpose accurately identifies memory, macaque eye and rodent/bat spatial settings; its question/method/finding/limit promise is met by the four opening sections.',
+ '04-eye-drift':'Purpose preserves paired eye/OMN measurements as support for shared neural drive and keeps a particular circuit for later; it does not assert simultaneous neuron pairs.',
+ '04b-eye-timing':'Purpose accurately separates variation around a command from accumulating changes after measurement error; read with the chapter title and explicit filtered-white-noise versus slow-correlated alternative.',
+ '04c-eye-circuit':'Purpose says one possible source and proposed model; delayed feedback can limit the motion is a possible model effect, not a hard lag cutoff or unique mechanism claim.'
+}
+for stem,reason in purpose_checks.items():
+    path=guide/'content/chapters'/f'{stem}.yaml'
+    data=yaml.safe_load(path.read_text(encoding='utf-8'))
+    out['sidecar_reader_fields'][f'content/chapters/{stem}.yaml:purpose']={'verdict':'true as written','checked':reason}
+    for section in data['section_list']:
+        key=f'content/chapters/{stem}.md::{section["id"]}'
+        out['sidecar_reader_fields'][f'content/chapters/{stem}.yaml:section_list:{section["id"]}']={'verdict':'condition stated','checked':'Title and summary checked against the actual chapter opening and the cited source. '+out['units'][key]['fields']['Mechanism, calculation, or state change'],'source_refs':[key]}
+# Use true-as-written for factual source/navigation and arithmetic claims. Reserve
+# condition-stated for claims whose scientific validity relies on nearby assumptions.
+conditional_units={'sec:READING-MEMORY','sec:READING-EYE','sec:READING-SCOPE','ch:EYE-DRIFT','sec:EYE-SHARED-VARIANCE','sec:EYE-CHI','sec:EYE-MEASUREMENT-NOISE','sec:EYE-FILTERED-MSD','sec:EYE-CIRCUIT-MODEL','sec:EYE-SCALING'}
+for key,u in out['units'].items():
+    suffix=key.split('::',1)[1] if not key.startswith('part:') else key
+    if suffix not in conditional_units:
+        for c in u['claims'].values():
+            if c['verdict']!='not a claim':
+                c['verdict']='true as written'
+out['source_checks']={
+ 'source_text':'Read actual 00/04/04b/04c Markdown, all associated sidecar reader fields and Part II purpose. Read primary eye main Methods/Results/Discussion, SI notes and ED captions, relevant author peer-review responses; checked frontmatter against memory/place source abstracts and relevant sections.',
+ 'equations':'Independently followed every displayed eye equation, units, assumptions and limiting case. Numerically recomputed the explicit examples. No executable code listings occur in assigned units.',
+ 'earlier_teaching':'Read foundations and persistence; checked memory spike dynamics, projection/information path, and relevant chapter targets for appendix navigation. This is prerequisite checking, not acceptance of unassigned chapters.',
+ 'figures':'Read all assigned caption/alt text, table cells and editable teaching-SVG labels. Source captions/panel roles checked. Reopened eye PDF p6 for Eq1 normalization and Mainali PDF p3 to distinguish theta from extracted q. These two source page checks do not constitute extended artwork or rendered HTML acceptance.',
+ 'footnotes':'Checked eye footnotes against their main/SI/peer-review passages, including the distinction between source printed formulas and independently derived teaching formulas. Checked frontmatter source identities and appendix page map.'
+}
+out['call']['completed_at']=datetime.now().astimezone().isoformat()
+(root/'eye-stage1.json').write_text(json.dumps(out,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+print(out['call']['completed_at'],len(out['units']),out['scope']['claim_rows'],out['scope']['paragraphs'])

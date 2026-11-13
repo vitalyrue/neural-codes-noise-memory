@@ -1,0 +1,315 @@
+{
+  "summary": "Overall assessment: the guide is scientifically careful. I read all 24 reader units (reading guide; chapters 1-21; glossary; references) and the extracted texts of the three main papers plus supplements/peer review. Every equation I checked against the sources (Burak & Fiete 2012 Eqs. 7-9 and SI S7-S95; Ben-Shushan et al. 2022 Eqs. 1-35; Mainali et al. 2025 Eqs. 1-10 and STAR Methods) matches the guide, including units, symbol meanings, and the local/vs-global qualifications. The guide correctly distinguishes its own derivations from quoted results and explicitly flags source inconsistencies that it verified algebraically: printed main Eq. 2 missing the square on d bar g_i/d theta (confirmed vs SI S18 and the 2017 correction), SI S40 vs S41/projection factor-of-two for mutual excitation (direct projection D = theta/(4 tau) matches S41), SI S71 plus-sign vs cosh solution S73, and Mainali supplement S23 (missing sqrt2) and S25 (sign). No confirmed error in the guide's own derivations was found. Remaining limits: several background/hardware source bodies were not locally available (Cannon & Robinson 1987 and Major et al. 2004 time-constant claims; Pehle 2022, Scholze 2026, LeGallo 2023, Massoud 2011, Giulioni 2012, Ortner 2025, Wang 2026, Ilmberger 2025), and PDF equation extraction is scrambled in a few places (Burak & Fiete SI S85 block sign; Mainali supplement S18 print-vs-extraction), so a few guide-flagged source issues could not be pixel-reconfirmed. The hardware Part respects its stated 2026-10-30 snapshot and does not pretend to a current SOTA survey.",
+  "coverage": [
+    {
+      "chapter_id": "ch:READING-GUIDE",
+      "inspected_sections": "sec:READING-FIELD through sec:READING-PAPERS; blocks tbl:READING-APPENDIX, tbl:READING-EVIDENCE; footnotes [^orientation-*]",
+      "core_claims_checked": "Three-paper scope summary; 82% shared-variance figure and its calibration/independence qualifiers; symbol conventions D (diffusion), d, theta, q, C; appendix map section/page alignment (I p.1, II p.3, III p.6, IV p.9, V p.10, VI p.12, VII p.17 matches SI contents)",
+      "source_evidence_used": "guide text only for claims; Ben-Shushan 2022 main p.4-5 for 82% and p.10 for chi; Burak & Fiete 2012 main/SI for appendix map",
+      "limits": "Reading-guide synthesis claims are guide-derived and appropriately labeled; none load-bearing beyond framing"
+    },
+    {
+      "chapter_id": "ch:FOUNDATIONS",
+      "inspected_sections": "sec:FOUNDATIONS-EYE-ACTION, sec:MEMORY-SPIKES, sec:FOUNDATIONS-SPIKES, sec:FOUNDATIONS-POISSON, sec:FOUNDATIONS-SIMULATION, sec:FOUNDATIONS-COVARIANCE",
+      "core_claims_checked": "Eqs. 7-9 (dot s + s/tau = pulse train; g = Ws + b; r = phi(g)); Poisson mean=variance=lambda; relative sd 1/sqrt(lambda); Euler update s(t+h) ~ s(1-h/tau)+X with h=0.1 ms, tau=10 ms; MSD = 2Dt, slope 2D; covariance/chi decomposition X = g S + eps; example R=0.17 with chi=0.82",
+      "source_evidence_used": "Burak & Fiete 2012 main PDF pp.2-6 (Eqs. 7-9, p.5; Fig. 2 p.3; Network Simulations p.6); SI pp.2-9 (S2-S5, S43); Ben-Shushan 2022 for eye covariance context",
+      "limits": "Two-cell attractor example is a guide construction, labeled as such; Poisson-binomial derivation is guide teaching, correctly scoped to fixed rates"
+    },
+    {
+      "chapter_id": "ch:PERSISTENCE",
+      "inspected_sections": "sec:PERSISTENCE-EYE-MECHANICS, sec:FOUNDATIONS-ATTRACTOR, sec:FOUNDATIONS-DIFFUSION, sec:FOUNDATIONS-RANDOMNESS",
+      "core_claims_checked": "Spring-damper balance tau_m = K phi, tau_p = B/K (labeled guide approximation); two-cell line attractor with x decay (a=2/tau) and neutral theta; independent increments Var = 2Dt; Brownian covariance min(s,t); distinction time-varying memory vs fixed spatial map",
+      "source_evidence_used": "Burak & Fiete 2012 main/SI for attractor geometry; Cannon & Robinson 1987 and Major et al. 2004 cited for integrator persistence times (not locally read); Dragoi 2026 review cited for anatomy (web, not read)",
+      "limits": "Cannon & Robinson (0.2 s vs >20 s) and Major et al. (tens of minutes-hours, reversible) are unverified by me (no local body); spring-damper is explicitly a teaching reconstruction"
+    },
+    {
+      "chapter_id": "ch:MEMORY-DYNAMICS",
+      "inspected_sections": "sec:MEMORY-WEAK-NOISE, sec:MEMORY-LINEARIZATION, sec:MEMORY-DIFFUSION, sec:MEMORY-SYMMETRIC",
+      "core_claims_checked": "Weak-fluctuation Gaussian approximation ds = F dt + sqrt(r) dB; linearization K_ij = -delta_ij/tau + phi'(gbar) W_ij, R = diag(rbar); right/left zero eigenvectors K u = 0, v^T K = 0, v^T u = 1; 2D = sum v_i^2 rbar_i; symmetric formula 2D = sum rbar_i (g_i')^2 / {tau^2 [sum r_i' g_i']^2}; mutual-inhibition example D = b/(2 tau) = 100",
+      "source_evidence_used": "Burak & Fiete 2012 SI pp.2-4 (S2-S5, S7-S18) and main Eq. 2 p.2; 2017 correction DOI 10.1073/pnas.1706051114",
+      "limits": "Verified that printed Early Edition Eq. 2 lacks the square on d bar g_i/d theta while SI S18 has it; guide flags this and attributes the fix to the 2017 correction (consistent with extraction). Two-cell example units (activation difference vs angle difference) explicitly distinguished"
+    },
+    {
+      "chapter_id": "ch:MEMORY-LONG-DELAYS",
+      "inspected_sections": "sec:MEMORY-LONG-TIME, sec:MEMORY-DRIFT-SCOPE, sec:MEMORY-FIGURES",
+      "core_claims_checked": "Fokker-Planck ∂p/∂t = ∂²[D(θ)p]/∂θ² (Itô); wrapped Gaussian uniform limit pi²/3; state-dependent D: dVar/dt = 2E[D], Var = 2D(Θ)t + D(Θ)D''(Θ)t²; mutual excitation D = theta/(4 tau) vs printed SI S40 D = theta/(2 tau) (factor of two); Stratonovich drift D'/2; correlated-noise extension v^T Q v",
+      "source_evidence_used": "Burak & Fiete 2012 SI pp.7-9 (S28-S41), Fig. S1 p.10; main Fig. 1-2 pp.2-3",
+      "limits": "Confirmed factor-of-two discrepancy S40 vs S41/projection; guide labels it and does not assert author correction. SI S85 block-sign footnote not re-confirmable from garbled extraction (see F-04). Figure excerpts treated as captions, no pixel audit"
+    },
+    {
+      "chapter_id": "ch:MEMORY-INFORMATION",
+      "inspected_sections": "sec:MEMORY-FI, sec:MEMORY-BOUND, sec:MEMORY-COMPARISONS",
+      "core_claims_checked": "Poisson Fisher J = sum (r_i')²/bar r_i, I_h = hJ; Cramér-Rao Var >= 1/(hJ); information-diffusion bound D >= 1/(2 tau² J) via Cauchy-Schwarz; equality condition v_i ∝ r_i'/bar r_i; exponential phi sufficient; linear-family counterexample (mutual excitation b0=0) where equality holds state-by-state without exponential; population scaling D ~ 1/N, J ~ N; rate scaling; tuning-width J ~ w^{d-2}, D ~ w^{2-d} (narrower better d=1, none d=2, broader d=3)",
+      "source_evidence_used": "Burak & Fiete 2012 main Eqs. 3-4 pp.2-3; SI pp.9-12 (S42-S56)",
+      "limits": "Exponential 'iff' equality claim in source requires cross-state constancy; guide's counterexample correctly qualifies it and leaves the inequality intact. Tuning-width integral is a teaching reconstruction of the cited Zhang & Sejnowski argument"
+    },
+    {
+      "chapter_id": "ch:MEMORY-READOUT",
+      "inspected_sections": "sec:MEMORY-READOUT-SETUP through sec:MEMORY-FIG3-AND-CAUTION",
+      "core_claims_checked": "Storage+readout decomposition Var = 2DT + V_read(L) under translation invariance/independence; naive V = 2DL/3 + 1/(JL), optimum L* = sqrt(3/(2DJ)); ideal V = sqrt(2D/J) coth(sqrt(2DJ)L), limit sqrt(2D/J), L* = 1/sqrt(2DJ) <= tau; partial access J_obs = alpha J; numerical examples all verified (tau=0.1, D=0.005, J=10000/40000; alpha=0.1); flag that main Eq. 6 universal lower bound 2D(T+tau) does not follow (strict counterexample T=2 s: 0.0205 < 0.021)",
+      "source_evidence_used": "Burak & Fiete 2012 SI pp.12-16 (S57-S83), main Eq. 5-6 p.4; Figs. 3, S2 pp.4, 16",
+      "limits": "Confirmed Eq. 6 flag algebraically. S71 plus-sign vs cosh flag matches extraction (sign inconsistency). Guide's 'printed plus sign' reading depends on extraction fidelity"
+    },
+    {
+      "chapter_id": "ch:EYE-DRIFT",
+      "inspected_sections": "sec:EYE-PATHWAY, sec:EYE-RECORDINGS, sec:EYE-FORWARD-FIT, sec:EYE-INVERSE-FILTER, sec:EYE-SHARED-VARIANCE, sec:EYE-CHI",
+      "core_claims_checked": "57 OMNs, 2 macaques, 25 kHz neural / 1 kHz eye, 350 ms segments (~302/cell); forward fit f_hat = k[E(t+Δt)-E_T] + r E_dot + m E_ddot with units; inverse filter double exponential, tau_+~120 ms, tau_-~5 ms, area = 1/k, static gain f0/k; R = 0.17 ± 0.02 (p = 3.8e-12), rate R p = 3e-9; chi = Cov(X,Y)/Var(Y) = 0.82 ± 0.07 weighted; independent-predictor bound sum R_i² <= 1; example R=0.17, chi=0.82 arithmetically verified",
+      "source_evidence_used": "Ben-Shushan 2022 main pp.1-11 and supplement-1; extracted text pp.2-11 checked for R, chi, MSD, kernel time constants, N=30,000/1,000/tau_s=20 ms/A=0.015/tau_d~70 ms",
+      "limits": "All checked eye figures/numbers match extraction. Segment counts per cell vary (guide notes this)"
+    },
+    {
+      "chapter_id": "ch:EYE-TIMING",
+      "inspected_sections": "sec:EYE-MEASUREMENT-NOISE, sec:EYE-FILTERED-MSD",
+      "core_claims_checked": "Measurement noise adds 2 sigma_m² at positive lag (zero at lag 0); filtered white noise MSD plateaus M = (A/tau)(1-e^{-ell/tau}); filtered Brownian M = 2D[ell - tau(1-e^{-ell/tau})], slope alpha -> 2 short, -> 1 long, alpha(tau) = e-1 ≈ 1.718; private OMN noise ~1% at 900 ms with 2000 OMNs",
+      "source_evidence_used": "Ben-Shushan 2022 main pp.5-6, Fig. 3, Eqs. 18-22; SI/peer review for noise plateau ~10^-3 deg²",
+      "limits": "Filtered-Brownian derivation is a labeled one-pole teaching reconstruction, not the full muscle model; D=0.010 example labeled constructed"
+    },
+    {
+      "chapter_id": "ch:EYE-CIRCUIT",
+      "inspected_sections": "sec:EYE-CIRCUIT-MODEL, sec:EYE-SCALING, sec:EYE-FIGURES, sec:EYE-LIMITS",
+      "core_claims_checked": "Integrator rate lambda = [zeta E_OI + lambda0 + zeta F]_+; saturating synapse X = xi/(lambda_t + lambda), lambda_t = 60 Hz; readout E_OI = sum eta(S^R - S^L); neutral condition G'(z) = 1 (approximate over -50..50 deg); motor plant s^M = k(E_i - E_T) + r E_dot_i + m E_ddot_i; feedback F = A[E(t-tau_d) - E_OI], A=0.015, tau_d ~70 ms; CV 0.22 integrator / 0.07 OMN; D scaling ~ CV²/(N lambda0 a² tau_s²) with absolute-vs-fractional slope k0 caveat; CV_drift ≈ 0.0024 << 0.07 order-of-magnitude check",
+      "source_evidence_used": "Ben-Shushan 2022 main pp.6-11 (Eqs. 1, 23-35) and SI notes S3-S6; peer review for no-central-drive chi = -0.09 ± 0.22",
+      "limits": "Eq. 1 scaling is a proportionality; k0 ambiguity honestly noted. N=30,000 main vs 15K in supplement p.5 discrepancy flagged by guide. Localization limits (no integrator recordings, no perturbation) correctly stated"
+    },
+    {
+      "chapter_id": "ch:PLACE-FIELDS",
+      "inspected_sections": "sec:PLACE-GP, sec:PLACE-KAC-RICE, sec:PLACE-INFERENCE",
+      "core_claims_checked": "GP input h, stationarity/isotropy/smoothness; sigma = sqrt(-C(0)/C''(0)), Var(z') = 1/sigma²; Kac-Rice nu_+ = e^{-q²/2}/(2 pi sigma) exact, no high-threshold need; endpoint correction Q(q) = 1 - Phi(q); mu_s = Q/nu_+, mu_g = Phi/nu_+; inversion q = Phi^{-1}(mu_g/(mu_s+mu_g)), sigma = (mu_s+mu_g)/(2 pi) e^{-q²/2}; q=1.1, sigma=2.4 m numbers verified (nu_+ = 0.03621/m, mu_s = 3.746 m, mu_g = 23.868 m, 200 m track -> 7.378 fields); selection bias conditional Poisson lambda/(1-e^{-lambda})",
+      "source_evidence_used": "Mainali 2025 main p.1111 Eq. 1-3 context; STAR Methods pp.e1-e3 (Eqs. 2-5); supplement Methods S3 (S9-S15)",
+      "limits": "q/sigma fitted values taken from paper; no independent refit performed"
+    },
+    {
+      "chapter_id": "ch:PLACE-SIZES",
+      "inspected_sections": "sec:PLACE-RARE-PEAKS, sec:PLACE-SIZE-LAW, sec:PLACE-SLICES, sec:PLACE-SLOPES",
+      "core_claims_checked": "High-threshold parabola z - q ~ epsilon - (q/(2 sigma²))||x||², radius r* = sigma sqrt(2 epsilon/q); scaled excess U = q epsilon -> Exp(1); size laws p_d(s) = (2 beta/d) s^{2/d-1} e^{-beta s^{2/d}}, beta = q²/(2 sigma² v_d^{2/d}); d=1 Rayleigh, d=2 exponential, d=3 Weibull shape 2/3; high-threshold mean at q=1.1 sigma=2.4 = 5.469 m vs exact 3.746 m (+46.0%) verified; slice dimension logic; Rayleigh boundary slope p(v) = sigma² v e^{-sigma² v²/2}; width check s = 2 sigma² v/q -> beta = q²/(8 sigma²) consistent",
+      "source_evidence_used": "Mainali 2025 main Eq. 1 p.1111; Figs. 1-5 pp.1112-1117; supplement Methods S4 (S22-S25)",
+      "limits": "Supplement algebra flags S18/S23/S25: S23 (missing sqrt2) and S25 (sign) visible in extraction; S18 claimed multiplication-vs-division not visible in extraction (extraction shows division matching guide) — needs PDF re-read (F-03). Guide derives independently and says code/fits not implicated"
+    },
+    {
+      "chapter_id": "ch:PLACE-TESTS",
+      "inspected_sections": "sec:PLACE-TOPOLOGY, sec:PLACE-DATA, sec:PLACE-WIRING",
+      "core_claims_checked": "EC definitions 1D/2D/3D; EC formulas E[chi_1/2/3] with boundary binomial terms and Q(q) corners (match STAR Eqs. 8-10); cube L/sigma=10, q=0 -> E[chi] = -20.06 verified; high-threshold count E[N] ~ V q^{d-1} e^{-q²/2}/((2pi)^{(d+1)/2} sigma^d); limiting checks q -> ±infinity; processing effects (0.5 Hz rectification, 3D median filter, >3 sigma volume removal); random-weight sum -> Gaussian via CLT; covariance C ~ v_W rho int u0(s)u0(s+dx); Gaussian width sqrt2 b",
+      "source_evidence_used": "Mainali 2025 main Figs. 2-4 pp.1113-1116, STAR Methods pp.e2-e3; supplement Methods S2-S4; Taylor (2006) Gaussian kinematic formula cited (not read locally)",
+      "limits": "Table row 'virtual-track animals rats vs mice' labeling discrepancy noted by guide; final included cell counts not clearly given (guide appropriately cautious); random-wiring is a possible mechanism, not a connectivity measurement"
+    },
+    {
+      "chapter_id": "ch:SYNTHESIS",
+      "inspected_sections": "sec:SYNTHESIS-QUESTIONS, sec:SYNTHESIS-JOINT-CALCULATION incl. covariance example, sec:SYNTHESIS-EVIDENCE, sec:SYNTHESIS-RELATED, sec:SYNTHESIS-NEXT",
+      "core_claims_checked": "Three objects kept distinct (map, memory motion, observed movement); joint covariance Cov(delta R_i, delta R_j) = 2Dt f_i' f_j'; example slopes 2/-1 Hz/m, D=0.01, t=0.5 -> Var 0.04/0.01 Hz², Cov -0.02 Hz², correlation -1 verified; negative covariance from opposite slopes, not inhibition; related studies listed (Seung, Aksay, Koyluoglu, Seeholzer, Eliav/Harland/Yartsev/Maimon, Druckmann, Bittner, Nghiem)",
+      "source_evidence_used": "Burak & Fiete 2012; Ben-Shushan 2022; Mainali 2025; related papers cited by DOI only (not locally read except as noted elsewhere)",
+      "limits": "Joint calculation is guide-derived and explicitly labeled; related-study descriptions are secondary summaries"
+    },
+    {
+      "chapter_id": "ch:HARDWARE-MEMORY",
+      "inspected_sections": "sec:HARDWARE-MEMORY-ROLES, sec:HARDWARE-MEMORY-STORAGE, sec:HARDWARE-MEMORY-UPDATES",
+      "core_claims_checked": "Separation of weights / neuron state / represented value; Q = CV capacitor; I = GV conductance; PCM read pulse charge Q ≈ GVT; Loihi 2 / SpiNNaker2 / BrainScaleS-2 table rows (local digital state vs analog membrane vs conductance)",
+      "source_evidence_used": "Pehle 2022, Le Gallo 2023, Intel Loihi 2 brief, Scholze 2026 cited; von Neumann 1958 local pp.76-82 read (quote p.66/PDF p.78 verified; flip-flop memory discussion pp.66-69)",
+      "limits": "Pehle/Scholze/LeGallo/Intel bodies not locally read (no local files); descriptions treated as unchecked architecture context. von Neumann quotation and context verified locally"
+    },
+    {
+      "chapter_id": "ch:HARDWARE-DYNAMICS",
+      "inspected_sections": "sec:HARDWARE-DYNAMICS-FEEDBACK, sec:HARDWARE-DYNAMICS-ERRORS, sec:HARDWARE-DYNAMICS-EVIDENCE",
+      "core_claims_checked": "Feedback tau_eff = tau_s/(1-g), g->1 slows forgetting, g=1 ideal retention; OU process Var = (D/kappa)(1-e^{-2 kappa t}), neutral kappa=0 gives 2Dt; pinning distinction; Massoud 32 bumps at 11.25°; Giulioni bistability seconds despite ms dynamics",
+      "source_evidence_used": "Seung 1996 local text read (line attractor, tuning, structural instability); Burak & Fiete 2012 bound; Massoud 2011 and Giulioni 2012 cited (DOI only, not locally read)",
+      "limits": "Massoud/Giulioni specific claims unverified by me; Seung 1996 read locally and consistent with guide's use"
+    },
+    {
+      "chapter_id": "ch:NEUROMORPHIC-SYSTEMS",
+      "inspected_sections": "sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES, sec:NEUROMORPHIC-SYSTEMS-ADVANCES, sec:NEUROMORPHIC-SYSTEMS-LIMITS",
+      "core_claims_checked": "Architecture table (weights/state locations, update mode, experiment consequence); Kleyko 2025 Loihi 2 reservoir/history (verified locally: Hala Point far exceeds experiment resources); Aitsam 2026 SpiNNaker 2 768-neuron bump (verified locally: ≥8 s persistence, centroid ≤0.5 cell, jitter -15%, lag +115 ms, error 2.02 -> 5.65 cells, simulated robot, power estimates); Ortner 2025 PCM rapid learning; Wang 2026 CrTe3 drift; Sun 2026 dual-memory LMU (verified locally PMC: >4x throughput, >5x energy, 40-60% fewer params, post-layout 22FDX not fabricated); Ilmberger 2025 multichip timing",
+      "source_evidence_used": "Aitsam, Kleyko, Sun local full texts; von Neumann for framing. Others DOI/arXiv only",
+      "limits": "Per review brief, Part III is a 2026-10-30 snapshot of selected studies; unread hardware bodies listed in source_access. No claim that one machine leads every task"
+    },
+    {
+      "chapter_id": "ch:HARDWARE-TESTS",
+      "inspected_sections": "sec:HARDWARE-TESTS-PROTOCOL, sec:HARDWARE-TESTS-PARAMETERS, sec:HARDWARE-TESTS-COMPARISON",
+      "core_claims_checked": "Cue-and-delay protocol; local model dtheta = b dt + sqrt(2D) dW; readout noise offset 2 sigma_m²; projection D = 1/2 ell^T B B^T ell with left neutral vector; time conversion D_p = a D_m for accelerated hardware; energy measurement scope (writing/waiting/reading/host)",
+      "source_evidence_used": "Burak & Fiete 2012 (diffusion/projection); Ben-Shushan 2022 (output filtering); Mainali 2025 (spatial vs temporal separation)",
+      "limits": "Proposed tests are guide-derived and labeled as such; no hardware results demonstrated"
+    },
+    {
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "inspected_sections": "sec:SIMULATING-MEMORY-STATE, sec:SIMULATING-MEMORY-RING, sec:SIMULATING-MEMORY-CONTROLS, sec:SIMULATING-MEMORY-OUTPUTS",
+      "core_claims_checked": "Ring settings: 1024 neurons, tau=10 ms, h=0.1 ms, 100 trials x 1000 s, exclude first 10 ms; weights w(alpha) = e^{cos alpha -1} - e^{0.3(cos alpha -1)} (A=1,k1=1,k2=0.3); b=-2; transfer tau phi = 10 e^g or 0.2[1+tanh(g+4)]; two-population: W cross = -1, b=5000, tau=100 ms, h=0.4 ms, 200 s, linear tau r = g; rate/activation diffusion conversion D_r = D_s/tau²; no public code archive identified as of snapshot",
+      "source_evidence_used": "Burak & Fiete 2012 main pp.2-6, SI p.6 (S6), p.8 (S32), p.10 (Fig. S1); 2017 correction",
+      "limits": "Negative claim (no public archive) is a search statement as of 2026-10-30, not a proof of absence; spike-draw details for two-population not fully specified in paper (guide notes)"
+    },
+    {
+      "chapter_id": "ch:SIMULATING-EYE",
+      "inspected_sections": "sec:SIMULATING-EYE-DATA, sec:SIMULATING-EYE-PATH, sec:SIMULATING-EYE-CONTROLS, sec:SIMULATING-EYE-TOOLS",
+      "core_claims_checked": "MATLAB update 1e-5 s, save every 100 steps = 1 ms samples; tau_MN = 10 ms per code; seed from trajectory index; N convention mismatch (code vector vs paper neuron number); motor variability regression differs from printed Eq. 35 per code inspection; Run_model.m / Full_model_simulation.m / Fit_OI_circuit.m roles; raw recordings one spreadsheet per cell per trial",
+      "source_evidence_used": "Ben-Shushan 2022 Methods Eqs. 23-35 pp.10-11; MATLAB repo revision 27d409... inspected Feb 28 2022, re-checked Oct 30 2026 (code inspection, not execution); Zenodo dataset DOI",
+      "limits": "Code not executed; missing MATLAB version/toolboxes; `rate` branch function absent from inspected tree; guide makes no end-to-end reproduction claim"
+    },
+    {
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "inspected_sections": "sec:SIMULATING-PLACE-GENERATE, sec:SIMULATING-PLACE-FIT, sec:SIMULATING-PLACE-MEASURE, sec:SIMULATING-PLACE-TOOLS",
+      "core_claims_checked": "Python map generation: draw normal, Gaussian filter, RMS normalize, threshold, connected components; code `sigma` = filter width b vs paper ell = sqrt(-C(0)/C''(0)) with ell = sqrt2 b verified; fitted summaries per condition (200 m tunnel length+gap; 6 m length+occupied fraction; 2D size+count; 3D volume+occupied fraction); 10^4 realizations for histogram error bars; Gudhi for Betti/EC; 10 cm bins, median filter kernel 2",
+      "source_evidence_used": "Mainali 2025 STAR Methods pp.e1-e5; code archive DOI 10.5281/zenodo.14650881 and repo revision eae7eab... inspected Oct 30 2026 (not executed)",
+      "limits": "No per-panel grid/cell/seed record in README dummy settings; data availability not complete for every figure; code availability ≠ data availability"
+    },
+    {
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "inspected_sections": "sec:SIMULATION-TOOLS-ROUTES through sec:SIMULATION-TOOLS-RECORD",
+      "core_claims_checked": "Author code vs teaching reconstruction vs numerical reference; NumPy Generator seed limits; SciPy solve_ivp for deterministic ODE only (stochastic needs event rules); ndimage.label connectivity affects field counts; Brian 2 optional; convergence check definition; Brownian step-size variance scaling verified (variance per second invariant)",
+      "source_evidence_used": "Documentation pages for NumPy/SciPy/Brian 2 retrieved Oct 30 2026 (not independently re-fetched); three paper code situations summarized",
+      "limits": "No simulations run; no full reruns claimed; tool table roles are guidance, not verification of what papers used"
+    },
+    {
+      "chapter_id": "ch:GLOSSARY",
+      "inspected_sections": "all glossary entries plus sec:GLOSSARY-HARDWARE, sec:GLOSSARY-SIMULATION",
+      "core_claims_checked": "Definitions consistent with chapter usage (D diffusion, CV on ISIs, EC as alternating Betti sum, Itô/Stratonovich, sub-Poisson, superdiffusion, pinning, unwrapping); hardware terms cross-referenced to Part III",
+      "source_evidence_used": "guide text only",
+      "limits": "Lookup glossary; no new factual claims beyond chapters"
+    },
+    {
+      "chapter_id": "ch:REFERENCES",
+      "inspected_sections": "entries 1-43",
+      "core_claims_checked": "Bibliographic details match cited DOIs where checkable locally (Burak & Fiete 2012, Ben-Shushan 2022, Mainali 2025, Seung 1996, von Neumann 1958, Aitsam 2026, Sun 2026, Kleyko 2025); Mainali data/code DOIs listed",
+      "source_evidence_used": "guide reference list; local source files for the papers above",
+      "limits": "Most reference entries not independently re-verified against publisher pages; entries rely on guide transcription"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-01",
+      "kind": "unverified_claim",
+      "severity": "medium",
+      "guide_location": "ch:PERSISTENCE, sec:PERSISTENCE-EYE-MECHANICS (guide/01b-persistence.md, L0043-L0045)",
+      "short_excerpt": "Horizontal gaze then drifted back with a time constant of about 0.2 s, compared with more than 20 s before disruption in darkness.",
+      "claim_or_gap": "Cannon & Robinson (1987) specific time-constant claims used as motivation for neural persistence exceeding tissue mechanics.",
+      "source_evidence": [
+        {
+          "source": "Cannon, S. C., & Robinson, D. A. (1987), J. Neurophysiol. 57(5), 1383–1409",
+          "page_or_section": "abstract, per guide footnote [^p-eye-integrator]",
+          "equation_or_figure": "n/a",
+          "what_it_supports": "reversible brainstem disruption and gaze-holding time constants before/after disruption"
+        }
+      ],
+      "strongest_retaining_reading": "The numbers are background illustration, not a premise of the diffusion derivation; if inaccurate, only the motivational example is affected, not Chapters 3-6 results.",
+      "why_it_is_still_a_problem": "I did not read Cannon & Robinson 1987 (no local body in the packet), so I cannot confirm 0.2 s vs >20 s; it remains an uncited-by-me factual anchor.",
+      "suggested_action": "Verify against the paper's abstract/full text (or the peer-review file cited by the guide) and restate with explicit uncertainty or a softer qualifier if unverifiable.",
+      "confidence": "low (concerning my ability to confirm; the claim itself is plausible)"
+    },
+    {
+      "id": "F-02",
+      "kind": "unverified_claim",
+      "severity": "low",
+      "guide_location": "ch:PERSISTENCE, sec:PERSISTENCE-EYE-MECHANICS (guide/01b-persistence.md, L0045)",
+      "short_excerpt": "Major et al. (2004) altered visual feedback in goldfish and trained their gaze holding toward drift or instability over tens of minutes to hours; normal feedback could reverse the change.",
+      "claim_or_gap": "Goldfish integrator plasticity timescale and reversibility details.",
+      "source_evidence": [
+        {
+          "source": "Major, G., et al. (2004), PNAS 101(20), 7739–7744",
+          "page_or_section": "Figs. 2-4 and Discussion per guide footnote [^p-eye-plasticity]",
+          "equation_or_figure": "n/a",
+          "what_it_supports": "visual-feedback plasticity of gaze holding, reversibility, unresolved cellular rule"
+        }
+      ],
+      "strongest_retaining_reading": "Used only to distinguish slow neural recalibration from immediate elastic/viscous mechanics; the exact timescale is not load-bearing.",
+      "why_it_is_still_a_problem": "Not locally read; cannot confirm 'tens of minutes to hours' or reversal detail from the packet.",
+      "suggested_action": "Check Major et al. (2004) if the timescale is to be asserted as fact; otherwise soften to 'over extended training periods'.",
+      "confidence": "medium"
+    },
+    {
+      "id": "F-03",
+      "kind": "ambiguous_source",
+      "severity": "low",
+      "guide_location": "ch:PLACE-SIZES, source-check block (guide/05b-place-sizes.md, around L0196-L0204)",
+      "short_excerpt": "'Equation S18 prints multiplication by mean size where the preceding moment formula requires division.'",
+      "claim_or_gap": "Alleged printed error in Mainali supplement Eq. S18.",
+      "source_evidence": [
+        {
+          "source": "Mainali et al. (2025) supplement, Methods S3-S4",
+          "page_or_section": "supplement pp. 12-14, Eq. S18",
+          "equation_or_figure": "Eq. S18: beta = [Gamma(D/2+1)/<s>]^{2/D}",
+          "what_it_supports": "beta from mean field size"
+        }
+      ],
+      "strongest_retaining_reading": "The extracted supplement text shows division, which matches the guide's own formula; the alleged print error is not visible in extraction and may be an extraction/print difference.",
+      "why_it_is_still_a_problem": "Without re-reading the PDF pages I cannot confirm whether S18 truly differs from the guide; low stakes because the guide derives beta independently and explicitly says code/fits are not implicated.",
+      "suggested_action": "Re-read the Mainali supplement PDF pp. 12-14 (Eqs. S18, S22-S25) to convert each flag to confirmed print error, extraction artifact, or no issue.",
+      "confidence": "medium"
+    },
+    {
+      "id": "F-04",
+      "kind": "ambiguous_source",
+      "severity": "low",
+      "guide_location": "ch:MEMORY-READOUT, footnote [^p1-two-times] (guide/03b-memory-readout.md, L0422)",
+      "short_excerpt": "'Its rate decay block is negative, as required by that differential equation, despite the positive sign printed in the corresponding block of S85.'",
+      "claim_or_gap": "Alleged sign error in Burak & Fiete SI Eq. S85 rate-decay block.",
+      "source_evidence": [
+        {
+          "source": "Burak & Fiete (2012) SI",
+          "page_or_section": "pp. 17-18, Eq. S85",
+          "equation_or_figure": "Eq. S85 two-time-constant linearized matrix",
+          "what_it_supports": "sign of the -1/tau_m rate-decay block"
+        }
+      ],
+      "strongest_retaining_reading": "Stability requires a negative rate-decay block (-1/tau_m); the guide's reading is physically sensible and consistent with the main text's two-time-constant result.",
+      "why_it_is_still_a_problem": "The extracted S85 matrix is garbled ('tau −1 m delta_ij'), so I cannot confirm whether the print has a sign error or the text is scrambled. Not a guide defect unless confirmed.",
+      "suggested_action": "Re-read SI pp. 17-18 from the PDF to check S85 block signs.",
+      "confidence": "medium"
+    },
+    {
+      "id": "F-05",
+      "kind": "source_access_limit",
+      "severity": "medium",
+      "guide_location": "ch:HARDWARE-MEMORY, ch:HARDWARE-DYNAMICS, ch:NEUROMORPHIC-SYSTEMS (guide/07-, 08-, 09-hardware-*.md)",
+      "short_excerpt": "Claims about Pehle 2022 (6-bit SRAM weights, ~1000x acceleration), Scholze 2026, LeGallo 2023, Massoud 2011 (32 bumps, 11.25°), Giulioni 2012, Ortner 2025, Wang 2026, Ilmberger 2025.",
+      "claim_or_gap": "Hardware-specific parameter and performance claims whose primary bodies are not in the local packet.",
+      "source_evidence": [
+        {
+          "source": "Hardware source access index",
+          "page_or_section": "hardware entries with local_files: []",
+          "equation_or_figure": "n/a",
+          "what_it_supports": "Pehle, Scholze, LeGallo, Massoud, Giulioni, Ortner, Wang, Ilmberger bodies are web/primary only"
+        }
+      ],
+      "strongest_retaining_reading": "The guide treats Part III as a 2026-10-30 snapshot of selected studies, labels preprints and post-layout-simulation-not-fabricated-chip, and separates architecture description from performance claims; the hardware numbers are descriptive context, not load-bearing for the neural-core results. The four hardware sources I did read locally (von Neumann 1958 pp.76-82; Aitsam 2026; Kleyko 2025; Sun 2026 PMC) match the guide's characterizations.",
+      "why_it_is_still_a_problem": "I cannot independently confirm hardware-specific numbers; review emphasis remains the three neuroscience papers.",
+      "suggested_action": "If the reader will rely on specific hardware figures, WebFetch the primary URLs (DOIs/arXiv) listed in the access index and re-check; otherwise keep the current hedged wording.",
+      "confidence": "high (about the access limit); not assessed (about truth of unread claims)"
+    }
+  ],
+  "retained_strengths": [
+    "Consistent mechanism -> mathematical derivation -> interpretation structure (sec:READING-MECHANISM-MATH) applied across Chapters 3-6.",
+    "Symbol discipline: D reserved for diffusion coefficient, d for spatial dimension, q/C for place-field threshold/covariance, explicitly justified at front matter (L0172-L0180) to avoid collision with the memory chapters' D and theta.",
+    "Poisson counts, CV, Fano factor, and conditional independence taught before the diffusion calculation; the key qualification that independent count draws do not make recurrent spike trains independent (ch:FOUNDATIONS L0274).",
+    "Correct reproduction of Burak & Fiete derivations: projection via left/right zero eigenvectors (SI S7-S15), symmetric diffusion formula matching SI S18, and the information-diffusion bound with Cauchy-Schwarz; equality condition and its linear-family counterexample correctly qualified.",
+    "Verified algebraic flags of source inconsistencies with appropriate caveats: printed Eq. 2 missing square (vs SI S18 / 2017 correction), SI S40 vs S41 factor-of-two for mutual excitation (direct projection D = theta/(4 tau) matches S41), SI S71 plus-sign vs cosh S73, Mainali supplement S23/S25.",
+    "Readout chapter: storage/readout decomposition, naive vs ideal coth formula, partial-access scaling, and the demonstrated failure of main Eq. 6 as a universal lower bound (concrete strict counterexample).",
+    "Place-field chapters separate exact Kac-Rice results from high-threshold approximations, include EC boundary terms and slice-dimension logic, and flag data-processing choices and selection bias.",
+    "Simulation chapters are honest about what was not done (no reruns, no code execution) and label code/data gaps (eye MATLAB revision and missing per-panel settings; place `sigma` vs ell conversion).",
+    "Hardware Part keeps connection weights, neuron state, and represented value separate; uses an explicit 2026-10-30 snapshot date and does not claim a current SOTA survey.",
+    "Synthesis chapter keeps the three papers' objects distinct and gives a correct joint position-covariance calculation, clearly labeled as guide-derived.",
+    "Glossary and references are internally consistent with chapter notation and contribution labels (Central/Supporting/Background/Guide-derived)."
+  ],
+  "source_access": {
+    "actually_read": [
+      "All 24 reader units of the guide (reading guide; chapters 1-21; glossary; references), full text supplied in the packet.",
+      "Burak & Fiete (2012) main PDF (6 pp) and SI (20 pp) via extracted text; equations Eqs. 7-9, SI S2-S95 checked where legible.",
+      "Ben-Shushan et al. (2022) main PDF (13 pp), supplement-1 (14 pp), and relevant peer-review pages via extracted text; R, chi, kernel time constants, N/tau_s/A/tau_d checked.",
+      "Mainali et al. (2025) main PDF (15 pp) and supplement (16 pp) via extracted text; field-size laws, EC formulas, processing steps checked.",
+      "Hardware sources read locally: von Neumann (1958) pp. 76-82 (quote p. 66 / PDF p. 78 verified), Aitsam et al. (2026) full text, Kleyko et al. (2025) full text, Sun et al. (2026) PMC full text; these match the guide."
+    ],
+    "failed_or_missing": [
+      "Hardware primary bodies not locally available (no local files in access index): Pehle 2022, Scholze 2026, LeGallo 2023, Massoud 2011, Giulioni 2012, Ortner 2025, Wang 2026, Ilmberger 2025; only DOIs/URLs in the guide.",
+      "Cannon & Robinson (1987) and Major et al. (2004) not locally available; their specific claims are unverified by me (F-01, F-02).",
+      "Dragoi (2026) web review cited for anatomy context, not read.",
+      "Private Tailscale guide URL: not fetched, per instruction."
+    ],
+    "extraction_limits": [
+      "PDF equation extraction is scrambled in places: Burak & Fiete SI S85 block sign (F-04) and Mainali supplement S18 print-vs-extraction (F-03) could not be pixel-reconfirmed; S23 (missing sqrt2) and S25 (sign) are visible in extraction and support the guide's flags.",
+      "Guide figures are excerpts with captions/alt text; no pixel-level figure audit performed, as the brief does not request it.",
+      "No code or simulations executed; no original animal recordings reprocessed; author code inspected but not run (eye MATLAB revision 27d409..., place repo revision eae7eab...).",
+      "Guide's negative claim that no public Burak & Fiete simulation-code archive exists is a search statement as of 2026-10-30, not a proof of absence."
+    ]
+  },
+  "remaining_checks": [
+    "Re-read Burak & Fiete SI pp. 17-18 (Eq. S85 matrix block signs) and Mainali supplement pp. 12-14 (Eqs. S18, S22-S25) from the PDFs to convert ambiguous flags into confirmed print errors, extraction artifacts, or non-issues.",
+    "If the background time-constant claims are to be asserted as fact, verify Cannon & Robinson (1987) (0.2 s vs >20 s) and Major et al. (2004) (training timescale/reversibility) from primary sources; otherwise soften wording.",
+    "Optionally WebFetch the primary hardware URLs for Pehle 2022, Scholze 2026, LeGallo 2023, Massoud 2011, Giulioni 2012, Ortner 2025, Wang 2026, Ilmberger 2025 if Part III hardware numbers are to be relied on; otherwise retain current hedged treatment.",
+    "No new code execution, simulations, or pixel audits are within this review's scope; these remain explicit limits."
+  ]
+}

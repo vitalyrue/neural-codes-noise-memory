@@ -1,0 +1,17 @@
+# Whole-guide learning order
+
+Reviewer: /root. Review scope: current thirteen teaching chapters, reading guide, glossary, references, and the two Part purposes. Source openings, headings, section questions and closing transitions were read as a connected sequence; individual scientific checks are in the three independent Stage1 reports.
+
+The retained order answers a chain of questions. Chapters1–2 establish what spikes represent, what variability means, and why a stable family of population patterns can still wander. Chapters3–4 derive the component of noise that survives relaxation, then show when linear diffusion ceases to describe the retained value. Chapters5–6 ask what that diffusion costs in information and how a moving state changes the best readout. The reader therefore meets the state, the perturbation and the retained displacement before the information bound is used to interpret them.
+
+Chapters7–9 then separate three questions in eye drift: whether the command is shared, what its dependence on time reveals, and whether a particular circuit can generate it. The order prevents a successful circuit calculation from being mistaken for identification of the biological source. Chapters10–12 move to a different random object, a fixed spatial map. They introduce Gaussian field assumptions and threshold crossings before peak-size approximations, then test topology and possible circuit inputs. Chapter13 compares the different evidential claims before proposing a joint experiment.
+
+An observational-first alternative could begin with eye traces or place fields and only later derive the memory model. It would provide an early biological example, but full eye-circuit interpretation would then require a return to persistent-state geometry, noise projection and diffusion. The current reading guide already supplies a shorter place-field route through foundations and chapters10–12. Retaining that optional route gives the benefit without breaking the continuous mathematical path.
+
+Another possible change is to move the information bound ahead of the long-delay chapter. The long-delay chapter's brief visual bound comparison is a preview, while its main task is to qualify the local diffusion result just derived. Placing its boundary and systematic-drift limits immediately after local dynamics better prevents overgeneralizing that result. No chapter or section reorder is justified by the reviewed dependencies.
+
+The opening of the persistence chapter already poses the disturbance-and-recovery problem before the first section defines attractors. A second template question would repeat that motivation. The actual gap was local: Brownian motion appeared after the first equation that used it and omitted the zero-mean assumption. That passage now teaches the process before the equation. Likewise, eye timing now derives covariance from shared Brownian increments rather than relying on an unexplained stochastic-integral step.
+
+All chapter overviews are retained. They explain the chapter's question and why the next steps are needed. Definitions needed to follow the main argument remain visible; optional folds hold calculations or comparisons that can be skipped without removing a later prerequisite. The glossary is a lookup aid, not a substitute for local teaching. Source and figure reading limits remain explicit.
+
+This record covers the order decision. Independent final passage judgments and the concept-order check supply the detailed evidence; this prose does not replace those checks.

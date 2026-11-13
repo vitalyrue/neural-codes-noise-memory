@@ -1,0 +1,872 @@
+{
+  "stage": 1,
+  "stage_name": "Truth, reasoning and pixels",
+  "reviewer": "/root/all_draw_eye_place",
+  "reviewed_at": "2026-10-24T18:41:55.423333+03:00",
+  "root_wall_elapsed_seconds": 640.423923,
+  "awake_execution_time": "unverified",
+  "scope": "A01-A04 candidate figures and their current connected proposed insertions; not whole-book acceptance.",
+  "independence": "Reviewer did not author A01-A04 and did not read earlier or other current review verdicts. A05-A08 are excluded because this reviewer authored them.",
+  "source_evidence": [
+    "2012 main PDF pp.1-3, Poisson model, diffusion convention, Eq.3, Eq.4 and Fig.2E-G",
+    "2012 SI PDF pp.9-11, S42-S43 and S45-S49",
+    "Guide Chapter1 Poisson/diffusion passages; Chapter3 FI/bound passages; Chapter2 mutual-inhibition projection",
+    "Current proposed sources and all four briefs; own independent numeric calculations"
+  ],
+  "calculation_method": "Direct scipy Poisson sums, independent seeded Brownian reconstruction, finite-difference derivative test, and two-cell projection plus FI algebra. Author generator functions were read but not imported or executed for review.",
+  "figures": [
+    {
+      "id": "A01",
+      "visual_id": "fig:FOUNDATIONS-POISSON-POPULATION",
+      "decision": "pass",
+      "reviewer": "/root/all_draw_eye_place",
+      "png_sha256": "08625d38a6133fe9b96e13238e1ef32775e32c6b55f405b046537779c80ca603",
+      "svg_sha256": "66c658310c2c8affdb7eb31ecb230ecba7a4a31d64292962fb0482c25b562d94",
+      "reviewed_png_sha256": "08625d38a6133fe9b96e13238e1ef32775e32c6b55f405b046537779c80ca603",
+      "reviewed_svg_sha256": "66c658310c2c8affdb7eb31ecb230ecba7a4a31d64292962fb0482c25b562d94",
+      "reviewed_book_width_sha256": "c9d33bd625c71d5f9bf6aba807292343dde553577ba17d2b50ef68594c07b32f",
+      "reviewed_packet_fields": {
+        "caption": "Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell $K/(N\\Delta t)$, so both estimates have mean 20 Hz; their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains.",
+        "alt": "Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters around twenty hertz. Their means match, but the rate standard deviation falls from twenty to 4.47 hertz.",
+        "intro": "The two count distributions can be compared on the same rate per cell scale.",
+        "interpretation": "Dividing the pooled rate estimate by 20 keeps the expected rate per cell fixed, while independent averaging reduces its relative spread.",
+        "source_locator": "Guide sec:FOUNDATIONS-POISSON, exact 20 Hz / 50 ms example; Burak and Fiete (2012), main PDF p. 1, Results, Poisson model; SI PDF p. 9, Eq. S43, conditional count likelihood.",
+        "insert_after": "Now suppose 20 conditionally independent cells each have that rate. Their total count is Poisson with mean 20 and standard deviation $\\sqrt{20}=4.47$. The total rate estimate has a relative standard deviation of about 22.4%, compared with 100% for one cell. Population averaging helps because the independent count variances add while the mean signal adds directly. If cells share an additional fluctuating drive, that common variation will not disappear in the same way."
+      },
+      "input_sha256": {
+        "content/chapters/01-foundations.md": "c8eb6624c60528cd5ab8fdc36a6bf1bf0fdf5d8e173f23a270c819a968e90203",
+        "content/chapters/01-foundations.yaml": "c0ae54738d9865f87cb101d07ec793a920a062b54a0cc3c24b206da7c7e265df",
+        "verification/all-illustrations-20261024/draw_foundations_information.py": "553945098b3c65d42f58a3adb3b0349bc838b099924aa322624fc8eddfd610bc",
+        "verification/all-illustrations-20261024/A01-brief.yaml": "465ba6c3c4140fb72baafe0eb975e8aa509084a322095eb005ecc0dac85be574",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt": "7c543726567b68ca654ee0d5e97e1b5f00e4d7ddcb32265355232cf6418a3497",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt": "e2239898865d70850046acaa8172a3eac900e87f5f8a8ce68c740caa57d01c87",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml": "3e12724b304ce518d49689b7cdce2ed4fe9d77576142f9879e54b86031a29267",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024-all/A01/qa.json": "db69dfe1a9ac2d0c52a7db781894aea964f16814259c791be03e5b6b1c301db6",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\01-foundations.md": "0247535e450bb9d2f2de3f15cb8a962a6e8044cbc9690090a14a91fea870d549",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\01-foundations.yaml": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1"
+      },
+      "claim_review": [
+        {
+          "claim": "One cell: λ=1; 20 independent cells: λ=20; Δt=.05 s; expected rate per cell20 Hz.",
+          "verdict": "correct",
+          "evidence": "The chapter fixes r=20/s. Hence λ=NrΔt=N for N=1 or20. SI Eq.S43 is the product conditional Poisson likelihood with rate held locally fixed."
+        },
+        {
+          "claim": "No spike: 0.368, with leader ending at the one-cell zero-count stem.",
+          "verdict": "correct",
+          "evidence": "exp(-1)=0.36787944117144233. The leader visibly ends on x=0, y≈.368; the equal-height x=20 stem is the one-spike event."
+        },
+        {
+          "claim": "Means20 Hz; SD20.00 and4.47 Hz.",
+          "verdict": "correct",
+          "evidence": "For K/(NΔt), mean=r and variance=r/(NΔt). Independent full-support sums give means20 and20 Hz and SD20 and4.472135954999574 Hz."
+        },
+        {
+          "claim": "Probability axes, per-cell rate K/(NΔt) (Hz), stems are discrete probabilities.",
+          "verdict": "correct",
+          "evidence": "The one-cell support spacing is20 Hz and the20-cell spacing is1 Hz. Stem heights equal exact Poisson probability masses; no interpolation or density claim is present. Y tick marks0,.2,.4 are common across panels."
+        },
+        {
+          "claim": "Only estimates through100 Hz are drawn.",
+          "verdict": "correct",
+          "evidence": "The current repaired caption matches the stem support0..100. Plot axes extend to103 for margin; this is why the earlier outside-displayed-range phrase was repaired. One-cell shown mass=.9994058151824183; the unshown tail is not renormalized."
+        },
+        {
+          "claim": "Conditional independence concerns fixed modeled rates, not full recurrent trains.",
+          "verdict": "correct",
+          "evidence": "The following chapter paragraph states precisely this qualification. The source main p.1 uses recurrent time-varying Poisson rates and SI p.9 S43 uses the state-conditioned approximation."
+        },
+        {
+          "claim": "Introduction compares distributions on the same per-cell rate scale; interpretation says averaging reduces relative spread.",
+          "verdict": "correct",
+          "evidence": "Both panels use the same x scale and expected rate. SD/mean is1 versus1/sqrt(20)=.2236068. Normalization is supplied explicitly by the axis and caption. Using pooled rate estimate in the interpretation makes this unit conversion direct."
+        },
+        {
+          "claim": "Alt text reports zero probability, discrete spacings, matched means and reduced spread.",
+          "verdict": "correct",
+          "evidence": "All relationships in the alt agree with the viewed stems and the independent numbers above. No inaccessible extra result is claimed."
+        },
+        {
+          "claim": "Navy one-cell and teal pooled-series colors, neutral axes and guides.",
+          "verdict": "correct",
+          "evidence": "Exact SVG token membership was recomputed from the selected profile. Both colors denote alternative plotted conditions and are not success/failure judgments."
+        }
+      ],
+      "visible_label_inventory": [
+        "One cell: $\\lambda=1$",
+        "Mean 20 Hz; SD 20.00 Hz",
+        "No spike: 0.368",
+        "Probability",
+        "0.0",
+        "0.2",
+        "0.4",
+        "20 independent cells: $\\lambda=20$",
+        "Mean 20 Hz; SD 4.47 Hz",
+        "Rate estimate per cell $K/(N\\Delta t)$ (Hz)",
+        "0",
+        "20",
+        "40",
+        "60",
+        "80",
+        "100",
+        "Probability",
+        "0.0",
+        "0.2",
+        "0.4",
+        "$\\Delta t=0.05$ s; expected rate per cell = 20 Hz.  Stems are discrete probabilities."
+      ],
+      "scenes": [
+        {
+          "id": "one-cell-count",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "Poisson stems",
+            "zero-count annotation"
+          ],
+          "relationship": "One-cell mean count1 yields broad rate support and frequent no-spike intervals.",
+          "teaching_contribution": "Shows why one silent interval is weak evidence for zero underlying rate.",
+          "verdict": "pass"
+        },
+        {
+          "id": "pooled-count-normalization",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "pooled Poisson stems",
+            "shared20Hz guide",
+            "rate-normalization axis"
+          ],
+          "relationship": "Twenty independent counts are pooled then normalized to the same expected rate.",
+          "teaching_contribution": "Shows lower relative error while preserving the mean and keeping discrete support explicit.",
+          "verdict": "pass"
+        }
+      ],
+      "strongest_objection": "Independence can fail in a recurrent network, so pooling twenty complete spike trains need not obey this law.",
+      "objection_resolution": "Caption says fixed modeled rates; the following original paragraph explains conditional noise independence and recurrent correlations. No empirical independence claim is made.",
+      "criteria": {
+        "technical_accuracy": {
+          "verdict": "pass",
+          "evidence": "See individual claim rows and independent calculations."
+        },
+        "visual_explanation": {
+          "verdict": "pass",
+          "evidence": "Each declared scene has visible calculated curves/stems and a specific teaching relation.",
+          "scenes": [
+            {
+              "id": "one-cell-count",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "Poisson stems",
+                "zero-count annotation"
+              ],
+              "relationship": "One-cell mean count1 yields broad rate support and frequent no-spike intervals.",
+              "teaching_contribution": "Shows why one silent interval is weak evidence for zero underlying rate.",
+              "verdict": "pass"
+            },
+            {
+              "id": "pooled-count-normalization",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "pooled Poisson stems",
+                "shared20Hz guide",
+                "rate-normalization axis"
+              ],
+              "relationship": "Twenty independent counts are pooled then normalized to the same expected rate.",
+              "teaching_contribution": "Shows lower relative error while preserving the mean and keeping discrete support explicit.",
+              "verdict": "pass"
+            }
+          ]
+        },
+        "readability": {
+          "verdict": "pass",
+          "full_size_inspected": true,
+          "reviewed_width_px": 700,
+          "evidence": "Actual original-resolution PNG and separate700px preview inspected. Legends, axes, units, numerical annotations and leader endpoints are visible and do not overlap essential content."
+        },
+        "palette": {
+          "verdict": "pass",
+          "evidence": "Independently recomputed exact SVG color membership against the locked house profile; color roles inspected on actual PNG. This is not a raster deviation audit.",
+          "outside_profile": [],
+          "svg_tokens": [
+            "#0f6b78",
+            "#17365d",
+            "#19202c",
+            "#5d6876",
+            "#9aa7b5",
+            "#fffdf7",
+            "#ffffff"
+          ]
+        },
+        "coverage": {
+          "verdict": "not-applicable",
+          "evidence": "Internal equation/example figure, not a chapter opener."
+        }
+      },
+      "findings": [],
+      "resolved_findings": [
+        {
+          "id": "A01-range",
+          "original": "Estimates above100Hz are outside the displayed range.",
+          "repair": "Only estimates through100Hz are drawn.",
+          "resolution": "Stem support and repaired caption match; axes retain margin."
+        },
+        {
+          "id": "A01-rate-wording",
+          "original": "Dividing the pooled count by20 keeps the expected rate per cell fixed.",
+          "repair": "Dividing the pooled rate estimate by20 keeps the expected rate per cell fixed.",
+          "resolution": "Caption already supplied division by observation time. Current interpretation now gives rate units directly; optional precision improvement accepted and checked."
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "visual_id": "fig:FOUNDATIONS-DIFFUSION-BIAS",
+      "decision": "pass",
+      "reviewer": "/root/all_draw_eye_place",
+      "png_sha256": "ff4d2072bf05a74df776f06ab0e943ec40620aec2706627b9b926b1dde003e73",
+      "svg_sha256": "74229d3f64b6f15aecea732e78d786b6ec54c59328eff60c92031c98a3c4eb3d",
+      "reviewed_png_sha256": "ff4d2072bf05a74df776f06ab0e943ec40620aec2706627b9b926b1dde003e73",
+      "reviewed_svg_sha256": "74229d3f64b6f15aecea732e78d786b6ec54c59328eff60c92031c98a3c4eb3d",
+      "reviewed_book_width_sha256": "22f117763147437e9e1cec3cf30d2b2ee40f26e2ff5d44b468bc5be1d1221e9e",
+      "reviewed_packet_fields": {
+        "caption": "Simulated Brownian teaching paths and analytic displacement scales for $D=0.02$ degrees squared per second and $v=0.10$ degrees per second. The upper paths have zero drift and start at zero; the dashed envelope is the exact root mean squared displacement, not a boundary on individual paths. Below, $\\sqrt{2Dt}$ and $vt$ are equal at 4 s, when each is 0.40 degrees. Their squares are the separate contributions to the biased model’s MSD. The coordinate is unbounded, and these chosen values are not estimates from animal recordings.",
+        "alt": "Seven Brownian sample paths move irregularly above and below zero. A dashed positive and negative root mean squared envelope grows with the square root of time; some paths cross it. A second plot compares the positive root mean squared displacement with a linearly growing bias displacement. Both equal 0.40 degrees at four seconds, after which the bias line is higher.",
+        "intro": "Sample paths show the irregular motion; exact displacement scales show how its spread differs from a fixed bias.",
+        "interpretation": "A single path can turn back toward zero even while the ensemble spread grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+        "source_locator": "Guide sec:FOUNDATIONS-DIFFUSION, exact D=.02 and v=.10 example; Burak and Fiete (2012), main PDF p. 2, Diffusive Drift due to Ongoing Neural Noise; SI PDF pp. 4–5, Systematic drift, and p. 7, Eq. S30.",
+        "insert_after": "The deterministic and random contributions are equal at $t=2D/v^2=4$ seconds. Their equal contributions there are each $0.16$ degrees squared. At longer times the bias dominates this unbounded model even though it was small over a short observation. Removing systematic drift is therefore a substantive assumption in a theory devoted to random diffusion."
+      },
+      "input_sha256": {
+        "content/chapters/01-foundations.md": "c8eb6624c60528cd5ab8fdc36a6bf1bf0fdf5d8e173f23a270c819a968e90203",
+        "content/chapters/01-foundations.yaml": "c0ae54738d9865f87cb101d07ec793a920a062b54a0cc3c24b206da7c7e265df",
+        "verification/all-illustrations-20261024/draw_foundations_information.py": "553945098b3c65d42f58a3adb3b0349bc838b099924aa322624fc8eddfd610bc",
+        "verification/all-illustrations-20261024/A02-brief.yaml": "35cb82a9980185969fd0b9968dec3252d6c0b8cc735b2685786c3e4c050428cc",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt": "7c543726567b68ca654ee0d5e97e1b5f00e4d7ddcb32265355232cf6418a3497",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt": "e2239898865d70850046acaa8172a3eac900e87f5f8a8ce68c740caa57d01c87",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml": "3e12724b304ce518d49689b7cdce2ed4fe9d77576142f9879e54b86031a29267",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024-all/A02/qa.json": "f3b28d88555ef644d0569f5ddfcf27c0787d93a6245cd53457351e5e3fdd5c2b",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\01-foundations.md": "0247535e450bb9d2f2de3f15cb8a962a6e8044cbc9690090a14a91fea870d549",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\01-foundations.yaml": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1"
+      },
+      "claim_review": [
+        {
+          "claim": "Seven zero-drift sample paths with initial displacement zero.",
+          "verdict": "correct",
+          "evidence": "Independent reconstruction from the declared seed uses7×800 independent N(0,.0004) increments at.01 s. Every path starts at0; min/max are -1.04772391976994 and.6570867702845818 deg, within the shown limits."
+        },
+        {
+          "claim": "Dashed ±sqrt(2Dt) envelope and random RMS label.",
+          "verdict": "correct",
+          "evidence": "For the stated Brownian model D=.02 deg²/s, displacement variance is.04t. The envelope is an ensemble RMS scale, not a confidence/hard boundary; sample paths visibly cross it. Caption explicitly says so."
+        },
+        {
+          "claim": "Bias: vt and equal at4 s: .40 deg, with leader at the curves’ crossing.",
+          "verdict": "correct",
+          "evidence": "Solving sqrt(.04t)=.1t for positive t gives4 s and.4 deg. Squaring gives.16 deg² for each separate MSD contribution, consistent with the preceding chapter example."
+        },
+        {
+          "claim": "Time(s), Displacement(deg), Displacement scale(deg), plotted ticks.",
+          "verdict": "correct",
+          "evidence": "Shared x0..8 s; top signed coordinate, bottom nonnegative scale. Bottom tick.8 corresponds vt at8 s; random RMS is sqrt(.32)=.565685 deg there. Units are correct because D has deg²/s and v has deg/s."
+        },
+        {
+          "claim": "Caption says unbounded constructed coordinates and chosen values rather than animal estimates.",
+          "verdict": "correct",
+          "evidence": "Chapter FOUNDATION-DIFFUSION teaches the unbounded/local qualification. The source main p.2 treats local diffusion and removes systematic drift; the guide adds this explicit Brownian/bias teaching example."
+        },
+        {
+          "claim": "A path may turn back despite growing ensemble spread; constant bias eventually exceeds square-root RMS.",
+          "verdict": "correct",
+          "evidence": "Independent increments in the reconstruction have both signs in every path. RMS grows t^.5 and nonzero chosen vt grows t, so the asymptotic comparison is correct for this unbounded example."
+        },
+        {
+          "claim": "Introduction and alt distinguish sample paths from exact scales.",
+          "verdict": "correct",
+          "evidence": "The alt’s path count, signed envelope crossing and crossing location match the full pixels and700px preview. It does not call seven sample paths a measured variance estimate."
+        },
+        {
+          "claim": "Gray sample paths, teal RMS, orange deterministic bias, neutral leader and guide.",
+          "verdict": "correct",
+          "evidence": "The role distinction is consistent across panels; lines and all labels remain separate and legible at700px. No line is cut by the chosen y limits."
+        }
+      ],
+      "visible_label_inventory": [
+        "Seven zero-drift sample paths",
+        "Displacement (deg)",
+        "−1.5",
+        "−1.0",
+        "−0.5",
+        "0.0",
+        "0.5",
+        "1.0",
+        "1.5",
+        "$\\pm\\sqrt{2Dt}$",
+        "Equal at 4 s: 0.40 deg",
+        "Time (s)",
+        "0",
+        "2",
+        "4",
+        "6",
+        "8",
+        "Displacement scale (deg)",
+        "0.0",
+        "0.4",
+        "0.8",
+        "Random RMS: $\\sqrt{2Dt}$",
+        "Bias: $vt$"
+      ],
+      "scenes": [
+        {
+          "id": "zero-drift-ensemble",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "seven irregular paths",
+            "signed RMS curves"
+          ],
+          "relationship": "Independent increments accumulate into irregular paths with a growing ensemble scale.",
+          "teaching_contribution": "Separates single-path reversals and excursions from expected spread.",
+          "verdict": "pass"
+        },
+        {
+          "id": "rms-versus-bias",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "square-root RMS curve",
+            "linear bias curve",
+            "crossing at4s"
+          ],
+          "relationship": "The deterministic displacement catches and then exceeds the random RMS.",
+          "teaching_contribution": "Explains why a small persistent bias can dominate long observations.",
+          "verdict": "pass"
+        }
+      ],
+      "strongest_objection": "Seven trajectories do not establish RMS, and a dashed envelope can be mistaken for a confidence boundary.",
+      "objection_resolution": "RMS is calculated analytically, not estimated from these seven paths. Caption explicitly excludes a path boundary, and visible paths cross it. Long-time unbounded status is explicit.",
+      "criteria": {
+        "technical_accuracy": {
+          "verdict": "pass",
+          "evidence": "See individual claim rows and independent calculations."
+        },
+        "visual_explanation": {
+          "verdict": "pass",
+          "evidence": "Each declared scene has visible calculated curves/stems and a specific teaching relation.",
+          "scenes": [
+            {
+              "id": "zero-drift-ensemble",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "seven irregular paths",
+                "signed RMS curves"
+              ],
+              "relationship": "Independent increments accumulate into irregular paths with a growing ensemble scale.",
+              "teaching_contribution": "Separates single-path reversals and excursions from expected spread.",
+              "verdict": "pass"
+            },
+            {
+              "id": "rms-versus-bias",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "square-root RMS curve",
+                "linear bias curve",
+                "crossing at4s"
+              ],
+              "relationship": "The deterministic displacement catches and then exceeds the random RMS.",
+              "teaching_contribution": "Explains why a small persistent bias can dominate long observations.",
+              "verdict": "pass"
+            }
+          ]
+        },
+        "readability": {
+          "verdict": "pass",
+          "full_size_inspected": true,
+          "reviewed_width_px": 700,
+          "evidence": "Actual original-resolution PNG and separate700px preview inspected. Legends, axes, units, numerical annotations and leader endpoints are visible and do not overlap essential content."
+        },
+        "palette": {
+          "verdict": "pass",
+          "evidence": "Independently recomputed exact SVG color membership against the locked house profile; color roles inspected on actual PNG. This is not a raster deviation audit.",
+          "outside_profile": [],
+          "svg_tokens": [
+            "#0f6b78",
+            "#17365d",
+            "#19202c",
+            "#5d6876",
+            "#9aa7b5",
+            "#c4580b",
+            "#fffdf7",
+            "#ffffff"
+          ]
+        },
+        "coverage": {
+          "verdict": "not-applicable",
+          "evidence": "Internal equation/example figure, not a chapter opener."
+        }
+      },
+      "findings": [],
+      "resolved_findings": []
+    },
+    {
+      "id": "A03",
+      "visual_id": "fig:MEMORY-TUNING-INFORMATION",
+      "decision": "pass",
+      "reviewer": "/root/all_draw_eye_place",
+      "png_sha256": "043d067e7ee2b76bd7db1fd752c6e15aae8fbbb5af672127cab75dd117425442",
+      "svg_sha256": "d3c01b93267813c751bb96b2fc192f15327dd170e3f497024d5b0f395236a86f",
+      "reviewed_png_sha256": "043d067e7ee2b76bd7db1fd752c6e15aae8fbbb5af672127cab75dd117425442",
+      "reviewed_svg_sha256": "d3c01b93267813c751bb96b2fc192f15327dd170e3f497024d5b0f395236a86f",
+      "reviewed_book_width_sha256": "039ac91b01c3d394d64f263b2c2a2558a08b045031a9834a84c34a0ffde7948d",
+      "reviewed_packet_fields": {
+        "caption": "Analytic teaching curves $r_A(\\theta)=5+35e^{-\\theta^2/(2w^2)}$ and $r_B(\\theta)=r_A(\\theta)+20$, in spikes per second, with chosen width $w=0.6$ rad. The rates have the same derivative. Their individual Poisson information contributions $(r_i^{\\prime})^2/r_i$ vanish at the rate peak, where the slope is zero, and are positive on the flanks. Adding baseline firing raises the count noise without changing the slope, reducing local information. These are illustrative tuning curves, not recorded neurons or a demonstrated attractor network.",
+        "alt": "The first plot shows two positive peaked rate curves separated by a constant twenty spikes per second. The second shows their shared derivative, positive to the left, zero at the central peak and negative to the right. The third shows squared slope divided by rate for each curve. Both contributions vanish at the center and rise on the flanks; the higher baseline curve contributes less at every point with nonzero slope.",
+        "intro": "Two positive tuning curves with the same changing part isolate the effect of extra baseline firing.",
+        "interpretation": "The rate peak has zero local slope, so it contributes no local information at that point. Extra spikes from a constant baseline increase Poisson variability without making nearby values easier to distinguish.",
+        "source_locator": "Guide sec:MEMORY-FI, J=sum_i (r_i prime)^2/r_i and positive-rate condition; Burak and Fiete (2012), main PDF p. 2, Eq. 3; SI PDF pp. 9–10, Eqs. S42–S44.",
+        "insert_after": "Each cell contributes squared slope divided by its count variance per unit time. High rates with zero slope do not distinguish neighboring values, so they contribute no local information. A sharply changing rate can be informative even if it is smaller than another cell's peak rate. The coordinate here describes the network's present internal state. It need not be a currently visible external stimulus. Sensory Fisher information has the same Poisson formula only when the stimulus dependent tuning curves are the relevant rates."
+      },
+      "input_sha256": {
+        "content/chapters/03-memory-information.md": "044b7fd5b4242c077daf8fffcfb1ee5e671c972e76c8f18308e5d91b37778dc9",
+        "content/chapters/03-memory-information.yaml": "373b7730d5960fa7a984b563f77a77d5aa54ea6f9c46829da4aed3ccb302b86f",
+        "verification/all-illustrations-20261024/draw_foundations_information.py": "553945098b3c65d42f58a3adb3b0349bc838b099924aa322624fc8eddfd610bc",
+        "verification/all-illustrations-20261024/A03-brief.yaml": "c738f8dae7ab791ba2b0e97de5ab42c4e6bca0e1508ba53a18c9d0b862ede3f8",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt": "7c543726567b68ca654ee0d5e97e1b5f00e4d7ddcb32265355232cf6418a3497",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt": "e2239898865d70850046acaa8172a3eac900e87f5f8a8ce68c740caa57d01c87",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml": "3e12724b304ce518d49689b7cdce2ed4fe9d77576142f9879e54b86031a29267",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024-all/A03/qa.json": "ddc1ca69689fb062abae633f5c9ff79a48fafb93a421451e0905730e76a8175c",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\03-memory-information.md": "23a595e0e19d0c994c140d3080afe817390f047f554385fa1f387303d8cebc0f",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\03-memory-information.yaml": "f5700aeab60e0eb0f2f7cc8d0dca246c40b53569943c2cfb44c6650a634aa7a1"
+      },
+      "claim_review": [
+        {
+          "claim": "r_A baseline5 Hz and r_B baseline25 Hz.",
+          "verdict": "correct",
+          "evidence": "Rates are5+35exp(-θ²/(2×.6²)) and25+the same peak term. Center rates40 and60 spikes/s agree with the first panel; neither rate approaches zero."
+        },
+        {
+          "claim": "Same derivative for both curves, positive left of0 and negative right.",
+          "verdict": "correct",
+          "evidence": "Differentiation gives -θ/.36×35exp(-θ²/.72). Center derivative0. An independent centered finite-difference check differs by at most5.50e-9 in the plotted domain."
+        },
+        {
+          "claim": "Rate(spikes/s), Slope(spikes s^-1 rad^-1), Contribution(rad^-2 s^-1), θ(rad).",
+          "verdict": "correct",
+          "evidence": "Rate derivative is per radian; squared derivative divided by rate has rad^-2 s^-1 treating spike count as a count. This agrees with main Eq.3 and Chapter3’s explicit FI-rate units."
+        },
+        {
+          "claim": "The information contributions vanish at the rate peak and are positive on the flanks.",
+          "verdict": "correct",
+          "evidence": "Computed (r′)^2/r is0 atθ0; the denominator remains strictly positive. Independent maxima over the plotted grid are53.03501906326963 and27.86875194859338, agreeing with the plotted60-unit vertical scale."
+        },
+        {
+          "claim": "Adding constant baseline raises Poisson count noise and reduces local information.",
+          "verdict": "correct",
+          "evidence": "For fixed h, Var(n)=rh increases while r′ is unchanged. Thus every nonzero-slope contribution decreases from j_A to j_B. This is a comparison holding the modulated part fixed, not proportional scaling of the whole rate curve."
+        },
+        {
+          "claim": "Repaired caption uses (r_i^{prime})²/r_i.",
+          "verdict": "correct",
+          "evidence": "Current caption attaches the derivative prime as a superscript. The earlier bare prime is recorded as a resolved notation finding; the plotted curves did not need any change."
+        },
+        {
+          "claim": "Curves are analytic examples, not recorded neurons or a proven recurrent attractor.",
+          "verdict": "correct",
+          "evidence": "The caption explicitly limits the construction. Main Eq.3 is used only for the instantaneous locally fixed positive-rate count model; no connectivity is inferred from the two chosen curves."
+        },
+        {
+          "claim": "Intro, interpretation and alt explain slope relative to noise, not high rate alone.",
+          "verdict": "correct",
+          "evidence": "The preceding proposed passage defines J and its positive-rate assumptions. All three described panels and their ordering agree with actual pixels; color identity from top legend is retained in lower contributions."
+        },
+        {
+          "claim": "Zero θ guide, zero-information marker, top legend and all ticks/labels.",
+          "verdict": "correct",
+          "evidence": "The marker is exactly at(0,0) in the lower panel and the guide aligns rate peak, derivative zero and information zero. Full-size/700px views show the top legend entirely visible and units readable."
+        }
+      ],
+      "visible_label_inventory": [
+        "Rate (spikes/s)",
+        "0",
+        "20",
+        "40",
+        "60",
+        "80",
+        "$r_A$: baseline 5 Hz",
+        "$r_B$: baseline 25 Hz",
+        "Same derivative for both curves",
+        "Slope (spikes s$^{-1}$ rad$^{-1}$)",
+        "−40",
+        "−20",
+        "0",
+        "20",
+        "40",
+        "Memory coordinate $\\theta$ (rad)",
+        "−2",
+        "−1",
+        "0",
+        "1",
+        "2",
+        "Contribution (rad$^{-2}$ s$^{-1}$)",
+        "0",
+        "30",
+        "60"
+      ],
+      "scenes": [
+        {
+          "id": "rate-and-baseline",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "two positive rate hills",
+            "baseline legend"
+          ],
+          "relationship": "A constant20Hz shift changes rate but not its changing part.",
+          "teaching_contribution": "Holds slope fixed so the effect of baseline noise can be isolated.",
+          "verdict": "pass"
+        },
+        {
+          "id": "shared-slope",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "one signed derivative curve",
+            "zero guide"
+          ],
+          "relationship": "Both rate hills have exactly the same local derivative.",
+          "teaching_contribution": "Makes peak-versus-flank sensitivity visible.",
+          "verdict": "pass"
+        },
+        {
+          "id": "individual-information",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "two nonnegative double-peaked contributions",
+            "zero marker"
+          ],
+          "relationship": "Shared squared slope is divided by each curve’s own rate.",
+          "teaching_contribution": "Shows that the higher-baseline curve carries less local Poisson information.",
+          "verdict": "pass"
+        }
+      ],
+      "strongest_objection": "Changing a baseline might alter a real attractor or change tuning slopes, so this is not a general circuit intervention result.",
+      "objection_resolution": "The construction holds the changing part fixed, calculates the Poisson FI formula, and disclaims a realized attractor. The conclusion is limited to these analytic positive-rate curves.",
+      "criteria": {
+        "technical_accuracy": {
+          "verdict": "pass",
+          "evidence": "See individual claim rows and independent calculations."
+        },
+        "visual_explanation": {
+          "verdict": "pass",
+          "evidence": "Each declared scene has visible calculated curves/stems and a specific teaching relation.",
+          "scenes": [
+            {
+              "id": "rate-and-baseline",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "two positive rate hills",
+                "baseline legend"
+              ],
+              "relationship": "A constant20Hz shift changes rate but not its changing part.",
+              "teaching_contribution": "Holds slope fixed so the effect of baseline noise can be isolated.",
+              "verdict": "pass"
+            },
+            {
+              "id": "shared-slope",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "one signed derivative curve",
+                "zero guide"
+              ],
+              "relationship": "Both rate hills have exactly the same local derivative.",
+              "teaching_contribution": "Makes peak-versus-flank sensitivity visible.",
+              "verdict": "pass"
+            },
+            {
+              "id": "individual-information",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "two nonnegative double-peaked contributions",
+                "zero marker"
+              ],
+              "relationship": "Shared squared slope is divided by each curve’s own rate.",
+              "teaching_contribution": "Shows that the higher-baseline curve carries less local Poisson information.",
+              "verdict": "pass"
+            }
+          ]
+        },
+        "readability": {
+          "verdict": "pass",
+          "full_size_inspected": true,
+          "reviewed_width_px": 700,
+          "evidence": "Actual original-resolution PNG and separate700px preview inspected. Legends, axes, units, numerical annotations and leader endpoints are visible and do not overlap essential content."
+        },
+        "palette": {
+          "verdict": "pass",
+          "evidence": "Independently recomputed exact SVG color membership against the locked house profile; color roles inspected on actual PNG. This is not a raster deviation audit.",
+          "outside_profile": [],
+          "svg_tokens": [
+            "#0f6b78",
+            "#17365d",
+            "#19202c",
+            "#5d6876",
+            "#9aa7b5",
+            "#fffdf7",
+            "#ffffff"
+          ]
+        },
+        "coverage": {
+          "verdict": "not-applicable",
+          "evidence": "Internal equation/example figure, not a chapter opener."
+        }
+      },
+      "findings": [],
+      "resolved_findings": [
+        {
+          "id": "A03-prime",
+          "original": "Bare prime after r_i in caption.",
+          "repair": "Derivative prime explicitly superscripted.",
+          "resolution": "Current packet and proposed YAML checked; no artwork change required."
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "visual_id": "fig:MEMORY-BOUND-STRICTNESS",
+      "decision": "pass",
+      "reviewer": "/root/all_draw_eye_place",
+      "png_sha256": "14eba75d7d43a6514b1c48c28064edc09e4f7c18edad10301c9dbf1985c3485b",
+      "svg_sha256": "10d66ace4a37e7c1533e559a555a8e29dcd1a0aa67080e1173902c8c8a216c51",
+      "reviewed_png_sha256": "14eba75d7d43a6514b1c48c28064edc09e4f7c18edad10301c9dbf1985c3485b",
+      "reviewed_svg_sha256": "10d66ace4a37e7c1533e559a555a8e29dcd1a0aa67080e1173902c8c8a216c51",
+      "reviewed_book_width_sha256": "8a85e53f9fc59ef7ef7656f969f18c4df5ab88764f69e98b026305ca23afdafe",
+      "reviewed_packet_fields": {
+        "caption": "Analytic teaching calculation for the chapter’s mutual inhibition example, with $b=200$ activation units and $\\tau=0.1$ s. The coordinate $\\theta$ is an activation difference. For positive rates $r_{1,2}=(b\\pm\\theta)/(2\\tau)$, $J=2000/(40000-\\theta^2)$ while $D=1000$ activation units squared per second. The lower bound $1/(2\\tau^2J)$ equals $D$ at $\\theta=0$ and falls to 750 at $\\theta=100$. Higher local information permits a lower diffusion bound but leaves the actual diffusion unchanged in this model. The plotted range stays inside the positive-rate domain $|\\theta|<200$.",
+        "alt": "Across memory coordinates from minus one hundred sixty to one hundred sixty activation units, internal information has a minimum of 0.05 at zero and grows toward either side. Actual diffusion is a horizontal line at one thousand. The information lower bound meets it at zero and bends downward, reaching seven hundred fifty at coordinate one hundred. A marked gap separates actual diffusion from the bound there.",
+        "intro": "The chapter’s two cell example makes the difference between a lower bound and the actual diffusion visible.",
+        "interpretation": "The gap at $\\theta=100$ shows why a lower minimum allowed by the inequality is not a reduction in the network’s actual diffusion.",
+        "source_locator": "Guide sec:MEMORY-BOUND, exact b=200, tau=.1 mutual inhibition example; Ch. 2 mutual inhibition derivation; Burak and Fiete (2012), main PDF p. 3, Eq. 4 and Fig. 2E–G; SI PDF pp. 10–11, Eqs. S45–S49.",
+        "insert_after": "The actual diffusion remains $1000$. The inequality is strict because these two unequal rates no longer align the network's projection weights with the information optimal weights. This also shows why equality at a special state does not force the transfer function to be exponential on its whole domain. A constant lower bound attained everywhere and an accidental equality at one state are different claims."
+      },
+      "input_sha256": {
+        "content/chapters/03-memory-information.md": "044b7fd5b4242c077daf8fffcfb1ee5e671c972e76c8f18308e5d91b37778dc9",
+        "content/chapters/03-memory-information.yaml": "373b7730d5960fa7a984b563f77a77d5aa54ea6f9c46829da4aed3ccb302b86f",
+        "verification/all-illustrations-20261024/draw_foundations_information.py": "553945098b3c65d42f58a3adb3b0349bc838b099924aa322624fc8eddfd610bc",
+        "verification/all-illustrations-20261024/A04-brief.yaml": "0bdbae3d3a02cea7ba4fb8b97e6ebc7b431040dffaf6f0e7f78ccf4f65c670b2",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/all-illustrations-20261024/foundation-information-source-extracts.txt": "7c543726567b68ca654ee0d5e97e1b5f00e4d7ddcb32265355232cf6418a3497",
+        "verification/all-illustrations-20261024/foundation-information-source-extra.txt": "e2239898865d70850046acaa8172a3eac900e87f5f8a8ce68c740caa57d01c87",
+        "content/chapters/02-memory-dynamics.md": "f75114f4f7d17ebff38c7df34f3048e3f7ad532e088c680b04cf7d15b9b2d810",
+        "content/chapters/02-memory-dynamics.yaml": "2ebd17f7586dbb998563c47dcb079c9b66ebf59c4cb83f72c78f843c06133dc0",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml": "3e12724b304ce518d49689b7cdce2ed4fe9d77576142f9879e54b86031a29267",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+        "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024-all/A04/qa.json": "47eb5e06eec269c99a5071d54c0c2865c289f3bba05317e25593c20c61db395d",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\03-memory-information.md": "23a595e0e19d0c994c140d3080afe817390f047f554385fa1f387303d8cebc0f",
+        "verification\\all-illustrations-20261024\\proposed\\content\\chapters\\03-memory-information.yaml": "f5700aeab60e0eb0f2f7cc8d0dca246c40b53569943c2cfb44c6650a634aa7a1"
+      },
+      "claim_review": [
+        {
+          "claim": "b=200 activation units; τ=.1 s; coordinate is activation difference.",
+          "verdict": "correct",
+          "evidence": "Chapter2 states s1=(b+θ)/2,s2=(b−θ)/2 and θ=s1−s2. Rate=s/τ, so r1,2=(200±θ)/.2. This is an activation coordinate rather than radians."
+        },
+        {
+          "claim": "All displayed rates are positive on θ in[-160,160].",
+          "verdict": "correct",
+          "evidence": "The minimum rate is200/s at an endpoint. The full valid interior is|θ|<200; boundaries and negative-rate extensions are excluded in caption and chapter."
+        },
+        {
+          "claim": "J=2000/(40000−θ²), minimum.0500 at0 and.0667 at100.",
+          "verdict": "correct",
+          "evidence": "Rate slopes are±5/s per activation unit. Direct25/r1+25/r2 gives.05 at0,1/15 at100 and.1388889 at160. The annotation leaders end on those points."
+        },
+        {
+          "claim": "Actual D stays1000 activation units²/s.",
+          "verdict": "correct",
+          "evidence": "The neutral projection vector is(1,−1), hence2D=r1+r2=2000/s in this coordinate convention, so D1000 throughout the valid interior. This independently agrees with Chapter2 and the source mutual-inhibition construction."
+        },
+        {
+          "claim": "Lower bound1/(2τ²J), equality at0 and value750 at100.",
+          "verdict": "correct",
+          "evidence": "Main Eq.4/SI S49 give the inequality. Algebra yields1000−θ²/40. Values are1000 at0,750 at100,360 at160. The bound never exceeds actualD over the displayed interval."
+        },
+        {
+          "claim": "Orange vertical segment marks the actual-bound gap atθ100.",
+          "verdict": "correct",
+          "evidence": "Its lower endpoint is750 and upper endpoint1000 atx100. It represents a difference, not an arrow claiming that increasing information caused the actual diffusion to fall."
+        },
+        {
+          "claim": "J(unit^-2 s^-1) and Diffusion(unit²/s), tick and axis labels.",
+          "verdict": "correct",
+          "evidence": "The caption and x label identify unit as activation unit. The reciprocal of τ²J is activation-unit²/s. The shown y ticks and examples are dimensionally consistent."
+        },
+        {
+          "claim": "Caption and interpretation distinguish a lower permitted bound from actual diffusion.",
+          "verdict": "correct",
+          "evidence": "Both explicitly say actual diffusion remains fixed. This avoids treating higher FI as a universal promise of lower observedD. The preceding derivation retains the weak-noise network assumptions."
+        },
+        {
+          "claim": "Alt matches minimumJ, increasing sides, horizontalD and bound gap.",
+          "verdict": "correct",
+          "evidence": "It describes precisely the two plotted panels and the markedθ100 example. No extra empirical or global boundary claim is introduced."
+        },
+        {
+          "claim": "Navy actualD and J, teal lower bound, orange gap and neutral annotation leaders.",
+          "verdict": "correct",
+          "evidence": "Roles match the distinct mathematical objects; all annotation endpoints and700px labels were inspected. No unexplained arrow direction or panel connection is present."
+        }
+      ],
+      "visible_label_inventory": [
+        "0.0500",
+        "0.0667",
+        "$J$ (unit$^{-2}$ s$^{-1}$)",
+        "0.05",
+        "0.10",
+        "0.15",
+        "750",
+        "Equality at 0",
+        "Memory coordinate $\\theta$ (activation units)",
+        "−150",
+        "−100",
+        "0",
+        "100",
+        "150",
+        "Diffusion (unit$^2$/s)",
+        "0",
+        "500",
+        "1000",
+        "Actual $D$",
+        "Lower bound $1/(2\\tau^2J)$",
+        "$b=200$ activation units; $\\tau=0.1$ s.  All displayed rates are positive."
+      ],
+      "scenes": [
+        {
+          "id": "state-dependent-information",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "J curve",
+            "two numerical markers"
+          ],
+          "relationship": "Rate imbalance increases local FI away from the balanced state.",
+          "teaching_contribution": "Shows state dependence under one fixed network and coordinate convention.",
+          "verdict": "pass"
+        },
+        {
+          "id": "constant-diffusion-and-lower-bound",
+          "depiction": "data-representation",
+          "visible_objects": [
+            "horizontal actualD",
+            "curved lower bound",
+            "gap segment"
+          ],
+          "relationship": "The lower bound falls while actualD stays constant.",
+          "teaching_contribution": "Directly separates inequality slack from actual memory improvement.",
+          "verdict": "pass"
+        }
+      ],
+      "strongest_objection": "The model uses a coordinate-specific weak-noise diffusion formula, and rates vanish at the boundary.",
+      "objection_resolution": "The source chapter supplies the projection and convention; caption identifies activation units and stays strictly within positive rates. No boundary dynamics or exact finite-spiking process is claimed.",
+      "criteria": {
+        "technical_accuracy": {
+          "verdict": "pass",
+          "evidence": "See individual claim rows and independent calculations."
+        },
+        "visual_explanation": {
+          "verdict": "pass",
+          "evidence": "Each declared scene has visible calculated curves/stems and a specific teaching relation.",
+          "scenes": [
+            {
+              "id": "state-dependent-information",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "J curve",
+                "two numerical markers"
+              ],
+              "relationship": "Rate imbalance increases local FI away from the balanced state.",
+              "teaching_contribution": "Shows state dependence under one fixed network and coordinate convention.",
+              "verdict": "pass"
+            },
+            {
+              "id": "constant-diffusion-and-lower-bound",
+              "depiction": "data-representation",
+              "visible_objects": [
+                "horizontal actualD",
+                "curved lower bound",
+                "gap segment"
+              ],
+              "relationship": "The lower bound falls while actualD stays constant.",
+              "teaching_contribution": "Directly separates inequality slack from actual memory improvement.",
+              "verdict": "pass"
+            }
+          ]
+        },
+        "readability": {
+          "verdict": "pass",
+          "full_size_inspected": true,
+          "reviewed_width_px": 700,
+          "evidence": "Actual original-resolution PNG and separate700px preview inspected. Legends, axes, units, numerical annotations and leader endpoints are visible and do not overlap essential content."
+        },
+        "palette": {
+          "verdict": "pass",
+          "evidence": "Independently recomputed exact SVG color membership against the locked house profile; color roles inspected on actual PNG. This is not a raster deviation audit.",
+          "outside_profile": [],
+          "svg_tokens": [
+            "#0f6b78",
+            "#17365d",
+            "#19202c",
+            "#5d6876",
+            "#9aa7b5",
+            "#c4580b",
+            "#fffdf7",
+            "#ffffff"
+          ]
+        },
+        "coverage": {
+          "verdict": "not-applicable",
+          "evidence": "Internal equation/example figure, not a chapter opener."
+        }
+      },
+      "findings": [],
+      "resolved_findings": []
+    }
+  ],
+  "findings": [],
+  "limits": [
+    "This completes Stage1 only. Wording and connected reader-flow stages remain separate.",
+    "The artifact ledger’s final review must bind the final canonical sources after integration.",
+    "No source or image was edited by this reviewer."
+  ],
+  "metadata_sync_recheck": "All three text repairs are present in the current packet/briefs/proposed text and synchronized editable generator; current QA and generator hashes are bound in each input_sha256 map. Original/full/700px image bytes remain identical after metadata-only recheck."
+}

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "V02",
+    "visual_id": "fig:MEMORY-TILTED-DECAY",
+    "chapter": "content/chapters/02-memory-dynamics.md",
+    "placement_section": "sec:MEMORY-LINEARIZATION",
+    "insert_after": "Here $\\mathbf u=(1,0)^T$ and $\\mathbf v=(1,a/\\lambda)^T$. A vertical perturbation changes the final memory whenever $a\\ne0$. A perpendicular projection would miss that change. This is a teaching example of the projection geometry, not an additional network used in the paper.",
+    "intro": "The exact trajectory in this example shows why the lasting displacement follows the flow rather than a perpendicular projection.",
+    "caption": "Original guide construction of the tilted decay example, with dimensionless coordinates and $a/\\lambda=1/2$. The imposed jump from $(0,0)$ to $(0,2)$ relaxes toward $(1,0)$, while successive time marks crowd toward the endpoint. This illustrates the left and right zero vector construction in Burak and Fiete (2012), Supporting Text, Section II, pp. 3–4, Eqs. S10–S16; it is not a paper network simulation.",
+    "alt": "A line of fixed points lies at y equals zero. An imposed vertical jump from zero zero to zero two is followed by a straight tilted flow toward one zero. Equal time marks crowd toward the endpoint. Perpendicular projection would return to zero zero and miss the lasting shift of one. The tangent is one zero; the left vector measures delta x plus one half delta y.",
+    "interpretation": "As y decays, x changes by one; the left vector extracts that lasting shift.",
+    "candidate_svg": "candidate-content/visuals/candidates/20261023/V02/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261023/V02/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261023/V02/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261023/V02/qa.json",
+    "editable_source": "verification/illustrations/draw_memory.py",
+    "acceptance": "pending independent review"
+  },
+  {
+    "id": "V03A",
+    "visual_id": "fig:MEMORY-READOUT-TIMELINE",
+    "chapter": "content/chapters/03-memory-information.md",
+    "placement_section": "sec:MEMORY-READOUT-SETUP",
+    "insert_after": "The first term comes from storage. The second concerns estimation of $\\theta(T)$ from spikes after $T$. The supplement derives this decomposition for a locally translation invariant diffusion and readout model; state dependence, boundaries, informative priors, or uncertain initial encoding require corresponding changes.[^p1-read-setup]",
+    "intro": "A timeline separates the displacement accumulated before the cue from the error in estimating the cue state afterward.",
+    "caption": "Original guide construction of storage and cue state readout, based on Burak and Fiete (2012), Supporting Text, p. 12, Eq. S57. The illustrated path is one possible construction, and the orange estimate concerns the state at the cue rather than the state at the end of observation. With the conditions shown, storage and readout variances add because their cross covariance is zero.",
+    "alt": "The stored value starts at Theta at encoding time zero and wanders until the recall cue at T. Its cue value is x. Later spikes, collected through T plus L, give an estimate x hat of that cue state. Storage error is x minus Theta; readout error is x hat minus x. The estimate is drawn separately from the path endpoint. Under the listed independence, unbiasedness and translation assumptions, total variance is two D T plus readout variance.",
+    "interpretation": "Later spikes can improve the estimate of $x=\\theta(T)$; they do not reveal the particular storage displacements that separated $x$ from $\\Theta$.",
+    "candidate_svg": "candidate-content/visuals/candidates/20261023/V03A/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261023/V03A/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261023/V03A/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261023/V03A/qa.json",
+    "editable_source": "verification/illustrations/draw_memory.py",
+    "acceptance": "pending independent review"
+  },
+  {
+    "id": "V03B",
+    "visual_id": "fig:MEMORY-READOUT-CURVES",
+    "chapter": "content/chapters/03-memory-information.md",
+    "placement_section": "sec:MEMORY-FIG3-AND-CAUTION",
+    "insert_after": "Figure 3 isolates readout uncertainty, rescaling variance by $\\sqrt{2D/J}$ and duration by $L^*$. In these axes the ideal curve is $\\coth z$ and the naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations because too few spikes are available. The ideal solid curve approaches one. The naive dashed curve reaches $2/\\sqrt3$ at $z=\\sqrt3$, then rises because its equal weighting gives increasing importance to displaced states. The dotted vertical line marks that naive optimum. The storage delay contribution $2DT$ is not part of these rescaled curves. Figure S2 repeats the comparison for partial access, showing the rightward and upward shifts when $\\alpha=0.1$.[^p1-fig3]",
+    "intro": "The normalized curves make the eventual cost of equal weighting visible.",
+    "caption": "Original guide construction from the analytic readout formulas in Burak and Fiete (2012), Fig. 3 and Supporting Text, Eqs. S75 and S79–S81, rather than digitized data. Ideal readout approaches a normalized variance of one; simple averaging reaches $2/\\sqrt3$ at $z=\\sqrt3$ and then worsens. These curves contain no storage variance $2DT$.",
+    "alt": "Readout variance divided by square root of two D over J is plotted against z equals L times square root of two D J. Both curves diverge as z approaches zero. Ideal readout coth z falls toward one. Simple averaging z over three plus one over z reaches its minimum at square root of three, two over square root of three, and then rises. The storage variance is absent.",
+    "interpretation": "More observation keeps helping the ideal reader, with diminishing benefit, while equal weighting eventually gives too much influence to a state that has moved.",
+    "candidate_svg": "candidate-content/visuals/candidates/20261023/V03B/figure.svg",
+    "candidate_png": "candidate-content/visuals/candidates/20261023/V03B/figure.png",
+    "book_width_preview": "candidate-content/visuals/candidates/20261023/V03B/book-width.png",
+    "qa": "candidate-content/visuals/candidates/20261023/V03B/qa.json",
+    "editable_source": "verification/illustrations/draw_memory.py",
+    "acceptance": "pending independent review"
+  }
+]

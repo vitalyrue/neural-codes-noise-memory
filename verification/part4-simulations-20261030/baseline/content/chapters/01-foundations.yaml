@@ -1,0 +1,45 @@
+chapter_id: ch:FOUNDATIONS
+part_id: part:MECHANISMS
+title: Patterns of variable spikes can represent a value
+purpose: "Nerve cells communicate with brief electrical spikes. This chapter explains how firing rates across a group of cells can represent an eye angle or an animal’s location, and how variable spike timing affects that representation. These ideas supply the biological and probability background for the three papers."
+role: chapter
+page_break_before: true
+pedagogical_prerequisites: []
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:FOUNDATIONS-SPIKES
+  title: Patterns of firing rates represent a value
+  summary: A neuron communicates through brief electrical events called [**spike**]{.definition-term
+    custom-style="Definition Term"}s. A [**firing rate**]{.definition-term custom-style="Definition
+    Term"} is the expected number of spikes per unit time. A rate of 20 hertz means an average
+    of 20 spikes per second under the specified conditions, rather than a promise of one spike
+    every 50 milliseconds.
+  level: 2
+- id: sec:FOUNDATIONS-POISSON
+  title: A variable spike count at a fixed rate
+  summary: A tuning curve describes expected activity, but a brief spike observation can differ
+    each time the same value is represented. The 2012 model describes this variability with
+    a [**Poisson process**]{.definition-term custom-style="Definition Term"}. At constant
+    rate $r$, the number $K$ of spikes in an interval of length $\Delta t$ obeys
+  level: 2
+- id: sec:FOUNDATIONS-COVARIANCE
+  title: Shared neural signals and a biased command leave different signs in eye motion
+  summary: Shared neural commands, private spike variability, directional bias and muscle response affect different features of eye displacement. Covariance and mean squared displacement help distinguish these effects under explicit assumptions.
+  level: 2
+blocks:
+- id: fig:FOUNDATIONS-POISSON-POPULATION
+  kind: figure
+  placement: sec:FOUNDATIONS-POISSON
+  asset: assets/approved/visuals/foundations-poisson-population.png
+  caption: "Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell $K/(N\\Delta t)$, so both estimates have mean 20 Hz. Their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains."
+  alt: Two discrete Poisson distributions share a rate per cell axis. One cell has widely
+    spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368
+    at zero. The twenty cell estimate has possible values one hertz apart and clusters around
+    twenty hertz. Their means match, but the rate standard deviation falls from twenty to
+    4.47 hertz.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

@@ -1,0 +1,261 @@
+brief:
+  asset_id: fig:MAP-CH15
+  scope: chapter
+  book: burak-three-papers
+  part: part:HARDWARE
+  chapter: ch:ELECTRONIC-ARCHITECTURES
+  purpose: Electronic feedback circuits store and transform neural-like states
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Physical objects, changing states, signals, and separate comparisons explain the chapter mechanisms
+    beyond topic labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Arrange related scenes according to their true dependence; show independent comparisons separately.
+    Do not draw a single implied causal chain across unrelated examples.
+  scenes: &id001
+  - source_item_ids:
+    - P01
+    visible_objects_and_relation: Compare actual feedback loops and indicate state for each
+    teaching_contribution_beyond_labels: Feedback means output affects later input; different architectures store
+      different variables.
+  - source_item_ids:
+    - P02
+    visible_objects_and_relation: Two linked inverter symbols with high-low complementary states and return arrows
+    teaching_contribution_beyond_labels: Two cross-coupled inverters hold one of two powered stable states, and
+      small perturbations return within a basin.
+  - source_item_ids:
+    - P03
+    visible_objects_and_relation: Two population activity levels connected to separate basins
+    teaching_contribution_beyond_labels: A recurrent spiking circuit can maintain low or high population activity,
+      without holding an arbitrary angle.
+  - source_item_ids:
+    - P04
+    visible_objects_and_relation: Several voltage wells and a state descending to the nearby level
+    teaching_contribution_beyond_labels: A multistable CMOS circuit can restore one of several preferred voltages;
+      many levels are not automatically a continuum.
+  - source_item_ids:
+    - P05
+    visible_objects_and_relation: Ring of units with highlighted bump shifted by motion signal
+    teaching_contribution_beyond_labels: A recurrent ring represents a direction in the position of an activity
+      bump; actual circuit implementations can be finite and hybrid.
+  - source_item_ids:
+    - P06
+    visible_objects_and_relation: Reference and shifted cycles with phase difference
+    teaching_contribution_beyond_labels: A sustained oscillator normally advances in phase; a disturbance can leave
+      a persistent phase offset relative to its expected cycle.
+  - source_item_ids:
+    - P07
+    visible_objects_and_relation: Pulse train and distinct decaying activation trace
+    teaching_contribution_beyond_labels: Pulses are events, rate summarizes expected event frequency, and decaying
+      synaptic activation accumulates pulse effects.
+  - source_item_ids:
+    - P08
+    visible_objects_and_relation: Separate conductance, capacitor state and decoded bump label
+    teaching_contribution_beyond_labels: Programmable conductance can store a weight rather than the current neuron
+      state or remembered angle.
+  - source_item_ids:
+    - P09
+    visible_objects_and_relation: Separate moving-position distribution and nearby-signal likelihood comparison
+    teaching_contribution_beyond_labels: Drift describes evolution of a represented state; Fisher information concerns
+      distinguishability in observed signals and a neural bound does not automatically transfer to hardware.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/11-electronic-architectures.md
+  - content/chapters/11-electronic-architectures.yaml
+  chapter_source_sha256: 4eb5b085b3678707f55eaea9dafaf5bb24c989c27bbc15ee6fa4b439bb96dc7d
+  teaching_points:
+  - id: P01
+    point: Feedback means output affects later input; different architectures store different variables.
+    source_locus: content/chapters/11-electronic-architectures.md:9-24 (#sec:ELECTRONIC-OVERVIEW)
+  - id: P02
+    point: Two cross-coupled inverters hold one of two powered stable states, and small perturbations return within
+      a basin.
+    source_locus: content/chapters/11-electronic-architectures.md:25-32 (#sec:ELECTRONIC-FLIPFLOP)
+  - id: P03
+    point: A recurrent spiking circuit can maintain low or high population activity, without holding an arbitrary
+      angle.
+    source_locus: content/chapters/11-electronic-architectures.md:25-32 (#sec:ELECTRONIC-FLIPFLOP)
+  - id: P04
+    point: A multistable CMOS circuit can restore one of several preferred voltages; many levels are not automatically
+      a continuum.
+    source_locus: content/chapters/11-electronic-architectures.md:33-46 (#sec:ELECTRONIC-MULTILEVEL)
+  - id: P05
+    point: A recurrent ring represents a direction in the position of an activity bump; actual circuit implementations
+      can be finite and hybrid.
+    source_locus: content/chapters/11-electronic-architectures.md:47-54 (#sec:ELECTRONIC-RING)
+  - id: P06
+    point: A sustained oscillator normally advances in phase; a disturbance can leave a persistent phase offset
+      relative to its expected cycle.
+    source_locus: content/chapters/11-electronic-architectures.md:55-62 (#sec:ELECTRONIC-OSCILLATOR)
+  - id: P07
+    point: Pulses are events, rate summarizes expected event frequency, and decaying synaptic activation accumulates
+      pulse effects.
+    source_locus: content/chapters/11-electronic-architectures.md:63-72 (#sec:ELECTRONIC-SPIKES)
+  - id: P08
+    point: Programmable conductance can store a weight rather than the current neuron state or remembered angle.
+    source_locus: content/chapters/11-electronic-architectures.md:63-72 (#sec:ELECTRONIC-SPIKES)
+  - id: P09
+    point: Drift describes evolution of a represented state; Fisher information concerns distinguishability in observed
+      signals and a neural bound does not automatically transfer to hardware.
+    source_locus: content/chapters/11-electronic-architectures.md:73-103 (#sec:ELECTRONIC-READOUT)
+  - id: P10
+    point: 'Hassabis and colleagues describe a two-way exchange: neuroscience can suggest AI methods and AI can
+      help formulate and test ideas about brains.'
+    source_locus: content/chapters/11-electronic-architectures.md:3-7
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 10
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P10: Newly identified source point; retain in inventory and decide whether it can be clearly shown during scene
+      design.
+  connected_source_sha256:
+    content/chapters/11-electronic-architectures.yaml: e5ea63ac3beffe937d6b6995481f402f1634b967e1c0f2b4ce863e23c727a6c2
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/11-electronic-architectures.md
+  approved_terms: &id002
+  - Two stable states
+  - Several stable levels
+  - Activity bump
+  - Oscillator phase
+  - Pulse train
+  - Decoding
+  caption: The scene relates the physical states, measurements, and assumptions described in Electronic feedback
+    circuits store and transform neural-like states.
+  alt_text: Compare actual feedback loops and indicate state for each; Two linked inverter symbols with high-low
+    complementary states and return arrows; Two population activity levels connected to separate basins; Several
+    voltage wells and a state descending to the nearby level; Ring of units with highlighted bump shifted by motion
+    signal; Reference and shifted cycles with phase difference; Pulse train and distinct decaying activation trace;
+    Separate conductance, capacitor state and decoded bump label; Separate moving-position distribution and nearby-signal
+    likelihood comparison.
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S01
+  teaching_point: Feedback means output affects later input; different architectures store different variables.
+  visual_role: Compare actual feedback loops and indicate state for each
+- id: S02
+  teaching_point: Two cross-coupled inverters hold one of two powered stable states, and small perturbations return
+    within a basin.
+  visual_role: Two linked inverter symbols with high-low complementary states and return arrows
+- id: S03
+  teaching_point: A recurrent spiking circuit can maintain low or high population activity, without holding an arbitrary
+    angle.
+  visual_role: Two population activity levels connected to separate basins
+- id: S04
+  teaching_point: A multistable CMOS circuit can restore one of several preferred voltages; many levels are not
+    automatically a continuum.
+  visual_role: Several voltage wells and a state descending to the nearby level
+- id: S05
+  teaching_point: A recurrent ring represents a direction in the position of an activity bump; actual circuit implementations
+    can be finite and hybrid.
+  visual_role: Ring of units with highlighted bump shifted by motion signal
+- id: S06
+  teaching_point: A sustained oscillator normally advances in phase; a disturbance can leave a persistent phase
+    offset relative to its expected cycle.
+  visual_role: Reference and shifted cycles with phase difference
+- id: S07
+  teaching_point: Pulses are events, rate summarizes expected event frequency, and decaying synaptic activation
+    accumulates pulse effects.
+  visual_role: Pulse train and distinct decaying activation trace
+- id: S08
+  teaching_point: Programmable conductance can store a weight rather than the current neuron state or remembered
+    angle.
+  visual_role: Separate conductance, capacitor state and decoded bump label
+- id: S09
+  teaching_point: Drift describes evolution of a represented state; Fisher information concerns distinguishability
+    in observed signals and a neural bound does not automatically transfer to hardware.
+  visual_role: Separate moving-position distribution and nearby-signal likelihood comparison
+communication_plan:
+  segments: *id001
+  layout: Use subject-driven scenes with readable short labels; separate independent examples and preserve their
+    conditions.
+  keep_in_text:
+  - Detailed formulas and numerical calculations
+  - Full discussion and citations
+  required_visible_conditions:
+  - Distinguish measured demonstrations, numerical simulations, and proposed tests where applicable
+  independent_example_groups:
+  - Independent study or architecture examples unless the source establishes an action between them
+  readability_risk: This draft lists 9 separate scenes. At the intended reading width this may be too dense; group
+    related mechanisms or split across existing chapter figures. Do not claim coverage until inspected.
+normal_flow:
+- Connect events only where source text gives an actual causal, computational or measurement relationship.
+secondary_relationships:
+- Show comparisons side by side without a causal arrow; use explicitly labeled feedback only where it exists.
+exact_text:
+  required: *id002
+  prohibited:
+  - paper title banner
+  - unsupported universal claims
+  - visual-review notes or caption inside image
+constraints:
+- Match the book palette and style lock.
+- Do not treat planned teaching points as established visual coverage.
+- Do not imply that different experiments are one continuous causal experiment.
+- Keep caption and alt text outside the artwork.
+- Do not shrink labels to hide excessive density.
+- If a point cannot be shown with its important condition, leave its coverage pending.
+dispositions: []

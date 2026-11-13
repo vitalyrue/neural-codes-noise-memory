@@ -1,0 +1,98 @@
+asset_id: A06
+visual_id: fig:EYE-MSD-MEASUREMENT-OFFSET
+author: /root/all_draw_eye_place
+created_at: '2026-10-24T18:37:13.700073+03:00'
+teaching_goal: For a constructed Brownian movement with $D=0.010$ deg$^2$/s, adding
+  independent position measurement errors with $2\sigma_m^2=0.0010$ deg$^2$ shifts
+  every positive-lag MSD upward by the same amount.
+source_locator: Ben-Shushan et al. (2022), main p. 10 / PDF page 10, Removal of measurement
+  noise, Eqs. 18–19; Chapter 4 EYE-MEASUREMENT-NOISE subtraction example. Brownian
+  M=2Dℓ is the guide’s earlier diffusion model.
+source_files: &id001
+- content/chapters/04-eye-drift.md
+- content/chapters/04-eye-drift.yaml
+- verification/all-illustrations-20261024/draw_eye_place.py
+- verification/all-illustrations-20261024/A06-brief.yaml
+- verification/illustrations/figure_style.py
+- assets/papers/ben-shushan-2022-fixational-drift.pdf
+- content/chapters/01-foundations.md
+- content/chapters/01-foundations.yaml
+guide_only_parameters:
+  D_deg2_per_s: 0.01
+  sigma_m2_deg2: 0.0005
+  lag_example_s: 0.02
+  offset_uncertainty_deg2: 0.0001
+  origin: Chosen analytic movement and chapter subtraction example, not fitted data.
+required_scene_ids: &id002
+- positive-lag-offset
+- zero-lag
+- subtraction-uncertainty
+route: deterministic-scientific-vector
+style_lock: source-maps/book-style-lock.yaml
+palette_family:
+  id: technical-editorial-blueprint
+  version: 1.0.0
+style_profile:
+  path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  id: house-graphic-v1
+  version: 0.1.0
+palette_colors_and_roles:
+  ink: '#17365D'
+  blue: '#1F4E79'
+  text: '#19202C'
+  muted: '#5D6876'
+  flow: '#0B7F95'
+  success: '#0F6B78'
+  risk: '#C4580B'
+  risk_deep: '#B85209'
+  line: '#9AA7B5'
+  fill_blue: '#EAF2F8'
+  fill_teal: '#E4F2F0'
+  fill_orange: '#FCEEE3'
+  fill_gray: '#F1F3F6'
+  paper: '#FFFFFF'
+  paper_warm: '#FFFDF7'
+  panel_warm: '#F8F4EC'
+palette_gate: Exact SVG token membership; not a raster pixel-deviation claim.
+forbidden_claims:
+- No experimental-data claim
+- No full chapter coverage claim
+- No self approval
+insertion_width_px: 700
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/all_draw_eye_place
+  role_reason: Internal mathematical detail figure using calculated curves, not an
+    opening map or experimental plot.
+  source_files: *id001
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024-all/A06/qa.json
+  vector_spec: verification/all-illustrations-20261024/draw_eye_place.py
+  insertion_width_px: 700
+  required_scene_ids: *id002
+  coverage:
+    applicable: false
+    reason: Internal explanation of specific equations; no chapter-opening coverage
+      claim.
+brief:
+  asset_id: A06
+style_contract:
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    allowed_special_purpose_colors: []
+    check: Exact SVG token membership in selected profile.

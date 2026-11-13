@@ -1,0 +1,10 @@
+# Example folds and original paper figures
+
+### 2026-10-28T19:46:12.343787+02:00: foldable examples and original paper figures complete
+
+- All nine example panels now start collapsed and can be opened. Run-in titles have separate control labels. The existing synthesis subheading and its link remain, with a short “Calculation and figure” control below it. Existing examples, equations, blue definitions, highlights and guide illustrations retained.
+- Added 30 exact artwork excerpts from the three local paper PDFs and supplements: 5 memory, 15 eye, and 10 place figures. Each is beside its discussion in an expandable original-paper section, with source author/year, original figure number, PDF page and full-size image links. Figure-specific body PDF links now open the embedded excerpt; the PDF remains linked in its caption. No generated replacements or long copied source captions.
+- Source page numbers, crop rectangles and hashes are recorded in `verification/paper-excerpts-20261028/`. All30 crops inspected, with bounded independent checks and an evidence-based resolution of one mistaken review suggestion. Exact reversal checks preserve all original manuscript content outside the recorded presentation edits. All9 controls/30 images, local source/image links, and image hashes pass. Standard release audit passes; previous development-lock attention and historical semantic-review status remain.
+- Browser checks sample four pages: real example opening/closing; headed synthesis example; original figure opening from its anchor; full-size image navigation; and 390px horizontal figure panning without page overflow. Source labels retain their display size on narrow screens. Screen base stays11.9px; print styles for existing material unchanged. No whole-book pixel sweep or new scientific audit.
+- Wall elapsed 19.8 minutes from 2026-10-28T19:26:25.0959253+02:00; awake execution unverified; token stats unavailable. No required work remains in this scope. Preview: https://vrdell15.tail8b993e.ts.net/burak/chapters/ch-memory-long-delays.html#fig-paper-memory-1 .
+

@@ -1,0 +1,115 @@
+{
+  "stage": "1 truth and reasoning only",
+  "reviewer": "teach_foundations_memory, independent of authors of Chapters 5 and 6 and orientation/Part changes",
+  "request_id": "root-new-task-stage1-place-synthesis-orientation-20261024",
+  "timestamp": "2026-10-24T19:05:12.964937+03:00",
+  "root_wall_seconds": 650.412499,
+  "stage_wall_seconds": 115.500418,
+  "since_previous_measured_checkpoint_seconds": 48.256521,
+  "awake_execution": "unverified; sleep/resume events not checked",
+  "sources": {
+    "proposed\\content\\chapters\\00-reading-guide.md": "f42b99456307264d4db911e1c0e25dce4f2b8cac4cc14fbc5e9562768085a67d",
+    "proposed\\content\\chapters\\00-reading-guide.yaml": "5aeea6f89aa0931428768553757e3b8075106920a37659af467215756afad94b",
+    "proposed\\content\\chapters\\05-place-fields.md": "8ccbba690c505c07a671f8c7cb2fe0a2fd85cc661463bbcdff054a7e4b0b8bdf",
+    "proposed\\content\\chapters\\05-place-fields.yaml": "2f330b3a2edad491de43815aa1217ace0ad242e09378bf519acccfc2c60554db",
+    "proposed\\content\\chapters\\06-synthesis.md": "715ec449c0e068bd74acf6577f9125685934a81c36c7691c6f0c724cab434d3b",
+    "proposed\\content\\chapters\\06-synthesis.yaml": "f4342372dd1bea7116c5a7cc300f0c2f6d764d9d09045bc6bfce821b17449980",
+    "proposed\\plan\\chapter-plan.yaml": "da4405c12ba6f51cacd86c0cf50de888ced2316cf60b1f9c70c64f404e46b195"
+  },
+  "rules": {
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\structural-preservation-contract.md": "8f7b052a3a2ccf194966574da3ad88e69d5d5746f195ffffa59e97d25dbe8a35",
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\concept-prerequisites.md": "4c8d4af325fb63af8dbe41d447d4bac7197df550b0ddb9f4cdb0dea3b1fe9f9a",
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2"
+  },
+  "fresh_context": "Read actual target Markdown, YAML reader fields and Part plan before comparing source changes. Did not inspect the target writers decisions, defenses or verdicts.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; Chapter 1 neural/probability/diffusion teaching and the orientation baseline were available.",
+  "initial_open_assessment": "Orientation distinguishes mathematical constraint, neural-source inference and spatial-statistical explanation. Chapter 5 constructs a fixed spatial Gaussian map and separates exact crossing results from high-threshold geometry and empirical tests. Chapter 6 separates map, dynamics and downstream movement, then gives a clearly labeled guide calculation and a proposed joint test. The Part purposes preserve those distinctions. This is a coherent frame for testing the changed titles and fold connections, without assuming their correctness.",
+  "findings": [
+    {
+      "id": "S1-PLACE-TOPOLOGY-JOIN",
+      "priority": 2,
+      "status": "open",
+      "introduced_by_current_edit": false,
+      "path": "proposed/content/chapters/05-place-fields.md",
+      "line": 363,
+      "section": "sec:PLACE-TOPOLOGY",
+      "passage": "Two maps can have the same field count and total active area but different holes. To test this part of the geometry, raise the activity threshold and watch how regions split, join, appear, and disappear.",
+      "passage_sha256": "31d510ecba43dd79dfb66dda81dae3efdb82e55e9e48675ffe3869e2af6d845e",
+      "failed_check": "Direction of threshold change contradicts the set relation and figure caption.",
+      "reason": "For q2>q1, A_q2 is a subset of A_q1. Removing points can split an active component or remove it, but cannot join two components that were separate. The same chapter figure correctly describes nested shrinking active sets. The sentence currently says regions can join while the threshold rises.",
+      "checked_context": [
+        "A_q={x:z(x)>q} in sec:PLACE-GP",
+        "fig:PLACE-TOPOLOGY caption and alt, especially nested containment",
+        "Visible Euler-characteristic explanation and higher-dimensional boundary formula"
+      ],
+      "proposed_repair": "Replace the second sentence with: As the activity threshold rises, active regions shrink and can split or disappear. The numbers of components and holes can change.",
+      "sidecar_action": "Update sec:PLACE-TOPOLOGY summary to match if the prose is repaired.",
+      "scope": "Inherited local truth defect, not caused by the new title or folds. Included because this chapter and the figure connection were assigned for truth review."
+    }
+  ],
+  "optional_preferences": [
+    {
+      "path": "proposed/plan/chapter-plan.yaml",
+      "line": 9,
+      "passage": "Persistent activity has a limit on memory accuracy",
+      "suggestion": "Consider adding continuous, for example: Noise limits accuracy in continuous attractor memory.",
+      "reason": "The Part body and Chapters 2-3 correctly restrict the result to the analyzed continuous-state family and compatible noise assumptions. The broad title can suggest every persistent-memory mechanism is covered. Context supplies the scope, so this is a title-precision preference rather than a demonstrated false body claim."
+    }
+  ],
+  "closed_fold_judgments": [
+    {
+      "title": "Derivation: normalization and higher size moments",
+      "evidence": "The visible p_d(s), Gamma definition, mean and inverse-scale formulas supply every result needed by subsequent units, plots and numerical comparisons. The fold retains normalization and the general positive moment check."
+    },
+    {
+      "title": "Source check: three printed steps in the supplement",
+      "evidence": "The visible local parabola, size transformation and mean formula retain corrected constants. The fold records source discrepancies and their limits; later slices and topology do not depend on opening it."
+    },
+    {
+      "title": "Independent check: recover field width from its boundary slope",
+      "evidence": "The main text already derives the high-threshold width in the peak section and the exact Rayleigh boundary-slope law. The folded second-root route is an independent check; the following finite-difference interpretation needs only the visible slope law."
+    },
+    {
+      "title": "Derivation: the Gaussian determinant average and its integrals",
+      "evidence": "The visible eta_j integral, gradient density, exact signed densities and units precede the proof. The boundary-face argument then uses those visible signed densities. Lambda and all first definitions remain outside the fold."
+    }
+  ],
+  "folds": [
+    {
+      "title": "Derivation: normalization and higher size moments",
+      "line": 279,
+      "sha256": "1ac8ba80d743f672a0abcd00dac6263cd13e7008f662c3b157d7affb63d65ef0"
+    },
+    {
+      "title": "Source check: three printed steps in the supplement",
+      "line": 315,
+      "sha256": "0cbd8032e591d4f242a3706c4a55ba534e1be754359d28cbabc6e36c21c71859"
+    },
+    {
+      "title": "Independent check: recover field width from its boundary slope",
+      "line": 347,
+      "sha256": "74d45e35612097b65ba0f70ce64f2d6e1fb7fdbf032b9a7c011729d2f3d83c12"
+    },
+    {
+      "title": "Derivation: the Gaussian determinant average and its integrals",
+      "line": 399,
+      "sha256": "2d3cf060007a974209fe469dcefa823a8851ed6f0acf96d6e56bf4462be4f3be"
+    }
+  ],
+  "other_truth_judgments": [
+    "New Gaussian-map headings state a statistical prediction, while the visible body retains smoothness, stationarity/isotropy and high-threshold limits where required. The random-weight claim is can generate, with the central-limit conditions and nonuniqueness retained.",
+    "The moved mean formula equals the k=1 moment, and the inverse beta formula is unchanged. The moved eta_j results retain their status as signed densities rather than positive field counts.",
+    "The synthesis covariance is conditional on small common displacement, with higher-order and other-noise limitations visible. Its example gives 0.04,0.01,-0.02 Hz squared and correlation -1 consistently. It is identified as a guide construction.",
+    "Orientation preserves the 82 percent estimate as conditional shared upstream variance, rather than direct recording of the proposed integrator. Its memory lower-bound summary keeps model/noise and anchoring limits.",
+    "Figure captions, alt text and tables keep model versus data distinctions and their numerical/scientific limits. No newly changed figure field introduces a stronger claim."
+  ],
+  "limits": [
+    "This stage does not approve wording, paragraph reading flow or the whole book.",
+    "No full-paper calculation rerun or empirical-data reproduction was requested or performed. Existing equations were read for the changed heading/proof connections.",
+    "No pixel or rendered-art review. Source figure/caption/paragraph relationships were read.",
+    "One inherited truth defect remains open; no edits made."
+  ],
+  "token_stats": "unavailable"
+}

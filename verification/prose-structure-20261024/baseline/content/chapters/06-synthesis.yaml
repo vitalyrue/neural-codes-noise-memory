@@ -1,0 +1,109 @@
+chapter_id: ch:SYNTHESIS
+part_id: part:OBSERVATIONS
+title: Spatial maps and memory dynamics need separate tests
+purpose: A model can explain the shape of a neural code without explaining how that code is
+  maintained. It can also explain fluctuations inside a circuit without uniquely locating
+  the source of a measured behavior. The three papers become more useful together when these
+  different claims are kept attached to their actual mathematical and experimental tests.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:MEMORY-READOUT
+- ch:EYE-CIRCUIT
+- ch:PLACE-TESTS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:SYNTHESIS-QUESTIONS
+  title: The three papers constrain maps, dynamics, and movement
+  summary: For a circuit representing position, three questions arise. What activity pattern
+    corresponds to each position? How does the represented position evolve when there is no
+    corrective input? How does a downstream physical system transform that changing signal
+    into an observable movement? The place-field model addresses the first question. The persistent-activity
+    model addresses the second. The eye-drift model combines a candidate answer to the second
+    with a detailed answer to the third.[^s-three]
+  level: 2
+- id: sec:SYNTHESIS-JOINT-CALCULATION
+  title: How a static map can carry a moving estimate
+  summary: Suppose a network maintains a one-dimensional estimate $x(t)$ and cell $i$ has
+    a fixed expected-rate function $f_i(x)$. Its time-dependent expected rate is
+  level: 2
+- id: sec:SYNTHESIS-COVARIANCE-EXAMPLE
+  title: 'Example: opposite rate changes from the same position error'
+  summary: Let the local slopes of two rate curves be $f_1'=2$ Hz/m and $f_2'=-1$ Hz/m. Suppose
+    $D=0.01$ m²/s and the interval is 0.5 s. Then the variance of the common position displacement
+    is $2Dt=0.01$ m². The contributions to rate variance and covariance are
+  level: 3
+- id: sec:SYNTHESIS-EVIDENCE
+  title: Each model needs a test matched to its claim
+  summary: A model that matches one distribution may have enough adjustable parameters to
+    do so for several different reasons. The place-field paper gains support by fitting arrangement
+    parameters and then comparing additional features, including slices and shape statistics.
+    The separate firing-rate multiplier used in some comparisons should remain visible when
+    counting how many quantities were predicted without further fitting. A successful high-threshold
+    formula is also a statement about its limiting assumptions; finite-threshold simulations
+    and the original recordings provide different kinds of checks.
+  level: 2
+- id: sec:SYNTHESIS-RELATED
+  title: Related studies change assumptions and leave circuit choices open
+  summary: 'The foundational eye-position account is Seung''s line-attractor model. Aksay
+    and colleagues then used recordings and perturbations in goldfish to constrain integrator
+    circuitry. These establish the dynamical problem and experimental architecture behind
+    the 2022 model. Neither supplies the macaque displacement-variance estimate. Burak and
+    Fiete''s earlier grid-cell study puts a related integrator problem in navigation: recurrent
+    population activity is driven by velocity and accumulates path-integration errors. Its
+    accuracy ranges belong to the simulated networks and parameter choices, rather than all
+    biological grid circuits.[^s-attractors]'
+  level: 2
+- id: sec:SYNTHESIS-NEXT
+  title: A joint test would compare tuning maps with population fluctuations
+  summary: The combined calculation suggests a concrete research direction. For the same population,
+    first estimate the tuning maps with their uncertainty. Then measure fluctuations during
+    periods where external anchoring is weak and test whether their covariance is aligned
+    with changes along those maps. Fit diffusion only over a range where the local approximation
+    and measurement corrections are justified. A downstream behavioral comparison must additionally
+    include the physical or neural filters between representation and measurement.
+  level: 2
+blocks:
+- id: tbl:SYNTHESIS-MODELS
+  kind: table
+  placement: sec:SYNTHESIS-QUESTIONS
+  headers:
+  - Model
+  - Random object
+  - What determines its statistics
+  - Principal observable
+  rows:
+  - - Persistent activity, 2012
+    - Increments of a represented coordinate
+    - Spike variability, recurrent dynamics, tuning, neural time constants
+    - Diffusion of the stored value and readout error
+  - - Eye drift, 2022
+    - Internal command fluctuations, private motor fluctuations, and measurement noise
+    - A circuit model and the downstream filters and feedback
+    - Displacement covariance and the eye's MSD
+  - - Place fields, 2025
+    - A function of physical position for each cell
+    - Spatial covariance, threshold, and spatial dimension
+    - Field sizes, counts, shapes, and topology
+  caption: Comparison of the three models.
+  first_column_role: row-labels
+  html_fold: never
+- id: fig:SYNTHESIS-SHARED-POSITION
+  kind: figure
+  placement: sec:SYNTHESIS-COVARIANCE-EXAMPLE
+  asset: assets/approved/visuals/synthesis-shared-position.png
+  caption: A common displacement of $+0.1$ m increases rate 1 by $0.2$ Hz and decreases rate
+    2 by $0.1$ Hz. The changes lie on one line. With displacement variance $0.01$ m², their
+    covariance is $-0.02$ Hz² and their correlation is $-1$. The 10 Hz baseline is chosen
+    only to display positive rates. These are exact lines from the guide’s local example,
+    not recorded data.
+  alt: The upper plot shows two fixed linear tuning curves with slopes plus two and minus
+    one hertz per meter, crossing at ten hertz. Moving from zero to plus 0.1 meter raises
+    the first rate by 0.2 hertz and lowers the second by 0.1 hertz. The lower plot puts the
+    paired rate changes on a downward sloping line through zero, with that example marked.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

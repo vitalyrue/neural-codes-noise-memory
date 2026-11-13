@@ -1,0 +1,123 @@
+[
+  {
+    "file": "content/chapters/01-foundations.md",
+    "terms": [
+      "Covariance",
+      "correlation coefficient"
+    ],
+    "before": "[**Covariance**]{.definition-term custom-style=\"Definition Term\"} [measures whether two signals tend to be above their own averages together or on opposite sides of those averages.]{.definition-explanation} Positive covariance between the two displacements means that above-average changes in the neural prediction tend to accompany above-average changes in eye position. [The [**correlation coefficient**]{.definition-term custom-style=\"Definition Term\"}, written $\\rho$, expresses this shared variation relative to the spread of each signal.]{.definition-explanation} Extra private noise can lower $\\rho$ even when the shared drive has not weakened. The [eye-drift calculation](ch-eye-drift.html#sec-eye-chi) explains why a modest correlation need not mean a small shared contribution to movement.",
+    "after": "Covariance measures whether two signals tend to be above their own averages together or on opposite sides of those averages. Positive covariance between the two displacements means that above-average changes in the neural prediction tend to accompany above-average changes in eye position. The correlation coefficient, written $\\rho$, expresses this shared variation relative to the spread of each signal. Extra private noise can lower $\\rho$ even when the shared drive has not weakened. The [eye-drift calculation](ch-eye-drift.html#sec-eye-chi) explains why a modest correlation need not mean a small shared contribution to movement.",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/01-foundations.md",
+    "terms": [
+      "gain"
+    ],
+    "before": "To see the physical roles, write $X=g_X S+\\epsilon_X$ and $Y=g_Y S+\\epsilon_Y$. Here $S$ is a shared displacement signal in degrees, the dimensionless [**gain**]{.definition-term custom-style=\"Definition Term\"}s $g_X,g_Y$ multiply its contribution in each recording, and $\\epsilon_X,\\epsilon_Y$ are private contributions in degrees. If all three random contributions are independent,",
+    "after": "To see the physical roles, write $X=g_X S+\\epsilon_X$ and $Y=g_Y S+\\epsilon_Y$. Here $S$ is a shared displacement signal in degrees, the dimensionless gains $g_X,g_Y$ multiply its contribution in each recording, and $\\epsilon_X,\\epsilon_Y$ are private contributions in degrees. If all three random contributions are independent,",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/03b-memory-readout.md",
+    "terms": [
+      "White noise"
+    ],
+    "before": "The symbol $\\xi_i$ writes the spike fluctuation as a drive in a rate-of-change equation. [[**White noise**]{.definition-term custom-style=\"Definition Term\"} is an ideal zero-mean input whose fluctuations at different times are uncorrelated. Its continuous-time strength is defined through a delta-function covariance, rather than a finite variance at an individual time.]{.definition-explanation} In the Gaussian approximation used here, $\\xi_i\\,dt=\\sqrt{r_i}\\,dB_i$, with independent Brownian increments $dB_i$. Conditional on the current rates, its contribution over $dt$ has variance $r_i\\,dt$, the same spike-count variance as in the basic model. The two dynamical equations are",
+    "after": "The symbol $\\xi_i$ writes the spike fluctuation as a drive in a rate-of-change equation. White noise is an ideal zero-mean input whose fluctuations at different times are uncorrelated. Its continuous-time strength is defined through a delta-function covariance, rather than a finite variance at an individual time. In the Gaussian approximation used here, $\\xi_i\\,dt=\\sqrt{r_i}\\,dB_i$, with independent Brownian increments $dB_i$. Conditional on the current rates, its contribution over $dt$ has variance $r_i\\,dt$, the same spike-count variance as in the basic model. The two dynamical equations are",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/04-eye-drift.md",
+    "terms": [
+      "causal filter",
+      "impulse response"
+    ],
+    "before": "[A [**causal filter**]{.definition-term custom-style=\"Definition Term\"} computes its present output from present and past input. For the equation above, its [**impulse response**]{.definition-term custom-style=\"Definition Term\"} $h_0(u)$ is the position response to one instantaneous spike at time zero.]{.definition-explanation} To factor the equation, consider a time component $e^{pt}$: differentiation multiplies it by $p$. The algebraic ratio of output to input for that component is",
+    "after": "A causal filter computes its present output from present and past input. For the equation above, its impulse response $h_0(u)$ is the position response to one instantaneous spike at time zero. To factor the equation, consider a time component $e^{pt}$: differentiation multiplies it by $p$. The algebraic ratio of output to input for that component is",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/04-eye-drift.md",
+    "terms": [
+      "convolution"
+    ],
+    "before": "These expressions reproduce Eqs. 4\u20136, including the factor $\\tau_+\\tau_-/m$ and the delay. [The [**convolution**]{.definition-term custom-style=\"Definition Term\"} integral adds the responses to all past spikes.]{.definition-explanation} With spike count treated as a count, $\\xi$ has units spikes/s and $h$ has units degrees/spike. Each spike contributes a decaying position response. Adding those responses produces degrees.[^p2-inversion]",
+    "after": "These expressions reproduce Eqs. 4\u20136, including the factor $\\tau_+\\tau_-/m$ and the delay. The convolution integral adds the responses to all past spikes. With spike count treated as a count, $\\xi$ has units spikes/s and $h$ has units degrees/spike. Each spike contributes a decaying position response. Adding those responses produces degrees.[^p2-inversion]",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/04b-eye-timing.md",
+    "terms": [
+      "low pass filter"
+    ],
+    "before": "<!-- vale ai-tells.FormalTransitions = NO -->\n<!-- vale ai-tells.StrawmanContrast = NO -->\nCould temporally uncorrelated motor noise acquire the observed MSD just by passing through muscles? [A [**low pass filter**]{.definition-term custom-style=\"Definition Term\"} suppresses rapid input changes relative to slow ones.]{.definition-explanation} The input is idealized as [white noise](ch-memory-readout.html#sec-memory-extensions), so fluctuations at unequal times are uncorrelated. [A stable, decaying response to this noise produces a [**stationary process**]{.definition-term custom-style=\"Definition Term\"} in the sense needed here: its mean is constant and its covariance depends only on time separation.]{.definition-explanation} Its position variance consequently does not grow with absolute time. Let $E=h*\\xi$, where\n<!-- vale ai-tells.StrawmanContrast = YES -->\n<!-- vale ai-tells.FormalTransitions = YES -->",
+    "after": "<!-- vale ai-tells.FormalTransitions = NO -->\n<!-- vale ai-tells.StrawmanContrast = NO -->\nCould temporally uncorrelated motor noise acquire the observed MSD just by passing through muscles? [A low pass filter suppresses rapid input changes relative to slow ones.]{.definition-explanation} The input is idealized as [white noise](ch-memory-readout.html#sec-memory-extensions), so fluctuations at unequal times are uncorrelated. [A stable, decaying response to this noise produces a [**stationary process**]{.definition-term custom-style=\"Definition Term\"} in the sense needed here: its mean is constant and its covariance depends only on time separation.]{.definition-explanation} Its position variance consequently does not grow with absolute time. Let $E=h*\\xi$, where\n<!-- vale ai-tells.StrawmanContrast = YES -->\n<!-- vale ai-tells.FormalTransitions = YES -->",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "terms": [
+      "upcrossing"
+    ],
+    "before": "We begin on a track, where a field starts at [an [**upcrossing**]{.definition-term custom-style=\"Definition Term\"}, a point where the input crosses upward through the threshold.]{.definition-explanation} Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+    "after": "We begin on a track, where a field starts at an upcrossing, a point where the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "terms": [
+      "Gaussian process",
+      "jointly Gaussian vector"
+    ],
+    "before": "The model assigns an input $h(x)$ to each position $x$, with nearby values linked so that a cell can have a continuous active region. [A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} specifies a distribution of maps such that the values at any finite set of positions form a jointly Gaussian random vector.]{.definition-explanation} [A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.]{.definition-explanation} This joint rule constrains how inputs at different positions can vary together, beyond requiring a Gaussian histogram at each position.",
+    "after": "The model assigns an input $h(x)$ to each position $x$, with nearby values linked so that a cell can have a continuous active region. A Gaussian process specifies a distribution of maps such that the values at any finite set of positions form a jointly Gaussian random vector. A jointly Gaussian vector is one for which every linear combination of its entries is Gaussian. This joint rule constrains how inputs at different positions can vary together, beyond requiring a Gaussian histogram at each position.",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "terms": [
+      "Stationarity",
+      "Isotropy"
+    ],
+    "before": "  <!-- vale ai-tells.EmptyPadding = NO -->\n- [[**Stationarity**]{.definition-term custom-style=\"Definition Term\"} means that moving the observation window does not change the map's probability law. Here it gives a constant mean and a covariance $C(x,y)=C(y-x)$ that depends on separation.]{.definition-explanation} It does not say that a particular map is flat.\n  <!-- vale ai-tells.EmptyPadding = YES -->\n  <!-- vale ai-tells.ParallelStaccato = NO -->\n- [[**Isotropy**]{.definition-term custom-style=\"Definition Term\"} means that rotating the separation does not change the covariance: in several dimensions, $C(\\Delta x)$ depends only on $\\|\\Delta x\\|$.]{.definition-explanation} It rules out a preferred direction in the model's statistics. Stationarity alone does not imply isotropy.\n  <!-- vale ai-tells.ParallelStaccato = YES -->\n- [[**Smoothness**]{.definition-term custom-style=\"Definition Term\"} controls whether the map has well defined spatial derivatives.]{.definition-explanation} Crossing calculations require differentiable sample functions and nondegenerate joint distributions: the relevant vector of heights and derivatives must have an invertible covariance matrix, rather than obey an exact linear constraint. Peak calculations require second derivatives and enough regularity to control their local approximation.",
+    "after": "  <!-- vale ai-tells.EmptyPadding = NO -->\n- [Stationarity means that moving the observation window does not change the map's probability law. Here it gives a constant mean and a covariance $C(x,y)=C(y-x)$ that depends on separation.]{.definition-explanation} It does not say that a particular map is flat.\n  <!-- vale ai-tells.EmptyPadding = YES -->\n  <!-- vale ai-tells.ParallelStaccato = NO -->\n- [Isotropy means that rotating the separation does not change the covariance: in several dimensions, $C(\\Delta x)$ depends only on $\\|\\Delta x\\|$.]{.definition-explanation} It rules out a preferred direction in the model's statistics. Stationarity alone does not imply isotropy.\n  <!-- vale ai-tells.ParallelStaccato = YES -->\n- [[**Smoothness**]{.definition-term custom-style=\"Definition Term\"} controls whether the map has well defined spatial derivatives.]{.definition-explanation} Crossing calculations require differentiable sample functions and nondegenerate joint distributions: the relevant vector of heights and derivatives must have an invertible covariance matrix, rather than obey an exact linear constraint. Peak calculations require second derivatives and enough regularity to control their local approximation.",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "terms": [
+      "excursion set"
+    ],
+    "before": "[The [**excursion set**]{.definition-term custom-style=\"Definition Term\"} above $q$ is]{.definition-explanation}",
+    "after": "The excursion set above $q$ is",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/05-place-fields.md",
+    "terms": [
+      "Kac\u2013Rice formula"
+    ],
+    "before": "<!-- vale ai-tells.EmDashUsage = NO -->\nThe curve lies in the vertical band $|z-q|<\\varepsilon$ for a spatial distance approximately $2\\varepsilon/v$. Integrating $z'(x)/(2\\varepsilon)$ over that interval contributes one. Restricting to positive slopes counts only upward crossings. [Under the usual regularity conditions, averaging this counting identity gives the [**Kac\u2013Rice formula**]{.definition-term custom-style=\"Definition Term\"} for the mean upcrossing density,]{.definition-explanation}\n<!-- vale ai-tells.EmDashUsage = YES -->",
+    "after": "<!-- vale ai-tells.EmDashUsage = NO -->\nThe curve lies in the vertical band $|z-q|<\\varepsilon$ for a spatial distance approximately $2\\varepsilon/v$. Integrating $z'(x)/(2\\varepsilon)$ over that interval contributes one. Restricting to positive slopes counts only upward crossings. Under the usual regularity conditions, averaging this counting identity gives the Kac\u2013Rice formula for the mean upcrossing density,\n<!-- vale ai-tells.EmDashUsage = YES -->",
+    "reason": "First definition moved to the mathematical-tools chapter; local explanation retained."
+  },
+  {
+    "file": "content/chapters/01-foundations.md",
+    "terms": [
+      "Dirac delta"
+    ],
+    "before": "**Model dynamics: Burak and Fiete (2012), Equation 7.** The synaptic activation $s_i$ tracks the decaying effect of neuron $i$'s outgoing spikes on receiving cells. The dot means $\\dot s_i=ds_i/dt$, and $\\tau$ is the decay time in seconds. The index $\\alpha$ numbers the spikes of neuron $i$, with spike $\\alpha$ occurring at time $t_i^\\alpha$. [The [**Dirac delta**]{.definition-term custom-style=\"Definition Term\"} $\\delta(t-t_i^\\alpha)$ represents an instantaneous unit pulse at that spike time; its integral across that time is one.]{.definition-explanation} The paper writes the activation dynamics as",
+    "after": "**Model dynamics: Burak and Fiete (2012), Equation 7.** The synaptic activation $s_i$ tracks the decaying effect of neuron $i$'s outgoing spikes on receiving cells. The dot means $\\dot s_i=ds_i/dt$, and $\\tau$ is the decay time in seconds. The index $\\alpha$ numbers the spikes of neuron $i$, with spike $\\alpha$ occurring at time $t_i^\\alpha$. The Dirac delta $\\delta(t-t_i^\\alpha)$ represents an instantaneous unit pulse at that spike time; its integral across that time is one. The paper writes the activation dynamics as",
+    "reason": "Definition now appears in expanded prelude; later explanation retained."
+  },
+  {
+    "file": "content/chapters/05b-place-sizes.md",
+    "terms": [
+      "Rayleigh distribution"
+    ],
+    "before": "  <!-- vale ai-tells.ConsequenceParticiple = NO -->\n- [The length is a scaled square root of an exponential variable, giving a [**Rayleigh distribution**]{.definition-term custom-style=\"Definition Term\"}.]{.definition-explanation}\n  <!-- vale ai-tells.ConsequenceParticiple = YES -->\n- The peak firing rate is $a\\epsilon$, so at fixed high $q$ it is proportional to $s^2$.",
+    "after": "  <!-- vale ai-tells.ConsequenceParticiple = NO -->\n- The length is a scaled square root of an exponential variable, giving a Rayleigh distribution.\n  <!-- vale ai-tells.ConsequenceParticiple = YES -->\n- The peak firing rate is $a\\epsilon$, so at fixed high $q$ it is proportional to $s^2$.",
+    "reason": "Definition now appears in expanded prelude; later explanation retained."
+  }
+]

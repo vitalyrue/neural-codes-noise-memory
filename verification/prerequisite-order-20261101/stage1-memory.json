@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "stage": "1 truth and reasoning",
+  "status": "pass for changed Part I passages and connected mathematical reasoning",
+  "scope": "Exact no-index diffs against verification/prerequisite-order-20261101/baseline plus connected paragraphs in four current canonical Markdown files. Not a full original-claim audit or wording/reader-flow acceptance.",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "review_start_utc": "2026-11-01T13:46:59Z",
+  "review_complete_utc": "2026-11-01T13:48:19Z",
+  "wall_elapsed_seconds_since_task_start": 938,
+  "awake_execution_time": "unverified",
+  "hashes": {
+    "content/chapters/01b-persistence.md": "564679cac879ebb5fcadadeb7cdf5e4d341a41ac54bac85a2b7d83b3596991db",
+    "content/chapters/02-memory-dynamics.md": "f70d1cf9a1e0acc6d995f913b1a5a413473733cbcaa7bd9460053b2c9297bebe",
+    "content/chapters/03-memory-information.md": "446579eda5404135c066aa8834849319feb5ff8b73418fdcf94bf2231a159fa0",
+    "content/chapters/03b-memory-readout.md": "dca9f79953953780d38fbd8ab9ea6ba21458cd4b69cd28644315dbac6a39b863"
+  },
+  "checks": [
+    {
+      "file": "01b-persistence.md",
+      "lines": [
+        118,
+        158
+      ],
+      "verdict": "pass",
+      "evidence": "Brownian W starts at zero, has continuous paths, mean-zero independent Gaussian increments, and Var(W(t)-W(s))=t-s. Independence is correctly qualified as increments over disjoint intervals. The folded theta=theta0+sqrt(2D)W continues to imply variance2Dt with the same convention. No claim that whole recurrent spike trains are independent."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        15,
+        48
+      ],
+      "verdict": "pass",
+      "evidence": "Kronecker delta meaning is correct. dM=dN-rdt is the centered conditional count increment. Under the immediately stated local conditional-Poisson assumptions it has zero mean and variance rate r. F is the conditional mean activation drift -s/tau+phi(g). Independent standard Brownian dB has zero mean and variance dt; sqrt(r)dB matches centered count variance rdt to leading order. Existing weak-fluctuation and leading covariance qualifications remain."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        68,
+        90
+      ],
+      "verdict": "pass",
+      "evidence": "K is the Jacobian -I/tau+diag(phi')W acting on delta s and gives deterministic first-order mean activation-change rate. R=diag(rbar) collects conditionally independent Poisson spike variance rates at the fixed point; R^(1/2)dB therefore has covariance Rdt. Descriptions agree with formulas and do not assert symmetric K."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        92,
+        133
+      ],
+      "verdict": "pass",
+      "evidence": "u is tangent and Ku=0. v^TK=0 together with v^Tu=1 extracts lasting delta theta. Moving purpose before defining equations does not change normalization or decaying-mode argument."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": [
+        78,
+        115
+      ],
+      "verdict": "pass",
+      "evidence": "Likelihood now explicitly holds observed counts fixed while varying proposed theta. Definition correctly identifies assigned data probabilities and distinguishes likelihood from a parameter probability distribution. Fold retains original independent-Poisson likelihood, log and score proof."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        15,
+        58
+      ],
+      "verdict": "pass",
+      "evidence": "theta0=x fixes observation origin at cue. eta is transition displacement and epsilon is y-theta observation error; independent zero-mean Gaussian approximation agrees with transition variance2Dh and observation variance1/(Jh). Independence is restricted to this approximation; many-spike/weak-fluctuation and arbitrarily-short-bin cautions remain. Later storage/readout decomposition still states its separate unbiasedness and history conditions."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        127,
+        224
+      ],
+      "verdict": "pass",
+      "evidence": "For D>0,J>0,L>0, P=sqrt(J/(2D))tanh(sqrt(2DJ)L) solves P'=J-2DP^2,P(0)=0. Reciprocal gives exposed V=sqrt(2D/J)coth(sqrt(2DJ)L). coth=(exp(2z)+1)/(exp(2z)-1) is correct, decreases for z>0 and tends to1. Finite result retains existing local Gaussian model scope. Numerically coth(1)=1.3130352855,coth(2)=1.0373147207,coth(3)=1.0049698233 match rounded main-text ratios."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        270,
+        315
+      ],
+      "verdict": "pass",
+      "evidence": "xi is correctly treated as ideal white-noise drive rather than an ordinary variable with finite point variance. The bridge xi_i dt=sqrt(r_i)dB_i states its conditional integrated variance r_i dt and independent increments. This agrees with original Poisson-strength Gaussian approximation and noise placement solely in s block. Subsequent diffusion2D=sum a_i^2 rbar_i and replacement tau+tau_m remain unchanged."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        334,
+        342
+      ],
+      "verdict": "pass",
+      "evidence": "z=L/L*=sqrt(2DJ)L is dimensionless since2DJ has units1/time^2. Dividing ideal V by sqrt(2D/J) gives coth z; dividing naive2DL/3+1/(JL) by same scale gives z/3+1/z. Min at z=sqrt3 and value2/sqrt3 agree."
+    }
+  ],
+  "findings": [],
+  "required_repairs": [],
+  "not_reviewed": [
+    "Stage2 wording and necessity",
+    "Stage3 reader understanding and flow",
+    "Whole original scientific source claims",
+    "Publication or visual acceptance"
+  ],
+  "source_changes_made": false,
+  "token_stats": "unavailable"
+}

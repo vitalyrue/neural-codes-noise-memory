@@ -1,0 +1,82 @@
+{
+  "asset_id": "A04",
+  "route": "deterministic-scientific-vector",
+  "status": "pass",
+  "checks": {
+    "rates_positive_in_display": true,
+    "J_matches_closed_form": true,
+    "bound_never_exceeds_D": true,
+    "bound_1000_at_zero": true,
+    "bound_750_at_100": true,
+    "svg_color_tokens_in_profile": true
+  },
+  "text_outside_canvas": [],
+  "visible_labels": [
+    "0.0500",
+    "0.0667",
+    "$J$ (unit$^{-2}$ s$^{-1}$)",
+    "0.05",
+    "0.10",
+    "0.15",
+    "750",
+    "Equality at 0",
+    "Memory coordinate $\\theta$ (activation units)",
+    "\u2212150",
+    "\u2212100",
+    "0",
+    "100",
+    "150",
+    "Diffusion (unit$^2$/s)",
+    "0",
+    "500",
+    "1000",
+    "Actual $D$",
+    "Lower bound $1/(2\\tau^2J)$",
+    "$b=200$ activation units; $\\tau=0.1$ s.  All displayed rates are positive."
+  ],
+  "insertion_width_px": 700,
+  "svg_sha256": "10d66ace4a37e7c1533e559a555a8e29dcd1a0aa67080e1173902c8c8a216c51",
+  "png_sha256": "14eba75d7d43a6514b1c48c28064edc09e4f7c18edad10301c9dbf1985c3485b",
+  "spec_sha256": "faae6cfb12b88eedbc328debb1ce1312becb47cdc83a998c382aa75387e280b5",
+  "profile": "house-graphic-v1",
+  "profile_version": "0.1.0",
+  "automatic_gates": "pass",
+  "issues": [],
+  "warnings": [],
+  "palette_token_check": {
+    "used": [
+      "#0f6b78",
+      "#17365d",
+      "#19202c",
+      "#5d6876",
+      "#9aa7b5",
+      "#c4580b",
+      "#fffdf7",
+      "#ffffff"
+    ],
+    "outside_profile": []
+  },
+  "palette_family": "technical-editorial-blueprint",
+  "palette_profile": "house-graphic-v1",
+  "limits": "Computed checks and canvas bounds only; independent image/meaning/readability review required.",
+  "details": {
+    "parameters": {
+      "b_activation_units": 200,
+      "tau_s": 0.1,
+      "theta_range_activation_units": [
+        -160,
+        160
+      ],
+      "marked_theta": [
+        0,
+        100
+      ]
+    },
+    "formulas": {
+      "J": "2000/(40000-theta\u00b2)",
+      "D": "1000",
+      "lower_bound": "1000-theta\u00b2/40"
+    },
+    "coordinate": "activation difference, not angle"
+  }
+}

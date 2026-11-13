@@ -1,0 +1,361 @@
+{
+  "created_at": "2026-10-24T21:38:17.673831+03:00",
+  "writer": "GPT-6.1-sol/high",
+  "scope": [
+    "05-place-fields.md",
+    "05b-place-sizes.md",
+    "05c-place-tests.md"
+  ],
+  "rules": "Publisher 0.8.23 course-study-guide-builder and references/pedagogy-language-contract.md",
+  "earlier_context_read": [
+    "00-reading-guide.md",
+    "01-foundations.md",
+    "01b-persistence.md",
+    "plan/chapter-plan.yaml"
+  ],
+  "files": [
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\05-place-fields.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\05-place-fields.md",
+      "baseline_sha256": "6ba9de0e4fa3ff62eb12c9adfc638ca6c6dc58856c10adb6b1e43ecf2758e783",
+      "edits": [
+        {
+          "location": {
+            "section": "# Field counts and gaps reveal threshold and scale {#ch:PLACE-FIELDS}",
+            "baseline_line": 7,
+            "paragraph_opening": "We begin on a track, where a field starts when the input crosses upward through the threshold. Counting these crossings "
+          },
+          "before": "We begin on a track, where a field starts when the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+          "after": "We begin on a track, where a field starts at an [**upcrossing**]{.definition-term custom-style=\"Definition Term\"}, a point where the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+          "kind": "definition",
+          "rationale": "Give the crossing object its technical name where its role is first explained.",
+          "preserved_premise_or_limit": "The threshold crossing starts a field; fixed spatial map interpretation stays in the next paragraph.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Thresholding a smooth Gaussian input produces place fields {#sec:PLACE-GP}",
+            "baseline_line": 22,
+            "paragraph_opening": "The expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine "
+          },
+          "before": "The expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine every finite joint distribution. A Gaussian process can thus produce many different curves while keeping a precise rule for their spatial dependence. A jointly Gaussian vector is one for which every linear combination of its entries is Gaussian. For this family, zero covariance between two subvectors implies their independence. That extra property, which does not hold for general distributions, will simplify the crossing calculation. The values after thresholding will generally not have a Gaussian distribution.[^p3-model]",
+          "after": "The expectation runs over possible maps, or over cells assumed to share these statistics. These two functions determine every finite joint distribution. A Gaussian process can thus produce many different curves while keeping a precise rule for their spatial dependence. A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian. For this family, zero covariance between two subvectors implies their independence. That extra property, which does not hold for general distributions, will simplify the crossing calculation. The values after thresholding will generally not have a Gaussian distribution.[^p3-model]",
+          "kind": "definition",
+          "rationale": "Mark the existing explanation of the Gaussian property needed for height and slope independence.",
+          "preserved_premise_or_limit": "All finite distributions and the zero covariance implication stay unchanged.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Thresholding a smooth Gaussian input produces place fields {#sec:PLACE-GP}",
+            "baseline_line": 24,
+            "paragraph_opening": "Three assumptions have different jobs. [**Stationarity**]{.definition-term custom-style=\"Definition Term\"} means that mo"
+          },
+          "before": "Three assumptions have different jobs. [**Stationarity**]{.definition-term custom-style=\"Definition Term\"} means that moving the observation window does not change the map's probability law. Here it gives a constant mean and a covariance $C(x,y)=C(y-x)$ that depends on separation. It does not say that a particular map is flat. [**Isotropy**]{.definition-term custom-style=\"Definition Term\"} means that rotating the separation does not change the covariance: in several dimensions, $C(\\Delta x)$ depends only on $\\|\\Delta x\\|$. It rules out a preferred direction in the model's statistics. Stationarity alone does not imply isotropy. Finally, smoothness controls whether the map has well defined spatial derivatives. Crossing calculations below require differentiable sample functions and nondegenerate joint distributions: the relevant vector of heights and derivatives must have an invertible covariance matrix, rather than obey an exact linear constraint. Peak calculations require second derivatives and enough regularity to control their local approximation. A Gaussian distribution of values does not guarantee this smoothness. For example, a covariance proportional to $e^{-|x-y|/b}$ has a sharp corner at zero separation and does not supply the differentiable paths assumed below.",
+          "after": "Three assumptions have different jobs:\n\n- [**Stationarity**]{.definition-term custom-style=\"Definition Term\"} means that moving the observation window does not change the map's probability law. Here it gives a constant mean and a covariance $C(x,y)=C(y-x)$ that depends on separation. It does not say that a particular map is flat.\n- [**Isotropy**]{.definition-term custom-style=\"Definition Term\"} means that rotating the separation does not change the covariance: in several dimensions, $C(\\Delta x)$ depends only on $\\|\\Delta x\\|$. It rules out a preferred direction in the model's statistics. Stationarity alone does not imply isotropy.\n- [**Smoothness**]{.definition-term custom-style=\"Definition Term\"} controls whether the map has well defined spatial derivatives. Crossing calculations require differentiable sample functions and nondegenerate joint distributions: the relevant vector of heights and derivatives must have an invertible covariance matrix, rather than obey an exact linear constraint. Peak calculations require second derivatives and enough regularity to control their local approximation.\n\nA Gaussian distribution of values does not guarantee this smoothness. For example, a covariance proportional to $e^{-|x-y|/b}$ has a sharp corner at zero separation and does not supply the differentiable paths assumed below.",
+          "kind": "list",
+          "rationale": "Expose the independent assumptions and keep each with the calculation it supports. Mark the actual smoothness explanation.",
+          "preserved_premise_or_limit": "Stationarity is distinct from isotropy and smoothness; differentiability, nondegeneracy, second derivative requirements and counterexample remain.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Upcrossings count fields, with an endpoint correction {#sec:PLACE-KAC-RICE}",
+            "baseline_line": 72,
+            "paragraph_opening": "Finding every root of a random curve is difficult. Counting how often the curve passes a level is easier because a small"
+          },
+          "before": "Finding every root of a random curve is difficult. Counting how often the curve passes a level is easier because a small interval around a crossing has a width determined by its slope.",
+          "after": "A field starts at an upcrossing, so its expected count can be found by counting upward passages through the threshold. A small interval around each crossing has a width determined by its slope; this lets us count crossings without locating every root.",
+          "kind": "transition",
+          "rationale": "Connect the field definition to the counting method and state why the local slope is needed.",
+          "preserved_premise_or_limit": "The next narrow-band derivation supplies the slope weighting; endpoint correction remains separate.",
+          "source_or_meaning_question": null
+        }
+      ],
+      "retained_structure": "The chapter moves from the need for spatial dependence to Gaussian maps, local scale, slope-weighted crossings, endpoint correction and parameter inference. The crossing and length calculations remain connected prose because each step explains the next. The sample-selection calculation and limits of Poisson independence remain intact.",
+      "rejected_edits": [
+        {
+          "candidate": "Number every line of the Kac–Rice calculation or parameter inversion.",
+          "reason": "These are causal derivations, not independent actions; the equations already show the algebra."
+        },
+        {
+          "candidate": "Convert the long-track and selection qualifications to short labels.",
+          "reason": "Those limits determine what the fitted means and counts mean and must remain full explanations."
+        }
+      ]
+    },
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\05b-place-sizes.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\05b-place-sizes.md",
+      "baseline_sha256": "4830aae2c937930770886e98af8f7a4c9251533627c08f999faa72a8192d9898",
+      "edits": [
+        {
+          "location": {
+            "section": "# High peaks explain size laws across dimensions {#ch:PLACE-SIZES}",
+            "baseline_line": 5,
+            "paragraph_opening": "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, a"
+          },
+          "before": "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, and converting that radius into length, area or volume gives the different size laws. Cuts through a map and slopes at field edges provide further checks of its spatial structure. The slope calculation also provides a separate check on the predicted field widths. The size laws use a high threshold approximation; the boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.",
+          "after": "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, and converting that radius into length, area or volume gives the different size laws. Cuts through a map test its spatial structure, and slopes at field edges provide a separate check on the predicted field widths. The size laws use a high threshold approximation; the boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.",
+          "kind": "wording",
+          "rationale": "Remove the repeated announcement of a slope check while keeping its purpose.",
+          "preserved_premise_or_limit": "High threshold size approximation remains separate from the exact boundary-slope derivation.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Near a high peak, the input is nearly parabolic {#sec:PLACE-RARE-PEAKS}",
+            "baseline_line": 13,
+            "paragraph_opening": "The following is a teaching reconstruction of the high excursion argument in Methods S4, with algebraic corrections made"
+          },
+          "before": "The following is a teaching reconstruction of the high excursion argument in Methods S4, with algebraic corrections made explicit below. It assumes a sufficiently smooth, stationary, isotropic, unit variance Gaussian field, an invertible covariance matrix for the relevant derivative variables, and $q\\to\\infty$. It describes typical components counted once each, away from environment boundaries. It is not a proof of the full excursion convergence theorem for every allowed covariance.[^p3-rare-source]",
+          "after": "The following is a teaching reconstruction of the high excursion argument in Methods S4, with algebraic corrections made explicit below. It assumes:\n\n- a sufficiently smooth, stationary, isotropic, unit variance Gaussian field;\n- an invertible covariance matrix for the relevant derivative variables;\n- the limit $q\\to\\infty$;\n- typical components counted once each, away from environment boundaries.\n\nIt is not a proof of the full excursion convergence theorem for every allowed covariance.[^p3-rare-source]",
+          "kind": "list",
+          "rationale": "Make the assumptions and sampling rule separately visible before the peak calculation.",
+          "preserved_premise_or_limit": "Smoothness, stationarity, isotropy, unit variance, nondegeneracy, asymptotic threshold, component counting and boundary exclusion remain explicit.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Near a high peak, the input is nearly parabolic {#sec:PLACE-RARE-PEAKS}",
+            "baseline_line": 66,
+            "paragraph_opening": "This supplies two distinct predictions. The length is a scaled square root of an exponential variable, giving a Rayleigh"
+          },
+          "before": "This supplies two distinct predictions. The length is a scaled square root of an exponential variable, giving a Rayleigh distribution. The peak firing rate is $a\\epsilon$, so at fixed high $q$ it is proportional to $s^2$. The exponent two concerns rate versus linear size. In three dimensions a suitable linear size is $s^{1/3}$ when $s$ denotes volume.",
+          "after": "This supplies two distinct predictions:\n\n- The length is a scaled square root of an exponential variable, giving a [**Rayleigh distribution**]{.definition-term custom-style=\"Definition Term\"}.\n- The peak firing rate is $a\\epsilon$, so at fixed high $q$ it is proportional to $s^2$.\n\nThe exponent two concerns rate versus linear size. In three dimensions a suitable linear size is $s^{1/3}$ when $s$ denotes volume.",
+          "kind": "list",
+          "rationale": "Separate the two consequences of the same parabola before explaining the linear-size convention.",
+          "preserved_premise_or_limit": "High q is retained for the peak-rate prediction; the 3D volume distinction remains after the list.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Geometry gives different size laws in each dimension {#sec:PLACE-SIZE-LAW}",
+            "baseline_line": 74,
+            "paragraph_opening": "Let $v_d=\\pi^{d/2}/\\Gamma(1+d/2)$ be the volume of a unit ball in $d$ dimensions. For $d=1,2,3$, it is $2,\\pi,4\\pi/3$. T"
+          },
+          "before": "Let $v_d=\\pi^{d/2}/\\Gamma(1+d/2)$ be the volume of a unit ball in $d$ dimensions. For $d=1,2,3$, it is $2,\\pi,4\\pi/3$. The symbol $\\Gamma$ is the gamma function, defined for $t>0$ by $\\Gamma(t)=\\int_0^\\infty u^{t-1}e^{-u}\\,du$. It extends factorials: $\\Gamma(n+1)=n!$.",
+          "after": "Let $v_d=\\pi^{d/2}/\\Gamma(1+d/2)$ be the volume of a unit ball in $d$ dimensions. For $d=1,2,3$, it is $2,\\pi,4\\pi/3$. The symbol $\\Gamma$ is the [**gamma function**]{.definition-term custom-style=\"Definition Term\"}, defined for $t>0$ by $\\Gamma(t)=\\int_0^\\infty u^{t-1}e^{-u}\\,du$. It extends factorials: $\\Gamma(n+1)=n!$.",
+          "kind": "definition",
+          "rationale": "Mark the existing integral definition before the moment formula needs it.",
+          "preserved_premise_or_limit": "Integral domain t>0 and factorial extension unchanged.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Geometry gives different size laws in each dimension {#sec:PLACE-SIZE-LAW}",
+            "baseline_line": 151,
+            "paragraph_opening": "**Reading the supplement carefully.** The printed supplement appears to contain algebraic errors in this calculation. It"
+          },
+          "before": "**Reading the supplement carefully.** The printed supplement appears to contain algebraic errors in this calculation. Its Equation S18 prints multiplication by mean size where the preceding moment formula requires division. Its Equation S23 omits a factor $\\sqrt2$ when solving the parabola in S22 for full width. In S25 the finite-height quadratic exponent should be negative. The derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation; they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]",
+          "after": "The printed supplement appears to contain three algebraic errors in this calculation:\n\n- Equation S18 prints multiplication by mean size where the preceding moment formula requires division.\n- Equation S23 omits a factor $\\sqrt2$ when solving the parabola in S22 for full width.\n- In S25 the finite-height quadratic exponent should be negative.\n\nThe derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation; they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]",
+          "kind": "list",
+          "rationale": "Give each printed equation issue its own item and remove the empty reading instruction.",
+          "preserved_premise_or_limit": "Apparent rather than author-confirmed errors; source equation locators, corrected constants and limit on simulation-code inference retained.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Slices test spatial structure beyond field volume {#sec:PLACE-SLICES}",
+            "baseline_line": 165,
+            "paragraph_opening": "Read Figure 2 with these distinctions in mind. Panels A–B illustrate 2D thresholding. C measures lengths along slices, D"
+          },
+          "before": "Read Figure 2 with these distinctions in mind. Panels A–B illustrate 2D thresholding. C measures lengths along slices, D measures original field areas, and E counts fields per observed cell. F–G show 3D examples; H, I, and J compare line lengths, planar areas, and full volumes. The dashed analytical curves change with the dimension of the measurement, even within one recorded map. The alternative spherical-field model in Figure S2 matches empirical volumes and peak rates by construction but fails these slice distributions and the topology test. Matching volumes alone is therefore insufficient.[^p3-slices-source]",
+          "after": "Figure 2 separates the measurements by spatial dimension:\n\n- Panels A–B illustrate 2D thresholding. C measures lengths along slices, D measures original field areas, and E counts fields per observed cell.\n- F–G show 3D examples; H, I, and J compare line lengths, planar areas, and full volumes.\n\nThe dashed analytical curves change with the dimension of the measurement, even within one recorded map. The alternative spherical-field model in Figure S2 matches empirical volumes and peak rates by construction but fails these slice distributions and the topology test. Matching volumes alone is therefore insufficient.[^p3-slices-source]",
+          "kind": "list",
+          "rationale": "Expose the two panel groups so the measurement dimension can be tracked.",
+          "preserved_premise_or_limit": "All panel assignments, fitting by construction and failures on slice/topology tests remain.",
+          "source_or_meaning_question": null
+        }
+      ],
+      "retained_structure": "Peak conditioning leads to a radius and excess-height law, then to dimension-specific size densities. Slices and boundary slopes test additional structure. Three folds, exact math, printed-source corrections and approximation errors remain.",
+      "rejected_edits": [
+        {
+          "candidate": "Turn Gaussian conditioning and high-excursion derivation into numbered steps.",
+          "reason": "A numbered procedure would hide why each relation follows from the preceding one."
+        },
+        {
+          "candidate": "Delete finite-threshold rate exponents or mean-error example.",
+          "reason": "They prevent interpreting limiting size laws as exact finite-threshold predictions."
+        }
+      ]
+    },
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\05c-place-tests.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\05c-place-tests.md",
+      "baseline_sha256": "28ec15a9c2d2bf2a3b791d0a665703d6a9b6f56330657bf16367cdaaa6c5e5e6",
+      "edits": [
+        {
+          "location": {
+            "section": "## Holes distinguish maps with the same field count {#sec:PLACE-TOPOLOGY}",
+            "baseline_line": 13,
+            "paragraph_opening": "The [**Euler characteristic**]{.definition-term custom-style=\"Definition Term\"}, written $\\chi$, combines these counts. "
+          },
+          "before": "The [**Euler characteristic**]{.definition-term custom-style=\"Definition Term\"}, written $\\chi$, combines these counts. In 1D it equals the number of connected active intervals. In 2D it is the number of connected components minus the number of independent holes. Three disjoint disks have $\\chi=3$; one connected ring has $\\chi=1-1=0$. In 3D it is components minus independent tunnels plus enclosed cavities. A solid ball has $\\chi=1$, a solid ring has $\\chi=0$, and a hollow spherical shell has $\\chi=2$. These counts are the first three [**Betti numbers**]{.definition-term custom-style=\"Definition Term\"}: numbers of independent components, loops, and cavities, respectively.[^p3-ec-source]",
+          "after": "The [**Euler characteristic**]{.definition-term custom-style=\"Definition Term\"}, written $\\chi$, combines these counts differently in each dimension:\n\n- In 1D it equals the number of connected active intervals.\n- In 2D it is the number of connected components minus the number of independent holes. Three disjoint disks have $\\chi=3$; one connected ring has $\\chi=1-1=0$.\n- In 3D it is components minus independent tunnels plus enclosed cavities. A solid ball has $\\chi=1$, a solid ring has $\\chi=0$, and a hollow spherical shell has $\\chi=2$.\n\nThese counts are the first three [**Betti numbers**]{.definition-term custom-style=\"Definition Term\"}: numbers of independent components, loops, and cavities, respectively.[^p3-ec-source]",
+          "kind": "list",
+          "rationale": "Make the dimension-specific rules easy to compare without separating them from their examples.",
+          "preserved_premise_or_limit": "Signed count, dimensional distinctions, examples, Betti explanation and citation retained exactly.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Holes distinguish maps with the same field count {#sec:PLACE-TOPOLOGY}",
+            "baseline_line": 25,
+            "paragraph_opening": "The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wron"
+          },
+          "before": "The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical input: for a smooth function on a compact domain whose critical points have zero gradient and invertible Hessians, the Euler characteristic of a level set region can be computed as a signed count of critical points, including boundary contributions. This is the relevant conclusion of Morse theory. We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms; the general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]",
+          "after": "The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical input: for a smooth function on a compact domain whose [**critical point**]{.definition-term custom-style=\"Definition Term\"}s have zero gradient and invertible Hessians, the Euler characteristic of a level set region can be computed as a signed count of critical points, including boundary contributions. This is the relevant conclusion of [**Morse theory**]{.definition-term custom-style=\"Definition Term\"}. We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms; the general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]",
+          "kind": "definition",
+          "rationale": "Mark the existing critical-point explanation and the theorem family where its needed result is explained.",
+          "preserved_premise_or_limit": "Compact domain, smoothness, invertible Hessians, signed counts, boundary contributions and unproved-theorem limit remain unchanged.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Holes distinguish maps with the same field count {#sec:PLACE-TOPOLOGY}",
+            "baseline_line": 94,
+            "paragraph_opening": "The limiting checks are informative. As $q\\to-\\infty$, the whole box becomes active and all three expectations tend to o"
+          },
+          "before": "The limiting checks are informative. As $q\\to-\\infty$, the whole box becomes active and all three expectations tend to one. As $q\\to+\\infty$, they tend to zero. At intermediate thresholds the higher dimensional signed densities can be negative because tunnels or holes outnumber components. For example a cube with $L/\\sigma=10$ has expected $\\chi=-20.06$ at $q=0$. A negative expected Euler characteristic is meaningful; a negative expected field count would not be.",
+          "after": "The formulas have two limiting checks:\n\n- As $q\\to-\\infty$, the whole box becomes active and all three expectations tend to one.\n- As $q\\to+\\infty$, they tend to zero.\n\nAt intermediate thresholds the higher dimensional signed densities can be negative because tunnels or holes outnumber components. For example a cube with $L/\\sigma=10$ has expected $\\chi=-20.06$ at $q=0$. A negative expected Euler characteristic is meaningful; a negative expected field count would not be.",
+          "kind": "list",
+          "rationale": "Separate the two limits and retain the intermediate-threshold interpretation in prose.",
+          "preserved_premise_or_limit": "All limit directions, numerical example and distinction from field count remain.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## What was fitted and what was tested {#sec:PLACE-DATA}",
+            "baseline_line": 126,
+            "paragraph_opening": "The processing choices affect the quantities being compared. Bat maps were rectified at about 0.5 Hz for denoising. The "
+          },
+          "before": "The processing choices affect the quantities being compared. Bat maps were rectified at about 0.5 Hz for denoising. The 3D maps, sampled in 10 cm bins, also received a median filter. Fields larger than three standard deviations above mean 3D volume were removed as possible merges, including from slice analyses. Peak counting excluded incomplete boundary fields and used a range of smoothing widths. The 1D rate versus width comparison used an additional 1 Hz cutoff. These decisions can remove small components, alter peaks, and change tails. They belong to the definition of the analyzed fields.[^p3-processing]",
+          "after": "The processing choices affect the quantities being compared:\n\n- Bat maps were rectified at about 0.5 Hz for denoising.\n- The 3D maps, sampled in 10 cm bins, also received a median filter.\n- Fields larger than three standard deviations above mean 3D volume were removed as possible merges, including from slice analyses.\n- Peak counting excluded incomplete boundary fields and used a range of smoothing widths.\n- The 1D rate versus width comparison used an additional 1 Hz cutoff.\n\nThese decisions can remove small components, alter peaks, and change tails. They belong to the definition of the analyzed fields.[^p3-processing]",
+          "kind": "list",
+          "rationale": "Reveal five independent processing choices before interpreting their effects on the comparison.",
+          "preserved_premise_or_limit": "Every measurement condition, cutoff, boundary exclusion, possible-merge qualification and processing consequence is preserved.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## What was fitted and what was tested {#sec:PLACE-DATA}",
+            "baseline_line": 122,
+            "paragraph_opening": "Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its paramet"
+          },
+          "before": "Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its parameters were constrained by both mean length and mean gap, so the full length histogram is an additional check. Figure 1D does the same for gaps. E tests skew and excess kurtosis of log lengths. For $Y=\\log s$, write $m_k=\\mathbb E[(Y-\\mathbb EY)^k]$; then skew is $m_3/m_2^{3/2}$ and excess kurtosis is $m_4/m_2^2-3$. A lognormal size distribution makes $Y$ Gaussian and both population quantities zero. Finite sample estimates still fluctuate, which is why the figure compares simulated sampling distributions.[^p3-fit-tests]",
+          "after": "Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its parameters were constrained by both mean length and mean gap, so the full length histogram is an additional check. Figure 1D does the same for gaps. E tests skew and excess kurtosis of log lengths. For $Y=\\log s$, write $m_k=\\mathbb E[(Y-\\mathbb EY)^k]$; then [**skew**]{.definition-term custom-style=\"Definition Term\"} is $m_3/m_2^{3/2}$ and [**excess kurtosis**]{.definition-term custom-style=\"Definition Term\"} is $m_4/m_2^2-3$. A [**lognormal distribution**]{.definition-term custom-style=\"Definition Term\"} of sizes makes $Y$ Gaussian and both population quantities zero. Finite sample estimates still fluctuate, which is why the figure compares simulated sampling distributions.[^p3-fit-tests]",
+          "kind": "definition",
+          "rationale": "Mark the moment definitions and the distribution characterized by Gaussian log sizes where those meanings are explained.",
+          "preserved_premise_or_limit": "All moment formulas, zero population quantities and finite sample fluctuation limits remain unchanged.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## What was fitted and what was tested {#sec:PLACE-DATA}",
+            "baseline_line": 128,
+            "paragraph_opening": "The supplement adds useful checks. Figure S1 matches the rat maze's 15 cm minimum length cutoff in simulations and remov"
+          },
+          "before": "The supplement adds useful checks. Figure S1 matches the rat maze's 15 cm minimum length cutoff in simulations and removes unusually large empirical fields; changing that cutoff changes log-length moments. Figure S5 shows sensitivity of the higher-moment comparison across small denoising thresholds, while the rate versus width slope becomes stable above about 1 Hz. Figure S2 compares the spherical-field alternative and measures boundary curvature. Locally, mean curvature averages bending in two principal directions and Gaussian curvature multiplies them: a spherical patch bends the same way in both directions, while a saddle bends in opposite directions. These are extra shape measurements; they are not needed to derive the field-size law. Surface representations and finite differences affect their estimates.[^p3-supp-tests]",
+          "after": "The supplement adds useful checks. Figure S1 matches the rat maze's 15 cm minimum length cutoff in simulations and removes unusually large empirical fields; changing that cutoff changes log-length moments. Figure S5 shows sensitivity of the higher-moment comparison across small denoising thresholds, while the rate versus width slope becomes stable above about 1 Hz. Figure S2 compares the spherical-field alternative and measures boundary curvature. Locally, [**mean curvature**]{.definition-term custom-style=\"Definition Term\"} averages bending in two principal directions and [**Gaussian curvature**]{.definition-term custom-style=\"Definition Term\"} multiplies them: a spherical patch bends the same way in both directions, while a saddle bends in opposite directions. These are extra shape measurements; they are not needed to derive the field-size law. Surface representations and finite differences affect their estimates.[^p3-supp-tests]",
+          "kind": "definition",
+          "rationale": "Mark the two existing curvature explanations at first teaching use.",
+          "preserved_premise_or_limit": "Principal-direction meanings, sphere and saddle comparison and surface/finite-difference limitations unchanged.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Random input weights can generate Gaussian maps {#sec:PLACE-WIRING}",
+            "baseline_line": 162,
+            "paragraph_opening": "Uniform coverage supplies stationarity away from boundaries; smooth input tuning supplies smoothness. Random weights sup"
+          },
+          "before": "Uniform coverage supplies stationarity away from boundaries; smooth input tuning supplies smoothness. Random weights supply the Gaussian limit under their independence and size conditions. These are separate assumptions. For heterogeneous shapes, average the last integral over the distribution of input shapes, as in Methods S2, Equation S8.",
+          "after": "The assumptions supply different parts of the model:\n\n- Uniform coverage supplies stationarity away from boundaries.\n- Smooth input tuning supplies smoothness.\n- Random weights supply the Gaussian limit under their independence and size conditions.\n\nFor heterogeneous shapes, average the last integral over the distribution of input shapes, as in Methods S2, Equation S8.",
+          "kind": "list",
+          "rationale": "Separate which assumption supplies which statistical property.",
+          "preserved_premise_or_limit": "Boundary qualification, random-weight independence/size conditions and heterogeneous-shape extension retained.",
+          "source_or_meaning_question": null
+        },
+        {
+          "location": {
+            "section": "## Random input weights can generate Gaussian maps {#sec:PLACE-WIRING}",
+            "baseline_line": 171,
+            "paragraph_opening": "The covariance's Gaussian standard deviation is $\\sqrt2 b$. This calculation specifies the width convention, avoiding an"
+          },
+          "before": "The covariance's Gaussian standard deviation is $\\sqrt2 b$. This calculation specifies the width convention, avoiding an ambiguous assertion that covariance is simply “twice as wide.”",
+          "after": "The covariance's Gaussian standard deviation is $\\sqrt2 b$, fixing the width convention used in the comparison.",
+          "kind": "wording",
+          "rationale": "Remove commentary about an ambiguity the explicit width calculation already resolves.",
+          "preserved_premise_or_limit": "The precise Gaussian standard deviation and width convention stay explicit.",
+          "source_or_meaning_question": null
+        }
+      ],
+      "retained_structure": "The chapter distinguishes topology from field count, derives signed densities and boundary terms, then separates fit choices, empirical tests and a possible random-wiring origin. Mathematical reasoning stays prose; independent dimension rules, limits and processing assumptions become lists.",
+      "rejected_edits": [
+        {
+          "candidate": "List the entire signed critical-point and face-factor derivation.",
+          "reason": "The determinant, gradient density, integral and boundary multiplicities depend causally on one another."
+        },
+        {
+          "candidate": "Shorten the wiring conclusion to random weights explain the data.",
+          "reason": "That would discard alternatives, measurement limits and stationarity limits."
+        },
+        {
+          "candidate": "Define median filtering, skew, kurtosis and curvature at length.",
+          "reason": "This is a structure pass; those terms require targeted source/teaching review rather than unverified new claims. Existing formulas and curvature explanations remain."
+        }
+      ]
+    }
+  ],
+  "new_glossary_terms_for_root": [
+    {
+      "term": "upcrossing",
+      "chapter": "05-place-fields.md"
+    },
+    {
+      "term": "jointly Gaussian vector",
+      "chapter": "05-place-fields.md"
+    },
+    {
+      "term": "smoothness",
+      "chapter": "05-place-fields.md"
+    },
+    {
+      "term": "Rayleigh distribution",
+      "chapter": "05b-place-sizes.md"
+    },
+    {
+      "term": "gamma function",
+      "chapter": "05b-place-sizes.md"
+    },
+    {
+      "term": "critical point",
+      "chapter": "05c-place-tests.md"
+    },
+    {
+      "term": "Morse theory",
+      "chapter": "05c-place-tests.md"
+    },
+    {
+      "term": "skew",
+      "chapter": "05c-place-tests.md"
+    },
+    {
+      "term": "excess kurtosis",
+      "chapter": "05c-place-tests.md"
+    },
+    {
+      "term": "lognormal distribution",
+      "chapter": "05c-place-tests.md"
+    },
+    {
+      "term": "mean curvature",
+      "chapter": "05c-place-tests.md"
+    },
+    {
+      "term": "Gaussian curvature",
+      "chapter": "05c-place-tests.md"
+    }
+  ],
+  "limits": "Draft proposals only. No canonical edits, build or source-paper audit. Independent correctness, wording and flow reviews remain with root. Token stats unavailable."
+}

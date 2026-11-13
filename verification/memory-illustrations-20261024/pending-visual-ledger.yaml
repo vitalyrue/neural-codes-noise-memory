@@ -1,0 +1,239 @@
+schema_version: 1
+visual_ledger_version: 1
+visuals:
+- visual_id: fig:MEMORY-SPIKE-TRACE
+  block_id: fig:MEMORY-SPIKE-TRACE
+  asset: candidate-content/visuals/candidates/20261024/M01/figure.png
+  status: candidate
+  embedded: false
+  generator: verification/memory-illustrations-20261024/draw_additions.py
+  placement: sec:MEMORY-SPIKES
+  caption: Each spike adds one activation unit, which then decays with a 50 ms time constant.
+    Closely spaced spikes add to the activation left by earlier spikes. The five spike
+    times are an illustrative input, and the activation is calculated exactly from the
+    chapter equation.
+  accessibility_description: Five spike marks share a time axis with an activation trace.
+    Each mark aligns with a vertical rise of one activation unit. The activation decays
+    smoothly between spikes, and nearby spikes build on the remaining activation.
+  teaching_introduction: The same five spike times can be shown as discrete events and
+    as the activation they leave behind.
+  interpretation: The activation retains a decaying contribution from earlier spikes,
+    so a spike train and its activation trace are different objects.
+  content_brief: verification/memory-illustrations-20261024/M01-brief.yaml
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/draw_memory_additions
+    role_reason: Distinguish spike events from the activation they leave behind.
+    source_files:
+    - content/chapters/02-memory-dynamics.md
+    - content/chapters/02-memory-dynamics.yaml
+    - verification/memory-illustrations-20261024/draw_additions.py
+    - verification/memory-illustrations-20261024/M01-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/burak-fiete-2012-persistent-activity.pdf
+    - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+    - verification/memory-illustrations-20261024/source-locators.json
+    rule_files:
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024/M01/qa.json
+    vector_spec: verification/memory-illustrations-20261024/draw_additions.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - event-train
+    - activation-trace
+    coverage:
+      applicable: false
+      reason: Internal quantitative figure, not an opening map; no chapter coverage claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+      readability:
+        verdict: pending
+        evidence: []
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []
+- visual_id: fig:MEMORY-INHIBITION-RATES
+  block_id: fig:MEMORY-INHIBITION-RATES
+  asset: candidate-content/visuals/candidates/20261024/M02/figure.png
+  status: candidate
+  embedded: false
+  generator: verification/memory-illustrations-20261024/draw_additions.py
+  placement: sec:MEMORY-SYMMETRIC
+  caption: For the chapter’s two mutually inhibiting cells, b = 20 activation units and
+    tau = 0.1 s give opposite changes in the two rates. Their sum remains 200 spikes/s,
+    so local D remains 100 coordinate units squared/s. Open endpoints mark the excluded
+    boundaries; the linear interior model does not determine boundary behavior. These
+    curves are calculated examples, not simulation data.
+  accessibility_description: As theta increases through the interior from minus 20 to
+    20 activation units, r1 increases toward 200 spikes per second and r2 decreases toward
+    zero. Their dashed sum stays at 200. A lower aligned plot shows D constant at 100
+    coordinate units squared per second. Open endpoint circles exclude both boundaries.
+  teaching_introduction: The plot uses $b=20$ activation units and $\tau=0.1\,\mathrm{s}$.
+  interpretation: The dashed rate sum in the upper plot stays fixed, so the lower plot
+    has the same $D$ at every interior value of $\theta$.
+  content_brief: verification/memory-illustrations-20261024/M02-brief.yaml
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/draw_memory_additions
+    role_reason: Show that opposite changes in individual firing rates can leave local
+      diffusion constant.
+    source_files:
+    - content/chapters/02-memory-dynamics.md
+    - content/chapters/02-memory-dynamics.yaml
+    - verification/memory-illustrations-20261024/draw_additions.py
+    - verification/memory-illustrations-20261024/M02-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/burak-fiete-2012-persistent-activity.pdf
+    - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+    - verification/memory-illustrations-20261024/source-locators.json
+    rule_files:
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024/M02/qa.json
+    vector_spec: verification/memory-illustrations-20261024/draw_additions.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - opposite-rates
+    - constant-diffusion
+    coverage:
+      applicable: false
+      reason: Internal quantitative figure, not an opening map; no chapter coverage claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+      readability:
+        verdict: pending
+        evidence: []
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []
+- visual_id: fig:MEMORY-LINE-RING
+  block_id: fig:MEMORY-LINE-RING
+  asset: candidate-content/visuals/candidates/20261024/M03/figure.png
+  status: candidate
+  embedded: false
+  generator: verification/memory-illustrations-20261024/draw_additions.py
+  placement: sec:MEMORY-LONG-TIME
+  caption: With the same constant D = 0.5 rad²/s, wrapped Gaussian error densities widen
+    toward 1/(2π). The unbounded line has mean squared error 2Dt; reporting angular error
+    in $[-\pi,\pi)$ instead gives a mean squared error that approaches π²/3. The flattening
+    comes from the bounded error convention while local diffusion stays constant. All
+    curves are analytic teaching calculations, not paper simulation data.
+  accessibility_description: Wrapped Gaussian densities at 0.2, 1 and 5 seconds broaden
+    toward a dashed uniform density over angular errors from minus pi to pi. Below, line
+    mean squared error rises linearly while wrapped angular mean squared error approaches
+    a horizontal pi squared over three reference, with the same constant diffusion coefficient.
+  teaching_introduction: For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the plots show how the
+    density and squared error change with delay.
+  interpretation: As the upper density approaches uniform, the wrapped error below approaches
+    $\pi^2/3$; the line error keeps growing.
+  content_brief: verification/memory-illustrations-20261024/M03-brief.yaml
+  review_contract:
+    schema_version: 1
+    figure_role: quantitative-figure
+    route: vector
+    unit_scope: chapter
+    author: /root/draw_memory_additions
+    role_reason: Show how constant local diffusion yields unbounded line error but bounded
+      reported angular error.
+    source_files:
+    - content/chapters/02-memory-dynamics.md
+    - content/chapters/02-memory-dynamics.yaml
+    - verification/memory-illustrations-20261024/draw_additions.py
+    - verification/memory-illustrations-20261024/M03-brief.yaml
+    - verification/illustrations/figure_style.py
+    - assets/papers/burak-fiete-2012-persistent-activity.pdf
+    - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+    - verification/memory-illustrations-20261024/source-locators.json
+    rule_files:
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+    - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+    style_lock: source-maps/book-style-lock.yaml
+    style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+    reference_images: []
+    palette_audit: candidate-content/visuals/candidates/20261024/M03/qa.json
+    vector_spec: verification/memory-illustrations-20261024/draw_additions.py
+    insertion_width_px: 700
+    required_scene_ids:
+    - wrapped-density
+    - line-ring-msd
+    coverage:
+      applicable: false
+      reason: Internal quantitative figure, not an opening map; no chapter coverage claim.
+  diagram_review:
+    schema_version: 1
+    status: pending
+    reviewer: null
+    reviewed_sha256: null
+    policy_sha256: null
+    context_sha256: null
+    input_sha256: {}
+    source_scope_sha256: {}
+    strongest_objection: null
+    objection_resolution: null
+    checks:
+      technical_accuracy:
+        verdict: pending
+        evidence: []
+      visual_explanation:
+        verdict: pending
+        evidence: []
+      readability:
+        verdict: pending
+        evidence: []
+      palette:
+        verdict: pending
+        evidence: []
+      coverage:
+        verdict: pending
+        evidence: []

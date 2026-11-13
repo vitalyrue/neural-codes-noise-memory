@@ -1,0 +1,88 @@
+{
+  "stage": "2 necessity and terminology",
+  "reviewed_at_utc": "2026-11-01T10:12:09.8668669Z",
+  "source": "C:/dev/clsc/burak-papers/guide/content/chapters/01-foundations.md",
+  "source_sha256": "780c644dbb4a70e3641486fc8b1cb1f6e5f321b71d1e026796b2e881af2ca516",
+  "scope": "Poisson section lines 49-180 and supporting footnotes; deletion test before wording; reader already knows expectation, variance, SD, and density.",
+  "verdict": "pass with optional plain-language improvements",
+  "deletion_test": [
+    {
+      "verdict": "retain",
+      "lines": "68-74",
+      "reason": "Removing the bin construction or its assumptions breaks the connection between random spike generation and the count formula."
+    },
+    {
+      "verdict": "retain",
+      "lines": "76-82",
+      "reason": "Pattern probability and number of bin choices explain multiplication, the count of patterns, and division by factorial; all directly answer why this formula."
+    },
+    {
+      "verdict": "retain",
+      "lines": "84-102",
+      "reason": "The displayed factorization shows how the finite-bin probability becomes the Poisson law. The logarithm argument explains the exponential instead of asserting it."
+    },
+    {
+      "verdict": "retain",
+      "lines": "108",
+      "reason": "The physical reading of the three factors answers the user question after the algebra. It adds meaning rather than redundant manipulation."
+    },
+    {
+      "verdict": "retain",
+      "lines": "110-136",
+      "reason": "The shifted sums repair the original unsupported summing assertion and connect the count law to its variance. No unnecessary definition of expectation or variance is introduced."
+    },
+    {
+      "verdict": "retain",
+      "lines": "142-170",
+      "reason": "Noise scaling, the existing numerical example, and the predetermined-versus-recurrent qualification connect the derivation to its neural use and prevent overgeneralization."
+    }
+  ],
+  "terminology": [
+    {
+      "verdict": "defined immediately",
+      "term": "bins",
+      "lines": "68",
+      "reason": "Each bin is identified as a short piece of the observation, with its width given."
+    },
+    {
+      "verdict": "optional simpler word",
+      "suggestion": "nonoverlapping",
+      "term": "disjoint",
+      "lines": "74",
+      "reason": "Meaning is inferable from adjacent time bins; changing the word would lower reading effort but is not required for truth."
+    },
+    {
+      "verdict": "explained",
+      "term": "binomial choice notation and factorial",
+      "lines": "79-82",
+      "reason": "The formula is followed by its counting purpose and factorial definition, including the zero case."
+    },
+    {
+      "verdict": "acceptable mathematical step",
+      "term": "finite product",
+      "lines": "90-95",
+      "reason": "The displayed product and its fixed-k limiting role support the needed derivation; deletion would conceal a limit step."
+    },
+    {
+      "verdict": "needed mathematical proof step",
+      "term": "logarithm and exponentiating",
+      "lines": "102",
+      "reason": "They explain the appearance of the exponential. No specialist probability term is required."
+    },
+    {
+      "verdict": "optional simpler heading",
+      "suggestion": "From the count formula to its mean and variance.",
+      "term": "moments",
+      "lines": "110",
+      "reason": "Moments is a specialist umbrella term that the rest of the fold does not need. The reader already knows mean and variance."
+    },
+    {
+      "verdict": "retain",
+      "term": "predetermined, local and conditional",
+      "lines": "170",
+      "reason": "These words distinguish fixed external rate schedules from rates changed by earlier network spikes; their role is explained in the same paragraph."
+    }
+  ],
+  "blockers": [],
+  "edits": "Only this review record written. No source edits."
+}

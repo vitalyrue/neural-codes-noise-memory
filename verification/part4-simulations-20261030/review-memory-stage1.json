@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "review_stage": 1,
+  "review_type": "truth_and_reasoning",
+  "status": "requires_repair",
+  "reviewer": {
+    "agent": "/root/sim_sources_memory",
+    "model_requested_by_parent": "gpt-6.1-sol high",
+    "independence": "Reviewer did source research but did not author or edit the manuscript; actual new text read afresh.",
+    "request_id": "local-parent-stage1-memory-20261030",
+    "platform_call_id": "not_exposed"
+  },
+  "timing": {
+    "started_utc": "2026-10-30T16:56:58.3850508Z",
+    "completed_utc": "2026-10-30T16:59:29.168243+00:00",
+    "root_started_utc": "2026-10-30T16:43:18Z",
+    "wall_elapsed_review_seconds": 151.2,
+    "awake_execution_time": "unverified; no sleep/resume logs read",
+    "previous_measured_checkpoint_utc": "2026-10-30T16:57:18.3135623Z"
+  },
+  "audience": "Basic calculus, probability and linear algebra; expectation, variance, SD and density assumed. Simulation-specific terms must be taught.",
+  "input_sha256": {
+    "content/chapters/11-simulating-memory.md": "ec067af53faf1456ae1edc82dd005a423358c77fdb955855389bbfe0d16cc88c",
+    "content/chapters/11-simulating-memory.yaml": "b621d33741c5f23f7a3f9708a643aa6a108f3eeb5afbf82e928a923adc965a59",
+    "plan/chapter-plan.yaml": "002809002d716eb478a7998f522149414bac3ead62dd28a96140f4807b9c55ac",
+    "content/chapters/02-memory-dynamics.md": "82d23e1d86e2c8c0e227b0522191689e114fde55ca600c045f95df16f62b39a7",
+    "verification/part4-simulations-20261030/memory-sources.md": "b7f9e1794c6f005cfac8000d5d3ab20e48e40913fcb1ec01c219e5894ff61550"
+  },
+  "rule_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "primary_evidence_sha256": {
+    "C:\\dev\\clsc\\burak-papers\\research\\burak-fiete-2012-main.txt": "10a33ffff51519638bae8f54b97994e1235646be284189e86a33e077ee291354",
+    "C:\\dev\\clsc\\burak-papers\\research\\burak-fiete-2012-si.txt": "e92cb5b43d206ed99eca6e916cc702f89908228d913176aa850aad9201915552",
+    "C:\\dev\\clsc\\burak-papers\\research\\ben-shushan-2022-main-text.txt": "b52b017ad8d63af12d7301407e3cace4c0725b1f906ab3543b8a8014666c8eb5"
+  },
+  "scope": {
+    "included": [
+      "Entire 11-simulating-memory.md and yaml, titles, visible note title, equations, step list, parameters, figure descriptions and footnotes",
+      "Part I attribution opening in current plan/chapter-plan.yaml",
+      "Only the changed interpretation paragraph near 02-memory-dynamics.md:292 and its immediately connected squared diffusion expression"
+    ],
+    "excluded": [
+      "Other Parts attribution openings",
+      "Whole earlier memory-dynamics chapter acceptance",
+      "Rendered fidelity or visual acceptance",
+      "Stage 2 necessity/terminology verdict",
+      "Stage 3 reader-understanding/flow verdict"
+    ]
+  },
+  "passage_answers": [
+    {
+      "location": "content/chapters/11-simulating-memory.md:1-3",
+      "sha256": "52a2f8632b5cae44ecf8d06733816fd50059f7866a84273495938d52e0c8d46f",
+      "literal_claim": "Title/opening: explicit random spiking in recurrent models tests predicted stored-value motion; central theoretical result is an analytical bound.",
+      "truth_reasoning_answer": "Main Results and Fig. 2 describe analytical diffusivity and its parameter-free numerical validation. Title names the observed model outcome, rather than promising biological validation. Stated angular limit refers to wrapped displacement and is qualified later.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:5-15",
+      "sha256": "8505543348687ebab75f57edcbd835d65d9834e7cd8504cc91692cad3297a345",
+      "literal_claim": "Spikes increment stored activations, which decay and affect recurrent inputs and rates.",
+      "truth_reasoning_answer": "Main Eqs. 7-9 give unit activation increments, exponential decay, weighted recurrent input, and rate transfer. W_ij acts from j to i as written. Rate units per second are valid with time in seconds; later ms settings require consistent conversion. Earlier chapter provides continuous-time equations.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:17-22",
+      "sha256": "63cc8f8069fd9d30f70fc6d9903e50e1c9d5fb234b300917d1a96cb36e2ef0df",
+      "literal_claim": "One Euler step reads old activations, samples spikes, applies decay/increments, and decodes.",
+      "truth_reasoning_answer": "This is a valid explicit Euler implementation sequence for the ring described on main p. 6. Decoding is an observation and does not feed back into the update. Random initialization later clarifies the actual ring setup; no fitted cue stimulus is asserted.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:24-26",
+      "sha256": "22ef39ac0b5a60eaecf59d7b803b3e2595d27bbf1d0a996dc4ff4e3577ba3d34",
+      "literal_claim": "Euler approximates deterministic change using the current derivative; decay is s*(1-h/tau); spikes change later spike-generating inputs.",
+      "truth_reasoning_answer": "Substitute ds/dt=-s/tau into an Euler step to obtain the stated expression. Random spike increments remain separate. Definition states method, purpose, action and approximation before later use of the timestep. Accuracy is required as an implementation criterion; the text does not falsely claim the paper reported a timestep convergence study.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:28-30",
+      "sha256": "7ddd5983114bb547a0f0c00a13347ef35898653d7f827559cfc1cb9f8d92423d",
+      "literal_claim": "A ring supports a localized angle code; exponential case attains the bound and illustrated sigmoid case exceeds it.",
+      "truth_reasoning_answer": "Main Fig. 2A-D, its caption, and Saturation section support these specific claims. It says the illustrated sigmoid case, not all sigmoids. Exponential equality is stated under model assumptions and does not repeat the source converse criticized elsewhere in the guide.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:32-32",
+      "sha256": "cff8830899eacd5de5f08667383331d3aaa8c95e1de01f25c6bcd25b9ebfcac1",
+      "literal_claim": "Prediction is computed from deterministic steady tuning, whereas measurement comes from the stochastic trajectory and maximal-rate angle decoder.",
+      "truth_reasoning_answer": "Main p. 6 explicitly gives steady-state numerical solution for D/J, the maximal-rate decoder, and stochastic trajectories. This decoder is correctly distinguished from the later ideal spike-based inference problem.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:34-34",
+      "sha256": "9e54b869f4f7a54c866a8e024d18c0f15f13a535e4d1e2e5dd0a44fe7fad2f0c",
+      "literal_claim": "Short-lag variance is approximately 2D*lag; wrapped errors level off at long lags without restoring the original value.",
+      "truth_reasoning_answer": "Main Fig. 2C-D and SI S31-S32 support periodic diffusion and angular reporting. Angular displacement is zero mean in the tuned symmetric case, so local variance/MSD language agrees here. Boundaries qualify long-time growth; bounded error does not imply recovered memory.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:36-38",
+      "sha256": "e760196062f47e7b9c45ddfa789bf9d6265d008b68144488851722c520614044",
+      "literal_claim": "Ring settings: N=1024, tau=10 ms, h=0.1 ms, spike probability r*h, 100 trials of 1000 s, exclusion of first 10 ms, SEM across trials.",
+      "truth_reasoning_answer": "Every value matches main p. 6 and Fig. 2 caption. With peak 85 Hz, r*h=0.0085, supporting the stated small one-event probability. Bernoulli event generation approximates a Poisson process; this is confined to the ring.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:40-46",
+      "sha256": "cc76dfd1af2e7b85242db0166e1a63e4cf035fd42af928ba9c8581e4dab0f483",
+      "literal_claim": "Finite weights and transfer rules are exactly those used for simulations, with b=-2 and uniform initialization; do not add an extra 1/N.",
+      "truth_reasoning_answer": "Substitution of A=1,k1=1,k2=0.3 in main p. 6 gives the displayed weight function. Both transfer rules and activation interval match. SI S6 defines a separately scaled large-N family; adding its 1/N to the literal finite-network settings would change the model. Uniform independent initialization is the natural interpretation of the reported random-number initialization.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:48-50",
+      "sha256": "656dff5721cab7bdaff58b0b2180ef620016542e8c7585600451fe1258bee05c",
+      "literal_claim": "2017 official correction adds the missing square in main Eq. 2 and changes no numerical settings.",
+      "truth_reasoning_answer": "Verified official correction DOI 10.1073/pnas.1706051114 changes the numerator to sum_i r_i*(g_i prime)^2. SI S18 and the current guide equation already have it. Correction contains no parameter changes and does not resolve other printed errors.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:52-56",
+      "sha256": "31e19394450db9f2161cff37874ec48e04711e36d177ccd5eb6d9b68ecbf4b53",
+      "literal_claim": "Mutual inhibition gives a non-ring family of memory states; all reported parameters and population-rate interpretation.",
+      "truth_reasoning_answer": "Main Fig. 2E-G and Methods p. 6 support the architecture, -1 cross weights, zero self weights, b=5000,tau=100 ms,h=0.4 ms,Tmax=200 s and linear tau*r=g. Opposite activity changes vary the represented difference. Aggregate interpretation is supplied by the source, avoiding an implausible biological firing-rate inference.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:58",
+      "sha256": "f8a14628d75663370e77d0129cc5557f54a7bc5a6684c025ccb369ed127249c7",
+      "literal_claim": "Rate difference is smaller by factor tau; diffusion differs by tau squared; aggregate spiking requires multiple events.",
+      "truth_reasoning_answer": "Taking differences of the stated model gives Delta g=Delta s, hence Delta r=Delta s/tau and D_r=D_s/tau^2. The direction is not supplied correctly by smaller. Multiple-event and undocumented sampler/initialization claims agree with main p. 6.",
+      "verdict": "revise",
+      "finding_id": "MEM-S1-001"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:60-60",
+      "sha256": "fc750d93933c4c32bd37abdd14bde7fef76061b69870dbb9e3ec4e0785493625",
+      "literal_claim": "SI S1 compares 4000 trials from one initial coordinate and illustrates linear variance despite state-dependent diffusivity.",
+      "truth_reasoning_answer": "SI Fig. S1, pp. 9-10, explicitly uses Theta=100 and 4000 trials. The linear D case supports the point; the linked earlier chapter retains positive-domain limits and the S40/S41 factor discrepancy. The official correction is correctly kept separate.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:62-64",
+      "sha256": "c04b90778d43aa2f3f16979c6f709f99afa88c4752cb765eacd70fdc48a0aa77",
+      "literal_claim": "Figs. 3/S2 plot derived estimator-error formulas rather than a further documented spiking-network experiment or demonstrated biological estimator.",
+      "truth_reasoning_answer": "SI VI derives ideal and equal-weight readout formulas S75/S79; main Fig. 3 and SI Fig. S2 display their trends. No extra network-simulation protocol or implemented neural ideal estimator is claimed. The negative claim is scoped to what these sources describe.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:66-66",
+      "sha256": "41a67c263eae0d7f200cffa7caf29623a93da78130a3e9c52e3bfe810f710ccf",
+      "literal_claim": "Language/package not specified and no archive identified in the limited source check as of October 30.",
+      "truth_reasoning_answer": "Matches the paper/SI and recorded author-publication checks in memory-sources.md. The sentence expressly preserves uncertainty and does not infer global nonexistence or guess Python/MATLAB. Seeds/count generation are legitimate implementation choices left unreported.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:68-68",
+      "sha256": "fc3f3f3148a75c408897a3b52814eca6cafe440535bd0c93aed5dda6bff766ec",
+      "literal_claim": "Simulation agreement remains model evidence; connecting to behavior needs measurement/data, illustrated by 2022 eye study.",
+      "truth_reasoning_answer": "The main 2012 paper reports theoretical and numerical work. The locally checked 2022 abstract/main text states simultaneous OMN recordings and precise eye trajectories, with a model constrained by primate oculomotor parameters and muscles. This supports the bridge without claiming that the 2012 Poisson formula applies directly to those data.",
+      "verdict": "retain"
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:70-76",
+      "sha256": "fa06a1fc151740ad453686e0da71c209e5546c57c144773dc0ffde34d1177116",
+      "literal_claim": "All four footnotes identify model, simulation, correction, and SI evidence with matching pages/DOIs.",
+      "truth_reasoning_answer": "Main pp. 5-6 contain Eqs. 7-11; main p. 3 Fig. 2; main p. 6 simulation settings; SI p. 8 S32 and p. 10 Fig. S1. Correction DOI and link match the published erratum. No footnote attributes the guide factor-two check to that erratum.",
+      "verdict": "retain"
+    }
+  ],
+  "metadata_answer": {
+    "location": "content/chapters/11-simulating-memory.yaml",
+    "verdict": "retain",
+    "answer": "Title, purpose and four section summaries agree with current Markdown. Chapter and Part IDs are consistent in this scope; listed two prerequisites supply the neural model and diffusion/boundaries. No figures or code listings are added. Footnote markers in summaries repeat body markers; whether the publisher renders those in navigation is an output check, not a false research claim."
+  },
+  "part_i_attribution_answer": {
+    "location": "plan/chapter-plan.yaml Part part:MECHANISMS purpose/content",
+    "verdict": "retain",
+    "answer": "Central diffusion/information/readout results are assigned to Burak and Fiete (2012); Chapter 3 names the 2017 correction; Chapters 1-2 background, Chapter 4 supporting limits, Chapter 6 extensions, and expanded proofs/examples/source checks are accurately separated. The supporting 2022/2025 context matches current chapters. This opening does not claim all three papers study one verified circuit.",
+    "optional_preference": "Chapter 1 also uses Maimon and colleagues (2026) for later CA3/CA1 anatomy context. Adding that supporting attribution could make the introductory map more complete; its omission does not make the current listed attributions false."
+  },
+  "narrow_correction_answer": {
+    "location": "content/chapters/02-memory-dynamics.md:292",
+    "verdict": "retain",
+    "answer": "The revised paragraph now accurately identifies the missing numerator square as officially corrected by Burak and Fiete (2017), agrees with SI S18 and the derived expression immediately above, and expressly distinguishes the guide checks of other printed equations. This approves that paragraph only, not the older full chapter."
+  },
+  "findings": [
+    {
+      "id": "MEM-S1-001",
+      "severity": "P2",
+      "kind": "confirmed_truth_and_units_defect",
+      "location": "content/chapters/11-simulating-memory.md:58",
+      "quote": "the theory's coordinate is the activation difference, while a rate difference is smaller by a factor tau. Their diffusion coefficients therefore differ by tau squared.",
+      "failed_check": "Correct variable roles, units and direction of a coordinate conversion; reader should not have to infer the intended mathematical relationship.",
+      "literal_reader_inference": "The rate-difference coordinate is tau times the activation difference, or is inherently numerically smaller, neither of which is the correct stated model relation.",
+      "strongest_reasonable_reading_test": "Reading smaller by tau as divided by tau still does not establish a size ordering because tau is dimensional and 0.1 seconds here. The context omits the exact conversion and diffusion direction, so an expert repair is needed.",
+      "source_and_reason": "With W12=W21=-1 and common b, g1-g2=s1-s2. Since tau*r_i=g_i, theta_r=(r1-r2)=(s1-s2)/tau=theta_s/tau; diffusion scales as the square of that conversion. Main Methods p. 6 and the fixed-state equation; earlier guide Chapter 3 explicitly uses theta=s1-s2.",
+      "prerequisites_checked": [
+        "11-simulating-memory.md:15,56",
+        "02-memory-dynamics.md mutual-inhibition example at approximately lines305-322",
+        "Main Methods p.6 fixed-state equation"
+      ],
+      "proposed_repair": "State: If theta_s=s1-s2 and theta_r=r1-r2, then theta_r=theta_s/tau and D_r=D_s/tau^2. These coordinates have different units, so their numerical sizes should not be compared without the unit convention. Keep the multiple-event and missing-sampler sentences.",
+      "requires_recheck": "Focused Stage 1 recheck of repaired paragraph, then later stages on current text."
+    }
+  ],
+  "arithmetic_checks": {
+    "Euler_decay": "ds/dt=-s/tau gives s_new=s*(1-h/tau).",
+    "ring_peak_probability": 0.0085,
+    "aggregate_equal_rate_per_second": 25000.0,
+    "aggregate_mean_events": 10.0,
+    "coordinate_scaling": "theta_r=theta_s/tau; D_r=D_s/tau^2"
+  },
+  "tests": "No runnable listing supplied; algebra and parameter arithmetic recomputed. No full repository tests, builds or visual checks.",
+  "limitations": [
+    "Simulation software/archive statement verified only to the checked primary-source scope in the saved research report.",
+    "Not a verdict on later dependent review stages."
+  ],
+  "token_stats": "unavailable"
+}

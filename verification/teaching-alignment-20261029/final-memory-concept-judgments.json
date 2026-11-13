@@ -1,0 +1,4174 @@
+{
+  "schema_version": 1,
+  "run_id": "final-memory-flow-20261029-03",
+  "reviewer_id": "/root/accept_memory",
+  "reviewer_model": "GPT-6 Astra",
+  "reasoning_level": "high",
+  "stage": "understanding_flow",
+  "context": "reviewer_continuation",
+  "started_at": "2026-10-29T13:48:54.6710733+02:00",
+  "completed_at": "2026-10-29T14:12:51.6346771+02:00",
+  "input_hash": "9f0a39deb00485620bcd26154f68eec0f7b2dcd002687073df8013f86be406a8",
+  "review_contract_hash": "593934f3af51c49175417df3e4263df20a0835575d099bad4f0070163b4a17dc",
+  "concept_input_sha256": "7c6874067c9e98f663dcfd7250fb172ecb201e0e04334c4f2f9b3ad112134fac",
+  "audience": {
+    "status": "reviewed",
+    "description": "Undergraduate calculus, basic probability and linear algebra. Neural, stochastic-process, information and Gaussian-inference tools are taught where needed. The conceptual route may skip derivation folds while retaining visible physical meanings and results.",
+    "assumed_concepts": [
+      "undergraduate calculus",
+      "basic probability",
+      "linear algebra"
+    ],
+    "review": "final-memory-flow-20261029-03",
+    "source_refs": [
+      "ch:READING-GUIDE/p73"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "firing-rate",
+      "aliases": [
+        "firing rate"
+      ]
+    },
+    {
+      "id": "recurrent-connectivity",
+      "aliases": [
+        "recurrent connectivity"
+      ]
+    },
+    {
+      "id": "tuning-curve",
+      "aliases": [
+        "tuning curve"
+      ]
+    },
+    {
+      "id": "population-code",
+      "aliases": [
+        "population code"
+      ]
+    },
+    {
+      "id": "poisson-counts",
+      "aliases": [
+        "poisson counts"
+      ]
+    },
+    {
+      "id": "poisson-count-variance",
+      "aliases": [
+        "poisson count variance"
+      ]
+    },
+    {
+      "id": "conditional-poisson-independence",
+      "aliases": [
+        "conditional poisson independence"
+      ]
+    },
+    {
+      "id": "covariance",
+      "aliases": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "covariance-and-correlation",
+      "aliases": [
+        "covariance and correlation"
+      ]
+    },
+    {
+      "id": "msd-variance-mean-split",
+      "aliases": [
+        "msd variance mean split"
+      ]
+    },
+    {
+      "id": "continuous-attractor",
+      "aliases": [
+        "continuous attractor"
+      ]
+    },
+    {
+      "id": "brownian-motion",
+      "aliases": [
+        "brownian motion"
+      ]
+    },
+    {
+      "id": "brownian-cross-time-covariance",
+      "aliases": [
+        "brownian cross time covariance"
+      ]
+    },
+    {
+      "id": "neural-transfer-function",
+      "aliases": [
+        "neural transfer function"
+      ]
+    },
+    {
+      "id": "weak-fluctuation-approximation",
+      "aliases": [
+        "weak fluctuation approximation"
+      ]
+    },
+    {
+      "id": "linearization",
+      "aliases": [
+        "linearization"
+      ]
+    },
+    {
+      "id": "right-zero-eigenvector",
+      "aliases": [
+        "right zero eigenvector"
+      ]
+    },
+    {
+      "id": "left-zero-eigenvector",
+      "aliases": [
+        "left zero eigenvector"
+      ]
+    },
+    {
+      "id": "diffusion-tensor",
+      "aliases": [
+        "diffusion tensor"
+      ]
+    },
+    {
+      "id": "ito-convention",
+      "aliases": [
+        "ito convention"
+      ]
+    },
+    {
+      "id": "fokker-planck-equation",
+      "aliases": [
+        "fokker planck equation"
+      ]
+    },
+    {
+      "id": "systematic-drift",
+      "aliases": [
+        "systematic drift"
+      ]
+    },
+    {
+      "id": "likelihood",
+      "aliases": [
+        "likelihood"
+      ]
+    },
+    {
+      "id": "score",
+      "aliases": [
+        "score"
+      ]
+    },
+    {
+      "id": "fisher-information-rate",
+      "aliases": [
+        "fisher information rate"
+      ]
+    },
+    {
+      "id": "unbiased-estimation",
+      "aliases": [
+        "unbiased estimation"
+      ]
+    },
+    {
+      "id": "prior-distribution",
+      "aliases": [
+        "prior distribution"
+      ]
+    },
+    {
+      "id": "gaussian-precision",
+      "aliases": [
+        "gaussian precision"
+      ]
+    },
+    {
+      "id": "hyperbolic-tangent-inverse",
+      "aliases": [
+        "hyperbolic tangent inverse"
+      ]
+    },
+    {
+      "id": "hyperbolic-cotangent",
+      "aliases": [
+        "hyperbolic cotangent"
+      ]
+    },
+    {
+      "id": "spatial-tuning",
+      "aliases": [
+        "spatial tuning"
+      ]
+    },
+    {
+      "id": "diffusion-variance",
+      "aliases": [
+        "diffusion variance"
+      ]
+    },
+    {
+      "id": "spike-event",
+      "aliases": [
+        "spike event"
+      ]
+    },
+    {
+      "id": "synaptic-influence",
+      "aliases": [
+        "synaptic influence"
+      ]
+    },
+    {
+      "id": "rate-map",
+      "aliases": [
+        "rate map"
+      ]
+    },
+    {
+      "id": "fixed-point-state",
+      "aliases": [
+        "fixed point state"
+      ]
+    },
+    {
+      "id": "activation-count-model",
+      "aliases": [
+        "activation count model"
+      ]
+    },
+    {
+      "id": "projection-diffusion",
+      "aliases": [
+        "projection diffusion"
+      ]
+    },
+    {
+      "id": "dirac-point-mass",
+      "aliases": [
+        "dirac point mass"
+      ]
+    },
+    {
+      "id": "stratonovich-convention",
+      "aliases": [
+        "stratonovich convention"
+      ]
+    },
+    {
+      "id": "information-bound-equality",
+      "aliases": [
+        "information bound equality"
+      ]
+    },
+    {
+      "id": "matrix-information-order",
+      "aliases": [
+        "matrix information order"
+      ]
+    },
+    {
+      "id": "gaussian-observation-model",
+      "aliases": [
+        "gaussian observation model"
+      ]
+    },
+    {
+      "id": "translation-invariant-readout",
+      "aliases": [
+        "translation invariant readout"
+      ]
+    },
+    {
+      "id": "partial-spike-access",
+      "aliases": [
+        "partial spike access"
+      ]
+    },
+    {
+      "id": "noise-law-equality",
+      "aliases": [
+        "noise law equality"
+      ]
+    },
+    {
+      "id": "directional-symmetry",
+      "aliases": [
+        "radial symmetry",
+        "equivalent coordinate directions"
+      ]
+    }
+  ],
+  "sections": {
+    "ch:FOUNDATIONS/s0": "reviewed",
+    "ch:FOUNDATIONS/s1": "reviewed",
+    "ch:FOUNDATIONS/s2": "reviewed",
+    "ch:FOUNDATIONS/s3": "reviewed",
+    "ch:PERSISTENCE/s0": "reviewed",
+    "ch:PERSISTENCE/s1": "reviewed",
+    "ch:PERSISTENCE/s2": "reviewed",
+    "ch:PERSISTENCE/s3": "reviewed",
+    "ch:MEMORY-DYNAMICS/s0": "reviewed",
+    "ch:MEMORY-DYNAMICS/s1": "reviewed",
+    "ch:MEMORY-DYNAMICS/s2": "reviewed",
+    "ch:MEMORY-DYNAMICS/s3": "reviewed",
+    "ch:MEMORY-DYNAMICS/s4": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s0": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s1": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s2": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s3": "reviewed",
+    "ch:MEMORY-INFORMATION/s0": "reviewed",
+    "ch:MEMORY-INFORMATION/s1": "reviewed",
+    "ch:MEMORY-INFORMATION/s2": "reviewed",
+    "ch:MEMORY-INFORMATION/s3": "reviewed",
+    "ch:MEMORY-READOUT/s0": "reviewed",
+    "ch:MEMORY-READOUT/s1": "reviewed",
+    "ch:MEMORY-READOUT/s2": "reviewed",
+    "ch:MEMORY-READOUT/s3": "reviewed",
+    "ch:MEMORY-READOUT/s4": "reviewed",
+    "ch:MEMORY-READOUT/s5": "reviewed",
+    "ch:MEMORY-READOUT/s6": "reviewed"
+  },
+  "section_judgments": [
+    {
+      "section_id": "ch:FOUNDATIONS/s0",
+      "unit_id": "content/chapters/01-foundations.md::ch:FOUNDATIONS",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:FOUNDATIONS/p3",
+        "ch:FOUNDATIONS/p9"
+      ],
+      "concepts_checked": [],
+      "unit_assessment_ref": "content/chapters/01-foundations.md::ch:FOUNDATIONS",
+      "completeness": {
+        "prerequisites": "The reading guide has introduced neurons and the three scientific questions. The opening uses ordinary language and postpones formal coding and noise tools to the sections that teach them.",
+        "reader_task": "How can changing neural activity still represent a useful position or location?",
+        "reasoning_chain": "Understand the shared behavioral need; identify neural events and coding; quantify observation variability; distinguish shared and directional changes.",
+        "connection": "The common persistence problem leads to spike meaning, count variability, shared variation and displacement statistics in that order.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:FOUNDATIONS/s1",
+      "unit_id": "content/chapters/01-foundations.md::sec:FOUNDATIONS-SPIKES",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:FOUNDATIONS/p13",
+        "ch:FOUNDATIONS/p17",
+        "ch:FOUNDATIONS/p19",
+        "ch:FOUNDATIONS/p20",
+        "ch:FOUNDATIONS/p22",
+        "ch:FOUNDATIONS/p24",
+        "ch:FOUNDATIONS/p26",
+        "ch:FOUNDATIONS/p32",
+        "ch:FOUNDATIONS/p38",
+        "ch:FOUNDATIONS/p42",
+        "ch:FOUNDATIONS/p44",
+        "ch:FOUNDATIONS/p45",
+        "ch:FOUNDATIONS/p47"
+      ],
+      "concepts_checked": [
+        "firing-rate",
+        "population-code",
+        "rate-map",
+        "recurrent-connectivity",
+        "spatial-tuning",
+        "spike-event",
+        "synaptic-influence",
+        "tuning-curve"
+      ],
+      "unit_assessment_ref": "content/chapters/01-foundations.md::sec:FOUNDATIONS-SPIKES",
+      "completeness": {
+        "prerequisites": "Neuron is taught in the reading guide. Spike, rate, synapse, excitation, inhibition and recurrence are taught here before tuning and population coding use them.",
+        "reader_task": "What neural quantity represents angle or location, and what is merely a noisy observation of it?",
+        "reasoning_chain": "Define event and expected rate; explain influence and feedback; map coordinate to rates; combine cells; distinguish measured spatial maps from expected functions.",
+        "connection": "Events lead to connections, lingering effects, rate tuning, population vectors and spatial examples. Anatomy clarifies the scope of the spatial models.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:FOUNDATIONS/s2",
+      "unit_id": "content/chapters/01-foundations.md::sec:FOUNDATIONS-POISSON",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:FOUNDATIONS/p51",
+        "ch:FOUNDATIONS/p59",
+        "ch:FOUNDATIONS/p68",
+        "ch:FOUNDATIONS/p80",
+        "ch:FOUNDATIONS/p84",
+        "ch:FOUNDATIONS/p86",
+        "ch:FOUNDATIONS/p88",
+        "ch:FOUNDATIONS/p92",
+        "ch:FOUNDATIONS/p94",
+        "ch:FOUNDATIONS/p98",
+        "ch:FOUNDATIONS/p100",
+        "ch:FOUNDATIONS/p102",
+        "ch:FOUNDATIONS/p104",
+        "ch:FOUNDATIONS/p106",
+        "ch:FOUNDATIONS/p108",
+        "ch:FOUNDATIONS/p112",
+        "ch:FOUNDATIONS/p116",
+        "ch:FOUNDATIONS/p117",
+        "ch:FOUNDATIONS/p119"
+      ],
+      "concepts_checked": [
+        "conditional-poisson-independence",
+        "poisson-count-variance",
+        "poisson-counts"
+      ],
+      "unit_assessment_ref": "content/chapters/01-foundations.md::sec:FOUNDATIONS-POISSON",
+      "completeness": {
+        "prerequisites": "Rate and tuning have been taught. The count law, mean, variance and conditional independence are supplied before pooling or recurrent-noise use; basic expectation algebra is the audience baseline.",
+        "reader_task": "How uncertain is a finite spike count, and why can population averaging help?",
+        "reasoning_chain": "Specify the count distribution; obtain mean and variance; compare signal with its spread; pool independent counts; qualify recurrence and empirical measures.",
+        "connection": "Count probabilities lead to moments, relative spread, a worked example, the recurrent conditional qualification and distinct empirical variability measures.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:FOUNDATIONS/s3",
+      "unit_id": "content/chapters/01-foundations.md::sec:FOUNDATIONS-COVARIANCE",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:FOUNDATIONS/p123",
+        "ch:FOUNDATIONS/p125",
+        "ch:FOUNDATIONS/p129",
+        "ch:FOUNDATIONS/p133",
+        "ch:FOUNDATIONS/p137",
+        "ch:FOUNDATIONS/p143",
+        "ch:FOUNDATIONS/p149",
+        "ch:FOUNDATIONS/p155",
+        "ch:FOUNDATIONS/p161",
+        "ch:FOUNDATIONS/p168",
+        "ch:FOUNDATIONS/p172",
+        "ch:FOUNDATIONS/p174",
+        "ch:FOUNDATIONS/p180",
+        "ch:FOUNDATIONS/p186",
+        "ch:FOUNDATIONS/p193",
+        "ch:FOUNDATIONS/p197",
+        "ch:FOUNDATIONS/p199",
+        "ch:FOUNDATIONS/p201",
+        "ch:FOUNDATIONS/p203",
+        "ch:FOUNDATIONS/p204",
+        "ch:FOUNDATIONS/p206",
+        "ch:FOUNDATIONS/p210",
+        "ch:FOUNDATIONS/p212",
+        "ch:FOUNDATIONS/p214",
+        "ch:FOUNDATIONS/p216",
+        "ch:FOUNDATIONS/p218",
+        "ch:FOUNDATIONS/p220",
+        "ch:FOUNDATIONS/p222",
+        "ch:FOUNDATIONS/p224",
+        "ch:FOUNDATIONS/p226"
+      ],
+      "concepts_checked": [
+        "covariance",
+        "covariance-and-correlation",
+        "msd-variance-mean-split"
+      ],
+      "unit_assessment_ref": "content/chapters/01-foundations.md::sec:FOUNDATIONS-COVARIANCE",
+      "completeness": {
+        "prerequisites": "Spikes, rates and independent versus shared variability are established. Covariance and correlation receive visible physical meanings before optional formulas. Lag and displacement are defined before MSD.",
+        "reader_task": "Which changes in recorded eye movement indicate shared drive, random spreading, mean bias, gain or measurement error?",
+        "reasoning_chain": "Identify the pathway; explain shared and private variation; define covariance and normalization; separate mean from spread; map each physical change to an observable feature.",
+        "connection": "The pathway precedes statistics; shared-drive inference precedes normalization; random versus directional movement precedes the MSD split and parameter consequences.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:PERSISTENCE/s0",
+      "unit_id": "content/chapters/01b-persistence.md::ch:PERSISTENCE",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:PERSISTENCE/p3",
+        "ch:PERSISTENCE/p5"
+      ],
+      "concepts_checked": [
+        "population-code"
+      ],
+      "unit_assessment_ref": "content/chapters/01b-persistence.md::ch:PERSISTENCE",
+      "completeness": {
+        "prerequisites": "Population coding is established. The opening distinguishes activity from represented value before asking for state-space geometry.",
+        "reader_task": "Why can a stable activity pattern still hold a wrong value?",
+        "reasoning_chain": "Separate representation from value; ask which disturbances decay; follow the lasting changes across time.",
+        "connection": "Two kinds of disturbance motivate restoring and neutral directions, then repeated errors and the contrast with fixed spatial randomness.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:PERSISTENCE/s1",
+      "unit_id": "content/chapters/01b-persistence.md::sec:FOUNDATIONS-ATTRACTOR",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:PERSISTENCE/p11",
+        "ch:PERSISTENCE/p17",
+        "ch:PERSISTENCE/p19",
+        "ch:PERSISTENCE/p21",
+        "ch:PERSISTENCE/p23",
+        "ch:PERSISTENCE/p25",
+        "ch:PERSISTENCE/p27",
+        "ch:PERSISTENCE/p35",
+        "ch:PERSISTENCE/p43",
+        "ch:PERSISTENCE/p49",
+        "ch:PERSISTENCE/p55",
+        "ch:PERSISTENCE/p57",
+        "ch:PERSISTENCE/p59",
+        "ch:PERSISTENCE/p61",
+        "ch:PERSISTENCE/p62",
+        "ch:PERSISTENCE/p64",
+        "ch:PERSISTENCE/p66",
+        "ch:PERSISTENCE/p72",
+        "ch:PERSISTENCE/p74",
+        "ch:PERSISTENCE/p76"
+      ],
+      "concepts_checked": [
+        "continuous-attractor",
+        "fixed-point-state"
+      ],
+      "unit_assessment_ref": "content/chapters/01b-persistence.md::sec:FOUNDATIONS-ATTRACTOR",
+      "completeness": {
+        "prerequisites": "Rates, tuning and recurrence are available. State and fixed point precede the attractor definition; neutral direction and represented dimension are explained before the example.",
+        "reader_task": "Which disturbances does feedback remove, and which become memory error?",
+        "reasoning_chain": "Define the state family; identify restored and neutral coordinates; solve their dynamics; compare disturbances; limit the geometric shortcut.",
+        "connection": "A physical account comes before formal geometry; a visible sum/difference account prepares optional equations and two numerical disturbances.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:PERSISTENCE/s2",
+      "unit_id": "content/chapters/01b-persistence.md::sec:FOUNDATIONS-DIFFUSION",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:PERSISTENCE/p80",
+        "ch:PERSISTENCE/p86",
+        "ch:PERSISTENCE/p88",
+        "ch:PERSISTENCE/p89",
+        "ch:PERSISTENCE/p90",
+        "ch:PERSISTENCE/p92",
+        "ch:PERSISTENCE/p102",
+        "ch:PERSISTENCE/p104",
+        "ch:PERSISTENCE/p114",
+        "ch:PERSISTENCE/p120",
+        "ch:PERSISTENCE/p124",
+        "ch:PERSISTENCE/p126",
+        "ch:PERSISTENCE/p128",
+        "ch:PERSISTENCE/p130",
+        "ch:PERSISTENCE/p134",
+        "ch:PERSISTENCE/p142",
+        "ch:PERSISTENCE/p144",
+        "ch:PERSISTENCE/p146",
+        "ch:PERSISTENCE/p148",
+        "ch:PERSISTENCE/p150",
+        "ch:PERSISTENCE/p152",
+        "ch:PERSISTENCE/p154",
+        "ch:PERSISTENCE/p156",
+        "ch:PERSISTENCE/p162",
+        "ch:PERSISTENCE/p171",
+        "ch:PERSISTENCE/p175"
+      ],
+      "concepts_checked": [
+        "brownian-cross-time-covariance",
+        "brownian-motion",
+        "diffusion-variance",
+        "msd-variance-mean-split",
+        "systematic-drift"
+      ],
+      "unit_assessment_ref": "content/chapters/01b-persistence.md::sec:FOUNDATIONS-DIFFUSION",
+      "completeness": {
+        "prerequisites": "The attractor's lasting coordinate changes are understood. Equal-step independence, zero mean and variance are stated before the sum. Brownian properties are taught before later stochastic equations require them.",
+        "reader_task": "How do repeated small retained errors accumulate, and how does random spread differ from bias?",
+        "reasoning_chain": "Accumulate independent zero-mean steps; define the variance rate; interpret RMS; add bias separately; explain shared history; state domain limits.",
+        "connection": "Physical increments lead to optional step algebra, a visible variance law, units and RMS, optional bias numbers, visible shared-history meaning and long-time limits.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:PERSISTENCE/s3",
+      "unit_id": "content/chapters/01b-persistence.md::sec:FOUNDATIONS-RANDOMNESS",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:PERSISTENCE/p181",
+        "ch:PERSISTENCE/p183",
+        "ch:PERSISTENCE/p187",
+        "ch:PERSISTENCE/p191",
+        "ch:PERSISTENCE/p193",
+        "ch:PERSISTENCE/p195",
+        "ch:PERSISTENCE/p197",
+        "ch:PERSISTENCE/p199",
+        "ch:PERSISTENCE/p201",
+        "ch:PERSISTENCE/p203",
+        "ch:PERSISTENCE/p205"
+      ],
+      "concepts_checked": [
+        "rate-map",
+        "spatial-tuning"
+      ],
+      "unit_assessment_ref": "content/chapters/01b-persistence.md::sec:FOUNDATIONS-RANDOMNESS",
+      "completeness": {
+        "prerequisites": "Rate maps and temporal diffusion have both been taught. The unit explains their indexing directly.",
+        "reader_task": "Does spatial irregularity imply temporal instability of the represented position?",
+        "reasoning_chain": "Identify what varies; hold the map fixed across revisits; allow spike variability; reject unsupported cross-inferences; choose the next paper route.",
+        "connection": "Revisiting a fixed map contrasts with a wandering memory, then the paper map assigns each question its proper kind of variation.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-DYNAMICS/s0",
+      "unit_id": "content/chapters/02-memory-dynamics.md::ch:MEMORY-DYNAMICS",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-DYNAMICS/p3",
+        "ch:MEMORY-DYNAMICS/p5",
+        "ch:MEMORY-DYNAMICS/p7",
+        "ch:MEMORY-DYNAMICS/p9"
+      ],
+      "concepts_checked": [
+        "diffusion-variance"
+      ],
+      "unit_assessment_ref": "content/chapters/02-memory-dynamics.md::ch:MEMORY-DYNAMICS",
+      "completeness": {
+        "prerequisites": "Foundations supplied recurrence, attractors and D. The opening recalls coordinate notation and source-navigation conventions before the detailed calculation.",
+        "reader_task": "How can the cell model determine the rate of lasting memory loss?",
+        "reasoning_chain": "Define the model; separate transient and retained changes; add noise variance; specialize only with stated symmetry.",
+        "connection": "Activation renewal leads to return-flow projection and then variance, with symmetry reserved for a later specialization.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-DYNAMICS/s1",
+      "unit_id": "content/chapters/02-memory-dynamics.md::sec:MEMORY-SPIKES",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-DYNAMICS/p13",
+        "ch:MEMORY-DYNAMICS/p15",
+        "ch:MEMORY-DYNAMICS/p17",
+        "ch:MEMORY-DYNAMICS/p23",
+        "ch:MEMORY-DYNAMICS/p29",
+        "ch:MEMORY-DYNAMICS/p31",
+        "ch:MEMORY-DYNAMICS/p33",
+        "ch:MEMORY-DYNAMICS/p35",
+        "ch:MEMORY-DYNAMICS/p37",
+        "ch:MEMORY-DYNAMICS/p39",
+        "ch:MEMORY-DYNAMICS/p41",
+        "ch:MEMORY-DYNAMICS/p48",
+        "ch:MEMORY-DYNAMICS/p54",
+        "ch:MEMORY-DYNAMICS/p58",
+        "ch:MEMORY-DYNAMICS/p69",
+        "ch:MEMORY-DYNAMICS/p78",
+        "ch:MEMORY-DYNAMICS/p86",
+        "ch:MEMORY-DYNAMICS/p90",
+        "ch:MEMORY-DYNAMICS/p94",
+        "ch:MEMORY-DYNAMICS/p103"
+      ],
+      "concepts_checked": [
+        "activation-count-model",
+        "brownian-motion",
+        "conditional-poisson-independence",
+        "continuous-attractor",
+        "covariance",
+        "firing-rate",
+        "fixed-point-state",
+        "neural-transfer-function",
+        "poisson-count-variance",
+        "recurrent-connectivity",
+        "spike-event",
+        "synaptic-influence",
+        "weak-fluctuation-approximation"
+      ],
+      "unit_assessment_ref": "content/chapters/02-memory-dynamics.md::sec:MEMORY-SPIKES",
+      "completeness": {
+        "prerequisites": "Spike, rate, recurrence, Poisson counts and Brownian increments have preceding teaching. The transfer function and aggregate approximation are explained locally before their reasoning use.",
+        "reader_task": "How do brief random events renew activity that decays continuously?",
+        "reasoning_chain": "Count spikes; accumulate decaying activation; map weighted input to rate; separate mean and fluctuation; justify the approximation; identify balanced steady states.",
+        "connection": "The exact jump model and trace precede weighted receiving input, noise moments, Gaussian approximation and steady states.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-DYNAMICS/s2",
+      "unit_id": "content/chapters/02-memory-dynamics.md::sec:MEMORY-LINEARIZATION",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-DYNAMICS/p107",
+        "ch:MEMORY-DYNAMICS/p109",
+        "ch:MEMORY-DYNAMICS/p116",
+        "ch:MEMORY-DYNAMICS/p127",
+        "ch:MEMORY-DYNAMICS/p129",
+        "ch:MEMORY-DYNAMICS/p131",
+        "ch:MEMORY-DYNAMICS/p138",
+        "ch:MEMORY-DYNAMICS/p144",
+        "ch:MEMORY-DYNAMICS/p148",
+        "ch:MEMORY-DYNAMICS/p157",
+        "ch:MEMORY-DYNAMICS/p163",
+        "ch:MEMORY-DYNAMICS/p174",
+        "ch:MEMORY-DYNAMICS/p176",
+        "ch:MEMORY-DYNAMICS/p178",
+        "ch:MEMORY-DYNAMICS/p180",
+        "ch:MEMORY-DYNAMICS/p186",
+        "ch:MEMORY-DYNAMICS/p192",
+        "ch:MEMORY-DYNAMICS/p198",
+        "ch:MEMORY-DYNAMICS/p200",
+        "ch:MEMORY-DYNAMICS/p202",
+        "ch:MEMORY-DYNAMICS/p204",
+        "ch:MEMORY-DYNAMICS/p206"
+      ],
+      "concepts_checked": [
+        "activation-count-model",
+        "continuous-attractor",
+        "left-zero-eigenvector",
+        "linearization",
+        "neural-transfer-function",
+        "right-zero-eigenvector",
+        "weak-fluctuation-approximation"
+      ],
+      "unit_assessment_ref": "content/chapters/02-memory-dynamics.md::sec:MEMORY-LINEARIZATION",
+      "completeness": {
+        "prerequisites": "The fixed-point equation, activation-rate relation, transfer rule and noise model are already established. Linearization is explained using Taylor expansion; left and right zero vectors are taught with their distinct roles.",
+        "reader_task": "Which part of an arbitrary state disturbance remains as a changed memory?",
+        "reasoning_chain": "Taylor-expand; cancel the fixed terms; interpret the matrix; differentiate the fixed family; normalize the left vector; remove decaying modes; read the retained coordinate.",
+        "connection": "Physical recovery motivates a linear matrix, tangent direction, normalized coordinate extractor and a tilted-flow check.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-DYNAMICS/s3",
+      "unit_id": "content/chapters/02-memory-dynamics.md::sec:MEMORY-DIFFUSION",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-DYNAMICS/p210",
+        "ch:MEMORY-DYNAMICS/p212",
+        "ch:MEMORY-DYNAMICS/p219",
+        "ch:MEMORY-DYNAMICS/p227",
+        "ch:MEMORY-DYNAMICS/p235",
+        "ch:MEMORY-DYNAMICS/p241",
+        "ch:MEMORY-DYNAMICS/p243",
+        "ch:MEMORY-DYNAMICS/p245",
+        "ch:MEMORY-DYNAMICS/p246",
+        "ch:MEMORY-DYNAMICS/p248",
+        "ch:MEMORY-DYNAMICS/p250"
+      ],
+      "concepts_checked": [
+        "diffusion-tensor",
+        "left-zero-eigenvector",
+        "projection-diffusion",
+        "right-zero-eigenvector",
+        "systematic-drift",
+        "weak-fluctuation-approximation"
+      ],
+      "unit_assessment_ref": "content/chapters/02-memory-dynamics.md::sec:MEMORY-DIFFUSION",
+      "completeness": {
+        "prerequisites": "Left projection and Brownian increment covariance have been taught. The variance rule for independent weighted increments is restated before use.",
+        "reader_task": "How much coordinate variance do the independent spike fluctuations leave after recovery?",
+        "reasoning_chain": "Apply the left vector; use independent increment covariance; match 2D; generalize the coordinate weights; state the valid local window.",
+        "connection": "The scalar projected variance precedes multiple coordinates, interpretation and the two local time-scale conditions.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-DYNAMICS/s4",
+      "unit_id": "content/chapters/02-memory-dynamics.md::sec:MEMORY-SYMMETRIC",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-DYNAMICS/p254",
+        "ch:MEMORY-DYNAMICS/p258",
+        "ch:MEMORY-DYNAMICS/p265",
+        "ch:MEMORY-DYNAMICS/p273",
+        "ch:MEMORY-DYNAMICS/p281",
+        "ch:MEMORY-DYNAMICS/p291",
+        "ch:MEMORY-DYNAMICS/p295",
+        "ch:MEMORY-DYNAMICS/p296",
+        "ch:MEMORY-DYNAMICS/p297",
+        "ch:MEMORY-DYNAMICS/p299",
+        "ch:MEMORY-DYNAMICS/p301",
+        "ch:MEMORY-DYNAMICS/p303",
+        "ch:MEMORY-DYNAMICS/p305",
+        "ch:MEMORY-DYNAMICS/p312",
+        "ch:MEMORY-DYNAMICS/p318",
+        "ch:MEMORY-DYNAMICS/p326",
+        "ch:MEMORY-DYNAMICS/p328",
+        "ch:MEMORY-DYNAMICS/p330",
+        "ch:MEMORY-DYNAMICS/p332",
+        "ch:MEMORY-DYNAMICS/p334",
+        "ch:MEMORY-DYNAMICS/p338",
+        "ch:MEMORY-DYNAMICS/p340",
+        "ch:MEMORY-DYNAMICS/p342",
+        "ch:MEMORY-DYNAMICS/p344",
+        "ch:MEMORY-DYNAMICS/p348",
+        "ch:MEMORY-DYNAMICS/p352",
+        "ch:MEMORY-DYNAMICS/p355",
+        "ch:MEMORY-DYNAMICS/p358",
+        "ch:MEMORY-DYNAMICS/p360",
+        "ch:MEMORY-DYNAMICS/p362",
+        "ch:MEMORY-DYNAMICS/p365",
+        "ch:MEMORY-DYNAMICS/p368",
+        "ch:MEMORY-DYNAMICS/p370",
+        "ch:MEMORY-DYNAMICS/p372",
+        "ch:MEMORY-DYNAMICS/p374"
+      ],
+      "concepts_checked": [
+        "projection-diffusion"
+      ],
+      "unit_assessment_ref": "content/chapters/02-memory-dynamics.md::sec:MEMORY-SYMMETRIC",
+      "completeness": {
+        "prerequisites": "The general diffusion formula, left normalization and chain rule are available. Reciprocal weight symmetry is stated separately from translation symmetry.",
+        "reader_task": "When can diffusion be expressed using tuning curves and transfer responses?",
+        "reasoning_chain": "Differentiate tuning identities; use W symmetry; normalize g-prime; substitute into projected variance; check units, assumptions and a simple network.",
+        "connection": "Input and rate derivatives yield a left vector, a specialized formula, its source check and an optional two-cell verification.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-LONG-DELAYS/s0",
+      "unit_id": "content/chapters/02b-memory-long-delays.md::ch:MEMORY-LONG-DELAYS",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-LONG-DELAYS/p3",
+        "ch:MEMORY-LONG-DELAYS/p5",
+        "ch:MEMORY-LONG-DELAYS/p9",
+        "ch:MEMORY-LONG-DELAYS/p11"
+      ],
+      "concepts_checked": [
+        "diffusion-variance"
+      ],
+      "unit_assessment_ref": "content/chapters/02b-memory-long-delays.md::ch:MEMORY-LONG-DELAYS",
+      "completeness": {
+        "prerequisites": "D and the local approximation have been taught; this opening recalls them with coordinate and initial-value notation.",
+        "reader_task": "What changes when a wandering value leaves the local region or reaches a boundary?",
+        "reasoning_chain": "Recall the local result; identify conditions that can change; choose controlled long-delay comparisons.",
+        "connection": "The preceding local-window limit motivates density evolution, drift distinctions and source-figure interpretation.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-LONG-DELAYS/s1",
+      "unit_id": "content/chapters/02b-memory-long-delays.md::sec:MEMORY-LONG-TIME",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-LONG-DELAYS/p15",
+        "ch:MEMORY-LONG-DELAYS/p17",
+        "ch:MEMORY-LONG-DELAYS/p21",
+        "ch:MEMORY-LONG-DELAYS/p32",
+        "ch:MEMORY-LONG-DELAYS/p39",
+        "ch:MEMORY-LONG-DELAYS/p43",
+        "ch:MEMORY-LONG-DELAYS/p51",
+        "ch:MEMORY-LONG-DELAYS/p58",
+        "ch:MEMORY-LONG-DELAYS/p64",
+        "ch:MEMORY-LONG-DELAYS/p68",
+        "ch:MEMORY-LONG-DELAYS/p70",
+        "ch:MEMORY-LONG-DELAYS/p72",
+        "ch:MEMORY-LONG-DELAYS/p74",
+        "ch:MEMORY-LONG-DELAYS/p76",
+        "ch:MEMORY-LONG-DELAYS/p78",
+        "ch:MEMORY-LONG-DELAYS/p80",
+        "ch:MEMORY-LONG-DELAYS/p90",
+        "ch:MEMORY-LONG-DELAYS/p98",
+        "ch:MEMORY-LONG-DELAYS/p109",
+        "ch:MEMORY-LONG-DELAYS/p116",
+        "ch:MEMORY-LONG-DELAYS/p118",
+        "ch:MEMORY-LONG-DELAYS/p122",
+        "ch:MEMORY-LONG-DELAYS/p124"
+      ],
+      "concepts_checked": [
+        "dirac-point-mass",
+        "fokker-planck-equation",
+        "ito-convention"
+      ],
+      "unit_assessment_ref": "content/chapters/02b-memory-long-delays.md::sec:MEMORY-LONG-TIME",
+      "completeness": {
+        "prerequisites": "Brownian increments and local D precede this section. Itô evaluation, trial density and point-mass initial condition are taught before their use; the optional PDE derivation uses stated moments and calculus.",
+        "reader_task": "How do boundaries and state-dependent rates change memory-error distributions?",
+        "reasoning_chain": "Define density and noise convention; obtain its evolution; solve and wrap constant-D motion; interpret the plateau; derive moments under varying D; test a neural example.",
+        "connection": "Constant-D line and circle establish the boundary effect before a mutual-excitation example varies D.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-LONG-DELAYS/s2",
+      "unit_id": "content/chapters/02b-memory-long-delays.md::sec:MEMORY-DRIFT-SCOPE",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-LONG-DELAYS/p129",
+        "ch:MEMORY-LONG-DELAYS/p131",
+        "ch:MEMORY-LONG-DELAYS/p139",
+        "ch:MEMORY-LONG-DELAYS/p141",
+        "ch:MEMORY-LONG-DELAYS/p143",
+        "ch:MEMORY-LONG-DELAYS/p145"
+      ],
+      "concepts_checked": [
+        "conditional-poisson-independence",
+        "stratonovich-convention",
+        "systematic-drift"
+      ],
+      "unit_assessment_ref": "content/chapters/02b-memory-long-delays.md::sec:MEMORY-DRIFT-SCOPE",
+      "completeness": {
+        "prerequisites": "Random spread and mean bias were separated in foundations. Itô and state-dependent D are taught immediately before the Stratonovich comparison.",
+        "reader_task": "What does the diffusion calculation leave unresolved about mean drift and correlated noise?",
+        "reasoning_chain": "Separate mean and spread; identify microscopic drift sources; state convention effects; compare orders; limit compensation; explain what correlated noise would change.",
+        "connection": "Physical mean-versus-spread meaning precedes drift sources, convention comparison, order estimates and correlated-noise scope.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-LONG-DELAYS/s3",
+      "unit_id": "content/chapters/02b-memory-long-delays.md::sec:MEMORY-FIGURES",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-LONG-DELAYS/p149",
+        "ch:MEMORY-LONG-DELAYS/p151",
+        "ch:MEMORY-LONG-DELAYS/p155",
+        "ch:MEMORY-LONG-DELAYS/p156",
+        "ch:MEMORY-LONG-DELAYS/p158",
+        "ch:MEMORY-LONG-DELAYS/p160",
+        "ch:MEMORY-LONG-DELAYS/p164",
+        "ch:MEMORY-LONG-DELAYS/p166",
+        "ch:MEMORY-LONG-DELAYS/p169",
+        "ch:MEMORY-LONG-DELAYS/p171",
+        "ch:MEMORY-LONG-DELAYS/p173",
+        "ch:MEMORY-LONG-DELAYS/p174",
+        "ch:MEMORY-LONG-DELAYS/p176",
+        "ch:MEMORY-LONG-DELAYS/p178",
+        "ch:MEMORY-LONG-DELAYS/p182",
+        "ch:MEMORY-LONG-DELAYS/p186",
+        "ch:MEMORY-LONG-DELAYS/p188",
+        "ch:MEMORY-LONG-DELAYS/p191",
+        "ch:MEMORY-LONG-DELAYS/p193",
+        "ch:MEMORY-LONG-DELAYS/p196",
+        "ch:MEMORY-LONG-DELAYS/p199",
+        "ch:MEMORY-LONG-DELAYS/p201",
+        "ch:MEMORY-LONG-DELAYS/p203",
+        "ch:MEMORY-LONG-DELAYS/p206",
+        "ch:MEMORY-LONG-DELAYS/p209",
+        "ch:MEMORY-LONG-DELAYS/p212",
+        "ch:MEMORY-LONG-DELAYS/p215",
+        "ch:MEMORY-LONG-DELAYS/p218",
+        "ch:MEMORY-LONG-DELAYS/p221",
+        "ch:MEMORY-LONG-DELAYS/p223",
+        "ch:MEMORY-LONG-DELAYS/p225",
+        "ch:MEMORY-LONG-DELAYS/p227"
+      ],
+      "concepts_checked": [
+        "fisher-information-rate"
+      ],
+      "unit_assessment_ref": "content/chapters/02b-memory-long-delays.md::sec:MEMORY-FIGURES",
+      "completeness": {
+        "prerequisites": "Return-flow projection, diffusion, angular wrapping and tuning have already been taught. Activity bump and rotational symmetry receive local explanations before panel reasoning.",
+        "reader_task": "Which plotted object or comparison tests which part of the memory model?",
+        "reasoning_chain": "Identify the coordinate; separate storage and observation errors; assign every curve its quantity; compare model predictions with simulations; pose the information question.",
+        "connection": "Figure 1 separates memory coordinate and readout uncertainty; Figure 2 compares network dynamics across architectures; the ending motivates information.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-INFORMATION/s0",
+      "unit_id": "content/chapters/03-memory-information.md::ch:MEMORY-INFORMATION",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-INFORMATION/p3",
+        "ch:MEMORY-INFORMATION/p5",
+        "ch:MEMORY-INFORMATION/p7",
+        "ch:MEMORY-INFORMATION/p13"
+      ],
+      "concepts_checked": [],
+      "unit_assessment_ref": "content/chapters/03-memory-information.md::ch:MEMORY-INFORMATION",
+      "completeness": {
+        "prerequisites": "The spike model, tuning and retained-coordinate diffusion are established. Information is first explained as local distinguishability rather than assumed as a known technical quantity.",
+        "reader_task": "Why should spike-based estimation accuracy constrain the motion of a stored value?",
+        "reasoning_chain": "Identify shared spike variability; quantify distinguishability; connect it to the retained-noise response; interpret a lower bound.",
+        "connection": "The shared spike source connects observer uncertainty to recurrent noise, while the opening separates a bound from achieved performance.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-INFORMATION/s1",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-FI",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-INFORMATION/p17",
+        "ch:MEMORY-INFORMATION/p19",
+        "ch:MEMORY-INFORMATION/p21",
+        "ch:MEMORY-INFORMATION/p28",
+        "ch:MEMORY-INFORMATION/p40",
+        "ch:MEMORY-INFORMATION/p48",
+        "ch:MEMORY-INFORMATION/p54",
+        "ch:MEMORY-INFORMATION/p62",
+        "ch:MEMORY-INFORMATION/p70",
+        "ch:MEMORY-INFORMATION/p72",
+        "ch:MEMORY-INFORMATION/p74",
+        "ch:MEMORY-INFORMATION/p78",
+        "ch:MEMORY-INFORMATION/p82",
+        "ch:MEMORY-INFORMATION/p84",
+        "ch:MEMORY-INFORMATION/p86",
+        "ch:MEMORY-INFORMATION/p88"
+      ],
+      "concepts_checked": [
+        "fisher-information-rate",
+        "likelihood",
+        "poisson-count-variance",
+        "poisson-counts",
+        "population-code",
+        "prior-distribution",
+        "score",
+        "tuning-curve",
+        "unbiased-estimation"
+      ],
+      "unit_assessment_ref": "content/chapters/03-memory-information.md::sec:MEMORY-FI",
+      "completeness": {
+        "prerequisites": "Positive rates, conditional Poisson moments and tuning slopes are available. Likelihood, score, information rate, unbiasedness and prior distribution are explained before dependent steps.",
+        "reader_task": "How does a short spike sample distinguish nearby represented values?",
+        "reasoning_chain": "State the observation law; differentiate log likelihood; compute score variance; define J; derive inverse-information variance; interpret slope and noise contributions.",
+        "connection": "Physical distinguishability leads to likelihood, score variance, an error bound, its limits and a controlled tuning illustration.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-INFORMATION/s2",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-BOUND",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-INFORMATION/p92",
+        "ch:MEMORY-INFORMATION/p94",
+        "ch:MEMORY-INFORMATION/p104",
+        "ch:MEMORY-INFORMATION/p110",
+        "ch:MEMORY-INFORMATION/p119",
+        "ch:MEMORY-INFORMATION/p125",
+        "ch:MEMORY-INFORMATION/p129",
+        "ch:MEMORY-INFORMATION/p131",
+        "ch:MEMORY-INFORMATION/p133",
+        "ch:MEMORY-INFORMATION/p141",
+        "ch:MEMORY-INFORMATION/p149",
+        "ch:MEMORY-INFORMATION/p151",
+        "ch:MEMORY-INFORMATION/p155",
+        "ch:MEMORY-INFORMATION/p165",
+        "ch:MEMORY-INFORMATION/p173",
+        "ch:MEMORY-INFORMATION/p175",
+        "ch:MEMORY-INFORMATION/p177",
+        "ch:MEMORY-INFORMATION/p188",
+        "ch:MEMORY-INFORMATION/p195",
+        "ch:MEMORY-INFORMATION/p199",
+        "ch:MEMORY-INFORMATION/p201",
+        "ch:MEMORY-INFORMATION/p203",
+        "ch:MEMORY-INFORMATION/p205",
+        "ch:MEMORY-INFORMATION/p207",
+        "ch:MEMORY-INFORMATION/p209",
+        "ch:MEMORY-INFORMATION/p213",
+        "ch:MEMORY-INFORMATION/p221",
+        "ch:MEMORY-INFORMATION/p229",
+        "ch:MEMORY-INFORMATION/p238",
+        "ch:MEMORY-INFORMATION/p240"
+      ],
+      "concepts_checked": [
+        "diffusion-tensor",
+        "fisher-information-rate",
+        "information-bound-equality",
+        "matrix-information-order",
+        "projection-diffusion"
+      ],
+      "unit_assessment_ref": "content/chapters/03-memory-information.md::sec:MEMORY-BOUND",
+      "completeness": {
+        "prerequisites": "D, J, tangent normalization and Cauchy Schwarz are available or restated. Matrix ordering and invertibility are explained before the matrix inverse is used.",
+        "reader_task": "What minimum diffusion follows from spike information, and when is it attained?",
+        "reasoning_chain": "Fix the dot product by normalization; identify the two lengths; apply Cauchy Schwarz; test equality; separate sufficiency from necessity; require full rank for matrix inversion.",
+        "connection": "General inequality precedes interpretation, equality conditions, counterexamples and multidimensional extension.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-INFORMATION/s3",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-COMPARISONS",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-INFORMATION/p244",
+        "ch:MEMORY-INFORMATION/p248",
+        "ch:MEMORY-INFORMATION/p254",
+        "ch:MEMORY-INFORMATION/p260",
+        "ch:MEMORY-INFORMATION/p262",
+        "ch:MEMORY-INFORMATION/p264",
+        "ch:MEMORY-INFORMATION/p270",
+        "ch:MEMORY-INFORMATION/p274",
+        "ch:MEMORY-INFORMATION/p276",
+        "ch:MEMORY-INFORMATION/p282",
+        "ch:MEMORY-INFORMATION/p289",
+        "ch:MEMORY-INFORMATION/p291",
+        "ch:MEMORY-INFORMATION/p301",
+        "ch:MEMORY-INFORMATION/p305",
+        "ch:MEMORY-INFORMATION/p306",
+        "ch:MEMORY-INFORMATION/p308",
+        "ch:MEMORY-INFORMATION/p312",
+        "ch:MEMORY-INFORMATION/p314",
+        "ch:MEMORY-INFORMATION/p315",
+        "ch:MEMORY-INFORMATION/p316",
+        "ch:MEMORY-INFORMATION/p318",
+        "ch:MEMORY-INFORMATION/p322",
+        "ch:MEMORY-INFORMATION/p332",
+        "ch:MEMORY-INFORMATION/p334",
+        "ch:MEMORY-INFORMATION/p336",
+        "ch:MEMORY-INFORMATION/p338",
+        "ch:MEMORY-INFORMATION/p340",
+        "ch:MEMORY-INFORMATION/p342",
+        "ch:MEMORY-INFORMATION/p344",
+        "ch:MEMORY-INFORMATION/p346",
+        "ch:MEMORY-INFORMATION/p348",
+        "ch:MEMORY-INFORMATION/p350",
+        "ch:MEMORY-INFORMATION/p352",
+        "ch:MEMORY-INFORMATION/p355",
+        "ch:MEMORY-INFORMATION/p358",
+        "ch:MEMORY-INFORMATION/p361",
+        "ch:MEMORY-INFORMATION/p364",
+        "ch:MEMORY-INFORMATION/p367",
+        "ch:MEMORY-INFORMATION/p370",
+        "ch:MEMORY-INFORMATION/p373"
+      ],
+      "concepts_checked": [
+        "directional-symmetry"
+      ],
+      "unit_assessment_ref": "content/chapters/03-memory-information.md::sec:MEMORY-COMPARISONS",
+      "completeness": {
+        "prerequisites": "Scalar and matrix information bounds precede the comparisons. Every new scaling family supplies its varied and fixed quantities. Radial symmetry is explained before off-diagonal terms are discarded.",
+        "reader_task": "Which network changes improve persistence when other resources or tuning properties are held fixed?",
+        "reasoning_chain": "Choose controls; propagate their effect through tuning and projection; calculate J and D scaling; test another resource constraint; limit biological co-location claims.",
+        "connection": "Neuron count, rate and synaptic-time comparisons lead to width versus dimension, then an alternative resource constraint and sensory-memory scope.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s0",
+      "unit_id": "content/chapters/03b-memory-readout.md::ch:MEMORY-READOUT",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p3",
+        "ch:MEMORY-READOUT/p5",
+        "ch:MEMORY-READOUT/p9",
+        "ch:MEMORY-READOUT/p11"
+      ],
+      "concepts_checked": [
+        "diffusion-variance"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::ch:MEMORY-READOUT",
+      "completeness": {
+        "prerequisites": "Information rate, diffusion and the difference between current and initial state are established. Storage delay T and observation duration L are explicitly separated here.",
+        "reader_task": "How long should an observer collect spikes when the state keeps moving during observation?",
+        "reasoning_chain": "Separate storage history from cue-state evidence; define T and L; compare inference rules; check extensions and total-error claims.",
+        "connection": "Cue-state recovery motivates total-error decomposition, observer comparison, partial access and model extensions.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s1",
+      "unit_id": "content/chapters/03b-memory-readout.md::sec:MEMORY-READOUT-SETUP",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p17",
+        "ch:MEMORY-READOUT/p19",
+        "ch:MEMORY-READOUT/p31",
+        "ch:MEMORY-READOUT/p35",
+        "ch:MEMORY-READOUT/p43",
+        "ch:MEMORY-READOUT/p51",
+        "ch:MEMORY-READOUT/p55",
+        "ch:MEMORY-READOUT/p56",
+        "ch:MEMORY-READOUT/p58",
+        "ch:MEMORY-READOUT/p60",
+        "ch:MEMORY-READOUT/p62",
+        "ch:MEMORY-READOUT/p64",
+        "ch:MEMORY-READOUT/p66"
+      ],
+      "concepts_checked": [
+        "covariance",
+        "fisher-information-rate",
+        "gaussian-observation-model",
+        "likelihood",
+        "prior-distribution",
+        "systematic-drift",
+        "translation-invariant-readout",
+        "unbiased-estimation"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::sec:MEMORY-READOUT-SETUP",
+      "completeness": {
+        "prerequisites": "Likelihood, information duration, Brownian increments and unbiasedness were taught earlier. Translation invariance receives its local readout meaning before one common readout variance is used.",
+        "reader_task": "Under what assumptions can storage variance and readout variance be added?",
+        "reasoning_chain": "Define access and target; specify transitions and observations; split errors; show the cross term vanishes; impose equal readout statistics across cue states.",
+        "connection": "Observer access precedes Gaussian bins, error definitions, the cross-covariance proof, limitations and the timeline.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s2",
+      "unit_id": "content/chapters/03b-memory-readout.md::sec:MEMORY-NAIVE",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p72",
+        "ch:MEMORY-READOUT/p74",
+        "ch:MEMORY-READOUT/p80",
+        "ch:MEMORY-READOUT/p86",
+        "ch:MEMORY-READOUT/p92",
+        "ch:MEMORY-READOUT/p102",
+        "ch:MEMORY-READOUT/p108",
+        "ch:MEMORY-READOUT/p118",
+        "ch:MEMORY-READOUT/p125"
+      ],
+      "concepts_checked": [
+        "brownian-cross-time-covariance",
+        "gaussian-observation-model"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::sec:MEMORY-NAIVE",
+      "completeness": {
+        "prerequisites": "The observation model and information rate are established. Brownian cross-time covariance is taught in persistence and both its identity and shared-history meaning are restated locally.",
+        "reader_task": "Why does equal weighting eventually make a longer observation worse?",
+        "reasoning_chain": "Write the average; account for shared motion; integrate its covariance; add count noise; differentiate; interpret the finite optimum.",
+        "connection": "The weighting rule precedes separate count and motion errors, their sum, its optimum and interpretation.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s3",
+      "unit_id": "content/chapters/03b-memory-readout.md::sec:MEMORY-IDEAL",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p129",
+        "ch:MEMORY-READOUT/p133",
+        "ch:MEMORY-READOUT/p135",
+        "ch:MEMORY-READOUT/p143",
+        "ch:MEMORY-READOUT/p151",
+        "ch:MEMORY-READOUT/p157",
+        "ch:MEMORY-READOUT/p164",
+        "ch:MEMORY-READOUT/p168",
+        "ch:MEMORY-READOUT/p176",
+        "ch:MEMORY-READOUT/p187",
+        "ch:MEMORY-READOUT/p193",
+        "ch:MEMORY-READOUT/p199",
+        "ch:MEMORY-READOUT/p205",
+        "ch:MEMORY-READOUT/p212",
+        "ch:MEMORY-READOUT/p214",
+        "ch:MEMORY-READOUT/p215",
+        "ch:MEMORY-READOUT/p216",
+        "ch:MEMORY-READOUT/p218",
+        "ch:MEMORY-READOUT/p220",
+        "ch:MEMORY-READOUT/p227"
+      ],
+      "concepts_checked": [
+        "gaussian-observation-model",
+        "gaussian-precision",
+        "hyperbolic-cotangent",
+        "hyperbolic-tangent-inverse",
+        "information-bound-equality",
+        "prior-distribution",
+        "translation-invariant-readout"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::sec:MEMORY-IDEAL",
+      "completeness": {
+        "prerequisites": "Gaussian likelihood and independent transitions are established. Precision and its addition rule are derived before recursion. Hyperbolic functions are defined in the optional exact solution before dependent series calculations.",
+        "reader_task": "How can additional observations keep helping while their benefit approaches a limit?",
+        "reasoning_chain": "Define precision; move future likelihood backward through diffusion; add new information; derive gain-minus-loss evolution; solve or interpret the limit; compare with tau under the bound.",
+        "connection": "The physical inference question leads to precision addition, a backward step, a differential equation, its interpretation, optional solution and visible limiting result.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s4",
+      "unit_id": "content/chapters/03b-memory-readout.md::sec:MEMORY-PARTIAL",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p233",
+        "ch:MEMORY-READOUT/p235",
+        "ch:MEMORY-READOUT/p241",
+        "ch:MEMORY-READOUT/p252",
+        "ch:MEMORY-READOUT/p254",
+        "ch:MEMORY-READOUT/p256",
+        "ch:MEMORY-READOUT/p258",
+        "ch:MEMORY-READOUT/p260",
+        "ch:MEMORY-READOUT/p262"
+      ],
+      "concepts_checked": [
+        "fisher-information-rate",
+        "partial-spike-access"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::sec:MEMORY-PARTIAL",
+      "completeness": {
+        "prerequisites": "J, D and ideal/naive time scales are established. Independent thinning is specified before identifying alpha as an information fraction.",
+        "reader_task": "What changes when a downstream area observes only part of the spike information?",
+        "reasoning_chain": "Keep network D fixed; reduce observed rates and slopes; compute observed information; rescale time and variance; test selection assumptions.",
+        "connection": "The physical access limitation precedes information rescaling, time/error consequences, selection caveats and an optional numerical case.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s5",
+      "unit_id": "content/chapters/03b-memory-readout.md::sec:MEMORY-EXTENSIONS",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p266",
+        "ch:MEMORY-READOUT/p270",
+        "ch:MEMORY-READOUT/p278",
+        "ch:MEMORY-READOUT/p280",
+        "ch:MEMORY-READOUT/p289",
+        "ch:MEMORY-READOUT/p297",
+        "ch:MEMORY-READOUT/p308",
+        "ch:MEMORY-READOUT/p312",
+        "ch:MEMORY-READOUT/p318",
+        "ch:MEMORY-READOUT/p320",
+        "ch:MEMORY-READOUT/p322"
+      ],
+      "concepts_checked": [
+        "noise-law-equality"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::sec:MEMORY-EXTENSIONS",
+      "completeness": {
+        "prerequisites": "Linearization, left projection, score-based information and the equality criterion are already taught. New rate-adjustment time and Gaussian strength q are explicitly introduced.",
+        "reader_task": "Which parts of the bound depend on the cell dynamics or the noise law?",
+        "reasoning_chain": "State the changed model; build its linear or likelihood representation; project noise; match information; derive the modified factor or equality condition; limit its scope.",
+        "connection": "A two-stage dynamical extension precedes a separate constant-noise extension, with each model stated before its derivation and interpretation.",
+        "unresolved": []
+      }
+    },
+    {
+      "section_id": "ch:MEMORY-READOUT/s6",
+      "unit_id": "content/chapters/03b-memory-readout.md::sec:MEMORY-FIG3-AND-CAUTION",
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "source_refs": [
+        "ch:MEMORY-READOUT/p330",
+        "ch:MEMORY-READOUT/p332",
+        "ch:MEMORY-READOUT/p333",
+        "ch:MEMORY-READOUT/p334",
+        "ch:MEMORY-READOUT/p336",
+        "ch:MEMORY-READOUT/p338",
+        "ch:MEMORY-READOUT/p342",
+        "ch:MEMORY-READOUT/p344",
+        "ch:MEMORY-READOUT/p347",
+        "ch:MEMORY-READOUT/p351",
+        "ch:MEMORY-READOUT/p353",
+        "ch:MEMORY-READOUT/p356",
+        "ch:MEMORY-READOUT/p358",
+        "ch:MEMORY-READOUT/p360",
+        "ch:MEMORY-READOUT/p362",
+        "ch:MEMORY-READOUT/p364",
+        "ch:MEMORY-READOUT/p374",
+        "ch:MEMORY-READOUT/p383",
+        "ch:MEMORY-READOUT/p385",
+        "ch:MEMORY-READOUT/p387",
+        "ch:MEMORY-READOUT/p395",
+        "ch:MEMORY-READOUT/p397",
+        "ch:MEMORY-READOUT/p399",
+        "ch:MEMORY-READOUT/p401",
+        "ch:MEMORY-READOUT/p403",
+        "ch:MEMORY-READOUT/p405",
+        "ch:MEMORY-READOUT/p407",
+        "ch:MEMORY-READOUT/p409",
+        "ch:MEMORY-READOUT/p413",
+        "ch:MEMORY-READOUT/p415",
+        "ch:MEMORY-READOUT/p417",
+        "ch:MEMORY-READOUT/p419",
+        "ch:MEMORY-READOUT/p421",
+        "ch:MEMORY-READOUT/p423",
+        "ch:MEMORY-READOUT/p425",
+        "ch:MEMORY-READOUT/p427",
+        "ch:MEMORY-READOUT/p429",
+        "ch:MEMORY-READOUT/p431"
+      ],
+      "concepts_checked": [
+        "hyperbolic-cotangent",
+        "information-bound-equality",
+        "partial-spike-access"
+      ],
+      "unit_assessment_ref": "content/chapters/03b-memory-readout.md::sec:MEMORY-FIG3-AND-CAUTION",
+      "completeness": {
+        "prerequisites": "Ideal and naive formulas, normalization, partial access and storage decomposition are already taught. Main text gives the necessary curve features before optional original artwork.",
+        "reader_task": "What do the readout curves show, and what total-error inequality actually follows?",
+        "reasoning_chain": "Identify plotted quantities; separate storage from readout; apply the information inequality in the right direction; test a strict case; distinguish uncertainty growth from restoring leak.",
+        "connection": "Normalized readout interpretation precedes the printed-bound comparison, a strict example and the final distinction between diffusion and leak.",
+        "unresolved": []
+      }
+    }
+  ],
+  "relations": [
+    {
+      "concept_id": "firing-rate",
+      "passage_id": "ch:FOUNDATIONS/p13",
+      "role": "teach",
+      "span": [
+        45,
+        489
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected spikes per time and the non-clock example establish the rate used by tuning and activation equations. This passage supplies the stated teaching. Current passage contribution: Define spikes and expected firing rate. Connection: Starts the cellular account before synaptic effects.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "firing-rate",
+      "passage_id": "ch:FOUNDATIONS/p24",
+      "role": "use",
+      "span": [
+        0,
+        567
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected spikes per time and the non-clock example establish the rate used by tuning and activation equations. The current inference depends on that quantity or relation. Current passage contribution: Define a tuning curve and its local linear example with units. Connection: Links firing rate to a represented angle before assembling a population.",
+      "need": "required"
+    },
+    {
+      "concept_id": "firing-rate",
+      "passage_id": "ch:MEMORY-DYNAMICS/p41",
+      "role": "use",
+      "span": [
+        0,
+        87
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected spikes per time and the non-clock example establish the rate used by tuning and activation equations. The current inference depends on that quantity or relation. Current passage contribution: Give firing-rate units and introduce weighted input and transfer equations. Connection: Connects outgoing activation to the receiving neuron.",
+      "need": "required"
+    },
+    {
+      "concept_id": "recurrent-connectivity",
+      "passage_id": "ch:FOUNDATIONS/p22",
+      "role": "teach",
+      "span": [
+        0,
+        347
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Lingering synaptic effects feed back into the same population, explaining renewal and steady patterns. This passage supplies the stated teaching. Current passage contribution: Explain persistence of synaptic effects and recurrent feedback. Connection: Connects brief spikes to activity after an external signal ends.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "recurrent-connectivity",
+      "passage_id": "ch:MEMORY-DYNAMICS/p13",
+      "role": "use",
+      "span": [
+        0,
+        370
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Lingering synaptic effects feed back into the same population, explaining renewal and steady patterns. The current inference depends on that quantity or relation. Current passage contribution: Explain the feedback from decaying activation to renewed spikes. Connection: Supplies the neural mechanism before the count equation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "recurrent-connectivity",
+      "passage_id": "ch:MEMORY-DYNAMICS/p94",
+      "role": "use",
+      "span": [
+        0,
+        161
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Lingering synaptic effects feed back into the same population, explaining renewal and steady patterns. The current inference depends on that quantity or relation. Current passage contribution: Set noise to zero and define the steady activation-rate relation. Connection: Connects the neural model to the earlier attractor idea.",
+      "need": "required"
+    },
+    {
+      "concept_id": "tuning-curve",
+      "passage_id": "ch:FOUNDATIONS/p24",
+      "role": "teach",
+      "span": [
+        0,
+        567
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The coordinate-to-rate function and slope units support the population vector and likelihood derivative. This passage supplies the stated teaching. Current passage contribution: Define a tuning curve and its local linear example with units. Connection: Links firing rate to a represented angle before assembling a population.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "tuning-curve",
+      "passage_id": "ch:FOUNDATIONS/p32",
+      "role": "use",
+      "span": [
+        91,
+        761
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The coordinate-to-rate function and slope units support the population vector and likelihood derivative. The current inference depends on that quantity or relation. Current passage contribution: Interpret the rate vector as a population code and distinguish encoding from decoding. Connection: Completes the preceding vector before moving to spatial tuning.",
+      "need": "required"
+    },
+    {
+      "concept_id": "tuning-curve",
+      "passage_id": "ch:MEMORY-INFORMATION/p28",
+      "role": "use",
+      "span": [
+        0,
+        81
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The coordinate-to-rate function and slope units support the population vector and likelihood derivative. The current inference depends on that quantity or relation. Current passage contribution: Take logarithms and define rate derivatives. Connection: Transforms the product likelihood into the score calculation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "population-code",
+      "passage_id": "ch:FOUNDATIONS/p26",
+      "role": "teach",
+      "span": [
+        0,
+        56
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The rate vector across neuron identities represents one coordinate, supporting activity-space geometry and population observation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce different tuning curves across cells and the rate vector. Connection: Leads directly into the displayed vector and its population-code interpretation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "population-code",
+      "passage_id": "ch:FOUNDATIONS/p32",
+      "role": "teach",
+      "span": [
+        91,
+        761
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The rate vector across neuron identities represents one coordinate, supporting activity-space geometry and population observation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Interpret the rate vector as a population code and distinguish encoding from decoding. Connection: Completes the preceding vector before moving to spatial tuning.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "population-code",
+      "passage_id": "ch:PERSISTENCE/p3",
+      "role": "use",
+      "span": [
+        0,
+        463
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The rate vector across neuron identities represents one coordinate, supporting activity-space geometry and population observation. The current inference depends on that quantity or relation. Current passage contribution: Distinguish activity changes from changes in the represented value. Connection: Connects population coding to the geometry of memory error.",
+      "need": "required"
+    },
+    {
+      "concept_id": "population-code",
+      "passage_id": "ch:MEMORY-INFORMATION/p19",
+      "role": "use",
+      "span": [
+        0,
+        226
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The rate vector across neuron identities represents one coordinate, supporting activity-space geometry and population observation. The current inference depends on that quantity or relation. Current passage contribution: Specify short-bin counts, positive rates and locally fixed state. Connection: Applies the established conditional Poisson model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-counts",
+      "passage_id": "ch:FOUNDATIONS/p51",
+      "role": "teach",
+      "span": [
+        0,
+        362
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjoining count law at foundations53-57 and moments at61-64 complete these lead-ins before numerical counts and population likelihood. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce the Poisson count distribution for a fixed rate. Connection: Moves from expected tuning to observed finite counts.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "poisson-counts",
+      "passage_id": "ch:FOUNDATIONS/p59",
+      "role": "teach",
+      "span": [
+        0,
+        79
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjoining count law at foundations53-57 and moments at61-64 complete these lead-ins before numerical counts and population likelihood. This passage contributes the defined component of the connected teaching set. Current passage contribution: Identify lambda as dimensionless expected count and introduce its moments. Connection: Connects the distribution to equal mean and variance.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "poisson-counts",
+      "passage_id": "ch:FOUNDATIONS/p88",
+      "role": "use",
+      "span": [
+        46,
+        302
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjoining count law at foundations53-57 and moments at61-64 complete these lead-ins before numerical counts and population likelihood. The current inference depends on that quantity or relation. Current passage contribution: Set 20 Hz and 50 ms and compute the zero-spike probability. Connection: Begins the worked example from one cell before pooling twenty.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-counts",
+      "passage_id": "ch:MEMORY-INFORMATION/p19",
+      "role": "use",
+      "span": [
+        0,
+        226
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjoining count law at foundations53-57 and moments at61-64 complete these lead-ins before numerical counts and population likelihood. The current inference depends on that quantity or relation. Current passage contribution: Specify short-bin counts, positive rates and locally fixed state. Connection: Applies the established conditional Poisson model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-count-variance",
+      "passage_id": "ch:FOUNDATIONS/p51",
+      "role": "teach",
+      "span": [
+        0,
+        362
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The visible display at foundations61-64 gives mean and variance lambda before the optional factorial-moment proof and network/score variance calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce the Poisson count distribution for a fixed rate. Connection: Moves from expected tuning to observed finite counts.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "poisson-count-variance",
+      "passage_id": "ch:FOUNDATIONS/p59",
+      "role": "teach",
+      "span": [
+        0,
+        79
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The visible display at foundations61-64 gives mean and variance lambda before the optional factorial-moment proof and network/score variance calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Identify lambda as dimensionless expected count and introduce its moments. Connection: Connects the distribution to equal mean and variance.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "poisson-count-variance",
+      "passage_id": "ch:FOUNDATIONS/p68",
+      "role": "use",
+      "span": [
+        46,
+        158
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The visible display at foundations61-64 gives mean and variance lambda before the optional factorial-moment proof and network/score variance calculations. The current inference depends on that quantity or relation. Current passage contribution: Derive the second moment using factorial moments. Connection: Provides optional algebra behind the already visible Poisson moments.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-count-variance",
+      "passage_id": "ch:MEMORY-DYNAMICS/p58",
+      "role": "use",
+      "span": [
+        46,
+        159
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The visible display at foundations61-64 gives mean and variance lambda before the optional factorial-moment proof and network/score variance calculations. The current inference depends on that quantity or relation. Current passage contribution: State conditional Poisson moments for a short interval. Connection: Connects the earlier count model to current network rates.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-count-variance",
+      "passage_id": "ch:MEMORY-INFORMATION/p48",
+      "role": "use",
+      "span": [
+        0,
+        411
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The visible display at foundations61-64 gives mean and variance lambda before the optional factorial-moment proof and network/score variance calculations. The current inference depends on that quantity or relation. Current passage contribution: Use independent Poisson variances and define Fisher information rate. Connection: Completes the score-variance calculation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "conditional-poisson-independence",
+      "passage_id": "ch:FOUNDATIONS/p108",
+      "role": "teach",
+      "span": [
+        46,
+        589
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Elementary counts are independent conditional on current state; complete recurrent spike trains need not be independent. This passage supplies the stated teaching. Current passage contribution: Qualify Poisson independence for changing recurrent states. Connection: Moves from fixed-rate examples to the neural model used later.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "conditional-poisson-independence",
+      "passage_id": "ch:MEMORY-DYNAMICS/p15",
+      "role": "use",
+      "span": [
+        0,
+        308
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Elementary counts are independent conditional on current state; complete recurrent spike trains need not be independent. The current inference depends on that quantity or relation. Current passage contribution: State fixed weights, biases, common decay, conditional Poisson noise and weak input fluctuations. Connection: Places conditions before the model and approximation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "conditional-poisson-independence",
+      "passage_id": "ch:MEMORY-DYNAMICS/p58",
+      "role": "use",
+      "span": [
+        46,
+        159
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Elementary counts are independent conditional on current state; complete recurrent spike trains need not be independent. The current inference depends on that quantity or relation. Current passage contribution: State conditional Poisson moments for a short interval. Connection: Connects the earlier count model to current network rates.",
+      "need": "required"
+    },
+    {
+      "concept_id": "conditional-poisson-independence",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p145",
+      "role": "use",
+      "span": [
+        0,
+        783
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Elementary counts are independent conditional on current state; complete recurrent spike trains need not be independent. The current inference depends on that quantity or relation. Current passage contribution: State conditional spike independence and the correlated-noise extension. Connection: Closes scope before interpreting the figures.",
+      "need": "required"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:FOUNDATIONS/p133",
+      "role": "teach",
+      "span": [
+        0,
+        799
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define covariance and normalized correlation physically. Connection: Precedes formal definitions with the meaning of shared variation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:FOUNDATIONS/p137",
+      "role": "teach",
+      "span": [
+        0,
+        170
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. This passage contributes the defined component of the connected teaching set. Current passage contribution: Set the two displacement variables and their centered fluctuations. Connection: Starts the optional formal covariance calculation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:FOUNDATIONS/p143",
+      "role": "teach",
+      "span": [
+        0,
+        196
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. This passage contributes the defined component of the connected teaching set. Current passage contribution: State covariance units and derive the sum/difference variance relation. Connection: Connects covariance to variance decomposition.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:FOUNDATIONS/p161",
+      "role": "use",
+      "span": [
+        0,
+        383
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. The current inference depends on that quantity or relation. Current passage contribution: Construct a shared signal with gains and private noise. Connection: Makes the abstract covariance quantities physical.",
+      "need": "required"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:MEMORY-DYNAMICS/p58",
+      "role": "use",
+      "span": [
+        46,
+        159
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. The current inference depends on that quantity or relation. Current passage contribution: State conditional Poisson moments for a short interval. Connection: Connects the earlier count model to current network rates.",
+      "need": "required"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:MEMORY-READOUT/p35",
+      "role": "use",
+      "span": [
+        0,
+        293
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. The current inference depends on that quantity or relation. Current passage contribution: Define storage and readout errors and expand their variance. Connection: Applies basic covariance to the recall problem.",
+      "need": "required"
+    },
+    {
+      "concept_id": "covariance-and-correlation",
+      "passage_id": "ch:FOUNDATIONS/p133",
+      "role": "teach",
+      "span": [
+        0,
+        799
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The covariance definition, normalized coefficient and independence caveat support the private-noise interpretation of correlation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define covariance and normalized correlation physically. Connection: Precedes formal definitions with the meaning of shared variation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance-and-correlation",
+      "passage_id": "ch:FOUNDATIONS/p137",
+      "role": "teach",
+      "span": [
+        0,
+        170
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The covariance definition, normalized coefficient and independence caveat support the private-noise interpretation of correlation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Set the two displacement variables and their centered fluctuations. Connection: Starts the optional formal covariance calculation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance-and-correlation",
+      "passage_id": "ch:FOUNDATIONS/p149",
+      "role": "teach",
+      "span": [
+        0,
+        37
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The covariance definition, normalized coefficient and independence caveat support the private-noise interpretation of correlation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce correlation for nonzero variances. Connection: Connects the covariance formula to its normalized version.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance-and-correlation",
+      "passage_id": "ch:FOUNDATIONS/p155",
+      "role": "teach",
+      "span": [
+        87,
+        249
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The covariance definition, normalized coefficient and independence caveat support the private-noise interpretation of correlation. This passage contributes the defined component of the connected teaching set. Current passage contribution: State correlation range and the one-way implication from independence. Connection: Interprets the normalized expression before the signal construction.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "covariance-and-correlation",
+      "passage_id": "ch:FOUNDATIONS/p168",
+      "role": "use",
+      "span": [
+        0,
+        321
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The covariance definition, normalized coefficient and independence caveat support the private-noise interpretation of correlation. The current inference depends on that quantity or relation. Current passage contribution: Show how private variance and gain change correlation or covariance. Connection: Concludes the shared-signal construction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "msd-variance-mean-split",
+      "passage_id": "ch:FOUNDATIONS/p174",
+      "role": "teach",
+      "span": [
+        0,
+        176
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjacent formula at foundations176-178 and visible two-source interpretation precede the random-plus-bias calculation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define MSD and display its variance-plus-mean-square split. Connection: Quantifies the preceding random/bias distinction.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "msd-variance-mean-split",
+      "passage_id": "ch:FOUNDATIONS/p180",
+      "role": "teach",
+      "span": [
+        41,
+        230
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjacent formula at foundations176-178 and visible two-source interpretation precede the random-plus-bias calculation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Interpret the two ways MSD can increase. Connection: Follows the displayed split and precedes optional algebra.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "msd-variance-mean-split",
+      "passage_id": "ch:PERSISTENCE/p134",
+      "role": "use",
+      "span": [
+        0,
+        75
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjacent formula at foundations176-178 and visible two-source interpretation precede the random-plus-bias calculation. The current inference depends on that quantity or relation. Current passage contribution: Add a fixed bias velocity to the same process. Connection: Extends the random example using the earlier MSD split.",
+      "need": "required"
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_id": "ch:PERSISTENCE/p17",
+      "role": "teach",
+      "span": [
+        0,
+        414
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State and fixed point lead to restoring transverse changes and a neutral represented coordinate before network-family reasoning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define state, fixed point and directional stability. Connection: Supplies the dynamical vocabulary for continuous attractors.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_id": "ch:PERSISTENCE/p19",
+      "role": "teach",
+      "span": [
+        0,
+        733
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State and fixed point lead to restoring transverse changes and a neutral represented coordinate before network-family reasoning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define the continuous family, neutral direction and manifold dimension. Connection: Extends one fixed point to a representation of continuous values.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_id": "ch:PERSISTENCE/p21",
+      "role": "teach",
+      "span": [
+        0,
+        407
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State and fixed point lead to restoring transverse changes and a neutral represented coordinate before network-family reasoning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain the two-cell sum/difference mechanism in visible prose. Connection: Prepares the optional numerical calculation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_id": "ch:MEMORY-DYNAMICS/p94",
+      "role": "use",
+      "span": [
+        0,
+        161
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State and fixed point lead to restoring transverse changes and a neutral represented coordinate before network-family reasoning. The current inference depends on that quantity or relation. Current passage contribution: Set noise to zero and define the steady activation-rate relation. Connection: Connects the neural model to the earlier attractor idea.",
+      "need": "required"
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_id": "ch:MEMORY-DYNAMICS/p107",
+      "role": "use",
+      "span": [
+        0,
+        458
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State and fixed point lead to restoring transverse changes and a neutral represented coordinate before network-family reasoning. The current inference depends on that quantity or relation. Current passage contribution: Identify the lasting coordinate change after other modes decay. Connection: Opens projection from the actual memory-loss question.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-motion",
+      "passage_id": "ch:PERSISTENCE/p102",
+      "role": "teach",
+      "span": [
+        0,
+        559
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Zero start, continuous paths and independent Gaussian increments with elapsed-time variance are taught before the stochastic state equation. This passage supplies the stated teaching. Current passage contribution: Pass from equal steps to Brownian motion with its increment properties. Connection: Explains the continuous approximation after deriving linear variance.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-motion",
+      "passage_id": "ch:PERSISTENCE/p104",
+      "role": "use",
+      "span": [
+        0,
+        43
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Zero start, continuous paths and independent Gaussian increments with elapsed-time variance are taught before the stochastic state equation. The current inference depends on that quantity or relation. Current passage contribution: Introduce the continuous-coordinate expression. Connection: Connects Brownian motion to the displayed theta process.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-motion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p86",
+      "role": "use",
+      "span": [
+        40,
+        494
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Zero start, continuous paths and independent Gaussian increments with elapsed-time variance are taught before the stochastic state equation. The current inference depends on that quantity or relation. Current passage contribution: Identify Brownian inputs, units and approximation limits. Connection: Interprets the Gaussian equation using prior Brownian teaching.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-cross-time-covariance",
+      "passage_id": "ch:PERSISTENCE/p162",
+      "role": "teach",
+      "span": [
+        0,
+        217
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The shared-increment split and adjoining min(s,t) display derive the identity; the readout section also restates its physical reason. This passage contributes the defined component of the connected teaching set. Current passage contribution: Split a Brownian path into shared and later independent increments. Connection: Derives the minimum-time covariance using earlier Brownian properties.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "brownian-cross-time-covariance",
+      "passage_id": "ch:PERSISTENCE/p171",
+      "role": "teach",
+      "span": [
+        0,
+        328
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The shared-increment split and adjoining min(s,t) display derive the identity; the readout section also restates its physical reason. This passage contributes the defined component of the connected teaching set. Current passage contribution: Rescale the covariance to the memory coordinate. Connection: Connects the Brownian calculation to readout and smoothing.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "brownian-cross-time-covariance",
+      "passage_id": "ch:MEMORY-READOUT/p74",
+      "role": "use",
+      "span": [
+        0,
+        94
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The shared-increment split and adjoining min(s,t) display derive the identity; the readout section also restates its physical reason. The current inference depends on that quantity or relation. Current passage contribution: Write the diffusing post-cue state and its covariance. Connection: Uses the prior Brownian teaching in the readout setting.",
+      "need": "required"
+    },
+    {
+      "concept_id": "neural-transfer-function",
+      "passage_id": "ch:MEMORY-DYNAMICS/p48",
+      "role": "teach",
+      "span": [
+        86,
+        637
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The input-to-rate map and one-spike causal trace explain phi and its derivative before linearization. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define weight direction, bias and neural transfer function. Connection: Interprets the summed-input equation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "neural-transfer-function",
+      "passage_id": "ch:MEMORY-DYNAMICS/p54",
+      "role": "teach",
+      "span": [
+        46,
+        617
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The input-to-rate map and one-spike causal trace explain phi and its derivative before linearization. This passage contributes the defined component of the connected teaching set. Current passage contribution: Trace one spike through activation, weight, transfer response and renewed spikes. Connection: Completes the physical feedback path after the formal mapping.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "neural-transfer-function",
+      "passage_id": "ch:MEMORY-DYNAMICS/p109",
+      "role": "use",
+      "span": [
+        0,
+        354
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The input-to-rate map and one-spike causal trace explain phi and its derivative before linearization. The current inference depends on that quantity or relation. Current passage contribution: Define linearization and Taylor-expand the transfer rule. Connection: Supplies the general tool before applying it to the state disturbance.",
+      "need": "required"
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_id": "ch:MEMORY-DYNAMICS/p78",
+      "role": "teach",
+      "span": [
+        0,
+        369
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Small total-input fluctuations, covariance matching and population replication explain the leading Gaussian approximation before local noise evaluation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce the weak aggregate-fluctuation Gaussian approximation. Connection: Changes description only after the exact jump model is established.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_id": "ch:MEMORY-DYNAMICS/p86",
+      "role": "teach",
+      "span": [
+        40,
+        494
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Small total-input fluctuations, covariance matching and population replication explain the leading Gaussian approximation before local noise evaluation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Identify Brownian inputs, units and approximation limits. Connection: Interprets the Gaussian equation using prior Brownian teaching.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_id": "ch:MEMORY-DYNAMICS/p90",
+      "role": "teach",
+      "span": [
+        46,
+        803
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Small total-input fluctuations, covariance matching and population replication explain the leading Gaussian approximation before local noise evaluation. This passage contributes the defined component of the connected teaching set. Current passage contribution: Show population replication and weight scaling behind weak fluctuations. Connection: Makes the approximation concrete before fixed-point analysis.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_id": "ch:MEMORY-DYNAMICS/p127",
+      "role": "use",
+      "span": [
+        0,
+        150
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Small total-input fluctuations, covariance matching and population replication explain the leading Gaussian approximation before local noise evaluation. The current inference depends on that quantity or relation. Current passage contribution: Specify fixed-point noise evaluation and matrix units. Connection: Qualifies the local matrix equation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_id": "ch:MEMORY-DYNAMICS/p210",
+      "role": "use",
+      "span": [
+        0,
+        411
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Small total-input fluctuations, covariance matching and population replication explain the leading Gaussian approximation before local noise evaluation. The current inference depends on that quantity or relation. Current passage contribution: Return to random spikes after the deterministic projection. Connection: Starts the variance calculation from the retained-noise mechanism.",
+      "need": "required"
+    },
+    {
+      "concept_id": "linearization",
+      "passage_id": "ch:MEMORY-DYNAMICS/p109",
+      "role": "teach",
+      "span": [
+        0,
+        354
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The first-order Taylor approximation is defined before cancellation and interpretation of the dynamical matrix. This passage supplies the stated teaching. Current passage contribution: Define linearization and Taylor-expand the transfer rule. Connection: Supplies the general tool before applying it to the state disturbance.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "linearization",
+      "passage_id": "ch:MEMORY-DYNAMICS/p116",
+      "role": "use",
+      "span": [
+        46,
+        125
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The first-order Taylor approximation is defined before cancellation and interpretation of the dynamical matrix. The current inference depends on that quantity or relation. Current passage contribution: Cancel constant terms using the fixed-point condition. Connection: Connects the Taylor expansion to the displayed linear stochastic system.",
+      "need": "required"
+    },
+    {
+      "concept_id": "linearization",
+      "passage_id": "ch:MEMORY-DYNAMICS/p129",
+      "role": "use",
+      "span": [
+        0,
+        544
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The first-order Taylor approximation is defined before cancellation and interpretation of the dynamical matrix. The current inference depends on that quantity or relation. Current passage contribution: Interpret decay and recurrent-renewal matrix terms. Connection: Returns the matrix to cell-to-cell effects before extracting modes.",
+      "need": "required"
+    },
+    {
+      "concept_id": "right-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p131",
+      "role": "teach",
+      "span": [
+        0,
+        70
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The family tangent and chain-rule zero equation establish the persistent state direction before normalization and multiple coordinates. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define the tangent derivative of the steady activity family. Connection: Turns a coordinate shift into a state perturbation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "right-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p138",
+      "role": "teach",
+      "span": [
+        0,
+        99
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The family tangent and chain-rule zero equation establish the persistent state direction before normalization and multiple coordinates. This passage contributes the defined component of the connected teaching set. Current passage contribution: Differentiate the fixed-point equation by the chain rule. Connection: Proves the tangent's zero-eigenvalue property.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "right-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p144",
+      "role": "teach",
+      "span": [
+        46,
+        351
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The family tangent and chain-rule zero equation establish the persistent state direction before normalization and multiple coordinates. This passage contributes the defined component of the connected teaching set. Current passage contribution: Name and interpret the right zero eigenvector. Connection: Concludes the tangent calculation before introducing its dual.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "right-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p157",
+      "role": "use",
+      "span": [
+        0,
+        257
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The family tangent and chain-rule zero equation establish the persistent state direction before normalization and multiple coordinates. The current inference depends on that quantity or relation. Current passage contribution: Explain coordinate extraction and annihilation of a stable eigenmode. Connection: Connects left-vector normalization to the projection proof.",
+      "need": "required"
+    },
+    {
+      "concept_id": "right-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p235",
+      "role": "use",
+      "span": [
+        0,
+        234
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The family tangent and chain-rule zero equation establish the persistent state direction before normalization and multiple coordinates. The current inference depends on that quantity or relation. Current passage contribution: Generalize tangent and left vectors to multiple coordinates. Connection: Extends the scalar covariance calculation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "left-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p148",
+      "role": "teach",
+      "span": [
+        42,
+        193
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The left equation, tangent normalization and annihilation of decaying modes establish retained-coordinate extraction before examples and noise projection. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce the left zero vector and its normalization. Connection: Adds the object needed to read a coordinate from a general disturbance.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "left-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p157",
+      "role": "teach",
+      "span": [
+        0,
+        257
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The left equation, tangent normalization and annihilation of decaying modes establish retained-coordinate extraction before examples and noise projection. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain coordinate extraction and annihilation of a stable eigenmode. Connection: Connects left-vector normalization to the projection proof.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "left-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p163",
+      "role": "teach",
+      "span": [
+        86,
+        322
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The left equation, tangent normalization and annihilation of decaying modes establish retained-coordinate extraction before examples and noise projection. This passage contributes the defined component of the connected teaching set. Current passage contribution: Conclude that all decaying modes vanish under the left vector. Connection: Completes the argument before displaying the surviving state component.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "left-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p192",
+      "role": "use",
+      "span": [
+        101,
+        376
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The left equation, tangent normalization and annihilation of decaying modes establish retained-coordinate extraction before examples and noise projection. The current inference depends on that quantity or relation. Current passage contribution: Compute the two zero vectors and interpret the retained shift. Connection: Completes the example's mathematical comparison.",
+      "need": "required"
+    },
+    {
+      "concept_id": "left-zero-eigenvector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p212",
+      "role": "use",
+      "span": [
+        0,
+        292
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The left equation, tangent normalization and annihilation of decaying modes establish retained-coordinate extraction before examples and noise projection. The current inference depends on that quantity or relation. Current passage contribution: Apply variance-of-weighted-independent-increments to the left projection. Connection: Connects basic probability to coordinate noise.",
+      "need": "required"
+    },
+    {
+      "concept_id": "diffusion-tensor",
+      "passage_id": "ch:MEMORY-DYNAMICS/p235",
+      "role": "teach",
+      "span": [
+        0,
+        234
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Coordinate covariance and diagonal/coupled meanings are taught before the matrix information bound. This passage contributes the defined component of the connected teaching set. Current passage contribution: Generalize tangent and left vectors to multiple coordinates. Connection: Extends the scalar covariance calculation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "diffusion-tensor",
+      "passage_id": "ch:MEMORY-DYNAMICS/p250",
+      "role": "teach",
+      "span": [
+        0,
+        436
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Coordinate covariance and diagonal/coupled meanings are taught before the matrix information bound. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define and physically interpret the diffusion tensor. Connection: Completes the multidimensional extension.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "diffusion-tensor",
+      "passage_id": "ch:MEMORY-INFORMATION/p221",
+      "role": "use",
+      "span": [
+        0,
+        523
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Coordinate covariance and diagonal/coupled meanings are taught before the matrix information bound. The current inference depends on that quantity or relation. Current passage contribution: State invertibility and quadratic-form ordering and define U and V. Connection: Prepares the matrix inequality in undergraduate linear-algebra terms.",
+      "need": "required"
+    },
+    {
+      "concept_id": "ito-convention",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p17",
+      "role": "teach",
+      "span": [
+        0,
+        537
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Beginning-of-increment evaluation is explained before the generator expansion and state-dependent moment calculation. This passage supplies the stated teaching. Current passage contribution: Define trial density and the Itô evaluation convention. Connection: Prepares the density equation before state-dependent noise use.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "ito-convention",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p21",
+      "role": "use",
+      "span": [
+        0,
+        270
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Beginning-of-increment evaluation is explained before the generator expansion and state-dependent moment calculation. The current inference depends on that quantity or relation. Current passage contribution: Taylor-expand a smooth test function using conditional increment moments. Connection: Starts the optional derivation from random steps to density.",
+      "need": "required"
+    },
+    {
+      "concept_id": "ito-convention",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p90",
+      "role": "use",
+      "span": [
+        0,
+        223
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Beginning-of-increment evaluation is explained before the generator expansion and state-dependent moment calculation. The current inference depends on that quantity or relation. Current passage contribution: State the Itô state-dependent process and its moment equations. Connection: Connects the neural example to the density machinery.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fokker-planck-equation",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p17",
+      "role": "teach",
+      "span": [
+        0,
+        537
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Trial density, adjacent zero-drift PDE and point-mass initial condition precede wrapping and moment integration; the optional derivation at21-39 supplies the calculus. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define trial density and the Itô evaluation convention. Connection: Prepares the density equation before state-dependent noise use.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "fokker-planck-equation",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p43",
+      "role": "teach",
+      "span": [
+        0,
+        186
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Trial density, adjacent zero-drift PDE and point-mass initial condition precede wrapping and moment integration; the optional derivation at21-39 supplies the calculus. This passage contributes the defined component of the connected teaching set. Current passage contribution: Name and display the zero-drift Fokker Planck equation. Connection: Places the result outside its derivation fold.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "fokker-planck-equation",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p51",
+      "role": "teach",
+      "span": [
+        0,
+        292
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Trial density, adjacent zero-drift PDE and point-mass initial condition precede wrapping and moment integration; the optional derivation at21-39 supplies the calculus. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain the point-mass initial condition and Gaussian line solution. Connection: Interprets the PDE symbols before using its solution.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "fokker-planck-equation",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p58",
+      "role": "use",
+      "span": [
+        0,
+        428
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Trial density, adjacent zero-drift PDE and point-mass initial condition precede wrapping and moment integration; the optional derivation at21-39 supplies the calculus. The current inference depends on that quantity or relation. Current passage contribution: Wrap the line density and compute the uniform-circle limit. Connection: Connects the same local diffusion to a bounded angular error.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fokker-planck-equation",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p98",
+      "role": "use",
+      "span": [
+        96,
+        456
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Trial density, adjacent zero-drift PDE and point-mass initial condition precede wrapping and moment integration; the optional derivation at21-39 supplies the calculus. The current inference depends on that quantity or relation. Current passage contribution: Derive moment identities and the short-time expansion. Connection: Follows the stated PDE with explicit integration operations.",
+      "need": "required"
+    },
+    {
+      "concept_id": "systematic-drift",
+      "passage_id": "ch:PERSISTENCE/p142",
+      "role": "teach",
+      "span": [
+        0,
+        404
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Nonzero mean velocity is defined separately from variance growth. Visible foundations172-203 already explain directional bias, and long-delay prose recalls the meaning. This passage supplies the stated teaching. Current passage contribution: Locate equal contributions and define systematic drift. Connection: Interprets the crossing before the plotted paths.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "systematic-drift",
+      "passage_id": "ch:MEMORY-DYNAMICS/p248",
+      "role": "use",
+      "span": [
+        0,
+        165
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Nonzero mean velocity is defined separately from variance growth. Visible foundations172-203 already explain directional bias, and long-delay prose recalls the meaning. The current inference depends on that quantity or relation. Current passage contribution: Conclude the local scope and defer mean drift to a distinct calculation. Connection: Links the two conditions to the next chapter.",
+      "need": "required"
+    },
+    {
+      "concept_id": "systematic-drift",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p129",
+      "role": "use",
+      "span": [
+        0,
+        285
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Nonzero mean velocity is defined separately from variance growth. Visible foundations172-203 already explain directional bias, and long-delay prose recalls the meaning. The current inference depends on that quantity or relation. Current passage contribution: Separate across-trial spread from movement of the mean. Connection: Starts the drift question after diffusion predictions.",
+      "need": "required"
+    },
+    {
+      "concept_id": "systematic-drift",
+      "passage_id": "ch:MEMORY-READOUT/p35",
+      "role": "use",
+      "span": [
+        0,
+        293
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Nonzero mean velocity is defined separately from variance growth. Visible foundations172-203 already explain directional bias, and long-delay prose recalls the meaning. The current inference depends on that quantity or relation. Current passage contribution: Define storage and readout errors and expand their variance. Connection: Applies basic covariance to the recall problem.",
+      "need": "required"
+    },
+    {
+      "concept_id": "likelihood",
+      "passage_id": "ch:MEMORY-INFORMATION/p21",
+      "role": "teach",
+      "span": [
+        0,
+        226
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Probability of observed data as a function of proposed memory is defined before logarithms and Gaussian observation approximation. This passage supplies the stated teaching. Current passage contribution: Define likelihood and write the population count probabilities. Connection: Turns observed spikes into a function of candidate memory value.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "likelihood",
+      "passage_id": "ch:MEMORY-INFORMATION/p28",
+      "role": "use",
+      "span": [
+        0,
+        81
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Probability of observed data as a function of proposed memory is defined before logarithms and Gaussian observation approximation. The current inference depends on that quantity or relation. Current passage contribution: Take logarithms and define rate derivatives. Connection: Transforms the product likelihood into the score calculation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "likelihood",
+      "passage_id": "ch:MEMORY-READOUT/p19",
+      "role": "use",
+      "span": [
+        0,
+        209
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Probability of observed data as a function of proposed memory is defined before logarithms and Gaussian observation approximation. The current inference depends on that quantity or relation. Current passage contribution: Introduce Gaussian bin likelihoods and the transition/observation model. Connection: Connects spike information to an inference model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "score",
+      "passage_id": "ch:MEMORY-INFORMATION/p40",
+      "role": "teach",
+      "span": [
+        0,
+        240
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Log-likelihood sensitivity and zero mean from count moments precede information and the unbiased-estimator identity. This passage supplies the stated teaching. Current passage contribution: Define score and explain its zero mean and mean square. Connection: Interprets the log-likelihood derivative before naming information.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "score",
+      "passage_id": "ch:MEMORY-INFORMATION/p48",
+      "role": "use",
+      "span": [
+        0,
+        411
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Log-likelihood sensitivity and zero mean from count moments precede information and the unbiased-estimator identity. The current inference depends on that quantity or relation. Current passage contribution: Use independent Poisson variances and define Fisher information rate. Connection: Completes the score-variance calculation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "score",
+      "passage_id": "ch:MEMORY-INFORMATION/p54",
+      "role": "use",
+      "span": [
+        0,
+        398
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Log-likelihood sensitivity and zero mean from count moments precede information and the unbiased-estimator identity. The current inference depends on that quantity or relation. Current passage contribution: Define local unbiasedness and differentiate the estimator mean. Connection: Begins the error-bound proof from its necessary estimation premise.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-INFORMATION/p48",
+      "role": "teach",
+      "span": [
+        0,
+        411
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Use independent Poisson variances and define Fisher information rate. Connection: Completes the score-variance calculation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-INFORMATION/p72",
+      "role": "teach",
+      "span": [
+        0,
+        266
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Give information-rate units and distinguish J from duration times J. Connection: Clarifies the scale used by later readout equations.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-INFORMATION/p74",
+      "role": "teach",
+      "span": [
+        45,
+        577
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Interpret squared slope over noise and distinguish internal from sensory coordinates. Connection: Connects the formula to neural tuning before the figure example.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-INFORMATION/p110",
+      "role": "use",
+      "span": [
+        46,
+        142
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. The current inference depends on that quantity or relation. Current passage contribution: Identify the vector lengths and apply Cauchy Schwarz. Connection: Completes the argument from normalization to 2DJ.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-READOUT/p19",
+      "role": "use",
+      "span": [
+        0,
+        209
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. The current inference depends on that quantity or relation. Current passage contribution: Introduce Gaussian bin likelihoods and the transition/observation model. Connection: Connects spike information to an inference model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-READOUT/p235",
+      "role": "use",
+      "span": [
+        0,
+        210
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. The current inference depends on that quantity or relation. Current passage contribution: Derive alpha times information under independent thinning. Connection: Applies the Poisson information formula to the stated access rule.",
+      "need": "required"
+    },
+    {
+      "concept_id": "unbiased-estimation",
+      "passage_id": "ch:MEMORY-INFORMATION/p54",
+      "role": "teach",
+      "span": [
+        0,
+        398
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Local equality of estimator mean and parameter plus regularity limits precede the zero-conditional-readout-error step. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define local unbiasedness and differentiate the estimator mean. Connection: Begins the error-bound proof from its necessary estimation premise.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "unbiased-estimation",
+      "passage_id": "ch:MEMORY-INFORMATION/p70",
+      "role": "teach",
+      "span": [
+        0,
+        721
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Local equality of estimator mean and parameter plus regularity limits precede the zero-conditional-readout-error step. This passage contributes the defined component of the connected teaching set. Current passage contribution: Name the Cramér Rao bound and explain its local limits and priors. Connection: Interprets the proof before treating the result as an observation model.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "unbiased-estimation",
+      "passage_id": "ch:MEMORY-READOUT/p43",
+      "role": "use",
+      "span": [
+        46,
+        747
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Local equality of estimator mean and parameter plus regularity limits precede the zero-conditional-readout-error step. The current inference depends on that quantity or relation. Current passage contribution: Prove zero cross covariance and define translation-invariant readout error. Connection: Connects unbiasedness and future-noise independence to the total variance.",
+      "need": "required"
+    },
+    {
+      "concept_id": "prior-distribution",
+      "passage_id": "ch:MEMORY-INFORMATION/p70",
+      "role": "teach",
+      "span": [
+        0,
+        721
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Knowledge before the current data is defined before caveats about changed priors and the no-informative-prior recursion. This passage supplies the stated teaching. Current passage contribution: Name the Cramér Rao bound and explain its local limits and priors. Connection: Interprets the proof before treating the result as an observation model.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "prior-distribution",
+      "passage_id": "ch:MEMORY-READOUT/p58",
+      "role": "use",
+      "span": [
+        0,
+        233
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Knowledge before the current data is defined before caveats about changed priors and the no-informative-prior recursion. The current inference depends on that quantity or relation. Current passage contribution: Limit the variance decomposition under changed domains, priors or encoding. Connection: Qualifies the result before the timeline figure.",
+      "need": "required"
+    },
+    {
+      "concept_id": "prior-distribution",
+      "passage_id": "ch:MEMORY-READOUT/p135",
+      "role": "use",
+      "span": [
+        46,
+        532
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Knowledge before the current data is defined before caveats about changed priors and the no-informative-prior recursion. The current inference depends on that quantity or relation. Current passage contribution: Move a later likelihood backward through transition variance. Connection: Starts the backward information calculation from a defined P.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-precision",
+      "passage_id": "ch:MEMORY-READOUT/p133",
+      "role": "teach",
+      "span": [
+        0,
+        408
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Reciprocal variance and addition of independent precisions are derived from Gaussian likelihood products before backward inference. This passage supplies the stated teaching. Current passage contribution: Define Gaussian precision and derive addition of independent precisions. Connection: Supplies the new inference tool before recursion.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian-precision",
+      "passage_id": "ch:MEMORY-READOUT/p135",
+      "role": "use",
+      "span": [
+        46,
+        532
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Reciprocal variance and addition of independent precisions are derived from Gaussian likelihood products before backward inference. The current inference depends on that quantity or relation. Current passage contribution: Move a later likelihood backward through transition variance. Connection: Starts the backward information calculation from a defined P.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-precision",
+      "passage_id": "ch:MEMORY-READOUT/p143",
+      "role": "use",
+      "span": [
+        46,
+        159
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Reciprocal variance and addition of independent precisions are derived from Gaussian likelihood products before backward inference. The current inference depends on that quantity or relation. Current passage contribution: Add the new earliest observation to the degraded later information. Connection: Completes one recursion step.",
+      "need": "required"
+    },
+    {
+      "concept_id": "hyperbolic-tangent-inverse",
+      "passage_id": "ch:MEMORY-READOUT/p168",
+      "role": "teach",
+      "span": [
+        0,
+        426
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Explicit tanh and artanh formulas, domain and derivative precede inversion inside the optional exact solution. This passage supplies the stated teaching. Current passage contribution: Define hyperbolic tangent and its inverse and separate variables. Connection: Begins the optional solution with unfamiliar functions explained.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "hyperbolic-tangent-inverse",
+      "passage_id": "ch:MEMORY-READOUT/p176",
+      "role": "use",
+      "span": [
+        0,
+        58
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Explicit tanh and artanh formulas, domain and derivative precede inversion inside the optional exact solution. The current inference depends on that quantity or relation. Current passage contribution: Invert the integrated relation and take reciprocal precision. Connection: Produces the finite-duration variance from the solved P.",
+      "need": "required"
+    },
+    {
+      "concept_id": "hyperbolic-cotangent",
+      "passage_id": "ch:MEMORY-READOUT/p187",
+      "role": "teach",
+      "span": [
+        93,
+        440
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Reciprocal tanh is defined before the short-time series and normalized curve expression; physical curve behavior remains visible. This passage supplies the stated teaching. Current passage contribution: Define hyperbolic cotangent and link the teaching derivation to the source. Connection: Interprets the exact finite-time result.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "hyperbolic-cotangent",
+      "passage_id": "ch:MEMORY-READOUT/p193",
+      "role": "use",
+      "span": [
+        0,
+        49
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Reciprocal tanh is defined before the short-time series and normalized curve expression; physical curve behavior remains visible. The current inference depends on that quantity or relation. Current passage contribution: Expand the short-duration solution. Connection: Checks the ideal result against the naive formula.",
+      "need": "required"
+    },
+    {
+      "concept_id": "hyperbolic-cotangent",
+      "passage_id": "ch:MEMORY-READOUT/p330",
+      "role": "use",
+      "span": [
+        0,
+        281
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Reciprocal tanh is defined before the short-time series and normalized curve expression; physical curve behavior remains visible. The current inference depends on that quantity or relation. Current passage contribution: Define the normalized Figure 3 axes and curves. Connection: Starts figure interpretation from the derived readout formulas.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial-tuning",
+      "passage_id": "ch:FOUNDATIONS/p24",
+      "role": "teach",
+      "span": [
+        0,
+        567
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Rate versus coordinate, occupancy-normalized maps and place/grid distinction establish the expected spatial function before revisit reasoning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define a tuning curve and its local linear example with units. Connection: Links firing rate to a represented angle before assembling a population.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "spatial-tuning",
+      "passage_id": "ch:FOUNDATIONS/p38",
+      "role": "teach",
+      "span": [
+        46,
+        777
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Rate versus coordinate, occupancy-normalized maps and place/grid distinction establish the expected spatial function before revisit reasoning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain spatial fields and occupancy-normalized rate maps. Connection: Extends angular tuning to location and separates expectation from finite recordings.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "spatial-tuning",
+      "passage_id": "ch:FOUNDATIONS/p47",
+      "role": "teach",
+      "span": [
+        0,
+        445
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Rate versus coordinate, occupancy-normalized maps and place/grid distinction establish the expected spatial function before revisit reasoning. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define grid fields and distinguish them from irregular multiple place fields. Connection: Closes spatial examples before returning to spike variability.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "spatial-tuning",
+      "passage_id": "ch:PERSISTENCE/p181",
+      "role": "use",
+      "span": [
+        0,
+        388
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Rate versus coordinate, occupancy-normalized maps and place/grid distinction establish the expected spatial function before revisit reasoning. The current inference depends on that quantity or relation. Current passage contribution: Explain a fixed random spatial function across revisits. Connection: Contrasts a spatial map with temporal wandering.",
+      "need": "required"
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_id": "ch:PERSISTENCE/p80",
+      "role": "teach",
+      "span": [
+        48,
+        508
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain accumulating retained spike disturbances and the step assumptions. Connection: Starts diffusion from the preceding persistent-direction mechanism.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_id": "ch:PERSISTENCE/p114",
+      "role": "teach",
+      "span": [
+        0,
+        207
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. This passage contributes the defined component of the connected teaching set. Current passage contribution: State D and linear variance growth outside the fold. Connection: Restores the essential result to the main reading path.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_id": "ch:PERSISTENCE/p120",
+      "role": "teach",
+      "span": [
+        46,
+        580
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain units, disturbance strength and path-versus-ensemble spread. Connection: Interprets the visible diffusion law.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_id": "ch:MEMORY-DYNAMICS/p9",
+      "role": "use",
+      "span": [
+        0,
+        441
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. The current inference depends on that quantity or relation. Current passage contribution: Define current and initial coordinates, steady-state bars and time convention. Connection: Sets notation before equations use it.",
+      "need": "required"
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p11",
+      "role": "use",
+      "span": [
+        0,
+        412
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. The current inference depends on that quantity or relation. Current passage contribution: Recall current/initial coordinates and the origin of local D. Connection: Reconnects notation to the prior projection calculation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_id": "ch:MEMORY-READOUT/p11",
+      "role": "use",
+      "span": [
+        41,
+        527
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. The current inference depends on that quantity or relation. Current passage contribution: Recall theta, Theta, D and J and separate T from L. Connection: Sets the readout timeline before equations.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spike-event",
+      "passage_id": "ch:FOUNDATIONS/p13",
+      "role": "teach",
+      "span": [
+        45,
+        489
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Brief neural electrical events are distinguished from expected rate before connections and count processes use them. This passage supplies the stated teaching. Current passage contribution: Define spikes and expected firing rate. Connection: Starts the cellular account before synaptic effects.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "spike-event",
+      "passage_id": "ch:FOUNDATIONS/p17",
+      "role": "use",
+      "span": [
+        0,
+        207
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Brief neural electrical events are distinguished from expected rate before connections and count processes use them. The current inference depends on that quantity or relation. Current passage contribution: Define synapses as connections between neurons. Connection: Turns individual spike events into interactions.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spike-event",
+      "passage_id": "ch:MEMORY-DYNAMICS/p17",
+      "role": "use",
+      "span": [
+        0,
+        377
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Brief neural electrical events are distinguished from expected rate before connections and count processes use them. The current inference depends on that quantity or relation. Current passage contribution: Define spike counts and outgoing synaptic activation with unit jumps. Connection: Translates the feedback account into the stochastic decay equation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_id": "ch:FOUNDATIONS/p17",
+      "role": "teach",
+      "span": [
+        0,
+        207
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define synapses as connections between neurons. Connection: Turns individual spike events into interactions.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_id": "ch:FOUNDATIONS/p19",
+      "role": "teach",
+      "span": [
+        0,
+        150
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define excitation by increased firing tendency. Connection: Supplies one outcome of the preceding synapse model.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_id": "ch:FOUNDATIONS/p20",
+      "role": "teach",
+      "span": [
+        0,
+        113
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define inhibition by reduced firing tendency. Connection: Completes the paired effects before recurrent feedback.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_id": "ch:FOUNDATIONS/p22",
+      "role": "teach",
+      "span": [
+        0,
+        347
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain persistence of synaptic effects and recurrent feedback. Connection: Connects brief spikes to activity after an external signal ends.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_id": "ch:MEMORY-DYNAMICS/p17",
+      "role": "use",
+      "span": [
+        0,
+        377
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. The current inference depends on that quantity or relation. Current passage contribution: Define spike counts and outgoing synaptic activation with unit jumps. Connection: Translates the feedback account into the stochastic decay equation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_id": "ch:MEMORY-DYNAMICS/p54",
+      "role": "use",
+      "span": [
+        46,
+        617
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. The current inference depends on that quantity or relation. Current passage contribution: Trace one spike through activation, weight, transfer response and renewed spikes. Connection: Completes the physical feedback path after the formal mapping.",
+      "need": "required"
+    },
+    {
+      "concept_id": "rate-map",
+      "passage_id": "ch:FOUNDATIONS/p38",
+      "role": "teach",
+      "span": [
+        46,
+        777
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Counts divided by occupancy and finite-sampling limits define a measured map before comparing repeated visits. This passage supplies the stated teaching. Current passage contribution: Explain spatial fields and occupancy-normalized rate maps. Connection: Extends angular tuning to location and separates expectation from finite recordings.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "rate-map",
+      "passage_id": "ch:PERSISTENCE/p181",
+      "role": "use",
+      "span": [
+        0,
+        388
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Counts divided by occupancy and finite-sampling limits define a measured map before comparing repeated visits. The current inference depends on that quantity or relation. Current passage contribution: Explain a fixed random spatial function across revisits. Connection: Contrasts a spatial map with temporal wandering.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fixed-point-state",
+      "passage_id": "ch:PERSISTENCE/p17",
+      "role": "teach",
+      "span": [
+        0,
+        414
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Current state and zero deterministic derivative are defined before families of persistent states. This passage supplies the stated teaching. Current passage contribution: Define state, fixed point and directional stability. Connection: Supplies the dynamical vocabulary for continuous attractors.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "fixed-point-state",
+      "passage_id": "ch:PERSISTENCE/p19",
+      "role": "use",
+      "span": [
+        0,
+        733
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Current state and zero deterministic derivative are defined before families of persistent states. The current inference depends on that quantity or relation. Current passage contribution: Define the continuous family, neutral direction and manifold dimension. Connection: Extends one fixed point to a representation of continuous values.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fixed-point-state",
+      "passage_id": "ch:MEMORY-DYNAMICS/p94",
+      "role": "use",
+      "span": [
+        0,
+        161
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Current state and zero deterministic derivative are defined before families of persistent states. The current inference depends on that quantity or relation. Current passage contribution: Set noise to zero and define the steady activation-rate relation. Connection: Connects the neural model to the earlier attractor idea.",
+      "need": "required"
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_id": "ch:MEMORY-DYNAMICS/p17",
+      "role": "teach",
+      "span": [
+        0,
+        377
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Define spike counts and outgoing synaptic activation with unit jumps. Connection: Translates the feedback account into the stochastic decay equation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_id": "ch:MEMORY-DYNAMICS/p23",
+      "role": "teach",
+      "span": [
+        0,
+        56
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Express activation as a sum over earlier spike times. Connection: Connects the differential event equation to a concrete trace.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_id": "ch:MEMORY-DYNAMICS/p29",
+      "role": "teach",
+      "span": [
+        0,
+        102
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Limit the sum to after initial transients and give activation units. Connection: Completes the event-sum formula before the plotted illustration.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_id": "ch:MEMORY-DYNAMICS/p39",
+      "role": "teach",
+      "span": [
+        0,
+        132
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Distinguish spike events from their decaying activation trace. Connection: Concludes the trace before defining receiving input.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_id": "ch:MEMORY-DYNAMICS/p54",
+      "role": "use",
+      "span": [
+        46,
+        617
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. The current inference depends on that quantity or relation. Current passage contribution: Trace one spike through activation, weight, transfer response and renewed spikes. Connection: Completes the physical feedback path after the formal mapping.",
+      "need": "required"
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_id": "ch:MEMORY-DYNAMICS/p109",
+      "role": "use",
+      "span": [
+        0,
+        354
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. The current inference depends on that quantity or relation. Current passage contribution: Define linearization and Taylor-expand the transfer rule. Connection: Supplies the general tool before applying it to the state disturbance.",
+      "need": "required"
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p212",
+      "role": "teach",
+      "span": [
+        0,
+        292
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. This passage contributes the defined component of the connected teaching set. Current passage contribution: Apply variance-of-weighted-independent-increments to the left projection. Connection: Connects basic probability to coordinate noise.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p219",
+      "role": "teach",
+      "span": [
+        0,
+        84
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. This passage contributes the defined component of the connected teaching set. Current passage contribution: Use Brownian increment covariance to evaluate the projected second moment. Connection: Completes the noise-sum calculation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p227",
+      "role": "teach",
+      "span": [
+        40,
+        200
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. This passage contributes the defined component of the connected teaching set. Current passage contribution: Match the calculated variance rate to the 2D convention. Connection: Introduces the boxed diffusion coefficient.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p241",
+      "role": "teach",
+      "span": [
+        0,
+        428
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. This passage contributes the defined component of the connected teaching set. Current passage contribution: Interpret rate noise multiplied by squared retained effect. Connection: Explains the scalar result before its scope limits.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p281",
+      "role": "use",
+      "span": [
+        0,
+        69
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. The current inference depends on that quantity or relation. Current passage contribution: Use the tangent-rate relation in the substitution. Connection: Completes the normalization and introduces the boxed symmetric result.",
+      "need": "required"
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_id": "ch:MEMORY-INFORMATION/p94",
+      "role": "use",
+      "span": [
+        0,
+        330
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. The current inference depends on that quantity or relation. Current passage contribution: State the dot-product inequality and identify the projection normalization. Connection: Introduces the general proof tool before its neural assignment.",
+      "need": "required"
+    },
+    {
+      "concept_id": "dirac-point-mass",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p51",
+      "role": "teach",
+      "span": [
+        0,
+        292
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "All initial probability at one coordinate is explained, separately from Kronecker delta, before the line solution is wrapped. This passage supplies the stated teaching. Current passage contribution: Explain the point-mass initial condition and Gaussian line solution. Connection: Interprets the PDE symbols before using its solution.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "dirac-point-mass",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p58",
+      "role": "use",
+      "span": [
+        0,
+        428
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "All initial probability at one coordinate is explained, separately from Kronecker delta, before the line solution is wrapped. The current inference depends on that quantity or relation. Current passage contribution: Wrap the line density and compute the uniform-circle limit. Connection: Connects the same local diffusion to a bounded angular error.",
+      "need": "required"
+    },
+    {
+      "concept_id": "stratonovich-convention",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p139",
+      "role": "teach",
+      "span": [
+        0,
+        682
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Midpoint evaluation and its conversion drift are supplied before order comparisons and drift-compensation limits. This passage supplies the stated teaching. Current passage contribution: Define Stratonovich evaluation and show the conversion drift. Connection: Uses the earlier Itô definition to distinguish two written noise equations.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "stratonovich-convention",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p141",
+      "role": "use",
+      "span": [
+        0,
+        132
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Midpoint evaluation and its conversion drift are supplied before order comparisons and drift-compensation limits. The current inference depends on that quantity or relation. Current passage contribution: Compare the orders of random and mean displacement. Connection: Connects the drift estimate to the large-population approximation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "stratonovich-convention",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p143",
+      "role": "use",
+      "span": [
+        0,
+        399
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Midpoint evaluation and its conversion drift are supplied before order comparisons and drift-compensation limits. The current inference depends on that quantity or relation. Current passage contribution: Distinguish cancelling mean drift from cancelling individual noise increments. Connection: Interprets the preceding orders and possible tuning.",
+      "need": "required"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-INFORMATION/p131",
+      "role": "teach",
+      "span": [
+        0,
+        266
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain equality as matching retained noise to information contribution. Connection: Introduces the equality question physically.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-INFORMATION/p133",
+      "role": "teach",
+      "span": [
+        0,
+        95
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. This passage contributes the defined component of the connected teaching set. Current passage contribution: State proportionality of the proof vectors. Connection: Turns the equality mechanism into a checkable equation.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-INFORMATION/p141",
+      "role": "teach",
+      "span": [
+        46,
+        480
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. This passage contributes the defined component of the connected teaching set. Current passage contribution: Derive the shared input-response ratio and a sufficient constant-ratio condition. Connection: Connects pointwise equality to the exponential family.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-INFORMATION/p151",
+      "role": "teach",
+      "span": [
+        0,
+        271
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. This passage contributes the defined component of the connected teaching set. Current passage contribution: State exponential sufficiency without claiming necessity. Connection: Keeps the main conclusion visible before the optional counterexample.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-INFORMATION/p165",
+      "role": "use",
+      "span": [
+        86,
+        644
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. The current inference depends on that quantity or relation. Current passage contribution: Explain what additional restrictions a converse would need. Connection: Concludes the counterexample without changing the valid inequality.",
+      "need": "required"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-READOUT/p220",
+      "role": "use",
+      "span": [
+        0,
+        29
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. The current inference depends on that quantity or relation. Current passage contribution: Apply the information-diffusion bound to observation times. Connection: Connects inference duration to the neural time constant.",
+      "need": "required"
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_id": "ch:MEMORY-READOUT/p383",
+      "role": "use",
+      "span": [
+        0,
+        380
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. The current inference depends on that quantity or relation. Current passage contribution: Give equality and partial-access conditions and limit the correction claim. Connection: Completes the corrected inequality's interpretation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "matrix-information-order",
+      "passage_id": "ch:MEMORY-INFORMATION/p221",
+      "role": "teach",
+      "span": [
+        0,
+        523
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Invertibility and quadratic-form ordering are defined before the residual proof and every-direction interpretation. This passage supplies the stated teaching. Current passage contribution: State invertibility and quadratic-form ordering and define U and V. Connection: Prepares the matrix inequality in undergraduate linear-algebra terms.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "matrix-information-order",
+      "passage_id": "ch:MEMORY-INFORMATION/p229",
+      "role": "use",
+      "span": [
+        0,
+        65
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Invertibility and quadratic-form ordering are defined before the residual proof and every-direction interpretation. The current inference depends on that quantity or relation. Current passage contribution: Prove the matrix lower bound by a residual squared norm. Connection: Supplies optional verification of the visible matrix result.",
+      "need": "required"
+    },
+    {
+      "concept_id": "matrix-information-order",
+      "passage_id": "ch:MEMORY-INFORMATION/p238",
+      "role": "use",
+      "span": [
+        0,
+        226
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Invertibility and quadratic-form ordering are defined before the residual proof and every-direction interpretation. The current inference depends on that quantity or relation. Current passage contribution: Interpret every-direction control and the singular-matrix limit. Connection: Concludes the matrix extension.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-observation-model",
+      "passage_id": "ch:MEMORY-READOUT/p19",
+      "role": "teach",
+      "span": [
+        0,
+        209
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State motion and observation uncertainty have distinct variances; y summarizes spike evidence under an explicit approximation before estimator calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: Introduce Gaussian bin likelihoods and the transition/observation model. Connection: Connects spike information to an inference model.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "gaussian-observation-model",
+      "passage_id": "ch:MEMORY-READOUT/p31",
+      "role": "teach",
+      "span": [
+        45,
+        591
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State motion and observation uncertainty have distinct variances; y summarizes spike evidence under an explicit approximation before estimator calculations. This passage contributes the defined component of the connected teaching set. Current passage contribution: State independence and the approximate meaning of y_k. Connection: Qualifies the bin model before deriving errors.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "gaussian-observation-model",
+      "passage_id": "ch:MEMORY-READOUT/p35",
+      "role": "use",
+      "span": [
+        0,
+        293
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State motion and observation uncertainty have distinct variances; y summarizes spike evidence under an explicit approximation before estimator calculations. The current inference depends on that quantity or relation. Current passage contribution: Define storage and readout errors and expand their variance. Connection: Applies basic covariance to the recall problem.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-observation-model",
+      "passage_id": "ch:MEMORY-READOUT/p72",
+      "role": "use",
+      "span": [
+        0,
+        232
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State motion and observation uncertainty have distinct variances; y summarizes spike evidence under an explicit approximation before estimator calculations. The current inference depends on that quantity or relation. Current passage contribution: Define equal weighting and explain why motion makes late data less direct. Connection: Opens the naive observer comparison.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-observation-model",
+      "passage_id": "ch:MEMORY-READOUT/p135",
+      "role": "use",
+      "span": [
+        46,
+        532
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State motion and observation uncertainty have distinct variances; y summarizes spike evidence under an explicit approximation before estimator calculations. The current inference depends on that quantity or relation. Current passage contribution: Move a later likelihood backward through transition variance. Connection: Starts the backward information calculation from a defined P.",
+      "need": "required"
+    },
+    {
+      "concept_id": "translation-invariant-readout",
+      "passage_id": "ch:MEMORY-READOUT/p43",
+      "role": "teach",
+      "span": [
+        46,
+        747
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Shifting the coordinate leaves readout-error statistics unchanged; the separate unbiasedness and history assumptions establish one readout variance. This passage supplies the stated teaching. Current passage contribution: Prove zero cross covariance and define translation-invariant readout error. Connection: Connects unbiasedness and future-noise independence to the total variance.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "translation-invariant-readout",
+      "passage_id": "ch:MEMORY-READOUT/p58",
+      "role": "use",
+      "span": [
+        0,
+        233
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Shifting the coordinate leaves readout-error statistics unchanged; the separate unbiasedness and history assumptions establish one readout variance. The current inference depends on that quantity or relation. Current passage contribution: Limit the variance decomposition under changed domains, priors or encoding. Connection: Qualifies the result before the timeline figure.",
+      "need": "required"
+    },
+    {
+      "concept_id": "translation-invariant-readout",
+      "passage_id": "ch:MEMORY-READOUT/p135",
+      "role": "use",
+      "span": [
+        46,
+        532
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Shifting the coordinate leaves readout-error statistics unchanged; the separate unbiasedness and history assumptions establish one readout variance. The current inference depends on that quantity or relation. Current passage contribution: Move a later likelihood backward through transition variance. Connection: Starts the backward information calculation from a defined P.",
+      "need": "required"
+    },
+    {
+      "concept_id": "partial-spike-access",
+      "passage_id": "ch:MEMORY-READOUT/p233",
+      "role": "teach",
+      "span": [
+        0,
+        217
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unbiased thinning reduces information while D stays fixed; actual information fraction is distinguished from arbitrary neuron fraction before the example and plots. This passage contributes the defined component of the connected teaching set. Current passage contribution: Explain that partial observation reduces information but not network noise. Connection: Opens the access extension with its physical mechanism.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "partial-spike-access",
+      "passage_id": "ch:MEMORY-READOUT/p235",
+      "role": "teach",
+      "span": [
+        0,
+        210
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unbiased thinning reduces information while D stays fixed; actual information fraction is distinguished from arbitrary neuron fraction before the example and plots. This passage contributes the defined component of the connected teaching set. Current passage contribution: Derive alpha times information under independent thinning. Connection: Applies the Poisson information formula to the stated access rule.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "partial-spike-access",
+      "passage_id": "ch:MEMORY-READOUT/p252",
+      "role": "teach",
+      "span": [
+        0,
+        403
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unbiased thinning reduces information while D stays fixed; actual information fraction is distinguished from arbitrary neuron fraction before the example and plots. This passage contributes the defined component of the connected teaching set. Current passage contribution: Interpret the scaling and limit arbitrary selected subsets. Connection: Qualifies the general partial-access result before the example.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "partial-spike-access",
+      "passage_id": "ch:MEMORY-READOUT/p260",
+      "role": "use",
+      "span": [
+        0,
+        539
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unbiased thinning reduces information while D stays fixed; actual information fraction is distinguished from arbitrary neuron fraction before the example and plots. The current inference depends on that quantity or relation. Current passage contribution: Apply one-tenth access and add the same storage error. Connection: Completes the comparison with an unchanged T and D.",
+      "need": "required"
+    },
+    {
+      "concept_id": "partial-spike-access",
+      "passage_id": "ch:MEMORY-READOUT/p336",
+      "role": "use",
+      "span": [
+        0,
+        196
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unbiased thinning reduces information while D stays fixed; actual information fraction is distinguished from arbitrary neuron fraction before the example and plots. The current inference depends on that quantity or relation. Current passage contribution: Exclude storage error from the plotted quantity and explain partial-access shifts. Connection: Qualifies both original readout figures.",
+      "need": "required"
+    },
+    {
+      "concept_id": "noise-law-equality",
+      "passage_id": "ch:MEMORY-READOUT/p312",
+      "role": "teach",
+      "span": [
+        0,
+        206
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Constant Gaussian strength changes the matched likelihood and retained-noise weighting; linear sufficiency is compared with Poisson weighting before the normalization note. This passage contributes the defined component of the connected teaching set. Current passage contribution: Replace Poisson variability by constant additive Gaussian noise. Connection: Introduces the second extension with an explicit normalization.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "noise-law-equality",
+      "passage_id": "ch:MEMORY-READOUT/p318",
+      "role": "teach",
+      "span": [
+        0,
+        507
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Constant Gaussian strength changes the matched likelihood and retained-noise weighting; linear sufficiency is compared with Poisson weighting before the normalization note. This passage contributes the defined component of the connected teaching set. Current passage contribution: Recompute information, diffusion and equality with constant noise. Connection: Applies the same proof method under the changed likelihood.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "noise-law-equality",
+      "passage_id": "ch:MEMORY-READOUT/p320",
+      "role": "teach",
+      "span": [
+        0,
+        447
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Constant Gaussian strength changes the matched likelihood and retained-noise weighting; linear sufficiency is compared with Poisson weighting before the normalization note. This passage contributes the defined component of the connected teaching set. Current passage contribution: Compare sufficient transfer classes while retaining the general pointwise criterion. Connection: Interprets the Gaussian result against the Poisson case.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "noise-law-equality",
+      "passage_id": "ch:MEMORY-READOUT/p322",
+      "role": "use",
+      "span": [
+        93,
+        457
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Constant Gaussian strength changes the matched likelihood and retained-noise weighting; linear sufficiency is compared with Poisson weighting before the normalization note. The current inference depends on that quantity or relation. Current passage contribution: Explain what the explicit q reconstruction adds to the source. Connection: Closes the extension with a source-reading guide.",
+      "need": "required"
+    },
+    {
+      "concept_id": "directional-symmetry",
+      "passage_id": "ch:MEMORY-INFORMATION/p308",
+      "role": "teach",
+      "span": [
+        121,
+        356
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Radial tuning and uniform centers make directions equivalent, off-diagonal terms zero and diagonal entries equal before the next inference. Current passage contribution: Combine powers and impose radial symmetry before diagonal inversion. Connection: Connects information scaling to diffusion scaling."
+    },
+    {
+      "concept_id": "directional-symmetry",
+      "passage_id": "ch:MEMORY-INFORMATION/p308",
+      "role": "use",
+      "span": [
+        356,
+        476
+      ],
+      "status": "reviewed",
+      "need": "required",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The reciprocal-diagonal diffusion formula uses the immediately preceding diagonal symmetry result, not width scaling alone. Current passage contribution: Combine powers and impose radial symmetry before diagonal inversion. Connection: Connects information scaling to diffusion scaling."
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_id": "ch:MEMORY-DYNAMICS/p15",
+      "role": "preview",
+      "span": [
+        0,
+        308
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "This assumption preview points forward to the aggregate-noise teaching at78-91. Current passage contribution: State fixed weights, biases, common decay, conditional Poisson noise and weak input fluctuations. Connection: Places conditions before the model and approximation."
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p158",
+      "role": "preview",
+      "span": [
+        0,
+        235
+      ],
+      "status": "reviewed",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "This forward link motivates the next chapter but does not teach the statistical quantity. Current passage contribution: Connect finite-spike uncertainty to information and moving-state readout. Connection: Links the figure interpretation to the next two chapters."
+    }
+  ],
+  "teaching_sets": [
+    {
+      "concept_id": "population-code",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p26",
+        "ch:FOUNDATIONS/p32"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The rate vector across neuron identities represents one coordinate, supporting activity-space geometry and population observation. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "poisson-counts",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p51",
+        "ch:FOUNDATIONS/p59"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjoining count law at foundations53-57 and moments at61-64 complete these lead-ins before numerical counts and population likelihood. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "poisson-count-variance",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p51",
+        "ch:FOUNDATIONS/p59"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The visible display at foundations61-64 gives mean and variance lambda before the optional factorial-moment proof and network/score variance calculations. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "covariance",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p133",
+        "ch:FOUNDATIONS/p137",
+        "ch:FOUNDATIONS/p143"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible shared-variation meaning and adjacent centered-product and variance displays establish covariance before component and error decompositions. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "covariance-and-correlation",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p133",
+        "ch:FOUNDATIONS/p137",
+        "ch:FOUNDATIONS/p149",
+        "ch:FOUNDATIONS/p155"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The covariance definition, normalized coefficient and independence caveat support the private-noise interpretation of correlation. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "msd-variance-mean-split",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p174",
+        "ch:FOUNDATIONS/p180"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The adjacent formula at foundations176-178 and visible two-source interpretation precede the random-plus-bias calculation. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_ids": [
+        "ch:PERSISTENCE/p17",
+        "ch:PERSISTENCE/p19",
+        "ch:PERSISTENCE/p21"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State and fixed point lead to restoring transverse changes and a neutral represented coordinate before network-family reasoning. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "brownian-cross-time-covariance",
+      "passage_ids": [
+        "ch:PERSISTENCE/p162",
+        "ch:PERSISTENCE/p171"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The shared-increment split and adjoining min(s,t) display derive the identity; the readout section also restates its physical reason. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "neural-transfer-function",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p48",
+        "ch:MEMORY-DYNAMICS/p54"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The input-to-rate map and one-spike causal trace explain phi and its derivative before linearization. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "weak-fluctuation-approximation",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p78",
+        "ch:MEMORY-DYNAMICS/p86",
+        "ch:MEMORY-DYNAMICS/p90"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Small total-input fluctuations, covariance matching and population replication explain the leading Gaussian approximation before local noise evaluation. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "right-zero-eigenvector",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p131",
+        "ch:MEMORY-DYNAMICS/p138",
+        "ch:MEMORY-DYNAMICS/p144"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The family tangent and chain-rule zero equation establish the persistent state direction before normalization and multiple coordinates. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "left-zero-eigenvector",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p148",
+        "ch:MEMORY-DYNAMICS/p157",
+        "ch:MEMORY-DYNAMICS/p163"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "The left equation, tangent normalization and annihilation of decaying modes establish retained-coordinate extraction before examples and noise projection. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "diffusion-tensor",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p235",
+        "ch:MEMORY-DYNAMICS/p250"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Coordinate covariance and diagonal/coupled meanings are taught before the matrix information bound. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "fokker-planck-equation",
+      "passage_ids": [
+        "ch:MEMORY-LONG-DELAYS/p17",
+        "ch:MEMORY-LONG-DELAYS/p43",
+        "ch:MEMORY-LONG-DELAYS/p51"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Trial density, adjacent zero-drift PDE and point-mass initial condition precede wrapping and moment integration; the optional derivation at21-39 supplies the calculus. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "fisher-information-rate",
+      "passage_ids": [
+        "ch:MEMORY-INFORMATION/p48",
+        "ch:MEMORY-INFORMATION/p72",
+        "ch:MEMORY-INFORMATION/p74"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Expected squared score per duration, units and slope-over-noise interpretation precede bounds, observations and thinning. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "unbiased-estimation",
+      "passage_ids": [
+        "ch:MEMORY-INFORMATION/p54",
+        "ch:MEMORY-INFORMATION/p70"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Local equality of estimator mean and parameter plus regularity limits precede the zero-conditional-readout-error step. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "spatial-tuning",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p24",
+        "ch:FOUNDATIONS/p38",
+        "ch:FOUNDATIONS/p47"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Rate versus coordinate, occupancy-normalized maps and place/grid distinction establish the expected spatial function before revisit reasoning. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "diffusion-variance",
+      "passage_ids": [
+        "ch:PERSISTENCE/p80",
+        "ch:PERSISTENCE/p114",
+        "ch:PERSISTENCE/p120"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Visible retained-step mechanism, variance convention and units establish 2Dt before subsequent notation and observation setup. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "synaptic-influence",
+      "passage_ids": [
+        "ch:FOUNDATIONS/p17",
+        "ch:FOUNDATIONS/p19",
+        "ch:FOUNDATIONS/p20",
+        "ch:FOUNDATIONS/p22"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Connections, positive/negative influence and lingering effects precede activation dynamics and the signed-weight causal trace. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "activation-count-model",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p17",
+        "ch:MEMORY-DYNAMICS/p23",
+        "ch:MEMORY-DYNAMICS/p29",
+        "ch:MEMORY-DYNAMICS/p39"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unit jumps, decay and the event-sum representation define activation as a distinct state before causal and perturbation calculations. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "projection-diffusion",
+      "passage_ids": [
+        "ch:MEMORY-DYNAMICS/p212",
+        "ch:MEMORY-DYNAMICS/p219",
+        "ch:MEMORY-DYNAMICS/p227",
+        "ch:MEMORY-DYNAMICS/p241"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Independent weighted increments yield the adjoining 2D sum, with rate times squared retained effect interpreted before specialization and the bound. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "information-bound-equality",
+      "passage_ids": [
+        "ch:MEMORY-INFORMATION/p131",
+        "ch:MEMORY-INFORMATION/p133",
+        "ch:MEMORY-INFORMATION/p141",
+        "ch:MEMORY-INFORMATION/p151"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Matching retained noise to information weights and exponential sufficiency precede counterexample interpretation and saturation-dependent claims. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "gaussian-observation-model",
+      "passage_ids": [
+        "ch:MEMORY-READOUT/p19",
+        "ch:MEMORY-READOUT/p31"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "State motion and observation uncertainty have distinct variances; y summarizes spike evidence under an explicit approximation before estimator calculations. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "partial-spike-access",
+      "passage_ids": [
+        "ch:MEMORY-READOUT/p233",
+        "ch:MEMORY-READOUT/p235",
+        "ch:MEMORY-READOUT/p252"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Unbiased thinning reduces information while D stays fixed; actual information fraction is distinguished from arbitrary neuron fraction before the example and plots. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    },
+    {
+      "concept_id": "noise-law-equality",
+      "passage_ids": [
+        "ch:MEMORY-READOUT/p312",
+        "ch:MEMORY-READOUT/p318",
+        "ch:MEMORY-READOUT/p320"
+      ],
+      "status": "reviewed",
+      "adequacy": "adequate",
+      "review": "final-memory-flow-20261029-03",
+      "evidence": "Constant Gaussian strength changes the matched likelihood and retained-noise weighting; linear sufficiency is compared with Poisson weighting before the normalization note. Adjacent equation displays were read directly with the source lead-ins and interpretations."
+    }
+  ],
+  "unresolved": [],
+  "findings": [],
+  "limits": [
+    "Only assigned section coverage is reviewed.",
+    "No uses in unassigned eye, place or synthesis chapters are judged. Their reviewers can use the foundation teaching evidence.",
+    "Adjacent equations omitted by paragraph extraction were read directly; source locations are supplied in evidence.",
+    "Mechanical ordering is not semantic acceptance."
+  ],
+  "token_statistics": "unavailable",
+  "status": "pass",
+  "timing": {
+    "wall_elapsed_seconds": 1436.963604,
+    "awake_execution": "unverified",
+    "clock_change_observed": false
+  },
+  "checkpoints": [
+    {
+      "timestamp": "2026-10-29T13:53:44.5612383+02:00",
+      "wall_elapsed_seconds": 289.890165,
+      "since_previous_checkpoint_seconds": 289.890165,
+      "awake_execution": "unverified",
+      "summary": "Connected source reading complete; paragraph and concept records underway."
+    },
+    {
+      "timestamp": "2026-10-29T13:58:31.5683940+02:00",
+      "wall_elapsed_seconds": 576.897321,
+      "since_previous_checkpoint_seconds": 287.007156,
+      "awake_execution": "unverified",
+      "summary": "329 teaching records identified with 46 layout/fold records and 82 hidden controls; no required flow defect."
+    },
+    {
+      "timestamp": "2026-10-29T14:05:34.1580578+02:00",
+      "wall_elapsed_seconds": 999.486984,
+      "since_previous_checkpoint_seconds": 422.589663,
+      "awake_execution": "unverified",
+      "summary": "329 specific paragraph drafts and 29 unit narratives saved; concept and structural records remained."
+    },
+    {
+      "timestamp": "2026-10-29T14:11:12.2814621+02:00",
+      "wall_elapsed_seconds": 1337.610389,
+      "since_previous_checkpoint_seconds": 338.123405,
+      "awake_execution": "unverified",
+      "summary": "Concept spans saved; final schema assembly and validation remained."
+    },
+    {
+      "timestamp": "2026-10-29T14:12:51.6346771+02:00",
+      "wall_elapsed_seconds": 1436.963604,
+      "since_previous_checkpoint_seconds": 99.353215,
+      "awake_execution": "unverified",
+      "summary": "Completed all unit, paragraph and concept records; counts, IDs, hashes and spans checked."
+    }
+  ]
+}

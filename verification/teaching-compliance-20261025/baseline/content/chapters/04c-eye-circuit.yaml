@@ -1,0 +1,93 @@
+chapter_id: ch:EYE-CIRCUIT
+part_id: part:OBSERVATIONS
+title: A noisy memory circuit can produce eye drift
+purpose: The recordings support a shared source before the motor neurons, and the movement's
+  timing is compatible with a stored position that wanders. Neither result identifies the
+  circuit that supplies that command. A noisy memory circuit is a proposed explanation whose
+  output must pass through the motor neurons and muscles before it can be compared with eye
+  movement.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:EYE-DRIFT
+- ch:EYE-TIMING
+- ch:MEMORY-INFORMATION
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:EYE-CIRCUIT-MODEL
+  title: A noisy integrator can reproduce drift after muscle filtering
+  summary: The recording analysis places much of the drive upstream of OMNs. To test whether
+    integrator noise could supply it, the authors build a model from a noisy memory circuit
+    through to the eye. The model adapts an earlier goldfish integrator architecture to primate
+    tuning and variability. There are two populations, with excitation within each and inhibition
+    between them. Their firing increases for opposite directions of gaze. This supplies the
+    recurrent interaction needed to maintain a range of stored positions.[^p2-network]
+  level: 2
+- id: sec:EYE-SCALING
+  title: Spike regularity and circuit parameters set the model's drift scale
+  summary: An agreement in amplitude is informative only if we know how much freedom the model
+    has. The paper uses regular spike trains. The [spike variability section](ch-foundations.html#sec-foundations-poisson)
+    defined the interspike interval coefficient of variation (CV) as the interval standard
+    deviation divided by its mean. A Poisson process at constant rate has CV one; the model
+    uses about 0.22 for integrator neurons and about 0.07 for OMNs. Such firing is called
+    [**sub-Poisson spiking**]{.definition-term custom-style="Definition Term"} here because
+    its long window count variability is lower than a Poisson process at the same rate, under
+    the interval construction used in the model.[^p2-cv]
+  level: 2
+- id: sec:EYE-FIGURES
+  title: The figures test shared drive, diffusion, and the full circuit model
+  summary: The five figures address different steps. Their agreement is easier to assess when
+    those questions remain separate.
+  level: 2
+- id: sec:EYE-LIMITS
+  title: The evidence places shared drive upstream without identifying one circuit
+  summary: 'The data and model answer different questions about where the drive originates:'
+  level: 2
+blocks:
+- id: tbl:EYE-FIGURE-GUIDE
+  kind: table
+  placement: sec:EYE-FIGURES
+  headers:
+  - Figure
+  - What to read
+  - What it establishes or checks
+  rows:
+  - - 1, main p. 3
+    - Start with the large movement, then the expanded fixation. Compare the small predicted
+      rate change with the larger observed fluctuation in b. Read c as one cell and d as the
+      population.
+    - A weak, positive rate relationship exists during fixation. The large movement is used
+      for calibration.
+  - - 2, main p. 4
+    - The spike response kernel in a has a delay and two decay times; b shows their spread.
+      In c, a noisy cell prediction can coexist with a smooth eye trace. Panel d plots $R$,
+      while e–f plot $\chi$ and estimation error.
+    - Shared movement and a model-based fraction of common variance. The vertical axis in
+      f is error in $\chi$, not eye position or another variance fraction. Large error cells
+      receive little weight.
+  - - 3, main p. 6
+    - In a, distinguish the raw MSD, plateau estimate, and corrected curve. In b, compare
+      both height and slope. Translating the private-noise curve upward does not remove its
+      flattening.
+    - Independent filtered motor noise fails both the amplitude and time dependence comparison.
+      The noise subtraction is part of this evidence.
+  - - 4, main p. 7
+    - The valley in a sketches stable directions across the attractor and a neutral direction
+      along it. It is not a measured energy function of this brain circuit. Panels c–d show
+      simulated internal drift and its nearly linear MSD.
+    - The mechanism by which neural noise can accumulate into an ordinary diffusive position
+      signal. This is the integrator output before the full observation process.
+  - - 5, main p. 8
+    - Trace integrator, OMNs, plant, and feedback in a. Compare internal and actual position
+      in c, then model and data MSD in d. Panels e–f rerun the statistical analysis on simulated
+      recordings.
+    - The full model can match filtered motion, and known simulated sources can produce noisy
+      individual estimates with a useful population estimate. This checks the method under
+      that model, rather than proving a unique biological source.
+  caption: Reading the figures as an argument.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

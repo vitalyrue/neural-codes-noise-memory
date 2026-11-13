@@ -1,0 +1,229 @@
+chapter_id: ch:EYE-DRIFT
+part_id: part:OBSERVATIONS
+title: Eye drift points to a shared neural drive
+purpose: 'Looking steadily at a small spot does not hold the eye perfectly still. Between
+  brief, rapid movements called [**microsaccades**]{.definition-term custom-style="Definition
+  Term"}, the eye makes a small, smooth, irregular movement called [**fixational drift**]{.definition-term
+  custom-style="Definition Term"}. Does this movement begin as noise in the muscles, or
+  does the brain send a changing command to them? Ben-Shushan and colleagues answer this
+  in two stages. Their recordings support a large shared drive upstream of the motor neurons.
+  Their model then proposes a particular source: random motion of the eye position stored
+  in a memory circuit.'
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+- ch:MEMORY-DYNAMICS
+- ch:MEMORY-INFORMATION
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:EYE-PATHWAY
+  title: From stored eye position to muscle action
+  summary: 'The eye needs an ongoing command to maintain a position. A brief command to
+    move is therefore insufficient: after the movement, a circuit must maintain activity
+    representing the new position. The [**oculomotor integrator**]{.definition-term custom-style="Definition
+    Term"} is the neural circuit that performs this storage. “Integrator” refers to turning
+    a movement command into a lasting position signal. In the proposed mechanism, the
+    continuous attractor described in Chapters 1 and 2 stores horizontal eye position.
+    Noise moves the stored value along that attractor.[^p2-pathway]'
+  level: 2
+- id: sec:EYE-RECORDINGS
+  title: The recordings pair one motor neuron with movement at a time
+  summary: The authors reanalyzed earlier experiments in two male rhesus macaques. The
+    animals first fixated a stationary target and then tracked a moving target. A wire
+    search coil on one eye measured eye position while an electrode recorded one neuron's
+    spikes. There were 57 identified OMNs. Each recording paired one OMN with eye movement;
+    there were no simultaneous recordings of multiple OMNs. Thus the analysis cannot directly
+    measure the covariance between two recorded motor neurons.[^p2-recordings][^p2-single]
+  level: 2
+- id: sec:EYE-FORWARD-FIT
+  title: A fitted model links movement to firing rate
+  summary: Position alone does not predict a motor neuron's activity during a movement.
+    At the same position, firing can differ when the eye is moving or accelerating. The
+    paper therefore fits
+  level: 2
+- id: sec:EYE-INVERSE-FILTER
+  title: A calibrated filter predicts eye position from one cell's spikes
+  summary: 'To ask how much eye movement is shared with a neuron, it helps to express
+    both signals in degrees. The paper reverses the fitted relationship: a cell''s spike
+    train becomes the input, and its prediction of eye position becomes the output. This
+    operation is an inverse of the movement-to-rate fit, rather than a new fit to small
+    drift residuals.'
+  level: 2
+- id: sec:EYE-SHARED-VARIANCE
+  title: The measured correlation challenges independent motor noise alone
+  summary: 'A correlation of 0.17 does not immediately tell us how much motion comes from
+    the common command. First we can ask a more limited question: could all the motion
+    come from independent motor neuron fluctuations?'
+  level: 2
+- id: sec:EYE-CHI
+  title: Calibrated covariance estimates the common share of movement variance
+  summary: The variance bound establishes that a shared signal exists, but leaves its
+    size open. The next calculation uses the fact that the inverse filter has a calibrated
+    gain in degrees. For one 350 ms interval, write the measured displacement and the
+    single cell prediction as
+  level: 2
+- id: sec:EYE-MEASUREMENT-NOISE
+  title: Independent measurement error adds a constant offset to the MSD
+  summary: The common variance calculation uses one interval length. To learn what kind
+    of process drives motion, the authors next compare displacements at many time separations.
+    As in Chapter 1,
+  level: 2
+- id: sec:EYE-FILTERED-MSD
+  title: The MSD plateaus for filtered white noise but grows for filtered diffusion
+  summary: The corrected MSD keeps increasing over the observed range, toward a second,
+    while its logarithmic slope decreases and remains between one and two. Define that
+    local slope by
+  level: 2
+- id: sec:EYE-CIRCUIT-MODEL
+  title: A noisy integrator can reproduce drift after muscle filtering
+  summary: The recording analysis places much of the drive upstream of OMNs. To test whether
+    integrator noise could supply it, the authors build a model from a noisy memory circuit
+    through to the eye. The model adapts an earlier goldfish integrator architecture to
+    primate tuning and variability. There are two populations, with excitation within
+    each and inhibition between them. Their firing increases for opposite directions of
+    gaze. This supplies the recurrent interaction needed to maintain a range of stored
+    positions.[^p2-network]
+  level: 2
+- id: sec:EYE-SCALING
+  title: Spike regularity and circuit parameters set the model's drift scale
+  summary: An agreement in amplitude is informative only if we know how much freedom the
+    model has. The paper uses regular spike trains. Chapter 1 defined the interspike interval
+    coefficient of variation (CV) as the interval standard deviation divided by its mean.
+    A Poisson process at constant rate has CV one; the model uses about 0.22 for integrator
+    neurons and about 0.07 for OMNs. Such firing is called [**sub-Poisson spiking**]{.definition-term
+    custom-style="Definition Term"} here because its long window count variability is
+    lower than a Poisson process at the same rate, under the interval construction used
+    in the model.[^p2-cv]
+  level: 2
+- id: sec:EYE-FIGURES
+  title: The figures test shared drive, diffusion, and the full circuit model
+  summary: The five figures address different steps. Their agreement is easier to assess
+    when those questions remain separate.
+  level: 2
+- id: sec:EYE-LIMITS
+  title: The evidence places shared drive upstream without identifying one circuit
+  summary: The data and model answer different localization questions. The common variance
+    estimate supports a drive upstream of OMNs, given the calibration and noise assumptions.
+    The MSD comparison supports a command that accumulates variation over the measured
+    interval, rather than stationary white noise passed through a decaying muscle filter.
+    The circuit model shows that integrator noise with plausible parameters can generate
+    such a command and explain its filtered amplitude and timing.
+  level: 2
+blocks:
+- id: tbl:EYE-FIGURE-GUIDE
+  kind: table
+  placement: sec:EYE-FIGURES
+  headers:
+  - Figure
+  - What to read
+  - What it establishes or checks
+  rows:
+  - - 1, main p. 3
+    - Start with the large movement, then the expanded fixation. Compare the small predicted
+      rate change with the larger observed fluctuation in b. Read c as one cell and d
+      as the population.
+    - A weak, positive rate relationship exists during fixation. The large movement is
+      used for calibration.
+  - - 2, main p. 4
+    - The spike response kernel in a has a delay and two decay times; b shows their spread.
+      In c, a noisy cell prediction can coexist with a smooth eye trace. Panel d plots
+      $R$, while e–f plot $\chi$ and estimation error.
+    - Shared movement and a model-based fraction of common variance. The vertical axis
+      in f is error in $\chi$, not eye position or another variance fraction. Large error
+      cells receive little weight.
+  - - 3, main p. 6
+    - In a, distinguish the raw MSD, plateau estimate, and corrected curve. In b, compare
+      both height and slope. Translating the private-noise curve upward does not remove
+      its flattening.
+    - Independent filtered motor noise fails both the amplitude and time dependence comparison.
+      The noise subtraction is part of this evidence.
+  - - 4, main p. 7
+    - The valley in a sketches stable directions across the attractor and a neutral direction
+      along it. It is not a measured energy function of this brain circuit. Panels c–d
+      show simulated internal drift and its nearly linear MSD.
+    - The mechanism by which neural noise can accumulate into an ordinary diffusive position
+      signal. This is the integrator output before the full observation process.
+  - - 5, main p. 8
+    - Trace integrator, OMNs, plant, and feedback in a. Compare internal and actual position
+      in c, then model and data MSD in d. Panels e–f rerun the statistical analysis on
+      simulated recordings.
+    - The full model can match filtered motion, and known simulated sources can produce
+      noisy individual estimates with a useful population estimate. This checks the method
+      under that model, rather than proving a unique biological source.
+  caption: Reading the figures as an argument.
+  first_column_role: row-labels
+  html_fold: never
+- id: fig:EYE-PHYSICAL-AND-RECORDED
+  kind: figure
+  placement: sec:EYE-RECORDINGS
+  asset: assets/approved/visuals/eye-physical-and-recorded.png
+  caption: The recordings pair one motor neuron with eye movement. Private spike variability
+    acts at individual cells, downstream physical variability acts on movement, and measurement
+    noise enters the eye-position record. The attractor storage source is proposed; the
+    dashed analysis path is a calculation from one cell through its calibrated filter.
+    Original guide schematic based on Ben-Shushan et al. (2022), Figs. 1–2 and 4–5. Signal
+    symbols are illustrative, not experimental traces.
+  alt: A proposed attractor storage circuit sends shared drive to a motor neuron population,
+    then through muscles and eye mechanics to physical eye position. Private variability
+    enters one neuron; downstream physical variability enters the muscles. Only the highlighted
+    neuron is recorded, paired with eye position. Measurement noise enters that recorded
+    position, not the physical eye. A separate dashed calculation transforms the single-cell
+    spikes through a calibrated filter into predicted eye position.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:EYE-FILTERED-NOISE-MSD
+  kind: figure
+  placement: sec:EYE-FILTERED-MSD
+  asset: assets/approved/visuals/eye-filtered-noise-msd.png
+  caption: Filtering stationary white input produces an MSD plateau; filtering Brownian
+    stored position preserves long-lag growth. Each panel uses its own normalization,
+    $M_{\mathrm{white}}/(A/\tau)$ and $M_{\mathrm{Brownian}}/(2D\tau)$, so the figure
+    compares shapes without matching physical noise amplitudes. Original guide calculation
+    for the one-pole teaching model, connected to Ben-Shushan et al. (2022), Fig. 3 and
+    main Eqs. 20–22; these are not measured data or the fitted full-model curves.
+  alt: Two alternative inputs pass through identical one-pole filters. On matched logarithmic
+    lag axes x equals lag divided by tau, normalized white-input MSD is 1 minus exp(-x),
+    rising with short-lag slope one and approaching a plateau of one. Independently normalized
+    filtered Brownian MSD is x minus one plus exp(-x), starting with slope two and continuing
+    to grow with long-lag slope one. The two vertical scales differ.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:EYE-SHARED-PRIVATE-VARIANCE
+  kind: figure
+  placement: sec:EYE-CHI
+  asset: assets/approved/visuals/eye-shared-private-variance.png
+  caption: The same common variance enters movement and the single cell predictor, but
+    the predictor has much more private noise. Increasing only private predictor variance
+    lowers correlation R while the common movement fraction χ stays at 0.82. The marked
+    point uses the chapter’s constructed example. Calculations assume unit common gain
+    and mutually uncorrelated contributions; they are not recorded cell data. Based on
+    Ben-Shushan et al. (2022), main p. 10, Eqs. 11–15.
+  alt: 'Horizontal stacked bars use one variance axis in degrees squared: movement has
+    common variance 0.00820 and other variance 0.00180; the single cell prediction has
+    the same common variance and private variance 0.22446. A curve shows R falling as
+    private predictor variance increases, reaching 0.170 at the constructed point, while
+    χ remains 0.820.'
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:EYE-MSD-MEASUREMENT-OFFSET
+  kind: figure
+  placement: sec:EYE-MEASUREMENT-NOISE
+  asset: assets/approved/visuals/eye-msd-measurement-offset.png
+  caption: For positive lags, independent measurement error adds $2\sigma_m^2$ to the
+    movement MSD, here $M(\ell)=2D\ell$. The isolated point at zero lag stays zero because
+    each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg²
+    leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that
+    remainder. Original analytic example, not experimental data, using Ben-Shushan et
+    al. (2022), main p. 10, Eqs. 18–19.
+  alt: Movement MSD rises linearly from zero. For all strictly positive lags, observed
+    MSD is higher by 0.0010 degrees squared. The observed curve has an open endpoint at
+    lag zero, above the actual zero-lag point at zero. At 20 milliseconds the observed
+    and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing
+    the subtraction and an uncertainty bar on the corrected value.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

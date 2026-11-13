@@ -1,0 +1,406 @@
+{
+  "stage": "3 reader understanding and flow, separate call",
+  "request_id": "local-root-review_repaired_routes-stage3-20261103",
+  "reviewer": "/root/review_repaired_routes, inherited GPT-6; exact version/reasoning unavailable",
+  "started_local": "2026-11-03T17:01:45.5745713+02:00",
+  "completed_utc": "2026-11-03T15:08:16.402081+00:00",
+  "awake_time": "unverified",
+  "freeze": "review-freeze-v4.json",
+  "source_sha256": {
+    "content\\chapters\\00-reading-guide.md": "68e18a1c5f8ebc41a0e772768b0001108cc01bbf33422fb6a124eefbe19cffce",
+    "content\\chapters\\01-foundations.md": "8610e42ffaeb64eb2ca83c36f044f87bf10116a7f0edf478eeb997f234af42a3",
+    "content\\chapters\\01b-persistence.md": "c9e032797f173dd4894366d3821b257a20ba753379461aec22e8ae547225bdae",
+    "content\\chapters\\02-memory-dynamics.md": "621cc668c8d0b15bfc73deb793650bf85d329ca9d15de260f0141bdb0559e712",
+    "content\\chapters\\02b-memory-long-delays.md": "c7e06c0c5530599d7f81ff2a352ee599f54f554c7d65140214bf43e209da8800",
+    "content\\chapters\\03-memory-information.md": "32305b7a603bfa1cd172665bb0a6a48040ec8dde50e032e72469a16817895fc8",
+    "content\\chapters\\03b-memory-readout.md": "474505bf2edc0e7817de9c6172e9b2baf16eddb7612033032741014faa0e0ca4",
+    "content\\chapters\\04-eye-drift.md": "c3262f2c08055f2d4b0e5fa57f128491b6e9c42f2f7560c5a84d95b4055855df",
+    "content\\chapters\\04b-eye-timing.md": "a1163ec8c245e699111671cb92b99f8d0f02a4ab8d297b6911d431b3d6c3794d",
+    "content\\chapters\\04c-eye-circuit.md": "70cc1b6c75b857b6f2671d5154d57d47d2159bb65f1c8a013e6565d5e81f42b7",
+    "content\\chapters\\05-place-fields.md": "633a13fff177da74f07faab4356c2d34bdb31bf05ab4f769ebfe10acc979497c",
+    "content\\chapters\\05b-place-sizes.md": "9b9d1a71a2006bee71c1025738ee29d8fce4392d422a85ba13df8d773083aecc",
+    "content\\chapters\\05c-place-tests.md": "5258984325a2a397540b59f489167a3cb73a62438526a57298ec98d379cd4996",
+    "content\\chapters\\06-synthesis.md": "4fb9fdb63a8789fa90ce10f2d6c16c343d42bb55d5091f45c5185a1db675d979",
+    "content\\chapters\\07-hardware-memory.md": "deeda3ec32647c81854879a7097cc63d095126c15c6cd564112baefedf1f3c8a",
+    "content\\chapters\\08-hardware-dynamics.md": "ab77751823aac588ae7cceea3229fecc4b0fddc79a434c560619dfd42ed44a4c",
+    "content\\chapters\\09-neuromorphic-systems.md": "e50348dd78e79dc21c3242ebe453704499392297caece5683aad5a4e71a1c726",
+    "content\\chapters\\10-hardware-tests.md": "e9958701e22c6577ba567e3d09a6c2af95d033992ce6fed2ad63527fca355861",
+    "content\\chapters\\11-simulating-memory.md": "65496313fb7f8b916c56c7325031abb7e93c8bad0284aa59bb4e33a0236a22b4",
+    "content\\chapters\\12-simulating-eye-drift.md": "c707d3cd85817d4da89548aec063aa6a320b6d400c4459863a24a5cf170758fb",
+    "content\\chapters\\13-simulating-place-fields.md": "da200c4ce5cc28da9e0cff00ae8c281a4c415e8d72085e9105a90ee760995387",
+    "content\\chapters\\14-simulation-tools.md": "81f522744afc3f8f0f3b56a377c129905ac9afc2d03123875dc6e5956399782c",
+    "content\\chapters\\glossary.md": "f82836a91add4a98cf466acdc0a91f5e22b41172f31a559ba3679fc04b02b092",
+    "content\\chapters\\references.md": "867d90af398bd27e9d124ae7d928fb469493a862e4268640d12403ed8f25bf73",
+    "content\\chapters\\00-reading-guide.yaml": "4daf51d6ed978326ad641f7dd4ca44049c8750e2979b431d157e23db72fdf483",
+    "content\\chapters\\01-foundations.yaml": "46d80d98533abd8f079287c9e39d79e2be907959d1213496382f9f8215521526",
+    "content\\chapters\\01b-persistence.yaml": "26abf2c72d8535770acda2d5320a8b4158495ea5570889c5ff8659918351ec28",
+    "content\\chapters\\02-memory-dynamics.yaml": "45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac",
+    "content\\chapters\\02b-memory-long-delays.yaml": "c7367b86d14e6ef36c2f2693a4981c3e5b69ba4222177e74ae33ee64cfc0845b",
+    "content\\chapters\\03-memory-information.yaml": "980e32b4180729ed0e7e133e238afae4fd27ae8eeec5a673e240d31dfda9171d",
+    "content\\chapters\\03b-memory-readout.yaml": "339bbb09ed573ac6146f77c33a7535eb4ec8060d7d68f33b68a4d0bf64ba8d2d",
+    "content\\chapters\\04-eye-drift.yaml": "1db87ce4e12994615f9e49518bb9aec319c0c9980055539a122ea8ede7530c85",
+    "content\\chapters\\04b-eye-timing.yaml": "0269c4f78ff2566c7ff78e51cc7d025e1cacd9c3a587a115e38de500b3d787be",
+    "content\\chapters\\04c-eye-circuit.yaml": "eaf05bc6d089a80fdf8eccd7dea973938456a8f8a3acf390e767cf267536e41a",
+    "content\\chapters\\05-place-fields.yaml": "9d16f7cd09968130b4acc80414d2abcc73ed77031edf470e14e5305c81d3f200",
+    "content\\chapters\\05b-place-sizes.yaml": "1061ec6cb926996467ed8bacab1716d88f32e8f371325ec56d41e811cdec5a27",
+    "content\\chapters\\05c-place-tests.yaml": "210c382ff32bd22f1a9dfeef2544bad6f670467e3f622b1cf78126a7778392da",
+    "content\\chapters\\06-synthesis.yaml": "a943e0a943dc48c0d8cc08b8bd45a9eaa94405951d4dc199418e9d997733a5e3",
+    "content\\chapters\\07-hardware-memory.yaml": "7bc6e17efe0e24caa3dfe6f6ed7be4e39eaf54556b8b907a9143072310d8cf0d",
+    "content\\chapters\\08-hardware-dynamics.yaml": "755d28f14565a39f2b948ca1ffdfe54ae4a8b105260f967979759941566df2d5",
+    "content\\chapters\\09-neuromorphic-systems.yaml": "bf3ce5d526007f082b99d4e29aa3ecd1f26a962496ba9dbb563152f1e12a1393",
+    "content\\chapters\\10-hardware-tests.yaml": "89d2c290350abe6553017a5655f1fa9702c79e03cb703a83d0fb538ae1360e06",
+    "content\\chapters\\11-simulating-memory.yaml": "23b55a04497a7c2e0b196b20b2b76a6d8c6ab958662c708d5ae1a4821e4c2f89",
+    "content\\chapters\\12-simulating-eye-drift.yaml": "5c19523f3bd49df9618c9997061cb017cdf2714326c66f2de436431b238eed28",
+    "content\\chapters\\13-simulating-place-fields.yaml": "36d56a4962f05de699c35a449b4180d73b48ab39379dd0196f41971749db0e15",
+    "content\\chapters\\14-simulation-tools.yaml": "a647e9c9ccfe269aab72e25ea5162b7370aabff4432c4439270185eaaefbfd79",
+    "content\\chapters\\glossary.yaml": "1f273362d0a53973ad7e4d37ff3b4048f67a3941f17c265a34349d1050bfa262",
+    "content\\chapters\\references.yaml": "bd3438c9ca97a07924f2d7591abcea7052424ca162a73de91ef651a3f68a71c6",
+    "plan\\chapter-plan.yaml": "87725d499b1be577703891cf78cdc2f0b0dbe5cf127037dadc77195facfcb1bf"
+  },
+  "all_source_matches_freeze": true,
+  "rule_sha256": {
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\acceptance-contract.md": "4477a69d1ee1d06f6b891b475761d243b3093d6e45a49215f1589a70b9703fb1",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\concept-prerequisites.md": "4c8d4af325fb63af8dbe41d447d4bac7197df550b0ddb9f4cdb0dea3b1fe9f9a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\prose-texture-contract.md": "bc65db6a42571c2e90cacdaf76c0991460b4087714ca966d0a6ff403daca2425",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\publication-contract.md": "30c312e7aa4815057d497e8ea2f2bfb071857e13a3d54b819ed5fd28ab4359dc",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\reference-citation-contract.md": "5c3a40b775395c981150b9796680b023108a27879cf517fa313a3f3b063cde9a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\skill-release-workflow.md": "e1cd5274236e81095b91a83749dc13f0b63e1942ea0aa75e9427c7a17ff8c0e2",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\source-planning-contract.md": "1933625fba97fc4747eefb3588a8f3dadd4a536b95db370aa049e515f7054dcc",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\structural-preservation-contract.md": "8f7b052a3a2ccf194966574da3ad88e69d5d5746f195ffffa59e97d25dbe8a35",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\work-efficiency.md": "9b0424c0bc60d1f587c94cf139a2b8f54894e5a6926e3786607d01af4ad9b439"
+  },
+  "assigned_full_reader_paths": [
+    "content/chapters/00-reading-guide.md",
+    "content/chapters/00-reading-guide.yaml",
+    "content/chapters/06-synthesis.md",
+    "content/chapters/06-synthesis.yaml",
+    "content/chapters/11-simulating-memory.md",
+    "content/chapters/11-simulating-memory.yaml",
+    "content/chapters/12-simulating-eye-drift.md",
+    "content/chapters/12-simulating-eye-drift.yaml",
+    "content/chapters/13-simulating-place-fields.md",
+    "content/chapters/13-simulating-place-fields.yaml",
+    "content/chapters/14-simulation-tools.md",
+    "content/chapters/14-simulation-tools.yaml",
+    "content/chapters/glossary.md",
+    "content/chapters/glossary.yaml",
+    "content/chapters/references.md",
+    "content/chapters/references.yaml",
+    "plan/chapter-plan.yaml"
+  ],
+  "benign_wording_rechecks": [
+    {
+      "finding": "S2-R1",
+      "status": "resolved",
+      "path": "11-simulating-memory.md:32",
+      "reason": "The largest-rate neuron rule now says output can take only one preferred angle. The following shape-change clause and short-lag caution remain; no new estimator claim or lost discretization meaning."
+    },
+    {
+      "finding": "S2-R2",
+      "status": "resolved",
+      "path": "14-simulation-tools.md:67",
+      "reason": "A few repeated runs states the same intermediate progression after one deterministic/map check and before published settings. Preceding dependence warning and saved-measurement diagnosis remain."
+    }
+  ],
+  "paragraph_records": "stage3-routes-paragraphs.json",
+  "paragraph_record_count": 370,
+  "native_block_flow": [
+    {
+      "path": "content\\chapters\\00-reading-guide.yaml",
+      "block_id": "tbl:READING-APPENDIX",
+      "block_sha256": "2dfe35d87081196bef22fb2175b45e160909b34c797fcd999596137f663180c8",
+      "point_and_placement_reason": "Comes after explaining model/mechanism/derivation and the appendix role; each source section is paired with a neural question and actual teaching destination. Helps source inspection without making source names the explanation.",
+      "decision": "retain"
+    },
+    {
+      "path": "content\\chapters\\00-reading-guide.yaml",
+      "block_id": "tbl:READING-EVIDENCE",
+      "block_sha256": "6adfd3ab1728f472e9f9adc8f6e3e5f7f6cc123c4fe390aca230670fd7001dd7",
+      "point_and_placement_reason": "Comes after the instruction to read each study column downward; separates actors, prediction, numerical test, empirical test and unresolved question. Makes evidence differences explicit after the three study summaries.",
+      "decision": "retain"
+    },
+    {
+      "path": "content\\chapters\\06-synthesis.yaml",
+      "block_id": "tbl:SYNTHESIS-MODELS",
+      "block_sha256": "e431e631fe838545ab3edef093b749464c0cec9ac7a3d383eab74a8131b2a9cb",
+      "point_and_placement_reason": "Follows explicit symbol/object separation, before proposing a cross-study dynamical connection. Condenses already taught distinctions rather than introducing unknown objects.",
+      "decision": "retain"
+    },
+    {
+      "path": "content\\chapters\\06-synthesis.yaml",
+      "block_id": "fig:SYNTHESIS-SHARED-POSITION",
+      "block_sha256": "aea436e90765f6a8af1be2421bca4f0a7e8e98cf341f85e4ce044db2a2e58ea6",
+      "point_and_placement_reason": "Follows slope covariance arithmetic and chosen positive baseline; caption/alt describe the same toy example. The following line-in-rate-space explanation tells readers what population pattern to test.",
+      "decision": "retain"
+    },
+    {
+      "path": "content\\chapters\\14-simulation-tools.yaml",
+      "block_id": "tbl:SIMULATION-TOOLS",
+      "block_sha256": "2431c3b30445413f0ecd27fd827e766da6baf4df7416047f4125dc354b51bd2f",
+      "point_and_placement_reason": "Follows reproduction-route and optional-tool distinctions; rows map packages to operations and author-used versus suggested status. Following prose explains random generator, ODE/event, connectivity and spiking replacements.",
+      "decision": "retain"
+    }
+  ],
+  "part_flow": [
+    {
+      "part": "part:MECHANISMS",
+      "title": "Noise limits memory accuracy in continuous attractor models",
+      "contribution": "In a model neural circuit, a pattern of firing rates across many nerve cells can represent a remembered angle. Random spike timing can change that angle while activity persists. The central source, [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109), derives how quickly accuracy can be lost and how well the value can be read. Chapters 1 and 2 establish the background. Chapters 3 and 5 develop the central diffusion and information results. Chapters 4 and 6 explain long-delay behavior and readout. Expanded examples and marked checks of printed formulas are guide-derived.",
+      "decision": "retain",
+      "connection_reason": "Starts with physical spike/state meanings before stability and precision limits. This supplies the quantities that the observations later measure or use."
+    },
+    {
+      "part": "part:OBSERVATIONS",
+      "title": "Eye motion and place fields constrain different parts of a neural code",
+      "contribution": "These studies connect neural activity to eye control in monkeys and location in rodents and bats. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y) supply the central shared-drive inference and a possible integrator explanation in Chapters 7 to 9. [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) supply the spatial model, field-size predictions, and supporting shape tests in Chapters 10 to 12. Chapter 13 is a guide-derived comparison of those results with Burak and Fiete (2012). The eye chapters begin with recordings and then test a possible neural source. The place chapters begin with a spatial input model and then test its field statistics.",
+      "decision": "retain",
+      "connection_reason": "Moves from theory to recorded behavior and static spatial patterns. Its opening explicitly tells readers that eye source inference and place statistics test different parts; synthesis follows both."
+    },
+    {
+      "part": "part:HARDWARE",
+      "title": "Neural memory in electronic hardware",
+      "contribution": "Electronic circuits can store connection settings, changing neuron states, and values represented by a network. Von Neumann (1958) motivates this comparison. Chapters 14 and 15 connect physical storage with Seung (1996) and Burak and Fiete (2012). Chapter 16 examines the separate contributions of selected hardware studies through October 30, 2026. Chapter 17 develops guide-derived experiments using the three original papers. Each contribution is attributed in the Part introduction.",
+      "decision": "retain",
+      "connection_reason": "Changes physical implementation after defining neural state and evidence. Its opening defines the weight/state/value distinctions again for electronics before architecture comparisons."
+    },
+    {
+      "part": "part:SIMULATIONS",
+      "title": "Simulations connect model assumptions to measurable outcomes",
+      "contribution": "[Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109) test memory diffusion in spiking networks. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y) connect a simulated neural command to eye motion. [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017) generate spatial maps and compare their fields with recordings. This Part explains the methods, measurements, and software behind those studies, then gives a guide-derived route for checking a reproduction.",
+      "decision": "retain",
+      "connection_reason": "Returns to original papers at numerical-method level after all physical questions. Explicit paper-specific new tasks prevent this from being a second beginner mechanism pass."
+    }
+  ],
+  "chapter_sequence": [
+    {
+      "chapter": 1,
+      "path": "content/chapters/01-foundations.md",
+      "sha256": "8610e42ffaeb64eb2ca83c36f044f87bf10116a7f0edf478eeb997f234af42a3",
+      "actual_contribution": "Teaches motor action, recurrent spike updates, tuning/rate maps, Poisson counts, a conceptual network test and shared variation.",
+      "why_here_prior_premise": "Needs only declared mathematics; physical meaning and an actual update precede attractor abstractions.",
+      "next_step": "2 can now distinguish stable activity from preserved coordinate.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 2,
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "c9e032797f173dd4894366d3821b257a20ba753379461aec22e8ae547225bdae",
+      "actual_contribution": "Separates elastic holding, attractor geometry, diffusion and fixed spatial randomness.",
+      "why_here_prior_premise": "Uses Chapter1 states/spikes and supplies neutral-versus-restoring directions plus D/MSD.",
+      "next_step": "3 derives the coefficient from the neural model; shorter place route can leave after fixed-map distinction.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 3,
+      "path": "content/chapters/02-memory-dynamics.md",
+      "sha256": "621cc668c8d0b15bfc73deb793650bf85d329ca9d15de260f0141bdb0559e712",
+      "actual_contribution": "Projects surviving spike fluctuations into a local diffusion coefficient.",
+      "why_here_prior_premise": "Uses state, derivatives, attractor directions and count variability actually taught in1-2.",
+      "next_step": "4 asks where local spreading survives long delays and boundaries.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 4,
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "sha256": "c7e06c0c5530599d7f81ff2a352ee599f54f554c7d65140214bf43e209da8800",
+      "actual_contribution": "Extends D to probability motion, boundaries, systematic drift and source simulation comparisons.",
+      "why_here_prior_premise": "Local D from3 is needed before explaining its limits.",
+      "next_step": "5 can ask what statistical quantity bounds the now-defined dynamical coefficient.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 5,
+      "path": "content/chapters/03-memory-information.md",
+      "sha256": "32305b7a603bfa1cd172665bb0a6a48040ec8dde50e032e72469a16817895fc8",
+      "actual_contribution": "Derives spike information and bound, equality conditions and fixed-comparison choices.",
+      "why_here_prior_premise": "Uses tuning/rate variability and D from earlier chapters; likelihood and score taught before their proof use.",
+      "next_step": "6 turns information into a readout problem when the state keeps moving.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 6,
+      "path": "content/chapters/03b-memory-readout.md",
+      "sha256": "474505bf2edc0e7817de9c6172e9b2baf16eddb7612033032741014faa0e0ca4",
+      "actual_contribution": "Separates storage delay and recall observation, equal versus ideal weighting, partial access and noise laws.",
+      "why_here_prior_premise": "Uses D and J and teaches the Gaussian observation model before combining them.",
+      "next_step": "PartII asks how an output measurement relates to a maintained command; no biological estimator implementation assumed.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 7,
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "c3262f2c08055f2d4b0e5fa57f128491b6e9c42f2f7560c5a84d95b4055855df",
+      "actual_contribution": "Calibrates motor/eye transformation and infers common upstream displacement variance.",
+      "why_here_prior_premise": "Physical eye action from1-2 supports forward fit and inverse filter; covariance and limitations are taught before inference.",
+      "next_step": "8 asks what the one-interval shared estimate leaves unknown about time accumulation.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 8,
+      "path": "content/chapters/04b-eye-timing.md",
+      "sha256": "a1163ec8c245e699111671cb92b99f8d0f02a4ab8d297b6911d431b3d6c3794d",
+      "actual_contribution": "Removes measurement-noise offset and compares filtered stationary noise with filtered diffusion.",
+      "why_here_prior_premise": "Uses displacement/MSD and the motor filter; explicitly teaches noise correction and a simplified filter.",
+      "next_step": "9 can propose a full neural source while retaining distinct shared-source and timing evidence.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 9,
+      "path": "content/chapters/04c-eye-circuit.md",
+      "sha256": "70cc1b6c75b857b6f2671d5154d57d47d2159bb65f1c8a013e6565d5e81f42b7",
+      "actual_contribution": "Constructs integrator, motor, mechanical and feedback model with regular spikes.",
+      "why_here_prior_premise": "Uses the empirical target7 and timing8; all new synaptic and feedback roles are given before equations rely on them.",
+      "next_step": "10 switches from changing command to fixed spatial input; Part opening and Chapter10 explicitly signal this object change.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 10,
+      "path": "content/chapters/05-place-fields.md",
+      "sha256": "633a13fff177da74f07faab4356c2d34bdb31bf05ab4f769ebfe10acc979497c",
+      "actual_contribution": "Builds Gaussian spatial map, crossings and parameter inference with field/gap and count-selection corrections.",
+      "why_here_prior_premise": "Needs rate-map and fixed-map concepts from shared foundations; supplies Gaussian, smoothness and covariance requirements itself.",
+      "next_step": "11 can explain distributions beyond mean length using high peaks.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 11,
+      "path": "content/chapters/05b-place-sizes.md",
+      "sha256": "9b9d1a71a2006bee71c1025738ee29d8fce4392d422a85ba13df8d773083aecc",
+      "actual_contribution": "Explains high-peak geometry, dimension-specific size laws, slices and crossing slopes.",
+      "why_here_prior_premise": "Uses threshold, covariance derivatives and crossing count from10; derives extra curvature/overshoot steps.",
+      "next_step": "12 tests topology and empirical fitting limits beyond sizes, with exact and limiting claims kept separate.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 12,
+      "path": "content/chapters/05c-place-tests.md",
+      "sha256": "5258984325a2a397540b59f489167a3cb73a62438526a57298ec98d379cd4996",
+      "actual_contribution": "Counts holes/boundaries, identifies fitted versus tested summaries and evaluates possible random-input origin.",
+      "why_here_prior_premise": "Uses Gaussian maps and size laws; topology, critical points and theorem limits are taught before formula use.",
+      "next_step": "13 can compare maps/dynamics/behavior without claiming that one uniquely determines the others.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 13,
+      "path": "content/chapters/06-synthesis.md",
+      "sha256": "4fb9fdb63a8789fa90ce10f2d6c16c343d42bb55d5091f45c5185a1db675d979",
+      "actual_contribution": "Connects static tuning with shared displacement by a local calculation, then proposes a joint measurement.",
+      "why_here_prior_premise": "All three paper objects already have their own teaching and evidence.",
+      "next_step": "PartIII changes to electronic implementations with a fresh distinction among weights, neural state and represented value.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 14,
+      "path": "content/chapters/07-hardware-memory.md",
+      "sha256": "deeda3ec32647c81854879a7097cc63d095126c15c6cd564112baefedf1f3c8a",
+      "actual_contribution": "Separates connection settings, dynamic neural state and represented cue, then physical storage and updates.",
+      "why_here_prior_premise": "PartIII opening poses silicon-angle retention and identifies implementation as an extension.",
+      "next_step": "15 can ask which feedback preserves which kind of memory.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 15,
+      "path": "content/chapters/08-hardware-dynamics.md",
+      "sha256": "ab77751823aac588ae7cceea3229fecc4b0fddc79a434c560619dfd42ed44a4c",
+      "actual_contribution": "Derives feedback persistence and distinguishes restoring bits from continuous retained coordinate changes.",
+      "why_here_prior_premise": "Uses physical states and signal updates14 plus neutral directions2.",
+      "next_step": "16 can compare chip architectures and studies using memory meaning rather than neuron count.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 16,
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "sha256": "e50348dd78e79dc21c3242ebe453704499392297caece5683aad5a4e71a1c726",
+      "actual_contribution": "Compares arithmetic, analog dynamics and conductance computing with scoped current demonstrations.",
+      "why_here_prior_premise": "Uses14 storage roles and15 memory criterion before comparing machines.",
+      "next_step": "17 turns error, energy and system-boundary qualifications into a proposed common test.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 17,
+      "path": "content/chapters/10-hardware-tests.md",
+      "sha256": "e9958701e22c6577ba567e3d09a6c2af95d033992ce6fed2ad63527fca355861",
+      "actual_contribution": "Proposes cue-delay trials, decoder calibration, separate mean/variance and physical-parameter controls.",
+      "why_here_prior_premise": "Uses D/readout/filter distinctions and physical roles; defines decoder and unwrapping locally.",
+      "next_step": "PartIV now explains numerical reproduction behind the original papers;17 does not depend on yet-untaught author file names.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 18,
+      "path": "content/chapters/11-simulating-memory.md",
+      "sha256": "65496313fb7f8b916c56c7325031abb7e93c8bad0284aa59bb4e33a0236a22b4",
+      "actual_contribution": "Adds published network settings, maximum-rate proxy versus theoretical coordinate, units and missing implementation choices.",
+      "why_here_prior_premise": "Explicitly refers to earlier conceptual update1 and diffusion interpretation4.",
+      "next_step": "19 adds recording reconstruction, motor pathway and public code to compare internal dynamics with movement.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 19,
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "sha256": "c707d3cd85817d4da89548aec063aa6a320b6d400c4459863a24a5cf170758fb",
+      "actual_contribution": "Adds paper/code defaults, regular event generator, saved sampling, controls, MATLAB files and raw-data access.",
+      "why_here_prior_premise": "Uses full pathway9 and empirical inference7; refreshes distinct internal-command and physical-eye outputs.",
+      "next_step": "20 deliberately changes the independent variable from time to fixed spatial location.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 20,
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "sha256": "da200c4ce5cc28da9e0cff00ae8c281a4c415e8d72085e9105a90ee760995387",
+      "actual_contribution": "Adds archive map-generation cycle, detector/width/boundary choices, fits and code/data access.",
+      "why_here_prior_premise": "Uses spatial model10 and tests12; explains filtering and normalization before implementation cautions.",
+      "next_step": "21 can generalize reproduction checks across dynamic, mechanical and fixed-map models.",
+      "decision": "retain"
+    },
+    {
+      "chapter": 21,
+      "path": "content/chapters/14-simulation-tools.md",
+      "sha256": "81f522744afc3f8f0f3b56a377c129905ac9afc2d03123875dc6e5956399782c",
+      "actual_contribution": "Chooses source/reconstruction route and software, then checks physical resolution, repeats and run records.",
+      "why_here_prior_premise": "Uses concrete failure modes18-20 to motivate each tool/check; keeps deterministic ODEs distinct from noise event laws.",
+      "next_step": "Glossary and References provide lookup and source inspection; no new main argument depends on back matter.",
+      "decision": "retain"
+    }
+  ],
+  "special_route_checks": [
+    {
+      "route": "short place-field route",
+      "decision": "retain",
+      "earlier_teaching": [
+        "01-foundations FOUNDATIONS-SPIKES: tuning/population/rate map, spikes divided by visit time",
+        "01-foundations FOUNDATIONS-POISSON: count variability at fixed expected rate",
+        "01b-persistence FOUNDATIONS-RANDOMNESS: fixed map versus noisy represented coordinate",
+        "05-place-fields PLACE-GP: mean/covariance, jointly Gaussian vector, smoothness, threshold/gain and excursion set"
+      ],
+      "answer": "The short route supplies the concepts actually used by Chapter10. Gaussian-map definitions and new derivative conditions are taught there, so the route need not require eye mechanics, full attractor projection or readout proofs. Later topology and limiting size laws receive their own teaching in11-12."
+    },
+    {
+      "route": "evidence-chain map",
+      "decision": "retain",
+      "answer": "Orientation first states each study question, operation and result, then explicitly distinguishes model assumptions, derived prediction, simulation and animal data. The native evidence table reads down each paper separately and ends with what remains unknown. Synthesis uses that separation to propose, rather than assume, a cross-paper link."
+    },
+    {
+      "route": "Chapter1 simulation foundation versus PartIV",
+      "decision": "retain",
+      "answer": "Chapter1 secFOUNDATIONS-SIMULATION follows state/rate/count teaching with the actual s-update and how theory is compared with generated trajectories. This is needed before projection and diffusion theory. Chapter18 explicitly adds source parameters, maximum-rate-versus-theoretical-coordinate measurement, rate/activation units and open implementation choices. Chapters19-21 add saved samples, code/data routes, detector conventions and resolution checks. The late Part is methods depth, with a stated new task, not deferred essential mechanism."
+    }
+  ],
+  "order_alternative_considered": {
+    "alternative": "Place PartIV before hardware, or insert each simulation-method chapter directly after its source-paper chapter.",
+    "benefit": "Could shorten the jump from a particular paper to its exact numerical settings and code route.",
+    "cost_and_decision": "Current earlier chapters already teach the required simulation mechanism and explain what tests establish; hardware protocol17 defines its own decoder and sampling checks. No prerequisite currently depends on later file names or package defaults. Interleaving detailed reproduction settings would interrupt the theory-to-empirical-to-synthesis progression. Keep current order; no required move is justified."
+  },
+  "open_ended_connected_read": "Rechecked orientation-to-foundations promise, theory-to-eye evidence handoff, switch to fixed spatial maps, synthesis-to-hardware state distinction, and hardware-to-methods extension against actual openings, endings, section purposes and connected upstream teaching. Each switch states which object or question changes. No new required flow defect found in this scope.",
+  "required_findings": [],
+  "optional_preferences": [],
+  "limits": [
+    "Full assigned eight-unit paragraph path reviewed; broader21-chapter arrangement assessed from actual plan, section content, openings/endings and connected prerequisite passages. This is not a claim to reread every derivation paragraph in all other chapters.",
+    "No pixel acceptance of maps or figures, full author-code execution, rebuilt output or full-release acceptance.",
+    "Source, documentation-version and related-study fulltext limits from Stage1 remain.",
+    "Metadata fields used for navigation repeat their actual chapter/section purposes; nonreader technical IDs and pure markup do not require prose transitions."
+  ],
+  "token_stats": "unavailable"
+}

@@ -1,0 +1,11 @@
+--- before/02b-memory-long-delays.md
++++ after/02b-memory-long-delays.md
+@@ -70,6 +70,8 @@
+ As the upper density approaches uniform, the wrapped error below approaches $\pi^2/3$; the line error keeps growing.
+ 
+ **Neural mechanism.** The rate of random spreading can change as the stored value changes, because the current firing rates set the spike variability. The supplement illustrates this dependence with mutual excitation, $W_{12}=W_{21}=1$, biases $(b_0,-b_0)$, and the same linear transfer rule. The fixed activation states are $(\theta+b_0/2,\theta-b_0/2)$. Now $\mathbf u=(1,1)^T$, $\mathbf v=(1/2,1/2)^T$.
++
++Here $\theta$ is an activation coordinate, not an angle, and both steady rates are positive only when $\theta>|b_0|/2$. When both activations rise together, each cell raises the other's firing enough to replace the extra synaptic decay. This common increase persists and changes the stored value. A disturbance in their difference instead decays toward the difference set by the biases. Larger $\theta$ raises both firing rates and hence both Poisson count variances. Because the projection weights stay fixed in this example, more of that variability remains as memory error.
+ 
+ **Mathematical derivation.** When $D$ varies with state, the zero drift stochastic equation is $d\theta=\sqrt{2D(\theta)}\,dB$ with the Itô convention. Under conditions that remove boundary terms, the density equation gives
+ 

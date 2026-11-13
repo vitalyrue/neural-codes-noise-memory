@@ -1,0 +1,72 @@
+{
+  "stage": "1 truth and reasoning",
+  "reviewed_at_utc": "2026-11-01T10:11:05.7621933Z",
+  "source": "C:/dev/clsc/burak-papers/guide/content/chapters/01-foundations.md",
+  "source_sha256": "780c644dbb4a70e3641486fc8b1cb1f6e5f321b71d1e026796b2e881af2ca516",
+  "scope": "Local source review of lines 49-180 and Poisson footnotes 286-289 only. No whole-chapter, book, visual, or release acceptance.",
+  "verdict": "pass",
+  "checks": [
+    {
+      "verdict": "pass",
+      "lines": "51-64",
+      "reason": "Correct for the specified fixed-rate Poisson model.",
+      "claim": "Constant-rate Poisson count formula, dimensionless expected count, mean and variance"
+    },
+    {
+      "verdict": "pass",
+      "lines": "68-82",
+      "reason": "Correct Bernoulli approximation; independence and negligible multiple spikes are explicitly model assumptions. The factorial removes order overcounting and zero count is covered.",
+      "claim": "Independent tiny-bin construction, bin probability, and number of occupied-bin choices"
+    },
+    {
+      "verdict": "pass",
+      "lines": "84-108",
+      "reason": "Algebra and limits are correct. Keeping duration and expected count fixed is explicit. The logarithm argument proves the stated exponential limit for positive rate; zero rate is the trivial all-silent case.",
+      "claim": "Binomial expansion, fixed-k limit, exponential limit, and interpretation of factors"
+    },
+    {
+      "verdict": "pass",
+      "lines": "110-136",
+      "reason": "Index shifts and the exponential series identity are correct and yield variance lambda.",
+      "claim": "Mean, factorial second moment, and variance derivation"
+    },
+    {
+      "verdict": "pass",
+      "lines": "142-165",
+      "reason": "For the example, each fixed rate is 20/s, duration is .05s, individual mean is 1, no-spike probability is .36787944. Independent Poisson count sum has mean 20, SD 4.47213595, and relative SD .22360680. Conditional interpretation is acceptable because the example fixes all rates.",
+      "claim": "Relative spread and pooled fixed-rate example"
+    },
+    {
+      "verdict": "pass",
+      "lines": "170",
+      "reason": "Correctly restricts integrated-rate Poisson law to predetermined intensity and rejects unjustified whole-interval Poisson counts for general recurrent intensity. Local conditional noise independence does not claim complete spike-train independence.",
+      "claim": "Predetermined changing rate versus recurrent state-dependent rate"
+    },
+    {
+      "verdict": "pass",
+      "lines": "177-180",
+      "reason": "Definitions and homogeneous-Poisson CV statement are correct; Fano dependence on interval is a general statement and need not hold for every process.",
+      "claim": "CV, Fano factor, and distinction"
+    },
+    {
+      "verdict": "pass",
+      "lines": "286-289",
+      "reason": "MIT primary course PDF was opened live in this review session; assumptions and fine-bin approximation are present on PDF pages 3-5. Guide reconstruction and changed rate notation are openly identified.",
+      "claim": "Source citation for reconstructed bin limit"
+    }
+  ],
+  "strongest_math_objection": {
+    "open_blocker": false,
+    "issue": "An endogenous recurrent rate does not generally imply a Poisson whole-interval count with its random integrated intensity.",
+    "status": "resolved in actual source line 170"
+  },
+  "sources": [
+    "https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf"
+  ],
+  "limitations": [
+    "Burak-Fiete citation and SI likelihood link were retained and not independently re-audited in this focused stage.",
+    "Reader terminology and teaching flow require their separately requested stages.",
+    "Awake execution time is unverified."
+  ],
+  "edits": "Only this review record written."
+}

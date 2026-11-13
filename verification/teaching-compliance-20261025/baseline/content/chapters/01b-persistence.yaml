@@ -1,0 +1,86 @@
+chapter_id: ch:PERSISTENCE
+part_id: part:MECHANISMS
+title: Stable representations can accumulate error
+purpose: The next distinction is between a value and the activity that represents it. Eye
+  position is one number, but a circuit can represent it through thousands of neural activities.
+  A disturbance can change those activities without changing the represented value. Another
+  disturbance can leave a coherent activity pattern while changing the value. The geometry
+  of these two changes will explain why a stable-looking circuit can still accumulate memory
+  error.[^f-memory]
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:FOUNDATIONS-ATTRACTOR
+  title: Stable activity with a vulnerable stored value
+  summary: A circuit's current activities are its [**state**]{.definition-term custom-style="Definition
+    Term"}. A dynamical equation specifies how that state changes. A [**fixed point**]{.definition-term
+    custom-style="Definition Term"} is a state where the deterministic rate of change is zero.
+    It is stable in a direction if a small disturbance in that direction decays.
+  level: 2
+- id: sec:FOUNDATIONS-DIFFUSION
+  title: Independent steps with equal duration and variance give linear variance growth
+  summary: 'If persistent angular changes arrive repeatedly, their errors accumulate. Divide
+    time into intervals of length $\Delta t$. Let $\xi_j$ be the change in the represented
+    coordinate during interval $j$. The calculation assumes:'
+  level: 2
+- id: sec:FOUNDATIONS-RANDOMNESS
+  title: A fixed spatial map differs from a value that wanders over time
+  summary: The memory and eye papers study fluctuations that accumulate as time passes. The
+    place-field paper instead starts with a random function of physical position. Once drawn
+    for a cell and an environment, that function is fixed while the animal moves through the
+    map. Revisiting a place evaluates the same expected-rate function, although the actual
+    spikes can still vary from visit to visit.
+  level: 2
+blocks:
+- id: fig:FOUNDATIONS-ATTRACTOR
+  kind: figure
+  placement: sec:FOUNDATIONS-ATTRACTOR
+  asset: assets/approved/visuals/attractor-directions.svg
+  caption: A common activity disturbance returns to the initial angle, while an along-line
+    disturbance persists as a changed angle. The solid arrow is deterministic recovery; the
+    dashed arrow is an imposed disturbance. This is the guide's two-activity construction,
+    not experimental data.
+  alt: Two activity axes in hertz, a diagonal fixed-point line, initial state at 50 and 30,
+    common disturbance at 53 and 33 with a solid arrow back, and along-line disturbance at
+    53 and 27 corresponding to 6.5 degrees.
+  width_inches: 6.4
+  html_fold: never
+- id: fig:FOUNDATIONS-PAPER-MAP
+  kind: figure
+  placement: sec:FOUNDATIONS-RANDOMNESS
+  asset: assets/approved/visuals/foundations-paper-map.png
+  caption: Memory loss and eye drift concern changes over time; place-field statistics concern
+    variation across a fixed spatial map. The eye pathway shows the proposed changing-command
+    mechanism. Original guide schematic based on the three papers, with illustrative traces
+    rather than recorded data.
+  alt: Three separate rows compare a wandering stored value over time, a proposed changing
+    command passing through muscles to eye position, and one fixed spatial rate curve evaluated
+    twice at the same place. They link to the 2012 memory, 2022 eye-drift and 2025 place-field
+    papers respectively.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:FOUNDATIONS-DIFFUSION-BIAS
+  kind: figure
+  placement: sec:FOUNDATIONS-DIFFUSION
+  asset: assets/approved/visuals/foundations-diffusion-bias.png
+  caption: Simulated Brownian teaching paths and analytic displacement scales for $D=0.02$
+    degrees squared per second and $v=0.10$ degrees per second. The upper paths have zero
+    drift and start at zero; the dashed envelope is the exact root mean squared displacement,
+    not a boundary on individual paths. Below, $\sqrt{2Dt}$ and $vt$ are equal at 4 s, when
+    each is 0.40 degrees. Their squares are the separate contributions to the biased model’s
+    MSD. The coordinate is unbounded, and these chosen values are not estimates from animal
+    recordings.
+  alt: Seven Brownian sample paths move irregularly above and below zero. A dashed positive
+    and negative root mean squared envelope grows with the square root of time; some paths
+    cross it. A second plot compares the positive root mean squared displacement with a linearly
+    growing bias displacement. Both equal 0.40 degrees at four seconds, after which the bias
+    line is higher.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

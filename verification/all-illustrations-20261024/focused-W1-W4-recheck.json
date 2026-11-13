@@ -1,0 +1,251 @@
+{
+  "request_id": "focused-W1-W4-20261024",
+  "reviewer": "/root/all_illustrations_review",
+  "reviewed_at": "2026-10-24T18:47:29.305423+03:00",
+  "scope": "Four repaired whole fields and their attached unchanged conditions in proposed sources; separate focused truth and Stage2 recheck.",
+  "truth_decision": "pass",
+  "stage2_decision": "pass",
+  "stage3_status": "not started",
+  "canonical_acceptance": "pending final insertion/source binding",
+  "repairs": {
+    "W1": {
+      "figure": "A02",
+      "field": "interpretation",
+      "old_text_sha256": "ab481ca0b2c15077fab669f58059ab99ac2e11b0bded908bffac496966e3348b",
+      "new_text_sha256": "420ff8f04869b5d3a1186f9b6d5c45fa19d2cb6187b953ce80b536fb4e9edeb7",
+      "text": "A single path can turn back toward zero even while the root mean squared displacement grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+      "truth": {
+        "verdict": "pass",
+        "evidence": "The section defines RMS as sqrt(2Dt) for zero-mean diffusion. With D=.02>0 this scale increases with time, while an individual Brownian path need not move monotonically away from zero. A02 upper caption still says zero drift, and its lower plot separates vt from random RMS. The new phrase names the specific displayed ensemble scale; it does not assert that every path or a finite-sample spread increases. The following bias sentence retains linear versus square-root comparison."
+      },
+      "necessity_and_wording": {
+        "verdict": "pass",
+        "evidence": "Retain revised whole interpretation: the already taught RMS term is necessary and specific, and the next sentence explains the long-time consequence of fixed bias without a new specialist term."
+      },
+      "context": [
+        {
+          "role": "preceding_original",
+          "paragraph_sha256": "e98b95e85dafd02f05c507c61f8179932471e5fde2a009e7bb830075e5a8cceb",
+          "text": "The deterministic and random contributions are equal at $t=2D/v^2=4$ seconds. Their equal contributions there are each $0.16$ degrees squared. At longer times the bias dominates this unbounded model even though it was small over a short observation. Removing systematic drift is therefore a substantive assumption in a theory devoted to random diffusion.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "intro",
+          "paragraph_sha256": "682ea9b57198e4f02f2b7a799d285f9e1d24a6720ad2306991490428ea9f3038",
+          "text": "Sample paths show the irregular motion; exact displacement scales show how its spread differs from a fixed bias.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "following_original",
+          "paragraph_sha256": "d9d175c58f25bbeb55b5a695db7dcf469084c56df1b1eef3ab6d1ad40e73b4b6",
+          "text": "Two times along a Brownian path are correlated even though its increments are independent. For $0\\leq s\\leq t$, write $W(t)=W(s)+[W(t)-W(s)]$. The bracketed increment is independent of $W(s)$ and has mean zero, giving",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        }
+      ]
+    },
+    "W2": {
+      "figure": "A06",
+      "field": "caption",
+      "old_text_sha256": "97b274dd2b6c7c90512c888984911d30a480ca07b6afa3465bd065b2fd8a34a3",
+      "new_text_sha256": "180baf284bde3d6f65e70353b19049898721807f3f025cf5a68d71dc476db7aa",
+      "text": "For positive lags, independent measurement error adds $2\\sigma_m^2$ to the movement MSD, here $M(\\ell)=2D\\ell$. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+      "truth": {
+        "verdict": "pass",
+        "evidence": "The source-derived expansion of the squared endpoint difference is unchanged: for independent errors at distinct samples, Var(nu(t+ell)-nu(t))=2 sigma_m squared; same-sample zero lag cancels. The chosen Brownian M(ell)=2D ell has D=.010, giving M(.020)=.0004 and observed=.0014 after adding .001. The .0001 subtraction uncertainty remains25 percent. The two expressions now use balanced valid math delimiters and the same symbols; no mathematical claim changed. Browser math rendering is pending the later build."
+      },
+      "necessity_and_wording": {
+        "verdict": "pass",
+        "evidence": "Retain revised whole caption: factor two, chosen movement law, zero-lag exception, numeric uncertainty and analytic-example status all earn their place. Rendering the symbols removes raw subscript notation."
+      },
+      "context": [
+        {
+          "role": "preceding_original",
+          "paragraph_sha256": "3d3ef08daebdef4d2f9c40989a971e5f939a96f451bf400685ca9fc0edd83f3d",
+          "text": "For instance, a constructed measured MSD of $0.0014$ deg$^2$ with an estimated noise contribution $0.0010$ deg$^2$ leaves $0.0004$ deg$^2$. A $0.0001$ deg$^2$ uncertainty in the subtraction is already 25% of that result. This is why a corrected short lag point needs an uncertainty assessment as well as a positive value. If measurement errors were temporally correlated, the correction would instead be $2[\\sigma_m^2-C_\\nu(\\ell)]$, where $C_\\nu$ is their covariance at lag $\\ell$; a constant subtraction would then need revision.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "intro",
+          "paragraph_sha256": "b34ca6facaa856c70d89c10707022b3451e9117295904d69214d8b204a9b611d",
+          "text": "For a constructed Brownian movement with $D=0.010$ deg$^2$/s, adding independent position measurement errors with $2\\sigma_m^2=0.0010$ deg$^2$ shifts every positive-lag MSD upward by the same amount.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "following_original",
+          "paragraph_sha256": "0101d6c0734265a938f788bc99e58c63c0a11379abe76b55f0ca8fe03f35f881",
+          "text": "The corrected MSD keeps increasing over the observed range, toward a second, while its logarithmic slope decreases and remains between one and two. Define that local slope by",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        }
+      ]
+    },
+    "W3": {
+      "figure": "A06",
+      "field": "alt",
+      "old_text_sha256": "3bd039692a5d29149074a9fe1e2f3986a437358df057b878df9b0b64ea83f5b1",
+      "new_text_sha256": "e59a28385d12a84c71f8a86359b5d00386f46c9889c9169cc407cab98f0c9a4e",
+      "text": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. The observed curve has an open endpoint at lag zero, above the actual zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+      "truth": {
+        "verdict": "pass",
+        "evidence": "The unchanged figure has an open circle at (0,.001), representing the positive-lag curve endpoint, and a filled dot at (0,0), representing the actual same-sample MSD. Saying the curve has an open endpoint at lag zero does not include that point in the positive-lag function. The complete alt still specifies strictly positive lags, the constant .001 offset and the20ms points. The original adjoining paragraph retains the temporally correlated-error alternative."
+      },
+      "necessity_and_wording": {
+        "verdict": "pass",
+        "evidence": "Retain revised whole alt: it now describes the two actual endpoints without the contradictory phrase zero positive lag. The remaining values and bracket description serve the unseen-image reader."
+      },
+      "context": [
+        {
+          "role": "preceding_original",
+          "paragraph_sha256": "3d3ef08daebdef4d2f9c40989a971e5f939a96f451bf400685ca9fc0edd83f3d",
+          "text": "For instance, a constructed measured MSD of $0.0014$ deg$^2$ with an estimated noise contribution $0.0010$ deg$^2$ leaves $0.0004$ deg$^2$. A $0.0001$ deg$^2$ uncertainty in the subtraction is already 25% of that result. This is why a corrected short lag point needs an uncertainty assessment as well as a positive value. If measurement errors were temporally correlated, the correction would instead be $2[\\sigma_m^2-C_\\nu(\\ell)]$, where $C_\\nu$ is their covariance at lag $\\ell$; a constant subtraction would then need revision.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "intro",
+          "paragraph_sha256": "b34ca6facaa856c70d89c10707022b3451e9117295904d69214d8b204a9b611d",
+          "text": "For a constructed Brownian movement with $D=0.010$ deg$^2$/s, adding independent position measurement errors with $2\\sigma_m^2=0.0010$ deg$^2$ shifts every positive-lag MSD upward by the same amount.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "following_original",
+          "paragraph_sha256": "0101d6c0734265a938f788bc99e58c63c0a11379abe76b55f0ca8fe03f35f881",
+          "text": "The corrected MSD keeps increasing over the observed range, toward a second, while its logarithmic slope decreases and remains between one and two. Define that local slope by",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        }
+      ]
+    },
+    "W4": {
+      "figure": "A08",
+      "field": "caption",
+      "old_text_sha256": "9c5aabf8fad2efe3f4f47aacf83663852c44852ac1ed160938aa48bad7ee39f4",
+      "new_text_sha256": "ae05d62f3d0aa7907305ef2ca5c2d64774ef7e257b5b8d705cc5f4c0efa55c7e",
+      "text": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has a density that rises without bound as size approaches zero, while its integral remains one. Their survival probabilities, the probabilities of exceeding a threshold, coincide after transformation to $U=\\beta s^{2/d}$, where $\\Pr(U>u)=e^{-u}$. These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+      "truth": {
+        "verdict": "pass",
+        "evidence": "For d3 the limiting dimensionless density is (2/3) w^(-1/3) exp(-w^(2/3)), which grows without bound as positive w approaches zero. Its integral is one by the substitution U=w^(2/3); more generally U=beta s^(2/d), with survival Pr(U>u)=exp(-u) for u>=0. Thus the new direct explanation preserves the integrable-density claim and states the meaning of survival probabilities correctly. The original Stage1 independent integrals were one, with no mass at zero. The entire caption retains limiting/high-threshold status and excludes finite-threshold simulation or empirical-histogram claims."
+      },
+      "necessity_and_wording": {
+        "verdict": "pass",
+        "evidence": "Retain revised whole caption: the longer first clause is needed to say what the unbounded density means, and the probability explanation defines survival at use. Both transformed formulas remain exact. No new optional edits are requested."
+      },
+      "context": [
+        {
+          "role": "preceding_original",
+          "paragraph_sha256": "e0cefd2bef21d8c57c06ba03819d1f74f6d0f41e3ad03b4ed921afc4a741b404",
+          "text": "Size has units of distance to the power $d$, while $\\beta$ has units of inverse distance squared in every dimension. This makes $\\beta s^{2/d}$ dimensionless, and makes $p_d(s)$ a density per unit size. These checks catch mistakes in changing variables.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "intro",
+          "paragraph_sha256": "5eb4bde29d56abc33274fa983b0769051b44b928b70a23d40313217e78de35aa",
+          "text": "Writing dimensionless size as $w=\\beta^{d/2}s$ removes the size scale. The dimensional size laws then differ in shape, while the transformed variable $U=\\beta s^{2/d}=w^{2/d}$ has the same exponential law.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        },
+        {
+          "role": "following_original",
+          "paragraph_sha256": "b0cac387c1042983a3962b519a03aca42a4d5f9b880a93c1b0417150203c90f8",
+          "text": "A [**Weibull distribution**]{.definition-term custom-style=\"Definition Term\"} has survival probability $\\exp[-(s/b)^k]$ for size $s>0$, scale $b>0$, and shape $k>0$. Here $k=2/d$ and $b=\\beta^{-d/2}$. In 3D the diverging density does not mean a positive probability of exactly zero volume; the probability of $0<s<\\delta$ still tends to zero as $\\delta\\to0$.",
+          "disposition": "unchanged and reread; original assumptions remain attached"
+        }
+      ]
+    }
+  },
+  "asset_reuse": {
+    "A01": {
+      "png_sha256": "08625d38a6133fe9b96e13238e1ef32775e32c6b55f405b046537779c80ca603",
+      "svg_sha256": "66c658310c2c8affdb7eb31ecb230ecba7a4a31d64292962fb0482c25b562d94",
+      "book_width_sha256": "c9d33bd625c71d5f9bf6aba807292343dde553577ba17d2b50ef68594c07b32f",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_draw_eye_place"
+    },
+    "A02": {
+      "png_sha256": "ff4d2072bf05a74df776f06ab0e943ec40620aec2706627b9b926b1dde003e73",
+      "svg_sha256": "74229d3f64b6f15aecea732e78d786b6ec54c59328eff60c92031c98a3c4eb3d",
+      "book_width_sha256": "22f117763147437e9e1cec3cf30d2b2ee40f26e2ff5d44b468bc5be1d1221e9e",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_draw_eye_place"
+    },
+    "A03": {
+      "png_sha256": "043d067e7ee2b76bd7db1fd752c6e15aae8fbbb5af672127cab75dd117425442",
+      "svg_sha256": "d3c01b93267813c751bb96b2fc192f15327dd170e3f497024d5b0f395236a86f",
+      "book_width_sha256": "039ac91b01c3d394d64f263b2c2a2558a08b045031a9834a84c34a0ffde7948d",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_draw_eye_place"
+    },
+    "A04": {
+      "png_sha256": "14eba75d7d43a6514b1c48c28064edc09e4f7c18edad10301c9dbf1985c3485b",
+      "svg_sha256": "10d66ace4a37e7c1533e559a555a8e29dcd1a0aa67080e1173902c8c8a216c51",
+      "book_width_sha256": "8a85e53f9fc59ef7ef7656f969f18c4df5ab88764f69e98b026305ca23afdafe",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_draw_eye_place"
+    },
+    "A05": {
+      "png_sha256": "3a3168bb23476aeefafdf062a13bd9870f8cc421e2fa49c273687735cfdbfa68",
+      "svg_sha256": "d5f92793a4368a9c43940527f24d1733f31d52c3177c2f9602f54280fe296387",
+      "book_width_sha256": "81131971e2ba9de2a34dbdd27f39d7d70488e01c12e411768207e1695b4d810c",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_illustrations_review"
+    },
+    "A06": {
+      "png_sha256": "3b3d82f99e11d6bbc106e7d51e8a456778faf3fb3743e5e52e771229a1358328",
+      "svg_sha256": "beedbd24293adf718ed24997657d2a309e0d542a4ce7e8e058df3821d95e6e64",
+      "book_width_sha256": "b056915fdb38f3e28aa33e21740bc44de5f8befa5827c90d93df7a273885e07e",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_illustrations_review"
+    },
+    "A07": {
+      "png_sha256": "1897c2826138f8b59a799785285770949a58a2b5ad7146129e07404003c9a8e4",
+      "svg_sha256": "bb6b7098b4dd2919839d557b3943635bcd45e2c3bea026f41df3531263b31e8e",
+      "book_width_sha256": "8cc002abbb96eefcabf500b82f8e7cb02b9594553eb8b4c041425fcb73e5eea9",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_illustrations_review"
+    },
+    "A08": {
+      "png_sha256": "58440786316e224e2d0d3005c2ac2b5c6d59dc702229e1872d23f38723bc480f",
+      "svg_sha256": "6ebefbf0c1bb2d5189b09085e531af41fa99dfddf34ee88dd09472694117b133",
+      "book_width_sha256": "cc9eff3c3533739a588f0e66274d42db8c1d9802f5d3aaf805622e9181cf68f5",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_illustrations_review"
+    },
+    "A09": {
+      "png_sha256": "b9ab2327531a339571dcf54d9d894cf5fb34944cdbdebdcd2c065ecef6eb71d8",
+      "svg_sha256": "c9e02e457037f9ca2ae2ef9e5e8e4fbd11f308b1138e95a23b1fe9aa658e1cd1",
+      "book_width_sha256": "0e39e0188bfb0a35762eba16c28a0cc536787ca44dced2e794fa86718d6f8563",
+      "decision": "unchanged bytes; retain original independent pixel judgment",
+      "original_reviewer": "/root/all_illustrations_review"
+    }
+  },
+  "input_sha256": {
+    "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md": "ad3e8305a73c3ca5b777bcaf17e409dbb3f35d6e550a28a532ed680b44bbd84f",
+    "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.yaml": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1",
+    "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md": "6704d46f75118ae21d1b336f8ea59ce523aa9824e3e809ba8fd2e26da93f7323",
+    "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.yaml": "2b0de2b57e1142fb7a1dd4e9fccd684bbdf12f414142517ca013ed8baa60efdd",
+    "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md": "76c748cd30a98eaca19f26f360eb9dafa7b39c930cf5af622b73b4fee1a641a7",
+    "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.yaml": "fb7583604b5645eef855582f3c06f0587918c2242d83cae8a205cbb8d58c8ee7",
+    "verification/all-illustrations-20261024/integration.json": "8c827ce18db5f426bb69d27dd8b0648b1c79799538c66bca6d5640c65f2c68ed",
+    "verification/all-illustrations-20261024/stage2-application.json": "486456c71de6cd381a652a4bdda1139fdb63f9c3abdb0352b42cc6c22b8ab095",
+    "verification/all-illustrations-20261024/stage2-repairs.json": "d3974004dbe043d384acdbc5437c9bebabe2578b76acaccfdc8e02b5e187ec6a",
+    "verification/all-illustrations-20261024/draw_foundations_information.py": "faae6cfb12b88eedbc328debb1ce1312becb47cdc83a998c382aa75387e280b5",
+    "verification/all-illustrations-20261024/draw_eye_place.py": "c7005217586f414900a6be73a5d318e20fe73fcc7cf652bd73b0f52c49c8d4de",
+    "verification/all-illustrations-20261024/foundation-information-integration.json": "c5363b9da39de415102b963663f053478622b3f44b0c75f948bb9166dffee3e8",
+    "verification/all-illustrations-20261024/eye-place-integration.json": "bf1629e3dd2cf68cd73584de17def179416f8ac545303ca0ce2c3946dcbc9c2e",
+    "verification/all-illustrations-20261024/A02-brief.yaml": "84b96e5e1edbf9749159f292c5794a9ea69eb870148755e4a52e1da6d7c3ef12",
+    "candidate-content/visuals/candidates/20261024-all/A02/qa.json": "3cf436062406fa01a4adda1a7ec16019e204625ad5cfb393b0a19e97909702fb",
+    "verification/all-illustrations-20261024/A06-brief.yaml": "9d76a222468799e4250d2dd86f668e53c2d150942e51b7d4ae689dbfd5197dc3",
+    "candidate-content/visuals/candidates/20261024-all/A06/qa.json": "4a666026e249e7565dbf76843f399f27e003851a4e689d76efb2727d469311fd",
+    "verification/all-illustrations-20261024/A08-brief.yaml": "2c64eb0254c4872c43030cf797f867a681bd964d70a9c5e3ddb2081aa3f1606b",
+    "candidate-content/visuals/candidates/20261024-all/A08/qa.json": "80fcb35a61c60fc9fc39ea51eaba521f2c22d653e8c5d62ffb8e516b7ac39057"
+  },
+  "rule_sha256": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b"
+  },
+  "unresolved_findings": [],
+  "limits": [
+    "No reader sources edited",
+    "Browser math rendering not yet available; source expressions checked",
+    "Token stats unavailable",
+    "Awake execution time unverified"
+  ]
+}

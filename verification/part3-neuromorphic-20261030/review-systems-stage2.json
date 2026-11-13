@@ -1,0 +1,653 @@
+{
+  "review_id": "part3-systems-stage2-20261030",
+  "request_id": "local-request-/root/part3_review_systems-stage2",
+  "request_id_kind": "local task path, not a platform call ID",
+  "reviewer": "/root/part3_review_systems; assigned gpt-6.1-sol high",
+  "stage": 2,
+  "stage_name": "necessity and terminology",
+  "scope": [
+    "current chapter 09 body, table, headings, example, footnotes and YAML",
+    "References entries 18-30 and preceding Part III note",
+    "28 source-location repairs"
+  ],
+  "context": [
+    "current chapters 07 and 08",
+    "Part opening only to check VN1958 location and audience",
+    "targeted prior term searches"
+  ],
+  "timestamps": {
+    "started_utc": "2026-10-30T14:25:06+00:00",
+    "checkpoint_utc": "2026-10-30T14:27:27+00:00",
+    "finished_utc": "2026-10-30T14:29:51.870186+00:00",
+    "awake_execution_time": "unverified; Windows sleep/resume logs not inspected",
+    "system_clock_change": "none observed"
+  },
+  "source_sha256": {
+    "content/chapters/09-neuromorphic-systems.md": "633c526fdb76eddfe3db87c3eead7c7986ecacf6cba643e64a9773c1b24fb08c",
+    "content/chapters/09-neuromorphic-systems.yaml": "c9fd6da40643a0e019f12bf7a1012f8cf46627848a61a9865aa074649ffdfcca",
+    "content/chapters/07-hardware-memory.md": "11953d6b3e1f0ba61f5c69191dd985f68c0683cd952cbbec83166f975ba04a97",
+    "content/chapters/08-hardware-dynamics.md": "4491c3a50ecbdb9f284169c8d7673436c705d65cab6d5cc8e59dc3b262c0e455",
+    "content/chapters/references.md": "2ee133c9cab3739d107508ae2aec0f88cdf370d8790abb3b6b5d29ba59370fb8",
+    "content/chapters/references.yaml": "bd3438c9ca97a07924f2d7591abcea7052424ca162a73de91ef651a3f68a71c6",
+    "source-maps/source-inventory.csv": "1fba93688b4cce2746b0fc8d14551a678e6f4624dd22864d7c23e85c69345cfb",
+    "source-maps/source-coverage.csv": "ba3e1d073e99efc9e1ae40b0ec1ca1693a76c1330db263df57f3b39bf4beb029",
+    "source-maps/research-ledger.csv": "e746b18ace2c81c10583fdbbc57462ca2f6def7ae7c84ce5c4192badd89b0ca0",
+    "verification/part3-neuromorphic-20261030/source-location-repairs.json": "600d7ae84f548a1f5209e479bbea5525ac58f1c9b00d7c1a3ebb231b4ce023e0",
+    "verification/part3-neuromorphic-20261030/vale-native-current.json": "ed6ecfd14a3d4371717012964da02b2692a6a9845d44749ef1b7aa6798e5ff0a",
+    "verification/part3-neuromorphic-20261030/vale-current-errors.txt": "facdfde2554d02a976f7cb3bcf0f46be9f1db773b2f17dd5f563e71a911770c6",
+    "verification/part3-neuromorphic-20261030/part-opening.md": "08425091904beac1cb8e6b08873bf23f4bae623b403411782318594e17dd73b7"
+  },
+  "rule_sha256": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/reference-citation-contract.md": "5c3a40b775395c981150b9796680b023108a27879cf517fa313a3f3b063cde9a"
+  },
+  "verdict": "local terminology and prose repairs required before stage 3; source-map repair passes",
+  "source_map_repair": {
+    "verdict": "pass",
+    "stage1_finding": "SYS-S1-01 resolved on current CSV hashes",
+    "checked_edits": 28,
+    "coverage_rows": 14,
+    "ledger_rows": 14,
+    "actual_current_values_match_repair_record": true,
+    "reason": "New rows now point to the places that actually explain the source: VN quotation at Part opening; Pehle at 07 storage/09 architecture; Intel, Scholze and Le Gallo at 07 updates/09 architecture; Seung, Massoud and Giulioni at 08 respective errors/evidence; Kleyko, Aitsam, Ortner and Wang at 09 advances; Sun and Ilmberger at 09 limits. Generic chapter-10 links have been removed."
+  },
+  "stage1_changed_wording_recheck": {
+    "verdict": "claims retained",
+    "reason": "Read the current paragraphs against the earlier checked source facts. Date format, split sentences and simplified verbs do not change the evidence limits, equations, numerical example or architecture facts. Calibration action wording needs the local clarification listed below, not a new external-source claim."
+  },
+  "findings": [
+    {
+      "id": "SYS-S2-01",
+      "priority": "P2",
+      "kind": "unexplained or needlessly specialized meanings",
+      "locations": [
+        "content/chapters/09-neuromorphic-systems.md:5",
+        "content/chapters/09-neuromorphic-systems.md:15",
+        "content/chapters/09-neuromorphic-systems.md:20",
+        "content/chapters/09-neuromorphic-systems.md:20",
+        "content/chapters/09-neuromorphic-systems.md:26",
+        "content/chapters/09-neuromorphic-systems.md:32",
+        "content/chapters/09-neuromorphic-systems.md:32",
+        "content/chapters/09-neuromorphic-systems.md:38"
+      ],
+      "failed_check": "Give the relevant meaning before the reader needs it, and prefer ordinary words when precision is preserved.",
+      "missing_point": "Several terms still assume electronics or machine-learning background beyond the stated baseline. Host/offline and endurance also have misleading everyday meanings.",
+      "proposed_repairs": "See phrase-by-phrase term_decisions; brief inline replacements are sufficient.",
+      "requires_focused_truth_recheck": [
+        "Calibration action wording, because measure calibration names a process rather than the measured result.",
+        "Feature replacement must remain faithful to the inspected Kleyko hardware experiment."
+      ]
+    },
+    {
+      "id": "SYS-S2-02",
+      "priority": "P3",
+      "kind": "small prose repairs",
+      "locations": [
+        "content/chapters/09-neuromorphic-systems.md:20",
+        "content/chapters/09-neuromorphic-systems.md:20",
+        "content/chapters/09-neuromorphic-systems.md:32",
+        "content/chapters/09-neuromorphic-systems.md:34",
+        "content/chapters/09-neuromorphic-systems.md:67",
+        "content/chapters/references.md:68",
+        "content/chapters/references.md:68"
+      ],
+      "failed_check": "Delete repeated framing or empty intensity words and use ordinary sentence punctuation where no technical distinction needs it.",
+      "proposed_repairs": "Use the exact narrow repair suggestions in vale_error_decisions. Keep all title, author-initial and range exceptions."
+    }
+  ],
+  "term_decisions": [
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:5",
+      "phrase": "host computer",
+      "simpler_candidate": "a separate computer running part of the experiment",
+      "decision": "revise",
+      "reason": "Host has a specialist hardware role and ordinary meanings do not identify the system boundary. Define it at the first use, then host computer can be reused.",
+      "prerequisites_checked": [
+        "07 all sections",
+        "08 all sections"
+      ],
+      "repair": "experiments partly run on a host computer, meaning a separate computer running part of the experiment"
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:15",
+      "phrase": "Measure calibration",
+      "simpler_candidate": "Check how adjusting circuit settings reduces device differences",
+      "decision": "revise",
+      "reason": "Calibration is a process, not the quantity to measure. Earlier 08 gain example mentions calibration but does not say what is adjusted. This is a local action/meaning clarification, not a contradiction of the architecture.",
+      "prerequisites_checked": [
+        "07 device mismatch paragraph",
+        "08 gain example",
+        "earlier eye-calibration discussion distinguishes biological firing/movement scales"
+      ],
+      "repair": "Check how adjusting circuit settings reduces device differences, measure the remaining variability, and relate chip time to model time."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:20",
+      "phrase": "programmable plasticity processors",
+      "simpler_candidate": "programmable processors that update weights",
+      "decision": "revise",
+      "reason": "The shorter phrase states what the processors act on. Plasticity is unnecessary here because the paragraph has just defined on-chip weight updates. Exact paper titles keep hybrid plasticity unchanged.",
+      "repair": "BrainScaleS-2 combines local measurements with programmable processors that update weights."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:20",
+      "phrase": "offline training",
+      "simpler_candidate": "weights trained beforehand",
+      "decision": "revise",
+      "reason": "Offline may mean disconnected from the internet to this reader. Here it means training outside the task execution, not internet status.",
+      "repair": "An experiment may still use weights trained beforehand or learning performed on a separate computer, so its learning setup must be checked."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:26",
+      "phrase": "a memory buffer and nonlinear features for temporal tasks",
+      "simpler_candidate": "a stored history of recent inputs and functions of those inputs that include products",
+      "decision": "revise",
+      "reason": "Earlier chapters teach a decoder and nonlinear functions, but not the machine-learning meaning of features or this feature/history division. One plain phrase is sufficient; a reservoir-computing lesson is unnecessary.",
+      "prerequisites_checked": [
+        "07 working-memory definition and decoder example",
+        "prior uses of nonlinear in memory/place chapters",
+        "03 information/readout setting"
+      ],
+      "repair": "Kleyko and colleagues implemented a stored history of recent inputs and functions of those inputs that include products. A trained readout uses these values to predict an output."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:32",
+      "phrase": "deterministic multilevel demonstration",
+      "simpler_candidate": "demonstration of several programmed resistance levels",
+      "decision": "revise",
+      "reason": "The relevant distinction is how resistance levels were programmed and read. Deterministic needs a specialist qualification about controlled volume; this chapter does not use it in later reasoning.",
+      "repair": "Their demonstration of several programmed resistance levels used laser programming and electrical readout."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:32",
+      "phrase": "higher endurance",
+      "simpler_candidate": "performance after many programming cycles",
+      "decision": "revise",
+      "reason": "Device endurance concerns repeated write/reset cycles, not mechanical strength or the duration of a retained state. This distinction matters in a memory chapter.",
+      "repair": "Tests of nanoscale devices, performance after many programming cycles, and variability across large arrays remained open."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:38",
+      "phrase": "registers",
+      "simpler_candidate": "small, fast digital storage locations called registers",
+      "decision": "revise",
+      "reason": "SRAM and bits are taught in 07, but registers have no first explanation. The storage location is relevant to separating explicit slow digital state from autonomous analog retention.",
+      "repair": "Its proposed digital hardware holds successive slow states in small, fast digital storage locations called registers, and holds other variables in SRAM."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:13-16,18",
+      "phrase": "finite precision; SRAM; capacitor; conductance; model time",
+      "simpler_candidate": "broader terms such as stored values or physical signals",
+      "decision": "retain",
+      "reason": "These exact distinctions answer where weights and changing state reside. 07 now explains finite bits, capacitor Q=CV, conductance and SRAM; 08 teaches model time and feedback. Broader terms would erase the physical comparison."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:30",
+      "phrase": "matrix-vector products",
+      "simpler_candidate": "calculations",
+      "decision": "retain",
+      "reason": "Linear algebra is part of the stated Part baseline. Matrix-vector products identify exactly which work runs on PCM and make the host boundary testable; calculations is too broad."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:38",
+      "phrase": "post-layout simulations",
+      "simpler_candidate": "computer tests",
+      "decision": "retain",
+      "reason": "The following relative clause explains the phrase. The exact term distinguishes a layout-evaluated design from measured fabricated hardware; computer tests would conceal that distinction."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:52",
+      "phrase": "mapping between model time and wall time",
+      "simpler_candidate": "timing",
+      "decision": "retain",
+      "reason": "The numerical example depends on the two clocks. Timing alone would erase why accelerating identical updates shortens physical retention."
+    }
+  ],
+  "necessity_answers": [
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:3-5",
+      "decision": "retain with host clarification",
+      "reason": "The opening gives the scientific choice and the snapshot limit; it prevents a platform comparison from becoming a universal ranking."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:9-20",
+      "decision": "retain with term repairs",
+      "reason": "The table locates weights/states and updates using common criteria. Capability versus experiment learning is a necessary boundary, even though citation punctuation and terminology can be lighter."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:24-34",
+      "decision": "retain four distinct findings; shorten repeated transition",
+      "reason": "Each study answers a different question: input history, persistent state, adaptation or weight stability. Removing a study would remove one of these comparisons; repeating that success in one does not establish the others is unnecessary after the point is stated directly."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:38-46",
+      "decision": "retain simplified slow-state model and explicit source limits",
+      "reason": "This explains what stores information and how it fades. The model is explicitly illustrative, so there is no need to teach the full Sun algorithm or simulate hardware."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:50-58",
+      "decision": "retain",
+      "reason": "The example exposes a meaningful clock-scale issue rather than merely inserting round numbers. Four-chip communication and complete system-energy boundaries explain why a component result cannot settle the memory experiment."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:60-67",
+      "decision": "retain exact sources and limits; small final punctuation repair",
+      "reason": "Locators support inspection of the claims, and hardware evidence limits are necessary. Title wording, author initials and number ranges are source-identification data, not targets for plain-prose substitutions."
+    },
+    {
+      "location": "content/chapters/references.md:68-94",
+      "decision": "retain entries 18-30 and their exact bibliographic details",
+      "reason": "Each entry supports the new Part reading path. The extra introductory limit can be stated once. Online/issue date and preprint/manuscript distinctions preserve the meaning of the recent snapshot."
+    }
+  ],
+  "vale": {
+    "engine": "vale version 3.24.0",
+    "report_hashes_match_current_scope": true,
+    "scoped_error_count": 30,
+    "fix_count": 7,
+    "narrow_exception_count": 23,
+    "coverage": "Every native Vale severity=error in chapter 09 and references line 68 onward. Warnings and suggestions are not individually adjudicated in this error-scope call.",
+    "error_decisions": [
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 5,
+        "span": [
+          252,
+          370
+        ],
+        "check": "ai-tells.VerbTricolon",
+        "match": "We distinguish measured chips, experiments partly run on a host computer, and proposed hardware evaluated by simulation",
+        "passage": "The research snapshot is **October 30, 2026**. “State of the art” here means selected recent capabilities supported by primary papers, with older architecture papers supplying their physical explanation. It does not mean one machine leads every task. We distinguish measured chips, experiments partly run on a host computer, and proposed hardware evaluated by simulation.",
+        "decision": "justified narrow exception",
+        "reason": "These are three necessary evidence categories: measured chip, host-assisted experiment and simulated hardware. They govern how later findings are interpreted; this is not a decorative three-verb list."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 20,
+        "span": [
+          354,
+          571
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; BrainScaleS-2 combines local measurements with programmable plasticity processors. An experiment can still use offline training or a host computer. Platform support alone does not tell us how that experiment learned.",
+        "passage": "[[**On-chip learning**]{.definition-term custom-style=\"Definition Term\"} means that circuitry on the chip computes and applies some weight changes.]{.definition-explanation} It is distinct from loading previously trained weights. Loihi 2 offers programmable learning rules; SpiNNaker2's 2026 technical preprint reports an on-chip learning implementation; BrainScaleS-2 combines local measurements with programmable plasticity processors. An experiment can still use offline training or a host computer. Platform support alone does not tell us how that experiment learned.[^systems-learning]",
+        "decision": "fix",
+        "reason": "Replace prose semicolons separating the three platform descriptions with periods or one ordinary list sentence. The different platform capabilities must remain."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 20,
+        "span": [
+          439,
+          571
+        ],
+        "check": "ai-tells.ParallelStaccato",
+        "match": "An experiment can still use offline training or a host computer. Platform support alone does not tell us how that experiment learned.",
+        "passage": "[[**On-chip learning**]{.definition-term custom-style=\"Definition Term\"} means that circuitry on the chip computes and applies some weight changes.]{.definition-explanation} It is distinct from loading previously trained weights. Loihi 2 offers programmable learning rules; SpiNNaker2's 2026 technical preprint reports an on-chip learning implementation; BrainScaleS-2 combines local measurements with programmable plasticity processors. An experiment can still use offline training or a host computer. Platform support alone does not tell us how that experiment learned.[^systems-learning]",
+        "decision": "fix",
+        "reason": "Combine the two caveat sentences while clarifying offline learning: An experiment may still use weights trained beforehand or learning performed on a separate computer, so its learning setup must be checked."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 32,
+        "span": [
+          91,
+          94
+        ],
+        "check": "proselint.Very",
+        "match": "very",
+        "passage": "**Reduced material drift, online 2025 and in a 2026 issue.** Wang and colleagues measured very low resistance drift in a chromium-telluride phase-change material, CrTe$_3$. Reduced drift can help a programmed conductance continue representing the intended weight. Their deterministic multilevel demonstration used laser programming and electrical readout. Electrical switching was a separate demonstration. Nanoscale multilevel operation, higher endurance, and large-array variability remained open. This is progress in a storage material, not a complete multilevel neuromorphic processor.[^systems-wang]",
+        "decision": "fix",
+        "reason": "Delete very. Low resistance drift states the supported result; the intensity word supplies no measurement."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 32,
+        "span": [
+          521,
+          588
+        ],
+        "check": "ai-tells.ContrastiveFormulas",
+        "match": "a storage material, not a complete multilevel neuromorphic processor",
+        "passage": "**Reduced material drift, online 2025 and in a 2026 issue.** Wang and colleagues measured very low resistance drift in a chromium-telluride phase-change material, CrTe$_3$. Reduced drift can help a programmed conductance continue representing the intended weight. Their deterministic multilevel demonstration used laser programming and electrical readout. Electrical switching was a separate demonstration. Nanoscale multilevel operation, higher endurance, and large-array variability remained open. This is progress in a storage material, not a complete multilevel neuromorphic processor.[^systems-wang]",
+        "decision": "justified narrow exception",
+        "reason": "The storage-material versus complete-processor boundary is the specific evidence limit of this study. Retain it so the low-drift material result cannot be mistaken for a complete multilevel electrical system."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 34,
+        "span": [
+          2,
+          139
+        ],
+        "check": "ai-tells.ParallelStaccato",
+        "match": "Better temporal state, faster adaptation, and more stable weights solve different problems. Progress in one does not establish the others.",
+        "passage": "[Better temporal state, faster adaptation, and more stable weights solve different problems. Progress in one does not establish the others.]{.key-statement} For the Burak comparison, the missing measurement is often how a decoded value changes during an input-free delay.",
+        "decision": "fix",
+        "reason": "Replace the first two sentences with: Temporal state, adaptation, and weight stability need separate tests. Then retain the sentence about input-free delay."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 60,
+        "span": [
+          239,
+          254
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; Scholze et al.",
+        "passage": "[^systems-architecture]: Intel Labs (2021), *Taking neuromorphic computing to the next level with Loihi 2*, [pp. 5–7](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf#page=5); Scholze et al. (2026), *The SpiNNaker2 chip*, [version 1, Section 4.4](https://arxiv.org/html/2607.24396v1#S4.SS4); Pehle et al. (2022), *The BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity*, [Sections 2.1–2.3](https://doi.org/10.3389/fnins.2022.795876); Le Gallo et al. (2023), *A 64-core mixed-signal in-memory compute chip*, [DOI](https://doi.org/10.1038/s41928-023-01010-1). Full entries are in [References](../appendices/ch-references.html).",
+        "decision": "justified narrow exception",
+        "reason": "This semicolon separates distinct source entries in a combined footnote. It helps distinguish which primary paper supports which platform; it is reference punctuation, not ornamental prose."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 60,
+        "span": [
+          355,
+          368
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; Pehle et al.",
+        "passage": "[^systems-architecture]: Intel Labs (2021), *Taking neuromorphic computing to the next level with Loihi 2*, [pp. 5–7](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf#page=5); Scholze et al. (2026), *The SpiNNaker2 chip*, [version 1, Section 4.4](https://arxiv.org/html/2607.24396v1#S4.SS4); Pehle et al. (2022), *The BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity*, [Sections 2.1–2.3](https://doi.org/10.3389/fnins.2022.795876); Le Gallo et al. (2023), *A 64-core mixed-signal in-memory compute chip*, [DOI](https://doi.org/10.1038/s41928-023-01010-1). Full entries are in [References](../appendices/ch-references.html).",
+        "decision": "justified narrow exception",
+        "reason": "This semicolon separates distinct source entries in a combined footnote. It helps distinguish which primary paper supports which platform; it is reference punctuation, not ornamental prose."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 60,
+        "span": [
+          467,
+          467
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-architecture]: Intel Labs (2021), *Taking neuromorphic computing to the next level with Loihi 2*, [pp. 5–7](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf#page=5); Scholze et al. (2026), *The SpiNNaker2 chip*, [version 1, Section 4.4](https://arxiv.org/html/2607.24396v1#S4.SS4); Pehle et al. (2022), *The BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity*, [Sections 2.1–2.3](https://doi.org/10.3389/fnins.2022.795876); Le Gallo et al. (2023), *A 64-core mixed-signal in-memory compute chip*, [DOI](https://doi.org/10.1038/s41928-023-01010-1). Full entries are in [References](../appendices/ch-references.html).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 60,
+        "span": [
+          515,
+          531
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; Le Gallo et al.",
+        "passage": "[^systems-architecture]: Intel Labs (2021), *Taking neuromorphic computing to the next level with Loihi 2*, [pp. 5–7](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf#page=5); Scholze et al. (2026), *The SpiNNaker2 chip*, [version 1, Section 4.4](https://arxiv.org/html/2607.24396v1#S4.SS4); Pehle et al. (2022), *The BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity*, [Sections 2.1–2.3](https://doi.org/10.3389/fnins.2022.795876); Le Gallo et al. (2023), *A 64-core mixed-signal in-memory compute chip*, [DOI](https://doi.org/10.1038/s41928-023-01010-1). Full entries are in [References](../appendices/ch-references.html).",
+        "decision": "justified narrow exception",
+        "reason": "This semicolon separates distinct source entries in a combined footnote. It helps distinguish which primary paper supports which platform; it is reference punctuation, not ornamental prose."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 61,
+        "span": [
+          149,
+          162
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; Pehle et al.",
+        "passage": "[^systems-learning]: The same Loihi 2 brief, learning-rule section; Scholze et al. (2026), [Section 4.6](https://arxiv.org/html/2607.24396v1#S4.SS6); Pehle et al. (2022), [Section 2.3](https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.795876/full). These describe capabilities and the reported demonstrations, not one common learning benchmark.",
+        "decision": "justified narrow exception",
+        "reason": "This semicolon separates distinct source entries in a combined footnote. It helps distinguish which primary paper supports which platform; it is reference punctuation, not ornamental prose."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 64,
+        "span": [
+          194,
+          194
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-ortner]: Ortner, T., et al. (2025). *Rapid learning with phase-change memory-based in-memory computing through learning-to-learn*. Nature Communications, 16, 1243. [Results, Figures 4–5, and Methods p. 11](https://www.nature.com/articles/s41467-025-56345-4.pdf#page=11). [DOI](https://doi.org/10.1038/s41467-025-56345-4).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 65,
+        "span": [
+          156,
+          156
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-wang]: Wang, X., et al. (2026; online October 1, 2025). *Amorphous phase-change memory alloy with no resistance drift*. Nature Materials, 25, 456–462. [Electrical measurements and discussion, printed pp. 459–461](https://www.nature.com/articles/s41563-025-02361-0.pdf#page=4). [DOI](https://doi.org/10.1038/s41563-025-02361-0).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 65,
+        "span": [
+          218,
+          218
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-wang]: Wang, X., et al. (2026; online October 1, 2025). *Amorphous phase-change memory alloy with no resistance drift*. Nature Materials, 25, 456–462. [Electrical measurements and discussion, printed pp. 459–461](https://www.nature.com/articles/s41563-025-02361-0.pdf#page=4). [DOI](https://doi.org/10.1038/s41563-025-02361-0).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 66,
+        "span": [
+          114,
+          114
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-sun]: Sun, P., Su, Z., Achterberg, J., Indiveri, G., Goodman, D. F. M., & Akarca, D. (2026). *Algorithm–hardware co-design of neuromorphic networks with dual memory pathways*. Nature Machine Intelligence, 8, 901–912. [Figure 4 and Methods, implementation and evaluation methodology](https://pmc.ncbi.nlm.nih.gov/articles/PMC13286998/). [DOI](https://doi.org/10.1038/s42256-026-01255-3).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 66,
+        "span": [
+          222,
+          222
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-sun]: Sun, P., Su, Z., Achterberg, J., Indiveri, G., Goodman, D. F. M., & Akarca, D. (2026). *Algorithm–hardware co-design of neuromorphic networks with dual memory pathways*. Nature Machine Intelligence, 8, 901–912. [Figure 4 and Methods, implementation and evaluation methodology](https://pmc.ncbi.nlm.nih.gov/articles/PMC13286998/). [DOI](https://doi.org/10.1038/s42256-026-01255-3).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 67,
+        "span": [
+          216,
+          216
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "[^systems-multichip]: Ilmberger, J., & Schemmel, J. (2025). *The BrainScaleS-2 multi-chip system: Interconnecting continuous-time neuromorphic compute substrates*. arXiv:2512.03781v1, December 3, 2025. [Sections III–V](https://arxiv.org/html/2512.03781v1). Preprint; the reported prototype has four chips.",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/09-neuromorphic-systems.md",
+        "line": 67,
+        "span": [
+          266,
+          305
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; the reported prototype has four chips.",
+        "passage": "[^systems-multichip]: Ilmberger, J., & Schemmel, J. (2025). *The BrainScaleS-2 multi-chip system: Interconnecting continuous-time neuromorphic compute substrates*. arXiv:2512.03781v1, December 3, 2025. [Sections III–V](https://arxiv.org/html/2512.03781v1). Preprint; the reported prototype has four chips.",
+        "decision": "fix",
+        "reason": "Use a period after Preprint. The following four-chip limit is an ordinary explanatory sentence."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 68,
+        "span": [
+          1,
+          179
+        ],
+        "check": "ai-tells.ParallelStaccato",
+        "match": "Part III uses selected sections from the sources below to connect physical storage, changing neural state and recurrent memory. These selections do not claim whole-paper coverage.",
+        "passage": "Part III uses selected sections from the sources below to connect physical storage, changing neural state and recurrent memory. These selections do not claim whole-paper coverage. Seung (entry 7) is reused. Older circuit demonstrations and 2025–2026 advances are kept separate; proposed hardware and post-layout simulations are identified where discussed.",
+        "decision": "fix",
+        "reason": "Combine the first two sentences: Part III draws only on the cited sections of these sources to connect physical storage, changing neural state and recurrent memory. This preserves the selected-section limit once."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 68,
+        "span": [
+          245,
+          245
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "Part III uses selected sections from the sources below to connect physical storage, changing neural state and recurrent memory. These selections do not claim whole-paper coverage. Seung (entry 7) is reused. Older circuit demonstrations and 2025–2026 advances are kept separate; proposed hardware and post-layout simulations are identified where discussed.",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 68,
+        "span": [
+          277,
+          355
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; proposed hardware and post-layout simulations are identified where discussed.",
+        "passage": "Part III uses selected sections from the sources below to connect physical storage, changing neural state and recurrent memory. These selections do not claim whole-paper coverage. Seung (entry 7) is reused. Older circuit demonstrations and 2025–2026 advances are kept separate; proposed hardware and post-layout simulations are identified where discussed.",
+        "decision": "fix",
+        "reason": "Use a period after kept separate. The following sentence explains how hardware evidence is identified."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 76,
+        "span": [
+          205,
+          208
+        ],
+        "check": "Vale.Repetition",
+        "match": "K. K",
+        "passage": "21. Scholze, S.; Partzsch, J.; Höppner, S.; Kelber, F.; Dixius, A.; Stolba, M.; Arfa, S.; Berthel, M.; Ellguth, G.; Garside, J.; Gonzalez, H. A.; Hartmann, S.; Kiel-Hocker, T.; Hu, D.; Jobst, M.; Nazeer, K. K.; Langer, T.; Liu, C.; Liu, G.; … Mayr, C. (2026, July 27). *The SpiNNaker2 chip: A many-core platform for flexible and scalable brain-inspired computing* [Preprint, version 1]. arXiv. [Versioned text](https://arxiv.org/html/2607.24396v1).",
+        "decision": "justified narrow exception",
+        "reason": "K. K. is the cited author Nazeer initials. Removing one initial would alter source identification."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 76,
+        "span": [
+          330,
+          337
+        ],
+        "check": "ai-tells.OverusedVocabulary",
+        "match": "scalable",
+        "passage": "21. Scholze, S.; Partzsch, J.; Höppner, S.; Kelber, F.; Dixius, A.; Stolba, M.; Arfa, S.; Berthel, M.; Ellguth, G.; Garside, J.; Gonzalez, H. A.; Hartmann, S.; Kiel-Hocker, T.; Hu, D.; Jobst, M.; Nazeer, K. K.; Langer, T.; Liu, C.; Liu, G.; … Mayr, C. (2026, July 27). *The SpiNNaker2 chip: A many-core platform for flexible and scalable brain-inspired computing* [Preprint, version 1]. arXiv. [Versioned text](https://arxiv.org/html/2607.24396v1).",
+        "decision": "justified narrow exception",
+        "reason": "Scalable occurs inside the exact published SpiNNaker2 paper title. Bibliographic titles must remain exact."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 78,
+        "span": [
+          447,
+          447
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "22. Le Gallo, M.; Khaddam-Aljameh, R.; Stanisavljevic, M.; Vasilopoulos, A.; Kersting, B.; Dazzi, M.; Karunaratne, G.; Brändli, M.; Singh, A.; Müller, S. M.; Büchel, J.; Timoneda, X.; Joshi, V.; Rasch, M. J.; Egger, U.; Garofalo, A.; Petropoulos, A.; Antonakopoulos, T.; Brew, K.; … Sebastian, A. (2023). *A 64-core mixed-signal in-memory compute chip based on phase-change memory for deep neural network inference*. Nature Electronics, 6(9), 680–693. [DOI](https://doi.org/10.1038/s41928-023-01010-1). Detailed source checks use the separately identified [December 2022 author manuscript](https://arxiv.org/abs/2212.02872v1).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 80,
+        "span": [
+          61,
+          91
+        ],
+        "check": "ai-tells.NounString",
+        "match": "VLSI head direction cell system",
+        "passage": "23. Massoud, T. M.; Horiuchi, T. K. (2011). *A neuromorphic VLSI head direction cell system*. IEEE Transactions on Circuits and Systems I: Regular Papers, 58(1), 150–163. [DOI](https://doi.org/10.1109/TCSI.2010.2055310).",
+        "decision": "justified narrow exception",
+        "reason": "VLSI head direction cell system is the exact published Massoud/Horiuchi title. Rephrasing it would corrupt the reference."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 80,
+        "span": [
+          166,
+          166
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "23. Massoud, T. M.; Horiuchi, T. K. (2011). *A neuromorphic VLSI head direction cell system*. IEEE Transactions on Circuits and Systems I: Regular Papers, 58(1), 150–163. [DOI](https://doi.org/10.1109/TCSI.2010.2055310).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 90,
+        "span": [
+          251,
+          251
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "28. Wang, X.; Wang, R.; Sun, S.; Xu, D.; Nie, C.; Zhou, Z.; Wen, C.; Zhang, J.; Chu, R.; Shen, X.; Zhou, W.; Song, Z.; Wang, J.-J.; Ma, E.; Zhang, W. (2026). *Amorphous phase-change memory alloy with no resistance drift*. Nature Materials, 25(3), 456–462. [DOI](https://doi.org/10.1038/s41563-025-02361-0). First published online October 1, 2025; March 2026 issue.",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 90,
+        "span": [
+          346,
+          364
+        ],
+        "check": "ai-tells.SemicolonUsage",
+        "match": "; March 2026 issue.",
+        "passage": "28. Wang, X.; Wang, R.; Sun, S.; Xu, D.; Nie, C.; Zhou, Z.; Wen, C.; Zhang, J.; Chu, R.; Shen, X.; Zhou, W.; Song, Z.; Wang, J.-J.; Ma, E.; Zhang, W. (2026). *Amorphous phase-change memory alloy with no resistance drift*. Nature Materials, 25(3), 456–462. [DOI](https://doi.org/10.1038/s41563-025-02361-0). First published online October 1, 2025; March 2026 issue.",
+        "decision": "justified narrow exception",
+        "reason": "The compact bibliographic note separates first online publication from issue date. Both dates are necessary to explain 2025 versus 2026; the semicolon is a narrow reference-format choice."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 92,
+        "span": [
+          100,
+          100
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "29. Sun, P.; Su, Z.; Achterberg, J.; Indiveri, G.; Goodman, D. F. M.; Akarca, D. (2026). *Algorithm–hardware co-design of neuromorphic networks with dual memory pathways*. Nature Machine Intelligence, 8(6), 901–912. [DOI](https://doi.org/10.1038/s42256-026-01255-3).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      },
+      {
+        "file": "content/chapters/references.md",
+        "line": 92,
+        "span": [
+          211,
+          211
+        ],
+        "check": "ai-tells.EmDashUsage",
+        "match": "–",
+        "passage": "29. Sun, P.; Su, Z.; Achterberg, J.; Indiveri, G.; Goodman, D. F. M.; Akarca, D. (2026). *Algorithm–hardware co-design of neuromorphic networks with dual memory pathways*. Nature Machine Intelligence, 8(6), 901–912. [DOI](https://doi.org/10.1038/s42256-026-01255-3).",
+        "decision": "justified narrow exception",
+        "reason": "The matched character is an en dash in a page/section/year range or the exact published title Algorithm–hardware. Preserve the range or exact title; it is not a narrative em dash."
+      }
+    ]
+  },
+  "unperformed": [
+    "manuscript edits",
+    "stage 3 reader-understanding and paragraph-flow review",
+    "new browser/source audit beyond stage1 evidence",
+    "builds",
+    "figure checks",
+    "full-repository tests"
+  ],
+  "token_stats": "unavailable"
+}

@@ -1,0 +1,165 @@
+{
+  "review_stage": "1. Truth and reasoning",
+  "reviewer": "Independent reviewer, gpt-6.1-sol high; did not write the draft",
+  "started_utc": "2026-10-30T14:18:02Z",
+  "finished_utc": "2026-10-30T14:22:17Z",
+  "timing": {
+    "wall_clock_seconds": 255,
+    "awake_execution": "unverified",
+    "system_time_change_observed": false
+  },
+  "scope": "Entire new part:HARDWARE purpose/content in plan/chapter-plan.yaml and entire 07-hardware-memory and 08-hardware-dynamics Markdown and YAML sidecars. Connected earlier diffusion/information passages inspected only to establish meanings and bound scope.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; expected value, variance, standard deviation and density assumed known.",
+  "findings": [],
+  "blockers": [],
+  "repair_requirements": [],
+  "verdict": "PASS for Stage 1 in the reviewed scope. No confirmed truth, causal reasoning, unit, arithmetic or source-limit blocker found. Stages 2 and 3 remain pending.",
+  "reviewed_files_sha256": {
+    "plan/chapter-plan.yaml": "2FDBBC20FC71298C0AB61F275465FAEC6CDE2FC6DFE2FC90AB5697BF63A1D559",
+    "content/chapters/07-hardware-memory.md": "4821BF04058C32A3BE221B6A470B53CC33960DC8AC81854CCA36EE44FF7CCF22",
+    "content/chapters/07-hardware-memory.yaml": "5D7C873228AB2EA094ACA0C65E24DF85DA08280DA202C0DF2986B55176679BED",
+    "content/chapters/08-hardware-dynamics.md": "C49D55F918FD0FEA608AF451B5E732A81B57214870542B98FF14377031A97161",
+    "content/chapters/08-hardware-dynamics.yaml": "DB2B303CE8C99911CA7CFD0B129A1953AE3B3526C844C6DA94E54833F1288301"
+  },
+  "rule_files_sha256": {
+    "course-study-guide-builder/SKILL.md": "B78068E9874E6D1D97B2017BF8F940492F9B08FC11B74F20FD75019FF388984A",
+    "references/pedagogy-language-contract.md": "F4C1EB544CF640B708E1970D9572FDC758FCC6AEA806675D01A0256658DF847A",
+    "references/math-code-case-contract.md": "CE2313F897B63E74BA59A3AFE1BBC4046D3AA84584072CDA7E76470A7E3CEF9A"
+  },
+  "passage_judgments": [
+    {
+      "location": "plan/chapter-plan.yaml:37-69, part:HARDWARE",
+      "judgment": "Retain. The quotation matches printed p.66/PDF p.78 of the inspected book. Pages 66-68 compare mutually active nerve cells with flip-flops and question whether active components provide the main large-capacity store. The plan explicitly rejects a universal persistent-activity claim and an unsupported historical lineage. Three different achievements are correctly separated. Chapter roles agree with the assigned passages; chapters 16-17 were not reviewed here."
+    },
+    {
+      "location": "content/chapters/07-hardware-memory.md:3-23 and matching sidecar purpose/ROLES summary",
+      "judgment": "Retain. Connection settings, changing neural state and the decoded remembered value are different objects. Fixed weights can support different cue-dependent activity states. The ring is explicitly invented teaching material; no chip performance is inferred from its 32 units. Working memory is deliberately scoped to this Part and does not require persistent firing as its only mechanism."
+    },
+    {
+      "location": "content/chapters/07-hardware-memory.md:29-46 and matching STORAGE summary",
+      "judgment": "Retain. SRAM stores discrete states using powered feedback; finite word length limits representable values even with correct bits. Capacitor charge/voltage can carry changing analog neural state while digital SRAM carries weights on the same chip. PCM stores physical phase configurations read as conductance. Retention without power is qualified by retention limits; it is not equated to perfect weight accuracy. The table separates physical storage from the network's represented angle, and persistent mismatch from changing fluctuations."
+    },
+    {
+      "location": "content/chapters/07-hardware-memory.md:50-56 and matching UPDATES summary",
+      "judgment": "Retain. Digital processors update numerical neuron state, whereas analog neural variables can evolve through circuit currents and capacitances. Event routing alone does not imply continuous-time state dynamics. Loihi 2 local digital memory and programmable rules, SpiNNaker2 demonstrated SRAM state/weight placement, and mixed analog/digital PCM inference are supported. The I=GV relation is a low-voltage approximation, not a claim of exact PCM linearity at all voltages. Summed currents explain the operation without implying that a recurrent angle memory was demonstrated by that inference chip."
+    },
+    {
+      "location": "content/chapters/08-hardware-dynamics.md:3-38 and matching purpose/FEEDBACK summary",
+      "judgment": "Retain. Leakage removes a voltage difference; recurrent input can replace lost charge. The scalar gain model is explicitly a local linear teaching model, not a transistor fit or a hardware lifetime measurement. The solution, effective time constant, unity-gain neutrality and supercritical instability follow from the given differential equation. The local-mode qualification limits the every-amplitude language to the ideal model."
+    },
+    {
+      "location": "content/chapters/08-hardware-dynamics.md:42-68 and matching ERRORS summary",
+      "judgment": "Retain. Discrete attraction corrects sufficiently small disturbances within a basin but permits switches after larger disturbances. A continuous attractor restores transverse disturbances while retaining shifts along its memory family. This is correctly separated from the digital/analog implementation distinction. The restoring stochastic model and variance result are mathematically correct, with dimensions stated and zero initial error specified. The fold explicitly excludes rare basin escapes and hardware bit-error estimates. Pinning can limit spread while biasing other cues toward preferred values, so variance alone is insufficient. The Burak-Fiete bound is correctly limited to its neural/noise/readout problem."
+    },
+    {
+      "location": "content/chapters/08-hardware-dynamics.md:72-83 and matching EVIDENCE summary",
+      "judgment": "Retain. The Massoud-Horiuchi device is a physical orientation representation with 32 discrete bump locations, not evidence for an exact continuum or Brownian diffusion law. Giulioni's recurrent network demonstrates noisy low/high activity states and correction within a basin; it is not presented as arbitrary-angle retention. The distinction is important and supported."
+    }
+  ],
+  "calculation_checks": [
+    {
+      "location": "08-hardware-dynamics.md:12-26",
+      "check": "Divide by tau_s to obtain du/dt=-(1-g)u/tau_s with I=0, giving u(t)=u(0)exp[-t(1-g)/tau_s]. tau_s>0 and g<1 yield positive tau_eff=tau_s/(1-g). u and I have the same units; g is dimensionless."
+    },
+    {
+      "location": "08-hardware-dynamics.md:34",
+      "check": "Python recomputation with tau_s=0.01 s gives 0.9999999999999991 s for g=.99, .49999999999999956 s for .98, and 1.9999999999999982 s for .995, matching 1, .5, 2 seconds within floating point rounding."
+    },
+    {
+      "location": "08-hardware-dynamics.md:49-62",
+      "check": "For constant kappa>0 and D>=0, e(0)=0, independent mean-zero Brownian increments yield Var(e)=2D integral_0^t exp[-2kappa(t-s)]ds=D(1-exp[-2kappa*t])/kappa. The kappa->0 limit is 2Dt. Both sides have units e^2. This is a local, constant-coefficient teaching model, not a globally bounded two-state circuit."
+    },
+    {
+      "location": "08-hardware-dynamics.md:74",
+      "check": "Python recomputation gives 360/32=11.25 degrees."
+    },
+    {
+      "location": "07-hardware-memory.md:54",
+      "check": "I=GV is dimensionally current=conductance*voltage. Physical weighted summation is a possible use of the read currents and is qualified by the small-read-voltage approximation."
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "von Neumann (1958), The Computer and the Brain",
+      "evidence": "Local research/von-neumann-1958.pdf, pdftotext PDF pages 78-81, printed pages 66-69; exact quote and surrounding qualification checked.",
+      "limit": "Historical analogy, not evidence that all brain memory is persistent activity or that current chips directly descend from this passage."
+    },
+    {
+      "source": "Pehle et al. (2022)",
+      "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.795876/full",
+      "evidence": "Section 2.2: membrane evolution on capacitance, leak conductance, input currents; Section 2.3: local 6-bit SRAM synaptic weights and current pulses. Primary full text read at relevant passages.",
+      "limit": "Architecture supports the storage distinction; it does not establish a stable Burak-style angle memory on this platform."
+    },
+    {
+      "source": "Intel Labs (2021), Loihi 2 technology brief",
+      "url": "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf",
+      "evidence": "Primary PDF pp.5-7: neural state/local memory operations, programmable models/rules, weight/state partitioning; relevant tables checked.",
+      "limit": "Only architecture used. No current availability, universal bit width or comparative energy claim appears in the reviewed passage."
+    },
+    {
+      "source": "Scholze et al. (2026), arXiv:2607.24396v1",
+      "url": "https://arxiv.org/html/2607.24396v1#S4.SS4",
+      "evidence": "Section 4.4 explicitly places demonstrated SNN neuron parameters, states and weights in PE SRAM, with Euler software updates and timer-driven processing.",
+      "limit": "Versioned preprint; demonstrated SRAM workloads rather than all possible future SpiNNaker2 software. Footnote keeps that scope."
+    },
+    {
+      "source": "Le Gallo et al. (2023), author manuscript arXiv:2212.02872",
+      "url": "https://arxiv.org/pdf/2212.02872",
+      "evidence": "Sections I-II and Extended Data Figs.2-3: 64 cores, physical PCM phase configuration/conductance, current summation and digital processing; conductance drift discussion checked.",
+      "limit": "Primary measured inference chip, not evidence that nonvolatile weights preserve a network's changing remembered angle. Manuscript version is explicitly identified."
+    },
+    {
+      "source": "Seung (1996)",
+      "evidence": "Local research/seung-1996.pdf, printed p.13343/PDF p.6. Discussion and nonlinear-model passages explicitly contrast digital point-attractor memory with graded line-attractor memory, including transverse restoration and longitudinal persistence.",
+      "limit": "Supports the dynamical distinction; the guide's OU variance derivation is an independent teaching calculation, not an experimental result attributed to Seung."
+    },
+    {
+      "source": "Burak and Fiete (2012)",
+      "evidence": "Local assets/papers/burak-fiete-2012-persistent-activity.pdf p.2, weak-fluctuation/Poisson assumptions and diffusive drift; connected guide 02-memory-dynamics.md:9-15,59-87,208-219 and 03-memory-information.md checked. Primary PubMed/PMC search record corroborated identity; direct PMC full-page access encountered a browser challenge.",
+      "limit": "Bound pertains to a specified noisy continuous-attractor model and observations. No equation from its known Eq.2 printing issue is reproduced by the reviewed new chapters."
+    },
+    {
+      "source": "Massoud and Horiuchi (2011)",
+      "url": "https://www.researchgate.net/publication/260666649_A_Neuromorphic_VLSI_Head_Direction_Cell_System",
+      "evidence": "Author-posted manuscript, Sections V.F-V.G, especially explicit 32 possible bump positions and 360/32=11.25 degrees; persistence/reset and velocity-driven movement passages inspected.",
+      "limit": "Finite orientation resolution. No Brownian coefficient or exact continuum is established or claimed in the guide."
+    },
+    {
+      "source": "Giulioni et al. (2012)",
+      "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2011.00149/full",
+      "evidence": "Primary abstract, Results and transition discussion: low/high metastable states, second-scale persistence versus millisecond component times, fluctuation-driven transitions, recovery within a basin.",
+      "limit": "Noisy bistability and finite-lived states, not arbitrary graded retention. The guide does not promise infinite memory or no switching."
+    }
+  ],
+  "review_limits": [
+    "No manuscript edits.",
+    "No stages 2 or 3 performed.",
+    "No build, full audit, figure review, typography/render verification or publication acceptance performed.",
+    "Existing source reports were used to locate evidence, not as substitutes for the manuscript or checked primary passages."
+  ],
+  "checkpoints": [
+    {
+      "utc": "2026-10-30T14:18:02Z",
+      "state": "Review started; estimated 4-6 minutes."
+    },
+    {
+      "utc": "2026-10-30T14:20:09Z",
+      "state": "Complete manuscript read, arithmetic and source checks done; no confirmed Stage 1 blocker; about one minute expected remaining.",
+      "wall_elapsed_seconds": 127,
+      "since_previous_seconds": 127
+    },
+    {
+      "utc": "2026-10-30T14:20:29Z",
+      "state": "Stage 1 report prepared; no blocker.",
+      "wall_elapsed_seconds": 147,
+      "since_previous_seconds": 20
+    },
+    {
+      "utc": "2026-10-30T14:22:17Z",
+      "state": "Report saved, JSON parsed and five manuscript hashes confirmed unchanged.",
+      "wall_elapsed_seconds": 255,
+      "since_previous_seconds": 108
+    }
+  ],
+  "token_stats": "unavailable"
+}

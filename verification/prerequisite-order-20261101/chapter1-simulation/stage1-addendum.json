@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "stage": "1 correctness addendum",
+  "status": "pass",
+  "scope": "Only moved symbol definitions in sec:MEMORY-SPIKES and immediate unchanged equations7-9. New simulation section and earlier Stage1 report remain separate and unchanged.",
+  "file": "content/chapters/01-foundations.md",
+  "sha256": "96faf38442b0cbd60d86827cd4ec30b086adcd2a4185b5f7b647858ad2017a9e",
+  "extension_start_utc": "2026-11-01T19:23:52Z",
+  "original_start_utc": "2026-11-01T13:32:42Z",
+  "awake_execution_time": "unverified",
+  "checks": [
+    {
+      "lines": [
+        48,
+        54
+      ],
+      "verdict": "pass",
+      "evidence": "s_i still denotes outgoing synaptic activation, dot its time derivative, tau a decay time in seconds. Alpha now explicitly indexes neuron i's spike events and t_i^alpha their times. Unit-integral delta pulse definition agrees with unchanged Eq7 and one-unit activation jump. All these meanings now precede displayed dynamics without changing source assumptions."
+    },
+    {
+      "lines": [
+        80,
+        83
+      ],
+      "verdict": "pass",
+      "evidence": "g_i is total input to receiving neuron i, b_i constant input bias, W_ij maps neuron j activation to neuron i input. Definitions agree with unchanged weighted-sum Eq8 and later causal description at101. Index direction is correct."
+    },
+    {
+      "lines": [
+        86,
+        96
+      ],
+      "verdict": "pass",
+      "evidence": "phi converts input to nonnegative firing rate r_i in spikes/second. Definition before Eq9 preserves general transfer-function role and later linear/exponential examples. Rate setting remains distinct from prescribing exact spike times."
+    }
+  ],
+  "source_basis": "Burak and Fiete2012 main PDF p5 Eqs7-9, freshly checked for preceding Stage1/source-review.",
+  "findings": [],
+  "required_repairs": [],
+  "prior_reports_preserved": true,
+  "wording_or_reader_stage": "not performed in this addendum",
+  "canonical_edits_made": false,
+  "token_stats": "unavailable",
+  "completed_utc": "2026-11-01T19:31:05Z",
+  "extension_wall_seconds": 434,
+  "original_wall_seconds": 21504
+}

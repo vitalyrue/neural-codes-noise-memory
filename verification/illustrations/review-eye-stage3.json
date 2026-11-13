@@ -1,0 +1,101 @@
+{
+  "reviewer": "/root/draw_memory_figures",
+  "stage": "Stage 3 final connected read of the V04/V05 additions",
+  "started_at": "2026-10-23T22:19:09.8660508+03:00",
+  "completed_at": "2026-10-23T22:21:06.881712+03:00",
+  "root_started_at": "2026-10-23T21:56:31.932270+03:00",
+  "wall_elapsed_seconds": 1474.949442,
+  "previous_checkpoint_at": "2026-10-23T22:19:09.866050+03:00",
+  "since_previous_checkpoint_seconds": 117.015662,
+  "awake_execution_time": "unverified",
+  "token_stats": "unavailable",
+  "verdict": "pass",
+  "scope_limits": "No whole-chapter or whole-book approval. This read evaluates the two inserted figures and connected passages after Stage 2 repairs. Unchanged full-size and 700 px inspection evidence comes from Stage 1.",
+  "passage_reasoning": {
+    "V04": [
+      {
+        "passage": "Pathway and recordings before the image",
+        "reader_question": "What is physical, and what was measured?",
+        "answer": "The preceding pathway section defines the integrator, OMNs and ocular plant, then separates shared from private/downstream variability. The recordings section explicitly gives one OMN plus eye movement per session and explains calibration gain. The new figure therefore maps already introduced objects and observations."
+      },
+      {
+        "passage": "New intro and three-role schematic",
+        "reader_question": "Does understanding this picture require later mathematics?",
+        "answer": "No. The intro states the physical/recording/calculation distinction. The lower filter is an orientation to a fitted conversion, whose full derivation comes later; the reader can identify input spikes and predicted position without knowing a transfer function."
+      },
+      {
+        "passage": "Caption and alt",
+        "reader_question": "Are limits needed for the pictured claims visible?",
+        "answer": "Yes. Proposed source, one-cell pairing, distinct noise entry points and illustrative signals are explicit. Caption and alt do not make population recordings or proven-attractor claims. Each statement explains a visible relation or its status."
+      },
+      {
+        "passage": "Interpretation and following fit/inversion sections",
+        "reader_question": "Does the paragraph connect the figure to what comes next?",
+        "answer": "Yes. It distinguishes physical source, one-cell observations and later calculated prediction. The next section fits movement to firing; the following section derives the inverse conversion, completing the operation previewed by the diagram. No equation is silently borrowed to justify the picture."
+      }
+    ],
+    "V05": [
+      {
+        "passage": "Measurement-noise and filtering sections before the image",
+        "reader_question": "Are the plotted variables and both processes understood first?",
+        "answer": "Yes. The chapter defines MSD and lag, shows noise subtraction, defines local log slope, white-noise intensity A and stationary covariance, derives the one-exponential white-input MSD, then derives the Brownian-input MSD through stationary velocity covariance. D, tau and both short/long-lag limits precede the image."
+      },
+      {
+        "passage": "Repaired intro and caption",
+        "reader_question": "Can the reader connect plot labels to the derivations and compare scales correctly?",
+        "answer": "Yes. The intro explicitly equates one pole with a single exponential response. The caption prints both own-scale normalizations and limits comparison to shapes, identifying guide theory rather than fitted or measured curves. No equality of physical input strengths is needed."
+      },
+      {
+        "passage": "Alt and retained interpretation",
+        "reader_question": "Is either plot behavior asserted without support?",
+        "answer": "No. The spoken functions and slopes reproduce the just-derived functions. The retained sentence restricts the white short-lag slope one to this example, so readers need not assume the paper muscle model has the same initial slope."
+      },
+      {
+        "passage": "Existing paragraph after the image and next circuit section",
+        "reader_question": "Are qualifications preserved and does the argument continue naturally?",
+        "answer": "Yes. The next paragraph supplies fast/slow response, motor filtering, feedback, nonzero-static-gain and correlated-peripheral-source qualifications. The next section moves from a possible accumulating command to a proposed memory circuit. The illustration supports that transition without proving a unique biological source."
+      }
+    ]
+  },
+  "verified_bindings": {
+    "V04": {
+      "policy": true,
+      "context": true,
+      "reviewed": true,
+      "input_path_set": true,
+      "all_input_hashes": true,
+      "compiled_source_scope": true,
+      "book_hash": true,
+      "image_same_as_stage1": true,
+      "caption_alt_equal_actual_sidecar": true,
+      "actual_intro_interpretation_once": true,
+      "stage2_recheck_pass": true
+    },
+    "V05": {
+      "policy": true,
+      "context": true,
+      "reviewed": true,
+      "input_path_set": true,
+      "all_input_hashes": true,
+      "compiled_source_scope": true,
+      "book_hash": true,
+      "image_same_as_stage1": true,
+      "caption_alt_equal_actual_sidecar": true,
+      "actual_intro_interpretation_once": true,
+      "stage2_recheck_pass": true
+    }
+  },
+  "findings": [],
+  "input_hashes": {
+    "content\\chapters\\04-eye-drift.md": "f22d19c9de4313037c6081a443f3b305b568f24720f01796178b83604b00b502",
+    "content\\chapters\\04-eye-drift.yaml": "068311ac42d787bad2ea1fb82d86ee09141c82865d0ae506b86ee59b6d41c2cb",
+    "verification\\illustrations\\integration.json": "3a1abe64eeea759ce7d36029bb764b91c2b1a630ea944a4c371c0366986ef961",
+    "verification\\illustrations\\current-bindings.json": "98cbec382fe385784396a92fbd0e2ddcff363dacc82d12080e04bb8ae94cd421",
+    "verification\\illustrations\\review-eye-stage1.json": "5a26325db6d4be2bdb9066083d50f6da40f07cb736615769bfaaee3a135d9a9d",
+    "verification\\illustrations\\review-eye-stage2-recheck.json": "33e56e80eed83abe3fdb30ffa196eed99d31d4d928a1de1526e48a5c14aee8ab"
+  },
+  "verified_source_scope_sha256": {
+    "ch:EYE-DRIFT": "0a7f562b3686418f71cd149641180c32a18a0224ef0e3814ad521feabd07a7d6"
+  },
+  "bindings_method": "Recomputed policy/context and every contract input file hash; reloaded actual book model and compared compiled Chapter 4 content_hash and whole book hash. The binding snapshot itself was never treated as approval."
+}

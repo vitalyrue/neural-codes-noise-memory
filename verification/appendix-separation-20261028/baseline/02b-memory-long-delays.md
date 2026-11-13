@@ -1,0 +1,142 @@
+# Boundaries and drift change memory error over long delays {#ch:MEMORY-LONG-DELAYS}
+
+A rate of random spreading measured near one stored value does not yet tell us how memory error behaves after a long wait. The value may approach a boundary, wrap around an angular range, or reach a region where the spreading rate differs. A consistent movement of the average value would also change the error without being captured by the rate of random spreading alone.
+
+We begin by following the distribution of stored values across repeated trials, using the local diffusion coefficient derived in the preceding chapter. This shows why errors can keep growing on a line but level off when angular error is measured within one turn. We then separate random spreading from systematic drift and make the noise assumptions explicit. Finally, the paper's figures show what its network simulations test and distinguish movement of the memory from uncertainty when another circuit reads it. That second uncertainty motivates the information calculation that follows.
+
+Here $\theta$ is the current stored value and $\Theta$ its common initial value across trials. The local diffusion coefficient $D(\theta)$ comes from the weak spike fluctuations derived in the [preceding chapter](ch-memory-dynamics.html#sec-memory-diffusion), after stable disturbances have relaxed. For constant $D$, displacement variance is $2Dt$ before boundaries matter and when there is no systematic drift.
+
+## Long delay errors depend on boundaries and local diffusion {#sec:MEMORY-LONG-TIME}
+
+A local diffusion coefficient answers how variance initially grows. It does not by itself say that variance grows at the same rate forever. Boundaries and variation of $D$ can change the long time behavior.
+
+Let $p(\theta,t)$ be the density of the memory coordinate across repeated trials initialized at $\Theta$. The [**Itô convention**]{.definition-term custom-style="Definition Term"} evaluates a state-dependent noise coefficient at the beginning of each increment. In the zero-drift diffusion approximation, this density evolves according to the [**Fokker Planck equation**]{.definition-term custom-style="Definition Term"}:
+
+$$
+\frac{\partial p}{\partial t}
+=\frac{\partial^2}{\partial\theta^2}[D(\theta)p],
+\qquad p(\theta,0)=\delta(\theta-\Theta).
+$$
+
+Here the [**Dirac delta**]{.definition-term custom-style="Definition Term"} denotes a point mass: initially all probability is at $\Theta$. It differs from the earlier zero-or-one symbol $\delta_{ij}$. For constant $D$ on an unbounded line, the Gaussian solution is
+
+$$
+p(\theta,t)=\frac{1}{\sqrt{4\pi Dt}}
+\exp\left[-\frac{(\theta-\Theta)^2}{4Dt}\right].
+$$
+
+Its variance is $2Dt$. For an angular coordinate, add the densities at all displacements $\theta-\Theta+2\pi k$, $k\in\mathbb Z$, to wrap the Gaussian around the circle. This wrapped sum appears in [SI Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483). At long times the density approaches $1/(2\pi)$. If angular errors are reported in $[-\pi,\pi)$, their limiting mean squared value is
+
+$$
+\frac{1}{2\pi}\int_{-\pi}^{\pi}x^2dx=\frac{\pi^2}{3}.
+$$
+
+The flattening of a ring network's error curve can therefore occur while its local noise mechanism remains unchanged. It reflects the bounded way angular error is reported.[^p1-fp]
+
+For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the plots show how the density and squared error change with delay.
+
+<div class="figure-scroll">
+
+{{block:fig:MEMORY-LINE-RING}}
+
+</div>
+
+As the upper density approaches uniform, the wrapped error below approaches $\pi^2/3$; the line error keeps growing.
+
+::: {.publisher-clarification-note .publisher-fold-always title="Derivation: from random increments to the memory density equation"}
+
+To pass from random increments to a density equation, choose any smooth function $F(\theta)$. In a short interval $dt$, the zero-drift Itô increment has conditional mean zero and conditional second moment $2D(\theta)dt$. Taylor expansion at the starting coordinate gives
+
+$$
+\begin{aligned}
+\mathbb E[F(\theta+d\theta)-F(\theta)\mid\theta]
+&=F'(\theta)\mathbb E[d\theta\mid\theta]
++\tfrac12F''(\theta)\mathbb E[(d\theta)^2\mid\theta]+o(dt)\\
+&=D(\theta)F''(\theta)dt+o(dt).
+\end{aligned}
+$$
+
+The higher-order terms vanish faster than $dt$ in this diffusion approximation. Averaging over the starting-coordinate density and dividing by $dt$ gives
+
+$$
+\frac{d}{dt}\int F(\theta)p(\theta,t)\,d\theta
+=\int F''(\theta)D(\theta)p(\theta,t)\,d\theta.
+$$
+
+Take $F$ to vanish outside an interior region, or use boundaries for which the integration terms vanish. Integrating by parts twice moves both derivatives from $F$ onto the product $Dp$. Because the resulting identity holds for every such smooth $F$, it gives the Fokker Planck equation shown above.
+
+:::
+
+When $D$ varies with state, the zero drift stochastic equation is $d\theta=\sqrt{2D(\theta)}\,dB$ with the Itô convention. Under conditions that remove boundary terms, the density equation gives
+
+$$
+\frac{d}{dt}E[\theta]=0,
+\qquad
+\frac{d}{dt}\operatorname{Var}(\theta)=2E[D(\theta)].
+$$
+
+To obtain these identities, multiply the density equation by $\theta$ or $(\theta-\Theta)^2$, integrate over $\theta$, and integrate by parts twice. The second derivatives of these functions are respectively zero and two, giving the two identities. A similar calculation for the smooth function $D$ gives $dE[D]/dt=E[DD'']$. Expanding at $t=0$ therefore yields
+
+$$
+\operatorname{Var}(\theta)
+=2D(\Theta)t+D(\Theta)D''(\Theta)t^2+O(t^3).
+$$
+
+This is [SI Eq. S37, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,602). A state dependent $D$ need not produce a curved variance versus time graph. If $D$ is linear in $\theta$, then $E[D(\theta)]=D(E[\theta])=D(\Theta)$, so the variance remains linear while the process stays within the model's valid domain.[^p1-variable]
+
+The supplement illustrates this with mutual excitation, $W_{12}=W_{21}=1$, biases $(b_0,-b_0)$, and the same linear transfer rule. The fixed activation states are $(\theta+b_0/2,\theta-b_0/2)$. Now $\mathbf u=(1,1)^T$, $\mathbf v=(1/2,1/2)^T$, and
+
+$$
+2D=\frac{1}{4}(\bar r_1+\bar r_2)=\frac{\theta}{2\tau},
+\qquad D=\frac{\theta}{4\tau}.
+$$
+
+The implied variance is $\Theta t/(2\tau)$, agreeing with [SI Eq. S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,383) and the slope tested in [Fig. S1, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10&zoom=125,0,45). SI Eq. S40 instead prints $D=\theta/(2\tau)$. Under the convention used throughout this guide, that displayed value differs by a factor of two from the direct projection and S41.[^p1-excitation]
+
+## A diffusion calculation does not determine systematic drift {#sec:MEMORY-DRIFT-SCOPE}
+
+Repeated trials can spread apart even if their average stays at the original value. That random spreading differs from a reproducible movement in one direction. Both can occur, and the derivation of $D$ alone does not settle the second question.
+
+The paper assumes that the network is tuned to eliminate [**systematic drift**]{.definition-term custom-style="Definition Term"}, meaning a nonzero mean velocity along the attractor. A deterministic mismatch in weights can create such a velocity. In addition, state dependent noise and curved network dynamics can create a small mean motion even if the noise free model has an exact continuous attractor. The supplement explains that deriving the exact mean motion requires the microscopic jump process, beyond the leading variance calculation ([SI “Systematic drift,” pp. 4–5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,362)).[^p1-systematic]
+
+For state dependent $D$, where the coefficient is evaluated affects the process. The [**Stratonovich convention**]{.definition-term custom-style="Definition Term"} uses midpoint evaluation in its limiting increments. With the same written coefficient and zero written drift, it describes a different process from the Itô equation. Converting the Stratonovich equation into Itô form adds a drift $D'/2$. This follows from the conversion term $bb'/2$ with $b=\sqrt{2D}$ and $bb'=D'$. The supplement uses the difference to estimate a possible scale of noise induced drift, not to identify the exact drift of every neural network.
+
+With $D$ of order $1/N$, random displacement over $dt$ is of order $\sqrt{dt/N}$, while such a mean displacement is of order $dt/N$. The variance calculation captures the leading random term. Small changes to weights or biases might cancel the mean drift; they cannot remove the random increments by subtracting a known average. A known mean drift can in principle be accounted for by a decoder, but any actual implementation must know that drift and respect the domain and boundary conditions.
+
+The independence assumption also has a precise scope. Newly generated spike-count fluctuations are conditionally independent given the present state. Shared recurrent fluctuations can still correlate the observed spike trains over time. An extra source of correlated fluctuations would change the projection formula to $2D=\mathbf v^TQ\mathbf v$, where $Q\,dt$ is their increment covariance. Calculating the corresponding Fisher information would require the matching joint likelihood. The paper discusses such correlated models as future extensions ([Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142)); it does not prove that every correlated spiking model obeys its Poisson formulas.[^p1-correlation]
+
+## Figures distinguish memory motion from readout error and test diffusion {#sec:MEMORY-FIGURES}
+
+[Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439) shows the definition of the memory coordinate. Start at a green point off the attractor and follow the noise free flow to the black point on it. This endpoint defines the instantaneous attractor state. After one noisy interval, repeat that flow. The difference between the two endpoints is the retained memory change. The relevant projection follows the flow, as in the [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization).
+
+In Fig. 1B, an [**activity bump**]{.definition-term custom-style="Definition Term"} is a localized peak of population firing rates across the neurons' preferred angles. The figure separates two sources of error:
+
+- During storage, the bump's location has moved away from its initial value $\Theta$.
+- At the later time, an observer has additional uncertainty about the bump's current location because it sees only a finite sample of spikes.
+
+The [information calculation](ch-memory-information.html#sec-memory-fi) measures this second uncertainty and relates it to diffusion; the [readout chapter](ch-memory-readout.html) then follows observation of the moving state.[^p1-fig1]
+
+[Figure 2, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,18) tests the diffusion calculation in two different network designs. Panel A shows a ring with weights determined by differences of preferred angles. This gives rotational symmetry: rotating the activity pattern around the ring leaves its dynamics unchanged in form. In B, compare the firing rate curves and spike marks in the inset before reading the wandering angular trace. The curve describes rates; the marks are particular random spike events. The trace shows the represented angle rather than overall activity amplitude.
+
+Panels C and D test different parts of the prediction:
+
+- Panel C compares simulated mean squared angular displacements with the prediction from the tuning curves and transfer function. The gray exponential case and black sigmoidal, or S-shaped, case have different transfer functions. The dashed bound is a lower limit for the sigmoidal case, not a separate fitted trajectory. A model can lie above its information bound while still agreeing with the derived diffusion formula.
+- Panel D follows angular error to longer intervals; its flattening uses angular wrapping, not a disappearance of noise. The expected limiting value with the caption's error convention is $\pi^2/3$.
+
+Panels E to G use mutual inhibition rather than a ring. The two rates in F vary in opposite directions; their difference represents memory. Panel G compares their displacement statistics with the analytic prediction. This second design matters because the projection argument does not require rotational symmetry. These are simulations checking the model calculation. They are not direct measurements of memory noise in an animal.[^p1-fig2]
+
+The derivation has now supplied a dynamical quantity, $D$, from spike variability and the way a network returns to its attractor. We next derive a statistical quantity from the same tuning curves and ask why it puts a lower limit on $D$.
+
+[^p1-fp]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [density equation, Eqs. S28–S29, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,48); [Gaussian on a line, Eq. S30, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,329); [wrapped density and uniform limit, Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483); [angular error, Eq. S32, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,48). [DOI](https://doi.org/10.1073/pnas.1117386109). The uniform angular variance calculation is a teaching reconstruction.
+
+[^p1-variable]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, [Supporting Text, Eqs. S33–S37, p. 8](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8&zoom=125,0,139). [DOI](https://doi.org/10.1073/pnas.1117386109).
+
+[^p1-excitation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, [Supporting Text, Eqs. S38–S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,48); [Fig. S1, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10&zoom=125,0,45). [DOI](https://doi.org/10.1073/pnas.1117386109). The factor discrepancy between S40, S41, and the projection calculation is visible in the supplied PDF; no author correction is asserted.
+
+[^p1-systematic]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*, Supporting Text: [“Systematic drift,” p. 4](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&zoom=125,0,362); [Eqs. S19–S20 and continuation, p. 5](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5&zoom=125,0,48). [DOI](https://doi.org/10.1073/pnas.1117386109).
+
+[^p1-correlation]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142). [DOI](https://doi.org/10.1073/pnas.1117386109). The covariance projection is an immediate linear algebra extension; the paper's proposed general correlated noise inequality remains a conjecture there.
+
+[^p1-fig1]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 1 and caption, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439); [flow definition, “In what follows,” p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,191). [DOI](https://doi.org/10.1073/pnas.1117386109).
+
+[^p1-fig2]: Burak, Y., & Fiete, I. R. (2012). *Fundamental limits on persistent activity in networks of noisy neurons*. PNAS, 109(43), 17645–17650, [Fig. 2 and caption, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,18); Network Simulations: [ring model, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,103) and [mutual inhibition, p. 6](../papers/burak-fiete-2012-persistent-activity.pdf#page=6&zoom=125,0,22). [DOI](https://doi.org/10.1073/pnas.1117386109).

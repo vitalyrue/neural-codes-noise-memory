@@ -1,0 +1,489 @@
+{
+  "request_id": "stage3-foundations-synthesis",
+  "stage": 3,
+  "reviewer": "/root/structure_place, GPT-6.1-sol/high",
+  "started_at": "2026-10-24T21:45:11.5936078+03:00",
+  "completed_at": "2026-10-24T21:47:18.746334+03:00",
+  "source_bindings": {
+    "00-reading-guide.md": "c74d5d08af7b77cf150c0ac01d5a7423ac6d28da9e6acbc53d2b7f4b3de6b486",
+    "01-foundations.md": "6891834eb47f0cce93b27052fb69b59f26c27f0ae8b9aafd1bac41f187078785",
+    "01b-persistence.md": "5894d917c1affb0a54de4a9bd1487558a602609d5ee990938b63aa341eeafed7",
+    "02-memory-dynamics.md": "9cfdae15ea5dea46508323d6bda6cbb7e8acaf34618107e37df592c27bbed471",
+    "02b-memory-long-delays.md": "3467980cb583b8340dc3c689cb333349fe8163a80963e27ba13dca6bfa451f4e",
+    "06-synthesis.md": "d5db21f66cb38ea9808e21ae37e89e26f04e7427931192e8108519e3ca58192c",
+    "glossary.md": "80d11d379b97c0f6bb227f4cbc8aaf803c23ea4af0383fd63fa362953b26005c"
+  },
+  "scope": "Final connected reader-flow pass over six actual proposed chapters with optional notes closed, eight assigned glossary definitions and the two Stage 2 deletion repairs. Scope is this prose/list/definition revision.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; guide supplies neuroscience and specialized stochastic/information concepts.",
+  "main_text_inventory": [
+    {
+      "file": "00-reading-guide.md",
+      "visible_main_text_sha256": "c74d5d08af7b77cf150c0ac01d5a7423ac6d28da9e6acbc53d2b7f4b3de6b486",
+      "folds_closed": 0,
+      "connected_main_text_read": true
+    },
+    {
+      "file": "01-foundations.md",
+      "visible_main_text_sha256": "82ab882a05e40352993be7a5a9ca20f02a33271bdfffddb99445418f6e07f4d8",
+      "folds_closed": 1,
+      "connected_main_text_read": true
+    },
+    {
+      "file": "01b-persistence.md",
+      "visible_main_text_sha256": "5894d917c1affb0a54de4a9bd1487558a602609d5ee990938b63aa341eeafed7",
+      "folds_closed": 0,
+      "connected_main_text_read": true
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "visible_main_text_sha256": "9cfdae15ea5dea46508323d6bda6cbb7e8acaf34618107e37df592c27bbed471",
+      "folds_closed": 0,
+      "connected_main_text_read": true
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "visible_main_text_sha256": "395bda7ebc12b54fba091e2c99860e79b22c8767409a656111273e212d72a08c",
+      "folds_closed": 1,
+      "connected_main_text_read": true
+    },
+    {
+      "file": "06-synthesis.md",
+      "visible_main_text_sha256": "d5db21f66cb38ea9808e21ae37e89e26f04e7427931192e8108519e3ca58192c",
+      "folds_closed": 0,
+      "connected_main_text_read": true
+    }
+  ],
+  "connected_passage_assessments": [
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 3,
+      "end_line": 7,
+      "passage_sha256": "1b6cc1d9fdce415601d3f67b03afa1e6679272d3000e225504374dca0afd9d58",
+      "passage_opening": "A remembered direction must remain useful after its cue disappears. The eyes must maintain a position while we look at a target. An animal m",
+      "reader_question": "Why study the signals of many cells?",
+      "answer_available_from_text": "Memory, gaze and navigation each require useful behavior despite brief variable signals; neuron is explained as a signaling cell.",
+      "connection_and_decision": "Concrete behaviors lead into the modeling/recording distinction and prepare the separate paper questions.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 11,
+      "end_line": 15,
+      "passage_sha256": "62d7b99c5fd2c9ebe68c183572c319c28064d8b6fff6c0da2e0983ea36cad60f",
+      "passage_opening": "Burak and Fiete (2012) study short-term memory for a continuous quantity, such as a direction or eye angle. A proposed mechanism is that int",
+      "reader_question": "What does continuing activity leave unresolved?",
+      "answer_available_from_text": "The represented value can change while activity persists. The model calculates spreading and a lower bound under specified noise and anchoring limits.",
+      "connection_and_decision": "Question, model method, result and limits remain in that order; the chapter links follow the result they elaborate.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 19,
+      "end_line": 23,
+      "passage_sha256": "48f8bb7333aed06d9fa705a0a94b009a65dbcfe011fde6ab50a90bd23347f8bd",
+      "passage_opening": "Even while gaze is held on a stationary target, the eyes move smoothly and irregularly between brief, rapid movements. This smooth motion is",
+      "reader_question": "What is eye drift, and what does the inferred shared variance establish?",
+      "answer_available_from_text": "Smooth intersaccadic motion changes the retinal image. Calibrated neuron/movement comparisons support a common upstream contribution under explicit assumptions.",
+      "connection_and_decision": "Retina and drift are taught before source inference. The separate candidate circuit is distinguished before the 82 percent result is interpreted.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 27,
+      "end_line": 33,
+      "passage_sha256": "5955a675e0638b933c2b6bbde43a36b3a68ea1045baea4d17ca62f1c416bfc46",
+      "passage_opening": "A [**place cell**]{.definition-term custom-style=\"Definition Term\"} in the [**hippocampus**]{.definition-term custom-style=\"Definition Term\"",
+      "reader_question": "What does the spatial paper explain that the other two do not?",
+      "answer_available_from_text": "Place fields are connected active regions. A smooth random map predicts their size/shape distributions and does not directly measure the proposed random connectivity.",
+      "connection_and_decision": "First explanations precede model use; the closing comparison states why one joint circuit remains an open question.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 37,
+      "end_line": 54,
+      "passage_sha256": "35c3c67bcea21d012b5f3b44e2386a125c98713112e5835108d7f53582f8140e",
+      "passage_opening": "The guide assumes undergraduate calculus, basic probability, and linear algebra. Neuroscience terms and the required stochastic-process, inf",
+      "reader_question": "Which chapters should a reader take first, and which detail is optional?",
+      "answer_available_from_text": "The grouped list supplies the full progression. The paper-specific alternatives retain the first two foundations chapters; optional notes preserve longer calculations while needed premises remain visible.",
+      "connection_and_decision": "Both lists have clear lead-ins; their items are navigation choices, not derived causal steps. The glossary and figure-map instructions remain after the paths.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 58,
+      "end_line": 60,
+      "passage_sha256": "68921c844a4dc3055ab2673b89cff5555875e5be4d1c52d444ed9f6826e934a6",
+      "passage_opening": "Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact fo",
+      "reader_question": "What kinds of checks did the guide actually perform?",
+      "answer_available_from_text": "Examples and numerical checks are distinguished from experimental measurements and rerunning animal recordings.",
+      "connection_and_decision": "After removing the empty opening sentence, the first paragraph directly explains scope; the next paragraph develops the empirical-reproduction limit. Nothing refers back to the deleted sentence.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 62,
+      "end_line": 69,
+      "passage_sha256": "e640a0e90465d648f1591af41c8ad29298cfd3cc69294e174efc2d09cf8cc352",
+      "passage_opening": "Throughout the guide, $D$ denotes the [**diffusion coefficient**]{.definition-term custom-style=\"Definition Term\"}, which sets how quickly u",
+      "reader_question": "How do recurring symbols differ across papers?",
+      "answer_available_from_text": "D and MSD are defined under constant, unbiased, unbounded 1D conditions. The list separates d, memory theta, place threshold q and covariance C.",
+      "connection_and_decision": "The symbol list is introduced after the substantive D explanation; it does not pull the conditions into disconnected bullets.",
+      "verdict": "retain"
+    },
+    {
+      "file": "00-reading-guide.md",
+      "start_line": 73,
+      "end_line": 85,
+      "passage_sha256": "1e062ac760d016dd1854260ebd120bd8f88be2f2f83b2ee7927ae14478678f5d",
+      "passage_opening": "The copies are the published versions. Supporting information is linked separately.\n\n- **Burak and Fiete (2012):** [Paper PDF](../papers/bur",
+      "reader_question": "How can a reader inspect the source equations?",
+      "answer_available_from_text": "Three source entries distinguish main papers, supplements and local PDF layout. The closing note says printed supporting formulas remain unchanged and apparent corrections are independent checks.",
+      "connection_and_decision": "The links follow reading instructions and do not replace the guide's explanations.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01-foundations.md",
+      "start_line": 3,
+      "end_line": 16,
+      "passage_sha256": "85b614bb9ec4084fdc30eca17b07a2621c7034d5746801bd6114d1eab0e340d3",
+      "passage_opening": "The eyes can hold a position after a brief movement command has ended. An animal can also keep track of its location while the activity of i",
+      "reader_question": "How can short spikes support longer activity?",
+      "answer_available_from_text": "The visible text teaches spikes, synapses, excitatory/inhibitory effects, decaying synaptic input and recurrent feedback.",
+      "connection_and_decision": "The input-effect list is introduced by the receiving-neuron relationship and followed by the actual feedback mechanism. Blue terms have meanings in main text.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01-foundations.md",
+      "start_line": 18,
+      "end_line": 35,
+      "passage_sha256": "94ef01cad38a423d19fc7c767ee97f5a39cd8a95d7d3963f1bfd0c6b83fe4c25",
+      "passage_opening": "A [**tuning curve**]{.definition-term custom-style=\"Definition Term\"} gives a neuron's expected firing rate as a function of a represented v",
+      "reader_question": "How do rates represent a value across cells and across space?",
+      "answer_available_from_text": "Tuning gives expected rate as a function of the represented variable; a vector forms a population code. Rate maps add measurement uncertainty. CA3/CA1 and grid/place distinctions supply the later spatial context.",
+      "connection_and_decision": "Encoding/decoding are explained beside the population vector. The anatomy list retains a clear common question, followed by what the distinction does and does not tell us.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01-foundations.md",
+      "start_line": 39,
+      "end_line": 64,
+      "passage_sha256": "c1490fb3b59e3853c1ff524d1494d3e23908d07227fd9295a6c881a2b5b7b10a",
+      "passage_opening": "A tuning curve describes expected activity, but a brief spike observation can differ each time the same value is represented. The 2012 model",
+      "reader_question": "Why can observed counts differ at one expected rate?",
+      "answer_available_from_text": "The Poisson count law gives expected count and variance directly in main text.",
+      "connection_and_decision": "With the optional factorial-moment derivation closed, the next paragraph still has the mean/variance identities needed for relative-noise reasoning.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01-foundations.md",
+      "start_line": 66,
+      "end_line": 84,
+      "passage_sha256": "2ab005f2e0bf92327087bdcce18ee34cb3a832b07010dd85213a3cdff5ccc250",
+      "passage_opening": "The count variance grows with rate, while its size relative to the mean falls. Its relative standard deviation is $\\sqrt\\lambda/\\lambda=1/\\s",
+      "reader_question": "What does pooling independent cells improve?",
+      "answer_available_from_text": "The example contrasts silent one-cell observations with a narrower per-cell estimate from 20 cells, and retains the shared-drive exception.",
+      "connection_and_decision": "Numbers precede the figure, normalization interprets it afterward, and conditional independence is qualified before introducing additional variability measures.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01-foundations.md",
+      "start_line": 86,
+      "end_line": 91,
+      "passage_sha256": "0d1e9f422b1392946f06cabf0c639fbd21df5bd6404f314e8190336a26f59b19",
+      "passage_opening": "Two other measurements describe different aspects of variability:\n\n- The [**coefficient of variation**]{.definition-term custom-style=\"Defin",
+      "reader_question": "Why are CV and Fano factor separate measurements?",
+      "answer_available_from_text": "One uses successive interval lengths; the other uses count spread. The visible conclusion says they cannot be interchanged without extra assumptions.",
+      "connection_and_decision": "Both bullet entries teach the object and formula; the consequence remains outside the list.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01-foundations.md",
+      "start_line": 95,
+      "end_line": 128,
+      "passage_sha256": "2b6c897914b9286f9d876e23e004ab6693cba960145c7de3c8b091d2a9e307d5",
+      "passage_opening": "To identify where variability enters a pathway, the eye paper compares measurements that share some fluctuations and have other fluctuations",
+      "reader_question": "How do shared fluctuation and mean motion affect the next models?",
+      "answer_available_from_text": "The first sentence says the eye paper compares shared and private fluctuations. Covariance follows directly, then correlation limits and the mean-square decomposition.",
+      "connection_and_decision": "The deleted comment about short identities leaves a direct purpose-to-definition transition. The final MSD interpretation prepares random diffusion versus bias.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01b-persistence.md",
+      "start_line": 3,
+      "end_line": 56,
+      "passage_sha256": "c856054fe0d44945fb3056edd9d9226788362e6903992c0e7ee9f50e220064dc",
+      "passage_opening": "The next distinction is between a value and the activity that represents it. Eye position is one number, but a circuit can represent it thro",
+      "reader_question": "How can the activity recover while memory remains wrong?",
+      "answer_available_from_text": "State and fixed-family meanings precede a two-rate example. Equal-sign and opposite-sign disturbances from the same starting state give different surviving angles.",
+      "connection_and_decision": "The comparison list preserves complete traces. Its conclusion explicitly refers to the second case, and the figure explains imposed disturbance versus restoring flow before linking to general projection.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01b-persistence.md",
+      "start_line": 58,
+      "end_line": 86,
+      "passage_sha256": "582e74fa14e85d682259883ace009909dd9dbb66e7b2659e8d07592173571169",
+      "passage_opening": "If persistent angular changes arrive repeatedly, their errors accumulate. Divide time into intervals of length $\\Delta t$. Let $\\xi_j$ be th",
+      "reader_question": "What assumptions make error variance grow linearly?",
+      "answer_available_from_text": "Equal-duration increments are defined first. Independent, zero-mean, equal-variance bullets precede the sum; Brownian motion and MSD then supply the continuous interpretation.",
+      "connection_and_decision": "Premises remain visible, equations remain causal prose, and the RMS definition follows the quantity it transforms.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01b-persistence.md",
+      "start_line": 88,
+      "end_line": 121,
+      "passage_sha256": "78a8a182607da9288561d16d1a6c924a0bce134997493709de5b340ee44cd275",
+      "passage_opening": "Take an illustrative angular diffusion coefficient $D=0.02$ degrees squared per second. At 0.35 s its variance is $0.014$ degrees squared an",
+      "reader_question": "How does a small fixed bias differ from accumulated random spread?",
+      "answer_available_from_text": "The visible example sets D and bias, calculates their crossover and interprets the figure. The Brownian covariance proof then supplies the later averaging identity.",
+      "connection_and_decision": "Example numbers and limits remain outside folds. Boundary and state-dependence qualifications appear before leaving the diffusion model.",
+      "verdict": "retain"
+    },
+    {
+      "file": "01b-persistence.md",
+      "start_line": 125,
+      "end_line": 141,
+      "passage_sha256": "9d65f2566e7686a7ba145a31dc56001c4aed3a622afd36a4f46d09ba980e9654",
+      "passage_opening": "The memory and eye papers study fluctuations that accumulate as time passes. The place-field paper instead starts with a random function of ",
+      "reader_question": "Why does an irregular spatial map not imply a wandering stored value?",
+      "answer_available_from_text": "A map is fixed after drawing; a time-dependent state can move through it and spikes can vary around its rate. Neither observation determines the other quantity.",
+      "connection_and_decision": "The distinction leads into the three-question map and preserves the order of dynamics, eye evidence and spatial statistics.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "start_line": 3,
+      "end_line": 88,
+      "passage_sha256": "9398dd85dc6431d022189a8c00316d45d95d8a7568147154bf3144e882c4bb91",
+      "passage_opening": "A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied. The important question is whether",
+      "reader_question": "How do spikes renew the model's state?",
+      "answer_available_from_text": "The chapter establishes the feedback cycle, activation decay, weighted input and transfer rule before replacing weak summed fluctuations with Brownian noise.",
+      "connection_and_decision": "The main derivation is still continuous prose. Activation versus spikes, local noise approximation and the required continuous family are explained before projection.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "start_line": 92,
+      "end_line": 171,
+      "passage_sha256": "4c569b3a63db8fcf3438dc2eca211d7747627a85c285be3d045a59c814159ae9",
+      "passage_opening": "A spike perturbs many aspects of a network's state. Most of those changes decay as the state returns to the attractor. To calculate memory l",
+      "reader_question": "Why does lasting memory require a left vector rather than perpendicular projection?",
+      "answer_available_from_text": "Linearization gives K, the family tangent gives its right zero vector, and the normalized left zero vector removes decaying modes. The tilted-decay example shows the missed shift.",
+      "connection_and_decision": "Definitions precede their algebraic use; the example and figure demonstrate the need before the diffusion calculation relies on it.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "start_line": 175,
+      "end_line": 211,
+      "passage_sha256": "18305321228615815bc016f8de8e799cbee2cbac062f1bd750c69b074550a873",
+      "passage_opening": "We can now calculate how much random displacement remains after the stable components have relaxed. Multiply the linear stochastic equation ",
+      "reader_question": "What survives random spikes and when is its diffusion rate local?",
+      "answer_available_from_text": "Multiplication by the already-taught left vector gives displacement variance. Two visible bullets bound the allowed interval, followed by a separate drift check.",
+      "connection_and_decision": "The list interrupts no algebra. Its consequence remains after it; the tensor extension then uses the same covariance calculation and defines its entries.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "start_line": 215,
+      "end_line": 293,
+      "passage_sha256": "8ce3d2b4851f4512cf7bb6a10134e3e35852490c9bf8ed63c84b19cbbf9ee97e",
+      "passage_opening": "The general formula requires the left vector of the network dynamics. When $W_{ij}=W_{ji}$, can we write it using tuning curves and the inpu",
+      "reader_question": "What extra premise lets tuning curves determine diffusion?",
+      "answer_available_from_text": "Symmetric weights yield the left vector through input derivatives. A visible three-premise list summarizes scope before the two-cell interior example.",
+      "connection_and_decision": "The derivation comes before the condition summary and example. The endpoint limit remains visible after the example, preventing an unqualified global formula.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "start_line": 3,
+      "end_line": 68,
+      "passage_sha256": "fd488c1542cee7f9cfed820764e4b00f0357e3b65e3b0c7c24d63a72dbba2e1d",
+      "passage_opening": "A rate of random spreading measured near one stored value does not yet tell us how memory error behaves after a long wait. The value may app",
+      "reader_question": "What changes when the memory reaches boundaries?",
+      "answer_available_from_text": "The local coefficient motivates a trial-density description. Itô, Fokker Planck and Dirac delta meanings are visible; line and wrapped-circle solutions lead to the bounded angular error.",
+      "connection_and_decision": "Closing the optional density-equation proof leaves the equation, initial condition, boundary interpretation and plot meaning visible.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "start_line": 70,
+      "end_line": 94,
+      "passage_sha256": "9a977f385bb73a9f9a515224ac4ec1cd57cc1cd2c778eb4eccf60e10d8f49fb1",
+      "passage_opening": "When $D$ varies with state, the zero drift stochastic equation is $d\\theta=\\sqrt{2D(\\theta)}\\,dB$ with the Itô convention. Under conditions ",
+      "reader_question": "Does state-dependent diffusion always make the variance nonlinear?",
+      "answer_available_from_text": "The visible moment equations and integration explanation show the dependence on E[D]. The linear-D example then gives an explicit exception and checks its convention.",
+      "connection_and_decision": "The optional density proof supplies no required new definition for these passages; calculus background covers the stated integration steps.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "start_line": 98,
+      "end_line": 106,
+      "passage_sha256": "571e10f2cb3a3ac1695c145eea7e5996a3c2e1aab64b68e7b27a2b5cb8ae8d6a",
+      "passage_opening": "Repeated trials can spread apart even if their average stays at the original value. That random spreading differs from a reproducible moveme",
+      "reader_question": "Why does the variance calculation not settle the mean motion?",
+      "answer_available_from_text": "Systematic drift is introduced as nonzero mean velocity, then noise conventions and order estimates explain why it needs a separate microscopic calculation.",
+      "connection_and_decision": "The conditional-independence paragraph preserves the limits needed when connecting to information next; no list has detached those limits.",
+      "verdict": "retain"
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "start_line": 110,
+      "end_line": 128,
+      "passage_sha256": "949b93052f23d1c80a6dee1e357ba94abc1bdf6bbce6241dd4bae3e419fa110e",
+      "passage_opening": "[Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439) shows the definition of the memory coordinate. S",
+      "reader_question": "Which later uncertainty is the information chapter about?",
+      "answer_available_from_text": "The two-error list separates a moved memory state from finite-spike uncertainty about its current position. The next link explicitly assigns the information calculation to the second.",
+      "connection_and_decision": "Panel C/D bullets then distinguish testing the diffusion formula from long-time wrapping. The closing question asks how a statistical quantity can bound the completed dynamical quantity.",
+      "verdict": "retain"
+    },
+    {
+      "file": "06-synthesis.md",
+      "start_line": 3,
+      "end_line": 25,
+      "passage_sha256": "023dcd11ca55939521f1139932ad22d3e6b5903d3512c069f6ed88770fd4c54d",
+      "passage_opening": "A model can explain the shape of a neural code without explaining how that code is maintained. It can also explain fluctuations inside a cir",
+      "reader_question": "What must be added to connect spatial maps and memory?",
+      "answer_available_from_text": "The three-question list and symbol paragraph distinguish maps, internal dynamics and downstream movement. The new transition identifies missing motion x(t) after the static map.",
+      "connection_and_decision": "The reader receives the gap before the joint construction; the candidate eye model remains separate from direct source localization.",
+      "verdict": "retain"
+    },
+    {
+      "file": "06-synthesis.md",
+      "start_line": 29,
+      "end_line": 81,
+      "passage_sha256": "c05156a89c2d1b7b4328667e8c564f1d5665fae6d92372dc4a8ebc5216e1083d",
+      "passage_opening": "Suppose a network maintains a one-dimensional estimate $x(t)$ and cell $i$ has a fixed expected-rate function $f_i(x)$. Its time-dependent e",
+      "reader_question": "How can fixed tuning curves produce correlated changes over time?",
+      "answer_available_from_text": "A moving estimate is substituted into fixed tuning functions. Local linearization gives a shared-position covariance, and the two-slope example explains anticorrelation.",
+      "connection_and_decision": "All definitions, assumptions, algebra and limitations stay in the main path. The final one-direction interpretation explains what a population measurement must test.",
+      "verdict": "retain"
+    },
+    {
+      "file": "06-synthesis.md",
+      "start_line": 85,
+      "end_line": 91,
+      "passage_sha256": "52be5c07e1c182d2b44180fb62bd0db93fd786ea4059a6c02cb3a5305bf4151d",
+      "passage_opening": "The shared-position calculation predicts how rates would change together. Establishing that connection requires measurements of those change",
+      "reader_question": "How do the existing studies test different parts of that proposed connection?",
+      "answer_available_from_text": "Separate bullets give spatial fitted/additional checks, conditional eye covariance and timing, and a mathematical memory bound.",
+      "connection_and_decision": "Lead-in states the missing rate-change measurement. Each bullet keeps its own assumptions and limitations; it does not claim a joint experiment already happened.",
+      "verdict": "retain"
+    },
+    {
+      "file": "06-synthesis.md",
+      "start_line": 95,
+      "end_line": 105,
+      "passage_sha256": "6a07931a2ada52b85b5d170b19269f5c617242f85141449a9d7eabba3c4efaab",
+      "passage_opening": "Related studies test the assumptions and ask questions the three papers leave open:\n\n- **Integrating movement:** The eye-position account be",
+      "reader_question": "Which open assumption does each related-study group address?",
+      "answer_available_from_text": "Five labels separate movement integration, storage changes, spatial data, wiring/learning and perceptual benefit. Path integration and dendrite have immediate meanings.",
+      "connection_and_decision": "The labels reveal comparisons already present in the text. Each group retains its source relation and a consequence without requiring an optional note.",
+      "verdict": "retain"
+    },
+    {
+      "file": "06-synthesis.md",
+      "start_line": 109,
+      "end_line": 116,
+      "passage_sha256": "be17628c823ed05615840a7e7b6407e4448b50beaeb86db2254864690d3147a8",
+      "passage_opening": "A joint test needs tuning maps and fluctuations from the same population. A possible sequence is:\n\n1. Estimate the tuning maps and their unc",
+      "reader_question": "What sequence would test spatial and dynamical claims together?",
+      "answer_available_from_text": "The same population supplies maps first, then weakly corrected fluctuations, a justified diffusion fit and optional downstream filtering for behavior.",
+      "connection_and_decision": "Numbering reflects a real measurement dependency. The final paragraph distinguishes both separate fits from the proposed joint test and keeps its proposal status.",
+      "verdict": "retain"
+    }
+  ],
+  "definition_order_checks": [
+    {
+      "term": "neuron",
+      "main_text": "00-reading-guide.md",
+      "meaning_available": "brain signaling cell",
+      "glossary_entry": "- [**neuron:**]{.definition-term custom-style=\"Definition Term\"} A signaling cell in the nervous system.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "retina",
+      "main_text": "00-reading-guide.md",
+      "meaning_available": "light-sensitive tissue at back of eye",
+      "glossary_entry": "- [**retina:**]{.definition-term custom-style=\"Definition Term\"} The light-sensitive tissue at the back of the eye.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "hippocampus",
+      "main_text": "00-reading-guide.md",
+      "meaning_available": "brain region involved in memory and navigation",
+      "glossary_entry": "- [**hippocampus:**]{.definition-term custom-style=\"Definition Term\"} A brain region involved in memory and navigation.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "encoding",
+      "main_text": "01-foundations.md",
+      "meaning_available": "establishing population activity from input",
+      "glossary_entry": "- [**encoding:**]{.definition-term custom-style=\"Definition Term\"} Establishing a population activity pattern from an input.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "excitatory input",
+      "main_text": "01-foundations.md",
+      "meaning_available": "increases receiving-cell firing tendency",
+      "glossary_entry": "- [**excitatory input:**]{.definition-term custom-style=\"Definition Term\"} In the models used here, an input that increases a receiving neuron's tendency to fire.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "inhibitory input",
+      "main_text": "01-foundations.md",
+      "meaning_available": "reduces receiving-cell firing tendency",
+      "glossary_entry": "- [**inhibitory input:**]{.definition-term custom-style=\"Definition Term\"} In the models used here, an input that reduces a receiving neuron's tendency to fire.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "dendrite",
+      "main_text": "06-synthesis.md",
+      "meaning_available": "branching neural input structure",
+      "glossary_entry": "- [**dendrite:**]{.definition-term custom-style=\"Definition Term\"} A branching input structure of a neuron.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    },
+    {
+      "term": "path integration",
+      "main_text": "06-synthesis.md",
+      "meaning_available": "updating position from movement",
+      "glossary_entry": "- [**path integration:**]{.definition-term custom-style=\"Definition Term\"} Updating an estimate of position from movement.",
+      "optional_note_required": false,
+      "verdict": "retain"
+    }
+  ],
+  "repair_rechecks": [
+    {
+      "file": "00-reading-guide.md",
+      "before": "The central theory is derived step by step. Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified model differs from the paper's full model.",
+      "after": "Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified model differs from the paper's full model.",
+      "wording_recheck": "The retained paragraph answers its section question directly; the deleted sentence carried no scientific premise or necessary reference.",
+      "reader_flow_recheck": "Adjacent paragraphs connect without a missing referent, definition, assumption or reasoning step.",
+      "verdict": "resolved"
+    },
+    {
+      "file": "01-foundations.md",
+      "before": "To identify where variability enters a pathway, the eye paper compares measurements that share some fluctuations and have other fluctuations of their own. The required probability identities are short, but their interpretation matters.",
+      "after": "To identify where variability enters a pathway, the eye paper compares measurements that share some fluctuations and have other fluctuations of their own.",
+      "wording_recheck": "The retained paragraph answers its section question directly; the deleted sentence carried no scientific premise or necessary reference.",
+      "reader_flow_recheck": "Adjacent paragraphs connect without a missing referent, definition, assumption or reasoning step.",
+      "verdict": "resolved"
+    }
+  ],
+  "findings": [],
+  "unresolved_questions": [],
+  "open_ended_connected_read": "The sequence remains behavior and neural signals, representation geometry, accumulated error, spike-noise projection, long-time limits, and the eventual synthesis of maps with dynamics. New lists expose independent premises or comparisons while algebra stays connected. In the synthesis, the static-map gap motivates the moving-estimate construction; its covariance prediction motivates measurements. No new missing dependency or misleading transition was found in the revised passages.",
+  "verdict": "Reader-flow review passes for this revision; both Stage 2 deletions resolved.",
+  "limits": "No scientific re-audit, no pixel or browser checks. Browser samples belong to root. Hashing the full glossary binds the bytes; only the assigned eight glossary entries were reviewed here. Awake execution unverified.",
+  "token_stats": "unavailable"
+}

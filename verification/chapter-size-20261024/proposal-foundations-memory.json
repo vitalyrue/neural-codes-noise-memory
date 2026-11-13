@@ -1,0 +1,108 @@
+{
+  "assignment": "foundations and memory dynamics",
+  "task_started_at": "2026-10-24T20:17:28.7375959+03:00",
+  "proposal_written_at": "2026-10-24T20:21:13.2266632+03:00",
+  "model": "GPT-6.1-sol/high, selected by coordinator for structural teaching reasoning",
+  "status": "draft proposal for independent review; no canonical edits",
+  "timing": {
+    "wall_elapsed_at_last_read_seconds": 224.49,
+    "awake_execution": "unverified; no sleep or resume events inspected",
+    "token_stats": "Token stats unavailable"
+  },
+  "read_scope": [
+    "content/chapters/00-reading-guide.md",
+    "PLAN.md",
+    "content/chapters/01-foundations.md",
+    "content/chapters/01-foundations.yaml",
+    "content/chapters/02-memory-dynamics.md",
+    "content/chapters/02-memory-dynamics.yaml"
+  ],
+  "rules": {
+    "skill": "C:/dev/NBIS/publisher-releases/0.8.23/skills/course-study-guide-builder/SKILL.md",
+    "references": ["references/structural-preservation-contract.md", "references/pedagogy-language-contract.md"],
+    "reference_verification": "The two reference files have the same SHA256 hashes as the local skill copies initially read. The packaged teaching reference's later sections were also read directly.",
+    "structural_reference_sha256": "8F7B052A3A2CCF194966574DA3AD88E69D5D5746F195FFFFA59E97D25DBE8A35",
+    "teaching_reference_sha256": "F4C1EB544CF640B708E1970D9572FDC758FCC6AEA806675D01A0256658DF847A"
+  },
+  "recommendation": "Split each assigned original chapter into two. Keep all original section bodies in order. The foundations boundary separates neural signals and probability tools from persistence and accumulated error. The memory boundary follows the complete local diffusion calculation and its symmetric-weight example, before asking how that calculation behaves over long delays.",
+  "groups": [
+    {
+      "proposal_key": "foundations-signals",
+      "original_chapter_id": "ch:FOUNDATIONS",
+      "suggested_title": "Neural signals and their variability",
+      "section_ids": ["sec:FOUNDATIONS-SPIKES", "sec:FOUNDATIONS-POISSON", "sec:FOUNDATIONS-COVARIANCE"],
+      "rationale": "The reader first learns what the cells represent, then how variable spike counts affect reading that representation, then how to separate shared fluctuations and mean motion. This is a complete preparation chapter for both the dynamical and measurement questions.",
+      "opening_paragraphs": [
+        "The eyes can hold a position after a brief movement command has ended. An animal can also keep track of its location while the activity of individual neurons fluctuates. Both abilities require a useful quantity to remain represented in a changing biological system. The three papers study different parts of this problem: the loss of a stored value, the origin of slow eye motion, and the arrangement of spatial firing patterns.",
+        "Before asking how a circuit keeps a value, we need to know how its activity represents that value and what makes the activity variable. We begin with the spikes that cells send and the patterns of firing rates across a population. A model of spike counts then shows why one brief observation can be uncertain and why pooling cells can help. Finally, covariance and mean squared displacement give us the tools to distinguish shared fluctuations, random spread, and a change in the average value. Those distinctions will let us interpret both a memory model and measurements of eye motion."
+      ],
+      "prerequisites_reminders": ["Only the undergraduate calculus, probability, and linear algebra baseline. All neural terms remain defined in sec:FOUNDATIONS-SPIKES.", "Keep the full conditional-independence qualification and CV versus Fano-factor distinction in sec:FOUNDATIONS-POISSON."],
+      "original_opening_disposition": "Retain original foundations opening paragraph 1 verbatim here. Move original paragraph 2 to foundations-persistence, changing its initial phrase from 'The first distinction' to 'The next distinction' to fit the new path; record that small rewrite.",
+      "blocks": ["fig:FOUNDATIONS-POISSON-POPULATION"],
+      "handoff_cautions": ["The existing covariance section already ends by distinguishing random diffusion from a biased or leaky integrator. The next chapter can begin from that distinction without a new summary section.", "Replace the old 'Chapter 4 supplies that model for eye displacement' with a descriptive cross-reference to the final eye-variance chapter or its appropriate section."],
+      "numbered_reference_cautions": ["Paper equation and figure numbers are source locators and remain unchanged. Book chapter numbers must follow root's final numbering."]
+    },
+    {
+      "proposal_key": "foundations-persistence",
+      "original_chapter_id": "ch:FOUNDATIONS",
+      "suggested_title": "Stable representations can accumulate error",
+      "section_ids": ["sec:FOUNDATIONS-ATTRACTOR", "sec:FOUNDATIONS-DIFFUSION", "sec:FOUNDATIONS-RANDOMNESS"],
+      "rationale": "The two-activity example explains which disturbances change a stored value. Repeated surviving disturbances then motivate diffusion, including its covariance and limits. The final section distinguishes temporal motion from a fixed spatial map and places the three papers on that common footing.",
+      "opening_paragraphs": [
+        "The next distinction is between a value and the activity that represents it. Eye position is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.",
+        "We first build a small example in which some disturbances fade while others leave a different stored angle. We then ask what happens when small lasting changes arrive repeatedly, deriving how their spread grows with time and how a fixed bias changes that prediction. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals."
+      ],
+      "prerequisites_reminders": ["The previous chapter supplies firing rates, tuning curves, population codes, variance, covariance, and the decomposition of mean squared displacement.", "The first section retains the definitions of state, fixed point, stability, continuous attractor, neutral direction, and manifold. Do not place these words in the opening before its simple problem has been explained.", "Retain the Brownian covariance 2D min(s,t), its readout motivation, and all boundary and bias qualifications in sec:FOUNDATIONS-DIFFUSION."],
+      "original_opening_disposition": "The first paragraph above preserves original foundations opening paragraph 2, apart from first-to-next. Its existing f-memory footnote must follow it. Original paragraph 1 stays in foundations-signals.",
+      "blocks": ["fig:FOUNDATIONS-ATTRACTOR", "fig:FOUNDATIONS-DIFFUSION-BIAS", "fig:FOUNDATIONS-PAPER-MAP"],
+      "handoff_cautions": ["The attractor section's old 'Chapter 2 derives the correct projection' should link to sec:MEMORY-LINEARIZATION.", "Keep the final map with sec:FOUNDATIONS-RANDOMNESS. Update the reading-guide's guide-map URL when root assigns the continuation chapter filename.", "The last section's 'following chapters' sentence remains true if memory, then eye, then spatial statistics retain their present order."],
+      "numbered_reference_cautions": ["Reading-guide claims that 'the first chapter' supplies all foundations must become 'the foundation chapters' or descriptive links. The place-field shortcut requires both foundations groups because the spatial versus temporal distinction is in the second."]
+    },
+    {
+      "proposal_key": "memory-local-diffusion",
+      "original_chapter_id": "ch:MEMORY-DYNAMICS",
+      "suggested_title": "How random spikes move a stored value",
+      "section_ids": ["sec:MEMORY-SPIKES", "sec:MEMORY-LINEARIZATION", "sec:MEMORY-DIFFUSION", "sec:MEMORY-SYMMETRIC"],
+      "rationale": "This keeps a single calculation intact: define the spike-driven state, identify the displacement left after recovery, add its random contributions, and express the result using tuning curves in the symmetric case. The two-cell example supplies a concrete result before the chapter ends.",
+      "opening_paragraphs": [
+        "A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied. The important question is whether the activity pattern stays in the right place, not just whether activity continues. Burak and Fiete study this distinction in a network whose stable activity patterns form a continuous set.",
+        "To calculate the loss of accuracy, we first describe how spikes renew synaptic activity as it decays. We then follow a small disturbance through the circuit's return toward a stable pattern and identify the change in stored value that remains. Adding these lasting random changes gives a local rate of spreading. When connections have equal weights in both directions, we can express that rate using the cells' tuning curves and check its meaning in a two-cell example. The following chapter asks how this local prediction extends to longer delays."
+      ],
+      "prerequisites_reminders": ["Requires both foundations groups, especially conditional spike independence, fixed-point geometry, Brownian increments, and the convention MSD = 2Dt.", "Retain the original PDF-link paragraph immediately after the new opening.", "Retain the full original notation paragraph here: theta, initial Theta, bars, tau, D, units, and the boundary qualification. It is still needed before the first section.", "Keep weak-fluctuation and large-population assumptions, dimensionless activation, and the distinction between independent fresh fluctuations and correlated whole spike trains.", "Retain the general diffusion tensor extension with sec:MEMORY-DIFFUSION."],
+      "original_opening_disposition": "The first paragraph above retains the first three sentences of the original memory opening. The two remaining original sentences are replaced by the more precise path paragraph. Their promises about deriving memory motion and later readout remain in the respective chapter handoffs. Retain the original model footnote with the first paragraph.",
+      "blocks": ["fig:MEMORY-SPIKE-TRACE", "fig:MEMORY-TILTED-DECAY", "fig:MEMORY-INHIBITION-RATES"],
+      "handoff_cautions": ["The local diffusion section says 'Systematic drift requires a separate check below.' It must become a descriptive link to sec:MEMORY-DRIFT-SCOPE in the continuation chapter.", "The symmetric section's final example warns that its interior formula does not fix boundary behavior. That warning naturally raises the next chapter's long-delay question.", "Keep the apparent missing-square source issue and its exact support with sec:MEMORY-SYMMETRIC, rather than detaching it into the continuation."],
+      "numbered_reference_cautions": ["Old mentions that the next chapter is information/readout become false at this boundary. The next chapter now treats long-delay behavior; readout follows that continuation."]
+    },
+    {
+      "proposal_key": "memory-long-delays",
+      "original_chapter_id": "ch:MEMORY-DYNAMICS",
+      "suggested_title": "Memory error over long delays",
+      "section_ids": ["sec:MEMORY-LONG-TIME", "sec:MEMORY-DRIFT-SCOPE", "sec:MEMORY-FIGURES"],
+      "rationale": "The chapter asks how to interpret the local result. It first derives error distributions and explains boundary effects, then separates spreading from systematic motion and additional correlations, then shows how the paper's simulations test those claims. These are connected limits and tests rather than leftover material.",
+      "opening_paragraphs": [
+        "A rate of random spreading measured near one stored value does not yet tell us how memory error behaves after a long wait. The value may approach a boundary, wrap around an angular range, or reach a region where the spreading rate differs. A consistent movement of the average value would also change the error without being captured by the rate of random spreading alone.",
+        "We begin by following the distribution of stored values across repeated trials, using the local diffusion coefficient derived in the preceding chapter. This shows why errors can keep growing on a line but level off when angular error is measured within one turn. We then separate random spreading from systematic drift and make the noise assumptions explicit. Finally, the paper's figures show what its network simulations test and distinguish movement of the memory from uncertainty when another circuit reads it. That second uncertainty motivates the information calculation that follows."
+      ],
+      "prerequisites_reminders": ["Before the first section add a short notation reminder: theta is the current stored value, Theta its common initial value across trials, D(theta) the local diffusion coefficient, and a constant D gives displacement variance 2Dt before boundary effects matter.", "Remind readers that the preceding chapter derived D from weak, conditionally independent spike fluctuations and assumed stable directions relax. No need to repeat the full projection derivation.", "The figure-reading section uses tuning curves, preferred angles, transfer functions, and mutual inhibition, all taught in the preceding chapters.", "Keep Itô, Fokker Planck equation, Dirac delta, Stratonovich convention, and activity bump definitions at their current first teaching locations. Do not move these definitions to the opening.", "The mutual-excitation example and the factor-of-two issue remain attached to sec:MEMORY-LONG-TIME."],
+      "original_opening_disposition": "This continuation receives the new motivated opening and a short notation reminder. The original long-time section starts with a local-versus-long-time distinction; retain that section introduction, as required by whole-section preservation, unless root records a reviewed rewrite of the resulting small repetition.",
+      "blocks": ["fig:MEMORY-LINE-RING"],
+      "handoff_cautions": ["The final paragraph of sec:MEMORY-FIGURES already motivates the statistical quantity from tuning curves. Keep that handoff to the first information chapter.", "Within sec:MEMORY-FIGURES, 'the tilted two variable example above' must link to sec:MEMORY-LINEARIZATION because that example is now in a different chapter.", "The figure section's 'The next chapter derives this second uncertainty' needs the final information/readout chapter target. If information is itself split, its first chapter can derive Fisher information while the later readout chapter treats the moving observation. Describe that path accurately.", "Source Figure 2C includes an information bound developed later. Its existing short statement is a preview with an explicit later destination, not a replacement for the later proof."],
+      "numbered_reference_cautions": ["Retain all paper figure and equation numbers. Update book-level numbers in the reading guide, Part opening, synthesis, and any guide-map labels that enumerate chapters."]
+    }
+  ],
+  "alternative": {
+    "description": "Keep the same two foundations groups, but divide memory into three: spikes plus linearization; diffusion plus symmetric weights; long-time behavior plus drift plus figures.",
+    "benefit": "Gives the local diffusion result a separate stopping point and makes every individual memory chapter shorter.",
+    "reason_not_selected": "It interrupts the main calculation just before the random projection produces D. The middle chapter contains only the brief general covariance calculation and symmetric-weight specialization, so it needs repeated notation and a reminder of the projection that the preceding chapter has just built. Ending the first memory chapter after the two-cell example gives the reader a complete result with a concrete interpretation. The continuation is still a substantial, coherent lesson about limits and evidence.",
+    "foundations_alternative": "A split after Poisson would attach covariance to persistence and diffusion. That strengthens proximity to the Brownian calculation, but moves the shared-fluctuation tool away from the spike-count discussion that first raises the need for it. The chosen split lets the first chapter finish its treatment of variability, then starts the next from a clear persistence question. Neither alternative requires moving whole sections out of order."
+  },
+  "preservation_notes": [
+    "Every original section ID appears exactly once in the groups. All section bodies, derivations, fold bodies, existing examples, figures, captions, alt text, and source links remain attached to their section.",
+    "Split sidecar blocks by their placement section. Section summaries may remain attached unchanged; revise chapter purpose and prerequisites to match each result.",
+    "Distribute footnote definitions to each resulting chapter that cites them, following the Publisher reference behavior. A shared source note must not disappear when a chapter is split. Keep globally unique footnote labels.",
+    "Do not keep original book chapter numbers inside prose merely because paper equation and figure numbers remain stable. Root assigns final chapter IDs and filenames and updates incoming links.",
+    "The source maps must follow actual new chapter locations without changing source coverage decisions. This proposal does not re-audit unchanged papers or arithmetic.",
+    "Opening wording and split boundaries still need the root's separate independent correctness, wording, and flow calls. This is a draft, not acceptance."
+  ]
+}

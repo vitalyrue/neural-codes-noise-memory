@@ -1,0 +1,1161 @@
+{
+  "stage": "independent Stage1: truth/reasoning and figure checks",
+  "reviewer": "/root/draw_place_figures",
+  "root_task_started_at": "2026-10-23T21:56:31.932270+03:00",
+  "review_started_at": "2026-10-23T22:07:13.052302+03:00",
+  "completed_at": "2026-10-23T22:10:58.783206+03:00",
+  "wall_elapsed_since_root_seconds": 866.850936,
+  "review_wall_seconds": 225.730904,
+  "previous_checkpoint_at": "2026-10-23T22:08:42.736781+03:00",
+  "since_previous_checkpoint_seconds": 136.046425,
+  "awake_execution_time": "unverified",
+  "token_stats": "unavailable",
+  "verdict": "pass",
+  "figure_count": 3,
+  "numeric_derivations": {
+    "V02_x_relation_max_residual": 0.0,
+    "V02_vTK": [
+      0.0,
+      0.0
+    ],
+    "V02_Ku": [
+      0.0,
+      0.0
+    ],
+    "V02_vTu": 1.0,
+    "V03B_minimum_z": 1.7320508075688772,
+    "V03B_minimum_value": 1.1547005383792517,
+    "V03B_derivative_at_minimum": -5.551115123125783e-17,
+    "V03B_min_dense_avg_minus_ideal": 2.2168933355715126e-11,
+    "V03B_ideal_at_z_7_2": 1.00000111478136,
+    "V03B_small_z_scaled_ideal": 1.0000003333333112,
+    "V03B_small_z_scaled_average": 1.0000003333333334,
+    "V03A_cross_covariance_proof": "E[e | storage history]=0 follows from conditional unbiasedness at every cue state and independent future noise; E[se]=E[s E[e|history]]=0. Translation invariance makes the conditional readout variance independent of cue state. Constant D, no drift and no boundaries give Var(s)=2DT.",
+    "V03B_normalization_derivation": "With z=L sqrt(2DJ), dividing 2DL/3+1/(JL) by sqrt(2D/J) gives z/3+1/z. Dividing the ideal formula by the same variance scale gives coth(z)."
+  },
+  "figures": [
+    {
+      "id": "V02",
+      "visual_id": "fig:MEMORY-TILTED-DECAY",
+      "author": "/root/draw_memory_figures",
+      "reviewer": "/root/draw_place_figures",
+      "independent_from_author": true,
+      "verdict": "pass",
+      "bindings_sha256": {
+        "candidate-content/visuals/candidates/20261023/V02/figure.svg": "c34f6ae35d3d0daefe64a46df9d0938cadf96071a3c337abb825ffde62870578",
+        "candidate-content/visuals/candidates/20261023/V02/figure.png": "be48c41b4f6d54fc17200a87b8a76f023d19cd9f7d0c2ef2955b4c8aae99a2e1",
+        "candidate-content/visuals/candidates/20261023/V02/book-width.png": "9a8f8360498a35b66545db27c06304d8be43a33ec875e0505d4e844f4cf72236",
+        "candidate-content/visuals/candidates/20261023/V02/qa.json": "136f7609a260984b6ef4c742c7d00dc6fca2e6a3d14a2a7e4c3b1e52ff39477d",
+        "content/chapters/02-memory-dynamics.md": "0b40441affb386ae46fdf97f6882b4aa83cc3ca66b33b075211356abc23c4635",
+        "content/chapters/02-memory-dynamics.yaml": "2fa010810aaab76f6803b6c937fde137f82346dd184882eb2d96a75b2d379e92",
+        "plan/illustrations/briefs/V02.yaml": "d17a37ee3193d884eddb4afe9934e35ec651694fa94e940c7232f52690d671bb",
+        "verification/illustrations/memory-integration.json": "335e216c0ba1187f0a1520c7d22d71b22a2563ec94bacaa4cd2a3d21daa2abf9",
+        "verification/illustrations/draw_memory.py": "6a30ebbd7a6fad7fc8a2e44f1ae6520ea278394a0ef81b9e98f0b1faf2e0f7b3",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676"
+      },
+      "source_loci": {
+        "locus": "content/chapters/02-memory-dynamics.md:73-144",
+        "paper": "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y.",
+        "counterpart": "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used."
+      },
+      "claim_checks": [
+        {
+          "claim_id": "V02-art-01",
+          "text": "fixed points: $y=0$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Every y=0 point has dot x=0 and dot y=0; the drawn horizontal line is the attractor.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-02",
+          "text": "$(x_0,y_0)=(0,2)$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The open circle is at the imposed post-jump state (0,2). This is distinct from the pre-jump start.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-03",
+          "text": "imposed\njump",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Dashed orange upward arrow joins the fixed-point start to the post-jump state and is separate from recovery.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-04",
+          "text": "flow after the jump",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Teal arrows point down and right along x=1-y/2, toward the limiting endpoint (1,0).",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-05",
+          "text": "$\\lambda t=0.5$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The leader terminates at the point with y=2 exp(-0.5) and x=1-exp(-0.5).",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-06",
+          "text": "$1$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The leader marks dimensionless time lambda t=1; its coordinate follows the exact solution.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-07",
+          "text": "$2$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The leader marks dimensionless time lambda t=2; its coordinate follows the exact solution.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-08",
+          "text": "$3,4$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Two distinct leader lines point to the small markers for lambda t=3 and 4, which crowd near the endpoint.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-09",
+          "text": "start: $(0,0)$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The filled navy start point is (0,0), before the imposed jump.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-10",
+          "text": "perpendicular foot:\nnot the dynamical endpoint",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The foot is at (0,0), with a right-angle marker. Its label explicitly denies that it is the flow endpoint.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-11",
+          "text": "endpoint: $(1,0)$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The filled teal endpoint is (1,0), the t to infinity limit, not a finite-time crossing.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-12",
+          "text": "$\\mathbf{u}=(1,0)$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The navy horizontal arrow represents the tangent direction u=(1,0), not the decaying flow direction.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-13",
+          "text": "$a/\\lambda=1/2$     Lasting shift: $\\mathbf{v}^T\\delta\\mathbf{s}=\\delta x+\\frac{1}{2}\\delta y=1$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "For the drawn initial perturbation (0,2), v=(1,1/2) gives delta x+delta y/2=1; a/lambda=1/2.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-art-14",
+          "text": "The left vector measures displacement; it is not a path.",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The lower sentence correctly makes v a linear measurement, and no path is assigned to it.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-intro",
+          "text": "The exact trajectory in this example shows why the lasting displacement follows the flow rather than a perpendicular projection.",
+          "kind": "intro",
+          "verdict": "correct",
+          "evidence": "Correctly describes the original dimensionless example: jump (0,0) to (0,2), straight asymptotic recovery to (1,0), equal-time crowding, lasting shift one and the left vector as a functional. The cited SI range contains the general left/right projection relationships, without claiming that this particular system was simulated in the paper.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-caption",
+          "text": "Original guide construction of the tilted decay example, with dimensionless coordinates and $a/\\lambda=1/2$. The imposed jump from $(0,0)$ to $(0,2)$ relaxes toward $(1,0)$, while successive time marks crowd toward the endpoint. This illustrates the left and right zero vector construction in Burak and Fiete (2012), Supporting Text, Section II, pp. 3–4, Eqs. S10–S16; it is not a paper network simulation.",
+          "kind": "caption",
+          "verdict": "correct",
+          "evidence": "Correctly describes the original dimensionless example: jump (0,0) to (0,2), straight asymptotic recovery to (1,0), equal-time crowding, lasting shift one and the left vector as a functional. The cited SI range contains the general left/right projection relationships, without claiming that this particular system was simulated in the paper.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-alt",
+          "text": "A line of fixed points lies at y equals zero. An imposed vertical jump from zero zero to zero two is followed by a straight tilted flow toward one zero. Equal time marks crowd toward the endpoint. Perpendicular projection would return to zero zero and miss the lasting shift of one. The tangent is one zero; the left vector measures delta x plus one half delta y.",
+          "kind": "alt",
+          "verdict": "correct",
+          "evidence": "Correctly describes the original dimensionless example: jump (0,0) to (0,2), straight asymptotic recovery to (1,0), equal-time crowding, lasting shift one and the left vector as a functional. The cited SI range contains the general left/right projection relationships, without claiming that this particular system was simulated in the paper.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-interpretation",
+          "text": "As y decays, x changes by one; the left vector extracts that lasting shift.",
+          "kind": "interpretation",
+          "verdict": "correct",
+          "evidence": "Correctly describes the original dimensionless example: jump (0,0) to (0,2), straight asymptotic recovery to (1,0), equal-time crowding, lasting shift one and the left vector as a functional. The cited SI range contains the general left/right projection relationships, without claiming that this particular system was simulated in the paper.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144",
+            "Compared with the memory chapters and the paper left/right-vector relationships. No conflicting counterpart figure is used.",
+            "Burak and Fiete 2012 SI Section II, pp.3-4, S10-S16; exact guide example from dot x=a y, dot y=-lambda y."
+          ]
+        },
+        {
+          "claim_id": "V02-connection-1",
+          "text": "imposed jump",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "Dashed orange arrow runs from the start toward the imposed disturbance, not toward the recovery endpoint.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144"
+          ]
+        },
+        {
+          "claim_id": "V02-connection-2",
+          "text": "flow arrows",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "Both teal arrowheads run toward smaller y and larger x, matching dot x=0.5y and dot y=-y.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144"
+          ]
+        },
+        {
+          "claim_id": "V02-connection-3",
+          "text": "tangent arrow",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "Navy arrow is horizontal to the right and represents u; it is separate from the recovery path.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144"
+          ]
+        },
+        {
+          "claim_id": "V02-connection-4",
+          "text": "leaders/right-angle mark",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "Neutral leaders identify times, foot and endpoint; the square marks the perpendicular geometric foot without making it the dynamical endpoint.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/02-memory-dynamics.md:73-144"
+          ]
+        }
+      ],
+      "technical_accuracy": {
+        "verdict": "pass",
+        "evidence": "All visible labels, connections and packet text checked against the exact formulas and contexts listed in claim_checks."
+      },
+      "visual_explanation": {
+        "verdict": "pass",
+        "scenes": [
+          {
+            "scene_id": "tilted-flow",
+            "depiction_kind": "state-change",
+            "visible_objects": "A horizontal line of fixed points, separate jump and flow arrows, equal-time points on a straight tilted line, a perpendicular foot and a tangent arrow.",
+            "relationship": "The decay changes x before y vanishes, reaching a different memory point from the perpendicular foot.",
+            "benefit": "The lasting memory shift and the purpose of the left vector become visible without relying only on vector formulas.",
+            "verdict": "pass"
+          }
+        ]
+      },
+      "readability": {
+        "verdict": "pass",
+        "full_size_viewed": true,
+        "insertion_width_px": 700,
+        "book_width_viewed": true,
+        "evidence": "All central labels, formulas, pointer endpoints and distinctions are visible at both sizes. V03A has small condition text, but it remains readable at 700 pixels and is also taught in adjacent text."
+      },
+      "palette": {
+        "verdict": "pass",
+        "evidence": "Exact current SVG color-token audit reports no outside-profile colors. Inspected navy state/reference lines, teal flow or ideal curve, and orange imposed jump/estimate/averaging. Repeated roles remain consistent. The book contract permits series/alternative colors without treating them as trust verdicts. Raster antialiasing is not claimed as a pixel-deviation audit."
+      },
+      "coverage": {
+        "verdict": "not-applicable",
+        "reason": "Internal quantitative or mechanism figure, not an opening map."
+      },
+      "strongest_expert_objection": {
+        "objection": "A tilted drawing might suggest curved recovery or perpendicular projection, and its left vector might be mistaken for a path.",
+        "resolution": "The recovery line is straight, the perpendicular foot is explicitly distinguished from the endpoint, and the left-vector sentence defines it as a measurement. The interpretation sentence was also repaired and reread."
+      },
+      "insertion_permission": "Stage1 passes for this frozen artwork and current packet. Later Stage2/3 wording and reading-flow reviews remain separate."
+    },
+    {
+      "id": "V03A",
+      "visual_id": "fig:MEMORY-READOUT-TIMELINE",
+      "author": "/root/draw_memory_figures",
+      "reviewer": "/root/draw_place_figures",
+      "independent_from_author": true,
+      "verdict": "pass",
+      "bindings_sha256": {
+        "candidate-content/visuals/candidates/20261023/V03A/figure.svg": "a849a3a5768fa16e738934ffdbd7b6088e2b3710018b8f8257767e2943baf6ec",
+        "candidate-content/visuals/candidates/20261023/V03A/figure.png": "5810a3ae334641b7a151b746628dd3d858e7ac541fcfad6e6bc5bcd11ca4d8e0",
+        "candidate-content/visuals/candidates/20261023/V03A/book-width.png": "756f50ee0d784652b12fba7672d5fd4523ad02ce6696b89d10ff27174ecdd5bd",
+        "candidate-content/visuals/candidates/20261023/V03A/qa.json": "e415394c0e84b13dcba0065a948622628835e834ac52d01a4540b596ccdd0f76",
+        "content/chapters/03-memory-information.md": "70806146d2d7a3bb53b67986f0c4db9a6b41ddf48206d5caa86e755acb6e4a4f",
+        "content/chapters/03-memory-information.yaml": "3083b85f497b65b6867608c277dfd5cda05f2feafc10998835e65e53ae0ed9d9",
+        "plan/illustrations/briefs/V03A.yaml": "5d28f6778c61b657ea83e25d5e86b8eaf781a151048b483b0b28b7701637037d",
+        "verification/illustrations/memory-integration.json": "335e216c0ba1187f0a1520c7d22d71b22a2563ec94bacaa4cd2a3d21daa2abf9",
+        "verification/illustrations/draw_memory.py": "6a30ebbd7a6fad7fc8a2e44f1ae6520ea278394a0ef81b9e98f0b1faf2e0f7b3",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676"
+      },
+      "source_loci": {
+        "locus": "content/chapters/03-memory-information.md:203-235",
+        "paper": "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation.",
+        "counterpart": "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves."
+      },
+      "claim_checks": [
+        {
+          "claim_id": "V03A-art-01",
+          "text": "original value $\\Theta$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The initial filled point is at time zero and level Theta; later wandering is distinct from that original value.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-02",
+          "text": "cue state $x=\\theta(T)$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The navy leader terminates at the state on the path at T, defined as x=theta(T).",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-03",
+          "text": "estimate $\\widehat{x}$ of the cue state",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The navy leader terminates at the state on the path at T, defined as x=theta(T).",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-04",
+          "text": "one possible path",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The line is an explicit illustrative construction, not observed spikes or a Brownian statistical fit.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-05",
+          "text": "$s=x-\\Theta$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The navy endpoint bracket spans Theta to x, so s=x-Theta.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-06",
+          "text": "$e=\\widehat{x}-x$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The orange bracket spans x to xhat, so e=xhat-x; it does not measure endpoint tracking error.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-07",
+          "text": "0\nencoding",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The first time marker is zero, before the cue and observation end.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-08",
+          "text": "$T$\nrecall cue",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The second time marker is T at the change from storage to readout.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-09",
+          "text": "$T+L$\nend of observation",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The final marker is T+L, after the cue by the readout duration.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-10",
+          "text": "storage",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The label lies over the interval before T.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-11",
+          "text": "later spikes used for readout",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The shaded interval begins at T and ends at T+L; it identifies observation timing, without depicting or inventing spike counts.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-12",
+          "text": "$V_{\\mathrm{total}}=2DT+V_{\\mathrm{read}}(L)$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The variance identity is conditional on the two visible assumption lines and the preceding chapter derivation. It does not assert automatic independence.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-13",
+          "text": "Constant D, no drift or boundaries; translation invariant readout.",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The constant diffusion, unbounded/no-drift model and translation-invariant readout are stated visibly, matching the chapter.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-art-14",
+          "text": "Locally unbiased readout and future noise independent of storage give Cov(s, e) = 0.",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The label lies over the interval before T.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-intro",
+          "text": "A timeline separates the displacement accumulated before the cue from the error in estimating the cue state afterward.",
+          "kind": "intro",
+          "verdict": "correct",
+          "evidence": "Correctly separates pre-cue storage error s and cue-state estimation error e; identifies the drawing as constructed; makes the estimate about x at T rather than the terminal state; and retains conditional assumptions behind zero covariance and variance addition. The SI S57 passage concerns that same instantaneous cue-state readout.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-caption",
+          "text": "Original guide construction of storage and cue state readout, based on Burak and Fiete (2012), Supporting Text, p. 12, Eq. S57. The illustrated path is one possible construction, and the orange estimate concerns the state at the cue rather than the state at the end of observation. With the conditions shown, storage and readout variances add because their cross covariance is zero.",
+          "kind": "caption",
+          "verdict": "correct",
+          "evidence": "Correctly separates pre-cue storage error s and cue-state estimation error e; identifies the drawing as constructed; makes the estimate about x at T rather than the terminal state; and retains conditional assumptions behind zero covariance and variance addition. The SI S57 passage concerns that same instantaneous cue-state readout.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-alt",
+          "text": "The stored value starts at Theta at encoding time zero and wanders until the recall cue at T. Its cue value is x. Later spikes, collected through T plus L, give an estimate x hat of that cue state. Storage error is x minus Theta; readout error is x hat minus x. The estimate is drawn separately from the path endpoint. Under the listed independence, unbiasedness and translation assumptions, total variance is two D T plus readout variance.",
+          "kind": "alt",
+          "verdict": "correct",
+          "evidence": "Correctly separates pre-cue storage error s and cue-state estimation error e; identifies the drawing as constructed; makes the estimate about x at T rather than the terminal state; and retains conditional assumptions behind zero covariance and variance addition. The SI S57 passage concerns that same instantaneous cue-state readout.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-interpretation",
+          "text": "Later spikes can improve the estimate of $x=\\theta(T)$; they do not reveal the particular storage displacements that separated $x$ from $\\Theta$.",
+          "kind": "interpretation",
+          "verdict": "correct",
+          "evidence": "Correctly separates pre-cue storage error s and cue-state estimation error e; identifies the drawing as constructed; makes the estimate about x at T rather than the terminal state; and retains conditional assumptions behind zero covariance and variance addition. The SI S57 passage concerns that same instantaneous cue-state readout.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235",
+            "V03B and the chapter retain cue-state readout and omit storage variance from readout-only curves.",
+            "Burak and Fiete 2012 SI p.12 S57 and pp.13-15 local readout approximation."
+          ]
+        },
+        {
+          "claim_id": "V03A-connection-1",
+          "text": "time arrow",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "The horizontal arrow gives 0 before T before T+L.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235"
+          ]
+        },
+        {
+          "claim_id": "V03A-connection-2",
+          "text": "state/estimate leaders",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "Each leader terminates on its labeled cue state or estimate diamond.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235"
+          ]
+        },
+        {
+          "claim_id": "V03A-connection-3",
+          "text": "error brackets",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "Endpoint brackets measure vertical state differences s and e, not time intervals.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:203-235"
+          ]
+        }
+      ],
+      "technical_accuracy": {
+        "verdict": "pass",
+        "evidence": "All visible labels, connections and packet text checked against the exact formulas and contexts listed in claim_checks."
+      },
+      "visual_explanation": {
+        "verdict": "pass",
+        "scenes": [
+          {
+            "scene_id": "storage-and-observation",
+            "depiction_kind": "state-change",
+            "visible_objects": "A time arrow, constructed wandering path, cue-state point, separate estimate diamond, storage/readout brackets and an observation interval.",
+            "relationship": "Storage displacement happens before T; later spikes estimate the state at T, not the state at T+L.",
+            "benefit": "The reader can identify which difference each error term measures, and see why two separately defined errors are added.",
+            "verdict": "pass"
+          }
+        ]
+      },
+      "readability": {
+        "verdict": "pass",
+        "full_size_viewed": true,
+        "insertion_width_px": 700,
+        "book_width_viewed": true,
+        "evidence": "All central labels, formulas, pointer endpoints and distinctions are visible at both sizes. V03A has small condition text, but it remains readable at 700 pixels and is also taught in adjacent text."
+      },
+      "palette": {
+        "verdict": "pass",
+        "evidence": "Exact current SVG color-token audit reports no outside-profile colors. Inspected navy state/reference lines, teal flow or ideal curve, and orange imposed jump/estimate/averaging. Repeated roles remain consistent. The book contract permits series/alternative colors without treating them as trust verdicts. Raster antialiasing is not claimed as a pixel-deviation audit."
+      },
+      "coverage": {
+        "verdict": "not-applicable",
+        "reason": "Internal quantitative or mechanism figure, not an opening map."
+      },
+      "strongest_expert_objection": {
+        "objection": "An estimate drawn at T+L could be mistaken for the terminal state, and variance addition could be claimed without zero cross covariance.",
+        "resolution": "The orange estimate is visibly separate from the teal endpoint and explicitly estimates the cue state. The image lists unbiasedness and future-noise independence; the adjacent chapter gives the conditional-mean argument and translation assumption."
+      },
+      "insertion_permission": "Stage1 passes for this frozen artwork and current packet. Later Stage2/3 wording and reading-flow reviews remain separate."
+    },
+    {
+      "id": "V03B",
+      "visual_id": "fig:MEMORY-READOUT-CURVES",
+      "author": "/root/draw_memory_figures",
+      "reviewer": "/root/draw_place_figures",
+      "independent_from_author": true,
+      "verdict": "pass",
+      "bindings_sha256": {
+        "candidate-content/visuals/candidates/20261023/V03B/figure.svg": "8cf7c1e2833d085f0b2be7bc5cde471e7c5dff66b0183ab88a6e97eae1bfc590",
+        "candidate-content/visuals/candidates/20261023/V03B/figure.png": "6a6fe01d97849db103f754eaa3bd4ed837ed7e214d819a6598f9204b178b4f3b",
+        "candidate-content/visuals/candidates/20261023/V03B/book-width.png": "d4d08964cf99e7246909b17a6db210870b021a2ffb03de18dcb9281bd5dd6244",
+        "candidate-content/visuals/candidates/20261023/V03B/qa.json": "5267a2ace3c793d975b724734840e3239f66410140313502fa6f61e8333332ba",
+        "content/chapters/03-memory-information.md": "70806146d2d7a3bb53b67986f0c4db9a6b41ddf48206d5caa86e755acb6e4a4f",
+        "content/chapters/03-memory-information.yaml": "3083b85f497b65b6867608c277dfd5cda05f2feafc10998835e65e53ae0ed9d9",
+        "plan/illustrations/briefs/V03B.yaml": "bba539fa0d2a487e6c6f5538d7dfbe57386d605b94d5d2f143045c8320a61d30",
+        "verification/illustrations/memory-integration.json": "335e216c0ba1187f0a1520c7d22d71b22a2563ec94bacaa4cd2a3d21daa2abf9",
+        "verification/illustrations/draw_memory.py": "6a30ebbd7a6fad7fc8a2e44f1ae6520ea278394a0ef81b9e98f0b1faf2e0f7b3",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676"
+      },
+      "source_loci": {
+        "locus": "content/chapters/03-memory-information.md:237-350 and 439-441",
+        "paper": "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages.",
+        "counterpart": "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read."
+      },
+      "claim_checks": [
+        {
+          "claim_id": "V03B-art-01",
+          "text": "simple averaging",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The orange dashed curve is z/3+1/z, the normalized equal-weight error, rising for z>sqrt(3).",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-02",
+          "text": "minimum",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The leader points to the orange minimum at z=sqrt(3).",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-03",
+          "text": "$(\\sqrt{3},\\;2/\\sqrt{3})$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The coordinate callout is (sqrt(3),2/sqrt(3)); derivative zero and positive second derivative confirm the minimum.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-04",
+          "text": "ideal readout",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The teal solid curve is coth(z), decreasing toward one from above.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-05",
+          "text": "both diverge as $z\\to0$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Both formulas have leading behavior 1/z as z approaches zero from above. Numerical plotting starts at z=0.3; no value at zero is invented.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-06",
+          "text": "limit: 1",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The dotted horizontal line marks the ideal large-z limit one.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-07",
+          "text": "observation duration $z=L\\sqrt{2DJ}$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The horizontal variable is dimensionless z=L sqrt(2DJ); time is scaled by the ideal characteristic observation time.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-08",
+          "text": "0",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-09",
+          "text": "1",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-10",
+          "text": "2",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-11",
+          "text": "3",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-12",
+          "text": "4",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-13",
+          "text": "5",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-14",
+          "text": "6",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-15",
+          "text": "7",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-16",
+          "text": "readout variance $V_{\\mathrm{read}}/\\sqrt{2D/J}$",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "The vertical value is V_read divided by sqrt(2D/J); storage 2DT is excluded.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-17",
+          "text": "1.0",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-18",
+          "text": "1.5",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-19",
+          "text": "2.0",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-20",
+          "text": "2.5",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-21",
+          "text": "3.0",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-art-22",
+          "text": "3.5",
+          "kind": "visible-label",
+          "verdict": "correct",
+          "evidence": "Numeric axis tick agrees with the displayed normalized x or y scale and range; no physical unit is assigned.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-intro",
+          "text": "The normalized curves make the eventual cost of equal weighting visible.",
+          "kind": "intro",
+          "verdict": "correct",
+          "evidence": "Correctly identifies analytic rather than digitized curves, normalizes readout error and duration, gives the minimum and limiting behavior, and explicitly excludes storage variance. The checked SI passages supply coth and equal-weight formulas.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-caption",
+          "text": "Original guide construction from the analytic readout formulas in Burak and Fiete (2012), Fig. 3 and Supporting Text, Eqs. S75 and S79–S81, rather than digitized data. Ideal readout approaches a normalized variance of one; simple averaging reaches $2/\\sqrt3$ at $z=\\sqrt3$ and then worsens. These curves contain no storage variance $2DT$.",
+          "kind": "caption",
+          "verdict": "correct",
+          "evidence": "Correctly identifies analytic rather than digitized curves, normalizes readout error and duration, gives the minimum and limiting behavior, and explicitly excludes storage variance. The checked SI passages supply coth and equal-weight formulas.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-alt",
+          "text": "Readout variance divided by square root of two D over J is plotted against z equals L times square root of two D J. Both curves diverge as z approaches zero. Ideal readout coth z falls toward one. Simple averaging z over three plus one over z reaches its minimum at square root of three, two over square root of three, and then rises. The storage variance is absent.",
+          "kind": "alt",
+          "verdict": "correct",
+          "evidence": "Correctly identifies analytic rather than digitized curves, normalizes readout error and duration, gives the minimum and limiting behavior, and explicitly excludes storage variance. The checked SI passages supply coth and equal-weight formulas.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-interpretation",
+          "text": "More observation keeps helping the ideal reader, with diminishing benefit, while equal weighting eventually gives too much influence to a state that has moved.",
+          "kind": "interpretation",
+          "verdict": "correct",
+          "evidence": "Correctly identifies analytic rather than digitized curves, normalizes readout error and duration, gives the minimum and limiting behavior, and explicitly excludes storage variance. The checked SI passages supply coth and equal-weight formulas.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441",
+            "V03A adds storage variance separately under its explicit conditions; this plot includes only V_read.",
+            "Burak and Fiete 2012 Fig.3 and SI S75,S79-S81. Checked the local extracted SI formula passages."
+          ]
+        },
+        {
+          "claim_id": "V03B-connection-1",
+          "text": "minimum leader",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "The orange leader terminates at the plotted equal-weight minimum.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441"
+          ]
+        },
+        {
+          "claim_id": "V03B-connection-2",
+          "text": "divergence leader",
+          "kind": "arrow-or-connector",
+          "verdict": "correct",
+          "evidence": "The neutral leader points toward the shared short-duration rise without suggesting a finite value at z=0.",
+          "checked_against": [
+            "final pixels",
+            "content/chapters/03-memory-information.md:237-350 and 439-441"
+          ]
+        }
+      ],
+      "technical_accuracy": {
+        "verdict": "pass",
+        "evidence": "All visible labels, connections and packet text checked against the exact formulas and contexts listed in claim_checks."
+      },
+      "visual_explanation": {
+        "verdict": "pass",
+        "scenes": [
+          {
+            "scene_id": "readout-curves",
+            "depiction_kind": "data-representation",
+            "visible_objects": "Two calculated curves, a marked minimum, asymptote and normalized axes.",
+            "relationship": "The equal-weight curve turns upward while the ideal curve approaches a limit.",
+            "benefit": "The cost of late equal weighting is visible, including the exact optimum and the distinct long-observation behavior.",
+            "verdict": "pass"
+          }
+        ]
+      },
+      "readability": {
+        "verdict": "pass",
+        "full_size_viewed": true,
+        "insertion_width_px": 700,
+        "book_width_viewed": true,
+        "evidence": "All central labels, formulas, pointer endpoints and distinctions are visible at both sizes. V03A has small condition text, but it remains readable at 700 pixels and is also taught in adjacent text."
+      },
+      "palette": {
+        "verdict": "pass",
+        "evidence": "Exact current SVG color-token audit reports no outside-profile colors. Inspected navy state/reference lines, teal flow or ideal curve, and orange imposed jump/estimate/averaging. Repeated roles remain consistent. The book contract permits series/alternative colors without treating them as trust verdicts. Raster antialiasing is not claimed as a pixel-deviation audit."
+      },
+      "coverage": {
+        "verdict": "not-applicable",
+        "reason": "Internal quantitative or mechanism figure, not an opening map."
+      },
+      "strongest_expert_objection": {
+        "objection": "The displayed plateau might be interpreted as total recall error, or the plotted positive start as a finite zero-duration value.",
+        "resolution": "The axis says readout variance and the caption explicitly excludes 2DT. The zero-duration divergence is directly labeled, and the graph never evaluates zero."
+      },
+      "insertion_permission": "Stage1 passes for this frozen artwork and current packet. Later Stage2/3 wording and reading-flow reviews remain separate."
+    }
+  ],
+  "repaired_findings": [
+    {
+      "id": "V02-interpretation",
+      "original": "The decaying part disappears, but its motion along the fixed point line leaves a shift of one; the left vector extracts that lasting shift.",
+      "issue": "Could imply that the off-line flow runs on the fixed-point line.",
+      "repaired": "As y decays, x changes by one; the left vector extracts that lasting shift.",
+      "verdict": "fixed and reread in current packet"
+    },
+    {
+      "id": "brief-identifiers",
+      "issue": "Original brief asset IDs differed from the integration packet.",
+      "verdict": "Root corrected all three; exact ID agreement rechecked."
+    }
+  ],
+  "open_findings": [],
+  "global_bindings_sha256": {
+    "../research/burak-fiete-2012-si.txt": "e92cb5b43d206ed99eca6e916cc702f89908228d913176aa850aad9201915552",
+    "../papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4"
+  },
+  "scope_limits": "No artwork or chapter changed, no full paper/book audit, and no later-stage prose review claimed. Exact frozen image, source, brief and packet hashes are recorded; later edits require checking affected review bindings."
+}

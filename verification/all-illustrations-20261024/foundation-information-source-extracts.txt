@@ -1,0 +1,757 @@
+MAIN PDF PAGE 1
+Fundamental limits on persistent activity
+in networks of noisy neurons
+Yoram Buraka,b,c,1 and Ila R. Fieted,1
+aEdmond and Lily Safra Center for Brain Sciences, Hebrew University, Jerusalem 91904, Israel; bRacah Institute of Physics, Hebrew University, Jerusalem
+91904, Israel; cCenter for Brain Science, Harvard University, Cambridge, MA 02138; and dCenter for Learning and Memory, University of Texas at Austin,
+Austin, TX 78712
+Edited by Terrence J. Sejnowski, Salk Institute for Biological Studies, La Jolla, CA, and approved September 14, 2012 (received for review October 23, 2011)
+Neural noise limits the fidelity of representations in the brain. This
+limitation has been extensively analyzed for sensory coding. How-
+ever, in short-term memory and integrator networks, where noise
+accumulates and can play an even more prominent role, much less
+is known about how neural noise interacts with neural and net-
+work parameters to determine the accuracy of the computation.
+Here we analytically derive how the stored memory in continuous
+attractor networks of probabilistically spiking neurons will de-
+grade over time through diffusion. By combining statistical and
+dynamical approaches, we establish a fundamental limit on the
+network’s ability to maintain a persistent state: The noise-induced
+drift of the memory state over time within the network is strictly
+lower-bounded by the accuracy of estimation of the network’s
+instantaneous memory state by an ideal external observer. This
+result takes the form of an information-diffusion inequality. We
+derive some unexpected consequences: Despite the persistence
+time of short-term memory networks, it does not pay to accumu-
+late spikes for longer than the cellular time-constant to read out
+their contents. For certain neural transfer functions, the conditions
+for optimal sensory coding coincide with those for optimal storage,
+implying that short-term memory may be co-localized with sensory
+representation.
+S
+hort-term memory is essential for survival in a world where
+data sources may disappear before consequent decisions or
+actions are taken. In many cases, the object of the memory is
+a continuous variable, for example, the direction of heading
+during navigation, the location of the eyes, or the orientation of
+a visual stimulus. Short-term memory is associated with patterns
+of neural firing that correlate with the stored quantity (1, 2) and
+persist during the storage period (3–5). When the stored variable
+is continuous, the persistent activity can take a continuum of
+states (1, 2, 5, 6).
+Such persistent activity is thought, in many cases, to possess
+an underlying continuous attractor structure (7–10): the instan-
+taneous value of a continuous variable is represented by setting
+the system to a point on a continuous manifold of stable fixed
+points. The stability of the fixed points generates a long time-
+constant for memory, even when cellular time-constants are short.
+Moreover, continuous attractors provide some degree of resis-
+tance to ongoing noise: Any perturbation of the state of the
+system away from the attractor manifold is corrected because the
+state quickly decays back to the attractor. However, the compo-
+nent of noise parallel to the attractor manifold will remain un-
+corrected, causing loss of information about the stored memory
+(9, 11). Such noise-induced drift has been observed in numerical
+simulations of continuous attractor networks (10, 12, 13) and
+has been studied analytically in a specific continuous attractor
+network (14, 15). However, a general understanding of how neur-
+al and network properties affect the rate of drift and short-term
+memory performance has been missing.
+In this work, we consider the dynamics of neural networks
+with a continuous attractor and otherwise arbitrary connectivity,
+weights, and neural nonlinearity. First, we use a theory of weak
+fluctuations in large networks to derive analytically how, in the
+absence of any external anchoring input, stochastic neural activity
+causes the represented variable to drift. We show that this drift
+is diffusive. We derive an expression quantifying the rate of
+memory loss – which for symmetric networks takes a particularly
+simple form – in terms of the number of neurons, the range of
+the stored variable, the neural noise, the neural nonlinearity, and
+the shape of the tuning curves within the network.
+Second, we establish a fundamental relationship between a
+dynamical property, the rate of drift of the memory state due to
+internal noise in the network; and an abstract statistical limit on
+estimation, which bounds the information an external observer
+can gain about the underlying state of the stochastic network from
+a finite sample of its spikes. We show that the statistical limit
+on estimation enforces a finite minimum rate of diffusion in the
+network dynamics.
+Third, we derive an unexpected result on the time required to
+read out the contents of continuous attractor memory networks:
+Despite the stochastic nature of spiking and the persistence of
+activity in the network, there is no advantage for an ideal observer
+in accumulating spikes beyond the biophysical time-constant of
+single neurons. Fourth, our results imply that in certain cases,
+the conditions for good sensory representation coincide with the
+conditions for good short-term memory.
+It has long been realized that in physical systems, a deep re-
+lationship exists between thermodynamics and memory (16–19).
+More recently, such principles have been explored in man-made
+computing devices at the nanoscale, where fluctuations become
+prominent (19, 20). It is of interest to understand whether similar
+general principles relate internal noise in nonequilibrium biolo-
+gical systems to the dynamics of information and memory. Our
+results, relating stochastic dynamics in neural networks to mem-
+ory degradation, establish that a statistical measure of internal
+noise constrains the dissipation of memory.
+Results
+We consider a network of Poisson spiking neurons: Each neuron i
+generates Poisson spikes based on its time-varying firing rate
+riðtÞ ¼ ϕ½∑jW ijsjðtÞ þ bi, where ∑jW ijsj is the summed recur-
+rent input, bi is a bias, and ϕ is the nonlinear neural transfer func-
+tion. Spikes in neuron j drive synaptic activation sjðtÞ [Eq. 7]
+which, weighted by the synaptic strength W ij, is the input to
+postsynaptic neuron i. The Poisson model is motivated by the
+Poisson-like statistics of spike trains in cortical areas (21, 22) and
+is a simple way of generating the spiking statistics that would
+be obtained under certain conditions from conductance-based
+neurons receiving noisy inputs (23, 24). In deriving our analytical
+Author contributions: Y.B. and I.R.F. designed research, performed research, analyzed
+data, and wrote the paper.
+The authors declare no conflict of interest.
+This article is a PNAS Direct Submission.
+1To whom correspondence may be addressed. E-mail: ilafiete@mail.clm.utexas.edu or
+yoram.burak@elsc.huji.ac.il.
+This article contains supporting information online at www.pnas.org/lookup/suppl/
+doi:10.1073/pnas.1117386109/-/DCSupplemental.
+www.pnas.org/cgi/doi/10.1073/pnas.1117386109
+PNAS Early Edition
+∣
+1 of 6
+PHYSICS
+NEUROSCIENCE
+
+
+MAIN PDF PAGE 2
+results, we assume that each neuron receives a large number of
+spikes within its cellular time-constant, so that network dynamics
+can be reduced to rate equations, Eq. 10, with weak fluctuations
+arising from the variability of the Poisson process (referred to as
+the weak fluctuation limit, Materials and Methods).
+We are interested in networks whose rate dynamics admit a
+continuous manifold of stable steady states (attractors),¯rðθÞ, para-
+metrized by a continuous variable θ. For simplicity of presentation,
+we describe below our results for a one-dimensional manifold, but
+also show (SI Appendix) that they readily generalize to higher
+dimensions. At each attractor state, the synaptic activation obeys
+¯siðθÞ ¼ τϕ
+
+∑
+j
+W ij¯sjðθÞ þ bi
+
+¼ τ¯riðθÞ;
+[1]
+where τ is the synaptic time-constant.
+In what follows, we consider the network evolving under its
+own noisy dynamics, Eqs. 7–9 in Materials and Methods. The in-
+stantaneous network state sðtÞ remains close to the attractor
+manifold, but is not precisely on it because of continuously gen-
+erated neural noise (Fig. 1A). Nevertheless, the instantaneous
+state can be mapped to a single point θðtÞ on the low-dimensional
+attractor manifold, defined as the point to which the state would
+flow under noise-free rate dynamics. We refer to this point as the
+instantaneous attractor state.
+Diffusive Drift due to Ongoing Neural Noise. We seek to derive how
+noisy neural spiking drives the instantaneous attractor state to
+drift. The effect of noise is to perturb the network away from the
+attractor manifold. Most components of this perturbation are
+rapidly erased by flow to the attractor manifold, and are thus ir-
+relevant, but the component parallel to the attractor manifold is
+not and is responsible for gradual drift of the instantaneous state
+along the attractor. In general, noise can introduce two types
+of drift along the attractor: The first is random, and the second
+is systematic. We assume below that the system is well-tuned to
+eliminate systematic drift (for discussion of this assumption, see
+SI Appendix, section II) and focus on the random component
+because it is responsible for memory degradation and informa-
+tion loss. We use the neural network dynamics [Eqs. 7–9] to
+obtain that at short times, the variance of the attractor state, re-
+lative to its initial value, grows linearly with the elapsed time:
+hðθðtÞ −θð0ÞÞ2i ¼ 2Dt (SI Appendix). Such behavior is the hall-
+mark of a diffusion process. The larger the diffusion coefficient,
+D, the faster the growth of variance.
+We derive D for networks of Poisson spiking neurons with ar-
+bitrary nonlinearity and connectivity (SI Appendix, Eq. S15) and
+highlight here the result for networks with symmetric weights:*
+2DðθÞ ¼
+∑
+N
+i¼1 ¯ri
+d¯gi
+dθ
+
+h
+τ ∑
+N
+i¼1
+d¯ri
+dθ
+d¯gi
+dθ
+i2 :
+[2]
+where ¯gi ¼ ϕ−1ð¯riÞ is the total steady-state synaptic input. A
+convenient feature of Eq. 2 is that it depends on potentially
+observable quantities like the neural tuning curve ¯ri and on the
+neural transfer function ϕ through ¯gi ¼ ϕ−1ð¯riÞ. Thus, it could be
+applied to experimental data to derive a prediction for the diffu-
+sivity expected from neural noise.
+We can see directly from Eq. 2 that the diffusivity of a memory
+state decreases as the single-neuron time-constant τ increases
+and also decreases with increasing N, the number of neurons
+(assuming the weights are scaled as 1∕N, to keep the total synap-
+tic inputs and the tuning curves fixed). Similarly, the diffusivity
+decreases if the tuning curves (and hence peak firing rates) are
+scaled up as N remains fixed. Thus, the stability of stored mem-
+ories increases with the biophysical neural time-constant, the
+peak firing rate, and the network size.
+Over long times, the growth of variance is obtained from the
+diffusion coefficient D by integrating the diffusion equation (SI
+Appendix, section III). To test our theoretical results for D and
+for the time-dependent variance, we apply them to the neural
+noise-driven drift in numerical simulations of two different attrac-
+tor network models (Fig. 2). In one, a ring network (Fig. 2A), the
+attractor dynamics arise due to a rotation symmetry in the network
+weights. Such networks are proposed to underlie the representa-
+tion of head direction and orientation tuning (7, 8). The other net-
+work lacks such a symmetry (Fig. 2E) and is similar to models of
+the oculomotor system (9) and decision-making circuits (25, 26).
+The analytical result of Eq. 2 provides an excellent quantitative
+prediction (with no free parameters) of the drift of the attractor
+state in numerical simulations of both models (Fig. 2 C, D, and G).
+Our derivation of the diffusion coefficient is the first main
+result of this paper. By minimizing the diffusion coefficient of
+Eq. 2 (or its more general form in SI Appendix, Eq. S15) with
+respect to quantities like the network weights and the neural
+nonlinearity (under appropriate constraints), it is possible to
+study what network parameters and architectures will maximize
+the persistence of memory states.
+Internal Fisher Information (FI). We next consider a statistical prop-
+erty of the network: the Fisher information rate in the network’s
+stochastic spikes about the instantaneous attractor state. We call
+this quantity the internal FI rate (SI Appendix, section IV), or
+internal FI for short:
+JðθÞ ¼ ∑
+i
+1
+¯riðθÞ
+d¯ri
+dθ
+2:
+[3]
+A priori, internal FI appears unconnected to the network’s dif-
+fusive dynamics, but as we will show in the next section, it is in
+fact intimately related to the diffusion coefficient.
+The expression for internal FI appears to have the same
+mathematical form as the Fisher information derived for sensory
+coding (27, 28), but only if ¯ri represents the stimulus-evoked re-
+sponse of the network and the variable θ is the value of a present
+A
+B
+Fig. 1.
+Internal FI and derivation of diffusivity in attractor networks. (A) The
+network’s instantaneous attractor state (black point, right) is defined as the
+point on the attractor (black line) to which the instantaneous state (green
+point, right) would flow if evolved without noise. To derive the diffusivity
+(details in SI Appendix), we evolve the network dynamics over a small time
+interval Δt using Eq. 10. We project the new state (green point, left) back to
+the attractor (black point, left). The variance between the two attractor states,
+divided by Δt, is 2D. (B) An illustration of internal FI and diffusivity in an
+example network: A ring network with a single activity bump is initialized
+to the attractor state θð0Þ ¼ Θ by an external input that is taken away at
+t ¼ 0. After time t, the activity bump has moved to some location θðtÞ, due
+to probabilistic neural spikes that contribute noise to the network dynamics.
+The typical displacement at relatively short times t is
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+2Dt
+p
+. At t, an ideal
+estimator trying to decode the network’s instantaneous state on the attractor
+from a finite sample of spikes will have a variance bounded below by the
+inverse of the internal FI, J−1ðθðtÞÞ.
+*The result for symmetric networks is of special interest because many continuous
+attractor network models involve symmetric or nearly symmetric weights (7, 8, 11).
+2 of 6
+∣
+www.pnas.org/cgi/doi/10.1073/pnas.1117386109
+Burak and Fiete
+
+
+MAIN PDF PAGE 3
+stimulus. By contrast, here, ¯ri is the input-free steady-state re-
+sponse of the network and θðtÞ represents an internal, dynamical
+network variable. Thus, internal FI is a meaningful quantity even
+in the absence of any stimulus, past or present (Fig. 1B). In this
+sense, internal FI is an intrinsic property of the network indepen-
+dent of its representational role and is distinct from the typical
+use of Fisher information in neural systems as a quantity linked
+to a stimulus (27–29).
+Information-Diffusion Inequality. Equipped with the expressions for
+the diffusion coefficient (Eq. 2, and SI Appendix, Eq. S15) and
+the internal FI [Eq. 3], we obtain the second main result of this
+paper, the information-diffusion inequality (proof in SI Appendix,
+section V for arbitrary connectivity and neural nonlinearity):
+D ≥1
+2τ2 J −1:
+[4]
+In words, the internal FI sets a lower bound on the diffusion of
+the attractor state.
+The information-diffusion inequality can be interpreted as fol-
+lows. In maintaining its persistent activity, the network effectively
+acts as an estimator of its state along the attractor, based on the
+spikes emitted within a time τ. Under this interpretation, Eq. 4
+follows from a pair of inequalities: First, an ideal observer esti-
+mating the instantaneous attractor state from spike-counts has a
+squared error that equals or exceeds the inverse of the internal
+FI, according to the well-known Cramér–Rao bound. Second, the
+accuracy of the neural network in estimating its own instanta-
+neous attractor state can be no better than, and may be signifi-
+cantly worse than, the ideal estimator. These combined limits on
+the network’s estimation of its instantaneous attractor state
+constrain its dynamics to be diffusive with a lower bound on the
+diffusion coefficient provided by the internal FI.† The inequality
+contains an overall factor of τ2 because over the characteristic
+time-scale τ, the internal FI is proportional to τ, as is the squared
+displacement from diffusion.
+Generalizations. The information-diffusion inequality holds under
+a number of generalizations. First, for multidimensional attrac-
+tors, the inequality retains the same form as in Eq. 4, with D re-
+ferring to the diffusion coefficient tensor and J −1 representing
+the inverse of the internal FI matrix. The inequality signifies that
+the difference between the two sides is a positive-semidefinite
+matrix (SI Appendix, section V). Second, when the neural dy-
+namics involve more than one time-scale, for instance a synaptic
+time-constant and a membrane time-constant, the same informa-
+tion-diffusion inequality [Eq. 4] holds. However, τ is replaced by
+the sum of the two time-scales. Thus, the larger of the two time-
+scales dominates in setting the limit on diffusivity (SI Appendix,
+section VII). Third, when the Poisson-like noise in the dynamics
+is replaced by additive Gaussian noise (of constant variance),
+then the conditions under which the information-diffusion in-
+equality is saturated change (see below), but Eq. 4 remains the
+same (SI Appendix, section VII).
+Saturation of the information-diffusion inequality. Here we consider
+whether the information-diffusion inequality is tight, i.e., whether
+the bound on diffusivity given by the inequality is ever saturated.
+The nested inequalities contained within our interpretation of
+the information-diffusion inequality, above, must become equal-
+ities for the bound to be saturated. In the weak fluctuation limit—
+where many spikes are emitted within the cellular time-constant
+—it is guaranteed that the Cramér–Rao bound can be saturated
+by an ideal estimator (27, 28). However, it is much less clear
+whether any continuous attractor network could match the per-
+formance of an ideal estimator in tracking its own instantaneous
+attractor state. It has been shown previously that continuous at-
+tractor networks, when evolving deterministically (noise free),
+can estimate the location of a bump input from a sample of spikes
+in a Bayes-optimal way (30). The memory network faces a more
+difficult task because it needs to continuously estimate a state
+that is drifting, and its dynamics as a readout network are noisy.
+Surprisingly, a large class of networks can match an ideal obser-
+ver in estimating their own evolving attractor state. Using Eqs. 3
+and 4 it is straightforward to verify that in symmetric networks, if
+the neural transfer function is exponential, ϕðxÞ ∝expðαxÞ, then
+diffusion equals the inverse internal FI over the time-scale τ, and
+the information-diffusion inequality is saturated.‡ Thus, an expo-
+nential transfer function enables a symmetric network to optimally
+estimate its own state. In the remainder of this subsection we
+comment on networks with symmetric connectivity.
+What aspect of the network dynamics dictates that an expo-
+nential nonlinearity is optimal for self-state estimation? If the
+Poisson noise model for neural response is replaced by white
+Gaussian noise with fixed variance, the expressions for D and
+J change, but the information-diffusion inequality remains the
+same (SI Appendix, section VII). However, the inequality is
+saturated with a linear rather than exponential neural transfer
+0
+1
+2
+0
+0.1
+0.2
+0.3
+A
+E
+0
+20
+40
+0
+20
+40
+1
+2
+0
+5
+10
+F
+B
+0
+0
+20
+40
+2π
+π
+D
+C
+G
+0
+30
+60
+0
+2
+4
+Fig. 2.
+Numerical validation of the diffusivity result in different attractor
+networks. (A) Ring network: Schematic of a memory network representing
+a periodic variable such as orientation. Every neuron i has an associated angle
+θi, and the synaptic weight between any pair of neurons i; j depends only on
+θi −θj. Attractor states are labeled by an angular variable θ. (B) Simulation of
+a 1,024 neuron network, with exponential neural transfer function. Inset:
+snapshots of population activity at two times separated by 10 s. Horizontal
+axis: neural indices along the ring. Solid traces: firing rate r (peak firing rates
+are approximately 85 Hz). Vertical lines: spikes emitted during a 10 ms inter-
+val. Main plot: random drift of the attractor state. (C, D) Mean squared dis-
+placement of the attractor state over elapsed time intervals Δt [variance is
+computed by taking differences in θ modulo 2π and confining them to the
+range ð−π; πÞ]. Circles: numerical simulations with exponential (gray) or sig-
+moidal (black) neural transfer function (see Inset). Solid lines: theoretical pre-
+diction of Eq. 2. Dashed lines: bound on D from the information-diffusion
+inequality for sigmoidal nonlinearity. Error bars in C and D are s.e.m. over
+100 trials (s.e.m. smaller than symbols in C). (E) Mutual-inhibition network.
+Schematic of a memory network representing a nonperiodic 1-d variable.
+Two neurons or two populations, inhibit each other with equal weights. The
+difference of the two firing rates represents the stored variable. (F) Random
+drift of the firing rates (in 1∕ms) in the mutual-inhibition network. (G) Mean
+squared displacement of the attractor state over an elapsed time Δt. Circles:
+simulation of mutual-inhibition network, with linear transfer function. Solid
+line: theoretical prediction of Eq. 2. See SI Appendix, section III for a model
+network with a state-dependent diffusion coefficient.
+†Because the internal FI is defined as the rate of Fisher information over an infinitesimally
+short time interval, there is no diffusion over such an interval. Thus, D does not contribute
+to J (but J bounds D).
+‡The converse is also true: If the information-diffusion inequality is saturated, the transfer
+function is exponential (SI Appendix, section V).
+Burak and Fiete
+PNAS Early Edition
+∣
+3 of 6
+PHYSICS
+NEUROSCIENCE
+
+
+SI PDF PAGE 1
+Supporting Text: Fundamental limits on persistent activity in networks of
+noisy neurons
+Yoram Burak1, 2, 3 and Ila Fiete4
+1Edmond and Lily Safra Center for Brain Sciences,
+Hebrew University, Jerusalem 91904, Israel
+2Racah Institute of Physics, Hebrew University, Jerusalem 91904, Israel
+3Center for Brain Science, Harvard University, Cambridge, MA 23108
+4Center for Learning and Memory, University of Texas at Austin, Austin, TX 78712
+CONTENTS
+I. Stochastic dynamics in the large N limit
+1
+II. The coeﬃcient of diﬀusion
+3
+III. Diﬀusive dynamics along the attractor
+6
+IV. Internal Fisher information
+9
+V. Information-diﬀusion inequality
+10
+VI. Readout
+12
+VII. Generalizations of the neural model
+17
+I.
+STOCHASTIC DYNAMICS IN THE LARGE N LIMIT
+To formally derive the dynamic equations in the large N limit, we consider a network with
+M sub-populations, each containing n neurons, so that the total number of neurons is N = nM.
+Within each sub-population, all neurons share the same incoming and outgoing weights, as well as
+the same bias. We scale the weights with n such that the total synaptic input to a neuron in each
+population is independent of n:
+Wij = 1
+nwIJ ,
+(S1)
+
+
+SI PDF PAGE 2
+2
+where the indices I and J represent the sub-populations that contain neurons i and j, respectively.
+The population weights wIJ, represent the overall synaptic input to a neuron in sub-population J
+from all neurons in sub-population I. With this scaling, the noise-free rate dynamics are indepen-
+dent of n.
+It is useful to write the dynamic equations in terms of gi, since this quantity is identical for all
+neurons in the same sub-population, and is thus denoted below by gI. From Eqs. (7) and (8),
+˙gI + gI
+τ = ηI ,
+(S2)
+where
+ηI = 1
+n
+X
+J
+X
+j∈J
+wIJξj + 1
+τ bI ,
+(S3)
+and ξj is the spike train generated by neuron j. The mean of ηI is
+⟨ηI⟩=
+X
+J
+wIJrJ + 1
+τ bI ,
+(S4)
+where bI is the bias in sub-population I and rJ is the ﬁring rate of neurons in sub-population J
+(identical for all neurons within the same sub-population). The variance of ηI is equal to
+Var(ηI) = 1
+n
+X
+J
+w2
+IJrJ .
+(S5)
+The contribution to ηI from each sub-population is a sum over n independent random variables,
+which is then smoothed over a time scale τ in Eq. (S2).
+Therefore in the limit of large n, it
+is justiﬁed to treat ηI as if it is normally distributed.
+This is the formal basis for Eqs. (10)–
+(11): although individual synaptic variables are not normally distributed, Eqs. (10)–(11) (with
+normal distribution of ξ) are exactly equivalent to Eqs. (S2), (S4), and (S5) once the Gaussian
+approximation has been made.
+In a network where the continuous attractor arises due to a symmetry, a natural way to deﬁne
+the large N limit is to distribute the neuron labels more and more densely as the number of neurons
+is increased. We brieﬂy illustrate this for the ring network: we associate with each neuron an angle
+θi, where the angles are uniformly distributed in the interval [0, 2π). We assume that the weights
+have the form
+Wij = 1
+N w(θi −θj) ,
+(S6)
+where w(θ) is periodic. The rest of the derivation is very similar to the one outlined above: the
+formal justiﬁcation for the Gaussian approximation is obtained by considering the dynamics for gi.
+
+
+SI PDF PAGE 9
+9
+are excitatory: φ(x) = x/τ, and
+W =
+
+0 1
+1 0
+
+.
+(S38)
+To produce a continuous set of attractors, we provide positive bias to one of the neurons and
+opposite negative bias to the other neuron: b = (b0, −b0). The attractor states of the noise-free
+dynamics are then
+
+θ + 1
+2b0
+θ −1
+2b0
+
+.
+(S39)
+In a Poisson-spiking network, the instantaneous attractor state θ undergoes random diﬀusion
+as described by Eq. (S33), where
+D(θ) = θ
+2τ .
+(S40)
+Note that in contrast to the case of mutual inhibition, D depends on θ. However, the dependence
+of D on θ is linear. Therefore only the ﬁrst term in Eq. (S37) survives, and the dependence of
+Var(θ) on t is linear even for large t:
+D
+[θ(t) −Θ]2E
+= Θ
+2τ t
+(S41)
+In other words, the variance increases linearly with a slope determined by the diﬀusivity at the
+initial state Θ. Fig. S1 demonstrates this result in a numerical simulation.
+IV.
+INTERNAL FISHER INFORMATION
+The internal Fisher information (FI) rate J is deﬁned as the Fisher information [6] carried by
+spikes in a short interval δt about the instantaneous attractor state θ, divided by δt. Using the
+standard deﬁnition of FI,
+Jδt = −
+ ∂2
+∂θ2 log p ({ni} |θ)
+
+,
+(S42)
+where ni is the number of spikes produced by neuron i in the interval δt. To leading order in
+1/N, the neurons ﬁre as Poisson processes with rates determined by the attractor state θ in the
+noise-free (N →∞) limit,
+p ({ni} |θ) =
+Y
+i
+[¯ri(θ)δt]ni e−¯ri(θ)δt
+ni!
+.
+(S43)
+
+
+SI PDF PAGE 10
+10
+0 
+1000 
+2000 
+3000 
+4000 
+5000 
+20 
+40 
+60 
+80 
+100 
+120 
+Δt [ms]
+θ
+0 
+1000 
+2000 
+3000 
+4000 
+5000
+0 
+500 
+1000 
+1500 
+2000 
+2500 
+Δt [ms]
+Var(θ)
+A 
+B 
+FIG. S1. Simulation results from a 2-neuron network with mutual excitation and Poisson noise. In each
+trial we set the initial attractor state θ to Θ = 100. A An example for the dynamics of θ from one trial.
+B Variance of θ(∆t) across 4000 random trials (black trace), compared with the theoretical prediction (red
+trace). Deviations between the analytical curve and the numerics at large ∆t can be attributed to sampling
+eﬀects from a simulation of ﬁnite duration.
+The rest of the derivation of Eq. (3) is identical to the derivation of FI for a population of neurons
+encoding a sensory variable [7, 8].
+In the multi-dimensional case, activity of the N neurons encode the instantaneous state within
+an M dimensional attractor parametrized by θ
+→= (θ1, θ2, . . . , θM). The Fisher information matrix
+is then
+Jαβ(θ
+→) = −
+
+∂2
+∂θα∂θβ
+log p
+
+{ni} |⃗θ
+
+=
+N
+X
+i=1
+φ′2 h
+¯gi(θ
+→)
+i ∂¯gi
+∂θα
+∂¯gi
+∂θβ
+φ
+h
+¯gi(θ
+→)
+i
+.
+(S44)
+V.
+INFORMATION-DIFFUSION INEQUALITY
+We next prove that the Fisher information sets a lower bound on the diﬀusivity of the attractor
+state. We start with the one-dimensional case, then consider the more general case of a mult-
+dimensional attractor. Using Eqs. (S15) and (3),
+2DJ = 1
+τ 2
+X
+i
+v2
+i φi
+X
+j
+u2
+j
+φj
+= 1
+τ 2
+X
+ij
+(viui)(vjuj)viφi
+ui
+uj
+vjφj
+=
+X
+ij
+(viui)(vjuj) · 1
+2
+xj
+xi
++ xi
+xj
+
+(S45)
+where we used the short-hand notation:
+φi = φ [¯gi(θ)]
+(S46)
+
+
+SI PDF PAGE 11
+11
+and
+xi = ui
+viφi
+,
+(S47)
+and in the last step in Eq. (S45) we symmetrized the expression inside the sum over i and j with
+respect to the two indices.
+We note that if xi/xj is positive, (xi/xj + xj/xi)/2 ≥1. Furthermore, using the deﬁnition of
+xi [Eq. (S47)], and the non-negativity of φ, (viui)(vjuj) is positive as well. On the other hand, if
+xi/xj is negative, (xi/xj + xj/xi)/2 ≤−1 and (viui)(vjuj) is negative. Thus, term by term,
+(uivi)(ujvj) · 1
+2
+xj
+xi
++ xi
+xj
+
+≥(uivi)(ujvj)
+(S48)
+and we conclude that
+2DJ ≥1
+τ 2
+X
+ij
+(uivi)(ujvj) = 1
+τ 2 .
+(S49)
+Saturation of the inequality
+A suﬃcient and necessary condition for Eq. (S49) to be an equality is that xi/xj must be equal
+to unity for all i and j for which ui and vi do not vanish. In other words, xi must be the same for
+all of these indices.
+If the weight matrix is symmetric, we have an explicit expression for vi, Eq. (S16). In this case,
+xi ∝φ′
+i
+φi
+,
+(S50)
+where we use the short-hand notation: φ′
+i = φ′ [¯gi(θ)]. Therefore, φ′/φ must be constant within the
+full range of conductances present in the stationary solution. Assuming that values of g present in
+all the attractor states span a continuous range of values, this condition is met if and only if the
+neural transfer function is exponential in this range:
+φ(x) = φ0ex.
+(S51)
+Thus, the bound is saturated for any shape of the steady state attractor, if and only if the nonlin-
+earity is exponential.
+Generalization to multi-dimensional attractors
+Intuitively, based on the Cram´er-Rao inequality in the multi-dimensional case, we expect
+2D ≥1
+τ 2 J−1 ,
+(S52)

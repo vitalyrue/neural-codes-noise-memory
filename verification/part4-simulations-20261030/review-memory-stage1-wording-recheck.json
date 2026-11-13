@@ -1,0 +1,62 @@
+{
+  "reviewer": "/root/sim_sources_memory",
+  "started_utc": "2026-10-30T17:10:54.5424482Z",
+  "completed_utc": "2026-10-30T17:11:35.806400+00:00",
+  "root_started_utc": "2026-10-30T16:43:18Z",
+  "wall_elapsed_review_seconds": 41.8,
+  "awake_execution_time": "unverified; no sleep/resume logs read",
+  "input_sha256": {
+    "content/chapters/11-simulating-memory.md": "6348a7aa5fda7092a17cbf8cd3dd1e67a9955490034d0d74cf0db40145010f6b",
+    "content/chapters/11-simulating-memory.yaml": "abf531b039d70f4bd3a6e7beb0fb375bf5c48ff4c62179e1fad41244403db906",
+    "plan/chapter-plan.yaml": "25893ba46e30df0f90fa0f42a37380d182fdb8ef3f82a369a34f9c1eede74eb2",
+    "content/chapters/02-memory-dynamics.md": "82d23e1d86e2c8c0e227b0522191689e114fde55ca600c045f95df16f62b39a7"
+  },
+  "rule_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "limits": "Focused repair verification only. Earlier records preserved. No Stage 3, no full older-chapter or rendered-output approval.",
+  "token_stats": "unavailable",
+  "stage": 1,
+  "status": "pass",
+  "request_id": "local-parent-stage1-wording-recheck-memory-20261030",
+  "scope": "Changed wording and its immediate connections, with special attention to finite weights, readout plots, and coordinate conversion.",
+  "passage_answers": [
+    {
+      "line": 46,
+      "answer": "Literal finite-network w has no extra 1/N in main Methods p.6; SI S6 defines W=w/N as population size grows. The new wording accurately explains the different purpose and warns against silently changing the finite weights. Displayed transfer rules retain correct LaTeX, constants and units.",
+      "decision": "retain"
+    },
+    {
+      "line": 58,
+      "answer": "The paragraph still gives theta_s=s1-s2, theta_r=r1-r2, theta_r=theta_s/tau and D_r=D_s/tau^2, with the valid steady-family premise and unit warning. Drawn spike counts and complete initial state accurately restate the two unreported implementation details; no Poisson/Bernoulli assumption has been inserted.",
+      "decision": "retain"
+    },
+    {
+      "line": 64,
+      "answer": "Figs3/S2 evaluate derived estimator variance formulas as the observation interval changes. Equal weighting correctly distinguishes the naive observer from the ideal observer. The final sentence remains scoped to what the sources report in those figures, so it does not assert that neural ideal estimation is impossible.",
+      "decision": "retain"
+    },
+    {
+      "lines": [
+        3,
+        24,
+        26,
+        34,
+        38,
+        54,
+        60,
+        66
+      ],
+      "answer": "The revised actor at opening is the researchers; finite step retains Euler approximation; spike-to-input-to-rate causality retains can; punctuation changes keep angular and search limits; both model families satisfy stated restoring-family conditions; removal of a generic supporting announcement preserves the actual S1 result and discrepancy link.",
+      "decision": "retain"
+    },
+    {
+      "location": "Part I opening",
+      "answer": "Plural author verbs and sentence splits do not alter attribution. Central/supporting/background/guide-derived labels keep the same role definitions as separate sentences. The central source remains a singular grammatical subject in the purpose/opening.",
+      "decision": "retain"
+    }
+  ],
+  "findings": []
+}

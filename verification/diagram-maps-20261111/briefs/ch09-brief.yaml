@@ -1,0 +1,279 @@
+brief:
+  asset_id: fig:MAP-CH09
+  scope: chapter
+  book: burak-three-papers
+  part: II
+  chapter: '9: A noisy memory circuit can produce eye drift'
+  purpose: Illustrate the source relationships and conditions that explain a noisy memory circuit can produce eye
+    drift.
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-for-editor-review
+  source_scope: content/chapters/04c-eye-circuit.md
+  reading_width: 6.35 inches; confirm actual HTML width before acceptance
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: The pictured mechanisms and measurements explain the chapter by showing physical relationships, not
+    a list of headings.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Related but distinct illustrated scenes with visible transformations and separate routes for separate mechanisms
+  properties_not_to_transfer:
+  - Subject facts, wording, labels, numbers and arrows from the reference
+  composition: Separate connected mechanisms and comparisons; use direct arrows only for source-supported effects.
+  scenes:
+  - source_item_ids:
+    - P01
+    - P02
+    - P03
+    - P04
+    - P12
+    visible_objects:
+    - Noisy recurrent integrator produces a position command, motor spike trains and filtered eye movement, with
+      separately labeled delayed visual feedback.
+    - A conceptual state valley marked as an illustration, with arrows showing stable motion across and a neutral
+      direction along the valley; no claim that energy was measured.
+    depicted_relationship_or_change: Noisy recurrent integrator produces a position command, motor spike trains
+      and filtered eye movement, with separately labeled delayed visual feedback.
+    teaching_contribution_beyond_labels: 'Show a causal circuit loop and downstream mechanical pathway without claiming
+      the specific model is proved. Also address: The paper figure’s attractor valley is a conceptual picture of
+      stable and neutral directions, not a measured energy landscape.'
+  - source_item_ids:
+    - P05
+    - P06
+    - P07
+    - P08
+    - P11
+    visible_objects:
+    - Show more regular spikes and larger population alongside a smaller illustrative diffusion scale, with fixed-slope
+      qualification.
+    depicted_relationship_or_change: Show more regular spikes and larger population alongside a smaller illustrative
+      diffusion scale, with fixed-slope qualification.
+    teaching_contribution_beyond_labels: 'Connect count variability, readout and model scale; do not declare whether
+      k0 is absolute or fractional. Also address: Increasing firing rate affects the diffusion scale differently
+      when absolute slope rather than fractional slope is held fixed; slope normalization in the paper is not explicit.'
+  - source_item_ids:
+    - P09
+    - P10
+    - P13
+    - P14
+    visible_objects:
+    - Compare shared drive, MSD and simulation as separate tests with alternative upstream causes.
+    - Two miniature simulated controls, one with a known shared source and one without central drive, with the same
+      analysis applied and a near-zero estimate for the second.
+    depicted_relationship_or_change: Compare shared drive, MSD and simulation as separate tests with alternative
+      upstream causes.
+    teaching_contribution_beyond_labels: 'Make model agreement and source-identification limits visible. Also address:
+      Rerunning the shared-variance analysis on simulated recordings checks that method under known modeled sources,
+      not a unique biological mechanism. Also address: In the paper’s no-central-drive simulation the estimated
+      shared variance is compatible with zero.'
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    comparison_with_reference: null
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/04c-eye-circuit.md:4-22
+  - content/chapters/04c-eye-circuit.md:31-58
+  - content/chapters/04c-eye-circuit.md:60-95
+  - content/chapters/04c-eye-circuit.md:95-107
+  - content/chapters/04c-eye-circuit.md:128-145
+  - content/chapters/04c-eye-circuit.md:147-163
+  - content/chapters/04c-eye-circuit.md:165-197
+  - content/chapters/04c-eye-circuit.md:199-216
+  - content/chapters/04c-eye-circuit.md:219-286
+  - content/chapters/04c-eye-circuit.md:287-307
+  - content/chapters/04c-eye-circuit.yaml
+  chapter_source_sha256: 4ba2d560f9de8e48675acf346c23ccff0ba8a465628e14993b444a81f6090a5b
+  teaching_points:
+  - id: P01
+    source_locus: content/chapters/04c-eye-circuit.md:4-22
+    point: A noisy integrator is one candidate upstream source; thresholded neuron rates and saturated synapses
+      participate in recurrent interactions.
+  - id: P02
+    source_locus: content/chapters/04c-eye-circuit.md:31-58
+    point: Synaptic outputs decay and feedback can support persistent represented positions; a continuum requires
+      balanced feedback over the range.
+  - id: P03
+    source_locus: content/chapters/04c-eye-circuit.md:60-95
+    point: Integrator output drives motor units whose spike trains are filtered through muscle and plant dynamics
+      to eye position.
+  - id: P04
+    source_locus: content/chapters/04c-eye-circuit.md:95-107
+    point: Delayed visual feedback changes the internal command; its delay alone does not determine the short-lag
+      MSD.
+  - id: P05
+    source_locus: content/chapters/04c-eye-circuit.md:128-145
+    point: The paper gives diffusion scaling with neuron number, spike regularity, firing, sensitivity and synaptic
+      time; normalization of printed sensitivity is unspecified.
+  - id: P06
+    source_locus: content/chapters/04c-eye-circuit.md:147-163
+    point: Sub-Poisson interval construction retains every Mth event; long-window count variance scales with squared
+      interval CV.
+  - id: P07
+    source_locus: content/chapters/04c-eye-circuit.md:165-197
+    point: A simple information-based scaling distinguishes fixed absolute tuning slope from fixed fractional slope;
+      it is not an exact derivation of the full nonlinear network.
+  - id: P08
+    source_locus: content/chapters/04c-eye-circuit.md:199-216
+    point: The supplement estimates a small contribution of slow drift to within-fixation rate variability under
+      its assumptions.
+  - id: P09
+    source_locus: content/chapters/04c-eye-circuit.md:219-286
+    point: Recorded shared drive, MSD, and full-model simulation compare complementary aspects and do not independently
+      identify one microscopic circuit.
+  - id: P10
+    source_locus: content/chapters/04c-eye-circuit.md:287-307
+    point: Upstream noisy input or already-diffusive signals remain possible; results concern horizontal fixation
+      in two animals.
+  - id: P11
+    source_locus: content/chapters/04c-eye-circuit.md:165-197
+    point: Increasing firing rate affects the diffusion scale differently when absolute slope rather than fractional
+      slope is held fixed; slope normalization in the paper is not explicit.
+  - id: P12
+    source_locus: content/chapters/04c-eye-circuit.yaml:35-71 (tbl:EYE-FIGURE-GUIDE)
+    point: The paper figure’s attractor valley is a conceptual picture of stable and neutral directions, not a measured
+      energy landscape.
+  - id: P13
+    source_locus: content/chapters/04c-eye-circuit.yaml:35-71 (tbl:EYE-FIGURE-GUIDE)
+    point: Rerunning the shared-variance analysis on simulated recordings checks that method under known modeled
+      sources, not a unique biological mechanism.
+  - id: P14
+    source_locus: content/chapters/04c-eye-circuit.yaml:112-122 (fig:PAPER-EYE-ED4)
+    point: In the paper’s no-central-drive simulation the estimated shared variance is compatible with zero.
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  - P10
+  - P11
+  - P12
+  - P13
+  - P14
+  not_planned_and_reason: {}
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 14
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  additional_source_files:
+  - path: content/chapters/04c-eye-circuit.yaml
+    sha256: eaf05bc6d089a80fdf8eccd7dea973938456a8f8a3acf390e767cf267536e41a
+    role: Chapter tables and figures
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/04c-eye-circuit.md
+  approved_terms: &id001
+  - Noisy integrator and eye
+  - Spike regularity and diffusion
+  - Model and observations
+  required_plain_explanations:
+  - Show a causal circuit loop and downstream mechanical pathway without claiming the specific model is proved.
+  - Connect count variability, readout and model scale; do not declare whether k0 is absolute or fractional.
+  - Make model agreement and source-identification limits visible.
+  caption: The diagram relates the mechanisms, observations and conditions developed in a noisy memory circuit can
+    produce eye drift.
+  alt_text: Proposed diagram showing Noisy recurrent integrator produces a position command, motor spike trains
+    and filtered eye movement, with separately labeled delayed visual feedback.; Show more regular spikes and larger
+    population alongside a smaller illustrative diffusion scale, with fixed-slope qualification.; Compare shared
+    drive, MSD and simulation as separate tests with alternative upstream causes..
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S1
+  exact_label: Noisy integrator and eye
+  teaching_point: Show a causal circuit loop and downstream mechanical pathway without claiming the specific model
+    is proved.
+  visual_role: mechanism or comparison
+- id: S2
+  exact_label: Spike regularity and diffusion
+  teaching_point: Connect count variability, readout and model scale; do not declare whether k0 is absolute or fractional.
+  visual_role: mechanism or comparison
+- id: S3
+  exact_label: Model and observations
+  teaching_point: Make model agreement and source-identification limits visible.
+  visual_role: mechanism or comparison
+communication_plan:
+  layout: Landscape; allow reading-width legibility; use separate scenes for distinct claims.
+  keep_in_text:
+  - Detailed equations and derivations
+  - Data processing and all numerical precision not essential to visual explanation
+  required_visible_conditions:
+  - Show a causal circuit loop and downstream mechanical pathway without claiming the specific model is proved.
+  - Connect count variability, readout and model scale; do not declare whether k0 is absolute or fractional.
+  - Make model agreement and source-identification limits visible.
+  independent_example_groups: []
+  graphical_choices:
+  - Noisy recurrent integrator produces a position command, motor spike trains and filtered eye movement, with separately
+    labeled delayed visual feedback.
+  - Show more regular spikes and larger population alongside a smaller illustrative diffusion scale, with fixed-slope
+    qualification.
+  - Compare shared drive, MSD and simulation as separate tests with alternative upstream causes.
+  density_warning: This proposed single opener may be too dense at the intended reading width. Do not claim the
+    required coverage or proceed to acceptance until the final pixels are inspected at that width; redesign if mechanisms,
+    conditions or labels cannot all be shown readably.
+normal_flow:
+- Noisy recurrent integrator produces a position command, motor spike trains and filtered eye movement, with separately
+  labeled delayed visual feedback.
+- Show more regular spikes and larger population alongside a smaller illustrative diffusion scale, with fixed-slope
+  qualification.
+- Compare shared drive, MSD and simulation as separate tests with alternative upstream causes.
+secondary_relationships: []
+exact_text:
+  required: *id001
+  prohibited:
+  - proof of a unique biological circuit
+  - unlabeled invented experimental data
+  - title banner
+constraints:
+- Use actual chapter terms and source-supported causal relationships.
+- Do not depict guide constructions as measured data.
+- Retain distinctions between exact and approximate results.
+- Do not treat planned coverage as actual coverage; independently inspect pixels at full and reading widths.
+- If the chapter coverage exceeds available legible space, redesign rather than lower the threshold.
+dispositions: []

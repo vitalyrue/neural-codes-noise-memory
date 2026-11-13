@@ -1,0 +1,66 @@
+chapter_id: ch:SIMULATING-MEMORY
+part_id: part:SIMULATIONS
+title: Network simulations test how random spikes move a stored value
+purpose: To compare a simulated memory trace with Burak and Fiete's (2012) theory, the numerical update
+  and the measurement of the stored value must match the model. The foundation chapter explains the spike-update
+  cycle, and the long-delay chapter interprets its diffusion tests. Here the additional task is to recover
+  the published network settings, distinguish a numerical position measurement from the theoretical coordinate,
+  and identify choices left open for an independent reproduction.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:MEMORY-DYNAMICS
+- ch:MEMORY-LONG-DELAYS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:SIMULATIONS
+section_list:
+- id: sec:SIMULATING-MEMORY-STATE
+  title: A simulation renews the same synaptic state that the theory approximates
+  summary: The physical idea is continuing neural activity after a cue has ended. A spike briefly increases
+    synaptic activation. That activation decays, but it also changes the rates at which other neurons
+    fire. Recurrent connections can therefore renew the activity. Random event times disturb the pattern
+    that represents the remembered value.
+  level: 2
+- id: sec:SIMULATING-MEMORY-RING
+  title: Ring trajectories test both the diffusion rate and the effect of angular boundaries
+  summary: In the ring model, neurons are ordered by preferred angle, and the position of their localized
+    activity pattern represents the stored angle. The [earlier Figure 2 discussion](ch-memory-long-delays.html)
+    explains the diffusion and information comparison. To reproduce that comparison, keep the exponential
+    and sigmoid transfer functions as separate runs, with a theoretical prediction calculated from each
+    run's steady tuning curves.[^simmem-ring]
+  level: 2
+- id: sec:SIMULATING-MEMORY-CONTROLS
+  title: Other network designs test which conclusions depend on the ring
+  summary: A second network contains two mutually inhibiting units, interpreted also as two neural populations.
+    Increasing one population's activity while decreasing the other's changes the stored value. Figure
+    2E–G tests diffusion in this family without relying on rotational symmetry. The diffusion calculation
+    applies to both models because each has a continuous family of states and restoring dynamics toward
+    that family.[^simmem-two]
+  level: 2
+- id: sec:SIMULATING-MEMORY-OUTPUTS
+  title: A plotted analytical curve is different from a network simulation
+  summary: Figures 3 and S2 plot formulas for readout error. They compare an ideal estimator with an estimator
+    that weights all observations equally as the observation interval grows. The sources do not describe
+    an additional spiking-network experiment or a biological circuit implementing ideal estimation in
+    these figures.
+  level: 2
+blocks:
+- id: fig:DRAFT-MAP-CH19-A
+  kind: figure
+  placement: ch:SIMULATING-MEMORY
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch19-a-draft-v1.png
+  caption: "Unreviewed draft diagram, first part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them."
+  alt: "Unreviewed generated draft: first diagram for the chapter Network simulations test how random spikes move a stored value."
+  width_inches: 7.0
+  html_fold: never
+- id: fig:DRAFT-MAP-CH19-B
+  kind: figure
+  placement: ch:SIMULATING-MEMORY
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch19-b-draft-v1.png
+  caption: "Unreviewed draft diagram, second part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them."
+  alt: "Unreviewed generated draft: second diagram for the chapter Network simulations test how random spikes move a stored value."
+  width_inches: 7.0
+  html_fold: never
+source_loci: []

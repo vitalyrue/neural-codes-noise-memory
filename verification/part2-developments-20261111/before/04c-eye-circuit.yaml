@@ -1,0 +1,167 @@
+chapter_id: ch:EYE-CIRCUIT
+part_id: part:OBSERVATIONS
+title: A noisy memory circuit can produce eye drift
+purpose: A circuit that stores the intended eye angle is one possible source of fixational drift. This chapter follows
+  the proposed model from interacting neurons through motor neurons and muscles to eye motion, and explains how
+  delayed visual feedback can limit that motion.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:EYE-DRIFT
+- ch:EYE-TIMING
+- ch:MEMORY-INFORMATION
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:EYE-CIRCUIT-MODEL
+  title: A noisy integrator can reproduce drift after muscle filtering
+  summary: "The recording analysis places much of the drive upstream of OMNs. To test whether integrator noise could supply it, the authors build a model from a noisy memory circuit through to the eye. The model adapts an earlier goldfish integrator architecture to primate tuning and variability. The model has two groups of integrator neurons. One group fires more when the eye points farther right. The other fires more when it points farther left. Neurons excite cells in their own group and inhibit cells in the other group. The connection strengths are tuned so that the circuit can approximately maintain a range of represented eye positions.[^p2-network]"
+  level: 2
+- id: sec:EYE-SCALING
+  title: Spike regularity and circuit parameters set the model's drift scale
+  summary: "An agreement in amplitude is informative only if we know how much freedom the model has. The paper uses regular spike trains. The [spike variability section](ch-foundations.html#sec-foundations-poisson) defined the interspike interval coefficient of variation (CV) as the interval standard deviation divided by its mean. A Poisson process at constant rate has CV one. The model uses about 0.22 for integrator neurons and about 0.07 for OMNs. Such firing is called [**sub-Poisson spiking**]{.definition-term custom-style=\"Definition Term\"} here because its long window count variability is lower than a Poisson process at the same rate, under the interval construction used in the model.[^p2-cv]"
+  level: 2
+- id: sec:EYE-FIGURES
+  title: The figures test shared drive, diffusion, and the full circuit model
+  summary: The five figures address different steps. Their agreement is easier to assess when those questions remain
+    separate.
+  level: 2
+- id: sec:EYE-LIMITS
+  title: The evidence places shared drive upstream without identifying one circuit
+  summary: 'The data and model answer different questions about where the drive originates:'
+  level: 2
+blocks:
+- id: tbl:EYE-FIGURE-GUIDE
+  kind: table
+  placement: sec:EYE-FIGURES
+  headers:
+  - Figure
+  - What to read
+  - What it establishes or checks
+  rows:
+  - - 1, main p. 3
+    - Start with the large movement, then the expanded fixation. Compare the small predicted rate change with the
+      larger observed fluctuation in b. Read c as one cell and d as the population.
+    - A weak, positive rate relationship exists during fixation. The large movement is used for calibration.
+  - - 2, main p. 4
+    - The spike response kernel in a has a delay and two decay times; b shows their spread. In c, a noisy cell prediction
+      can coexist with a smooth eye trace. Panel d plots $R$, while e–f plot $\chi$ and estimation error.
+    - Shared movement and a model-based fraction of common variance. The vertical axis in f is error in $\chi$,
+      not eye position or another variance fraction. Large error cells receive little weight.
+  - - 3, main p. 6
+    - In a, distinguish the raw MSD, plateau estimate, and corrected curve. In b, compare both height and slope.
+      Translating the private-noise curve upward does not remove its flattening.
+    - Independent filtered motor noise fails both the amplitude and time dependence comparison. The noise subtraction
+      is part of this evidence.
+  - - 4, main p. 7
+    - The valley in a sketches stable directions across the attractor and a neutral direction along it. It is not
+      a measured energy function of this brain circuit. Panels c–d show simulated internal drift and its nearly
+      linear MSD.
+    - The mechanism by which neural noise can accumulate into an ordinary diffusive position signal. This is the
+      integrator output before the full observation process.
+  - - 5, main p. 8
+    - Trace integrator, OMNs, plant, and feedback in a. Compare internal and actual position in c, then model and
+      data MSD in d. Panels e–f rerun the statistical analysis on simulated recordings.
+    - The full model can match filtered motion, and known simulated sources can produce noisy individual estimates
+      with a useful population estimate. This checks the method under that model, rather than proving a unique biological
+      source.
+  caption: Reading the figures as an argument.
+  first_column_role: row-labels
+  html_fold: never
+- id: fig:PAPER-EYE-4
+  kind: figure
+  placement: sec:EYE-CIRCUIT-MODEL
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-4.png
+  caption: Noise moves the stored position along a continuous attractor. Original Figure 4 from Ben-Shushan et al.
+    (2022); exact artwork excerpt. [PDF page 7](../papers/ben-shushan-2022-fixational-drift.pdf#page=7). [Open image
+    at full size](../assets/fig-paper-eye-4.png).
+  alt: Four panels show the attractor surface, a wandering coordinate, simulated horizontal eye position and its
+    mean squared displacement.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-5
+  kind: figure
+  placement: sec:EYE-CIRCUIT-MODEL
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-5.png
+  caption: The full circuit model links internal diffusion to smooth eye motion and measured correlations. Original
+    Figure 5 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 8](../papers/ben-shushan-2022-fixational-drift.pdf#page=8).
+    [Open image at full size](../assets/fig-paper-eye-5.png).
+  alt: Six panels show the integrator, motor neurons, eye and delayed feedback, measured and simulated trajectories,
+    displacement curves, shared variance estimates and correlation distributions.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED1
+  kind: figure
+  placement: sec:EYE-FIGURES
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-1.png
+  caption: Cell by cell uncertainty accompanies both correlation and shared variance estimates. Original Extended
+    Data Figure 1 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 7](../papers/ben-shushan-2022-supplement-1.pdf#page=7).
+    [Open image at full size](../assets/fig-paper-eye-ed1.png).
+  alt: Four panels show correlations and shared variance estimates with error bars for two monkeys.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED3
+  kind: figure
+  placement: sec:EYE-CIRCUIT-MODEL
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-3.png
+  caption: Visual feedback changes the displacement curve and its slope. Original Extended Data Figure 3 from Ben-Shushan
+    et al. (2022); exact artwork excerpt. [PDF page 9](../papers/ben-shushan-2022-supplement-1.pdf#page=9). [Open
+    image at full size](../assets/fig-paper-eye-ed3.png).
+  alt: Three panels show fits at short and long lags and compare displacement and slope with and without feedback.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED4
+  kind: figure
+  placement: sec:EYE-FIGURES
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-4.png
+  caption: The no-central-drive simulation gives a shared variance estimate compatible with zero. Original Extended
+    Data Figure 4 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 10](../papers/ben-shushan-2022-supplement-1.pdf#page=10).
+    [Open image at full size](../assets/fig-paper-eye-ed4.png).
+  alt: Two panels show shared variance estimates with errors and true versus shuffled correlation distributions.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED5
+  kind: figure
+  placement: sec:EYE-FIGURES
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-5.png
+  caption: The model also fits the other monkey after small parameter changes. Original Extended Data Figure 5 from
+    Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 10](../papers/ben-shushan-2022-supplement-1.pdf#page=10).
+    [Open image at full size](../assets/fig-paper-eye-ed5.png).
+  alt: A logarithmic displacement plot shows measurements from both monkeys and the model fit.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED8
+  kind: figure
+  placement: sec:EYE-FIGURES
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-8.png
+  caption: Rank correlations also show a positive relationship between recorded and predicted displacement. Original
+    Extended Data Figure 8 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 12](../papers/ben-shushan-2022-supplement-1.pdf#page=12).
+    [Open image at full size](../assets/fig-paper-eye-ed8.png).
+  alt: A histogram compares true and shuffled Spearman correlation distributions.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED9
+  kind: figure
+  placement: sec:EYE-FIGURES
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-9.png
+  caption: The model uses varied tuning curves, motor response parameters and spike regularity. Original Extended
+    Data Figure 9 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 13](../papers/ben-shushan-2022-supplement-1.pdf#page=13).
+    [Open image at full size](../assets/fig-paper-eye-ed9.png).
+  alt: Five panels show integrator tuning curves and motor parameters, including position sensitivity, velocity
+    sensitivity, acceleration sensitivity and coefficient of variation.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-EYE-ED10
+  kind: figure
+  placement: sec:EYE-FIGURES
+  asset: assets/approved/visuals/paper-excerpts/eye-fig-ed-10.png
+  caption: Direct output spiking noise has little effect beyond about 50 ms in the model. Original Extended Data
+    Figure 10 from Ben-Shushan et al. (2022); exact artwork excerpt. [PDF page 14](../papers/ben-shushan-2022-supplement-1.pdf#page=14).
+    [Open image at full size](../assets/fig-paper-eye-ed10.png).
+  alt: A logarithmic displacement plot compares the full model with a model excluding direct output spiking noise
+    while retaining internal diffusion.
+  width_inches: 6.5
+  html_fold: never
+source_loci: []

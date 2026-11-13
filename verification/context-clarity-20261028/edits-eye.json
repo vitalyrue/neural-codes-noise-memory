@@ -1,0 +1,85 @@
+{
+  "recorded_before_edits_at": "2026-10-28T15:38:00.523239+02:00",
+  "scope": "Four context repairs in two assigned Markdown files only. No equations, headings, YAML, index or plan edits.",
+  "source_loop_check": "Eq. 26: xi/(lambda_t+lambda)=X; Eq. 24: X drives S; Eq. 25: weighted S gives E_OI; Eq. 23: E_OI sets rates. S to X is not the source order.",
+  "files_before": {
+    "guide/content/chapters/04-eye-drift.md": "6ffc545e25041c3def9a36f94c9709d6e9608419a1120f93a8ec191707171ef7",
+    "guide/content/chapters/04c-eye-circuit.md": "af8d48839cf62b2b6271b2b23a70bde52c24ab8ec83211adb3628ae681f43481"
+  },
+  "source_and_rule_sha256": {
+    "C:\\dev\\clsc\\burak-papers\\research\\ben-shushan-2022-main-text.txt": "b52b017ad8d63af12d7301407e3cace4c0725b1f906ab3543b8a8014666c8eb5",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+  },
+  "changes": [
+    {
+      "id": "E1",
+      "file": "guide/content/chapters/04-eye-drift.md",
+      "reason": "Complete the experimental setting and identify eye position as eye angle before using degrees.",
+      "source": "Main Methods p. 9, Behavioral task and recordings; main-text.txt lines 744-758.",
+      "replacements": [
+        {
+          "old": "The animals first fixated a stationary target and then tracked a moving target. A wire search coil on one eye measured eye position while an electrode recorded one neuron's spikes.",
+          "new": "With their heads held still, the monkeys first looked at a stationary spot of light on a monitor and then followed the moving spot. A wire search coil on one eye measured the eye's angle while an electrode recorded one neuron's spikes."
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "file": "guide/content/chapters/04c-eye-circuit.md",
+      "reason": "Identify the two groups, the cells they affect, and position tuning rather than movement direction. Preserve approximate persistence and the following tuning derivation.",
+      "source": "Main Methods pp. 10-11, Oculomotor integrator network, Eqs. 23-27.",
+      "replacements": [
+        {
+          "old": "There are two populations, with excitation within each and inhibition between them. Their firing increases for opposite directions of gaze. This supplies the recurrent interaction needed to maintain a range of stored positions.",
+          "new": "The model has two groups of integrator neurons. One group fires more when the eye points farther right; the other fires more when it points farther left. Neurons excite cells in their own group and inhibit cells in the other group. The connection strengths are tuned so that the circuit can approximately maintain a range of represented eye positions."
+        }
+      ]
+    },
+    {
+      "id": "E3",
+      "file": "guide/content/chapters/04c-eye-circuit.md",
+      "reason": "Give X, S and E_OI concrete causal roles before their coupled equations. The source order is rate to spikes to rate-scaled X to decaying S to weighted E_OI to rates. Eq. 25 weights S directly, not X. The existing next paragraph retains the exact saturation formula and its conditions.",
+      "source": "Main Methods p. 11, Eqs. 23-26 and definitions of synaptic output, postsynaptic currents and internal readout.",
+      "replacements": [
+        {
+          "old": "Spikes produce synaptic activity according to",
+          "new": "The model scales each spike train into an input $X_i$ with a saturating mean response. This input changes the neuron's synaptic output $S_i$, the lingering effect of its spikes on neurons receiving them. A weighted difference between the two groups' synaptic outputs gives the represented eye angle $E_{OI}$. This value sets the firing rates again, closing the feedback loop:"
+        },
+        {
+          "old": "The readout $E_{OI}$ feeds back into the rates, so these equations define a recurrent network. Persistence requires a further condition on that feedback.",
+          "new": "Persistence requires a further condition on that feedback."
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "file": "guide/content/chapters/04c-eye-circuit.md",
+      "reason": "Identify the retinal image motion represented by visual feedback before its equation, and teach the distinction from absolute target error once.",
+      "source": "Main Methods p. 11, Visual feedback, Eq. 34, main-text.txt lines 1223-1234.",
+      "replacements": [
+        {
+          "old": "The final loop is delayed visual feedback:",
+          "new": "As the eye moves while viewing a stationary target, the target's image moves across the retina. The authors assume that visual feedback responds to this recent image motion rather than to an absolute target-position error. Their delayed feedback model is:"
+        },
+        {
+          "old": "The difference can serve as an estimate of recent movement; it is not an error relative to a fixed absolute target position. ",
+          "new": ""
+        }
+      ]
+    }
+  ],
+  "applied_at": "2026-10-28T15:38:18.409979+02:00",
+  "files_after": {
+    "guide/content/chapters/04-eye-drift.md": "a33a3a7fc25b234ae32b961f2404cae223c6120c7cd8aa04e3eb85394388777b",
+    "guide/content/chapters/04c-eye-circuit.md": "75ae2098d255171990f67776a65676f7948d4e75b6d0d1f2ac044a208622874b"
+  },
+  "checks": {
+    "display_equations_unchanged": true,
+    "headings_unchanged": true,
+    "exact_replacement_count": 6,
+    "no_new_em_dash": true
+  },
+  "connected_reread_at": "2026-10-28T15:38:55.127201+02:00",
+  "connected_reread": "Read EYE-RECORDINGS with following segment selection and calibration paragraphs; read EYE-CIRCUIT-MODEL from opening through recurrence, persistence, motor output and both feedback paragraphs; reread relevant main Methods source. Retina is already defined in 00-reading-guide.md, line 19, so no repeated definition added."
+}

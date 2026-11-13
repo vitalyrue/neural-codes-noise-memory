@@ -1,0 +1,62 @@
+{
+  "review_stage": "Focused Stage 1 truth/reasoning recheck",
+  "local_request_id": "eye-stage1-recheck-20261030-170241",
+  "reviewer": "/root/sim_sources_eye",
+  "started_utc": "2026-10-30T17:02:41.1928812Z",
+  "finished_utc": "2026-10-30T17:03:08.7085785Z",
+  "prior_review": "review-eye-stage1.json",
+  "verdict": "pass for scoped truth/reasoning; both findings closed",
+  "input_hashes": {
+    "content/chapters/12-simulating-eye-drift.md": "2be4e4c4c900633f1a9ca56535ff98cfcb8bd704190e5338e59031fafa95fa41",
+    "content/chapters/12-simulating-eye-drift.yaml": "fbac628357558caabadd4453eb84e37c170a0691130b29a68a529ac8da4c0a76",
+    "content/chapters/14-simulation-tools.md": "d8891055be50a326660d9f95f196248e94c7969685b883094b9b10c24fdfa72d",
+    "content/chapters/14-simulation-tools.yaml": "6402779684f1faf4cc72778a360601259f31d255361cdfa72070f9bc4e432b72",
+    "content/chapters/00-reading-guide.md": "9dbcac22561905d51f6e28b976d8a772735933c60bf214d1fcd971fd3d3e55b9",
+    "content/chapters/00-reading-guide.yaml": "2c2e155e813fff4ecfee69548ea35e455c656e9f925aacde7b4db2255ddb1ccd",
+    "content/chapters/glossary.md": "72e50eae89687eac9b98e9b53e227bb28801d2276bc24bbd59222bbff24794bd",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "content/chapters/01-foundations.md": "a3d82e833c2de9d5576c6ac86c4b60c310a2985b95e6585f75e150f306109822",
+    "content/chapters/04-eye-drift.md": "a6393aa211e9b38d16e0620b7b67d240f24e35a8dddb5c200cd5cf0b9e218c52",
+    "content/chapters/04b-eye-timing.md": "4d7395f284ca8a2e09b2d301c97cef98070c0528b756ceb06ca75570badac3bc",
+    "content/chapters/04c-eye-circuit.md": "eb8df5d89c1242a4703365d524f2688ca66f0e927229750be08d44172fee7e8b",
+    "content/chapters/11-simulating-memory.md": "8d383fc8843fb4aa00646ae44c499ffcd681422e07dce195a0165f56a5a01af3",
+    "content/chapters/13-simulating-place-fields.md": "5b9ff87365eeabb7f950dfae2e2fd7f8292151a40ab232238bb6f448f7c13c6f",
+    "content/chapters/09-neuromorphic-systems.md": "8e0feb35b61a4f5d1514a7911021da0e1aa11ef40a44c0ec9a367cc6b16db381",
+    "plan/chapter-plan.yaml": "002809002d716eb478a7998f522149414bac3ead62dd28a96140f4807b9c55ac",
+    "verification/part4-simulations-20261030/eye-code-snapshot/zenodo-record.json": "cc82ba6c05a22f59ac4071dc1a9dcc736e434ac0bee9ffe55d456ac8a46f3203",
+    "verification/part4-simulations-20261030/eye-code-snapshot/Run_model.m": "dfa618f2ab92279ed374d98e502fa60d9639d89d20bfad7ed00670e7dc038592",
+    "verification/part4-simulations-20261030/eye-code-snapshot/Full_model_simulation.m": "14418cfec00ff9c8a51c4b3c3e3dd5fe6bca0130eb4332a0eb94547f6de0a5cf",
+    "verification/part4-simulations-20261030/eye-code-snapshot/Fit_OI_circuit.m": "9e506a4038515a5b74aa24220cde1cd9c1cbd0801748eeea188636051be71a0d",
+    "verification/part4-simulations-20261030/eye-code-snapshot/tree.json": "1a2f837ce2d801521528f1d6a665bcd31ee62929992ac9e448ab796700faae80"
+  },
+  "rule_hashes": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "changed_inputs": [
+    "content/chapters/12-simulating-eye-drift.md",
+    "content/chapters/glossary.md"
+  ],
+  "checks": [
+    {
+      "finding": "EYE-S1-01",
+      "file": "content/chapters/glossary.md",
+      "current_text": "A value used to initialize a pseudorandom generator so that a specified implementation can repeat a sample sequence.",
+      "verdict": "closed",
+      "reason": "The seed now initializes state rather than being equated with state, matching NumPy documentation and Chapter 14.",
+      "reverse_only_repair_matches_original_hash": true
+    },
+    {
+      "finding": "EYE-S1-02",
+      "file": "content/chapters/12-simulating-eye-drift.md",
+      "current_text": "*Fixational drift is driven by central neural circuitry* [Dataset].",
+      "verdict": "closed",
+      "reason": "Title exactly matches Zenodo 6076911 metadata.title. Authors/year/DOI and surrounding raw-recordings distinction remain correct.",
+      "reverse_only_repair_matches_original_hash": true
+    }
+  ],
+  "unresolved_findings": [],
+  "retained_prior_answers": "Other input hashes match the prior review; reversing only the two recorded repairs recreates the prior affected-file hashes. Retain prior passage-specific truth/reasoning answers. No new source claims were introduced.",
+  "limits": "Stage 2 and Stage 3 pending. Old whole-book and figure holds remain. No manuscript edits, simulations, rendering or full tests performed. Awake execution time unverified.",
+  "token_stats": "unavailable"
+}

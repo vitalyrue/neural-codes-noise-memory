@@ -1,0 +1,16 @@
+name: numbered-html-examples
+version: 1.0.0
+inputs:
+  - rendered HTML with publisher code captions and worked-calculation boxes
+  - chapter label and unified or separate numbering mode
+outputs:
+  - chapter-based example labels and linked implementation references
+validation:
+  - unique labels and targets per chapter
+  - preserve code IDs, title markup and body content
+  - reject unrecognized titles and dangling implementation references
+  - repeat processing must be byte-stable
+dependencies:
+  python: '>=3.11'
+  beautifulsoup4: '>=4.12'
+formats: [html]

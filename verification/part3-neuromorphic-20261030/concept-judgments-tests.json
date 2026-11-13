@@ -1,0 +1,279 @@
+{
+  "audience": {
+    "status": "reviewed",
+    "description": "Undergraduate calculus, basic probability and linear algebra; expected value, variance, standard deviation and density are known. Earlier Part I teaches Brownian increments, local diffusion, stochastic conventions and neutral projection. These subject-specific prerequisites were read in actual source and are not treated as audience assumptions.",
+    "assumed_concepts": [
+      "undergraduate-calculus",
+      "basic-probability",
+      "linear-algebra",
+      "expected-value",
+      "variance",
+      "standard-deviation",
+      "density"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "systematic-and-random-memory-error",
+      "aliases": [
+        "systematic drift and random spreading"
+      ]
+    },
+    {
+      "id": "memory-pinning",
+      "aliases": [
+        "pinning"
+      ]
+    },
+    {
+      "id": "angular-unwrapping",
+      "aliases": [
+        "unwrapping"
+      ]
+    },
+    {
+      "id": "hardware-time-conversion",
+      "aliases": [
+        "model time and physical time"
+      ]
+    },
+    {
+      "id": "local-noise-projection",
+      "aliases": [
+        "noise projection"
+      ]
+    }
+  ],
+  "sections": {
+    "ch:HARDWARE-TESTS/s0": "reviewed",
+    "ch:HARDWARE-TESTS/s1": "reviewed",
+    "ch:HARDWARE-TESTS/s2": "reviewed",
+    "ch:HARDWARE-TESTS/s3": "reviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "systematic-and-random-memory-error",
+      "passage_id": "ch:HARDWARE-MEMORY/p50",
+      "role": "teach",
+      "span": [
+        0,
+        384
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Actual earlier mechanism distinguishes fixed mismatch producing repeatable bias from changing noise producing different trial trajectories. This supports separating mean error from spread without a new elementary-statistics lesson.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "systematic-and-random-memory-error",
+      "passage_id": "ch:HARDWARE-TESTS/p3",
+      "role": "use",
+      "span": [
+        0,
+        566
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The opening requires the reader to distinguish repeatable pull, wandering state and poor readout; the earlier fixed-versus-changing mechanism supplies that distinction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "systematic-and-random-memory-error",
+      "passage_id": "ch:HARDWARE-TESTS/p16",
+      "role": "use",
+      "span": [
+        0,
+        157
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Mean error and variance are reported separately because cue-specific bias and trial spread answer different questions.",
+      "need": "required"
+    },
+    {
+      "concept_id": "systematic-and-random-memory-error",
+      "passage_id": "ch:HARDWARE-TESTS/p29",
+      "role": "teach",
+      "span": [
+        0,
+        638
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Defines systematic angular motion b and half the local variance growth rate D, then relates them to conditional increment means and variances with local assumptions.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "systematic-and-random-memory-error",
+      "passage_id": "ch:HARDWARE-TESTS/p71",
+      "role": "use",
+      "span": [
+        0,
+        421
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The example compares variance alone with variance plus squared mean error; the reader must keep bias separate from random spread.",
+      "need": "required"
+    },
+    {
+      "concept_id": "memory-pinning",
+      "passage_id": "ch:HARDWARE-DYNAMICS/p76",
+      "role": "teach",
+      "span": [
+        0,
+        547
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Explains how attraction to preferred states reduces random spread while biasing other cues, gives the pinning definition, and states why both mean and variance matter.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "memory-pinning",
+      "passage_id": "ch:HARDWARE-TESTS/p13",
+      "role": "use",
+      "span": [
+        0,
+        135
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Testing between preferred positions detects attraction to discrete preferred states, rather than testing only cues already at those states.",
+      "need": "required"
+    },
+    {
+      "concept_id": "memory-pinning",
+      "passage_id": "ch:HARDWARE-TESTS/p71",
+      "role": "use",
+      "span": [
+        0,
+        421
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The lower-variance circuit has worse MSE because attraction creates a nonzero mean error. This is the taught pinning mechanism with checked arithmetic.",
+      "need": "required"
+    },
+    {
+      "concept_id": "angular-unwrapping",
+      "passage_id": "ch:HARDWARE-TESTS/p15",
+      "role": "teach",
+      "span": [
+        112,
+        309
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The definition says to add or subtract complete turns at 0/360 crossings to continue the trajectory. This states the operation before its sampling condition is used.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "angular-unwrapping",
+      "passage_id": "ch:HARDWARE-TESTS/p15",
+      "role": "use",
+      "span": [
+        309,
+        385
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The following instruction restricts use to sampling that can identify crossings, acknowledging that sparse observations can hide turns.",
+      "need": "required"
+    },
+    {
+      "concept_id": "angular-unwrapping",
+      "passage_id": "ch:HARDWARE-TESTS/p29",
+      "role": "use",
+      "span": [
+        0,
+        638
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The long-delay instruction uses the distinction between continued trajectories and angular error modulo a full turn. It explicitly states why full-turn-separated values are the same angle.",
+      "need": "required"
+    },
+    {
+      "concept_id": "local-noise-projection",
+      "passage_id": "ch:HARDWARE-TESTS/p43",
+      "role": "teach",
+      "span": [
+        0,
+        618
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The passage identifies local activity dynamics, Brownian noise map, left neutral vector and coordinate normalization. The displayed equation immediately following this indexed paragraph was read directly: D=ell^T B B^T ell/2. The earlier Part I derivation linked at its start supplies stable transverse modes and the left/right distinction. This is adequate combined teaching, not an inference from a label or link alone.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "local-noise-projection",
+      "passage_id": "ch:HARDWARE-TESTS/p49",
+      "role": "use",
+      "span": [
+        0,
+        470
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Corrected versus surviving disturbance directions explain why total noise magnitude alone does not fix decoded diffusion.",
+      "need": "required"
+    },
+    {
+      "concept_id": "local-noise-projection",
+      "passage_id": "ch:HARDWARE-TESTS/p53",
+      "role": "use",
+      "span": [
+        0,
+        658
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The derivation uses the normalized left vector to remove linear deterministic drift and compute coordinate-noise covariance.",
+      "need": "required"
+    },
+    {
+      "concept_id": "hardware-time-conversion",
+      "passage_id": "ch:HARDWARE-TESTS/p87",
+      "role": "teach",
+      "span": [
+        0,
+        303
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "Defines model and physical time with t_m=a t_p, substitutes the mapping in variance growth, and obtains D_p=a D_m per physical second. The reader can follow the substitution with the declared algebra background.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "hardware-time-conversion",
+      "passage_id": "ch:HARDWARE-TESTS/p87",
+      "role": "use",
+      "span": [
+        303,
+        494
+      ],
+      "status": "reviewed",
+      "review": "part3-tests-stage3-20261030 /root/part3_review_tests",
+      "evidence": "The following sentences interpret this mapping as ideal rescaling and explain why communication, temperature and readout can break it in a real device.",
+      "need": "required"
+    }
+  ],
+  "teaching_sets": [],
+  "review_metadata": {
+    "review_id": "part3-tests-stage3-20261030 /root/part3_review_tests",
+    "packet_sha256": "d95832fe3116e14bfc61ae2ab68f2ff2027cbe11f93c5a8e410988fbc60fe122",
+    "packet_source_sha256": {
+      "content/chapters/07-hardware-memory.md": "39c5cbf9c5b8023d2d851d6116d63a87018712590a42359a7c15995e32c8dce5",
+      "content/chapters/07-hardware-memory.yaml": "29017969fe10afd3d39380c94e49d9236d08260615dc11f0b2a185102f85d5eb",
+      "content/chapters/08-hardware-dynamics.md": "29f4abde4d28f1936a75c2926dcefc54962b5c010a0c75773c2571b0045018c9",
+      "content/chapters/08-hardware-dynamics.yaml": "b2a0c4f3ccc01c2c7f59f941cb785672851f07161fe320d8181088c10e15e359",
+      "content/chapters/09-neuromorphic-systems.md": "ef7ec52d8829a019369cbd9847a75a7f04563a9529288f7a7bd4666a78fa92b1",
+      "content/chapters/09-neuromorphic-systems.yaml": "22da01facca5e643f446d0b7d9315f5a993bb01f4d67beff0445d28e27e2b619",
+      "content/chapters/10-hardware-tests.md": "05e61819726242b2aae3370aa93247cccce117e95b7ff0232d7f51efb6e9f65f",
+      "content/chapters/10-hardware-tests.yaml": "f79bacb741d5ff59631f051ca63f7ff0bb863e9199e1a2a323b2d814aa82b77b"
+    },
+    "limits": "Local Chapter 10 section coverage only. Selected prerequisite passages are connected teaching evidence, not whole-chapter reapproval. Displayed equations and table were inspected directly because packet extraction omits them."
+  }
+}

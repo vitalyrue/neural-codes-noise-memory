@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "stage": "1 correctness and reasoning",
+  "status": "pass for Chapter1 simulation addition and connected path",
+  "scope": "Entire current Chapter1 read, including new opening sentence, sec:FOUNDATIONS-SIMULATION, surrounding model/tuning/Poisson/MSD path and two footnotes. Original PDF sources checked freshly in separate source-review.json. No wording/reader acceptance in this call.",
+  "extension_start_utc": "2026-11-01T19:23:52Z",
+  "original_start_utc": "2026-11-01T13:32:42Z",
+  "awake_execution_time": "unverified",
+  "file": "content/chapters/01-foundations.md",
+  "sha256": "1bc2a85b34e602f5639fee7aa80fc933d35ba1b699dda9fa86f0388cc770b678",
+  "source_review": "source-review.json",
+  "checks": [
+    {
+      "lines": [
+        9,
+        9
+      ],
+      "claim": "Opening explains the simulation's contents and theoretical comparison",
+      "verdict": "pass",
+      "evidence": "New section actually supplies system, interdependence, update, measurement and model-versus-theory comparison; does not promise an animal-data fit."
+    },
+    {
+      "lines": [
+        268,
+        270
+      ],
+      "claim": "Simulation follows Eqs7-9 with fixed model parameters and continuing bias but no value-anchoring cue",
+      "verdict": "pass",
+      "evidence": "Main p5 Eqs7-9 define outgoing activations, weighted recurrent inputs and transfer rates; p6 fixes numerical weights, transfer functions, biases and tau. Main p1 describes no external anchoring input. No unsupported cue-initialization procedure is claimed. Computational model does not resolve detailed voltage waveforms or muscle mechanics."
+    },
+    {
+      "lines": [
+        272,
+        272
+      ],
+      "claim": "1024 ring neurons, inhibitory separation-based weights and localized bump",
+      "verdict": "pass",
+      "evidence": "Main p3 Fig2A/B and p6 specify angular labels and rotationally invariant inhibitory W=w(theta_i-theta_j). Published w=exp(cos(alpha)-1)-exp(.3(cos(alpha)-1)) is zero at alpha0 and negative elsewhere modulo2pi; weak near-zero inhibition supports description relative to competing activity farther away. No local recurrent excitation or literal anatomical circle is claimed. Main source plot shows localized rate activity."
+    },
+    {
+      "lines": [
+        274,
+        274
+      ],
+      "claim": "Cells affect one another through activation, weights and rates even with independent conditional spike draws",
+      "verdict": "pass",
+      "evidence": "A spike adds1 to s_j by Eq7, hence changes input g_i by W_ij in Eq8, then changes rate by phi in Eq9. Later draws depend on this altered state. Conditional elementary independence does not imply full spike-train independence. This matches existing Poisson qualification at254."
+    },
+    {
+      "lines": [
+        276,
+        286
+      ],
+      "claim": "Three-step ring update with Bernoulli spike indicator",
+      "verdict": "pass",
+      "evidence": "Main p6 reports stochastic Euler integration, dt.1ms, tau10ms, and per-neuron spike probability r_i dt. Display combines Euler decay s(1-h/tau) with unit event increment X_i. X is defined as0/1, so h*r is dimensionless; s is dimensionless activation. The stated small-rh condition is needed to approximate continuous Poisson events with at most one event per step. h/tau=.01 for reported settings. Footnote identifies display as guide notation assembling the reported method rather than copied source code. Aggregate population-count warning correctly limits this rule to ring implementation."
+    },
+    {
+      "lines": [
+        288,
+        288
+      ],
+      "claim": "Track angle at rate maximum; average squared angular changes; compare with predicted diffusion and wrapped long-delay curve",
+      "verdict": "pass",
+      "evidence": "Main p6 explicitly measures theta from label of maximum instantaneous r, averages squared changes over trajectory, computes D/J from noise-free steady rate pattern and formulas, and uses periodic variance expression for Fig2D. Main p2 states quantitative match without free parameters for the illustrated networks. Main p3 caption identifies circles as simulation and solid curves as theory. Wrapped(-pi,pi) coordinate explains bounded long-time squared error; it does not restore initial angle. Approximate short-time linearity is correctly qualified."
+    },
+    {
+      "lines": [
+        290,
+        290
+      ],
+      "claim": "Mutual-inhibition example tests a non-ring design",
+      "verdict": "pass",
+      "evidence": "Main p3 Fig2E-G and p6 specify two equal mutually inhibiting cells or groups. Source represents memory by firing-rate difference. 'Difference in activity' is a general description of this source claim; no competing activation-versus-rate formula or numerical diffusion conversion is asserted here. Agreement is a second model test, not a general proof about all networks."
+    },
+    {
+      "lines": [
+        292,
+        292
+      ],
+      "claim": "Figure2 compares simulated data with theory; animal comparison is separate",
+      "verdict": "pass",
+      "evidence": "Fig2 is explicitly numerical validation. Main p1 cites earlier biological evidence to motivate persistent activity and Poisson-like spiking. Main p2 proposes applying tuning curves to prediction. Main p5 proposes empirical tests and says direct Poisson diffusion formula is not applicable to sub-Poisson oculomotor spikes. Text correctly separates2022 recorded-data eye study and does not claim2012 Figure2 fits animal errors."
+    },
+    {
+      "lines": [
+        294,
+        385
+      ],
+      "claim": "New section retains link to following covariance/MSD teaching",
+      "verdict": "correctness retained",
+      "evidence": "New transition motivates measured shared variation and directional bias without claiming that the2012 ring includes muscles. Existing covariance, independent/private and MSD decomposition remain separate from simulation claims. This check does not make Stage3 reading-flow acceptance."
+    },
+    {
+      "lines": [
+        413,
+        415
+      ],
+      "claim": "Footnotes support source and interpretation",
+      "verdict": "pass",
+      "evidence": "Simulation footnote points to main pp2,3,6, and explicitly labels assembled Euler/spike-indicator display. Empirical footnote points to motivation p1, possible tuning-data use p2 and non-Poisson/empirical cautions p5. These locations were read directly."
+    }
+  ],
+  "findings": [],
+  "required_repairs": [],
+  "limits": [
+    "No new simulation run or reproduction claimed.",
+    "No new image review in Stage1; single source Figure2 inspection belongs to preceding source-check.",
+    "Stage2 wording/necessity and Stage3 reader-understanding remain separate.",
+    "Original sources contain known Eq2 typography and some other formula inconsistencies, already handled elsewhere; new section does not reprint these formulas."
+  ],
+  "canonical_edits_made": false,
+  "token_stats": "unavailable",
+  "completed_utc": "2026-11-01T19:29:23Z",
+  "extension_wall_seconds": 331,
+  "original_wall_seconds": 21401
+}

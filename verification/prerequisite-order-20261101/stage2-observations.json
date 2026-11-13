@@ -1,0 +1,95 @@
+{
+  "review_id": "stage2-observations",
+  "reviewer": "/root/prereq_observations",
+  "stage": "2_necessity_and_terminology",
+  "created_utc": "2026-11-01T13:49:18.223113+00:00",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "awake_time": "unverified",
+  "scope": "Same changed passages and linked local context as Stage 1, read again for necessity, terms and duplication. No Stage 3 flow verdict included.",
+  "verdict": "pass_for_this_stage_and_scope",
+  "required_repairs": [],
+  "evidence": [
+    {
+      "path": "content/chapters/05-place-fields.md",
+      "lines": [
+        19,
+        57
+      ],
+      "file_sha256": "8085fd1efc879663917d0cee272b8fff5650c5aa05742dd71733fa67938e0211",
+      "passage_sha256": "7696339fc7f86e906c03e82c95c80929ba0ecf1a176e113264dfa6471d082ce7",
+      "unchanged_since_stage1": true
+    },
+    {
+      "path": "content/chapters/05-place-fields.md",
+      "lines": [
+        121,
+        176
+      ],
+      "file_sha256": "8085fd1efc879663917d0cee272b8fff5650c5aa05742dd71733fa67938e0211",
+      "passage_sha256": "f5a9b8f567c73221d0e42b2ea8b933d7af39dc1ed4124cdedd8f49b234bc8651",
+      "unchanged_since_stage1": true
+    },
+    {
+      "path": "content/chapters/04b-eye-timing.md",
+      "lines": [
+        76,
+        127
+      ],
+      "file_sha256": "a1163ec8c245e699111671cb92b99f8d0f02a4ab8d297b6911d431b3d6c3794d",
+      "passage_sha256": "f52e81a1818a33c11387501bbf51fe266d738f6cedb207016ac9bbe84d3fef02",
+      "unchanged_since_stage1": true
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "lines": [
+        270,
+        315
+      ],
+      "file_sha256": "dca9f79953953780d38fbd8ab9ea6ba21458cd4b69cd28644315dbac6a39b863",
+      "passage_sha256": "dc19e5f9c3884a640d3476bd78aa1173eb780ae8bfb42981ce691ea439c1e4db",
+      "unchanged_since_stage1": true
+    }
+  ],
+  "passage_answers": [
+    {
+      "location": "05-place-fields.md:23",
+      "addition": "Finite-set GP definition and jointly Gaussian vector definition.",
+      "deletion_test": "Deleting the finite-set condition again leaves Gaussian process as an arbitrary random-map distribution. Deleting the linear-combination characterization leaves jointly Gaussian as an unexplained new specialist term. Both are needed before the crossing calculation treats heights and derivatives as Gaussian together.",
+      "term_check": "Gaussian process and jointly Gaussian vector are exact mathematical terms; their descriptions use ordinary vector and linear-combination language allowed by the audience baseline. No simpler exact substitute removes the need to teach the property.",
+      "decision": "retain"
+    },
+    {
+      "location": "05-place-fields.md:23-25",
+      "addition": "The joint rule goes beyond Gaussian one-position histograms; mean and spatial covariance determine the joint laws.",
+      "deletion_test": "The distinction prevents confusing Gaussian marginal values with a Gaussian random function. Mean and covariance explain what specifies the map distribution and prepare their formulas and the later stationarity assumptions.",
+      "term_check": "Input, position, maps and covariance already have local meanings. Joint Gaussian laws refers to the just-defined joint distributions. No extra method or unexplained neuroscience term was added.",
+      "decision": "retain"
+    },
+    {
+      "location": "05-place-fields.md:30-39",
+      "addition": "Revised fold after definitions moved.",
+      "deletion_test": "The removed GP and joint-vector definitions are no longer duplicated in the fold. The retained position vector maps the functions m and C to a finite Gaussian vector. The expectation-over-maps qualification identifies what is averaged, and the non-Gaussian threshold output qualification prevents confusing input and firing distributions.",
+      "term_check": "Subvector is the ordinary linear-algebra subset of vector entries and is used only in the optional mathematical detail. The general independence property here and its later height/slope application are useful rule/application repetition, not duplicate first definitions.",
+      "decision": "retain"
+    },
+    {
+      "location": "03b-memory-readout.md:278",
+      "addition": "White-noise definition and relation between xi_i dt and Brownian increments.",
+      "deletion_test": "The definition supplies the meaning of white noise at its earlier first equation use. The increment relation identifies the noise contribution and its rate-dependent size instead of treating xi_i as an ordinary finite-variance instantaneous variable. The conditional variance sentence connects that notation to the spike-count mechanism.",
+      "term_check": "White noise is necessary for the source model. Delta function and Brownian increments have earlier teaching; the passage explains their special role here without reteaching ordinary variance.",
+      "decision": "retain"
+    },
+    {
+      "location": "04b-eye-timing.md:91-99",
+      "addition": "Short linked white-noise reminder replacing full repeated definition.",
+      "deletion_test": "The reminder keeps the input assumption visible immediately before the covariance equation. A link alone would require navigation to recover what white means in this test. The full generic definition need not be repeated because it now appears earlier and the local intensity A remains explicitly supplied.",
+      "term_check": "Unequal times and uncorrelated are direct descriptions. The specialized noise-intensity meaning is fixed by the displayed covariance and its units; no new unneeded name appears.",
+      "decision": "retain"
+    }
+  ],
+  "canonical_files_changed": false,
+  "limits": [
+    "This is only the separately requested necessity/terminology stage.",
+    "No source papers, simulations, builds or full-book re-audit needed for these local definition moves."
+  ]
+}

@@ -1,0 +1,267 @@
+brief:
+  asset_id: fig:MAP-CH22
+  scope: chapter
+  book: burak-three-papers
+  part: part:SIMULATIONS
+  chapter: ch:SIMULATION-TOOLS
+  purpose: Reproduction depends on the model, numerical method, and measurement
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Physical objects, changing states, signals, and separate comparisons explain the chapter mechanisms
+    beyond topic labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Arrange related scenes according to their true dependence; show independent comparisons separately.
+    Do not draw a single implied causal chain across unrelated examples.
+  scenes: &id001
+  - source_item_ids:
+    - P01
+    visible_objects_and_relation: Three separately labeled implementation paths to different claims
+    teaching_contribution_beyond_labels: Authors’ code, independent implementation and simplified teaching model
+      answer different reproduction questions.
+  - source_item_ids:
+    - P02
+    visible_objects_and_relation: Program output compared against source and target measurement
+    teaching_contribution_beyond_labels: A successful run alone does not establish agreement with published model,
+      data and measurements.
+  - source_item_ids:
+    - P03
+    visible_objects_and_relation: Run record connected to random draws
+    teaching_contribution_beyond_labels: Random generator, seed, software versions and call ordering determine reproducibility;
+      the seed alone is insufficient.
+  - source_item_ids:
+    - P04
+    visible_objects_and_relation: Separate deterministic solver, event generator and stochastic increments
+    teaching_contribution_beyond_labels: A deterministic ODE solver does not by itself implement Poisson spikes
+      or Brownian increments.
+  - source_item_ids:
+    - P05
+    visible_objects_and_relation: A grid with two connectivity choices and separate neuron model
+    teaching_contribution_beyond_labels: Field connectivity rules and the choice of spiking simulator affect what
+      model and measurement are implemented.
+  - source_item_ids:
+    - P06
+    visible_objects_and_relation: Coarse/fine time and space scales feeding matched comparison
+    teaching_contribution_beyond_labels: Refining simulation time step or spatial grid while preserving physical
+      parameters tests convergence in reported results.
+  - source_item_ids:
+    - P07
+    visible_objects_and_relation: Four short increments versus one long increment with matched total variance
+    teaching_contribution_beyond_labels: For Brownian increments variance scales with step duration, so the standard
+      deviation scales with its square root.
+  - source_item_ids:
+    - P08
+    visible_objects_and_relation: Fine internal trace sampled by a coarse output grid
+    teaching_contribution_beyond_labels: Saving output too sparsely can discard temporal information despite a small
+      internal time step.
+  - source_item_ids:
+    - P09
+    visible_objects_and_relation: A compact record grouping parameters, measurement and independent repeats
+    teaching_contribution_beyond_labels: Preserve source, target, model, inputs, numerical settings, measurement
+      and uncertainty, with the true independent repeat as unit.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/14-simulation-tools.md
+  - content/chapters/14-simulation-tools.yaml
+  chapter_source_sha256: 81f522744afc3f8f0f3b56a377c129905ac9afc2d03123875dc6e5956399782c
+  teaching_points:
+  - id: P01
+    point: Authors’ code, independent implementation and simplified teaching model answer different reproduction
+      questions.
+    source_locus: content/chapters/14-simulation-tools.md:5-14 (#sec:SIMULATION-TOOLS-ROUTES)
+  - id: P02
+    point: A successful run alone does not establish agreement with published model, data and measurements.
+    source_locus: content/chapters/14-simulation-tools.md:5-14 (#sec:SIMULATION-TOOLS-ROUTES)
+  - id: P03
+    point: Random generator, seed, software versions and call ordering determine reproducibility; the seed alone
+      is insufficient.
+    source_locus: content/chapters/14-simulation-tools.md:15-32 (#sec:SIMULATION-TOOLS-SOFTWARE)
+  - id: P04
+    point: A deterministic ODE solver does not by itself implement Poisson spikes or Brownian increments.
+    source_locus: content/chapters/14-simulation-tools.md:15-32 (#sec:SIMULATION-TOOLS-SOFTWARE)
+  - id: P05
+    point: Field connectivity rules and the choice of spiking simulator affect what model and measurement are implemented.
+    source_locus: content/chapters/14-simulation-tools.md:15-32 (#sec:SIMULATION-TOOLS-SOFTWARE)
+  - id: P06
+    point: Refining simulation time step or spatial grid while preserving physical parameters tests convergence
+      in reported results.
+    source_locus: content/chapters/14-simulation-tools.md:33-54 (#sec:SIMULATION-TOOLS-RESOLUTION)
+  - id: P07
+    point: For Brownian increments variance scales with step duration, so the standard deviation scales with its
+      square root.
+    source_locus: content/chapters/14-simulation-tools.md:33-54 (#sec:SIMULATION-TOOLS-RESOLUTION)
+  - id: P08
+    point: Saving output too sparsely can discard temporal information despite a small internal time step.
+    source_locus: content/chapters/14-simulation-tools.md:33-54 (#sec:SIMULATION-TOOLS-RESOLUTION)
+  - id: P09
+    point: Preserve source, target, model, inputs, numerical settings, measurement and uncertainty, with the true
+      independent repeat as unit.
+    source_locus: content/chapters/14-simulation-tools.md:55-77 (#sec:SIMULATION-TOOLS-RECORD)
+  - id: P10
+    point: When refining a spatial grid, increase the correlation scale in grid samples to keep the same physical
+      correlation length; a spiking network also requires its own discrete-event rule.
+    source_locus: content/chapters/14-simulation-tools.md:49-55
+  - id: P11
+    point: The eye model has released MATLAB code, the spatial study uses Python tools and Gudhi, while SciPy solve_ivp
+      and Brian 2 are optional reconstruction tools whose model and event rules must be matched.
+    source_locus: content/chapters/14-simulation-tools.yaml:44-68 (tbl:SIMULATION-TOOLS)
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 11
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P10: Newly identified source point; retain in inventory and decide whether it can be clearly shown during scene
+      design.
+    P11: Sidecar table point added after review; assess legible inclusion in the final scene design.
+  connected_source_sha256:
+    content/chapters/14-simulation-tools.yaml: a647e9c9ccfe269aab72e25ea5162b7370aabff4432c4439270185eaaefbfd79
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/14-simulation-tools.md
+  approved_terms: &id002
+  - Original code
+  - Independent implementation
+  - Random generator
+  - Time step
+  - Grid spacing
+  - Saved run record
+  caption: The scene relates the physical states, measurements, and assumptions described in Reproduction depends
+    on the model, numerical method, and measurement.
+  alt_text: Three separately labeled implementation paths to different claims; Program output compared against source
+    and target measurement; Run record connected to random draws; Separate deterministic solver, event generator
+    and stochastic increments; A grid with two connectivity choices and separate neuron model; Coarse/fine time
+    and space scales feeding matched comparison; Four short increments versus one long increment with matched total
+    variance; Fine internal trace sampled by a coarse output grid; A compact record grouping parameters, measurement
+    and independent repeats.
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S01
+  teaching_point: Authors’ code, independent implementation and simplified teaching model answer different reproduction
+    questions.
+  visual_role: Three separately labeled implementation paths to different claims
+- id: S02
+  teaching_point: A successful run alone does not establish agreement with published model, data and measurements.
+  visual_role: Program output compared against source and target measurement
+- id: S03
+  teaching_point: Random generator, seed, software versions and call ordering determine reproducibility; the seed
+    alone is insufficient.
+  visual_role: Run record connected to random draws
+- id: S04
+  teaching_point: A deterministic ODE solver does not by itself implement Poisson spikes or Brownian increments.
+  visual_role: Separate deterministic solver, event generator and stochastic increments
+- id: S05
+  teaching_point: Field connectivity rules and the choice of spiking simulator affect what model and measurement
+    are implemented.
+  visual_role: A grid with two connectivity choices and separate neuron model
+- id: S06
+  teaching_point: Refining simulation time step or spatial grid while preserving physical parameters tests convergence
+    in reported results.
+  visual_role: Coarse/fine time and space scales feeding matched comparison
+- id: S07
+  teaching_point: For Brownian increments variance scales with step duration, so the standard deviation scales with
+    its square root.
+  visual_role: Four short increments versus one long increment with matched total variance
+- id: S08
+  teaching_point: Saving output too sparsely can discard temporal information despite a small internal time step.
+  visual_role: Fine internal trace sampled by a coarse output grid
+- id: S09
+  teaching_point: Preserve source, target, model, inputs, numerical settings, measurement and uncertainty, with
+    the true independent repeat as unit.
+  visual_role: A compact record grouping parameters, measurement and independent repeats
+communication_plan:
+  segments: *id001
+  layout: Use subject-driven scenes with readable short labels; separate independent examples and preserve their
+    conditions.
+  keep_in_text:
+  - Detailed formulas and numerical calculations
+  - Full discussion and citations
+  required_visible_conditions:
+  - Distinguish measured demonstrations, numerical simulations, and proposed tests where applicable
+  independent_example_groups:
+  - Independent study or architecture examples unless the source establishes an action between them
+  sidecar_scene_impacts:
+  - source_locus: content/chapters/14-simulation-tools.yaml:44-68 (tbl:SIMULATION-TOOLS)
+    impact: Separate tools used by source papers from optional software for a new implementation; a deterministic
+      ODE solver is not by itself a spiking simulator.
+    planned_scene_status: pending redesign
+  readability_risk: This draft lists 9 separate scenes. At the intended reading width this may be too dense; group
+    related mechanisms or split across existing chapter figures. Do not claim coverage until inspected.
+normal_flow:
+- Connect events only where source text gives an actual causal, computational or measurement relationship.
+secondary_relationships:
+- Show comparisons side by side without a causal arrow; use explicitly labeled feedback only where it exists.
+exact_text:
+  required: *id002
+  prohibited:
+  - paper title banner
+  - unsupported universal claims
+  - visual-review notes or caption inside image
+constraints:
+- Match the book palette and style lock.
+- Do not treat planned teaching points as established visual coverage.
+- Do not imply that different experiments are one continuous causal experiment.
+- Keep caption and alt text outside the artwork.
+- Do not shrink labels to hide excessive density.
+- If a point cannot be shown with its important condition, leave its coverage pending.
+dispositions: []

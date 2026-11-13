@@ -1,0 +1,544 @@
+{
+  "review_stage": "3. Reader understanding and flow",
+  "local_request_id": "eye-stage3-20261030-171509",
+  "reviewer": "/root/sim_sources_eye",
+  "started_utc": "2026-10-30T17:16:23.3751155Z",
+  "finished_utc": "2026-10-30T17:18:51.102056+00:00",
+  "verdict": "pass for reviewed scope; no new flow finding",
+  "input_hashes": {
+    "content/chapters/12-simulating-eye-drift.md": "90a472d9da5c785f22e8f7f903ed0c608affb529eefddfaa00985d05bb0bda19",
+    "content/chapters/12-simulating-eye-drift.yaml": "d5cd6ba823302ad399bed51400771394ed04647a17daedc69d9fbeb531657387",
+    "content/chapters/14-simulation-tools.md": "b885bc2c59c9996421158830064ce6a10809ed3c078494e98f85d6041efc5244",
+    "content/chapters/14-simulation-tools.yaml": "0639fc2fa3f94bc9e76eb4d7aa798181b35de926b90279b30824742ae047be20",
+    "content/chapters/00-reading-guide.md": "e7b4a9f9c211997f035ae54d01a639837e26df327af064edd40365702bb8943a",
+    "content/chapters/00-reading-guide.yaml": "2c2e155e813fff4ecfee69548ea35e455c656e9f925aacde7b4db2255ddb1ccd",
+    "content/chapters/glossary.md": "e3f8c0eec14a7e59fc6601473553019599074f4dfbebd50e0b054568e851580b",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "content/chapters/04-eye-drift.md": "a6393aa211e9b38d16e0620b7b67d240f24e35a8dddb5c200cd5cf0b9e218c52",
+    "content/chapters/04b-eye-timing.md": "4d7395f284ca8a2e09b2d301c97cef98070c0528b756ceb06ca75570badac3bc",
+    "content/chapters/04c-eye-circuit.md": "eb8df5d89c1242a4703365d524f2688ca66f0e927229750be08d44172fee7e8b",
+    "content/chapters/11-simulating-memory.md": "74f22899e8bd826f5270d4e29ece048d7258f76077bc8ce3534ffce89b6cf0ab",
+    "content/chapters/13-simulating-place-fields.md": "cbd21926ec5977a209226e3218761009b69ee040afed5c58f090da6a65aca881",
+    "content/chapters/09-neuromorphic-systems.md": "8e0feb35b61a4f5d1514a7911021da0e1aa11ef40a44c0ec9a367cc6b16db381",
+    "verification/part4-simulations-20261030/concept-packet-final.json": "ea3de4833a0c24f766560218c12c9477be80851f823121eada54a4897f024df3"
+  },
+  "rule_hashes": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:/dev/clsc/burak-papers/guide/.vale.ini": "8e482af74d0d52cac20c6586b0ec53e21e59a103083675a0734fb230e2fb2c5a"
+  },
+  "paragraph_decisions": [
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 3,
+      "paragraph_sha256": "9f511edd618bec2fabe77262be3ee74261c8110334c2ee345d590cc2c4c453d0",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can state why the model must generate both a neural command and an eye trajectory. The opening follows the earlier paper explanation and frames the empirical/model split before details."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 7,
+      "paragraph_sha256": "b4fced25b38ee5ccecf689324f56dba64b55460c84169eff63872a23f466f475",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can identify the recorded unit, paired signal and held-out calibration. This turns the opening question into a specific available-data constraint before covariance is interpreted."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 9,
+      "paragraph_sha256": "c75d57c736c0980bb9833e24c5affc7a4df064b239a55f702b3ad36b4a14a087",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can explain that shared displacement is inferred under gain and independence assumptions. This follows calibrated reconstruction and leaves source localization open for the model question."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 11,
+      "paragraph_sha256": "733ec2a193f3ea5a7db5e65b19560c22eeff9757f253348dc022545cd4fe20d3",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can distinguish physiological constraints from adjustable choices and understand why a match is not unique. That motivates examining the actual causal pathway next."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 15,
+      "paragraph_sha256": "7902127b91a9ad60cc774235fb35d0b1963a48eeaaf3350f05ac53fc50df9e2f",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The list is introduced as four transformations of distinct quantities, so the subsequent stages have a common task rather than four unrelated definitions."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 17,
+      "paragraph_sha256": "7b2a16c80ff77712ff3565c9bc40aa0b1b434308c82bcace2b77e55e1e805cdc",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can trace spikes to lingering synaptic effects to recurrent rates and to a weighted position command. Earlier neural chapters teach decay and recurrence; this is a sufficient recap for this chapter."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 18,
+      "paragraph_sha256": "fe5a8608893a8f7aa88b9229b81e27aa5f24080a560f312fbc18e725771e953b",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "A command changes a motor rate through slope/threshold and then produces private spike variability. It follows the command definition, before mechanics acts on that output."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 19,
+      "paragraph_sha256": "8bcaca24aee1e60e81e9eb60fa983ff230d0c081153019d29ef37d0a026c558e",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can say that filtered motor activity acts through mechanical position/velocity/acceleration terms to form actual angle E. This requires the command/angle separation just established, not a new calculus lesson."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 20,
+      "paragraph_sha256": "da5710384a1c0707196af4eb3fddec6331d92691a0435aafeda0aac862f2fba7",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The physical-angle history returns to the current internal command as feedback. Its placement closes the cycle after those two quantities exist."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 22,
+      "paragraph_sha256": "5ccbc41b9bf6eb612b763ac3bb51d385e5546f19d273ea6a8c021dbfda76e03b",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can explain why smoothing changes short-lag statistics without equating E with E_OI. Links lead back to actual earlier derivations, rather than forward to missing prerequisites."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 24,
+      "paragraph_sha256": "97e703e41a4e3840256c0a1bf6e98d557f808b8079d098a1755fec3b110c4cdc",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The fit-target contrast prevents confusing fitted circuit persistence with a fitted recorded drift path. It follows the pathway because the reader now knows what state those weights maintain."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 26,
+      "paragraph_sha256": "273d1dc424751204ef694905646192be4750f48db70bce55f7457a24c8b9d404",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can compute why keeping each Mth candidate preserves mean rate but reduces interval CV at constant rate. Earlier foundations and circuit chapters teach CV/exponential intervals, and this paragraph supplies the M-interval mechanism before model comparisons use it."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 30,
+      "paragraph_sha256": "bbad1cecf355b8a9952af4d85bcd4f17a615b27487e00f4282deb9839d9f11c5",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The final-paper settings are now interpretable as parameters of the just-described stages. Their separate source avoids mixing supplemental comparisons."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 32,
+      "paragraph_sha256": "3400b5a64750a1cc521bb75d49ec6b1c05233d9c6bea63010d4416d76e412343",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Internal versus stored time interval, motor synapse, initial gaze and stepping order connect numerical settings to those stages. The seed is a short source-setting label here; its full repeatability role is taught in the later common-tools chapter before readers are asked to record generator choices."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 34,
+      "paragraph_sha256": "773e50932ebbc85f4c2fa14c27010c6dbf4a7b6a491f94b29349a6ba989a62f0",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can identify two unresolved exact-reproduction choices rather than assume the settings form a verified invocation. This is the needed limit immediately after those settings."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 40,
+      "paragraph_sha256": "1095244415c9eecf5115fa3cb444637ccac732ea450482a1600a809502b738d3",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The section raises a stronger test than one visual trace. It uses the preceding model ingredients to motivate altering their contributions."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 42,
+      "paragraph_sha256": "ce0205f16d9417afc9223b94f0108dd630d3b8b9fafb782f5f78116a03e295fe",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can interpret the constant-command private-noise control using earlier filtered-white-noise saturation teaching. It is the simplest contrast before central diffusion."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 43,
+      "paragraph_sha256": "0b21472f8f38e7765e60f4476d56a9443a9759d54e5e8b821edabdb6503ad0da",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The isolated central-command output removes muscle smoothing from the diffusion test. It follows the private-noise control and prepares the full pathway."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 44,
+      "paragraph_sha256": "40de0e6fe368d06f1de523cecd64e4853e6a81daf983a725f26d9f6894140aa6",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can now assign full-eye short-lag and longer-lag behavior to filtering and delayed correction, rather than to internal diffusion alone."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 45,
+      "paragraph_sha256": "ee0365376c0224fd4cc8c19801c3bb5fbb15011f0a5826c9d46e956cf944f7e1",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can distinguish testing the inference procedure on known synthetic sources from merely matching physical trajectory shapes. This builds on recorded reconstruction before model generation."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 47,
+      "paragraph_sha256": "a9bbe1792a691b899c97dbe652cc3085987d01e5c6033d182ad3dc22cfeed3b1",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Supplemental changes extend the controls while explicitly retaining internal stochastic dynamics. The causal so sentence prevents equating output-noise removal with a deterministic model."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 49,
+      "paragraph_sha256": "fd62f2643c2c85da0b14872c6e67d861d0d33faf6443b12cd41b9f63be442686",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The inference limit follows the controls: they show sufficiency, while empirical shared drive does not uniquely identify the circuit. This is the correct conclusion before reproduction tasks."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 53,
+      "paragraph_sha256": "61a23bb8ca46234389c577ebba0c87dd560dda4f39350144a22c141b0e99672e",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can select the code component for circuit fitting, trajectory generation or processed-MSD comparison. The physical pathway gives each filename a role; no runnable listing is implied."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 55,
+      "paragraph_sha256": "92423a10a0e2229b5fb547c2b1856c4d6dd54d4edb532c1c2116219233075923",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can choose raw-recording analysis versus model execution versus processed-MSD loading. Dataset layout and sampling make those tasks concrete."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 57,
+      "paragraph_sha256": "cf7a81bb015d960fe87e8dd3965055ff9b335ba1e839c124b34d182e0a8a1eb5",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The package limits follow the selected task and distinguish a public source tree from a complete executed recipe. No installation detail is demanded before its purpose is known."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 59,
+      "paragraph_sha256": "ae2ef44e70c2fad7feed10009457465588b8acee0683d78b486a6f1473943420",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Controlled parameter changes use what the reader has learned about sources and measurement. The static-map contrast raises the next chapter question without treating spatial maps as dynamic memory."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 61,
+      "paragraph_sha256": "10a1d8ef9fa97726cc7aa9e462a1818afb6a240ed4d1110fcf55be46296a6564",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Source reference: lookup of the exact earlier method/figure/code/data location; no artificial narrative transition is needed. It preserves the article-versus-dataset title distinction and inspection-versus-execution status."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 63,
+      "paragraph_sha256": "11fb3d6faf2b16f8249a411a7c9624d71b94b8fb9ccb1808b58e347451fa95e3",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Source reference: lookup of the exact earlier method/figure/code/data location; no artificial narrative transition is needed. It preserves the article-versus-dataset title distinction and inspection-versus-execution status."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 65,
+      "paragraph_sha256": "772c321bfaa62c9b7ea632316ce4acff581c3b3819662e922f062be0ab9adbc2",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Source reference: lookup of the exact earlier method/figure/code/data location; no artificial narrative transition is needed. It preserves the article-versus-dataset title distinction and inspection-versus-execution status."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 67,
+      "paragraph_sha256": "204b6b1aad1830678544473138b3b23f85db16aae65a1e1eb81d2b0e60cc8e6d",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Source reference: lookup of the exact earlier method/figure/code/data location; no artificial narrative transition is needed. It preserves the article-versus-dataset title distinction and inspection-versus-execution status."
+    },
+    {
+      "file": "12-simulating-eye-drift.md",
+      "line": 69,
+      "paragraph_sha256": "542faa83cc929bd03f20faaa1c907de640fac55d98b71a50ca5b3d071b0ad45e",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Source reference: lookup of the exact earlier method/figure/code/data location; no artificial narrative transition is needed. It preserves the article-versus-dataset title distinction and inspection-versus-execution status."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 3,
+      "paragraph_sha256": "919680ba2ba5e438ee336b1611ec0444b8b10882e0def5dcdf95e17d75c89d51",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Concrete spike/mechanics/measurement mismatches motivate the shared method chapter after three model cases. Reader can state why curve similarity is insufficient."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 7,
+      "paragraph_sha256": "534219377da3b638238cc6cec194aa6bdb0abdf55c702a3136a83d4adde6bbb7",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can choose author implementation, independent implementation or a reduced teaching model according to the target. This choice precedes library selection."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 9,
+      "paragraph_sha256": "e214a875ce70386d95c7ad3610f0a03c27c027c7ced625f5bebbcbdef4da7ef1",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The earlier chapters supply actual access/version limits; this summary tells which reproduction routes exist for each case without repeating the full source packets."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 11,
+      "paragraph_sha256": "c340c2fe72d61664e2819dd599f80fcd0fcf7a6bc08528687da982c7d8189cd9",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Execution, agreement and the guide work actually performed remain different claims. This qualification follows the route choices and prevents treating source explanation as a completed run."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 13,
+      "paragraph_sha256": "0dd45f0552f549faa139cd37677b313963e9b80a20013bec4b3719b228fd550f",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Hardware methods supply a familiar adjacent example: calculated model, calculated proposed circuit and measured device. Earlier PartIII teaches post-layout versus fabricated hardware; no new hardware survey interrupts the tools sequence."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 17,
+      "paragraph_sha256": "c3466a00f6973d02402527d9c34a27157cfeee9ffed7b60c32ce959b23c01732",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The goal determines the tool family, and optional alternatives are labeled before the table, so the table can be read as choices rather than historical attribution."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 25,
+      "paragraph_sha256": "053afab4a52a9dd3afe0fd25186bbdfa11b890ba1f17a8280bdc3d83101f28eb",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Generator and seed roles explain repeatability after the table identifies Python. The conditions on version and call order prevent a seed-only guarantee."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 27,
+      "paragraph_sha256": "fe202bd8e417764bbe33ab26bb5bee5378bd1b63a3d78e2f8f82ee60c40e595e",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The tool choice now depends on deterministic evolution versus event jumps or random increments. Earlier spiking/Brownian chapters supply the states, and this paragraph supplies the solver limitation before the resolution example applies increments."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 29,
+      "paragraph_sha256": "1c2aeea6e58ba73fac8eb9e29098ccafc7bb85cb6842dff91ec1005e0df10a27",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "A spatial detector has a different input/output from an ODE solver. Diagonal contact gives a concrete reason to record connectivity, using earlier field-detection teaching."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 31,
+      "paragraph_sha256": "7c1cbd85ffb54bd531b2a72e5405e04ac6e165105ddcd0626309111095266ff9",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Brian follows deterministic/spatial tools as a spiking alternative. Reader can say which model rules a substitute must preserve, not assume simulator branding supplies equivalence."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 35,
+      "paragraph_sha256": "b4253264d368456e1d0986a1260b95e46fb6d876ceb641916caf014008377e64",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Time and space grids are introduced together because both approximate continuous objects. The definition and concrete errors establish why refinement is needed."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 37,
+      "paragraph_sha256": "a415a7a084f054ffacc35abb725ddeb7e9fffd1f67a9cf58af116af471e9cdaf",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The reader can separate changing physical parameters from refining the internal step, output sampling or spatial grid. Its placement before convergence defines what is compared."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 39,
+      "paragraph_sha256": "0c37ac5d7815190edc52435a83a7be9cc2e3f1ff257fa7ad11949c7b12c56495",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The term convergence check now names the refinement decision and acceptable-change criterion. It explicitly relates tolerance to scientific and repeat uncertainty."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 43,
+      "paragraph_sha256": "4c00524db5156c4c91f6a238b1b53aa4291ee40996c9deca1cba9aba9b541cfd",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The example title specifies the physical quantity that must stay fixed before numerical inputs appear."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 45,
+      "paragraph_sha256": "de745bb774ea86ff32a23924a123b67dc56e2859cc469d3bd9ce8fa26795b513",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can use the earlier Brownian law 2Dh to calculate the two per-step SDs. Units and chosen inputs are explicit, so no missing noise convention is supplied from expertise."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 47,
+      "paragraph_sha256": "fab73d80352bd16b55b06f7041004108efc002f8b9bac2b3b7e1e69321ff22a2",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Reader can explain why four times as many steps need one-quarter variance per step, and diagnose the competing fourfold-SD rule as a changed model. The wrong case makes the example useful."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 49,
+      "paragraph_sha256": "83149ffc926096b6b3454e25b5241310823ebed2033d3a8b3b083f0aded8b3c8",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The example is bounded to the reduced Gaussian model before the text returns to other model families; it cannot silently become a spike-generation recipe."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 53,
+      "paragraph_sha256": "47d2327ab8b30c25c36b0525d3d412d24ae1e3897d60ade6a2d8f227bf3eb845",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The spatial counterpart transfers fixed physical scale to grid-sample width after the time example. The preceding place simulation chapter already derives filter versus physical widths."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 57,
+      "paragraph_sha256": "3f4d099eaed2b8a8dd8b7d087fc0bd788c96dd2ff7ec46de419e5135e9ca2a38",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Figure-specific target quantities motivate the record before the checklist supplies fields. The two figures exercise different purposes, so a generic output file is insufficient."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 59,
+      "paragraph_sha256": "40ef97520515319115c426105513329b84db277f0d96430a80c007133ea5b276",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Source/target record follows the panel question and binds code revision to its intended statistic."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 60,
+      "paragraph_sha256": "1d387a3658af7826c6b7cc02b6f1cb8b46d081128f9f4cd4eb788514fed6613d",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Model and input record captures physical assumptions before numerical choices, separating chosen versus measured/fitted parameters."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 61,
+      "paragraph_sha256": "bd6a763c1e48a323f44a40f60e86fa731e5b47c87bedf5f921dcc4ea22968201",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Numerical choices act on that specified model; output sampling and repeats remain distinct from internal update resolution."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 62,
+      "paragraph_sha256": "e1013c47c94a1621079ee551659e316fc631d87a433dce44d47070e5d391f8bd",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Measurement record follows generation settings because decoder/detector and preprocessing turn output into the reported object."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 63,
+      "paragraph_sha256": "abe82922f93eb1f2e8dca3ec970102839ea769f0f7380cea4fb73a0ded580889",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Comparison specifies reference, independent-repeat uncertainty and resolution stability after both model and measurement are fixed."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 65,
+      "paragraph_sha256": "0463b57598b7056cac514c96edc46abd217ff80da4791549ff99312409403702",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Monte Carlo names the repeated-random calculation and identifies the appropriate independent unit. The recorded baseline includes variance/SD, but the shared-window/shared-map caution is taught here."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 67,
+      "paragraph_sha256": "7a9cb707f5e21066acd045093bdf54a5bfb04fa429f6ec5ea9c8d4d9ceffa82b",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The deterministic-small-ensemble-published-settings progression applies the checklist to diagnosis. Saved intermediates locate a mismatch rather than merely report a failed final plot."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 69,
+      "paragraph_sha256": "2d08b0bc7c9ce981e0958ab5d3017d246e602a0cef314399fe84222d792d8d0b",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The ending asks which assumption produces a robust measured pattern and then limits the biological/device link to independent evidence. It closes the reproduction task rather than claiming animal truth from software."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 71,
+      "paragraph_sha256": "a8bca2e487ce51c7acb6651b2f805eb38d9572e937dcb2e8aa82e49f4aff6d68",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Official documentation reference supports the adjacent optional tool role and inspected version; it does not imply those versions executed the historical papers."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 73,
+      "paragraph_sha256": "6fef56ca224d777f8aacf8a18fe236179ad89e658bd589a71de8f2656e5dd947",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Official documentation reference supports the adjacent optional tool role and inspected version; it does not imply those versions executed the historical papers."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 75,
+      "paragraph_sha256": "5eed462558d30f0603775d6383c50be76bd87cdc31958aa9d091a2b1d3dac80f",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Official documentation reference supports the adjacent optional tool role and inspected version; it does not imply those versions executed the historical papers."
+    },
+    {
+      "file": "14-simulation-tools.md",
+      "line": 77,
+      "paragraph_sha256": "e4442e68411281dbbc005550ec0ee732d89c109d9d6b8b5e61b90fa82671f429",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Official documentation reference supports the adjacent optional tool role and inspected version; it does not imply those versions executed the historical papers."
+    },
+    {
+      "file": "00-reading-guide.md",
+      "line": 79,
+      "paragraph_sha256": "1ef1d5e0b47ea8661607db41042c3f8a0a42ee5ed5f638d4d121ed2fbb00a597",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The Part opening distinguishes three kinds of computation and tells the reader what the new chapters establish, then explains the four contribution labels before Part introductions use them. It preserves source explanation versus actual rerun scope."
+    },
+    {
+      "file": "00-reading-guide.md",
+      "line": 81,
+      "paragraph_sha256": "153d8656d19a9f19c98778eaadfcd1f007e319c6d377ad8fdf387e0045d06921",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "The Part opening distinguishes three kinds of computation and tells the reader what the new chapters establish, then explains the four contribution labels before Part introductions use them. It preserves source explanation versus actual rerun scope."
+    },
+    {
+      "file": "glossary.md",
+      "line": 146,
+      "paragraph_sha256": "a2a0482a07ce43b07a19ee716741eb6d5432e6ba48653a74c0c63c7834b3f5c1",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Lookup definition follows full teaching in the main text and matches its role. It is not counted as earlier prerequisite teaching; the new Gaussian-filter entry is excluded."
+    },
+    {
+      "file": "glossary.md",
+      "line": 147,
+      "paragraph_sha256": "8dfec194f7b010a2fccc6ea53831dbbd4204180038f5c03d86cd978039f31e96",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Lookup definition follows full teaching in the main text and matches its role. It is not counted as earlier prerequisite teaching; the new Gaussian-filter entry is excluded."
+    },
+    {
+      "file": "glossary.md",
+      "line": 148,
+      "paragraph_sha256": "1c2b8cfb250d7f5b4de1bb3678732011f0cbd98cefc07ffafa08effc92f0083f",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Lookup definition follows full teaching in the main text and matches its role. It is not counted as earlier prerequisite teaching; the new Gaussian-filter entry is excluded."
+    },
+    {
+      "file": "glossary.md",
+      "line": 149,
+      "paragraph_sha256": "ff7d8bf1aac297dc4e77161c7ab84689f2c23f2dfdab06cbabfd9f22bb555c3e",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Lookup definition follows full teaching in the main text and matches its role. It is not counted as earlier prerequisite teaching; the new Gaussian-filter entry is excluded."
+    },
+    {
+      "file": "glossary.md",
+      "line": 150,
+      "paragraph_sha256": "64ae6fd42a57a08bd55d2f6c37fbd3a411386f949b6d185f35318f9ce67dfb1d",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Lookup definition follows full teaching in the main text and matches its role. It is not counted as earlier prerequisite teaching; the new Gaussian-filter entry is excluded."
+    },
+    {
+      "file": "glossary.md",
+      "line": 151,
+      "paragraph_sha256": "79b7b54f33ab04c4bc8a1c72707af7ccc9e4159944a1b06d9cf6031ab81987f5",
+      "decision": "retain",
+      "purpose_understanding_and_connection": "Lookup definition follows full teaching in the main text and matches its role. It is not counted as earlier prerequisite teaching; the new Gaussian-filter entry is excluded."
+    }
+  ],
+  "larger_order": {
+    "eye": "Data-first order prevents assuming the modeled source was directly recorded. Then causal pathway, controls, limits and tools each answer the next question. A mechanism-first alternative is possible but would need the same empirical/localization distinction introduced earlier. Current order serves the reader without a move.",
+    "tools": "Source-specific cases precede the common tool/record chapter, so library choices refer to known objects. Moving this chapter first would force unfamiliar spike/field/measurement decisions before their purpose is established. No whole-chapter reorder is needed.",
+    "reading_guide": "PartIV preview and role labels appear before the new Part, and qualify the source-based/no-full-rerun evidence."
+  },
+  "prerequisite_evidence": [
+    "01-foundations.md Poisson section and interval CV definition; 04c-eye-circuit.md constant-rate thinning/renewal derivation",
+    "04-eye-drift.md sec:EYE-CHI teaches calibrated shared/private covariance assumptions",
+    "04b-eye-timing.md filtered-Brownian example defines B/E, 2D lag law, independent increments and non-differentiable path limit",
+    "04c-eye-circuit.md Eqs23-35 teaches readout, motor stage, mechanics, feedback and approximate fixed points",
+    "11-simulating-memory.md teaches Euler update before this chapter uses the numerical term",
+    "13-simulating-place-fields.md teaches static maps, component measurement and physical/filter width conversion before tools uses them",
+    "09-neuromorphic-systems.md teaches post-layout simulations versus measured analog circuits before the tools hardware reminder"
+  ],
+  "table_and_headings": "All headings and callout titles remain descriptive. The software table follows the selection goal; rows map each tool to its operation and evidence status. It functions as a compact reference, not a replacement for the mechanism paragraphs. Structural HTML wrappers were excluded as nonreader text; the actual table block was read.",
+  "connected_final_read": "Current sequence preserves recorded versus synthetic outputs, command versus angle, central sufficiency versus unique location, internal versus stored resolution, and physical versus grid width. No necessary premise or condition was lost in the two wording rounds. No basic statistics reteaching is needed.",
+  "findings": [],
+  "limits": "No artwork, rendering, full old-book review, new Gaussian-filter glossary review or simulation campaign. Previous whole-book and figure holds remain. Awake time unverified.",
+  "token_stats": "unavailable",
+  "task_request_utc": "2026-10-30T17:15:09.8401490Z",
+  "deletion_test": "Applied to current paragraphs: retained mechanisms, constraints, examples, source lookup and evidence limits have the specific reading-path role recorded for each paragraph. Proposed redundant sentences were already removed in Stage2; this Stage3 record does not repeat deletion instructions for text no longer present. No further paragraph deletion is proposed.",
+  "record_finalized_utc": "2026-10-30T17:22:11.282329+00:00"
+}

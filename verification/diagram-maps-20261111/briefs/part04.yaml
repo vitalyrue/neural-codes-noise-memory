@@ -1,0 +1,438 @@
+brief:
+  asset_id: fig:MAP-PART04
+  scope: part
+  book: burak-three-papers
+  part: part:SIMULATIONS
+  chapter: null
+  purpose: Three distinct simulations compare neural memory, eye motion, and static spatial firing maps; careful
+    implementation and measurement make each comparison testable.
+  target_use: part-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Concrete circuit and simulation scenes make the connections and distinctions across chapters inspectable.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Four distinct scenes, one for each major idea. Exact content and reading-width legibility need an
+    image-level check; omitted inventory points remain in the text.
+  scenes:
+  - source_item_ids: &id001
+    - P01
+    - P03
+    - P04
+    - P06
+    exact_label: Recurrent memory simulation
+    visible_objects_and_relation: Show recurrent neurons, spike updates, an activity bump and a small theory-versus-simulation
+      displacement plot with a bounded circular coordinate.
+    teaching_contribution_beyond_labels: A model and a separate measurement procedure predict and measure memory
+      spreading; angular wrapping changes long-delay interpretation.
+  - source_item_ids: &id002
+    - P09
+    - P10
+    - P11
+    - P12
+    - P13
+    exact_label: Eye pathway simulation
+    visible_objects_and_relation: Show an integrator command flowing into motor spikes and eye mechanics with a
+      delayed feedback path, next to a separate one-cell recording.
+    teaching_contribution_beyond_labels: Distinguish simulated internal command, modeled eye movement and the measured
+      single-neuron relation.
+  - source_item_ids: &id003
+    - P17
+    - P18
+    - P19
+    - P20
+    - P21
+    exact_label: Spatial map simulation
+    visible_objects_and_relation: Show random spatial input, smoothing, RMS normalization, thresholded fields and
+      separate fitted summaries and additional comparisons.
+    teaching_contribution_beyond_labels: A fixed spatial map is not a neural time trajectory; fitting and further
+      checks serve different purposes.
+  - source_item_ids: &id004
+    - P26
+    - P27
+    - P28
+    - P31
+    - P34
+    exact_label: Reproduction and checks
+    visible_objects_and_relation: Show a labeled original-code or independent-model choice followed by settings,
+      resolution refinement and comparison with a target.
+    teaching_contribution_beyond_labels: A successful run alone is not validation; model, measurement, numerical
+      choices and reproducible settings must be tracked.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    verdict: pending
+part_map_coverage:
+  applicable: true
+  source_scope:
+    part_plan: plan/chapter-plan.yaml
+    part_plan_sha256: 159cdfe975b868390674861b26b68f1f079bc23c98286feaa3fc67fb5ee1380a
+    chapters:
+    - chapter: ch:SIMULATING-MEMORY
+      source_path: content/chapters/11-simulating-memory.md
+      source_sha256: 930c3178863f81723c980b0ac87f4d9e25714d8f3302b011dcb9554c4d02ffec
+      sidecar_path: content/chapters/11-simulating-memory.yaml
+      sidecar_sha256: a44fbbf98549bd198ac213e9ef6b5442149da81e46be28d45bb2eaece471aec9
+    - chapter: ch:SIMULATING-EYE
+      source_path: content/chapters/12-simulating-eye-drift.md
+      source_sha256: c707d3cd85817d4da89548aec063aa6a320b6d400c4459863a24a5cf170758fb
+      sidecar_path: content/chapters/12-simulating-eye-drift.yaml
+      sidecar_sha256: 94f50171bdfec375ae5f238d1565122a146ff6229914e8a01367fe6663ea4371
+    - chapter: ch:SIMULATING-PLACE
+      source_path: content/chapters/13-simulating-place-fields.md
+      source_sha256: bc3696905a30434683102aadcc8c7f341b041d69dc826e6d6c651aa05b2571fd
+      sidecar_path: content/chapters/13-simulating-place-fields.yaml
+      sidecar_sha256: 7c0b7837e13fd6701de92210921cb7f6d650f85d9a6894f646eddd1f4e8c6dc0
+    - chapter: ch:SIMULATION-TOOLS
+      source_path: content/chapters/14-simulation-tools.md
+      source_sha256: 81f522744afc3f8f0f3b56a377c129905ac9afc2d03123875dc6e5956399782c
+      sidecar_path: content/chapters/14-simulation-tools.yaml
+      sidecar_sha256: a647e9c9ccfe269aab72e25ea5162b7370aabff4432c4439270185eaaefbfd79
+  teaching_points:
+  - id: P01
+    point: At each step, activations set weighted input and rate, conditional random spikes are generated, and activation
+      decays and renews.
+    source_locus: content/chapters/11-simulating-memory.md:5-27 (#sec:SIMULATING-MEMORY-STATE)
+  - id: P02
+    point: The time step must resolve decay and have a small event probability for the one-spike update.
+    source_locus: content/chapters/11-simulating-memory.md:5-27 (#sec:SIMULATING-MEMORY-STATE)
+  - id: P03
+    point: A ring orders neurons by preferred angle and encodes the value in an activity bump.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P04
+    point: The noise-free tuning curves predict diffusion; simulated trajectories independently supply angle displacement
+      measurements.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P05
+    point: The highest-rate neuron is a quantized numerical proxy, not the same as projection to the noise-free
+      attractor.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P06
+    point: Wrapped angle displacement reaches a finite range; flattening does not prove restored original memory.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P07
+    point: A two-unit mutually inhibitory system tests conclusions without ring symmetry, with a change of coordinates
+      affecting diffusion units.
+    source_locus: content/chapters/11-simulating-memory.md:52-72 (#sec:SIMULATING-MEMORY-CONTROLS)
+  - id: P08
+    point: Readout-error formula plots are analytical comparisons, not additional neural-network simulations; original
+      simulator software was not identified.
+    source_locus: content/chapters/11-simulating-memory.md:73-87 (#sec:SIMULATING-MEMORY-OUTPUTS)
+  - id: P09
+    point: Recordings come from 57 motor neurons in two macaques in separate single-cell recordings; held-out trials
+      test rate predictions.
+    source_locus: content/chapters/12-simulating-eye-drift.md:5-12 (#sec:SIMULATING-EYE-DATA)
+  - id: P10
+    point: Eye motion and a prediction from one neuron covary; the shared fraction estimate depends on calibration
+      and noise assumptions.
+    source_locus: content/chapters/12-simulating-eye-drift.md:5-12 (#sec:SIMULATING-EYE-DATA)
+  - id: P11
+    point: Two integrator populations produce an internal position command through their activity difference.
+    source_locus: content/chapters/12-simulating-eye-drift.md:13-39 (#sec:SIMULATING-EYE-PATH)
+  - id: P12
+    point: Motor neurons translate command into noisy spike trains and muscles filter their contributions into eye
+      position.
+    source_locus: content/chapters/12-simulating-eye-drift.md:13-39 (#sec:SIMULATING-EYE-PATH)
+  - id: P13
+    point: Delayed eye position and current internal command contribute differently to feedback input.
+    source_locus: content/chapters/12-simulating-eye-drift.md:13-39 (#sec:SIMULATING-EYE-PATH)
+  - id: P14
+    point: Compare fixed-command private motor noise, noisy internal command, and full pathway rather than relying
+      on one irregular trajectory.
+    source_locus: content/chapters/12-simulating-eye-drift.md:40-50 (#sec:SIMULATING-EYE-CONTROLS)
+  - id: P15
+    point: Apply the measured-data reconstruction to simulations and check measurement-noise and feedback controls.
+    source_locus: content/chapters/12-simulating-eye-drift.md:40-50 (#sec:SIMULATING-EYE-CONTROLS)
+  - id: P16
+    point: Released MATLAB model code and raw recordings support different reproductions; a processed MSD alone
+      is not raw data reanalysis.
+    source_locus: content/chapters/12-simulating-eye-drift.md:51-69 (#sec:SIMULATING-EYE-TOOLS)
+  - id: P17
+    point: A smooth Gaussian input field with specified spatial covariance is thresholded and scaled into firing-rate
+      maps.
+    source_locus: content/chapters/13-simulating-place-fields.md:5-26 (#sec:SIMULATING-PLACE-GENERATE)
+  - id: P18
+    point: The released spatial generator uses random grid draws, smoothing, RMS normalization, thresholding and
+      connected field detection.
+    source_locus: content/chapters/13-simulating-place-fields.md:5-26 (#sec:SIMULATING-PLACE-GENERATE)
+  - id: P19
+    point: These are static spatial maps, not direct simulations of recurrent hippocampal spikes or synapses.
+    source_locus: content/chapters/13-simulating-place-fields.md:5-26 (#sec:SIMULATING-PLACE-GENERATE)
+  - id: P20
+    point: Threshold and spatial scale are selected using condition-specific summaries; matching those summaries
+      is a fit.
+    source_locus: content/chapters/13-simulating-place-fields.md:27-36 (#sec:SIMULATING-PLACE-FIT)
+  - id: P21
+    point: Full distributions, slices, peaks and holes supply further comparisons, though some also fit a gain.
+    source_locus: content/chapters/13-simulating-place-fields.md:27-36 (#sec:SIMULATING-PLACE-FIT)
+  - id: P22
+    point: The lognormal model comparison uses the available data, not a reported held-out forecast; simulation
+      realizations sample model variation.
+    source_locus: content/chapters/13-simulating-place-fields.md:27-36 (#sec:SIMULATING-PLACE-FIT)
+  - id: P23
+    point: Connectivity, thresholds and smoothing can merge or split fields, changing counts, lengths and topology.
+    source_locus: content/chapters/13-simulating-place-fields.md:37-61 (#sec:SIMULATING-PLACE-MEASURE)
+  - id: P24
+    point: The Gaussian filter width differs from the resulting correlation scale; boundary handling varies by implementation.
+    source_locus: content/chapters/13-simulating-place-fields.md:37-61 (#sec:SIMULATING-PLACE-MEASURE)
+  - id: P25
+    point: NumPy and SciPy generate and measure maps and Gudhi evaluates topology; code availability differs from
+      data and run-setting availability.
+    source_locus: content/chapters/13-simulating-place-fields.md:62-80 (#sec:SIMULATING-PLACE-TOOLS)
+  - id: P26
+    point: Authors’ code, independent implementation and simplified teaching model answer different reproduction
+      questions.
+    source_locus: content/chapters/14-simulation-tools.md:5-14 (#sec:SIMULATION-TOOLS-ROUTES)
+  - id: P27
+    point: A successful run alone does not establish agreement with published model, data and measurements.
+    source_locus: content/chapters/14-simulation-tools.md:5-14 (#sec:SIMULATION-TOOLS-ROUTES)
+  - id: P28
+    point: Random generator, seed, software versions and call ordering determine reproducibility; the seed alone
+      is insufficient.
+    source_locus: content/chapters/14-simulation-tools.md:15-32 (#sec:SIMULATION-TOOLS-SOFTWARE)
+  - id: P29
+    point: A deterministic ODE solver does not by itself implement Poisson spikes or Brownian increments.
+    source_locus: content/chapters/14-simulation-tools.md:15-32 (#sec:SIMULATION-TOOLS-SOFTWARE)
+  - id: P30
+    point: Field connectivity rules and the choice of spiking simulator affect what model and measurement are implemented.
+    source_locus: content/chapters/14-simulation-tools.md:15-32 (#sec:SIMULATION-TOOLS-SOFTWARE)
+  - id: P31
+    point: Refining simulation time step or spatial grid while preserving physical parameters tests convergence
+      in reported results.
+    source_locus: content/chapters/14-simulation-tools.md:33-54 (#sec:SIMULATION-TOOLS-RESOLUTION)
+  - id: P32
+    point: For Brownian increments variance scales with step duration, so the standard deviation scales with its
+      square root.
+    source_locus: content/chapters/14-simulation-tools.md:33-54 (#sec:SIMULATION-TOOLS-RESOLUTION)
+  - id: P33
+    point: Saving output too sparsely can discard temporal information despite a small internal time step.
+    source_locus: content/chapters/14-simulation-tools.md:33-54 (#sec:SIMULATION-TOOLS-RESOLUTION)
+  - id: P34
+    point: Preserve source, target, model, inputs, numerical settings, measurement and uncertainty, with the true
+      independent repeat as unit.
+    source_locus: content/chapters/14-simulation-tools.md:55-77 (#sec:SIMULATION-TOOLS-RECORD)
+  - id: P35
+    point: 'A mutually excitatory pair supplies a separate control: across trials variance can grow linearly even
+      when local diffusion varies with state.'
+    source_locus: content/chapters/11-simulating-memory.md:69-71
+  - id: P36
+    point: The model reports neuron counts and timing, but the meaning of N differs between paper wording and code
+      population vectors and must be resolved before claiming exact reproduction.
+    source_locus: content/chapters/12-simulating-eye-drift.md:32-36
+  - id: P37
+    point: The sampled spatial map is normalized by its root mean square before thresholding; finite-grid smoothing
+      and edge handling affect the realized map.
+    source_locus: content/chapters/13-simulating-place-fields.md:15-25
+  - id: P38
+    point: When refining a spatial grid, increase the correlation scale in grid samples to keep the same physical
+      correlation length; a spiking network also requires its own discrete-event rule.
+    source_locus: content/chapters/14-simulation-tools.md:49-55
+  - id: P39
+    point: The eye model has released MATLAB code, the spatial study uses Python tools and Gudhi, while SciPy solve_ivp
+      and Brian 2 are optional reconstruction tools whose model and event rules must be matched.
+    source_locus: content/chapters/14-simulation-tools.yaml:44-68 (tbl:SIMULATION-TOOLS)
+  planned_point_ids:
+  - P01
+  - P03
+  - P04
+  - P06
+  - P09
+  - P10
+  - P11
+  - P12
+  - P13
+  - P17
+  - P18
+  - P19
+  - P20
+  - P21
+  - P26
+  - P27
+  - P28
+  - P31
+  - P34
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 39
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P02: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P05: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P07: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P08: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P14: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P15: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P16: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P22: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P23: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P24: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P25: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P29: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P30: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P32: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P33: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P35: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P36: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P37: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P38: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+    P39: Not selected for this four-scene Part overview; remains in the full source inventory and can be covered
+      in the chapter map or prose.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - plan/chapter-plan.yaml
+  - content/chapters/11-simulating-memory.md
+  - content/chapters/12-simulating-eye-drift.md
+  - content/chapters/13-simulating-place-fields.md
+  - content/chapters/14-simulation-tools.md
+  caption: Three distinct simulations compare neural memory, eye motion, and static spatial firing maps; careful
+    implementation and measurement make each comparison testable.
+  alt_text: 'Part overview: State to weighted input to rate to random events to next state loop; Short step and
+    low-probability event indicator; Ring and position-coded bump; Separate tuning-curve prediction and stochastic
+    trials converge at comparison; Largest-rate index beside continuous projection marked distinct; Circle wrapping
+    and bounded angular-error curve; Two units with reciprocal inhibitory links and rate/activation coordinate key;
+    Formula curve separated from event-driven simulation; Sequential single-cell records with held-out trial; Measured
+    and predicted displacement traces sharing a latent drive; Opposing populations to common internal command; Command
+    to motor spikes to mechanical filter to eye angle; Eye-output delay branch and current-command branch entering
+    subtraction; Three separated control pipelines with common observation statistic; Simulated motor spikes and
+    eye output entering the same analysis; Separate model code, raw recordings and processed summary inputs; Random
+    grid smoothed into continuous field then thresholded into active regions; Five sequential grid-state representations
+    with normalized scale; Position axis clearly separate from time trajectory; Data summaries entering parameter
+    fitting loop; Fitted features separated from additional histogram and topology comparisons; Two model likelihood
+    comparisons marked in-sample; Same grid under two connectivity or cutoff rules; Filter kernel and broader covariance
+    curve with different boundary treatments; Tools linked to operations; missing dataset depicted separately; Three
+    separately labeled implementation paths to different claims; Program output compared against source and target
+    measurement; Run record connected to random draws; Separate deterministic solver, event generator and stochastic
+    increments; A grid with two connectivity choices and separate neuron model; Coarse/fine time and space scales
+    feeding matched comparison; Four short increments versus one long increment with matched total variance; Fine
+    internal trace sampled by a coarse output grid; A compact record grouping parameters, measurement and independent
+    repeats.'
+required_items:
+- id: S1
+  exact_label: Recurrent memory simulation
+  teaching_point: A model and a separate measurement procedure predict and measure memory spreading; angular wrapping
+    changes long-delay interpretation.
+  visual_role: mechanism and comparison
+- id: S2
+  exact_label: Eye pathway simulation
+  teaching_point: Distinguish simulated internal command, modeled eye movement and the measured single-neuron relation.
+  visual_role: mechanism and comparison
+- id: S3
+  exact_label: Spatial map simulation
+  teaching_point: A fixed spatial map is not a neural time trajectory; fitting and further checks serve different
+    purposes.
+  visual_role: mechanism and comparison
+- id: S4
+  exact_label: Reproduction and checks
+  teaching_point: A successful run alone is not validation; model, measurement, numerical choices and reproducible
+    settings must be tracked.
+  visual_role: mechanism and comparison
+communication_plan:
+  segments:
+  - id: S1
+    purpose: Recurrent memory simulation
+    source_item_ids: *id001
+  - id: S2
+    purpose: Eye pathway simulation
+    source_item_ids: *id002
+  - id: S3
+    purpose: Spatial map simulation
+    source_item_ids: *id003
+  - id: S4
+    purpose: Reproduction and checks
+    source_item_ids: *id004
+  layout: Use a small number of integrated explanatory scenes; do not use arrows between independent cases. The
+    large inventory may require significant simplification and a coverage review before generation.
+  keep_in_text:
+  - All derivations
+  - Numerical details and references
+  independent_example_groups:
+  - Different hardware demonstrations or different paper simulations have no implied causal connection.
+  sidecar_scene_impacts:
+  - source_locus: content/chapters/14-simulation-tools.yaml:44-68 (tbl:SIMULATION-TOOLS)
+    impact: Separate tools used by source papers from optional software for a new implementation; a deterministic
+      ODE solver is not by itself a spiking simulator.
+    planned_scene_status: pending redesign
+  readability_risk: The four-scene plan is a draft; even these scenes may be too dense at book width. If labels,
+    relationships or necessary conditions cannot be seen clearly, redesign rather than claim acceptance.
+normal_flow:
+- Use only causal and computational relationships supported by each source chapter.
+secondary_relationships:
+- Show separate demonstrations and measurements as comparisons rather than one connected experiment.
+exact_text:
+  required:
+  - Recurrent memory simulation
+  - Eye pathway simulation
+  - Spatial map simulation
+  - Reproduction and checks
+  prohibited:
+  - part title banner
+  - review notes or captions in the artwork
+  - misleading causal arrows between separate studies
+constraints:
+- Keep all figure claims and relationships source-grounded.
+- Do not equate physical memory, persistent activity and decoded value.
+- Do not claim a simulation proves a biological mechanism.
+- Preserve actual-width readability.
+- Coverage and independent review remain pending.
+dispositions: []
+actual_design_note: The source inventory is deliberately more detailed than this overview. Planned IDs are intentions
+  only and are not proof of visual coverage.

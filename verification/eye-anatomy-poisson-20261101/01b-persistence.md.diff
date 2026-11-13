@@ -1,0 +1,79 @@
+--- baseline/content\chapters\01b-persistence.md
++++ content\chapters\01b-persistence.md
+@@ -1,10 +1,62 @@
+ # Stable representations can accumulate error {#ch:PERSISTENCE}
+ 
+-The next distinction is between a value and the activity that represents it. Eye position is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.[^f-memory]
++Holding the eye at an angle requires muscles to maintain tension after the command to move has ended. The brain must therefore keep producing a position-dependent signal. The horizontal eye angle considered here is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.[^f-memory]
+ 
+ <!-- vale ai-tells.FigurativeStays = NO -->
+-We first build a small example in which some disturbances fade while others leave a different stored angle. We then ask what happens when small lasting changes arrive repeatedly, deriving how their spread grows with time and how a fixed bias changes that prediction. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals.
++We first follow the physical path from motor neurons to muscles and eye rotation, separating mechanical smoothing from the neural command that holds a gaze angle. A small circuit example then shows why some disturbances fade while others leave a different stored angle. Repeating those lasting changes gives the diffusion calculation. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals.
+ <!-- vale ai-tells.FigurativeStays = YES -->
++
++## Sustained muscle tension holds the eye against elastic restoring forces {#sec:PERSISTENCE-EYE-MECHANICS}
++
++**Anatomy: muscles turn the eyeball.** In humans and macaques, the eyeball rotates within the bony eye socket, or orbit. [The six [**extraocular muscles**]{.definition-term custom-style="Definition Term"} attach to the outside of the eyeball and control its orientation.]{.definition-explanation} The medial rectus pulls it toward the nose; the lateral rectus pulls it away. The superior and inferior rectus and the two oblique muscles contribute to vertical movement and rotation about the line of sight. Their actions depend on the eye's orientation.[^p-eye-anatomy]
++
++[**Ocular motoneurons (OMNs)**]{.definition-term custom-style="Definition Term"} [are neurons that activate these muscles through long nerve fibres.]{.definition-explanation} Their cell bodies lie in brainstem groups, and these fibres travel through three cranial nerves. The abducens nerve, VI, supplies the lateral rectus; the trochlear nerve, IV, supplies the superior oblique; the oculomotor nerve, III, supplies the other four. For horizontal gaze, changing the relative pull of the medial and lateral rectus rotates the eye. [A force's turning effect is its [**torque**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} Opposing torques can balance even while the muscles remain under tension.[^p-eye-anatomy]
++
++**Repeated spikes maintain tension.** Each motor spike affects muscle force for longer than the electrical event lasts. Repeated activation and the combined action of many muscle fibres give a smoother force than a sequence of isolated eye movements. [**Tonic firing**]{.definition-term custom-style="Definition Term"} [means sustained firing during the holding period.]{.definition-explanation} It need not be perfectly periodic. During a rapid repositioning movement, called a [**saccade**]{.definition-term custom-style="Definition Term"}, a brief strong drive moves the eye; a sustained position-dependent drive then holds the new angle. This is the pulse-and-step description: the step means continuing drive, not one more spike.[^p-eye-mechanics][^p-eye-plasticity]
++
++The mechanical properties contribute in different ways:
++
++- [**Elasticity**]{.definition-term custom-style="Definition Term"} [creates restoring forces when muscles and surrounding tissues are stretched.]{.definition-explanation} At an off-centre gaze angle, active muscle torque must balance the restoring tendency.
++- [**Viscosity**]{.definition-term custom-style="Definition Term"} [resists motion and dissipates mechanical energy.]{.definition-explanation} It damps rapid changes but supplies no holding torque once velocity is zero.
++- [**Inertia**]{.definition-term custom-style="Definition Term"} [is resistance to a change in angular velocity.]{.definition-explanation} It matters during acceleration, not as a force holding a stationary eye. In primate eye movements, elastic and viscous effects dominate inertia.[^p-eye-mechanics]
++
++[Mechanical damping smooths movement; sustained neural drive selects the angle around which the eye is held. Inertia cannot preserve a stationary gaze against an unbalanced elastic pull.]{.key-statement}
++
++::: {.publisher-clarification-note .publisher-fold-always title="Mechanical calculation: what holds an angle, and what only slows its change"}
++
++For a small angular range, a teaching approximation treats the eye as a rotating mass with a spring and viscous resistance. Let $\phi$ be angle in radians measured from the position where the passive forces balance. Let $I$ be the rotational inertia, $B>0$ the viscous resistance, $K>0$ the angular stiffness, and $\tau_m(t)$ the net active muscle torque. The angular force balance is
++
++$$
++I\ddot\phi+B\dot\phi+K\phi=\tau_m(t).
++$$
++
++The terms are torques: $I$ multiplies angular acceleration, $B$ multiplies angular velocity, and $K$ multiplies displacement. This is a guide approximation, not the full model of eye mechanics in Ben-Shushan et al. (2022). Real muscle force is nonlinear and depends on activation and movement history.[^p-eye-mechanics]
++
++At a held angle, $\dot\phi=\ddot\phi=0$, so
++
++$$
++\tau_m=K\phi.
++$$
++
++The steady angle therefore depends on active torque and stiffness. At fixed torque, doubling $K$ halves the angle in this linear model. Increasing $I$ or $B$ cannot replace the torque required to hold that angle.
++
++If the active torque is removed, neglecting the relatively small inertial term gives
++
++$$
++B\dot\phi+K\phi=0,\qquad
++\phi(t)=\phi(0)e^{-t/\tau_p},\qquad
++\tau_p=\frac{B}{K}.
++$$
++
++Greater viscous resistance slows the return; greater stiffness speeds it up at fixed $B$. Neither creates a choice of indefinitely held angles. Actual eye mechanics include several relaxation times, so $\tau_p$ is an effective timescale in this simplified calculation.
++
++:::
++
++**The brain maintains the holding command.** [The [**oculomotor integrator**]{.definition-term custom-style="Definition Term"} converts movement commands into a maintained eye-position signal.]{.definition-explanation} This signal sustains the motor output after a saccade. The name refers to accumulating an eye-velocity command over time into a position signal. In monkeys, Cannon and Robinson (1987) reversibly disrupted brainstem regions involved in this function. Horizontal gaze then drifted back with a time constant of about 0.2 s, compared with more than 20 s before disruption in darkness. The muscles alone did not provide the original persistence.[^p-eye-integrator]
++
++Visual feedback can correct gaze errors, and signals from the inner ear help compensate for head motion. Holding can nevertheless continue in darkness, so immediate visual correction is not the whole mechanism. [**Plasticity**]{.definition-term custom-style="Definition Term"} [is a lasting, experience-dependent change in neural responses or connections.]{.definition-explanation} It can adjust how well the holding circuit is calibrated. Major et al. (2004) altered visual feedback in goldfish and trained their gaze holding toward drift or instability over tens of minutes to hours; normal feedback could reverse the change. That is a change in neural control over a longer timescale, distinct from the immediate elastic and viscous response of the tissues. The experiment did not identify the exact cellular learning rule.[^p-eye-anatomy][^p-eye-plasticity]
++
++The next model isolates the remaining neural question: how can a circuit preserve an activity pattern while losing the angle that pattern was supposed to hold?
+ 
+ ## Stable activity with a vulnerable stored value {#sec:FOUNDATIONS-ATTRACTOR}
+ 
+@@ -203,3 +255,11 @@
+ <!-- vale ai-tells.EmDashUsage = NO -->
+ [^f-place]: Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). *Universal statistics of hippocampal place fields across species and dimensionalities*. Neuron, 113(7), 1110–1120.e3. [DOI](https://doi.org/10.1016/j.neuron.2025.01.017). Introduction, Results, and STAR Methods. The distinction between map randomness and visit-to-visit spike variation follows from what the model's random function indexes.
+ <!-- vale ai-tells.EmDashUsage = YES -->
++
++[^p-eye-anatomy]: Dragoi, V. (2026, July 7 review). *Ocular Motor Control*. Neuroscience Online, Section 3, Chapter 8, McGovern Medical School, UTHealth Houston. [Sections 8.2–8.3 and Fig. 8.1](https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html). Anatomy, muscle innervation and visual/vestibular control.
++
++[^p-eye-mechanics]: Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). *Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation*. Journal of Neurophysiology, 101(6), 2907–2923. [DOI](https://doi.org/10.1152/jn.91045.2008). Introduction and stimulation/relaxation results. The spring-and-damper calculation is a guide reconstruction of the physical roles, not a fitted reproduction of these experiments.
++
++[^p-eye-integrator]: Cannon, S. C., and Robinson, D. A. (1987). *Loss of the neural integrator of the oculomotor system from brain stem lesions in monkey*. Journal of Neurophysiology, 57(5), 1383–1409. [DOI](https://doi.org/10.1152/jn.1987.57.5.1383). Abstract reports the reversible disruption and gaze-holding time constants.
++
++[^p-eye-plasticity]: Major, G., Baker, R., Aksay, E., Mensh, B., Seung, H. S., and Tank, D. W. (2004). *Plasticity and tuning by visual feedback of the stability of a neural integrator*. Proceedings of the National Academy of Sciences, 101(20), 7739–7744. [DOI](https://doi.org/10.1073/pnas.0401970101). Fig. 1 for movement and holding signals; Figs. 2–4 and Discussion for goldfish training, reversibility and unresolved cellular mechanisms.

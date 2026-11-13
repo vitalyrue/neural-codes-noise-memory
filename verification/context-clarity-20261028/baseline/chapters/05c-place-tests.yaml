@@ -1,0 +1,81 @@
+chapter_id: ch:PLACE-TESTS
+part_id: part:OBSERVATIONS
+title: Holes and measurements test the spatial explanation
+purpose: Two maps can have the same field sizes and counts while arranging their active regions
+  differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial
+  model account for these differences, and how much would that agreement tell us about the
+  circuit that produced the maps?
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:PLACE-FIELDS
+- ch:PLACE-SIZES
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:PLACE-TOPOLOGY
+  title: Holes distinguish maps with the same field count
+  summary: Two maps can have the same field count and total active area but different holes.
+    As the activity threshold rises, active regions shrink and can split or disappear. The
+    numbers of components and holes can change.
+  level: 2
+- id: sec:PLACE-DATA
+  title: What was fitted and what was tested
+  summary: The experiments supply estimated firing rate maps, not the hidden Gaussian input.
+    To assess a prediction, we must therefore track both which summaries set its parameters
+    and which processing decisions change the map's geometry.
+  level: 2
+- id: sec:PLACE-WIRING
+  title: Random input weights can generate Gaussian maps
+  summary: The statistical model becomes biologically useful if it suggests how a circuit
+    could make the maps. A random weighted sum of many inputs is one possible mechanism, and
+    the supplement makes its assumptions explicit.
+  level: 2
+blocks:
+- id: tbl:PLACE-DATA-COMPARISONS
+  kind: table
+  placement: sec:PLACE-DATA
+  headers:
+  - Condition
+  - Quantities used to choose parameters
+  - Main additional comparisons
+  rows:
+  - - Bats, 200 m tunnel
+    - mean field length and mean gap
+    - full distributions, log-length moments, peaks, boundary slopes, rate versus width, EC
+  - - Bats, 6 m tunnel
+    - mean field length and occupied fraction
+    - length distribution and simpler field shapes; Figure 5D reports 40 cells
+  - - Bats, 130 m tunnel; rats, 48 m maze
+    - mean length and mean field count
+    - length distributions and parameter trends; rat details in Figure S1
+  - - Mice, 40 m virtual track
+    - direct fit of $\beta$ to available length histograms
+    - qualitative Rayleigh comparison for four mice in Figure 1F
+  - - Rats, 18.6 m$^2$ arena
+    - mean area and count, with silent-cell exclusion correction
+    - areas, counts, line slices, and EC; raw-map slice/EC analyses use 20 supplied cells
+  - - Bats, 5.8 by 4.6 by 2.7 m room
+    - mean volume and occupied volume fraction
+    - volumes, line/plane slices, rate versus linear size, EC, surface curvature
+  caption: Fitted quantities and additional comparisons.
+  first_column_role: row-labels
+  html_fold: never
+- id: fig:PLACE-TOPOLOGY
+  kind: figure
+  placement: sec:PLACE-TOPOLOGY
+  asset: assets/approved/visuals/place-topology.png
+  caption: As the threshold rises on one constructed smooth map, components and holes change
+    separately, giving Euler characteristics -1, 0, 4, and 3. The above-threshold regions
+    shrink as the threshold rises, while the Euler characteristic can rise or fall.
+    This guide example is not an observed place-field map or a Gaussian-process sample; it
+    illustrates Mainali et al. (2025), Figure 3F–H and STAR Methods Equations 8–10.
+  alt: Four thresholds of the same smooth two-dimensional map show one component with two
+    holes and chi minus one; one component with one hole and chi zero; four components with
+    no holes and chi four; and three components with no holes and chi three. Each active set
+    is contained in the preceding one as q increases from 0.3 to 0.5, 0.8 and 1.0.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

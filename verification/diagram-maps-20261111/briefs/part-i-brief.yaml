@@ -1,0 +1,278 @@
+brief:
+  asset_id: fig:MAP-PART-I
+  scope: part
+  book: burak-three-papers
+  part: I
+  purpose: Connect neural feedback, diffusion, information and readout in the 2012 continuous-attractor model.
+  target_use: part-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-for-editor-review
+  source_scope: plan/chapter-plan.yaml part:MECHANISMS and Chapters 1–6
+  reading_width: 6.35 inches; confirm actual HTML width before acceptance
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Different physical scenes show the feedback, wandering and readout sequence.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Connect recurrent network, neutral memory motion and information, then branch into storage and readout;
+    keep simulation comparisons and long-time boundaries distinct.
+  scenes:
+  - source_item_ids:
+    - P01
+    - P02
+    - P03
+    visible_objects:
+    - neurons and recurrent feedback
+    - population activity bump
+    - neutral and restoring directions
+    depicted_relationship_or_change: Spikes and feedback sustain a pattern representing an angle, with restoration
+      toward the family and a vulnerable position along it.
+    teaching_contribution_beyond_labels: A shifted bump makes memory movement visible without disappearance of activity.
+  - source_item_ids:
+    - P04
+    - P05
+    - P06
+    - P07
+    - P08
+    visible_objects:
+    - spike noise
+    - return-flow paths
+    - short versus long trajectory distributions
+    - ring and two-unit simulation marks
+    - paired reciprocal weights as a special case
+    - separate mean-motion arrow and random-spread envelope
+    depicted_relationship_or_change: Network response projects fluctuations into diffusion; boundaries and possible
+      mean drift alter the long time interpretation.
+    teaching_contribution_beyond_labels: Return paths and separate line and circle show how the same local noise
+      leads to different later observations.
+  - source_item_ids:
+    - P09
+    - P10
+    - P11
+    visible_objects:
+    - nearby angle tuning responses
+    - spike variability
+    - information-diffusion bound
+    - parameter-change comparison with fixed assumptions marked
+    depicted_relationship_or_change: Fisher information about the current state constrains the minimum diffusion
+      under the model assumptions.
+    teaching_contribution_beyond_labels: Distinct response changes and noise show local discriminability and the
+      meaning of a lower bound.
+  - source_item_ids:
+    - P12
+    - P13
+    - P14
+    visible_objects:
+    - storage and observation timeline
+    - spike observation pathway
+    - ideal and equal-weight error curves
+    - partial access branch
+    depicted_relationship_or_change: Storage error accumulates before recall; later spikes estimate the state at
+      the recall cue while the state continues to move, and partial access reduces information.
+    teaching_contribution_beyond_labels: The timeline locates when each error accumulates and the curves distinguish
+      ongoing improvement from the equal-weight optimum.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    verdict: pending
+chapter_map_coverage:
+  applicable: false
+  reason: This is a Part map; chapter-specific coverage threshold does not apply.
+  source_scope_inventory:
+  - id: P01
+    source_locus: content/chapters/01-foundations.md:63-137 (sec:MEMORY-SPIKES)
+    point: Spikes maintain decaying synaptic activations; weighted recurrent inputs and a transfer function determine
+      subsequent rates.
+  - id: P02
+    source_locus: content/chapters/01-foundations.md:138-186 (sec:FOUNDATIONS-SPIKES and sec:FOUNDATIONS-POISSON)
+    point: A population firing pattern can represent an angle and its spike counts vary across observations.
+  - id: P03
+    source_locus: content/chapters/01b-persistence.md:7-90 (sec:FOUNDATIONS-ATTRACTOR)
+    point: Continuous attractor states return from some disturbances but retain displacement along their neutral
+      direction.
+  - id: P04
+    source_locus: content/chapters/02-memory-dynamics.md:127-330 (sec:MEMORY-LINEARIZATION and sec:MEMORY-DIFFUSION)
+    point: Projecting independent spike fluctuations through the network return flow gives local diffusion of the
+      stored coordinate.
+  - id: P05
+    source_locus: content/chapters/02-memory-dynamics.md:331 (sec:MEMORY-SYMMETRIC)
+    point: The connection-symmetric special case expresses diffusion via tuning slopes and the corrected formula.
+  - id: P06
+    source_locus: content/chapters/02b-memory-long-delays.md:13-70 (sec:MEMORY-FIGURES)
+    point: The paper compares theory with ring and two-unit simulated networks rather than animal memory trajectories.
+  - id: P07
+    source_locus: content/chapters/02b-memory-long-delays.md:71-200 (sec:MEMORY-LONG-TIME)
+    point: Long delays, boundaries or state-dependent diffusion alter the short-time error description.
+  - id: P08
+    source_locus: content/chapters/02b-memory-long-delays.md:201 (sec:MEMORY-DRIFT-SCOPE)
+    point: Systematic drift of the mean and random spreading are separate effects.
+  - id: P09
+    source_locus: content/chapters/03-memory-information.md:27-179 (sec:MEMORY-FI)
+    point: Spike tuning and variability set local internal Fisher information under the model’s spike assumptions.
+  - id: P10
+    source_locus: content/chapters/03-memory-information.md:180-228,344-428 (sec:MEMORY-BOUND and sec:MEMORY-SATURATION)
+    point: The information diffusion inequality sets a lower limit on diffusion under the specified assumptions;
+      equality requires special alignment.
+  - id: P11
+    source_locus: content/chapters/03-memory-information.md:229-343,429 (sec:MEMORY-EXTENSIONS and sec:MEMORY-COMPARISONS)
+    point: Generalizations and parameter comparisons require the relevant time scales, noise model and fixed quantities.
+  - id: P12
+    source_locus: content/chapters/03b-memory-readout.md:26-86 (sec:MEMORY-READOUT-SETUP)
+    point: Storage error accumulates before recall; readout error concerns estimating the state at the recall cue
+      from spikes observed afterward, while the state keeps moving.
+  - id: P13
+    source_locus: content/chapters/03b-memory-readout.md:87-276 (sec:MEMORY-IDEAL and sec:MEMORY-NAIVE)
+    point: An ideal observer’s readout error decreases toward a limit; equal weighting has a finite optimum.
+  - id: P14
+    source_locus: content/chapters/03b-memory-readout.md:277-311 (sec:MEMORY-PARTIAL)
+    point: Partial access reduces information available for readout without reducing the full network’s diffusion.
+  - id: P15
+    source_locus: content/chapters/03b-memory-readout.md:350 (sec:MEMORY-MINIMUM-VARIANCE)
+    point: The guide identifies an apparent issue with a printed error bound as its own check, not an official correction.
+  source_sha256:
+    content\chapters\01-foundations.md: 534c3ed63a03bdda5421d92c854b8eb7d3d9482ef4ac4d107a4243e477c36cf0
+    content\chapters\01b-persistence.md: 70ce935bf041ed9b6267dc3be850f94ee2448d9aa806b04bfb1c5aae09f94404
+    content\chapters\02-memory-dynamics.md: f745413f28e0f9dc711ef73965fae33248fabee4ec22fc815f3b2d9e4f4efd2d
+    content\chapters\02b-memory-long-delays.md: c71b034938934e905aee6dd006729aed3e319c408cb67dd7e1ba565fc037bcb1
+    content\chapters\03-memory-information.md: 1a49b4b23a1586496f2a474c16f306ea64c54a9068d8d9546e112968a56e0c0d
+    content\chapters\03b-memory-readout.md: 722b56a7778e0fb42e795282726113e6ec5690eca29eb71d52addc8730b5ded6
+    plan/chapter-plan.yaml: 159cdfe975b868390674861b26b68f1f079bc23c98286feaa3fc67fb5ee1380a
+    content/chapters/01-foundations.yaml: 118a6448838eac8acb9b52990951e3cc4f95496d2eaf6a06d66094ffc125f558
+    content/chapters/01b-persistence.yaml: bd7f556319504c71794b780ee738b12f60842f4b30bc4fc3392657347958738d
+    content/chapters/02-memory-dynamics.yaml: 45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac
+    content/chapters/02b-memory-long-delays.yaml: 2c52f884631a0c5abbbfbc14173967b4f40fbeef49805935c8fda1f7dfcf18a1
+    content/chapters/03-memory-information.yaml: 211a751adc486402b7f7f11c87ee4ac4162590f0e54acfe0165384ab6ce3e502
+    content/chapters/03b-memory-readout.yaml: 71f4b1dea4bc056a9800f0cf1367e99092c080417d4b46bdec558ba75d6ef9ba
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  - P10
+  - P11
+  - P12
+  - P13
+  - P14
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    verdict: pending
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - plan/chapter-plan.yaml part:MECHANISMS
+  - content\chapters\01-foundations.md
+  - content\chapters\01b-persistence.md
+  - content\chapters\02-memory-dynamics.md
+  - content\chapters\02b-memory-long-delays.md
+  - content\chapters\03-memory-information.md
+  - content\chapters\03b-memory-readout.md
+  approved_terms:
+  - recurrent feedback
+  - memory diffusion
+  - internal Fisher information
+  - storage
+  - readout
+  required_plain_explanations:
+  - State stability differs from exact preservation of a represented value.
+  - A bound permits but does not guarantee lower diffusion.
+  caption: A recurrent activity pattern represents a value; noise moves it, spike information constrains the motion,
+    and an observer reads a state that continues to change.
+  alt_text: Scenes show recurrent neural activity, a pattern shifting on a family of states, information and diffusion,
+    and a timeline comparing ideal and equal-weight readout.
+required_items:
+- id: A
+  exact_label: Recurrent activity
+  teaching_point: Spikes and feedback sustain a pattern representing an angle, with restoration toward the family
+    and a vulnerable position along it.
+  visual_role: physical mechanism or comparison
+- id: B
+  exact_label: Diffusion
+  teaching_point: Network response projects fluctuations into diffusion; boundaries and possible mean drift alter
+    the long time interpretation.
+  visual_role: physical mechanism or comparison
+- id: C
+  exact_label: Information bound
+  teaching_point: Fisher information about the current state constrains the minimum diffusion under the model assumptions.
+  visual_role: physical mechanism or comparison
+- id: D
+  exact_label: Readout
+  teaching_point: Storage and readout errors differ; an observer reads a state that continues to move, and partial
+    access reduces information.
+  visual_role: physical mechanism or comparison
+communication_plan:
+  layout: Landscape with linked scenes, with enough space to distinguish source results from interpretation.
+  keep_in_text:
+  - Full derivations
+  - Numerical model values
+  - Correction details
+  required_visible_conditions:
+  - Bound is model-specific
+  - Simulation points are not biological observations
+  - Readout concerns a moving state
+normal_flow:
+- spikes -> synaptic activation -> weighted input -> firing rate
+- noise -> retained state shift -> diffusion
+- spike information and model assumptions -> diffusion bound
+- storage delay -> cue -> observation of a moving state
+secondary_relationships:
+- type: feedback
+  source: firing rate and subsequent spikes
+  destination: synaptic activation
+  meaning: Recurrent activity renews synaptic effects.
+exact_text:
+  required:
+  - Recurrent activity
+  - Diffusion
+  - Information bound
+  - Readout
+  prohibited:
+  - perfect memory
+  - animal experiment proves the model
+  - title banner
+constraints:
+- Do not imply that the 2012 paper invented the attractor model.
+- Do not imply an external readout creates the internal diffusion bound.
+- Report final-image Part-level scope coverage with visible evidence; no acceptance has been granted.
+dispositions:
+- P15 concerns a discrepancy in a printed error bound. It is retained in the full source inventory but cannot be
+  established by the proposed timeline or error curves; leave it uncredited unless an explicit source comparison
+  is legible.

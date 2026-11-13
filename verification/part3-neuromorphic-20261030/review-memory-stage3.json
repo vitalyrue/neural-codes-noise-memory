@@ -1,0 +1,136 @@
+{
+  "review_stage": "3. Reader understanding and flow, separate call",
+  "reviewer": "Independent gpt-6.1-sol high reviewer",
+  "review_call": "review-memory-stage3/2026-10-30T14:33:45Z",
+  "started_utc": "2026-10-30T14:33:45Z",
+  "finished_utc": "2026-10-30T14:39:04+00:00",
+  "scope": "Entire current Part III opening/purpose in plan, complete 07/08 Markdown and sidecars; eight indexed sections including chapter openings. Other new Part chapters and old book were not re-reviewed here.",
+  "reviewed_files_sha256": {
+    "plan/chapter-plan.yaml": "6c40c4aac412fe8bf70fea4f5f589ea4aacda3de70dfd531850d4ae8e54ad801",
+    "content/chapters/07-hardware-memory.md": "39c5cbf9c5b8023d2d851d6116d63a87018712590a42359a7c15995e32c8dce5",
+    "content/chapters/07-hardware-memory.yaml": "29017969fe10afd3d39380c94e49d9236d08260615dc11f0b2a185102f85d5eb",
+    "content/chapters/08-hardware-dynamics.md": "29f4abde4d28f1936a75c2926dcefc54962b5c010a0c75773c2571b0045018c9",
+    "content/chapters/08-hardware-dynamics.yaml": "b2a0c4f3ccc01c2c7f59f941cb785672851f07161fe320d8181088c10e15e359"
+  },
+  "findings": [],
+  "verdict": "PASS for local current 07/08 and Part opening teaching scope. No required repair remains. This does not establish full-book, figure, render or release acceptance.",
+  "stage2_repair_recheck": [
+    {
+      "id": "N1",
+      "status": "resolved",
+      "location": "07-hardware-memory.md:29-39,58",
+      "judgment": "Current and voltage now have physical meanings and units. Capacitor Q/C/V roles, fixed C, Q=CV and units are explicit. Conductance/resistance use the current-voltage ratio with the proportional-response qualification. I/G/V are mapped again at their actual computation use."
+    },
+    {
+      "id": "N2",
+      "status": "resolved",
+      "location": "07-hardware-memory.md:39",
+      "judgment": "PCM now states what changes physically: ordered/disordered atomic arrangement, set by heating and cooling. Conductance reads that arrangement and nonvolatile retention is qualified."
+    }
+  ],
+  "findings_encountered_and_resolved_during_call": [
+    {
+      "id": "F1",
+      "first_observed": "08-hardware-dynamics.yaml purpose contained the first section heading after its opening paragraph.",
+      "repair_recheck": "Current sidecar purpose contains only the chapter opening paragraph. Section heading appears only in section_list. Current index and file hash agree.",
+      "status": "resolved"
+    },
+    {
+      "id": "F2",
+      "first_observed": "07 PCM update paragraph gave I=GV and current summation but did not map an input value to a physical read signal.",
+      "repair_recheck": "Current p58 explicitly maps G to weight and read pulse duration T to input magnitude. At fixed G,V one positive contribution passes Q approximately GVT; currents add and are converted over time to digital values. Signed contributions are explicitly outside this simple example. Current p60 interprets both material state and applied signal.",
+      "status": "resolved"
+    }
+  ],
+  "focused_truth_recheck": {
+    "capacitor": "Q=CV and current-as-charge-per-time explain voltage change for fixed C. All new units agree.",
+    "PCM_input_mapping": "Q approximately GVT follows from integrating approximately constant I=GV for duration T. Siemens*volt*second equals coulomb. Doubling T at fixed G,V doubles the ideal contribution; doubling G has the same proportional effect. The wording does not claim that the chip literally stores this charge on an analog capacitor.",
+    "source_check": "Primary Le Gallo author manuscript https://arxiv.org/pdf/2212.02872, PDF p3/Section II, describes PWM read-voltage pulses and time-based current ADCs; Extended Data Fig2 explains bit-line current summation. Input-duration encoding and digitization are supported. Q approximately GVT is an explicitly limited teaching calculation, not a separately reported experimental result. Polarity handling is kept visible as a limit."
+  },
+  "section_judgments": [
+    {
+      "id": "ch:HARDWARE-MEMORY/s0",
+      "reader_task": "Explain why correct weights and retained cue information can differ.",
+      "judgment": "The opening gives the concrete angle/unchanged-weight problem before names or mechanisms. It states the three objects needed to compare physical memory."
+    },
+    {
+      "id": "ch:HARDWARE-MEMORY/s1",
+      "reader_task": "Identify weights, changing state and decoded cue value in one trial.",
+      "judgment": "Cue and readout come first, then each role is defined. The visible key statement carries the essential distinction; the folded ring example tests it without adding a hidden prerequisite. Neuromorphic/working memory definitions set scope and alternatives."
+    },
+    {
+      "id": "ch:HARDWARE-MEMORY/s2",
+      "reader_task": "Identify which physical variable stores information and what can change it.",
+      "judgment": "The numeric-versus-physical membrane-voltage choice motivates the section. Current/voltage precede charge storage and its causal use. Digital word, analog voltage and material arrangement are separately taught before the comparison table. The table connects stored quantity, role and relevant error; mismatch is then separated from changing noise."
+    },
+    {
+      "id": "ch:HARDWARE-MEMORY/s3",
+      "reader_task": "Follow an input into an update and explain how stored settings influence computation.",
+      "judgment": "The digital trace identifies connections, weights, accumulated input, neuron updates and new events. Analog current acts on a capacitor already taught. The repaired PCM paragraph maps a stored weight and input duration into a physical product before summation. Mixed-signal and in-memory labels describe mechanisms already established. The closing question motivates feedback."
+    },
+    {
+      "id": "ch:HARDWARE-DYNAMICS/s0",
+      "reader_task": "Ask how long persistence can exceed component decay and which quantity persists.",
+      "judgment": "The seconds-versus-milliseconds observation gives an accessible physical question. It connects directly to the preceding storage/update distinction."
+    },
+    {
+      "id": "ch:HARDWARE-DYNAMICS/s1",
+      "reader_task": "Explain loss/replacement and predict the effect of changing feedback strength.",
+      "judgment": "The physical charge/input replacement mechanism precedes the scalar equation. Symbols and units are stated before the solution is interpreted; calculus supplies the integrating-factor step in the optional fold. Visible interpretation gives gain below/at/above unity. Folded numbers illustrate sensitivity without being the sole explanation."
+    },
+    {
+      "id": "ch:HARDWARE-DYNAMICS/s2",
+      "reader_task": "Explain why discrete restoration limits local noise while a neutral memory direction accumulates displacement.",
+      "judgment": "Physical mechanism precedes math. The comparison distinguishes dynamical behavior from implementation, then a local restoring stochastic equation contrasts bounded variance with 2Dt. Earlier Part I supplies Brownian/neutral-state meanings. The optional integral gives the derivation; the visible interpretation connects pinning with bias and spread. The explicit neural-bound limit prevents transfer to every electronic memory."
+    },
+    {
+      "id": "ch:HARDWARE-DYNAMICS/s3",
+      "reader_task": "State what the two silicon experiments establish and what they leave open.",
+      "judgment": "The common test question precedes evidence. The finite-position orientation circuit and noisy bistable circuit support different claims. The final rule connects distinguished values, retention time and accuracy, preparing the platform comparison that follows."
+    }
+  ],
+  "order_and_transitions": {
+    "judgment": "Retain the present sequence. Roles before physical storage before update mechanisms before collective persistence before error correction before measured examples. An alternative starting with platform names would require the storage and dynamics distinctions later anyway and make the early comparison harder to interpret.",
+    "Part_opening": "Historical quotation is immediately contextualized and limited. The concrete silicon angle question and three achievements define the reader problem, then the chapter route and first-pass instructions explain how to proceed.",
+    "connected_read": "Final connected read completed on actual current passages and sidecars, including the repaired PCM paragraph. No remaining missing relation, conflicting term, unsupported generalization or essential explanation hidden solely in a fold was found."
+  },
+  "fold_visibility": "The visible text contains the problem, physical objects, core equations/results and interpretation. Ring/gain examples and deeper differential/stochastic derivations are extra detail in folds. Their claims are labeled as examples/models rather than chip measurements. Existing rendering was not checked.",
+  "exception_recheck": {
+    "scoped_approved_count": 21,
+    "status": "retained",
+    "judgment": "The exact book quotation and cited paper titles remain unchanged. En dashes remain only in citation/section ranges. Approved contrasts state material model/evidence limits or distinguish dynamics from implementation; the three-item lists each enumerate distinct needed cases. Mathematical tends to zero retains its limit meaning. Five semicolons and therefore flagged for ordinary author prose have been simplified. Current suppression comments close around the approved paragraph, heading or footnote; no blanket disable found in assigned scope."
+  },
+  "concept_record": "concept-judgments-memory.json: seven concepts, eight reviewed sections, actual packet passage IDs and zero-based spans. Neural-memory-roles uses a three-passage teaching set; other essential relations point to actual teaching before required uses.",
+  "limits": [
+    "Local new Part text acceptance only.",
+    "No old full-book acceptance or figure hold was cleared.",
+    "No render, build, full audit or publication checks performed.",
+    "No manuscript edits by this reviewer."
+  ],
+  "checkpoints": [
+    {
+      "utc": "2026-10-30T14:33:45Z",
+      "state": "Stage 3 start; 3-5 minute estimate."
+    },
+    {
+      "utc": "2026-10-30T14:35:58Z",
+      "state": "Full path read; sidecar defect repaired; PCM input mapping repair requested; concept packet refresh needed.",
+      "wall_elapsed_seconds": 133,
+      "since_previous_seconds": 133
+    },
+    {
+      "utc": "2026-10-30T14:37:05Z",
+      "state": "PCM repair and regenerated packet inspected; focused source/math recheck passed.",
+      "wall_elapsed_seconds": 200,
+      "since_previous_seconds": 67
+    },
+    {
+      "utc": "2026-10-30T14:39:04+00:00",
+      "state": "Final review and concept judgments saved with current hashes.",
+      "wall_elapsed_seconds": 319,
+      "awake_execution": "unverified"
+    }
+  ],
+  "awake_execution": "unverified",
+  "token_stats": "unavailable"
+}

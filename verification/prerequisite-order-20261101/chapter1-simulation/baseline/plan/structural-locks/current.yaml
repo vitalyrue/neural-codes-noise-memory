@@ -1,0 +1,1094 @@
+schema_version: 1
+book_id: burak-three-papers
+book_model_hash: 1102b8bb67a7fd7b13876f155adcb237f1a5d54eb48de72e4f281bf037674fc2
+counts:
+  parts: 4
+  chapters: 21
+  sections: 80
+  subsections: 1
+  instructional_sections: 81
+  appendices: 2
+  front_matter: 1
+front_matter:
+- id: ch:READING-GUIDE
+  title: What the three papers establish
+  purpose: These neuroscience papers study memory, eye control, and navigation. Their
+    settings are mathematical models of stored values, eye-movement and neural recordings
+    from macaque monkeys, and recordings of location-dependent neural activity in
+    rodents and bats. This reading guide explains each study’s question, methods,
+    findings, and limits.
+  guide_locus: ch:READING-GUIDE
+  source_loci: []
+  sections:
+  - id: sec:READING-FIELD
+    title: Variable neural signals must support reliable behavior
+    summary: A remembered direction must remain useful after its cue disappears. The
+      eyes must hold an angle while an animal looks at a target. A moving animal must
+      keep track of where it is. These tasks depend on groups of [**neuron**]{.definition-term
+      custom-style="Definition Term"}s, the brain's signaling cells, whose electrical
+      signals are brief and variable. Computational and systems neuroscience studies
+      how these cells and their interactions support such behavior. Mathematical models
+      connect assumptions about cells and their interactions to predictions. Recordings
+      test those predictions against neural activity and movement.
+    guide_locus: sec:READING-FIELD
+    level: 2
+  - id: sec:READING-MEMORY
+    title: Persistent activity can still lose memory accuracy
+    summary: Burak and Fiete (2012) study short-term memory for a continuous quantity,
+      such as a direction or eye angle. A proposed mechanism is that interacting neurons
+      keep activity going after the original input ends. Yet the remembered value
+      can change while the activity persists. The problem is to explain how the properties
+      of the cells and their connections set the rate of this loss of accuracy.
+    guide_locus: sec:READING-MEMORY
+    level: 2
+  - id: sec:READING-EYE
+    title: Eye drift points to a shared neural source
+    summary: Even while gaze is held on a stationary target, the eyes move smoothly
+      and irregularly between brief, rapid movements. This smooth motion is called
+      [**fixational drift**]{.definition-term custom-style="Definition Term"}. It
+      changes the image reaching the [**retina**]{.definition-term custom-style="Definition
+      Term"}, the light-sensitive tissue at the back of the eye. Understanding its
+      source is therefore part of understanding the visual signals the brain receives.
+      Ben-Shushan and colleagues (2022) ask whether the motion begins mainly in muscles
+      or in neural commands sent to them.
+    guide_locus: sec:READING-EYE
+    level: 2
+  - id: sec:READING-PLACE
+    title: Smooth random maps explain the variety of place fields
+    summary: A [**place cell**]{.definition-term custom-style="Definition Term"} in
+      the [**hippocampus**]{.definition-term custom-style="Definition Term"}, a brain
+      region involved in memory and navigation, becomes more active in particular
+      locations. Each connected region of elevated activity is a [**place field**]{.definition-term
+      custom-style="Definition Term"}. Small environments encouraged a picture of
+      one smooth field per cell. Larger environments reveal multiple fields with widely
+      varying sizes and shapes. Mainali, Azeredo da Silveira, and Burak (2025) ask
+      whether one statistical account can explain this variety across species and
+      spatial dimensions.
+    guide_locus: sec:READING-PLACE
+    level: 2
+  - id: sec:READING-HARDWARE
+    title: Electronic implementations make memory mechanisms testable
+    summary: '[Part III](../parts/part-hardware.html) asks how the neural memory mechanisms
+      can be implemented in electronic circuits. The setting is neuromorphic computing,
+      where engineered systems implement computations inspired by neural organization
+      and dynamics. The chapters distinguish connection weights from changing neural
+      states, explain how feedback affects retention, and examine selected hardware
+      research through October 30, 2026. They end with a proposed experiment that
+      separates systematic drift, random spreading, and readout error. This extension
+      is a comparison of mechanisms and evidence. The original papers remain the foundation
+      of Parts I and II.'
+    guide_locus: sec:READING-HARDWARE
+    level: 2
+  - id: sec:READING-SIMULATIONS
+    title: Simulations separate the model from the evidence used to test it
+    summary: '[Part IV](../parts/part-simulations.html) follows the computational
+      methods in Burak and Fiete (2012), Ben-Shushan et al. (2022), and Mainali et
+      al. (2025). It distinguishes simulated neural trajectories, recorded-data analysis,
+      and generated spatial maps. Each chapter identifies the model states, numerical
+      procedure, measurements, available code, and limits on reproducing the published
+      figures. The final chapter compares tools and explains resolution and repeatability
+      checks. These are explanations of the sources, not a claim that the guide reran
+      their full simulations.'
+    guide_locus: sec:READING-SIMULATIONS
+    level: 2
+  - id: sec:READING-START
+    title: Starting knowledge and reading paths
+    summary: 'The guide assumes undergraduate calculus, basic probability, and linear
+      algebra. Neuroscience terms and the required stochastic-process, information,
+      filtering, and random-field ideas are taught where needed. The reading path
+      builds from the signals to the models and then their tests:'
+    guide_locus: sec:READING-START
+    level: 2
+  - id: sec:READING-MECHANISM-MATH
+    title: Neural mechanisms and mathematical derivations answer different questions
+    summary: 'Chapters 3–6 explain how interacting neurons can retain a value while
+      random spike timing changes it. Their treatment of the Burak and Fiete appendix
+      separates three parts of each substantial topic:'
+    guide_locus: sec:READING-MECHANISM-MATH
+    level: 2
+  - id: sec:READING-SCOPE
+    title: How to interpret the calculations and evidence
+    summary: Examples chosen for the guide distinguish independent from shared fluctuations,
+      complete from limited access to neural signals, and exact formulas from approximations
+      for rare fields. Their numbers are checked separately from the published experimental
+      measurements. A teaching reconstruction is labeled when its simplified model
+      differs from the paper's full model.
+    guide_locus: sec:READING-SCOPE
+    level: 2
+  - id: sec:READING-PAPERS
+    title: The original papers
+    summary: The copies are the published versions. Supporting information is linked
+      separately.
+    guide_locus: sec:READING-PAPERS
+    level: 2
+parts:
+- id: part:MECHANISMS
+  title: Noise limits memory accuracy in continuous attractor models
+  purpose: In a model neural circuit, a pattern of firing rates across many nerve
+    cells can represent a remembered angle. Random spike timing can change that angle
+    while activity persists. The central source, [Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109),
+    derives how quickly accuracy can be lost and how well the value can be read. Chapters
+    1 and 2 establish the background. Chapters 3 and 5 develop the central diffusion
+    and information results. Chapters 4 and 6 explain long-delay behavior and readout.
+    Expanded examples and marked checks of printed formulas are guide-derived.
+  guide_locus: part:MECHANISMS
+  source_loci: []
+  chapters:
+  - id: ch:FOUNDATIONS
+    title: Patterns of variable spikes can represent a value
+    purpose: Start from eye muscles and neural spikes, establish the dynamical model
+      in Burak and Fiete (2012), Eqs. 7–9, then explain coding and variable spike
+      counts. These foundations precede the stability and diffusion arguments.
+    guide_locus: ch:FOUNDATIONS
+    source_loci: []
+    sections:
+    - id: sec:FOUNDATIONS-EYE-ACTION
+      title: Repeated spikes maintain eye muscle tension
+      summary: Brief spikes activate the eye muscles. Repeated firing maintains tension,
+        while elasticity, viscosity and inertia have different mechanical roles. This
+        physical pathway precedes the eye-angle coding example.
+      guide_locus: sec:FOUNDATIONS-EYE-ACTION
+      level: 2
+    - id: sec:MEMORY-SPIKES
+      title: Recurrent spikes renew decaying synaptic activity
+      summary: Burak and Fiete (2012), Eqs. 7–9, define how spikes renew a decaying
+        activation, weighted activations set neural input, and input sets the rate
+        of new spikes. This model precedes coding, noise and stability calculations.
+      guide_locus: sec:MEMORY-SPIKES
+      level: 2
+    - id: sec:FOUNDATIONS-SPIKES
+      title: Patterns of firing rates represent a value
+      summary: Tuning curves relate expected firing rates to an eye angle or location.
+        A population code represents the value across neurons; the rate baseline is
+        distinguished from the model input bias.
+      guide_locus: sec:FOUNDATIONS-SPIKES
+      level: 2
+    - id: sec:FOUNDATIONS-POISSON
+      title: A variable spike count at a fixed rate
+      summary: A tuning curve describes expected activity, but a brief spike observation
+        can differ each time the same value is represented. The 2012 model describes
+        this variability with a [**Poisson process**]{.definition-term custom-style="Definition
+        Term"}. At constant rate $r$, the number $K$ of spikes in an interval of length
+        $\Delta t$ obeys
+      guide_locus: sec:FOUNDATIONS-POISSON
+      level: 2
+    - id: sec:FOUNDATIONS-COVARIANCE
+      title: Shared neural signals and a biased command leave different signs in eye
+        motion
+      summary: Shared neural commands, private spike variability, directional bias
+        and muscle response affect different features of eye displacement. Covariance
+        and mean squared displacement help distinguish these effects under explicit
+        assumptions.
+      guide_locus: sec:FOUNDATIONS-COVARIANCE
+      level: 2
+  - id: ch:PERSISTENCE
+    title: Stable representations can accumulate error
+    purpose: Building on the eye anatomy and firing-rate code in Chapter 1, this chapter
+      examines mechanical balance and sustained neural drive. It then separates changes
+      in neuronal activity from changes in the value represented, showing how persistent
+      activity can still accumulate memory error.
+    guide_locus: ch:PERSISTENCE
+    source_loci: []
+    sections:
+    - id: sec:PERSISTENCE-EYE-MECHANICS
+      title: Sustained muscle tension holds the eye against elastic restoring forces
+      summary: A folded torque calculation separates the force needed to hold an angle
+        from factors that slow its return. Neural integration maintains the command,
+        and plasticity can adjust the circuit's calibration.
+      guide_locus: sec:PERSISTENCE-EYE-MECHANICS
+      level: 2
+    - id: sec:FOUNDATIONS-ATTRACTOR
+      title: Stable activity with a vulnerable stored value
+      summary: A circuit's current activities are its [**state**]{.definition-term
+        custom-style="Definition Term"}. A dynamical equation specifies how that state
+        changes. A [**fixed point**]{.definition-term custom-style="Definition Term"}
+        is a state where the deterministic rate of change is zero. It is stable in
+        a direction if a small disturbance in that direction decays.
+      guide_locus: sec:FOUNDATIONS-ATTRACTOR
+      level: 2
+    - id: sec:FOUNDATIONS-DIFFUSION
+      title: Independent steps with equal duration and variance give linear variance
+        growth
+      summary: 'If persistent angular changes arrive repeatedly, their errors accumulate.
+        Divide time into intervals of length $\Delta t$. Let $\xi_j$ be the change
+        in the represented coordinate during interval $j$. The calculation assumes:'
+      guide_locus: sec:FOUNDATIONS-DIFFUSION
+      level: 2
+    - id: sec:FOUNDATIONS-RANDOMNESS
+      title: A fixed spatial map differs from a value that wanders over time
+      summary: The memory and eye papers study fluctuations that accumulate as time
+        passes. The place-field paper instead starts with a random function of physical
+        position. Once drawn for a cell and an environment, that function is fixed
+        while the animal moves through the map. Revisiting a place evaluates the same
+        expected-rate function, although the actual spikes can still vary from visit
+        to visit.
+      guide_locus: sec:FOUNDATIONS-RANDOMNESS
+      level: 2
+  - id: ch:MEMORY-DYNAMICS
+    title: Spiking noise produces diffusion along the memory attractor
+    purpose: Starting from the neural model in Chapter 1, derive the weak-fluctuation
+      approximation and follow small disturbances through the circuit to calculate
+      diffusion of a stored value.
+    guide_locus: ch:MEMORY-DYNAMICS
+    source_loci: []
+    sections:
+    - id: sec:MEMORY-WEAK-NOISE
+      title: Many weak inputs allow a continuous approximation to spike noise
+      summary: Starting from the model taught in Chapter 1, conditional Poisson counts
+        yield a mean input and a fluctuation. Small input fluctuations permit a continuous
+        Gaussian approximation and define the deterministic steady states.
+      guide_locus: sec:MEMORY-WEAK-NOISE
+      level: 2
+    - id: sec:MEMORY-LINEARIZATION
+      title: The network's return flow determines the lasting memory change
+      summary: '**Neural mechanism.** A spike perturbs many aspects of a network''s
+        state. Most of those changes decay as the state returns to the attractor.
+        To calculate memory loss, we need the lasting change: the displacement to
+        a different fixed point. We assume a smooth continuous family with one neutral
+        memory direction, while all other local modes decay. The disturbance must
+        be small enough that the first order response describes the return flow.'
+      guide_locus: sec:MEMORY-LINEARIZATION
+      level: 2
+    - id: sec:MEMORY-DIFFUSION
+      title: Projecting spike fluctuations gives the diffusion coefficient
+      summary: '**Neural mechanism.** We can now calculate how much random displacement
+        remains after the stable components have relaxed. Each cell''s random spikes
+        disturb its outgoing synaptic activation. The circuit''s return flow determines
+        the lasting shift in memory. This calculation uses the weak noise and conditional
+        independence assumptions, with rates and return flow evaluated near one fixed
+        point.'
+      guide_locus: sec:MEMORY-DIFFUSION
+      level: 2
+    - id: sec:MEMORY-SYMMETRIC
+      title: Symmetric weights express diffusion through tuning curves
+      summary: The connection matrix W contains the weights from neuron j to neuron
+        i. Equal weights in opposite directions allow the projection vector to be
+        expressed through tuning curves under the stated assumptions.
+      guide_locus: sec:MEMORY-SYMMETRIC
+      level: 2
+  - id: ch:MEMORY-LONG-DELAYS
+    title: Boundaries and drift change memory error over long delays
+    purpose: In the memory-network model, random changes in a stored angle accumulate
+      over time. This chapter extends the local spreading calculation to longer delays,
+      where boundaries, angular wraparound, and systematic drift can change the size
+      of the memory error.
+    guide_locus: ch:MEMORY-LONG-DELAYS
+    source_loci: []
+    sections:
+    - id: sec:MEMORY-LONG-TIME
+      title: Long delay errors depend on boundaries and local diffusion
+      summary: '**Neural mechanism.** Spike fluctuations keep shifting the stored
+        value after the cue has ended. The local diffusion coefficient describes the
+        variance of those shifts after stable disturbances have relaxed. It does not
+        by itself say that variance grows at the same rate forever: boundaries and
+        variation of $D$ can change the long time behavior. We first keep $D$ constant,
+        so the line and circle differ only in how the memory coordinate is bounded.'
+      guide_locus: sec:MEMORY-LONG-TIME
+      level: 2
+    - id: sec:MEMORY-DRIFT-SCOPE
+      title: A diffusion calculation does not determine systematic drift
+      summary: '**Neural mechanism.** Repeated trials can spread apart even if their
+        average stays at the original value. That random spreading differs from a
+        reproducible movement in one direction. Both can occur, and the derivation
+        of $D$ alone does not settle the second question.'
+      guide_locus: sec:MEMORY-DRIFT-SCOPE
+      level: 2
+    - id: sec:MEMORY-FIGURES
+      title: Figures distinguish memory motion from readout error and test diffusion
+      summary: '**Neural mechanism in the figures.** [Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439)
+        shows the definition of the memory coordinate. Start at a green point off
+        the attractor and follow the noise free flow to the black point on it. This
+        endpoint defines the instantaneous attractor state. After one noisy interval,
+        repeat that flow. The difference between the two endpoints is the retained
+        memory change. The relevant projection follows the flow, as in the [tilted
+        two variable example](ch-memory-dynamics.html#sec-memory-linearization).'
+      guide_locus: sec:MEMORY-FIGURES
+      level: 2
+  - id: ch:MEMORY-INFORMATION
+    title: Spike information limits memory stability
+    purpose: A neuron receiving spikes from a memory circuit has access to information
+      about the stored value. This chapter sets a bound on estimation error under
+      the model’s assumptions and derives the constraint that spike information places
+      on the circuit’s memory stability.
+    guide_locus: ch:MEMORY-INFORMATION
+    source_loci: []
+    sections:
+    - id: sec:MEMORY-FI
+      title: Rate slopes and spike variability determine local information
+      summary: '**Neural mechanism.** Suppose two nearby memory values produce almost
+        identical rates. A short spike sample cannot reliably tell them apart. If
+        a small change in memory instead produces a large rate change relative to
+        spike variability, that sample is more useful. We need a quantity that measures
+        this local distinction.'
+      guide_locus: sec:MEMORY-FI
+      level: 2
+    - id: sec:MEMORY-BOUND
+      title: Spike information sets a lower bound on memory diffusion
+      summary: '**Neural mechanism.** The network has no access to its exact firing
+        rates as noiseless numbers. Its recurrent input is built from the same random
+        spikes that an external observer sees. The lower bound on diffusion follows
+        directly by comparing the state sensitivity of the network with the spike
+        information.'
+      guide_locus: sec:MEMORY-BOUND
+      level: 2
+    - id: sec:MEMORY-COMPARISONS
+      title: Improving persistence depends on what a comparison holds fixed
+      summary: '**Neural mechanism.** The inequality compares diffusion and information
+        for the same network. To compare different networks, we must say what stays
+        fixed. Otherwise an apparent benefit of a parameter change may come from changing
+        another property at the same time. The comparisons below control how added
+        neurons, altered firing rates, or slower synaptic decay affect the tuning
+        curves and recurrent input.'
+      guide_locus: sec:MEMORY-COMPARISONS
+      level: 2
+  - id: ch:MEMORY-READOUT
+    title: Readout accuracy depends on how a moving memory is observed
+    purpose: Reading spikes from a memory circuit takes time, during which its stored
+      value can keep changing. This chapter calculates how much longer observation
+      can help recover the value present at a recall cue, and explains why it cannot
+      recover every earlier random displacement.
+    guide_locus: ch:MEMORY-READOUT
+    source_loci: []
+    sections:
+    - id: sec:MEMORY-READOUT-SETUP
+      title: Storage loss and readout error add under specific assumptions
+      summary: '**Neural question and model.** At time $T$, a recall cue arrives.
+        The observer must estimate the original value $\Theta$, but only has access
+        to future spikes. The network has already diffused during storage.'
+      guide_locus: sec:MEMORY-READOUT-SETUP
+      level: 2
+    - id: sec:MEMORY-NAIVE
+      title: Equal weighting becomes harmful when observation lasts too long
+      summary: '**Neural question and model.** A decoder designed for a stationary
+        state averages its observations with equal weight. That reduces independent
+        observation noise, but late observations reflect a state that has moved further
+        from $x$.'
+      guide_locus: sec:MEMORY-NAIVE
+      level: 2
+    - id: sec:MEMORY-IDEAL
+      title: Accounting for diffusion makes readout improve toward a limit
+      summary: '**Neural question and model.** An observer that accounts for diffusion
+        can use later observations without confusing them with direct measurements
+        of $x$. Their value is limited by the motion separating them from $x$. This
+        is an ideal inference rule for an observer. The readout calculation does not
+        demonstrate a neural circuit implementing it. Its error can be derived by
+        combining information backward from the end of the observation interval.'
+      guide_locus: sec:MEMORY-IDEAL
+      level: 2
+    - id: sec:MEMORY-PARTIAL
+      title: Limited access can make observation slower
+      summary: '**Neural mechanism.** A downstream area may receive only some of the
+        memory network''s spikes. That reduces its information without reducing the
+        fluctuations that already move the full memory network.'
+      guide_locus: sec:MEMORY-PARTIAL
+      level: 2
+    - id: sec:MEMORY-EXTENSIONS
+      title: Time scales and noise laws change the bound and its equality condition
+      summary: '**Neural mechanism.** The time constant in the inequality comes from
+        the dynamics that carry an activation fluctuation into a lasting memory change.
+        If both synaptic activation and firing rate adjust gradually, which time constant
+        matters?'
+      guide_locus: sec:MEMORY-EXTENSIONS
+      level: 2
+    - id: sec:MEMORY-FIG3-AND-CAUTION
+      title: Readout saturates, and one printed error bound needs qualification
+      summary: 'Figure 3 isolates readout uncertainty, rescaling variance by $\sqrt{2D/J}$
+        and duration by $L^*$. In these axes the ideal curve is $\coth z$ and the
+        naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations because
+        too few spikes are available. The plotted features are:'
+      guide_locus: sec:MEMORY-FIG3-AND-CAUTION
+      level: 2
+- id: part:OBSERVATIONS
+  title: Eye motion and place fields constrain different parts of a neural code
+  purpose: These studies connect neural activity to eye control in monkeys and location
+    in rodents and bats. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y)
+    supply the central shared-drive inference and a possible integrator explanation
+    in Chapters 7 to 9. [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017)
+    supply the spatial model, field-size predictions, and supporting shape tests in
+    Chapters 10 to 12. Chapter 13 is a guide-derived comparison of those results with
+    Burak and Fiete (2012). The eye chapters begin with recordings and then test a
+    possible neural source. The place chapters begin with a spatial input model and
+    then test its field statistics.
+  guide_locus: part:OBSERVATIONS
+  source_loci: []
+  chapters:
+  - id: ch:EYE-DRIFT
+    title: Eye drift points to a shared neural drive
+    purpose: Even when a monkey looks at a stationary spot, its eyes drift slightly.
+      This chapter explains how paired measurements of eye angle and the firing of
+      neurons that command eye muscles support a shared neural source of that drift,
+      before considering a particular circuit mechanism.
+    guide_locus: ch:EYE-DRIFT
+    source_loci: []
+    sections:
+    - id: sec:EYE-PATHWAY
+      title: From stored eye position to muscle action
+      summary: 'The eye needs an ongoing command to maintain a position. A brief command
+        to move is therefore insufficient: after the movement, a circuit must maintain
+        activity representing the new position. The [**oculomotor integrator**]{.definition-term
+        custom-style="Definition Term"} is the neural circuit that performs this storage.
+        “Integrator” refers to turning a movement command into a lasting position
+        signal. In the proposed mechanism, the continuous attractor described in the
+        [foundations](ch-persistence.html#sec-foundations-attractor) and [network
+        model](ch-foundations.html#sec-memory-spikes) stores horizontal eye position.
+        Noise moves the stored value along that attractor.[^p2-pathway]'
+      guide_locus: sec:EYE-PATHWAY
+      level: 2
+    - id: sec:EYE-RECORDINGS
+      title: The recordings pair one motor neuron with movement at a time
+      summary: The authors reanalyzed earlier experiments in two male rhesus macaques.
+        With their heads held still, the monkeys first looked at a stationary spot
+        of light on a monitor and then followed the moving spot. A wire search coil
+        on one eye measured the eye's angle while an electrode recorded one neuron's
+        spikes. There were 57 identified OMNs. Each recording paired one OMN with
+        eye movement. There were no simultaneous recordings of multiple OMNs. Thus
+        the analysis cannot directly measure the covariance between two recorded motor
+        neurons.[^p2-recordings][^p2-single]
+      guide_locus: sec:EYE-RECORDINGS
+      level: 2
+    - id: sec:EYE-FORWARD-FIT
+      title: A fitted model links movement to firing rate
+      summary: Position alone does not predict a motor neuron's activity during a
+        movement. At the same position, firing can differ when the eye is moving or
+        accelerating. The paper therefore fits
+      guide_locus: sec:EYE-FORWARD-FIT
+      level: 2
+    - id: sec:EYE-INVERSE-FILTER
+      title: A calibrated filter predicts eye position from one cell's spikes
+      summary: 'To ask how much eye movement is shared with a neuron, it helps to
+        express both signals in degrees. The paper reverses the fitted relationship:
+        a cell''s spike train becomes the input, and its prediction of eye position
+        becomes the output. This operation is an inverse of the movement-to-rate fit,
+        rather than a new fit to small drift residuals.'
+      guide_locus: sec:EYE-INVERSE-FILTER
+      level: 2
+    - id: sec:EYE-SHARED-VARIANCE
+      title: The measured correlation challenges independent motor noise alone
+      summary: 'A correlation of 0.17 does not immediately tell us how much motion
+        comes from the common command. First we can ask a more limited question: could
+        all the motion come from independent motor neuron fluctuations?'
+      guide_locus: sec:EYE-SHARED-VARIANCE
+      level: 2
+    - id: sec:EYE-CHI
+      title: Calibrated covariance estimates the common share of movement variance
+      summary: The variance bound establishes that a shared signal exists, but leaves
+        its size open. The next calculation uses the inverse filter’s calibrated gain
+        in degrees. For one 350 ms interval, write the measured displacement and the
+        single cell prediction as
+      guide_locus: sec:EYE-CHI
+      level: 2
+  - id: ch:EYE-TIMING
+    title: Drift growth distinguishes diffusion from filtered white noise
+    purpose: Eye movements recorded during steady gaze in monkeys look different over
+      short and long time intervals. This chapter uses their timing to distinguish
+      fluctuations around a fixed command from accumulated changes in the command,
+      while accounting for eye-position measurement error.
+    guide_locus: ch:EYE-TIMING
+    source_loci: []
+    sections:
+    - id: sec:EYE-MEASUREMENT-NOISE
+      title: Independent measurement error adds a constant offset to the MSD
+      summary: The common variance calculation uses one interval length. To learn
+        what kind of process drives motion, the authors next compare displacements
+        at many time separations. Using the [earlier definition of mean squared displacement](ch-foundations.html#sec-foundations-covariance),
+      guide_locus: sec:EYE-MEASUREMENT-NOISE
+      level: 2
+    - id: sec:EYE-FILTERED-MSD
+      title: The MSD plateaus for filtered white noise but grows for filtered diffusion
+      summary: The corrected MSD keeps increasing over the observed range, toward
+        a second, while its logarithmic slope decreases and remains between one and
+        two. Define that local slope by
+      guide_locus: sec:EYE-FILTERED-MSD
+      level: 2
+  - id: ch:EYE-CIRCUIT
+    title: A noisy memory circuit can produce eye drift
+    purpose: A circuit that stores the intended eye angle is one possible source of
+      fixational drift. This chapter follows the proposed model from interacting neurons
+      through motor neurons and muscles to eye motion, and explains how delayed visual
+      feedback can limit that motion.
+    guide_locus: ch:EYE-CIRCUIT
+    source_loci: []
+    sections:
+    - id: sec:EYE-CIRCUIT-MODEL
+      title: A noisy integrator can reproduce drift after muscle filtering
+      summary: The recording analysis places much of the drive upstream of OMNs. To
+        test whether integrator noise could supply it, the authors build a model from
+        a noisy memory circuit through to the eye. The model adapts an earlier goldfish
+        integrator architecture to primate tuning and variability. The model has two
+        groups of integrator neurons. One group fires more when the eye points farther
+        right. The other fires more when it points farther left. Neurons excite cells
+        in their own group and inhibit cells in the other group. The connection strengths
+        are tuned so that the circuit can approximately maintain a range of represented
+        eye positions.[^p2-network]
+      guide_locus: sec:EYE-CIRCUIT-MODEL
+      level: 2
+    - id: sec:EYE-SCALING
+      title: Spike regularity and circuit parameters set the model's drift scale
+      summary: An agreement in amplitude is informative only if we know how much freedom
+        the model has. The paper uses regular spike trains. The [spike variability
+        section](ch-foundations.html#sec-foundations-poisson) defined the interspike
+        interval coefficient of variation (CV) as the interval standard deviation
+        divided by its mean. A Poisson process at constant rate has CV one. The model
+        uses about 0.22 for integrator neurons and about 0.07 for OMNs. Such firing
+        is called [**sub-Poisson spiking**]{.definition-term custom-style="Definition
+        Term"} here because its long window count variability is lower than a Poisson
+        process at the same rate, under the interval construction used in the model.[^p2-cv]
+      guide_locus: sec:EYE-SCALING
+      level: 2
+    - id: sec:EYE-FIGURES
+      title: The figures test shared drive, diffusion, and the full circuit model
+      summary: The five figures address different steps. Their agreement is easier
+        to assess when those questions remain separate.
+      guide_locus: sec:EYE-FIGURES
+      level: 2
+    - id: sec:EYE-LIMITS
+      title: The evidence places shared drive upstream without identifying one circuit
+      summary: 'The data and model answer different questions about where the drive
+        originates:'
+      guide_locus: sec:EYE-LIMITS
+      level: 2
+  - id: ch:PLACE-FIELDS
+    title: Field counts and gaps reveal threshold and scale
+    purpose: Hippocampal place cells fire more at particular locations as an animal
+      moves. This chapter introduces the rodent and bat recordings, then shows how
+      a smooth random input that exceeds a firing threshold can produce several separate
+      active regions for one cell.
+    guide_locus: ch:PLACE-FIELDS
+    source_loci: []
+    sections:
+    - id: sec:PLACE-GP
+      title: Thresholding a smooth Gaussian input produces place fields
+      summary: 'To predict a field''s width, we need to relate activity at nearby
+        positions. A histogram of firing rates alone loses that information: rearranging
+        its values could turn one broad field into many tiny fields without changing
+        the histogram.'
+      guide_locus: sec:PLACE-GP
+      level: 2
+    - id: sec:PLACE-KAC-RICE
+      title: Upcrossings count fields, with an endpoint correction
+      summary: A field starts at an upcrossing, so its expected count can be found
+        by counting upward passages through the threshold. A small interval around
+        each crossing has a width determined by its slope; this lets us count crossings
+        without locating every root.
+      guide_locus: sec:PLACE-KAC-RICE
+      level: 2
+    - id: sec:PLACE-INFERENCE
+      title: Mean field and gap lengths separate threshold from scale
+      summary: A low field count can result from a high threshold or a slowly varying
+        map. Field lengths help separate those possibilities.
+      guide_locus: sec:PLACE-INFERENCE
+      level: 2
+  - id: ch:PLACE-SIZES
+    title: High peaks explain size laws across dimensions
+    purpose: A place cell’s active regions can have different sizes on a route, across
+      a floor, or in a flight volume. This chapter derives why the spatial model predicts
+      different field-size distributions in one, two, and three dimensions, and identifies
+      the high-threshold approximation used in that derivation.
+    guide_locus: ch:PLACE-SIZES
+    source_loci: []
+    sections:
+    - id: sec:PLACE-RARE-PEAKS
+      title: Near a high peak, the input is nearly parabolic
+      summary: The crossing calculation determines a mean length exactly, but it does
+        not yet explain the shape of the length histogram. To obtain that distribution,
+        we examine the small region around a peak that barely exceeds a high threshold.
+      guide_locus: sec:PLACE-RARE-PEAKS
+      level: 2
+    - id: sec:PLACE-SIZE-LAW
+      title: Geometry gives different size laws in each dimension
+      summary: A round region's radius and its volume have different units and different
+        distributions. This geometric conversion explains why the model predicts different
+        histograms in a track, an arena, and a room.
+      guide_locus: sec:PLACE-SIZE-LAW
+      level: 2
+    - id: sec:PLACE-SLICES
+      title: Slices test spatial structure beyond field volume
+      summary: A model can fit field volumes and still place activity incorrectly
+        within those volumes. Slicing the map tests that internal spatial structure.
+      guide_locus: sec:PLACE-SLICES
+      level: 2
+    - id: sec:PLACE-SLOPES
+      title: Why slopes at field boundaries are Rayleigh
+      summary: The derivative at an arbitrary position is Gaussian. A field boundary
+        is a selected position, however, and selecting it changes the derivative distribution.
+      guide_locus: sec:PLACE-SLOPES
+      level: 2
+  - id: ch:PLACE-TESTS
+    title: Holes and measurements test the spatial explanation
+    purpose: Recordings show where a hippocampal cell is active as an animal moves
+      through an environment. This chapter tests the spatial model against the shapes
+      and arrangement of those regions, then asks what agreement can reveal about
+      the inputs and connections that produce them.
+    guide_locus: ch:PLACE-TESTS
+    source_loci: []
+    sections:
+    - id: sec:PLACE-TOPOLOGY
+      title: Holes distinguish maps with the same field count
+      summary: Two maps can have the same field count and total active area but different
+        holes. As the activity threshold rises, active regions shrink and can split
+        or disappear. The numbers of components and holes can change.
+      guide_locus: sec:PLACE-TOPOLOGY
+      level: 2
+    - id: sec:PLACE-DATA
+      title: What was fitted and what was tested
+      summary: The experiments supply estimated firing rate maps, not the hidden Gaussian
+        input. To assess a prediction, we must therefore track both which summaries
+        set its parameters and which processing decisions change the map's geometry.
+      guide_locus: sec:PLACE-DATA
+      level: 2
+    - id: sec:PLACE-WIRING
+      title: Random input weights can generate Gaussian maps
+      summary: The statistical model becomes biologically useful if it suggests how
+        a circuit could make the maps. A random weighted sum of many inputs is one
+        possible mechanism, and the supplement makes its assumptions explicit.
+      guide_locus: sec:PLACE-WIRING
+      level: 2
+  - id: ch:SYNTHESIS
+    title: Spatial maps and memory dynamics need separate tests
+    purpose: 'The three papers address different links between nerve-cell activity
+      and behavior: retaining a value, producing eye movement, and representing location.
+      This chapter compares what the models and recordings establish, and separates
+      supported connections from further questions about how a complete neural circuit
+      would work.'
+    guide_locus: ch:SYNTHESIS
+    source_loci: []
+    sections:
+    - id: sec:SYNTHESIS-QUESTIONS
+      title: The three papers constrain maps, dynamics, and movement
+      summary: 'For a circuit representing position, three questions arise:'
+      guide_locus: sec:SYNTHESIS-QUESTIONS
+      level: 2
+    - id: sec:SYNTHESIS-JOINT-CALCULATION
+      title: A shared position error changes rates according to their tuning slopes
+      summary: A fixed tuning curve converts a changing represented position into
+        a changing expected firing rate. For small displacements, local tuning slopes
+        determine how the rates change together.
+      guide_locus: sec:SYNTHESIS-JOINT-CALCULATION
+      level: 2
+    - id: sec:SYNTHESIS-COVARIANCE-EXAMPLE
+      title: 'Example: opposite rate changes from the same position error'
+      summary: A common position error makes two cells with opposite tuning slopes
+        change in opposite directions. The worked example calculates their rate variances
+        and negative covariance.
+      guide_locus: sec:SYNTHESIS-COVARIANCE-EXAMPLE
+      level: 3
+    - id: sec:SYNTHESIS-EVIDENCE
+      title: Each model needs a test matched to its claim
+      summary: 'The shared-position calculation predicts how rates would change together.
+        Establishing that connection requires measurements of those changes as well
+        as the spatial maps. Each paper tests a different part of the proposed connection:'
+      guide_locus: sec:SYNTHESIS-EVIDENCE
+      level: 2
+    - id: sec:SYNTHESIS-RELATED
+      title: Related studies change assumptions and leave circuit choices open
+      summary: 'Related studies test the assumptions and ask questions the three papers
+        leave open:'
+      guide_locus: sec:SYNTHESIS-RELATED
+      level: 2
+    - id: sec:SYNTHESIS-NEXT
+      title: A joint test would compare tuning maps with population fluctuations
+      summary: 'A joint test needs tuning maps and fluctuations from the same population.
+        A possible sequence is:'
+      guide_locus: sec:SYNTHESIS-NEXT
+      level: 2
+- id: part:HARDWARE
+  title: Neural memory in electronic hardware
+  purpose: Electronic circuits can store connection settings, changing neuron states,
+    and values represented by a network. Von Neumann (1958) motivates this comparison.
+    Chapters 14 and 15 connect physical storage with Seung (1996) and Burak and Fiete
+    (2012). Chapter 16 examines the separate contributions of selected hardware studies
+    through October 30, 2026. Chapter 17 develops guide-derived experiments using
+    the three original papers. Each contribution is attributed in the Part introduction.
+  guide_locus: part:HARDWARE
+  source_loci: []
+  chapters:
+  - id: ch:HARDWARE-MEMORY
+    title: A stored weight and a remembered value are different states
+    purpose: A silicon circuit can keep a connection strength unchanged while losing
+      the angle it was asked to remember. It can also keep that angle while its individual
+      electrical signals change. To compare electronic memory with the neural memory
+      in Part I, we first need to identify what information each physical quantity
+      represents. This chapter separates the connection settings, the changing state
+      of each artificial neuron, and the value represented by their joint activity.
+      That separation will let us ask what feedback actually preserves.
+    guide_locus: ch:HARDWARE-MEMORY
+    source_loci: []
+    sections:
+    - id: sec:HARDWARE-MEMORY-ROLES
+      title: A connection setting shapes activity. The activity can represent a cue
+      summary: 'Imagine giving a circuit a brief cue for an angle of $30^\circ$. After
+        the cue ends, a connected group of artificial neurons remains active. We estimate
+        the remembered angle from which neurons are active and how strongly. The experiment
+        involves:'
+      guide_locus: sec:HARDWARE-MEMORY-ROLES
+      level: 2
+    - id: sec:HARDWARE-MEMORY-STORAGE
+      title: Bits, capacitor voltages, and material conductances store different physical
+        states
+      summary: The neural model still needs a physical implementation. If the model
+        has a variable called membrane voltage, a chip may store it as a binary number
+        or as an actual circuit voltage. Those choices expose the computation to different
+        errors. [[**Current**]{.definition-term custom-style="Definition Term"} is
+        electric charge flowing per unit time, measured in amperes (coulombs per second).]{.definition-explanation}
+        [[**Voltage**]{.definition-term custom-style="Definition Term"} is an electrical
+        energy difference per unit charge, measured in volts (joules per coulomb).]{.definition-explanation}
+      guide_locus: sec:HARDWARE-MEMORY-STORAGE
+      level: 2
+    - id: sec:HARDWARE-MEMORY-UPDATES
+      title: The stored state matters through the update it produces
+      summary: To understand a machine's memory, follow one input through it. On a
+        digital spiking processor, an arriving event identifies connections, their
+        weights contribute to inputs, and a program updates stored neuron variables.
+        Those variables determine whether to send further events. Loihi 2 provides
+        local digital state and weight memory with programmable neuron and learning
+        rules. SpiNNaker2 uses many processor cores whose software updates neural
+        states stored with weights in local SRAM. Their event communication does not
+        make every model variable evolve continuously in physical time.[^hardware-intel][^hardware-spinnaker]
+      guide_locus: sec:HARDWARE-MEMORY-UPDATES
+      level: 2
+  - id: ch:HARDWARE-DYNAMICS
+    title: Discrete restoration and continuous drift produce different memory errors
+    purpose: 'A circuit can remain active for seconds even when its individual voltages
+      decay in milliseconds. The explanation is feedback: activity supplies new input
+      before old input disappears. But long-lived activity does not by itself identify
+      what is being preserved. This chapter first explains how feedback extends a
+      time scale, then distinguishes a restoring discrete memory from a freely changing
+      continuous one. Measured silicon circuits show why this distinction matters
+      beyond a mathematical model.'
+    guide_locus: ch:HARDWARE-DYNAMICS
+    source_loci: []
+    sections:
+    - id: sec:HARDWARE-DYNAMICS-FEEDBACK
+      title: Feedback can extend persistence beyond a component's decay time
+      summary: '**Physical mechanism.** An isolated capacitor loses a voltage difference
+        when charge leaks through a resistance. In a recurrent circuit, its output
+        can cause an input current that replaces some of that charge. The competition
+        between loss and replacement sets the decay of the collective state. For a
+        neural population, the same competition occurs between decay of synaptic input
+        and input supplied by recurrent spikes.'
+      guide_locus: sec:HARDWARE-DYNAMICS-FEEDBACK
+      level: 2
+    - id: sec:HARDWARE-DYNAMICS-ERRORS
+      title: A bit corrects small displacements. A continuous memory preserves some
+        of them
+      summary: '**Physical mechanism.** In a two-state electronic memory, feedback
+        pushes a slightly disturbed state back toward the same stable state. A sufficiently
+        large disturbance can switch it to the other state. In an ideal continuous
+        attractor, disturbances away from the family of memory states decay, but a
+        displacement along that family represents another valid value. The circuit
+        has no restoring signal telling it which earlier value to recover. Seung used
+        this distinction to compare discrete electronic memory with graded eye-position
+        memory.[^dynamics-seung]'
+      guide_locus: sec:HARDWARE-DYNAMICS-ERRORS
+      level: 2
+    - id: sec:HARDWARE-DYNAMICS-EVIDENCE
+      title: Silicon experiments distinguish discrete persistence from graded representation
+      summary: A physical demonstration lets us test whether feedback maintains the
+        intended state despite unequal devices and finite resolution. The following
+        early experiments make different claims and should be read separately.
+      guide_locus: sec:HARDWARE-DYNAMICS-EVIDENCE
+      level: 2
+  - id: ch:NEUROMORPHIC-SYSTEMS
+    title: Neuromorphic chips choose where physics performs the calculation
+    purpose: Suppose we want to study how a noisy network retains an angle. One machine
+      can calculate every state update as arithmetic. Another can let capacitor voltages
+      perform part of the dynamics. A third can use material conductances to multiply
+      inputs by stored weights. The scientific choice is which physical effects we
+      want to control, measure, or exploit. This chapter compares these implementations
+      and then examines recent demonstrations of memory and learning.
+    guide_locus: ch:NEUROMORPHIC-SYSTEMS
+    source_loci: []
+    sections:
+    - id: sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES
+      title: Digital and analog implementations expose different parts of the neural
+        model
+      summary: A useful platform must make the variables of interest accessible. If
+        the question concerns a specific noise law, a digital update may allow precise
+        control of the injected noise. If the question concerns physical circuit variability,
+        analog dynamics expose that variability directly. Interpreting either choice
+        as a biological result requires a matched model and experiment. [[**Hardware
+        calibration**]{.definition-term custom-style="Definition Term"} adjusts circuit
+        settings to make measured device responses match requested responses more
+        closely.]{.definition-explanation}
+      guide_locus: sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES
+      level: 2
+    - id: sec:NEUROMORPHIC-SYSTEMS-ADVANCES
+      title: Recent results improve temporal computation, adaptation, and device stability
+      summary: The following studies make progress on different parts of the memory
+        problem. For each, ask what information persists and which physical component
+        is responsible.
+      guide_locus: sec:NEUROMORPHIC-SYSTEMS-ADVANCES
+      level: 2
+    - id: sec:NEUROMORPHIC-SYSTEMS-LIMITS
+      title: Explicit slow memory is a current design choice, with distinct costs
+      summary: Fast spiking units can lose earlier inputs before a later decision
+        needs them. One solution is to add a slower state that summarizes recent activity
+        and sends input back to the fast units. Sun and colleagues' 2026 dual-memory-pathway
+        design takes this route. Its proposed digital hardware holds successive slow
+        states in [[**registers**]{.definition-term custom-style="Definition Term"},
+        small, fast digital storage locations]{.definition-explanation}, and other
+        variables in SRAM. The hardware results came from post-layout simulations,
+        which model a circuit after its physical layout has been designed. They were
+        not measurements of a fabricated chip. The weights were trained before the
+        evaluated tasks.[^systems-sun]
+      guide_locus: sec:NEUROMORPHIC-SYSTEMS-LIMITS
+      level: 2
+  - id: ch:HARDWARE-TESTS
+    title: Memory experiments must separate device error from network dynamics
+    purpose: After a circuit receives an angle cue, its later estimate may be wrong
+      because the state wandered, because unequal connections pull it toward another
+      angle, or because the observer reads it poorly. One accuracy score combines
+      these causes. The controlled tests below connect these errors to physical parameters.
+      The protocol and reduced models below are proposed tools for reasoning about
+      these experiments, not results already demonstrated on every platform in the
+      previous chapter.
+    guide_locus: ch:HARDWARE-TESTS
+    source_loci: []
+    sections:
+    - id: sec:HARDWARE-TESTS-PROTOCOL
+      title: Repeated cue-and-delay trials separate drift from random spreading
+      summary: Begin with a circuit whose joint activity represents an angle. Choose
+        a decoder on separate calibration data, then keep it fixed while testing retention.
+        A [[**decoder**]{.definition-term custom-style="Definition Term"} is a specified
+        rule for estimating the represented quantity from observable circuit signals.]{.definition-explanation}
+        A decoder given every internal state has a different task from a downstream
+        neuron receiving only spikes.
+      guide_locus: sec:HARDWARE-TESTS-PROTOCOL
+      level: 2
+    - id: sec:HARDWARE-TESTS-PARAMETERS
+      title: Physical parameters act through decay, bias, and noise projection
+      summary: A changed component affects memory through the circuit's equations.
+        Increasing a leak current can shorten a component time constant. Changing
+        a recurrent weight can alter restoration or introduce a preferred angle. A
+        fluctuating current can perturb many neurons, yet only part of the resulting
+        activity change remains as a change of the remembered angle.
+      guide_locus: sec:HARDWARE-TESTS-PARAMETERS
+      level: 2
+    - id: sec:HARDWARE-TESTS-COMPARISON
+      title: Matching time and readout is necessary to compare memory accuracy
+      summary: The source papers supply different constraints on this hardware experiment.
+      guide_locus: sec:HARDWARE-TESTS-COMPARISON
+      level: 2
+- id: part:SIMULATIONS
+  title: Simulations connect model assumptions to measurable outcomes
+  purpose: '[Burak and Fiete (2012)](https://doi.org/10.1073/pnas.1117386109) test
+    memory diffusion in spiking networks. [Ben-Shushan et al. (2022)](https://doi.org/10.1038/s41467-022-29201-y)
+    connect a simulated neural command to eye motion. [Mainali et al. (2025)](https://doi.org/10.1016/j.neuron.2025.01.017)
+    generate spatial maps and compare their fields with recordings. This Part explains
+    the methods, measurements, and software behind those studies, then gives a guide-derived
+    route for checking a reproduction.'
+  guide_locus: part:SIMULATIONS
+  source_loci: []
+  chapters:
+  - id: ch:SIMULATING-MEMORY
+    title: Network simulations test how random spikes move a stored value
+    purpose: Burak and Fiete (2012) derive memory diffusion from assumptions about
+      recurrent connections and random spike timing. To test that prediction, they
+      simulate individual spikes and measure how the stored value moves. The central
+      result remains an analytical bound. The simulations check its predicted motion
+      in different network designs, including the limits imposed by an angular coordinate.
+    guide_locus: ch:SIMULATING-MEMORY
+    source_loci: []
+    sections:
+    - id: sec:SIMULATING-MEMORY-STATE
+      title: A simulation renews the same synaptic state that the theory approximates
+      summary: The physical idea is continuing neural activity after a cue has ended.
+        A spike briefly increases synaptic activation. That activation decays, but
+        it also changes the rates at which other neurons fire. Recurrent connections
+        can therefore renew the activity. Random event times disturb the pattern that
+        represents the remembered value.
+      guide_locus: sec:SIMULATING-MEMORY-STATE
+      level: 2
+    - id: sec:SIMULATING-MEMORY-RING
+      title: Ring trajectories test both the diffusion rate and the effect of angular
+        boundaries
+      summary: 'In the ring model, neurons are ordered by their preferred angles.
+        Their connections support a localized activity pattern whose position represents
+        an angle. Figure 2A–D compares the wandering position with predictions calculated
+        from the network''s steady tuning curves. Two transfer functions test different
+        relationships between diffusion and spike information: the exponential case
+        attains the bound under the model assumptions, while the illustrated sigmoid
+        case lies above it.[^simmem-ring]'
+      guide_locus: sec:SIMULATING-MEMORY-RING
+      level: 2
+    - id: sec:SIMULATING-MEMORY-CONTROLS
+      title: Other network designs test which conclusions depend on the ring
+      summary: A second network contains two mutually inhibiting units, interpreted
+        also as two neural populations. Increasing one population's activity while
+        decreasing the other's changes the stored value. Figure 2E–G tests diffusion
+        in this family without relying on rotational symmetry. The diffusion calculation
+        applies to both models because each has a continuous family of states and
+        restoring dynamics toward that family.[^simmem-two]
+      guide_locus: sec:SIMULATING-MEMORY-CONTROLS
+      level: 2
+    - id: sec:SIMULATING-MEMORY-OUTPUTS
+      title: A plotted analytical curve is different from a network simulation
+      summary: Figures 3 and S2 plot formulas for readout error. They compare an ideal
+        estimator with an estimator that weights all observations equally as the observation
+        interval grows. The sources do not describe an additional spiking-network
+        experiment or a biological circuit implementing ideal estimation in these
+        figures.
+      guide_locus: sec:SIMULATING-MEMORY-OUTPUTS
+      level: 2
+  - id: ch:SIMULATING-EYE
+    title: Eye simulations connect a noisy neural command to measured motion
+    purpose: Ben-Shushan et al. (2022) ask whether fluctuations in a neural memory
+      circuit can explain the small eye movements that continue during fixation. Their
+      simulation must turn a changing neural command into muscle action and eye position.
+      It must also produce signals that can be analyzed like the recordings. The paper's
+      central evidence combines a shared-source inference from data with a model showing
+      that a noisy integrator can account for the observed motion.
+    guide_locus: ch:SIMULATING-EYE
+    source_loci: []
+    sections:
+    - id: sec:SIMULATING-EYE-DATA
+      title: Recorded data constrain the question before the model generates a trajectory
+      summary: The empirical analysis uses earlier recordings of 57 ocular motor neurons
+        from two macaques, paired with eye-position measurements. These are separate
+        single-cell recordings, not a simultaneous recording of all 57 neurons. The
+        authors fit each cell's relation to eye position, velocity, and acceleration,
+        then use it to reconstruct movement from that cell's spikes. A trial held
+        out of the fit tests prediction on data that did not determine the fitted
+        parameters.[^simeye-data]
+      guide_locus: sec:SIMULATING-EYE-DATA
+      level: 2
+    - id: sec:SIMULATING-EYE-PATH
+      title: The generated command acts through spikes, muscle response, and delayed
+        feedback
+      summary: 'The model has four connected stages. Each stage changes a different
+        physical or represented quantity:'
+      guide_locus: sec:SIMULATING-EYE-PATH
+      level: 2
+    - id: sec:SIMULATING-EYE-CONTROLS
+      title: Controls test which stage can explain the observed fluctuations
+      summary: 'One matching trajectory is weak evidence because many mechanisms can
+        look irregular. The paper compares outputs after changing sources of variability
+        or feedback:'
+      guide_locus: sec:SIMULATING-EYE-CONTROLS
+      level: 2
+    - id: sec:SIMULATING-EYE-TOOLS
+      title: Public MATLAB code and recordings support different reproduction tasks
+      summary: The authors release MATLAB `.m` functions and `.mat` parameter files.
+        `Run_model.m` starts trajectories and their mean-squared-displacement analysis.
+        `Full_model_simulation.m` updates the integrator, motor neurons, and eye.
+        `Fit_OI_circuit.m` fits a persistent mean-rate circuit, while the analysis
+        routines compare generated trajectories with an already processed empirical
+        MSD file.[^simeye-code]
+      guide_locus: sec:SIMULATING-EYE-TOOLS
+      level: 2
+  - id: ch:SIMULATING-PLACE
+    title: Random spatial maps test the statistics of place fields
+    purpose: Mainali et al. (2025) ask whether one statistical model can explain the
+      many firing regions observed in hippocampal place cells across different environments.
+      Their simulation generates a cell's firing-rate map over space and measures
+      the active regions. Position is the independent variable. The generated map
+      is fixed while it is analyzed, so this simulation addresses spatial coding rather
+      than how a neural circuit retains a position over time.
+    guide_locus: ch:SIMULATING-PLACE
+    source_loci: []
+    sections:
+    - id: sec:SIMULATING-PLACE-GENERATE
+      title: A smooth random input becomes a firing map after thresholding
+      summary: For each model cell, the theory assigns a smooth Gaussian input field
+        $h(\mathbf x)$ to locations $\mathbf x$. Its covariance controls how similar
+        nearby input values tend to be. A threshold determines which locations activate
+        the cell. In the guide's notation, the rate is proportional to
+      guide_locus: sec:SIMULATING-PLACE-GENERATE
+      level: 2
+    - id: sec:SIMULATING-PLACE-FIT
+      title: Fitted summaries and additional comparisons supply different evidence
+      summary: The authors choose threshold and spatial scale to match a small number
+        of measured summaries. For the long 200 m bat tunnel, they match mean field
+        length and mean gap. In the short 6 m tunnel, they use mean field length and
+        occupied fraction, because many cells have only one field. The 2D comparison
+        fits mean field size and count, while the 3D comparison uses mean volume and
+        occupied fraction.[^simplace-fit]
+      guide_locus: sec:SIMULATING-PLACE-FIT
+      level: 2
+    - id: sec:SIMULATING-PLACE-MEASURE
+      title: Field detection and preprocessing change what the simulation is asked
+        to match
+      summary: To compare a generated field with a recorded one, both must be measured
+        in compatible ways. A small positive noise value can connect two regions,
+        while thresholding can split them. Smoothing can remove a peak or fill a small
+        hole.
+      guide_locus: sec:SIMULATING-PLACE-MEASURE
+      level: 2
+    - id: sec:SIMULATING-PLACE-TOOLS
+      title: The released tools generate maps and analyze data, with access limits
+      summary: The paper reports using Python 3.11. The code uses NumPy for arrays
+        and random samples, and SciPy for smoothing and map measurements. The Methods
+        identify SciPy routines for connected components, peak detection, and density
+        estimation, and Gudhi for topology. These are spatial and statistical computations.
+        A spiking-neuron simulator is not required by the released method.
+      guide_locus: sec:SIMULATING-PLACE-TOOLS
+      level: 2
+  - id: ch:SIMULATION-TOOLS
+    title: Reproduction depends on the model, numerical method, and measurement
+    purpose: A simulated eye trace can look convincing while answering the wrong question.
+      It may use different spike statistics, a different muscle response, or a different
+      definition of displacement from the experiment. Reproducing a result requires
+      matching those choices before comparing curves. This chapter collects the practical
+      decisions shared by the three papers and identifies tools for making those decisions
+      visible.
+    guide_locus: ch:SIMULATION-TOOLS
+    source_loci: []
+    sections:
+    - id: sec:SIMULATION-TOOLS-ROUTES
+      title: The original code and a teaching reconstruction serve different purposes
+      summary: The starting point depends on the intended result. Running the authors'
+        program tests whether its implementation produces the reported output. Rebuilding
+        the equations in another program tests whether an independent implementation
+        agrees. A smaller teaching model can isolate a mechanism, but its numerical
+        output belongs to that smaller model.
+      guide_locus: sec:SIMULATION-TOOLS-ROUTES
+      level: 2
+    - id: sec:SIMULATION-TOOLS-SOFTWARE
+      title: Tools should match the operation being tested
+      summary: The authors' implementation is the first choice when the goal is to
+        reproduce their figures. Other libraries are useful when the goal is to isolate
+        a mechanism or change a model. The following tools have distinct roles. The
+        optional tools are suggestions for a new implementation, not claims about
+        what all three papers used.
+      guide_locus: sec:SIMULATION-TOOLS-SOFTWARE
+      level: 2
+    - id: sec:SIMULATION-TOOLS-RESOLUTION
+      title: Time and space resolution must preserve the modeled physics
+      summary: A simulated trajectory is recorded at finitely many times, and a generated
+        field is sampled at finitely many positions. [[**Discretization**]{.definition-term
+        custom-style="Definition Term"} replaces a continuous variable such as time
+        or position by a finite set of sample points.]{.definition-explanation} The
+        resulting numerical approximation can introduce its own drift, missed spikes,
+        or merged fields.
+      guide_locus: sec:SIMULATION-TOOLS-RESOLUTION
+      level: 2
+    - id: sec:SIMULATION-TOOLS-RECORD
+      title: A useful reproduction saves the choices that determine the conclusion
+      summary: 'To reproduce one panel, identify its target quantity before running
+        the model. Figure 2 of Burak and Fiete (2012) tests memory diffusion, whereas
+        a field-size histogram in Mainali et al. (2025) tests a spatial distribution.
+        The following record connects a computation to the claim it can support:'
+      guide_locus: sec:SIMULATION-TOOLS-RECORD
+      level: 2
+appendices:
+- id: ch:GLOSSARY
+  title: Glossary
+  purpose: These short definitions support lookup after the explanations and examples
+    in the main chapters.
+  guide_locus: ch:GLOSSARY
+  source_loci: []
+  sections:
+  - id: sec:GLOSSARY-HARDWARE
+    title: Physical implementation and neural memory
+    summary: These terms are explained in the linked Part III passages.
+    guide_locus: sec:GLOSSARY-HARDWARE
+    level: 2
+- id: ch:REFERENCES
+  title: References
+  purpose: Entries follow their first use in the reading path and chapters. The paper's
+    supporting information shares its main article entry. The author's mathematical
+    notes are listed separately because the guide also uses them for the excursion
+    derivation.
+  guide_locus: ch:REFERENCES
+  source_loci: []
+  sections: []

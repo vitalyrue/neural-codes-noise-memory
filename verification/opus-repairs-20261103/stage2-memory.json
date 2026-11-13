@@ -1,0 +1,409 @@
+{
+  "stage": "2_necessity_terminology",
+  "request_id": "local-request-root-review_repaired_memory-stage2-20261103",
+  "reviewer": "/root/review_repaired_memory, independent Codex GPT-6; exact variant/reasoning not exposed",
+  "started_at": "2026-11-03T16:48:28.3723481+02:00",
+  "checkpoints": [
+    "2026-11-03T16:50:22.9127858+02:00"
+  ],
+  "awake_execution_time": "Unverified; no sleep/resume audit.",
+  "scope": "Complete six memory chapters and their sidecar reader text, with upstream reading-guide definitions, Part I map and relevant glossary. Stage 2 only. Ordinary expectation, variance, SD and density remain assumed.",
+  "judgment_fields": "Each record gives current source location, exact term or passage class, plain meaning/actor/object/condition, deletion test and decision. Actual source and passage hashes are attached below.",
+  "judgments": [
+    {
+      "file": "01-foundations.md",
+      "lines": [
+        5,
+        33
+      ],
+      "phrase": "tonic firing; extraocular muscles; torque",
+      "plain_meaning": "Sustained motor spikes make eye muscles keep pulling; torque is their turning effect.",
+      "actor_object_condition": "Motor neurons activate muscle fibres during gaze holding; elastic restoring pull must be balanced.",
+      "decision": "retain",
+      "deletion_test": "Deleting these names and explanations would leave the later torque and sustained-command calculations without biological objects. The plain explanation accompanies each exact technical name."
+    },
+    {
+      "file": "01-foundations.md",
+      "lines": [
+        35,
+        104
+      ],
+      "phrase": "synaptic activation; neural transfer function; recurrent connectivity",
+      "plain_meaning": "A decaying trace of outgoing spikes affects receiving input and the rate of new spikes.",
+      "actor_object_condition": "Spikes change s_j; W_ij changes input to i; phi sets its rate with fixed weights and bias.",
+      "decision": "retain",
+      "deletion_test": "A shorter label such as neural activity would merge three different objects. Keep unit-pulse, input and rate meanings and the feedback cycle; the final cycle sentence joins the equations rather than merely listing them."
+    },
+    {
+      "file": "01-foundations.md",
+      "lines": [
+        106,
+        131
+      ],
+      "phrase": "tuning curve; population code; rate map",
+      "plain_meaning": "Rates vary with the represented value; a map estimates spatial rates from spikes and occupancy.",
+      "actor_object_condition": "Different cells have different response curves; finite visits affect the estimated spatial map.",
+      "decision": "retain",
+      "deletion_test": "Removing expected-rate versus measured-map wording would erase the later source/model distinction. The hippocampal names serve the shared place-field route, even though the memory calculation does not use all of them."
+    },
+    {
+      "file": "01-foundations.md",
+      "lines": [
+        133,
+        264
+      ],
+      "phrase": "Poisson process; conditional independence; CV; Fano factor",
+      "plain_meaning": "Random spike counts fluctuate at fixed rate; complete recurrent trains can remain dependent.",
+      "actor_object_condition": "Elementary spike draws are independent given the modeled state; past spikes alter future rates.",
+      "decision": "retain",
+      "deletion_test": "The count derivation teaches a new distribution, rather than reteaching ordinary variance. Silent-cell and pooled-cell examples expose different errors. CV and Fano factor cannot be replaced by generic noise without losing which quantity is measured."
+    },
+    {
+      "file": "01-foundations.md",
+      "lines": [
+        266,
+        300
+      ],
+      "phrase": "activity bump; preferred angle; Euler update; lag; mean squared displacement",
+      "plain_meaning": "A localized rate peak represents angle; simulation updates activation; MSD averages squared changes at equal lags.",
+      "actor_object_condition": "The computer draws spikes from current rates and updates s; authors compare simulated displacements to a separate prediction.",
+      "decision": "retain",
+      "deletion_test": "The operational MSD paragraph is needed before the simulation comparison. The early blue reading-guide MSD phrase is a compact orientation definition; the uncolored detailed explanation here adds lag, averaging, units and interpretation. Recoloring every later reminder would be wrong."
+    },
+    {
+      "file": "01-foundations.md",
+      "lines": [
+        302,
+        391
+      ],
+      "phrase": "shared drive; private noise; covariance; gain",
+      "plain_meaning": "One varying command affects many cells; individual cells add variation of their own; gain multiplies a signal.",
+      "actor_object_condition": "The common command and private contributions affect displacement statistics under independence; measurement error changes records rather than eyes.",
+      "decision": "retain",
+      "deletion_test": "The relation variance=Cov(X,X) connects the newly taught covariance to assumed knowledge. It is not a separate elementary probability lesson. Removing private-noise or measurement qualifications would confuse correlation strength with physical source strength."
+    },
+    {
+      "file": "01b-persistence.md",
+      "lines": [
+        9,
+        47
+      ],
+      "phrase": "oculomotor integrator; plasticity; effective timescale",
+      "plain_meaning": "A circuit maintains a position command; experience can alter its calibration; B/K summarizes a simplified mechanical return.",
+      "actor_object_condition": "Active torque opposes passive elastic pull; neural training occurs over much longer periods than immediate mechanics.",
+      "decision": "retain",
+      "deletion_test": "Neither inertia nor generic persistence identifies these roles. Keep the simplified-model and cellular-learning limits. Defining already-known derivatives or exponential decay anew would add no needed teaching."
+    },
+    {
+      "file": "01b-persistence.md",
+      "lines": [
+        49,
+        118
+      ],
+      "phrase": "fixed point; continuous attractor; neutral direction; attractor manifold",
+      "plain_meaning": "Some activity changes return, while changes along the family leave a different represented value.",
+      "actor_object_condition": "The deterministic circuit restores common rate changes, with no restoring change along its ideal memory family.",
+      "decision": "retain",
+      "deletion_test": "The two disturbances show why stable activity does not imply correct memory. Replacing manifold with network would lose the distinction between represented dimension and neuron count. The exact term has a plain definition before the example relies on it."
+    },
+    {
+      "file": "01b-persistence.md",
+      "lines": [
+        120,
+        222
+      ],
+      "phrase": "Brownian motion; diffusion coefficient; systematic drift; root mean squared displacement",
+      "plain_meaning": "Many retained random changes spread trials; a mean velocity shifts their average.",
+      "actor_object_condition": "The modeled coordinate receives independent zero-mean increments unless an explicit bias is added.",
+      "decision": "retain",
+      "deletion_test": "Variance itself is assumed, while increment independence, time scaling and cross-time covariance are new. The bias example earns its place by showing the crossover and supplies more than a repeated definition. Later MSD and D reminders preserve their established meanings without new blue marking."
+    },
+    {
+      "file": "01b-persistence.md",
+      "lines": [
+        225,
+        243
+      ],
+      "phrase": "fixed spatial map versus temporal wandering",
+      "plain_meaning": "A drawn location-response function can stay fixed while the animal visits positions and actual spikes vary.",
+      "actor_object_condition": "The map is indexed by physical location; the memory process changes with time.",
+      "decision": "retain",
+      "deletion_test": "Without this distinction, irregular place maps could be read as evidence of temporal memory diffusion. The closing map text distinguishes paper questions; it is not just a repeated section label."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        9,
+        68
+      ],
+      "phrase": "instantaneous attractor state; weak fluctuation approximation",
+      "plain_meaning": "The noise-free return endpoint labels the current memory; many small spike contributions weakly disturb total input.",
+      "actor_object_condition": "Nearby activation states return to one point under deterministic flow; replicated population inputs retain mean while fluctuation shrinks.",
+      "decision": "retain",
+      "deletion_test": "Replacing instantaneous attractor state by current activity would merge the whole state with its represented coordinate. Small-noise qualifiers prevent treating single-cell traces as Gaussian. The source term is introduced with a concrete operation before projection depends on it."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        70,
+        171
+      ],
+      "phrase": "linearization; right/left zero eigenvector; return flow",
+      "plain_meaning": "First-order dynamics describe small disturbances; u points along persistent states and v measures the change left after recovery.",
+      "actor_object_condition": "The circuit removes stable components, while v extracts the final coordinate shift from a small perturbation.",
+      "decision": "retain",
+      "deletion_test": "Plain geometric projection would suggest perpendicular projection and fail in the tilted example. Keep left/right names because the equations use both roles. Their algebraic definitions and the tilted example supply meaning rather than relying only on glossary entries."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        173,
+        217
+      ],
+      "phrase": "projection weights; local; leading order; diffusion tensor",
+      "plain_meaning": "Each cell's disturbance has a lasting coordinate effect; the formula approximates weak changes near one state.",
+      "actor_object_condition": "v weights spike increments after return flow, with conditional independence and slowly varying coefficients.",
+      "decision": "retain",
+      "deletion_test": "The two time-interval conditions explain local and leading-order use. Removing them would widen the formula. Tensor is needed for a matrix of coordinate covariances, not a fancy synonym for variance."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        219,
+        305
+      ],
+      "phrase": "symmetric weights; translation symmetry; activation difference",
+      "plain_meaning": "Opposite connection weights match; this does not require equal firing responses or translation-invariant dynamics.",
+      "actor_object_condition": "The mutual-inhibition circuit restores the sum and preserves the difference inside its positive-rate range.",
+      "decision": "retain",
+      "deletion_test": "Keep conversion between the earlier rate/angle example and this activation coordinate. Removing the distinction would preserve familiar symbols while changing their units. The correction note is needed because the linked main formula visibly differs."
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "lines": [
+        13,
+        125
+      ],
+      "phrase": "Itô convention; Fokker Planck equation; wrapped density",
+      "plain_meaning": "Noise strength is evaluated at the start; a density equation follows probability spreading; angles are reported within one turn.",
+      "actor_object_condition": "The diffusion process redistributes probability with specified zero drift, domain and boundary behavior.",
+      "decision": "retain",
+      "deletion_test": "These names identify distinct operations and are defined where first used. The point-mass reminder distinguishes two uses of delta. It does not reteach ordinary density. Removing source discrepancy or valid-domain wording would overstate the excitation example."
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "lines": [
+        127,
+        158
+      ],
+      "phrase": "systematic drift; Stratonovich convention; microscopic jump process",
+      "plain_meaning": "Mean motion differs from random spread; midpoint noise evaluation changes mean motion; the actual spike jumps decide which process applies.",
+      "actor_object_condition": "State-dependent noise and curved return dynamics may shift the mean; a convention change alone does not determine exact neural drift.",
+      "decision": "retain",
+      "deletion_test": "Systematic drift was blue-defined at persistence:170. The plain reminder here connects that definition to the mean-velocity calculation. Replacing microscopic jump process by exact spike process is a possible wording choice, but existing earlier spike-jump teaching makes the meaning recoverable; no correction is required."
+    },
+    {
+      "file": "02b-memory-long-delays.md",
+      "lines": [
+        160,
+        204
+      ],
+      "phrase": "storage motion versus readout uncertainty",
+      "plain_meaning": "The stored value can move, and finite later spikes add uncertainty about its current position.",
+      "actor_object_condition": "Network spikes move the represented coordinate; an external observer estimates it from a sample.",
+      "decision": "retain",
+      "deletion_test": "The distinction prepares the information chapter and prevents treating the two figure errors as one noise term. Captions remain source figure labels and illustrative/model-data limits remain useful."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": [
+        15,
+        160
+      ],
+      "phrase": "Fisher information; likelihood; score; estimator; unbiased; Cramér Rao bound; prior",
+      "plain_meaning": "Observation probabilities distinguish nearby values; likelihood compares proposed values, score is its log slope, and unbiased estimates have the correct repeated-sample mean.",
+      "actor_object_condition": "An observer sees counts from effectively fixed positive rates; smooth locally unbiased estimation is assumed for the bound.",
+      "decision": "retain",
+      "deletion_test": "Each name is needed by the displayed calculation and is defined before reasoning relies on it. The background-firing example contrasts slope with added noise. Keeping local and prior limits avoids turning information into global identifiability or a guarantee for any decoder."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": [
+        165,
+        282
+      ],
+      "phrase": "heuristic interpretation; equality; sufficient condition",
+      "plain_meaning": "The circuit can be viewed as repeatedly estimating itself; this motivates the result, while projection proves it. A sufficient rule works without being the only possible rule.",
+      "actor_object_condition": "The network uses random recurrent spikes; equality additionally aligns retained-noise weights with information weights.",
+      "decision": "retain",
+      "deletion_test": "The physical intuition is needed for meaning but is not falsely presented as proof. Removing the linear counterexample would leave the source's excessive converse uncorrected. Exact sufficient/necessary language matters here and should not be replaced by generic optimal wording."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": [
+        285,
+        313
+      ],
+      "phrase": "positive semidefinite matrix bound; singular information",
+      "plain_meaning": "Every linear combination of coordinate errors has a lower variance; the ordinary inverse requires distinguishable coordinate changes.",
+      "actor_object_condition": "Matrices U and V combine neuronal derivatives and noise effects; the residual square establishes the order.",
+      "decision": "retain",
+      "deletion_test": "The quadratic-form definition makes the specialist matrix order usable from linear algebra. Deleting invertibility would hide a condition needed by J inverse. No unrelated matrix theory survey is needed."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": [
+        318,
+        401
+      ],
+      "phrase": "held fixed; resource constraint; tuning width",
+      "plain_meaning": "Parameter benefits depend on which rate curves, neuron density and spike budget remain unchanged.",
+      "actor_object_condition": "Network comparisons scale N, rate, tau or width while keeping the explicitly listed properties fixed.",
+      "decision": "retain",
+      "deletion_test": "The alternative tau and firing-budget comparisons are not redundant: they reverse or change inferred scaling. Keep their conditions. Shape f and density rho are defined before the width integral; no new specialist name is needed."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        15,
+        66
+      ],
+      "phrase": "cue state; translation invariance; independent Gaussian readout model",
+      "plain_meaning": "Later spikes estimate the state present at the cue; shifting that state does not change readout-error statistics in this model.",
+      "actor_object_condition": "The observer uses future observations with separate process and observation errors, local unbiasedness and no informative prior.",
+      "decision": "retain",
+      "deletion_test": "The qualifier separating the modeled errors from actual same-spike dependence is essential. Translation invariance here concerns readout statistics and is explicitly distinct from earlier network translation symmetry."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        70,
+        127
+      ],
+      "phrase": "naive estimator; equal weighting",
+      "plain_meaning": "The decoder averages all observed values as if the target stayed still.",
+      "actor_object_condition": "The observer treats late, more displaced states with the same weight; constant D and J apply only locally.",
+      "decision": "retain",
+      "deletion_test": "The plain equal-weight heading already explains naive. The Brownian covariance reminder is needed for the double integral and does not reteach ordinary covariance from scratch."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        129,
+        236
+      ],
+      "phrase": "precision; hyperbolic cotangent; saturation time",
+      "plain_meaning": "Precision is inverse Gaussian variance; coth gives diminishing improvement toward a limit.",
+      "actor_object_condition": "Independent Gaussian likelihoods add precision after transition uncertainty is included.",
+      "decision": "revise one connector only",
+      "deletion_test": "Keep the recursion, function definitions and no-hard-cutoff interpretation. At line187 remove 'and then the reciprocal': taking the inverse function gives precision P; taking its reciprocal at line193 gives variance. See required finding M2-1."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        239,
+        270
+      ],
+      "phrase": "partial access; fraction of information",
+      "plain_meaning": "Seeing fewer spikes lowers the observer's information without reducing the network's motion.",
+      "actor_object_condition": "Independent thinning by alpha affects observed rates and slopes, while full-network D stays fixed.",
+      "decision": "retain",
+      "deletion_test": "The neuron-fraction qualification matters because a selected subset need not carry that fraction of information. The numerical example separates unchanged storage error from worse and slower readout."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        272,
+        332
+      ],
+      "phrase": "white noise; two time scales; constant Gaussian strength",
+      "plain_meaning": "Noise strength is defined by integrated covariance; rate adjustment adds another state and time constant.",
+      "actor_object_condition": "Noise enters the s block; r adjusts gradually; the alternative q model uses matched observation and dynamical noise.",
+      "decision": "retain",
+      "deletion_test": "The noise definition avoids an invalid finite pointwise variance interpretation. The two-stage limitation prevents generalizing the sum of time constants to arbitrary biology. Keep q rather than suppressing normalization for brevity."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        336,
+        397
+      ],
+      "phrase": "rescaled variance; apparent inconsistency; integration versus leak",
+      "plain_meaning": "Dimensionless curves compare readout alone; the printed lower bound does not follow from an upper bound; random spread is not a deterministic pull.",
+      "actor_object_condition": "The observer estimates under the local Gaussian model; a continuous integrator may accumulate a signal while its uncertainty grows.",
+      "decision": "retain",
+      "deletion_test": "The concrete strict case is needed to show the inequality direction's consequence. Removing local-model or author-correction limits would exaggerate the guide's objection."
+    }
+  ],
+  "findings_required": [
+    {
+      "id": "M2-1",
+      "file": "content/chapters/03b-memory-readout.md",
+      "section": "MEMORY-IDEAL",
+      "line": 187,
+      "passage_id": "ch:MEMORY-READOUT/p187",
+      "quote": "Taking the inverse function and then the reciprocal yields",
+      "failed_check": "The connector assigns the reciprocal to the precision equation that follows.",
+      "earlier_checked": "Line135 defines precision as inverse variance; lines179-184 solve artanh(P/a)=kL; line190 displays P; line193 correctly assigns its reciprocal to variance.",
+      "consequence": "A reader following the verbal steps can invert the correct precision before the displayed equation, mixing precision and variance.",
+      "minimal_repair": "Change line187 to 'Taking the inverse function gives'. Keep line193 and both equations.",
+      "stage1_note": "Newly identified wording-to-operation mismatch. The mathematical solution retained in stage1 remains correct; its broad prose verdict needs this narrow qualification.",
+      "sha256": "88c9a085af48fa59a242107a3cf6ffe864f536f0695a8e290f7a0c647be912d4"
+    }
+  ],
+  "findings_optional": [],
+  "roadmap_judgment": "Keep the chapter orientation paragraphs in this pass: they explain causal order across mechanism, calculation and evidence, not only a list of titles. For example foundations:9 ties signal meaning to coding and simulation; long-delays:9 explains why density and readout follow local D. Deleting the entire paragraphs would remove navigation and the learning-order reasons. No instruction to expand them or add more previews follows.",
+  "glossary_judgment": "Relevant formal entries match chapter meanings, including D versus MSD slope, synaptic activation versus firing rate, readout translation invariance versus network translation symmetry, systematic drift versus fixational drift, likelihood versus prior, and precision. Later reminders need plain meaning but not repeated blue first-definition marking.",
+  "conclusion": "One narrow required wording repair, no optional edits. Specialized terms that carry exact mathematical distinctions should remain with their existing plain explanations. No manuscript edits made; stage3 remains pending.",
+  "limits": [
+    "Source wording review only; no new scientific research, figure pixels, builds, code execution or release acceptance.",
+    "Token stats unavailable."
+  ],
+  "source_names": [
+    "01-foundations",
+    "01b-persistence",
+    "02-memory-dynamics",
+    "02b-memory-long-delays",
+    "03-memory-information",
+    "03b-memory-readout"
+  ],
+  "source_hashes": {
+    "content\\chapters\\01-foundations.md": "8610e42ffaeb64eb2ca83c36f044f87bf10116a7f0edf478eeb997f234af42a3",
+    "content\\chapters\\01-foundations.yaml": "46d80d98533abd8f079287c9e39d79e2be907959d1213496382f9f8215521526",
+    "content\\chapters\\01b-persistence.md": "c9e032797f173dd4894366d3821b257a20ba753379461aec22e8ae547225bdae",
+    "content\\chapters\\01b-persistence.yaml": "26abf2c72d8535770acda2d5320a8b4158495ea5570889c5ff8659918351ec28",
+    "content\\chapters\\02-memory-dynamics.md": "621cc668c8d0b15bfc73deb793650bf85d329ca9d15de260f0141bdb0559e712",
+    "content\\chapters\\02-memory-dynamics.yaml": "45d7e9892c5f4ef09e62a30efdb82d54cdb524fb74c8b687a71c9276f9155aac",
+    "content\\chapters\\02b-memory-long-delays.md": "c7e06c0c5530599d7f81ff2a352ee599f54f554c7d65140214bf43e209da8800",
+    "content\\chapters\\02b-memory-long-delays.yaml": "c7367b86d14e6ef36c2f2693a4981c3e5b69ba4222177e74ae33ee64cfc0845b",
+    "content\\chapters\\03-memory-information.md": "32305b7a603bfa1cd172665bb0a6a48040ec8dde50e032e72469a16817895fc8",
+    "content\\chapters\\03-memory-information.yaml": "980e32b4180729ed0e7e133e238afae4fd27ae8eeec5a673e240d31dfda9171d",
+    "content\\chapters\\03b-memory-readout.md": "d6e3655890ef0f2b3ed24bb6927f2eac1b12ef8fdf146e4ef82405117940199f",
+    "content\\chapters\\03b-memory-readout.yaml": "339bbb09ed573ac6146f77c33a7535eb4ec8060d7d68f33b68a4d0bf64ba8d2d"
+  },
+  "unchanged_since_stage1": {
+    "content\\chapters\\01-foundations.md": true,
+    "content\\chapters\\01-foundations.yaml": true,
+    "content\\chapters\\01b-persistence.md": true,
+    "content\\chapters\\01b-persistence.yaml": true,
+    "content\\chapters\\02-memory-dynamics.md": true,
+    "content\\chapters\\02-memory-dynamics.yaml": true,
+    "content\\chapters\\02b-memory-long-delays.md": true,
+    "content\\chapters\\02b-memory-long-delays.yaml": true,
+    "content\\chapters\\03-memory-information.md": true,
+    "content\\chapters\\03-memory-information.yaml": true,
+    "content\\chapters\\03b-memory-readout.md": true,
+    "content\\chapters\\03b-memory-readout.yaml": true
+  },
+  "passage_hashes": {},
+  "concept_judgments": "verification\\opus-repairs-20261103\\concept-judgments-memory.json",
+  "index_sha256": "614011da1bb4b82e7f9acd267c88bcb2a39a9dccc0806897567fb0a26282c4f0",
+  "freeze_version": "review-freeze-v2.json",
+  "finished_at": "2026-11-03T14:54:16.623063+00:00",
+  "wall_clock_seconds": 348.250715,
+  "rule_hashes": {
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\concept-prerequisites.md": "4c8d4af325fb63af8dbe41d447d4bac7197df550b0ddb9f4cdb0dea3b1fe9f9a"
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "review_id": "part3-tests-stage2-20261030",
+  "request_id_kind": "Local request identifier; platform call ID not exposed",
+  "reviewer": "/root/part3_review_tests",
+  "model_assignment": "gpt-6.1-sol high, assigned by coordinator; runtime identity not independently exposed",
+  "stage": 2,
+  "stage_name": "Necessity and terminology, with focused truth review of the new protocol paragraph",
+  "started_utc": "2026-10-30T14:25:13Z",
+  "completed_utc": "2026-10-30T14:29:26Z",
+  "checkpoints": [
+    {
+      "utc": "2026-10-30T14:25:13Z",
+      "event": "Began separate stage-2 call on current content",
+      "wall_elapsed_seconds": 0
+    },
+    {
+      "utc": "2026-10-30T14:25:41Z",
+      "event": "Read all current assigned text and extracted eight scoped native Vale errors",
+      "wall_elapsed_seconds": 28,
+      "since_previous_checkpoint_seconds": 28
+    },
+    {
+      "utc": "2026-10-30T14:26:57Z",
+      "event": "Checked earlier angle handling and measurement-noise prerequisites; sent terminology findings",
+      "wall_elapsed_seconds": 104,
+      "since_previous_checkpoint_seconds": 76
+    },
+    {
+      "utc": "2026-10-30T14:29:26Z",
+      "event": "Saved separate stage-2 findings, current hashes and all eight scoped native Vale decisions",
+      "wall_elapsed_seconds": 253,
+      "since_previous_checkpoint_seconds": 149
+    }
+  ],
+  "awake_execution_time": "Unverified; UTC wall-clock checkpoints used. Sleep/resume events were not checked.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra. Expected value, variance, standard deviation and density are known. No primers on those concepts are requested or needed.",
+  "scope": "All current 10-hardware-tests.md/.yaml; new index paragraph, guide-project description, sec:READING-HARDWARE and sec:GLOSSARY-HARDWARE with sidecars. Chapter 07 capacitor and conductance additions read as prerequisite context.",
+  "verdict": "REPAIRS NEEDED for terminology and unnecessary wording. Focused truth check of new protocol paragraph passes.",
+  "truth_check_new_paragraph": {
+    "location": "content/chapters/10-hardware-tests.md:17",
+    "passage": "Record the decoded state immediately after each cue so that error in writing the value can be separated from error accumulated during retention. Report the number of repeated trials and uncertainty in the estimated drift and diffusion, rather than treating fitted coefficients as exact device properties.",
+    "answer": "Recording the immediate estimate supplies an initial baseline distinct from later retention change. Reporting trial count and estimation uncertainty prevents a fitted number from being interpreted as exact. The baseline remains a noisy decoded estimate; the following two-estimate measurement model at line 31 and the earlier eye-timing chapter explain that noise. No claim of exact trial-by-trial reconstruction is made. The added scientific instructions are sound. Delete the trailing imagined alternative because the positive uncertainty instruction already makes the point.",
+    "prerequisites_checked": [
+      "10-hardware-tests.md:31",
+      "04b-eye-timing.md:19-46"
+    ]
+  },
+  "findings": [
+    {
+      "id": "TESTS-S2-01",
+      "kind": "Required terminology explanation",
+      "locations": [
+        "10-hardware-tests.md:13",
+        "10-hardware-tests.md:27"
+      ],
+      "passages": [
+        "Unwrap trajectories only while that operation is reliable.",
+        "At long delays around a circle, use circular statistics rather than extending a local unwrapped variance indefinitely."
+      ],
+      "failed_check": "The reader must perform an operation described by a subject-specific word before its meaning or reliability condition is supplied.",
+      "plain_meaning": "Unwrapping records crossings of a full turn as continued motion. Sparse samples can hide whether the angle crossed the boundary or completed additional turns. Long-delay error distributions should respect the circle.",
+      "prerequisites_checked": "02b-memory-long-delays.md:58-68 explains wrapping a density and bounded angular errors. It does not explain unwrapping sampled trajectories. No other earlier unwrapping or circular-statistics teaching was found.",
+      "proposed_repair": "Explain adding or subtracting full turns to keep a trajectory continuous, only when sampling resolves crossings reliably. Replace the unexplained instruction to use circular statistics with a concrete bounded instruction such as reporting the distribution of angular errors around the circle. A full circular-statistics lesson is unnecessary."
+    },
+    {
+      "id": "TESTS-S2-02",
+      "kind": "Required brief term explanation or simpler wording",
+      "location": "10-hardware-tests.md:60",
+      "passage": "Quantization error, pinning, or stalled small updates",
+      "failed_check": "Quantization is not part of the declared mathematical baseline and has not been linked explicitly to the already-taught restriction to finitely many numerical levels.",
+      "prerequisites_checked": "07-hardware-memory.md:31 teaches finite words and finite precision; 08-hardware-dynamics.md:44 describes finite-precision numerical updates; pinning is defined at 08-hardware-dynamics.md:66.",
+      "proposed_repair": "Use 'error from mapping values to available numerical levels' or briefly gloss quantization with that meaning. Keep pinning because its mechanism has been taught."
+    },
+    {
+      "id": "TESTS-S2-03",
+      "kind": "Unnecessary wording",
+      "location": "10-hardware-tests.md:17",
+      "passage": ", rather than treating fitted coefficients as exact device properties.",
+      "failed_check": "Deletion loses no premise or limit because the sentence already requires uncertainty to be reported.",
+      "proposed_repair": "End the sentence after 'estimated drift and diffusion.'"
+    },
+    {
+      "id": "TESTS-S2-04",
+      "kind": "Unnecessary contrast",
+      "location": "10-hardware-tests.md:53",
+      "passage": "They are conditional predictions, not universal chip specifications.",
+      "failed_check": "The positive conditional status is necessary; the added universal-specification alternative repeats the opening disclaimer.",
+      "proposed_repair": "Use 'The following changes suggest tests under the model assumptions above.' This retains the conditional scope without repeating the rejected interpretation."
+    }
+  ],
+  "necessity_and_terms": [
+    {
+      "location": "10-hardware-tests.md:3",
+      "decision": "Retain the three physical causes and the proposed status",
+      "answer": "The causes are the experiment's actual decomposition and explain why one accuracy number is inadequate. 'Reduced models' is a useful description of approximations, whose assumptions are then supplied. The long chapter-announcement sentence can be shortened as described in lint decision V2.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:7",
+      "decision": "Retain",
+      "answer": "Decoder is necessary because available observations change the comparison. Its meaning is stated in the paragraph; separate calibration data prevents fitting to the retention outcomes. Calibration already has a concrete role in the earlier eye chapter.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:9-15",
+      "decision": "Retain with angular-handling repair",
+      "answer": "The numbered steps specify writing, fixed weights, delayed reads, repeated trials, pattern failures and controlled changes. Each supplies an experimental control or output. Numerical reference implementation means the same model calculated on an ordinary computer, a familiar role in the earlier paper simulations. Unwrapping needs the brief explanation in finding 01.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:17",
+      "decision": "Retain scientific instructions; delete trailing contrast",
+      "answer": "The immediate baseline separates writing from later change. Trial counts and uncertainty are necessary for interpreting fitted coefficients. No review of elementary variance is needed.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:19",
+      "decision": "Retain",
+      "answer": "Useful memory requires distinct cues to remain distinguishable. The cancellation warning identifies why mean error alone cannot do that job. This connects directly to the later pinning example.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:21-27",
+      "decision": "Retain SDE and local fitting explanation; repair angle instruction",
+      "answer": "The equation provides measurable drift and variance-growth coefficients. Local, lag and diffusion have already been taught; Brownian increments are established earlier. The coefficient definitions carry their meanings here. The angular limit is needed, but circular statistics is too broad an unexplained instruction.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:29-33",
+      "decision": "Retain",
+      "answer": "The intercept calculation shows how observation creates apparent motion. Zero-mean, independence and overlapping windows specify real assumptions and failure conditions. Intercept means the value where lag reaches zero, a standard graph meaning within the audience's mathematics; a fuller elementary statistics lesson would add no useful step.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:37",
+      "decision": "Retain",
+      "answer": "Leakage, recurrent weights and fluctuating current give concrete ways that a physical intervention changes memory. Capacitor and conductance definitions now appear in Chapter 07, so this causal bridge no longer depends on unexplained electrical storage objects.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:39-43",
+      "decision": "Retain",
+      "answer": "The left vector, normalization, noise matrix and diffusion coefficient are needed to connect physical noise to an angle. The earlier projection derivation teaches the left zero eigenvector and its distinction from the tangent; the current paragraph links directly to it and states the normalization again.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:45",
+      "decision": "Retain",
+      "answer": "The paragraph interprets the matrix formula through corrected versus surviving disturbances. Curvature and state-dependent noise are needed limits on what the local variance calculation establishes. They are tied to drift, whose origin is already discussed in the earlier long-delay chapter.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:47-51",
+      "decision": "Retain",
+      "answer": "The derivation traces activity disturbance to coordinate disturbance to covariance. Neutral mode and linearization are taught prerequisites. 'Normalization' is not decorative jargon here: its stated purpose is to give the result in angle units.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:53-61",
+      "decision": "Retain table and controls; apply findings 02 and 04",
+      "answer": "Each row pairs an intervention with an altered model property and a measurable outcome. Pinning, PCM and finite precision are taught earlier. Quantization needs a short link to available numerical levels. The conditional status of the table must remain after shortening its introduction.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:65-67",
+      "decision": "Retain",
+      "answer": "The nonzero bias makes lower variance disagree with lower mean squared error. This is a necessary mechanism example, not another definition of variance. The arithmetic is short and its retention consequence is explicit.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:71-79",
+      "decision": "Retain",
+      "answer": "The three papers limit three different inferences: spike access, downstream filtering, and temporal memory versus spatial maps. No one bullet duplicates another. The filtering examples identify what can act on the measured signal, while the synthesis link supplies the original-paper evidence.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:81",
+      "decision": "Retain",
+      "answer": "The equations prevent confusing physical seconds with model seconds. Acceleration factor is defined by the time mapping, and the real communication and readout limits state why a device can depart from ideal rescaling.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:83",
+      "decision": "Retain",
+      "answer": "Task distribution, delay, error, failures and included components determine what energy is being compared. The operations-per-watt limit follows from those missing task requirements, so the negative conclusion contributes a real limit.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "10-hardware-tests.md:85",
+      "decision": "Retain",
+      "answer": "The closing question states an intervention and an accuracy outcome under the same task/readout. It turns the chapter into a research decision without claiming that the proposed test has been run.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "content/index.md:7; guide-project.yaml:8",
+      "decision": "Retain",
+      "answer": "The additions orient the reader to the new physical implementation Part and its research date. They state what the extension adds without taking over the guide's original three-paper purpose.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "00-reading-guide.md:71-73 and corresponding sidecar",
+      "decision": "Retain with punctuation cleanup",
+      "answer": "The paragraph gives neuromorphic computing its role, identifies the electronic questions and proposed endpoint, and preserves the distinction from the original papers. The three error types are actual experimental outputs. Split the final semicolon into two sentences.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    },
+    {
+      "location": "glossary.md:119-135 and corresponding sidecar",
+      "decision": "Retain",
+      "answer": "These are lookup definitions after linked teaching, not first-use explanations. Each describes a physical representation, mechanism or task used in Part III. Bistability requires the count two; nonvolatile storage keeps its retention limit; on-chip learning says some weight changes, avoiding a claim that every operation occurs there. Capacitor and conductance are taught in Chapter 07; they need not be added again merely to make this glossary exhaustive.",
+      "scope_note": "Passage assessment for the current reviewed source; complete file SHA256 is recorded above."
+    }
+  ],
+  "prerequisite_judgments": [
+    {
+      "concept": "Capacitor and conductance",
+      "location": "07-hardware-memory.md:29,35,54",
+      "answer": "The additions explain stored charge and Q=CV before current changes voltage, and define conductance as current/voltage and inverse resistance before I=GV. This is enough for the later leakage and weighted-sum reasoning; no circuit-design course is needed."
+    },
+    {
+      "concept": "Conditional diffusion and neutral projection",
+      "location": "02-memory-dynamics.md:105-246; 02b-memory-long-delays.md:17-35,127-154",
+      "answer": "The earlier text defines linearization, left and right zero eigenvectors, normalization, Brownian covariance and stochastic conventions. Chapter 10 can use these with its direct link and short reminder."
+    },
+    {
+      "concept": "Readout noise and uncertainty",
+      "location": "04b-eye-timing.md:19-46,60",
+      "answer": "The earlier text explicitly assumes independence from state motion, derives two-error variance, and distinguishes average corrections from each trial's unknown noise. The new immediate decoded baseline does not promise to remove that noise."
+    },
+    {
+      "concept": "Angular trajectory handling",
+      "location": "02b-memory-long-delays.md:58-68; current 10-hardware-tests.md:13,27",
+      "answer": "Earlier wrapping and bounded errors support the need for angular treatment, but do not teach how sampled crossings are tracked. Finding 01 remains required."
+    }
+  ],
+  "lint_decisions": [
+    {
+      "id": "V1",
+      "location": "10-hardware-tests.md:3",
+      "rule": "ai-tells.VerbTricolon",
+      "match": "may be wrong because the state wandered, because unequal connections pull it toward another angle, or because the observer reads it poorly",
+      "decision": "Justified narrow exception",
+      "reason": "These are the three physical causes being separated by the experiment, with concrete actors and consequences. Changing the count would damage the explanation. Scope suppression to this sentence only if needed."
+    },
+    {
+      "id": "V2",
+      "location": "10-hardware-tests.md:3",
+      "rule": "ai-tells.VerbTricolon",
+      "match": "This chapter develops a controlled test that separates them, connects physical parameters to memory error, and states how the three neuroscience papers guide the interpretation",
+      "decision": "Fix by shortening",
+      "reason": "The long announcement repeats what the surrounding opening and later section headings already supply. It does not need three promises.",
+      "proposed_repair": "The controlled tests below connect these errors to physical parameters. Keep the following sentence that marks the models as proposed, and retain the later paper-specific comparison."
+    },
+    {
+      "id": "V3",
+      "location": "10-hardware-tests.md:17",
+      "rule": "ai-tells.StrawmanContrast",
+      "match": ", rather than treating fitted coefficients as exact device properties.",
+      "decision": "Fix by deleting trailing contrast",
+      "reason": "Finding 03: the positive uncertainty instruction is complete without this imagined alternative."
+    },
+    {
+      "id": "V4",
+      "location": "10-hardware-tests.md:53",
+      "rule": "ai-tells.ContrastiveFormulas",
+      "match": "They are conditional predictions, not universal chip specifications",
+      "decision": "Fix while retaining conditional scope",
+      "reason": "Finding 04: the assumptions matter, but the universal-specification contrast duplicates the opening limit."
+    },
+    {
+      "id": "V5",
+      "location": "10-hardware-tests.md:77",
+      "rule": "ai-tells.ParallelStaccato",
+      "match": "Mainali and colleagues (2025): patterns of firing across physical positions constrain a spatial representation. Reproducing field-size statistics does not by itself show that a network implemented in hardware retains position without input.",
+      "decision": "Justified narrow exception",
+      "reason": "The two complete sentences distinguish a spatial measurement from an unsupported temporal inference. They are not parallel clipped slogans. The following sentence states the required separate tests. Scope any suppression to this bullet."
+    },
+    {
+      "id": "V6",
+      "location": "00-reading-guide.md:73",
+      "rule": "ai-tells.VerbTricolon",
+      "match": "They end with a proposed experiment that separates systematic drift, random spreading, and readout error",
+      "decision": "Justified narrow exception",
+      "reason": "The three terms correspond to actual measured causes in the chapter. This is a meaningful list of nouns, not three decorative parallel verbs."
+    },
+    {
+      "id": "V7",
+      "location": "00-reading-guide.md:73",
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; the three original papers remain the foundation of Parts I and II.",
+      "decision": "Fix punctuation",
+      "reason": "A period preserves the complete claims and reads naturally. Update the matching sidecar summary as well."
+    },
+    {
+      "id": "V8",
+      "location": "glossary.md:124",
+      "rule": "ai-tells.CataphoricForecasting",
+      "match": "Two locally stable",
+      "decision": "Justified narrow exception",
+      "reason": "Two is the defining cardinality of bistability. The definition gives the states directly and does not announce a later list. This is a false positive; scope any suppression to the entry."
+    }
+  ],
+  "reviewed_sha256": {
+    "content/chapters/10-hardware-tests.md": "78983353e6d6a20de9752f62bae7051c228a209062f0e8667e3f2237837e5c6e",
+    "content/chapters/10-hardware-tests.yaml": "7d7fe7beb4618cc4daea2fb32b241225cc2e0cbdc2b4978de746f031152e897b",
+    "content/index.md": "ed3f11911bb0ef45c974b649bc0c3825a10e34dd84f47d0cc61fd4e081a865e7",
+    "guide-project.yaml": "2d3de064294e00601fad7c6e2e65fd35e2c01a37bb8dbecffebca9b82910a36f",
+    "content/chapters/00-reading-guide.md": "05e731e2a212eef9e2402f2bb92f1f89b3eb2d4d6b4dd0b5c21a8a814a1abf19",
+    "content/chapters/00-reading-guide.yaml": "d228a64352784f1f70f8a16ba18f12f720c809617c38db4350d53bee6517fffa",
+    "content/chapters/glossary.md": "7f5aab643ee1fa9b7088a0eee38da30b348c3d07e56c6761400fb1226a132ad6",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "content/chapters/07-hardware-memory.md": "11953d6b3e1f0ba61f5c69191dd985f68c0683cd952cbbec83166f975ba04a97",
+    "content/chapters/08-hardware-dynamics.md": "4491c3a50ecbdb9f284169c8d7673436c705d65cab6d5cc8e59dc3b262c0e455",
+    "content/chapters/09-neuromorphic-systems.md": "633c526fdb76eddfe3db87c3eead7c7986ecacf6cba643e64a9773c1b24fb08c",
+    "content/chapters/02-memory-dynamics.md": "622a08b479a8586b17ff7a8f7d847253123393ef6a64ee9a91fb52aab69e577f",
+    "content/chapters/02b-memory-long-delays.md": "a088bae67645f1ceaa3389c8ed71700ecd24c9fcd010b8997f6adee0ced978a7",
+    "content/chapters/04b-eye-timing.md": "4d7395f284ca8a2e09b2d301c97cef98070c0528b756ceb06ca75570badac3bc",
+    "verification/part3-neuromorphic-20261030/vale-native-current.json": "ed6ecfd14a3d4371717012964da02b2692a6a9845d44749ef1b7aa6798e5ff0a",
+    "verification/part3-neuromorphic-20261030/vale-current-errors.txt": "facdfde2554d02a976f7cb3bcf0f46be9f1db773b2f17dd5f563e71a911770c6",
+    "verification/part3-neuromorphic-20261030/review-tests-stage1.json": "ca5dc20ad7d0a89aec75c9fcc7455faa9a58b01863ee9d2285f492917d87bc24"
+  },
+  "rule_sha256": {
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "limits": [
+    "No manuscript changes were made.",
+    "Stage 3 remains pending a separate call.",
+    "Only native Vale errors in the assigned text were adjudicated; no full-book lint acceptance is claimed.",
+    "Original neural-paper facts were checked in stage 1; this call rechecked the changed paragraph and current wording connections, not all primary-source research again.",
+    "No builds, full audits or figure checks.",
+    "Token stats unavailable."
+  ],
+  "wall_elapsed_seconds": 253
+}

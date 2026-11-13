@@ -1,0 +1,620 @@
+{
+  "summary": "The book's structure fits the reader's neurophysics interest. It moves from a physical problem (holding the eye still, keeping a value) through a spiking model and its derivations (diffusion, information bound, readout), then to empirical tests (eye drift), a separate spatial-coding model (place fields), a synthesis, and two requested extensions (hardware, simulation methods). The order mostly respects prerequisites. Chapters 1–2 supply the shared foundation, chapters 3–6 depend on them, the eye chapters reuse the attractor and diffusion results, and the place-field chapters need only chapters 1–2, as the reading guide says.\n\nThe main structural weaknesses are about progression, not missing chapters:\n(1) No running neural example connects the attractor, diffusion, information and readout chapters to the eye data. The guide uses several unrelated two-variable toys. One small change (state that the ch. 2 toy is the rate form of the paper's mutual-inhibition network), plus one recurring eye example with paper-sourced numbers, would tie the path together.\n(2) The chain from mechanism to model to derivation to test to what remains untested exists, but is scattered across chapters 1, 4, 13, 18 and 19. No visible map shows it per paper.\n(3) Part IV and the early simulation section of Chapter 1 retell the same figures. Part IV works better as a methods companion linked from each paper's chapters, while staying a Part.\n(4) Part II joins two very different kinds of study: eye drift tests Part I's dynamics in behaviour, while place fields are a static spatial-statistics model. Renaming or splitting it would make the route clearer, but this is optional.\n\nThe Stage 2 vocabulary findings remain the top content actions: what θ means off the attractor (S2-01), the meanings of 'drift' (S2-02), physical intuition for the bound (S2-05), and symbol collisions (S2-03).\n\nStage 1 F01 is narrowed after the coordinator's independent check. It is a supported optional qualification and research note, not a confirmed error, and my timing comparison is withdrawn. F06 (field-size part) is withdrawn after I verified the PubMed abstract myself. F07 is withdrawn on coordinator primary-source evidence; the Cannon & Robinson abstract could not be re-fetched in this session. F12 is withdrawn. F11 is confirmed.\n\nOne new source item arose and needs a correctness check before any running example uses it: Ben-Shushan main p.6 says the model's 350 ms MSD is 'in the order of 0.1 deg²', which appears inconsistent with Fig. 3a and the SI diffusion value (~0.01 deg²). No structural change can repair an equation; none of the equation findings depends on reordering.",
+  "part_and_chapter_path": [
+    {
+      "id": "ch:READING-GUIDE",
+      "current_purpose": "Orientation to the three papers, their results and limits; reading routes; mechanism/derivation/interpretation split; symbols; source copies.",
+      "what_reader_should_be_able_to_explain": "What each paper claims and how strongly; which chapters serve which route; that guide checks of printed equations are not author corrections.",
+      "prerequisite_locations": "none",
+      "retain_or_change": "retain with small changes",
+      "reason": "Accurate and well scoped. Add an evidence-chain map (C3), widen the symbol list (S2-03), list the ch. 1 sections place-field readers need (SR3), add Part IV cross-routes (SR2), and define the contribution labels only here (S2-11)."
+    },
+    {
+      "id": "part:MECHANISMS",
+      "current_purpose": "Burak–Fiete theory: background (ch. 1–2), central diffusion and information results (3, 5), supporting long-delay and readout results (4, 6).",
+      "what_reader_should_be_able_to_explain": "How spike noise moves a stored value along an attractor, how fast, why spike information sets a minimum, and why readout saturates.",
+      "prerequisite_locations": "reading guide",
+      "retain_or_change": "retain",
+      "reason": "Correct dependency order. The chapter map states the role of each result."
+    },
+    {
+      "id": "ch:FOUNDATIONS",
+      "current_purpose": "Eye muscles and the need for tonic drive; Eq. 7–9; tuning and population code; Poisson variability; the 2012 simulation algorithm; covariance and MSD for eye motion.",
+      "what_reader_should_be_able_to_explain": "What s, g, r, W, b and τ are physically; why one cell's count is noisy and a population less so; what the simulation updates; how bias and spread contribute to MSD.",
+      "prerequisite_locations": "reading guide definitions",
+      "retain_or_change": "change (trim and route)",
+      "reason": "Essential shared foundation, but it carries the Fig. 2 interpretation before diffusion is taught (S2-08/09). Keep the algorithm and the conditional-independence point; point to ch. 4 for the comparison. The eye-specific 'what changes the movement' bullets could move to ch. 7–8 (optional)."
+    },
+    {
+      "id": "ch:PERSISTENCE",
+      "current_purpose": "Mechanical holding versus neural integrator; attractor geometry (two-cell); independent increments and Brownian diffusion; time-varying versus spatial randomness.",
+      "what_reader_should_be_able_to_explain": "Why a stable pattern can hold a wrong value; why variance grows as 2Dt; why diffusion differs from bias; why place-field randomness is not memory noise.",
+      "prerequisite_locations": "ch. 1 eye action and tuning",
+      "retain_or_change": "retain with one bridge",
+      "reason": "Add that the two-cell rate toy is the rate form of the paper's mutual-inhibition network, with a = 2/τ (SR1). Reconcile 'systematic' versus 'fixational' drift here (S2-02)."
+    },
+    {
+      "id": "ch:MEMORY-DYNAMICS",
+      "current_purpose": "Weak-noise approximation, linearization, left and right vectors, D formula, symmetric form, two-cell check.",
+      "what_reader_should_be_able_to_explain": "Which part of a spike-induced disturbance survives, why the left vector rather than perpendicular projection, and how D depends on rates, slopes and τ.",
+      "prerequisite_locations": "ch. 1 Eq. 7–9, ch. 2 attractor/diffusion, linear algebra",
+      "retain_or_change": "retain, add the coordinate definition",
+      "reason": "Move the Fig. 1A flow-projection definition here and state the state/θ/θ̂ distinction (S2-01, S2-13). Add the measurable-ingredients sentence (S2-10)."
+    },
+    {
+      "id": "ch:MEMORY-LONG-DELAYS",
+      "current_purpose": "Density evolution, line versus ring, state-dependent D, systematic drift scope, reading Figs. 1, 2 and S1.",
+      "what_reader_should_be_able_to_explain": "Why ring error flattens without recovery; when variance stays linear despite state-dependent D; why the paper assumes no mean drift; what the simulations test.",
+      "prerequisite_locations": "ch. 3",
+      "retain_or_change": "retain",
+      "reason": "Supporting role is clear. The S40 note could become a footnote. After S2-01, Fig. 1A becomes a recap here."
+    },
+    {
+      "id": "ch:MEMORY-INFORMATION",
+      "current_purpose": "Fisher information, Cramér–Rao, information–diffusion bound, equality, matrix bound, controlled comparisons.",
+      "what_reader_should_be_able_to_explain": "Why internal information limits stability; what equality requires; how N, rates, τ and tuning width change the bound and what each comparison holds fixed.",
+      "prerequisite_locations": "ch. 3 D formula; ch. 1 Poisson",
+      "retain_or_change": "retain, add intuition",
+      "reason": "Central result; add the heuristic 'circuit reads its own spikes over τ' (S2-05)."
+    },
+    {
+      "id": "ch:MEMORY-READOUT",
+      "current_purpose": "Storage plus readout, naive versus ideal readout, saturation within τ, partial access, extensions, Eq. 6 caution.",
+      "what_reader_should_be_able_to_explain": "Why longer observation helps less and less, the role of τ, and why the Eq. 6 inequality needs qualification within the paper's model.",
+      "prerequisite_locations": "ch. 2 Brownian covariance, ch. 5 J",
+      "retain_or_change": "retain; mark extensions optional",
+      "reason": "Add the F01 optional note on shared spike noise. Move the white-noise definition out of the extension (S2-07). Fix the q collision (S2-03). Label the two-time-scale and Gaussian-noise extensions as optional so the eye route can skip them."
+    },
+    {
+      "id": "part:OBSERVATIONS",
+      "current_purpose": "Eye study (7–9), place-field study (10–12), synthesis (13).",
+      "what_reader_should_be_able_to_explain": "How one neuron's spikes can reveal a shared upstream drive; how a wandering command becomes smooth superdiffusive eye motion; how thresholded random inputs explain field statistics.",
+      "prerequisite_locations": "Part I",
+      "retain_or_change": "optional change",
+      "reason": "The two halves have different dependencies and logic (SR4). Renaming or splitting would make the place route clearer."
+    },
+    {
+      "id": "ch:EYE-DRIFT",
+      "current_purpose": "Pathway, recordings, forward fit, inverse filter, independent-noise bound, χ.",
+      "what_reader_should_be_able_to_explain": "Why a correlation of 0.17 can coexist with an 82% shared fraction, and which assumptions (gain transfer, independence) carry the inference.",
+      "prerequisite_locations": "ch. 1 covariance/CV; ch. 2 integrator",
+      "retain_or_change": "retain",
+      "reason": "Strong chapter. Unify the names for the shared drive (S2-14); add the drift-terminology reminder."
+    },
+    {
+      "id": "ch:EYE-TIMING",
+      "current_purpose": "Measurement-noise offset; filtered white versus filtered Brownian MSD.",
+      "what_reader_should_be_able_to_explain": "Why private motor noise saturates and why diffusion filtered by muscles gives a slope between 1 and 2.",
+      "prerequisite_locations": "ch. 1 MSD, ch. 2 diffusion, white noise (currently ch. 6 extension)",
+      "retain_or_change": "retain, add scale link",
+      "reason": "Point to the moved white-noise definition. Add one sentence placing the transition lag on the measured axis (Stage 2 A6)."
+    },
+    {
+      "id": "ch:EYE-CIRCUIT",
+      "current_purpose": "Integrator model through motor neurons and plant, feedback, scaling, figure roles, limits.",
+      "what_reader_should_be_able_to_explain": "How integrator noise produces the eye-drift amplitude and timing, what is constrained versus tuned, and what is not identified.",
+      "prerequisite_locations": "ch. 2–3 attractor/diffusion, ch. 5 J, ch. 7 forward model",
+      "retain_or_change": "retain; optionally fold the equations",
+      "reason": "The main path is heavy (S2-18). The figure-reading table is excellent. It closes the theory-to-behaviour bridge."
+    },
+    {
+      "id": "ch:PLACE-FIELDS",
+      "current_purpose": "Recordings; Gaussian-process input and threshold; Kac–Rice counts; inference of q and σ from mean field length and gap.",
+      "what_reader_should_be_able_to_explain": "How one smooth random input yields several fields, and why mean length plus mean gap fix q and σ.",
+      "prerequisite_locations": "ch. 1 rate map/place cell; ch. 2 map versus wandering value",
+      "retain_or_change": "retain",
+      "reason": "Self-contained. Note the Euler-characteristic forward reference (S2-16)."
+    },
+    {
+      "id": "ch:PLACE-SIZES",
+      "current_purpose": "High-peak parabola, size laws per dimension, slices, boundary slopes.",
+      "what_reader_should_be_able_to_explain": "Why size distributions differ in 1D, 2D and 3D, and which predictions are limiting versus exact.",
+      "prerequisite_locations": "ch. 10",
+      "retain_or_change": "retain",
+      "reason": "Clear separation of limiting and exact results."
+    },
+    {
+      "id": "ch:PLACE-TESTS",
+      "current_purpose": "Euler characteristic, what was fitted versus tested, processing effects, random-wiring interpretation.",
+      "what_reader_should_be_able_to_explain": "Why topology is an independent test, which agreements are fitted, and what the wiring interpretation does not establish.",
+      "prerequisite_locations": "ch. 10–11",
+      "retain_or_change": "retain; fold face factors",
+      "reason": "Optional folding (S2-19); disambiguate χ."
+    },
+    {
+      "id": "ch:SYNTHESIS",
+      "current_purpose": "Separate map, dynamics and movement; shared-position covariance; matched tests; related work; joint experiment.",
+      "what_reader_should_be_able_to_explain": "Why no paper alone establishes one circuit, and what joint measurement would.",
+      "prerequisite_locations": "ch. 3–12",
+      "retain_or_change": "retain; host the evidence-chain table",
+      "reason": "This is the natural place to collect the per-paper chain (C3) if it is not put in the reading guide."
+    },
+    {
+      "id": "part:HARDWARE",
+      "current_purpose": "Requested extension: physical storage versus neural state versus remembered value; feedback; selected chips; a proposed test protocol.",
+      "what_reader_should_be_able_to_explain": "Where a chip's memory physically lives and which error sources (decay, bias/pinning, noise projection, readout) limit a remembered angle.",
+      "prerequisite_locations": "Part I ch. 2–3, 5; ch. 8 measurement offset",
+      "retain_or_change": "retain",
+      "reason": "Proportionate burden. Ch. 17 links back to the Part I projection and the eye-measurement lessons."
+    },
+    {
+      "id": "ch:HARDWARE-MEMORY",
+      "current_purpose": "Weights versus states versus value; storage media; update paths.",
+      "what_reader_should_be_able_to_explain": "Why correct weights do not guarantee a retained cue.",
+      "prerequisite_locations": "ch. 1 Eq. 8, ch. 2 attractor",
+      "retain_or_change": "retain",
+      "reason": "Mirrors the state/θ/θ̂ distinction; cross-reference S2-01 once it is added."
+    },
+    {
+      "id": "ch:HARDWARE-DYNAMICS",
+      "current_purpose": "Feedback-extended time constant; restoring versus neutral; silicon examples.",
+      "what_reader_should_be_able_to_explain": "How tuning feedback gain sets persistence and why a continuous memory accumulates error while a bit does not.",
+      "prerequisite_locations": "ch. 2 diffusion, ch. 4 drift",
+      "retain_or_change": "retain; retitle 'drift'",
+      "reason": "S2-02. A5 (noise source) belongs here, worded within the modelled update rule (C7)."
+    },
+    {
+      "id": "ch:NEUROMORPHIC-SYSTEMS",
+      "current_purpose": "Architectures and 2025–26 results classified by memory type.",
+      "what_reader_should_be_able_to_explain": "Which result concerns temporal state, weight adaptation, or material stability, and what each does not show.",
+      "prerequisite_locations": "ch. 14",
+      "retain_or_change": "retain with qualifications",
+      "reason": "Apply F04 and F05."
+    },
+    {
+      "id": "ch:HARDWARE-TESTS",
+      "current_purpose": "Proposed protocol separating drift, diffusion and readout error; parameter actions; matched comparisons.",
+      "what_reader_should_be_able_to_explain": "How to measure b(θ), D(θ) and readout noise on a chip, and convert time scales.",
+      "prerequisite_locations": "ch. 3 projection, ch. 8 offset",
+      "retain_or_change": "retain",
+      "reason": "Say that ℓ is the v of ch. 3 (S2-04)."
+    },
+    {
+      "id": "part:SIMULATIONS",
+      "current_purpose": "Requested extension: methods, settings, code and data, reproduction.",
+      "what_reader_should_be_able_to_explain": "What each simulation adds as evidence and what must match to reproduce it.",
+      "prerequisite_locations": "matching paper chapters",
+      "retain_or_change": "retain as a Part; change the routing",
+      "reason": "Use it as a methods companion with links from ch. 4, 9 and 12; trim the retelling (SR2, S2-08)."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY",
+      "current_purpose": "State update, ring and mutual-inhibition settings, analytic versus simulated curves, code status.",
+      "what_reader_should_be_able_to_explain": "Exactly what was simulated and what numerical choices (step size, one-spike versus count rule, units) a reproduction must fix.",
+      "prerequisite_locations": "ch. 1, 3–4",
+      "retain_or_change": "trim",
+      "reason": "Lead with its unique content; link instead of re-reading Fig. 2. F09 belongs here."
+    },
+    {
+      "id": "ch:SIMULATING-EYE",
+      "current_purpose": "Data versus model, pathway stages, controls, MATLAB code and data.",
+      "what_reader_should_be_able_to_explain": "Which reproduction task each artifact supports.",
+      "prerequisite_locations": "ch. 7–9",
+      "retain_or_change": "trim",
+      "reason": "The stage and control narrative repeats ch. 9; keep the code/data sections. Apply F03."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE",
+      "current_purpose": "Map generation, fitted versus tested, detection and preprocessing, tools.",
+      "what_reader_should_be_able_to_explain": "How to generate and measure maps compatibly with the data, including the width convention.",
+      "prerequisite_locations": "ch. 10–12",
+      "retain_or_change": "retain",
+      "reason": "The least repetitive Part IV chapter."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS",
+      "current_purpose": "Cross-paper reproduction practice.",
+      "what_reader_should_be_able_to_explain": "How to check convergence and record the choices that determine a conclusion.",
+      "prerequisite_locations": "ch. 18–20",
+      "retain_or_change": "retain",
+      "reason": "Short and practical."
+    },
+    {
+      "id": "ch:GLOSSARY",
+      "current_purpose": "Lookup.",
+      "what_reader_should_be_able_to_explain": "—",
+      "prerequisite_locations": "—",
+      "retain_or_change": "small change",
+      "reason": "S2-20."
+    },
+    {
+      "id": "ch:REFERENCES",
+      "current_purpose": "Bibliography.",
+      "what_reader_should_be_able_to_explain": "—",
+      "prerequisite_locations": "—",
+      "retain_or_change": "small change",
+      "reason": "F11 (Nghiem initials); optionally add a grid-cell definition source (F06 remainder)."
+    }
+  ],
+  "structural_recommendations": [
+    {
+      "id": "SR1",
+      "priority": "high",
+      "current_location": "ch. 2 sec:FOUNDATIONS-ATTRACTOR example; ch. 3 sec:MEMORY-SYMMETRIC example; ch. 5 bound-strictness example; ch. 6 examples; ch. 9 scaling",
+      "proposal": "Make one running neural example visible. (a) State that the ch. 2 two-cell rate toy is the rate form of the paper's mutual-inhibition network: the common mode decays at rate a = 2/τ and the difference is neutral. Then carry that network through D (ch. 3), J and equality (ch. 5) and readout (ch. 6), as the guide already partly does. (b) Thread one eye example, 'holding gaze after a saccade', using paper-sourced numbers: D ≈ 0.014 deg²/s from Ben-Shushan SI, the 350 ms window, filtered slope ~1.7. Use it from ch. 2 to ch. 9 and in ch. 17 as the hardware target.",
+      "teaching_benefit": "The reader can follow one physical system from mechanism to formula to measurement instead of re-orienting to a new toy in each chapter.",
+      "prerequisite_evidence": "ch. 2 L0083–L0092 (ṙ = −a·x); ch. 3 L0268–L0278 (common mode relaxes, difference neutral); ch. 2 L0173 uses an illustrative D = 0.02 deg²/s; ch. 9 L0199 gives D = 0.0139 deg²/s from SI.",
+      "cost_or_risk": "Small text edits; possibly re-parameterizing the ch. 2 figure. Do not use the main-text '0.1 deg² at 350 ms' value until it is checked (scientific follow-up SF1).",
+      "affected_chapters": [
+        "ch:PERSISTENCE",
+        "ch:MEMORY-DYNAMICS",
+        "ch:MEMORY-INFORMATION",
+        "ch:MEMORY-READOUT",
+        "ch:EYE-TIMING",
+        "ch:EYE-CIRCUIT",
+        "ch:HARDWARE-TESTS"
+      ]
+    },
+    {
+      "id": "SR2",
+      "priority": "medium",
+      "current_location": "Part IV; ch. 1 sec:FOUNDATIONS-SIMULATION; ch. 4 sec:MEMORY-FIGURES; ch. 9",
+      "proposal": "Keep Part IV, but route it as each paper's methods companion. At the end of ch. 4, 9 and 12 add 'Methods and reproduction: ch. 18/19/20'. Open each Part IV chapter with what it adds. Reduce ch. 1's simulation section to the update algorithm, and remove the duplicated figure interpretations (S2-08).",
+      "teaching_benefit": "Readers interested in a paper see its test methods when they need them; total reading load drops; the requested coverage stays.",
+      "prerequisite_evidence": "Repeated passages listed in S2-08: 01 L0288, 02b L0189, 11 L0034; 12 L0013–L0051 versus 04c.",
+      "cost_or_risk": "Low. Do not cut ch. 18's unique numerical cautions (one-spike versus count rule, D_r = D_s/τ²).",
+      "affected_chapters": [
+        "ch:FOUNDATIONS",
+        "ch:MEMORY-LONG-DELAYS",
+        "ch:EYE-CIRCUIT",
+        "ch:PLACE-TESTS",
+        "ch:SIMULATING-MEMORY",
+        "ch:SIMULATING-EYE",
+        "ch:SIMULATING-PLACE"
+      ]
+    },
+    {
+      "id": "SR3",
+      "priority": "medium",
+      "current_location": "reading guide sec:READING-START; ch. 1",
+      "proposal": "Define a short shared foundation route instead of swapping chapters. Place-field readers need ch. 1 sec:FOUNDATIONS-SPIKES and sec:FOUNDATIONS-POISSON plus ch. 2 sec:FOUNDATIONS-RANDOMNESS, not eye mechanics, Eq. 7–9 or simulation. List these sections in the reading paths.",
+      "teaching_benefit": "The place-field route becomes genuinely short. The current 'read the two foundations chapters' sends readers through about 20 pages of eye and memory material.",
+      "prerequisite_evidence": "ch. 10–12 use only rate map, place cell, tuning and the spatial-versus-time distinction; no use of Eq. 7–9, D or J was found.",
+      "cost_or_risk": "Very low; a text change in the reading guide only.",
+      "affected_chapters": [
+        "ch:READING-GUIDE"
+      ]
+    },
+    {
+      "id": "SR4",
+      "priority": "low",
+      "current_location": "part:OBSERVATIONS",
+      "proposal": "Either rename Part II to state its two halves (e.g. 'Testing memory dynamics in eye drift; a spatial model of place fields'), or split it into Part IIa (ch. 7–9) and Part IIb (ch. 10–12), keeping ch. 13 as the closing synthesis.",
+      "teaching_benefit": "Signals that eye drift tests Part I's dynamics while place fields are an independent static-map model. This prevents readers from expecting a dynamical link that ch. 13 says is untested.",
+      "prerequisite_evidence": "Part II intro; ch. 2 L0223–L0226; ch. 13 L0029.",
+      "cost_or_risk": "Navigation and ID changes need author approval under the structure lock.",
+      "affected_chapters": [
+        "ch:EYE-DRIFT…ch:SYNTHESIS"
+      ]
+    },
+    {
+      "id": "SR5",
+      "priority": "low",
+      "current_location": "ch. 6 sec:MEMORY-EXTENSIONS; ch. 12 boundary derivation; ch. 9 Eqs. 23–31",
+      "proposal": "Mark ch. 6 extensions as optional for the eye route (after moving the white-noise definition). Fold the face-factor derivation and Eqs. 23–31, keeping the results and roles visible.",
+      "teaching_benefit": "Lowers the main-path load without losing content.",
+      "prerequisite_evidence": "S2-07, S2-18, S2-19.",
+      "cost_or_risk": "Make sure ch. 8 and ch. 19 links still land on visible text.",
+      "affected_chapters": [
+        "ch:MEMORY-READOUT",
+        "ch:EYE-CIRCUIT",
+        "ch:PLACE-TESTS"
+      ]
+    }
+  ],
+  "clarifications_and_additions": [
+    {
+      "id": "C1",
+      "priority": "high",
+      "placement": "ch. 3 start of sec:MEMORY-LINEARIZATION",
+      "proposal": "Define θ for off-attractor states (flow projection, the paper's instantaneous attractor state). Distinguish s, θ and θ̂, state that the state variables are the activations, and give one name for the stored value (S2-01, S2-13).",
+      "reason": "Every later diffusion, readout and hardware statement depends on what θ means.",
+      "source_requirement": "Burak main p.2, Fig. 1A (already in packet)"
+    },
+    {
+      "id": "C2",
+      "priority": "high",
+      "placement": "ch. 2 systematic-drift definition; ch. 7 opening; ch. 15 title",
+      "proposal": "Reconcile 'fixational drift' (random eye motion) with 'systematic drift' (mean velocity). Retitle ch. 15's 'continuous drift' (S2-02).",
+      "reason": "Otherwise the 2022 title reads as contradicting ch. 2 and ch. 4.",
+      "source_requirement": "Ben-Shushan abstract"
+    },
+    {
+      "id": "C3",
+      "priority": "high",
+      "placement": "reading guide (or ch. 13 table)",
+      "proposal": "A conceptual evidence-chain map per paper: physical system → modelled actors and equations → derived prediction → simulation test → empirical test → untested link. Example for Burak–Fiete: spikes/activations → Eq. 7–11 → D, J, bound → Fig. 2 simulations → no animal test in the paper; the eye study provides a related but non-equivalent test. Recommended as a table or diagram; not created here.",
+      "reason": "This makes the mechanism–model–test bridge visible, which is the reader's stated priority. It currently has to be pieced together from ch. 1, 4, 13, 18 and 19.",
+      "source_requirement": "existing packet sources"
+    },
+    {
+      "id": "C4",
+      "priority": "high",
+      "placement": "ch. 5 sec:MEMORY-BOUND",
+      "proposal": "Heuristic: the circuit re-reads about τ of its own spikes, so 2Dτ ≥ 1/(Jτ). Label it as the paper's interpretation (S2-05).",
+      "reason": "Gives a physical reason for the central inequality.",
+      "source_requirement": "Burak main p.3"
+    },
+    {
+      "id": "C5",
+      "priority": "medium",
+      "placement": "ch. 6 sec:MEMORY-READOUT-SETUP (one sentence) plus an optional fold",
+      "proposal": "State that the independence of ε_k and η_k means process increments are treated as separate from the observed count noise, whereas the network's own spikes generally produce both. Readout from the actual spike stream needs a joint model. An optional research note may give the two-cell same-spike result with its conditions: frozen local Gaussian noise, known initial transverse state, and a limit 2/(Jτ) that is a Cramér–Rao bound for Poisson spikes.",
+      "reason": "This is F01 as narrowed by the independent check.",
+      "source_requirement": "Burak SI S57–S62; the reviewer-derived calculation must stay labelled guide-derived and unconfirmed"
+    },
+    {
+      "id": "C6",
+      "priority": "medium",
+      "placement": "ch. 6 (q), ch. 12 (χ), reading-guide symbol list, ch. 17 (ℓ = v)",
+      "proposal": "Remove the within-chapter q collision; disambiguate χ; say that ℓ is v (S2-03, S2-04).",
+      "reason": "These prevent misreading inside a derivation and across papers.",
+      "source_requirement": "none"
+    },
+    {
+      "id": "C7",
+      "priority": "low",
+      "placement": "ch. 15 or ch. 17",
+      "proposal": "A5 reworded: in a deterministic configured update rule (digital or integer LIF, e.g. Aitsam), there is no stochastic neural-noise term unless one is added. Analog circuits have device fluctuations and fixed mismatch, which act as noise and bias. Do not claim that physical digital chips are free of timing variation or hardware errors.",
+      "reason": "This maps the B term of D = ½ℓᵀBBᵀℓ onto the modelled implementation without overstating.",
+      "source_requirement": "Aitsam §2 (deterministic LIF); a cited analog-noise source if specifics are added"
+    },
+    {
+      "id": "C8",
+      "priority": "low",
+      "placement": "ch. 3 sec:MEMORY-SYMMETRIC interpretation",
+      "proposal": "List the measurable ingredients of D (S2-10).",
+      "reason": "Connects the formula to experiments before ch. 13.",
+      "source_requirement": "Burak main p.2, p.5"
+    },
+    {
+      "id": "C9",
+      "priority": "low",
+      "placement": "ch. 8 after α(ℓ) values",
+      "proposal": "Place the filter transition on the data's lag axis (Stage 2 A6).",
+      "reason": "Links the one-pole teaching model to Fig. 3.",
+      "source_requirement": "Ben-Shushan Fig. 2b; main p.5"
+    },
+    {
+      "id": "C10",
+      "priority": "low",
+      "placement": "ch. 16 Aitsam paragraph; ch. 16 Sun model",
+      "proposal": "Apply F04 (host-smoothed centroid input, deterministic network, accuracy/lag trade-off) and F05 (LMU sliding-window state).",
+      "reason": "Accurate classification of what each hardware result shows.",
+      "source_requirement": "Aitsam §3–4; Sun Methods (in packet)"
+    },
+    {
+      "id": "C11",
+      "priority": "low",
+      "placement": "book-wide",
+      "proposal": "One first-definition mark per term; one name for the Burak SI; glossary additions (line attractor, lag, instantaneous attractor state) and a 'Simulation' heading; Nghiem initials; optionally a dedicated grid-cell definition source (S2-06, S2-12, S2-20, F11, F06 remainder).",
+      "reason": "Consistency and lookup.",
+      "source_requirement": "Nghiem PMC11831129 (coordinator-verified); a grid-cell review if added"
+    }
+  ],
+  "reconsidered_findings": [
+    {
+      "original_id": "F01",
+      "disposition": "narrowed: retained as an optional qualification and research note, not a guide error; severity lowered to low–medium",
+      "evidence": "Guide 03b L0019 ('In this approximation, these increments and errors are independent') and L0032 already scope the model. The independent check confirms the same-spike cross-covariance (correlation 1/(τ√(2DJ)), equal to 1 at equality) and the two-cell factor of two in the limit (b·[coth(L/τ)+1] versus b·coth(L/τ)).",
+      "reason": "Three of my statements were imprecise and are withdrawn. (1) 'Cue-state information decays as e^{−t/τ}': it is the intensity sensitivity that decays as e^{−t/τ}; the information rate decays as e^{−2t/τ}. (2) The contrast 'approach time τ/2 versus 1/√(2DJ)' compared unlike definitions; at equality both residual variances decay as e^{−2L/τ}. (3) For Poisson spikes, 2/(Jτ) is only a Cramér–Rao bound, and my total-error claim 'total ≤ 2D(T+2τ)' assumed attainability and a known initial transverse state. The general concern stands: the paper's readout model is not the joint observation model for an observer who receives the memory network's own spikes."
+    },
+    {
+      "original_id": "F02",
+      "disposition": "retained",
+      "evidence": "04c L0170 versus Eq. 1 (main p.6); saturating synapses at Eq. 26.",
+      "reason": "No new evidence."
+    },
+    {
+      "original_id": "F03",
+      "disposition": "retained",
+      "evidence": "12 L0007; Ben-Shushan p.9 leave-one-out stated only for rate prediction.",
+      "reason": "No new evidence."
+    },
+    {
+      "original_id": "F04",
+      "disposition": "retained",
+      "evidence": "09 L0029; Aitsam §3.2, §4.3.",
+      "reason": "Wording should follow C7 for the noise statement."
+    },
+    {
+      "original_id": "F05",
+      "disposition": "retained (optional)",
+      "evidence": "09 L0049 disclaimer; Sun Methods Eq. 4–8.",
+      "reason": "No new evidence."
+    },
+    {
+      "original_id": "F06",
+      "disposition": "field-size suspicion withdrawn; citation-source suggestion retained as optional",
+      "evidence": "PubMed 42203876 abstract (fetched this session): 'the sizes of place fields were very similar between the two subregions, across 5 different environment sizes … 6 m to 200 m'.",
+      "reason": "The guide's ch. 13 L0125 claim is supported. Citing a bat CA3/CA1 paper for the general grid-cell definition (ch. 1 footnote f-anatomy) is still better served by a dedicated source."
+    },
+    {
+      "original_id": "F07",
+      "disposition": "withdrawn",
+      "evidence": "Coordinator primary-source check: Massoud & Horiuchi author manuscript (32 positions, Eq. 3, Figs. 13, 15); Cannon & Robinson abstract (>20 s intact, ~200 ms minimum after injections, in darkness after saccades). My own re-fetch of the Cannon abstract returned 403.",
+      "reason": "Both numbers are supported. My independent confirmation of Cannon & Robinson is limited to the coordinator's evidence."
+    },
+    {
+      "original_id": "F08",
+      "disposition": "retained",
+      "evidence": "05c L0119, L0214; Mainali Fig. 4A (room 72.0 m³, σ = 4.0).",
+      "reason": "No new evidence."
+    },
+    {
+      "original_id": "F09",
+      "disposition": "retained (optional)",
+      "evidence": "11 L0032; Burak p.6.",
+      "reason": "—"
+    },
+    {
+      "original_id": "F10",
+      "disposition": "retained (optional)",
+      "evidence": "05c L0305; Mainali Methods S2.",
+      "reason": "—"
+    },
+    {
+      "original_id": "F11",
+      "disposition": "confirmed",
+      "evidence": "Coordinator: PMC11831129 gives Trang-Anh E. Nghiem.",
+      "reason": "Use T. A. E. or T.-A. E. consistently."
+    },
+    {
+      "original_id": "F12",
+      "disposition": "withdrawn",
+      "evidence": "Coordinator HTML check: no duplicated paragraphs in the four Part pages.",
+      "reason": "It was a packet artifact."
+    },
+    {
+      "original_id": "S2-01…S2-20",
+      "disposition": "retained; S2-09 merged into S2-08/SR2",
+      "evidence": "Re-checked against nearby qualifications: ch. 3 L0068 says 'displacement to a different fixed point' but does not define θ for a noisy state (S2-01 stands); ch. 2 L0184 defines systematic drift with no fixational-drift reconciliation (S2-02 stands).",
+      "reason": "—"
+    },
+    {
+      "original_id": "Stage2 A5",
+      "disposition": "reworded as C7",
+      "evidence": "Coordinator note; Aitsam's network is deterministic integer LIF.",
+      "reason": "Restrict the statement to the modelled or configured update rule; do not claim physical chips are noise-free."
+    }
+  ],
+  "top_actions_in_order": [
+    {
+      "rank": 1,
+      "kind": "clarification (essential)",
+      "finding_ids": [
+        "S2-01",
+        "S2-13",
+        "C1"
+      ],
+      "action": "Define the off-attractor memory coordinate and the s/θ/θ̂ distinction at the start of ch. 3.",
+      "why_first": "Every later chapter's 'what diffuses, what is read, what the chip stores' depends on it, and it costs about 3 sentences."
+    },
+    {
+      "rank": 2,
+      "kind": "clarification (essential)",
+      "finding_ids": [
+        "S2-02",
+        "C2"
+      ],
+      "action": "Reconcile 'fixational' versus 'systematic' drift; retitle ch. 15.",
+      "why_first": "It removes an apparent contradiction right at the Part I to Part II bridge."
+    },
+    {
+      "rank": 3,
+      "kind": "addition (essential)",
+      "finding_ids": [
+        "S2-05",
+        "C4"
+      ],
+      "action": "Add the physical intuition for the information–diffusion bound.",
+      "why_first": "It is the central result, and the neurophysics reader currently has algebra only."
+    },
+    {
+      "rank": 4,
+      "kind": "structure",
+      "finding_ids": [
+        "SR1"
+      ],
+      "action": "Make the mutual-inhibition network and the gaze-holding eye example explicit running examples, with paper-sourced numbers after SF1 is checked.",
+      "why_first": "Gives the mechanism → formula → measurement continuity the user asked about."
+    },
+    {
+      "rank": 5,
+      "kind": "addition",
+      "finding_ids": [
+        "C3"
+      ],
+      "action": "Add the per-paper evidence-chain map.",
+      "why_first": "It lets readers see what was derived, simulated, measured and left untested."
+    },
+    {
+      "rank": 6,
+      "kind": "clarification",
+      "finding_ids": [
+        "S2-03",
+        "S2-04",
+        "C6"
+      ],
+      "action": "Fix the ch. 6 q collision; disambiguate χ; note ℓ = v.",
+      "why_first": "Prevents misreading inside derivations."
+    },
+    {
+      "rank": 7,
+      "kind": "qualification",
+      "finding_ids": [
+        "F01",
+        "C5"
+      ],
+      "action": "Add the one-sentence shared-spike-noise note in the ch. 6 setup, with an optional labelled research fold.",
+      "why_first": "Makes a hidden modelling assumption visible; not urgent because the guide already scopes it."
+    },
+    {
+      "rank": 8,
+      "kind": "structure",
+      "finding_ids": [
+        "SR2",
+        "SR3",
+        "S2-08"
+      ],
+      "action": "Route Part IV as a methods companion, trim the duplicate retelling, and list the place-route sections.",
+      "why_first": "Recovers the space needed for actions 1–5 and shortens the routes."
+    },
+    {
+      "rank": 9,
+      "kind": "qualification",
+      "finding_ids": [
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F08",
+        "F09",
+        "C7"
+      ],
+      "action": "Apply the local scientific-wording qualifications.",
+      "why_first": "Small edits, each local."
+    },
+    {
+      "rank": 10,
+      "kind": "presentation",
+      "finding_ids": [
+        "S2-06",
+        "S2-12",
+        "S2-20",
+        "F11",
+        "SR4",
+        "SR5",
+        "S2-07"
+      ],
+      "action": "Single definition marks, glossary, citations, optional Part rename, folds, white-noise placement.",
+      "why_first": "Consistency work best done last, after content changes."
+    }
+  ],
+  "what_to_keep": [
+    "The overall order: Part I theory before Part II tests, and place fields after the shared foundation. No whole-chapter swaps are needed.",
+    "The mechanism / derivation / interpretation triplets in ch. 3–5, and the folds for proofs.",
+    "The explicit, labelled checks of printed source equations, kept separate from the 2017 correction. All were confirmed in Stage 1.",
+    "Ch. 1's physical opening (eye mechanics, Eq. 7–9 as a feedback cycle) and ch. 2's map-versus-wandering distinction.",
+    "Ch. 7's χ versus R example, ch. 8's filtered white versus filtered Brownian derivation, and ch. 9's figure-reading table and limits section.",
+    "Ch. 10–12's separation of exact, limiting and fitted results, and the fitted-versus-tested table.",
+    "Ch. 13's per-paper 'position' disambiguation and its proposed joint experiment.",
+    "Part III's weight/state/value framing and ch. 17's projection-based test protocol. Both are requested coverage and real bridges to Part I.",
+    "Part IV's unique practical content: settings, one-spike versus count rule, unit conversions, code and data access, width convention, convergence and reproduction records."
+  ],
+  "coverage_and_limits": {
+    "covered": "Reading guide, all four Part introductions, all 21 chapters, glossary and references, each given a path entry. Stage 1 and Stage 2 findings were re-checked against nearby text, the coordinator evidence and one new fetch (Maimon PubMed abstract).",
+    "scientific_followups": [
+      "SF1 (new, needs a check before use in a running example): Ben-Shushan main p.6 says the model's '350 ms … MSD … in the order of 0.1 deg²', but Fig. 3a shows measured MSD of about 0.01–0.02 deg² at 0.35–0.6 s, and SI S6 gives 2D ≈ 0.028 deg²/s (≈0.01 deg² at 0.35 s). Check against the Fig. 4d/5d axes in the PDF before quoting any value. The guide does not currently quote 0.1 deg².",
+      "F01 as narrowed: any full-recall calculation that includes unknown transverse initial state and Poisson attainability remains open research; it is not for the main text."
+    ],
+    "limits": [
+      "No figure pixels inspected and no image sweep proposed.",
+      "No edits, simulations or code runs.",
+      "Cannon & Robinson and Massoud are accepted on coordinator evidence; my Cannon re-fetch failed (403).",
+      "The peer-review file and author code remain unread.",
+      "This is an expert structural review, not a formal release acceptance."
+    ]
+  },
+  "open_connected_reading_assessment": "Read end to end, the guide gives a neurophysics reader an honest and mostly well-ordered path. They learn why gaze holding needs a neural memory, how recurrent spikes renew decaying synaptic activation, why a stable pattern can still hold a wrong value, and how spike noise projected through the circuit's return flow gives a diffusion coefficient bounded below by the circuit's own spike information. Readout from such a memory saturates within about a synaptic time constant. The eye study then shows a shared upstream drive in single motor-neuron recordings. Its timing, after muscle filtering, matches diffusion of a stored position rather than filtered private noise, and a noisy integrator model can produce it without being uniquely identified. The place-field study is a well-taught but different kind of model: a static map of thresholded smooth random input whose sizes, slices, slopes and topology match recordings. The synthesis correctly refuses to merge the papers into one tested circuit, and the hardware and simulation Parts extend the reasoning responsibly.\n\nWhere the connected reading still stumbles is vocabulary and continuity rather than correctness. The reader is not told exactly what θ is between spikes until Chapter 4. The word 'drift' changes meaning between Chapters 2, 7 and 15. The central inequality arrives without a physical reason. Each chapter brings a new two-variable toy instead of reusing one neural example. The simulation material is retold rather than referenced. Fixing these with the few sentences and routing changes above, rather than new chapters, would make the book's existing strengths, especially its careful separation of assumption, derivation and evidence, much easier to see and use."
+}

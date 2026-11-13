@@ -1,0 +1,212 @@
+{
+  "review_id": "part3-tests-stage1-20261030",
+  "request_id_kind": "local request identifier; platform call ID not exposed",
+  "reviewer": "/root/part3_review_tests",
+  "model_assignment": "gpt-6.1-sol high, as assigned by coordinator; runtime identity not independently exposed",
+  "stage": 1,
+  "stage_name": "Truth and reasoning",
+  "started_utc": "2026-10-30T14:18:19Z",
+  "completed_utc": "2026-10-30T14:22:06Z",
+  "checkpoints": [
+    {
+      "utc": "2026-10-30T14:18:19Z",
+      "event": "Read review instructions and began source review",
+      "wall_elapsed_seconds": 0
+    },
+    {
+      "utc": "2026-10-30T14:19:16Z",
+      "event": "Read assigned content and connected projection teaching; started original-source extraction",
+      "wall_elapsed_seconds": 57,
+      "since_previous_checkpoint_seconds": 57
+    },
+    {
+      "utc": "2026-10-30T14:19:45Z",
+      "event": "Checked original neural sources and earlier stochastic-convention teaching",
+      "wall_elapsed_seconds": 86,
+      "since_previous_checkpoint_seconds": 29
+    },
+    {
+      "utc": "2026-10-30T14:20:20Z",
+      "event": "Completed source and arithmetic checks; no required defects found",
+      "wall_elapsed_seconds": 121,
+      "since_previous_checkpoint_seconds": 35
+    },
+    {
+      "utc": "2026-10-30T14:22:06Z",
+      "event": "Saved stage-1 verdict, original-source evidence, calculations and exact source/rule hashes",
+      "wall_elapsed_seconds": 227,
+      "since_previous_checkpoint_seconds": 106
+    }
+  ],
+  "awake_execution_time": "Unverified; Windows sleep/resume events were not inspected. Durations use UTC wall-clock checkpoints.",
+  "fresh_context": "Neutral assignment, current manuscript and relevant skill rules. No previous review findings used as an answer key. The research note neurophysics-sources.md was consulted for source locations, then the relevant original neural papers were read directly.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; expected value, variance, standard deviation and density assumed known. Neuroscience and stochastic-process mechanisms are taught in the earlier guide.",
+  "scope": [
+    "content/chapters/10-hardware-tests.md and .yaml, complete",
+    "content/index.md line 7, new Part III paragraph",
+    "guide-project.yaml line 8, description",
+    "content/chapters/00-reading-guide.md lines 71-73 and corresponding sec:READING-HARDWARE sidecar",
+    "content/chapters/glossary.md lines 119-135 and corresponding sec:GLOSSARY-HARDWARE sidecar"
+  ],
+  "prerequisites_read": [
+    "content/chapters/07-hardware-memory.md, complete",
+    "content/chapters/08-hardware-dynamics.md, complete",
+    "content/chapters/09-neuromorphic-systems.md, complete",
+    "content/chapters/02-memory-dynamics.md lines 105-246, neutral projection and local-noise assumptions",
+    "content/chapters/02b-memory-long-delays.md lines 11-35, 90-100 and 127-154, initialization and stochastic conventions",
+    "content/chapters/06-synthesis.md opening through shared-position calculation, different roles of maps, dynamics and measured outputs"
+  ],
+  "verdict": "PASS for the assigned stage-1 scope",
+  "required_findings": [],
+  "retained_passages": [
+    {
+      "location": "10-hardware-tests.md:3",
+      "claim": "The protocol and reduced models are proposed teaching tools.",
+      "assessment": "Retain. This explicitly separates proposed experiments from platform demonstrations. The later examples also say illustrative, conditional, local, or ideal where needed. No reported hardware finding is manufactured from the proposed test."
+    },
+    {
+      "location": "10-hardware-tests.md:7-17",
+      "claim": "Calibrate and fix the decoder, control cues and weights, repeat at delays, distinguish mean error, spread and pattern failure.",
+      "assessment": "Retain. The protocol specifies cue, removal, retained state, observation, repeated trials and controlled interventions. Testing cues between preferred positions detects biased pinning. The decoder's access is correctly part of the task. These instructions support a scientifically meaningful teaching experiment; they do not supply a device-specific laboratory implementation or claim a unique causal diagnosis from one score."
+    },
+    {
+      "location": "10-hardware-tests.md:19-25",
+      "claim": "Conditional short-lag mean and variance estimate local drift and diffusion.",
+      "assessment": "Retain. For an Itô local diffusion conditioned on a narrow starting-angle neighborhood, E[delta theta]=b delta t+o(delta t) and Var(delta theta)=2D delta t+o(delta t). Earlier long-delay teaching establishes the Itô convention and why a different convention changes written drift. The local coefficient and short-lag qualifications are essential. Correlations, preferred states, boundaries and circular long-time statistics are correctly flagged as limitations."
+    },
+    {
+      "location": "10-hardware-tests.md:27-31",
+      "claim": "Two independent noisy position estimates contribute 2 sigma_m squared to displacement variance.",
+      "assessment": "Retain. With centered independent errors epsilon_0 and epsilon_1, Var(epsilon_1-epsilon_0)=2 sigma_m squared. Addition to state variance also requires independence from the state displacement, supplied by the next sentence's independent state-motion premise. This is a two-estimate displacement formula, not final estimate minus noiseless cue. Correlation, overlapping readout windows and motion during measurement are explicitly excluded. A nonzero intercept can reveal the contribution; the wording does not assert that every intercept uniquely identifies measurement noise."
+    },
+    {
+      "location": "10-hardware-tests.md:35-47",
+      "claim": "A normalized left neutral vector projects physical fluctuations into surviving angle motion and gives D=ell^T B B^T ell/2.",
+      "assessment": "Retain. The linked Part I passage supplies one neutral mode, decaying transverse modes, linearization, and the distinction between left and right vectors. Normalization ell^T r_*'=1 removes arbitrary coordinate scaling. Multiplying by ell annihilates the linear deterministic drift and leaves the stated noise covariance. It is a local leading approximation, with curvature and noise-induced drift correctly excluded from this variance derivation. Units are consistent: B has activity units divided by square-root time, ell has angle per activity, and D has angle squared per time. Mixed state-variable units require the corresponding component units, not a Euclidean tangent projection."
+    },
+    {
+      "location": "10-hardware-tests.md:51-59",
+      "claim": "Feedback, injected noise, fixed weights, precision and aged PCM affect different measured quantities.",
+      "assessment": "Retain. Feedback is restricted to the stable-mode balance model taught in Chapter 08. Holding the noise pattern fixed while increasing its amplitude scales its covariance. Fixed calibration changes can alter deterministic drift; reduced precision can pin or stall states. PCM aging is stated as a possible weight change, separately measured. These are conditional intervention predictions, not universal specifications or measured results."
+    },
+    {
+      "location": "10-hardware-tests.md:63-65",
+      "claim": "A lower variance can accompany worse retention because of a bias.",
+      "assessment": "Retain. MSE=variance+(mean error)^2 gives 4 deg squared versus 10 deg squared. The example is explicitly illustrative and the preferred-angle mechanism agrees with the pinning definition in Chapter 08."
+    },
+    {
+      "location": "10-hardware-tests.md:71-77",
+      "claim": "The three original papers constrain different parts of the hardware comparison.",
+      "assessment": "Retain. The 2012 result is conditional on neural dynamics, noise and readout, not a bound on arbitrary registers. The 2022 paper models filtering from internal command through muscles and eye mechanics, and explicitly separates measurement noise. Camera exposure and output smoothing are proposed hardware analogues, not measurements attributed to that paper. The 2025 paper predicts spatial response statistics, which do not establish input-free temporal retention. The synthesis link gives the supporting source distinctions."
+    },
+    {
+      "location": "10-hardware-tests.md:79",
+      "claim": "For t_m=a t_p, diffusion expressed per physical second is D_p=a D_m.",
+      "assessment": "Retain. Substituting model time in the same variance law gives the stated factor. The coordinate and trajectory are held fixed, and real communication, drift and readout limitations are separated from ideal time rescaling."
+    },
+    {
+      "location": "10-hardware-tests.md:81-83",
+      "claim": "A useful energy comparison fixes task accuracy, failures, delay and system boundary.",
+      "assessment": "Retain. Counting write, wait and read energy including required host and interface work matches the stated memory task. Operations-per-watt alone has no retention accuracy or delay criterion, so it cannot establish the requested cost. The closing question remains a proposed empirical question."
+    },
+    {
+      "location": "index.md:7; guide-project.yaml:8; 00-reading-guide.md:71-73; glossary.md:119-135 and assigned sidecars",
+      "claim": "Part III compares electronic memory mechanisms and ends with proposed tests; glossary terms summarize the linked teaching.",
+      "assessment": "Retain. The descriptions match Chapters 07-10. None turns the extension into a demonstrated biological equivalence. The glossary definitions preserve the electronic-state versus remembered-value distinctions and the retention limit on nonvolatile storage. Sidecar titles and summaries agree with the current assigned reader text."
+    }
+  ],
+  "calculation_checks": [
+    {
+      "check": "Measurement-noise intercept",
+      "result": "Var(epsilon_1-epsilon_0)=sigma_m^2+sigma_m^2 under the specified independence; state/readout covariance terms vanish under independence."
+    },
+    {
+      "check": "Local diffusion dimensions",
+      "result": "b: angle/time; D: angle^2/time; dW: square-root time; sqrt(2D)dW: angle."
+    },
+    {
+      "check": "Nonsymmetric local projection countercheck",
+      "input": "J=[[0,2],[0,-4]], tangent u=(3,0), ell=(1/3,1/6), B=diag(2,6)",
+      "result": "ell^T J=0; ell^T u=1; D=0.5[(2/3)^2+1^2]=13/18=0.7222222222222222. A tangent-only projection gives 2/9 and misses the transverse noise's surviving shift. Numeric arithmetic executed in Python."
+    },
+    {
+      "check": "Pinning example",
+      "result": "Python recomputation: MSE_A=4+0^2=4; MSE_B=1+3^2=10 deg^2."
+    },
+    {
+      "check": "Acceleration",
+      "input": "D_m=0.3 deg^2/model second, a=1000, t_p=0.002 physical second",
+      "result": "Model time is 2 seconds; both 2 D_m t_m and 2(a D_m)t_p equal 1.2 deg^2. Numeric arithmetic executed in Python."
+    },
+    {
+      "check": "Prerequisite slow-memory example",
+      "result": "Python recomputation: -0.001/log(0.999)=0.9994999166249727 seconds; executing at 1000 times the update rate gives about 0.9995 milliseconds."
+    }
+  ],
+  "source_checks": [
+    {
+      "source": "assets/papers/burak-fiete-2012-persistent-activity-si.pdf",
+      "pages_read": [
+        3,
+        10,
+        11
+      ],
+      "evidence": "S7-S15 give linearization, left-vector projection, normalization and 2D=sum v_i^2 phi_i. S45-S49 give the information-diffusion inequality in its specified neural model. Supports Chapter 10's local covariance extension and restricted transfer claim."
+    },
+    {
+      "source": "assets/papers/ben-shushan-2022-fixational-drift.pdf",
+      "pages_read": [
+        1,
+        2,
+        6
+      ],
+      "evidence": "Page 6 discusses internal integrator output versus smoother eye trajectories and mechanical filtering; Figure 3 caption identifies the uncorrelated measurement-noise intercept. These support the output/measurement cautions without treating them as a hardware result."
+    },
+    {
+      "source": "assets/papers/mainali-2025-universal-statistics.pdf",
+      "pages_read": [
+        1,
+        2
+      ],
+      "evidence": "Summary and introduction state spatial field-size, arrangement, shape and topology predictions from thresholded Gaussian processes. They do not present an input-free temporal memory demonstration. The hardware transfer limit is appropriate."
+    }
+  ],
+  "optional_notes": [
+    "A short reminder that the fitted SDE uses the Itô convention would make Chapter 10 easier to use on its own. This is optional because the linked earlier reading already explains the convention and the conditional-increment definition fixes the intended meaning.",
+    "When turning this teaching protocol into an actual device experiment, specify trial counts, uncertainty estimates, the paired readout schedule, and initialization-variability controls. Those depend on the device and desired inference; the present text does not claim to provide that complete laboratory design."
+  ],
+  "reviewed_sha256": {
+    "content/chapters/10-hardware-tests.md": "68c684ef0f167e43f2ba771a0857ac5ab339e2d8b805d16c4a0873d0549de42a",
+    "content/chapters/10-hardware-tests.yaml": "75948579e12de655df4c740e73257dc30d53f8e7f9a122a9030f2e96938f2e7a",
+    "content/index.md": "ed3f11911bb0ef45c974b649bc0c3825a10e34dd84f47d0cc61fd4e081a865e7",
+    "guide-project.yaml": "2d3de064294e00601fad7c6e2e65fd35e2c01a37bb8dbecffebca9b82910a36f",
+    "content/chapters/00-reading-guide.md": "1b6e90b021e19b8e22ec0682cf8eae451406dff8267747b1ebb80195bf3061d5",
+    "content/chapters/00-reading-guide.yaml": "fb88dba68c27b706735412bbbb63bdc7384c595a11e989a5a30c54686f554608",
+    "content/chapters/glossary.md": "7f5aab643ee1fa9b7088a0eee38da30b348c3d07e56c6761400fb1226a132ad6",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "content/chapters/07-hardware-memory.md": "4821bf04058c32a3be221b6a470b53cc33960dc8ac81854cca36ee44ff7ccf22",
+    "content/chapters/08-hardware-dynamics.md": "c49d55f918fd0fea608af451b5e732a81b57214870542b98ff14377031a97161",
+    "content/chapters/09-neuromorphic-systems.md": "2b10820d597011cd7576a29b9eb08ff1597adcad86eedac62446623503f6bb8e",
+    "content/chapters/02-memory-dynamics.md": "622a08b479a8586b17ff7a8f7d847253123393ef6a64ee9a91fb52aab69e577f",
+    "content/chapters/02b-memory-long-delays.md": "a088bae67645f1ceaa3389c8ed71700ecd24c9fcd010b8997f6adee0ced978a7",
+    "content/chapters/06-synthesis.md": "cf048eb1334d4538e6d23a8edb59e8e5f9ae68751263c6df9810f285f68d2122",
+    "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+    "assets/papers/ben-shushan-2022-fixational-drift.pdf": "15f273f99bd8d8e8daa09a9f7809e04c53da514b146750c0ec517812e3478caa",
+    "assets/papers/mainali-2025-universal-statistics.pdf": "de2ca50a46f5b0d8d14e86269f1beacf6aadde7122bb348568aad92b12fd802e",
+    "verification/part3-neuromorphic-20261030/neurophysics-sources.md": "9670b0850275dd0a5acef7751f4744d40feebf41d3b2353f114e5680762003a1"
+  },
+  "limits": [
+    "Stage 1 only; stages 2 and 3 await separate requests.",
+    "No manuscript edits, builds, full audits, rendering or figure review.",
+    "No physical hardware experiment was performed.",
+    "Chapters 07-09 were prerequisite context, not independent reapproval of every platform finding.",
+    "Original-source checks used text extraction from local primary PDFs; layout and figure appearance were not reviewed.",
+    "Token stats unavailable."
+  ],
+  "rule_sha256": {
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "wall_elapsed_seconds": 227
+}

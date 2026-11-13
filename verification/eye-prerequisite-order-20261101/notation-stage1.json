@@ -1,0 +1,57 @@
+{
+  "local_request_id": "eye-notation-stage1-20261101",
+  "reviewer": "/root/eye_order_review",
+  "stage": 1,
+  "recorded_at_utc": "2026-11-01T10:52:13.189235+00:00",
+  "task_started_utc": "2026-11-01T10:46:58Z",
+  "wall_elapsed_seconds": 315.2,
+  "execution_first_checkpoint_utc": "2026-11-01T10:51:54.6919914Z",
+  "awake_execution_time": "unverified; sleep/resume events not inspected",
+  "source_path": "content/chapters/02-memory-dynamics.md",
+  "source_sha256": "4f23ab1ee81afff940708d57ecf2e20dd133ed8efca629f669223997fe39f010",
+  "scope": "Only requested line ranges 60-90,145-175,208-225,254-265; no broader scientific audit.",
+  "units": [
+    {
+      "lines": [
+        60,
+        90
+      ],
+      "sha256": "46c9a9e7a4724d360dd6f1485d71b09e29517e2b43aed85b21d8bbff67313601",
+      "stage1_answer": "The mean-plus-fluctuation split retains the discrete count jumps. A spike raises activation by one, with decay between spikes, while the following Gaussian representation is explicitly an approximation for weak total-input fluctuations. The rewrite does not confuse exact splitting with diffusion approximation.",
+      "verdict": "retain"
+    },
+    {
+      "lines": [
+        145,
+        175
+      ],
+      "sha256": "5295eed38d11aa0dcee76e20ede26f413cafe1df49bb4de69def0718787b7074",
+      "stage1_answer": "The right vector is the neutral tangent and the left vector annihilates decaying modes with normalization v^T u=1. Their projection gives the lasting component u(v^T delta s). This supports the later angular-displacement reminder.",
+      "verdict": "retain"
+    },
+    {
+      "lines": [
+        208,
+        225
+      ],
+      "sha256": "1d2977096f72fbf7e8ecb6c147d30588bcc1d6cda7ad3ca7cd6d4e8a376bbbaf",
+      "stage1_answer": "The reminder delta theta=sum_i v_i delta s_i is the scalar coefficient in the earlier surviving component. The phrase per unit change in activation is correct for this normalized vector and remains explicitly limited to small perturbations in the local linear model. The weights are network response weights, not individual synaptic connections. The variance derivation retains the conditional independence and near-fixed-point assumptions.",
+      "verdict": "retain"
+    },
+    {
+      "lines": [
+        254,
+        265
+      ],
+      "sha256": "426a2754d47e055a1a7622766850ce6bfca9aee1bb355fd1967955c6a8422c13",
+      "stage1_answer": "W_ij is correctly described as activation from j contributing to input at i. Symmetric W gives equal reciprocal connection weights, not equal firing rates or equal transfer slopes at different operating inputs. The immediately following r_i prime=phi prime(g_i) g_i prime shows why response slopes can differ despite symmetric W. The required common-timescale and stability assumptions remain.",
+      "verdict": "retain"
+    }
+  ],
+  "required_fixes": [],
+  "verdict": "pass for local notation reminders",
+  "limits": [
+    "Stages 2 and 3 not performed.",
+    "No canonical edits, source rediscovery, rebuild, browser work or full audit."
+  ]
+}

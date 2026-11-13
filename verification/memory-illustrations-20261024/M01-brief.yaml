@@ -1,0 +1,126 @@
+brief:
+  asset_id: fig:MEMORY-SPIKE-TRACE
+  scope: chapter
+  book: burak-three-papers
+  chapter: ch:MEMORY-DYNAMICS
+  purpose: Distinguish spike events from the activation they leave behind.
+  target_use: sec:MEMORY-SPIKES
+  generation_authorized: true
+  insertion_authorized: true
+author: /root/draw_memory_additions
+figure_role: quantitative-figure
+visual_explanation:
+  applicable: true
+  figure_role: quantitative-figure
+  composition: Two stacked plots with one shared time axis; events align with exact unit
+    jumps.
+  required_scene_ids: &id001
+  - event-train
+  - activation-trace
+  reference_reason: Exact mathematical plots; no structural template or illustrated-opener
+    reference applies.
+chapter_map_coverage:
+  applicable: false
+  reason: Section calculation figure, not an opening map.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    colors_and_roles:
+      ink: '#17365D'
+      blue: '#1F4E79'
+      text: '#19202C'
+      muted: '#5D6876'
+      flow: '#0B7F95'
+      success: '#0F6B78'
+      risk: '#C4580B'
+      risk_deep: '#B85209'
+      line: '#9AA7B5'
+      fill_blue: '#EAF2F8'
+      fill_teal: '#E4F2F0'
+      fill_orange: '#FCEEE3'
+      fill_gray: '#F1F3F6'
+      paper: '#FFFFFF'
+      paper_warm: '#FFFDF7'
+      panel_warm: '#F8F4EC'
+    color_distance: exact SVG color token membership; no raster pixel-deviation claim
+    maximum_deviation_fraction: 0
+    allowed_special_purpose_colors: []
+parameters:
+  spike_times_ms:
+  - 20
+  - 55
+  - 70
+  - 130
+  - 210
+  tau_ms: 50
+  initial_activation: 0
+required_items:
+- Discrete event marks at the five specified times.
+- Activation is the sum of exponential contributions, with a unit jump at each event.
+- Between events activation decays with time constant 50 ms.
+language_contract:
+  book_loci:
+  - sec:MEMORY-SPIKES
+  caption: Each spike adds one activation unit, which then decays with a 50 ms time constant.
+    Closely spaced spikes add to the activation left by earlier spikes. The five spike
+    times are an illustrative input, and the activation is calculated exactly from the
+    chapter equation.
+  alt_text: Five spike marks share a time axis with an activation trace. Each mark aligns
+    with a vertical rise of one activation unit. The activation decays smoothly between
+    spikes, and nearby spikes build on the remaining activation.
+  teaching_introduction: For five illustrative spike times, the plot shows the events
+    and the activation they leave behind.
+  conclusion: The activation retains a decaying contribution from earlier spikes, so a
+    spike train and its activation trace are different objects.
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/draw_memory_additions
+  role_reason: Distinguish spike events from the activation they leave behind.
+  source_files:
+  - content/chapters/02-memory-dynamics.md
+  - content/chapters/02-memory-dynamics.yaml
+  - verification/memory-illustrations-20261024/draw_additions.py
+  - verification/memory-illustrations-20261024/M01-brief.yaml
+  - verification/illustrations/figure_style.py
+  - assets/papers/burak-fiete-2012-persistent-activity.pdf
+  - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+  - verification/memory-illustrations-20261024/source-locators.json
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024/M01/qa.json
+  vector_spec: verification/memory-illustrations-20261024/draw_additions.py
+  insertion_width_px: 700
+  required_scene_ids: *id001
+  coverage:
+    applicable: false
+    reason: Internal quantitative figure, not an opening map; no chapter coverage claim.
+limitations:
+- Analytic teaching construction with specified illustrative parameters; not experimental
+  or simulated paper data.
+- No generic vector-template gate is claimed; computed checks and image inspection support
+  independent review.
+manual_rule_disposition:
+  applicable:
+  - semantic correspondence
+  - label and numerical accuracy
+  - readability at full size and 700px
+  - units and domain conditions
+  - palette color roles
+  - canvas clipping
+  not_applicable:
+  - opening-map coverage
+  - generic structural-template geometry gates
+  - raster palette measurement

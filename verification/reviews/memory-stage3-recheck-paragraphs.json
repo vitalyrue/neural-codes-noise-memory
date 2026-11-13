@@ -1,0 +1,168 @@
+{
+  "input_hash": "70806146d2d7a3bb53b67986f0c4db9a6b41ddf48206d5caa86e755acb6e4a4f",
+  "review_contract_hash": "593934f3af51c49175417df3e4263df20a0835575d099bad4f0070163b4a17dc",
+  "paragraphs": [
+    {
+      "line": 205,
+      "end_line": 205,
+      "kind": "prose",
+      "text": "At time $T$, a recall cue arrives. The observer now wants the original value $\\Theta$, but only has access to future spikes. The network has already diffused during storage. Even perfect knowledge of the state $\\theta(T)$ cannot recover its particular earlier random displacements.",
+      "source_hash": "e84c639673a7ab9fc2605d3db9023574477d25f3a0f18f6a1f91c6b3725b0877",
+      "priority": "connected",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP::p205",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Set recall of the original value through future spikes",
+        "connection": "Starts the readout section after tuning comparisons",
+        "decision": "retain",
+        "reason": "The target differs from the already moved cue-time state."
+      }
+    },
+    {
+      "line": 207,
+      "end_line": 207,
+      "kind": "prose",
+      "text": "For an unbounded coordinate with constant $D$ and no drift, let $x=\\theta(T)$ and let $\\widehat x$ estimate that state from later spikes. Write the storage displacement as $s=x-\\Theta$ and the readout error as $e=\\widehat x-x$. The total recall error is their sum:",
+      "source_hash": "dcdbbc7fd7b22312931f031b7d316e7fb6ea60f88a720fe0f2971b5bff7a5d31",
+      "priority": "changed",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP::p207",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Define storage and readout errors and their sum",
+        "connection": "Expands the recall problem into s+e before taking variance",
+        "decision": "retain",
+        "reason": "All quantities are defined before the cross term appears."
+      }
+    },
+    {
+      "line": 215,
+      "end_line": 215,
+      "kind": "prose",
+      "text": "Assume the readout is locally unbiased at every possible $x$ and the future noise is independent of the storage history. Conditional on that history, the readout error then has mean zero. Since $s$ is fixed by the history, $\\mathbb E[se]=\\mathbb E[s\\,\\mathbb E(e\\mid\\text{storage history})]=0$. Both errors have zero mean, so their covariance vanishes. Translation invariance makes the readout variance the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$. Using $\\operatorname{Var}(s)=2DT$ gives",
+      "source_hash": "fd856e9e6e69e7478adfa2ad09b2ca41f89d5662fdfa2b0594ba785371992672",
+      "priority": "changed",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP::p215",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Derive zero cross covariance conditionally",
+        "connection": "Uses the sum-variance identity and explicit local assumptions",
+        "decision": "retain",
+        "reason": "E[e|history]=0 and fixed-by-history s justify the vanishing product."
+      }
+    },
+    {
+      "line": 221,
+      "end_line": 221,
+      "kind": "prose",
+      "text": "The first term comes from storage. The second concerns estimation of $\\theta(T)$ from spikes after $T$. The supplement derives this decomposition for a locally translation invariant diffusion and readout model; state dependence, boundaries, informative priors, or uncertain initial encoding require corresponding changes.[^p1-read-setup]",
+      "source_hash": "34ecc5a997dabfe84c02d966eefb40d94df72f56a03b1e1c1f5710b1aa2949cc",
+      "priority": "changed",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP::p221",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Interpret the two variances and state their limits",
+        "connection": "Qualifies the just-derived addition before Gaussian observations",
+        "decision": "retain",
+        "reason": "State dependence,priors,boundaries and encoding uncertainty remain outside this simple sum."
+      }
+    },
+    {
+      "line": 223,
+      "end_line": 223,
+      "kind": "prose",
+      "text": "To solve the readout problem, the supplement approximates the likelihood from each short bin as Gaussian. Let $x=\\theta(T)$ and index subsequent bins by $k$. The equivalent observation model is",
+      "source_hash": "268c7a2733040a00b92d589d2f22e49c292a3229e2ca65e50c805559a7241505",
+      "priority": "connected",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP::p223",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Introduce Gaussian short-bin observations",
+        "connection": "Turns the qualified recall problem into a tractable model",
+        "decision": "retain",
+        "reason": "The same cue-state x is retained in the new representation."
+      }
+    },
+    {
+      "line": 235,
+      "end_line": 235,
+      "kind": "prose",
+      "text": "The Gaussian increments and observation errors are independent in this approximation. The value $y_k$ summarizes information about the state from that bin's population spikes; it is not an additional directly measured physical coordinate. The continuous limit is a convenient mathematical description of the many spike, weak fluctuation regime. It does not assert that an arbitrarily short physical bin already contains enough spikes for a Gaussian fit. The derivations below are exact within this local Gaussian readout model.[^p1-read-gaussian]",
+      "source_hash": "901370ff351a205eed6eb148b04dd45d0c1ce4f3fa37852df28f77f67d2fcb8a",
+      "priority": "connected",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP::p235",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-READOUT-SETUP",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Scope independent Gaussian errors and bin approximation",
+        "connection": "Interprets transition and observation variances",
+        "decision": "retain",
+        "reason": "The mathematical continuous limit is not an assertion about many spikes in any infinitesimal bin."
+      }
+    },
+    {
+      "line": 239,
+      "end_line": 239,
+      "kind": "prose",
+      "text": "A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$.",
+      "source_hash": "0e0fd63c85aee3e203690aa307d1ef4ff9a0957a64346326a5ba8f1c8acde7ba",
+      "priority": "connected",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-NAIVE::p239",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-NAIVE",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Start equal-weight stationary-state readout",
+        "connection": "Uses the unchanged x and the preceding observation model",
+        "decision": "retain",
+        "reason": "Later samples reflect a state moving away from x."
+      }
+    },
+    {
+      "line": 241,
+      "end_line": 241,
+      "kind": "prose",
+      "text": "Write $\\theta(T+t)=x+B_D(t)$, where $B_D$ has Brownian covariance",
+      "source_hash": "8e8cbce1e02ad14a81b24ffbda097686d7ce8e0a97ae43b5eb4a5e4de2f17461",
+      "priority": "connected",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-NAIVE::p241",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-NAIVE",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Write postcue motion as Brownian displacement",
+        "connection": "Prepares the existing cross-time covariance integral",
+        "decision": "retain",
+        "reason": "Storage displacement s is distinct from new Brownian motion after the cue."
+      }
+    },
+    {
+      "line": 247,
+      "end_line": 247,
+      "kind": "prose",
+      "text": "The covariance arises because the two values share increments up to the earlier time. Their later increments are independent. The continuous average is",
+      "source_hash": "621aeaafc66d672886b5101b551c746c026f13ee783cb41ec29148e47d490899",
+      "priority": "connected",
+      "id": "content/chapters/03-memory-information.md::sec:MEMORY-NAIVE::p247",
+      "source": "content/chapters/03-memory-information.md",
+      "unit_id": "content/chapters/03-memory-information.md::sec:MEMORY-NAIVE",
+      "scope": "focused-stage3-recheck",
+      "review": {
+        "purpose": "Explain shared path increments and averaging",
+        "connection": "Connects Brownian covariance to the naive estimator",
+        "decision": "retain",
+        "reason": "Positions along the path are not treated as independent samples."
+      }
+    }
+  ]
+}

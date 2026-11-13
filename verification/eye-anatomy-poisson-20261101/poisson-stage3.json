@@ -1,0 +1,81 @@
+{
+  "stage": "3 connected reading and flow",
+  "reviewed_at_utc": "2026-11-01T10:15:42.5442307Z",
+  "source": "C:/dev/clsc/burak-papers/guide/content/chapters/01-foundations.md",
+  "source_sha256": "9352b1290e5f126bbdc20b1ae40e2d780764c09c77deaf50117c362c9cfa8297",
+  "scope": "Local source reading of section sec:FOUNDATIONS-POISSON, lines 49-180, with brief surrounding transitions only. No whole-chapter, whole-book, visual, or release acceptance.",
+  "verdict": "pass",
+  "understanding_test": [
+    {
+      "evidence": "The text distinguishes expected activity from observed spike counts, fixes rate and duration, then describes independent spike-or-no-spike trials in short time bins.",
+      "question": "What is being counted, and why can a fixed rate yield different observations?",
+      "lines": "51-74",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "Independence is supplied before the product for one spike pattern.",
+      "question": "Why multiply the spike and silence probabilities?",
+      "lines": "68-76",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "Ordered choices overcount each same set of occupied bins, and division by factorial removes those repeats. The zero-count case is addressed.",
+      "question": "Why does factorial appear?",
+      "lines": "79-82",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "The finite-bin probability is factored before the limit. Silence in the remaining bins tends to the exponential, with a logarithm argument, followed by a physical reading of that factor.",
+      "question": "Why the exponential rather than an arbitrary function?",
+      "lines": "84-108",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "The displayed algebra and plain-language explanation connect k spike probabilities and possible locations to lambda to the kth power.",
+      "question": "Why does lambda have exponent k?",
+      "lines": "87-108",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "The mean sum is shifted by one, the factorial second moment by two, and K squared identity connects them to variance.",
+      "question": "How do the mean and variance follow without repeating basic statistics lessons?",
+      "lines": "110-136",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "Relative spread is followed by an existing silent-cell and independent-population example, which gives a concrete rate, duration, and noise comparison.",
+      "question": "What does this imply for neural observations and pooling?",
+      "lines": "142-165",
+      "verdict": "answered"
+    },
+    {
+      "evidence": "Predetermined varying rate is separated from spike-dependent recurrent rate, with only local conditional independence claimed.",
+      "question": "Can the same whole-interval count argument be applied unchanged to a recurrent network?",
+      "lines": "170",
+      "verdict": "answered"
+    }
+  ],
+  "deletion_verdict": "Retain the revised explanation. Each main passage supplies a required assumption, counting step, limiting step, interpretation, or neural consequence. No further deletion is needed.",
+  "terminology_followup": {
+    "evidence": "Actual text now uses nonoverlapping bins and mean and variance.",
+    "lines": "74,110",
+    "verdict": "resolved"
+  },
+  "transition_check": {
+    "outgoing": "The CV and Fano distinction leads to other forms of variability, and the following heading turns to shared neural signals and eye motion.",
+    "verdict": "coherent",
+    "incoming": "The previous material introduces expected neural tuning and spatial activity; line 51 explicitly changes focus to observed spike variation at the same represented value."
+  },
+  "anchors": {
+    "section": "sec:FOUNDATIONS-POISSON",
+    "worked_example": "sec-foundations-count-example",
+    "verdict": "Present and unchanged in inspected Markdown. Rendered link behavior was not part of this source review."
+  },
+  "defects": [],
+  "limitations": [
+    "The logarithm limit uses standard calculus notation; it is an additional proof argument inside the folded derivation, while the physical factor explanation remains explicit.",
+    "No visual inspection or full link audit performed.",
+    "Awake execution time unverified."
+  ],
+  "edits": "Only this review record written. No canonical source edits."
+}

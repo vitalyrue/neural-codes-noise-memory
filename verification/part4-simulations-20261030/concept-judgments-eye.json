@@ -1,0 +1,829 @@
+{
+  "audience": {
+    "status": "reviewed",
+    "description": "Undergraduate calculus, basic probability and linear algebra, with expected value, variance, SD and density known. The new Part also uses actual earlier teaching: Poisson/CV (foundations and eye circuit), covariance/shared sources (eye drift), Brownian filtering (eye timing), Euler (preceding memory simulation), fields/grid/topology (place chapters), and hardware evidence types (PartIII). These are earlier-reading prerequisites, not unstated innate background.",
+    "assumed_concepts": [
+      "expected-value",
+      "variance",
+      "standard-deviation",
+      "density",
+      "poisson-process",
+      "interval-cv",
+      "eye-integrator",
+      "shared-private-noise",
+      "mean-squared-displacement",
+      "muscle-filter",
+      "brownian-increments",
+      "euler-update",
+      "spatial-field",
+      "grid-scale",
+      "topology",
+      "hardware-evidence",
+      "synaptic-decay",
+      "covariance",
+      "independent-repeat-unit"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "expected-value",
+      "aliases": [
+        "expected value"
+      ]
+    },
+    {
+      "id": "variance",
+      "aliases": [
+        "variance"
+      ]
+    },
+    {
+      "id": "standard-deviation",
+      "aliases": [
+        "standard deviation"
+      ]
+    },
+    {
+      "id": "density",
+      "aliases": [
+        "density"
+      ]
+    },
+    {
+      "id": "poisson-process",
+      "aliases": [
+        "Poisson process"
+      ]
+    },
+    {
+      "id": "interval-cv",
+      "aliases": [
+        "interval coefficient of variation"
+      ]
+    },
+    {
+      "id": "eye-integrator",
+      "aliases": [
+        "oculomotor integrator",
+        "noisy integrator"
+      ]
+    },
+    {
+      "id": "shared-private-noise",
+      "aliases": [
+        "shared and private fluctuations"
+      ]
+    },
+    {
+      "id": "mean-squared-displacement",
+      "aliases": [
+        "mean squared displacement",
+        "MSD"
+      ]
+    },
+    {
+      "id": "muscle-filter",
+      "aliases": [
+        "muscle filtering"
+      ]
+    },
+    {
+      "id": "brownian-increments",
+      "aliases": [
+        "Brownian model",
+        "Gaussian increments"
+      ]
+    },
+    {
+      "id": "euler-update",
+      "aliases": [
+        "Euler update",
+        "Euler steps"
+      ]
+    },
+    {
+      "id": "spatial-field",
+      "aliases": [
+        "spatial firing map",
+        "spatial maps"
+      ]
+    },
+    {
+      "id": "grid-scale",
+      "aliases": [
+        "grid spacing",
+        "physical correlation length"
+      ]
+    },
+    {
+      "id": "topology",
+      "aliases": [
+        "Betti numbers",
+        "Euler characteristic"
+      ]
+    },
+    {
+      "id": "hardware-evidence",
+      "aliases": [
+        "post-layout hardware simulations"
+      ]
+    },
+    {
+      "id": "synaptic-decay",
+      "aliases": [
+        "decaying synaptic activity"
+      ]
+    },
+    {
+      "id": "covariance",
+      "aliases": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "independent-repeat-unit",
+      "aliases": [
+        "independent repeats",
+        "independent trajectories"
+      ]
+    },
+    {
+      "id": "recording-reconstruction",
+      "aliases": [
+        "reconstruct movement"
+      ]
+    },
+    {
+      "id": "source-model-evidence",
+      "aliases": [
+        "shared-source inference"
+      ]
+    },
+    {
+      "id": "spike-thinning",
+      "aliases": [
+        "retains every"
+      ]
+    },
+    {
+      "id": "command-eye-separation",
+      "aliases": [
+        "internal command and the physical eye angle"
+      ]
+    },
+    {
+      "id": "parameter-sources",
+      "aliases": [
+        "constrained by earlier physiological studies"
+      ]
+    },
+    {
+      "id": "synthetic-analysis-check",
+      "aliases": [
+        "Measurement procedure applied to simulated signals"
+      ]
+    },
+    {
+      "id": "model-reproduction",
+      "aliases": [
+        "Reproducing a result",
+        "reproduction"
+      ]
+    },
+    {
+      "id": "random-seed",
+      "aliases": [
+        "random seed"
+      ]
+    },
+    {
+      "id": "ode-integration",
+      "aliases": [
+        "ordinary differential equations",
+        "solve_ivp"
+      ]
+    },
+    {
+      "id": "connected-components",
+      "aliases": [
+        "connected groups of nonzero array entries"
+      ]
+    },
+    {
+      "id": "simulator-equivalence",
+      "aliases": [
+        "replacement must preserve"
+      ]
+    },
+    {
+      "id": "discretization",
+      "aliases": [
+        "Discretization",
+        "discretization"
+      ]
+    },
+    {
+      "id": "convergence-check",
+      "aliases": [
+        "convergence check"
+      ]
+    },
+    {
+      "id": "monte-carlo-simulation",
+      "aliases": [
+        "Monte Carlo simulation"
+      ]
+    }
+  ],
+  "sections": {
+    "ch:SIMULATING-EYE/s0": "reviewed",
+    "ch:SIMULATING-EYE/s1": "reviewed",
+    "ch:SIMULATING-EYE/s2": "reviewed",
+    "ch:SIMULATING-EYE/s3": "reviewed",
+    "ch:SIMULATING-EYE/s4": "reviewed",
+    "ch:SIMULATION-TOOLS/s0": "reviewed",
+    "ch:SIMULATION-TOOLS/s1": "reviewed",
+    "ch:SIMULATION-TOOLS/s2": "reviewed",
+    "ch:SIMULATION-TOOLS/s3": "reviewed",
+    "ch:SIMULATION-TOOLS/s4": "reviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "eye-integrator",
+      "passage_id": "ch:SIMULATING-EYE/p3",
+      "role": "use",
+      "span": [
+        408,
+        424
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier 04c-eye-circuit.md explains stored position, recurrent populations and noise; opening recalls the object rather than defining it from its name.",
+      "need": "required"
+    },
+    {
+      "concept_id": "recording-reconstruction",
+      "passage_id": "ch:SIMULATING-EYE/p7",
+      "role": "teach",
+      "span": [
+        223,
+        365
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Explicit input, fitted relation and reconstructed output; held-out-trial sentence supplies calibration validation. Earlier eye chapter teaches the equations.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:SIMULATING-EYE/p9",
+      "role": "use",
+      "span": [
+        122,
+        205
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04-eye-drift.md sec:EYE-CHI gives X=C+epsilon/Y=C+eta and covariance assumptions before this summary.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-private-noise",
+      "passage_id": "ch:SIMULATING-EYE/p9",
+      "role": "use",
+      "span": [
+        264,
+        317
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04-eye-drift.md explains private OMN independence and shared upstream command, including limitations.",
+      "need": "required"
+    },
+    {
+      "concept_id": "source-model-evidence",
+      "passage_id": "ch:SIMULATING-EYE/p9",
+      "role": "teach",
+      "span": [
+        206,
+        381
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "States what data infer and what they do not localize, preserving the assumptions.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "parameter-sources",
+      "passage_id": "ch:SIMULATING-EYE/p11",
+      "role": "teach",
+      "span": [
+        173,
+        418
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Separates physiological constraints, comparison choices and nonunique magnitude match.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "synaptic-decay",
+      "passage_id": "ch:SIMULATING-EYE/p17",
+      "role": "use",
+      "span": [
+        101,
+        186
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04c-eye-circuit.md gives tau_s dS/dt=-S+X, spike jumps and between-spike decay; current list traces their causal role.",
+      "need": "required"
+    },
+    {
+      "concept_id": "command-eye-separation",
+      "passage_id": "ch:SIMULATING-EYE/p22",
+      "role": "teach",
+      "span": [
+        1,
+        202
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Explicit output distinction and causal filtering consequence; lists p17-p20 supply component inputs/outputs.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "muscle-filter",
+      "passage_id": "ch:SIMULATING-EYE/p22",
+      "role": "use",
+      "span": [
+        71,
+        116
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04b-eye-timing.md derives B to E filter and resulting MSD; 04c gives full second-order mechanics.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-process",
+      "passage_id": "ch:SIMULATING-EYE/p26",
+      "role": "use",
+      "span": [
+        35,
+        50
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "01-foundations.md teaches event counts/intervals and conditional independence; 04c teaches this thinning construction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "interval-cv",
+      "passage_id": "ch:SIMULATING-EYE/p26",
+      "role": "use",
+      "span": [
+        234,
+        267
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "01-foundations.md defines interval SD/mean; 04c-eye-circuit.md gives the full interval-sum derivation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spike-thinning",
+      "passage_id": "ch:SIMULATING-EYE/p26",
+      "role": "teach",
+      "span": [
+        52,
+        353
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Complete constant-rate transformation, changed interval statistics and unchanged rate. M>1 follows the stated more-regular model; no changing-rate independence claim.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "parameter-sources",
+      "passage_id": "ch:SIMULATING-EYE/p30",
+      "role": "use",
+      "span": [
+        0,
+        29
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Prior p11 distinguishes source constraints and adjustable settings; this identifies the final published source for a particular setting set.",
+      "need": "required"
+    },
+    {
+      "concept_id": "euler-update",
+      "passage_id": "ch:SIMULATING-EYE/p32",
+      "role": "use",
+      "span": [
+        290,
+        313
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "11-simulating-memory.md explicitly teaches derivative-times-step update before this code-setting description.",
+      "need": "required"
+    },
+    {
+      "concept_id": "parameter-sources",
+      "passage_id": "ch:SIMULATING-EYE/p34",
+      "role": "use",
+      "span": [
+        227,
+        324
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Final paper and inspected implementation are distinct sources, introduced in this callout and p11.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-private-noise",
+      "passage_id": "ch:SIMULATING-EYE/p42",
+      "role": "use",
+      "span": [
+        64,
+        101
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier private-noise mechanism and filtering teach why independent contributions average and saturate.",
+      "need": "required"
+    },
+    {
+      "concept_id": "mean-squared-displacement",
+      "passage_id": "ch:SIMULATING-EYE/p43",
+      "role": "use",
+      "span": [
+        122,
+        147
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier foundations and eye-timing chapters define the lag statistic; this applies it to internal command output.",
+      "need": "required"
+    },
+    {
+      "concept_id": "synthetic-analysis-check",
+      "passage_id": "ch:SIMULATING-EYE/p45",
+      "role": "teach",
+      "span": [
+        56,
+        294
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Known synthetic origin is the reference; analysis recovery is the output, separate from biological circuit localization.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "source-model-evidence",
+      "passage_id": "ch:SIMULATING-EYE/p49",
+      "role": "use",
+      "span": [
+        186,
+        293
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p9 and the model/control sequence establish the empirical versus mechanistic claim distinction before this conclusion.",
+      "need": "required"
+    },
+    {
+      "concept_id": "model-reproduction",
+      "passage_id": "ch:SIMULATION-TOOLS/p7",
+      "role": "teach",
+      "span": [
+        51,
+        344
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Three routes defined by intended result and ownership of output.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "hardware-evidence",
+      "passage_id": "ch:SIMULATION-TOOLS/p13",
+      "role": "use",
+      "span": [
+        201,
+        233
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "09-neuromorphic-systems.md lines6-21,41 distinguishes calculations of proposed hardware from measurements on physical analog circuitry.",
+      "need": "required"
+    },
+    {
+      "concept_id": "model-reproduction",
+      "passage_id": "ch:SIMULATION-TOOLS/p17",
+      "role": "use",
+      "span": [
+        0,
+        92
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p7 defines original versus independent versus reduced-model purposes before this tool-selection recommendation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "topology",
+      "passage_id": "ch:SIMULATION-TOOLS/p21",
+      "role": "use",
+      "span": [
+        672,
+        727
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier place tests teach connectedness/holes and alternating Betti sum; ch20 restates the measurement before this reference table.",
+      "need": "required"
+    },
+    {
+      "concept_id": "random-seed",
+      "passage_id": "ch:SIMULATION-TOOLS/p25",
+      "role": "teach",
+      "span": [
+        73,
+        262
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Meaning/purpose given in the defining sentence; following sentences retain generator/version/call-order conditions. Earlier ch19 seed is only a settings label, not a reasoning step requiring generator-state knowledge.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "ode-integration",
+      "passage_id": "ch:SIMULATION-TOOLS/p27",
+      "role": "teach",
+      "span": [
+        0,
+        150
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Defines operation and suitable model family before contrasting stochastic event/increment requirements.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:SIMULATION-TOOLS/p27",
+      "role": "use",
+      "span": [
+        300,
+        329
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04b-eye-timing.md derives independent Brownian increments of variance h; p45 below applies 2D h, rather than inventing noise in RHS calls.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connected-components",
+      "passage_id": "ch:SIMULATION-TOOLS/p29",
+      "role": "teach",
+      "span": [
+        26,
+        276
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Input, operation and connectivity-dependent output are concrete; preceding place chapter teaches spatial fields and thresholding.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "spatial-field",
+      "passage_id": "ch:SIMULATION-TOOLS/p29",
+      "role": "use",
+      "span": [
+        6,
+        24
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier place model and ch20 define static maps and nonzero regions; tool acts on that known object.",
+      "need": "required"
+    },
+    {
+      "concept_id": "simulator-equivalence",
+      "passage_id": "ch:SIMULATION-TOOLS/p31",
+      "role": "teach",
+      "span": [
+        208,
+        348
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "The precise conditions for a substitute simulator are stated after its role, not inferred from product name.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "discretization",
+      "passage_id": "ch:SIMULATION-TOOLS/p35",
+      "role": "teach",
+      "span": [
+        120,
+        280
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Names method family, continuous object and discrete representation; possible errors explain the need for refinement.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "discretization",
+      "passage_id": "ch:SIMULATION-TOOLS/p37",
+      "role": "use",
+      "span": [
+        23,
+        100
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p35 defines the approximation; fixed physical settings distinguish resolution refinement from changing the model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "grid-scale",
+      "passage_id": "ch:SIMULATION-TOOLS/p37",
+      "role": "use",
+      "span": [
+        416,
+        454
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "13-simulating-place-fields.md width callout separates physical local covariance length from filter width in grid samples.",
+      "need": "required"
+    },
+    {
+      "concept_id": "convergence-check",
+      "passage_id": "ch:SIMULATION-TOOLS/p39",
+      "role": "teach",
+      "span": [
+        0,
+        185
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Defines reported quantity, refinement operation and acceptance criterion; next sentence bounds tolerance by scientific/repeat uncertainty.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:SIMULATION-TOOLS/p45",
+      "role": "use",
+      "span": [
+        21,
+        43
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier eye-timing derivation gives Brownian increment law and independent disjoint intervals; chosen D and h are explicit here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "variance",
+      "passage_id": "ch:SIMULATION-TOOLS/p45",
+      "role": "use",
+      "span": [
+        146,
+        160
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Variance is assumed; example uses it to preserve physical diffusion rather than reteach its definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "standard-deviation",
+      "passage_id": "ch:SIMULATION-TOOLS/p45",
+      "role": "use",
+      "span": [
+        181,
+        199
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "SD is assumed. Taking the square root is applied to the step law, with angular units.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:SIMULATION-TOOLS/p49",
+      "role": "use",
+      "span": [
+        26,
+        45
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Bounds the immediately preceding calculation to the reduced Brownian model before contrasting discrete spikes.",
+      "need": "required"
+    },
+    {
+      "concept_id": "grid-scale",
+      "passage_id": "ch:SIMULATION-TOOLS/p53",
+      "role": "use",
+      "span": [
+        83,
+        171
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Fixed-physical-length criterion comes from p37 and earlier ch20 width derivation; halved spacing changes conversion to samples.",
+      "need": "required"
+    },
+    {
+      "concept_id": "random-seed",
+      "passage_id": "ch:SIMULATION-TOOLS/p61",
+      "role": "use",
+      "span": [
+        98,
+        123
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p25 explicitly teaches generator initialization/repeatability and version/call-order limits before the record requires those choices.",
+      "need": "required"
+    },
+    {
+      "concept_id": "convergence-check",
+      "passage_id": "ch:SIMULATION-TOOLS/p63",
+      "role": "use",
+      "span": [
+        91,
+        134
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p39 defines acceptable change in the reported quantity after refinement before this checklist asks that comparison be recorded.",
+      "need": "required"
+    },
+    {
+      "concept_id": "independent-repeat-unit",
+      "passage_id": "ch:SIMULATION-TOOLS/p63",
+      "role": "use",
+      "span": [
+        49,
+        85
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier memory simulation describes trials/SEM; place simulation describes model realizations with the experimental cell count. Basic variance/SD is assumed; p65 further distinguishes windows/maps from independent realizations.",
+      "need": "required"
+    },
+    {
+      "concept_id": "monte-carlo-simulation",
+      "passage_id": "ch:SIMULATION-TOOLS/p65",
+      "role": "teach",
+      "span": [
+        0,
+        147
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Definition gives the method and purpose before the following repetition-unit cautions.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "independent-repeat-unit",
+      "passage_id": "ch:SIMULATION-TOOLS/p65",
+      "role": "teach",
+      "span": [
+        246,
+        506
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Concrete temporal/spatial counterexamples explain which sampling unit counts as a repeat; this is not supplied merely by the Monte Carlo name.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "model-reproduction",
+      "passage_id": "ch:SIMULATION-TOOLS/p69",
+      "role": "use",
+      "span": [
+        98,
+        183
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Prior route, convergence and measurement checks supply the comparison condition before the final robustness question.",
+      "need": "required"
+    }
+  ],
+  "teaching_sets": [],
+  "review": "eye-stage3-20261030-171509",
+  "packet_sha256": "ea3de4833a0c24f766560218c12c9477be80851f823121eada54a4897f024df3",
+  "recorded_utc": "2026-10-30T17:21:11.615509+00:00",
+  "scope": "ch:SIMULATING-EYE and ch:SIMULATION-TOOLS only. Structural HTML wrappers carry no concepts. Actual table block and all source-role statements read. New Gaussian-filter glossary item excluded."
+}

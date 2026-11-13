@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "stage": "2 necessity and terminology",
+  "status": "one small wording repair required; all other additions retained",
+  "scope": "Only added/moved Part I prerequisite repairs and connected prose. No Stage3 reader-flow acceptance.",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "review_start_utc": "2026-11-01T13:48:44Z",
+  "awake_execution_time": "unverified",
+  "file_hashes": {
+    "content/chapters/01b-persistence.md": "564679cac879ebb5fcadadeb7cdf5e4d341a41ac54bac85a2b7d83b3596991db",
+    "content/chapters/02-memory-dynamics.md": "f70d1cf9a1e0acc6d995f913b1a5a413473733cbcaa7bd9460053b2c9297bebe",
+    "content/chapters/03-memory-information.md": "446579eda5404135c066aa8834849319feb5ff8b73418fdcf94bf2231a159fa0",
+    "content/chapters/03b-memory-readout.md": "dca9f79953953780d38fbd8ab9ea6ba21458cd4b69cd28644315dbac6a39b863"
+  },
+  "judgments": [
+    {
+      "file": "01b-persistence.md",
+      "lines": [
+        124,
+        144
+      ],
+      "judgment": "retain",
+      "deletion_test": "Removing main-path Brownian definition would again leave Ch3's noise equation depending on an optional fold. Starts-at-zero, Gaussian mean/variance and disjoint-increment conditions define the tool actually used; physical approximation qualification preserves scope. Fold no longer repeats full definition."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        18,
+        39
+      ],
+      "judgment": "retain",
+      "deletion_test": "Kronecker values, centered-count role, F drift role and dB increment scale are short local introductions for symbols immediately used. Surplus/deficit supplies ordinary-language meaning. Same variance comparison explains why Gaussian replacement represents the count noise."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        78,
+        90
+      ],
+      "judgment": "retain",
+      "deletion_test": "K and R roles tell the reader which matrix changes disturbances and which supplies noise, while existing next paragraph explains feedback entries. These functions differ, so role lead-in and component mechanism are not duplicate teaching."
+    },
+    {
+      "file": "02-memory-dynamics.md",
+      "lines": [
+        110,
+        118
+      ],
+      "judgment": "retain",
+      "deletion_test": "Moved purpose tells why v is introduced. Normalization sentence then explains its scale. Original later duplicate purpose was removed."
+    },
+    {
+      "file": "03-memory-information.md",
+      "lines": [
+        80,
+        84
+      ],
+      "judgment": "retain",
+      "deletion_test": "Main likelihood meaning is needed by readout; fixed-observation/proposed-angle distinction prevents confusion with a parameter distribution. Fold now opens with an example rather than repeating full definition."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        19,
+        32
+      ],
+      "judgment": "retain",
+      "deletion_test": "theta0, eta, y and epsilon each have distinct roles immediately needed to read bin equations. Zero means and independence state approximation assumptions. Later sentence about y being inferred rather than directly measured prevents a physical measurement misunderstanding; it is not a second definition."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        166,
+        209
+      ],
+      "judgment": "retain result and function definition; repair last interpretation sentence at173",
+      "deletion_test": "Finite result and coth meaning support main ratios and figure interpretation. Integration, inverse hyperbolic function details and expansion remain optional. Fold's reciprocal identity connects derivation to exposed result without repeating the full definition."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        276,
+        278
+      ],
+      "judgment": "retain",
+      "deletion_test": "xi role and white-noise meaning explain notation change. Increment bridge and variance scale provide usable meaning without asking reader to infer strength from a name. Point-variance qualification avoids treating ideal white noise as ordinary finite-variance time samples."
+    },
+    {
+      "file": "03b-memory-readout.md",
+      "lines": [
+        336,
+        342
+      ],
+      "judgment": "retain",
+      "deletion_test": "Explicit z equality makes figure axis normalization available before formulas; no new method or proof is added."
+    }
+  ],
+  "required_repairs": [
+    {
+      "id": "MEM-S2-01",
+      "priority": "P3",
+      "file": "content/chapters/03b-memory-readout.md",
+      "line": 173,
+      "text": "This function describes how the extra error from limited observation decreases toward the diffusion-limited value.",
+      "reason": "Total readout variance tends to the positive diffusion-limited value. Excess error above that value tends to zero. 'Extra error' combines these two meanings.",
+      "minimal_repair": "Refer to readout variance decreasing toward the diffusion-limited value, or refer to excess above that limit decreasing toward zero."
+    }
+  ],
+  "duplicate_definitions_found": [],
+  "canonical_edits_made": false,
+  "token_stats": "unavailable",
+  "review_complete_utc": "2026-11-01T13:49:41Z",
+  "wall_elapsed_seconds_since_task_start": 1019
+}

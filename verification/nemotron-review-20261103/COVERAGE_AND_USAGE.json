@@ -1,0 +1,615 @@
+{
+  "recorded_utc": "2026-11-03T16:07:43.832623+00:00",
+  "note": "Final session totals counted once; access smoke test excluded. Input, cache, output and reasoning are the separate fields reported by OpenCode.",
+  "model": {
+    "id": "nemotron-3.5-super-vl-free",
+    "providerID": "opencode",
+    "variant": "high"
+  },
+  "session_usage_cumulative": {
+    "input": 885526,
+    "output": 24660,
+    "reasoning": 51026,
+    "cache": {
+      "read": 841184,
+      "write": 0
+    }
+  },
+  "recorded_session_cost": 0,
+  "stages": [
+    {
+      "stage": 1,
+      "recorded_model": {
+        "id": "nemotron-3.5-super-vl-free",
+        "providerID": "opencode",
+        "variant": "high"
+      },
+      "local_request_id": "51dfdc28-b152-468d-9eb5-ae732acaf7f9",
+      "started_utc": "2026-11-03T15:41:59.274244+00:00",
+      "completed_utc": "2026-11-03T15:48:50.575643+00:00",
+      "session_id": "ses_e5decee29ffeZxS7M01WCkpsHX",
+      "coverage": [
+        {
+          "chapter_id": "ch:READING-GUIDE",
+          "inspected_sections": "sec:READING-FIELD through sec:READING-PAPERS; blocks tbl:READING-APPENDIX, tbl:READING-EVIDENCE; footnotes [^orientation-*]",
+          "core_claims_checked": "Three-paper scope summary; 82% shared-variance figure and its calibration/independence qualifiers; symbol conventions D (diffusion), d, theta, q, C; appendix map section/page alignment (I p.1, II p.3, III p.6, IV p.9, V p.10, VI p.12, VII p.17 matches SI contents)",
+          "source_evidence_used": "guide text only for claims; Ben-Shushan 2022 main p.4-5 for 82% and p.10 for chi; Burak & Fiete 2012 main/SI for appendix map",
+          "limits": "Reading-guide synthesis claims are guide-derived and appropriately labeled; none load-bearing beyond framing"
+        },
+        {
+          "chapter_id": "ch:FOUNDATIONS",
+          "inspected_sections": "sec:FOUNDATIONS-EYE-ACTION, sec:MEMORY-SPIKES, sec:FOUNDATIONS-SPIKES, sec:FOUNDATIONS-POISSON, sec:FOUNDATIONS-SIMULATION, sec:FOUNDATIONS-COVARIANCE",
+          "core_claims_checked": "Eqs. 7-9 (dot s + s/tau = pulse train; g = Ws + b; r = phi(g)); Poisson mean=variance=lambda; relative sd 1/sqrt(lambda); Euler update s(t+h) ~ s(1-h/tau)+X with h=0.1 ms, tau=10 ms; MSD = 2Dt, slope 2D; covariance/chi decomposition X = g S + eps; example R=0.17 with chi=0.82",
+          "source_evidence_used": "Burak & Fiete 2012 main PDF pp.2-6 (Eqs. 7-9, p.5; Fig. 2 p.3; Network Simulations p.6); SI pp.2-9 (S2-S5, S43); Ben-Shushan 2022 for eye covariance context",
+          "limits": "Two-cell attractor example is a guide construction, labeled as such; Poisson-binomial derivation is guide teaching, correctly scoped to fixed rates"
+        },
+        {
+          "chapter_id": "ch:PERSISTENCE",
+          "inspected_sections": "sec:PERSISTENCE-EYE-MECHANICS, sec:FOUNDATIONS-ATTRACTOR, sec:FOUNDATIONS-DIFFUSION, sec:FOUNDATIONS-RANDOMNESS",
+          "core_claims_checked": "Spring-damper balance tau_m = K phi, tau_p = B/K (labeled guide approximation); two-cell line attractor with x decay (a=2/tau) and neutral theta; independent increments Var = 2Dt; Brownian covariance min(s,t); distinction time-varying memory vs fixed spatial map",
+          "source_evidence_used": "Burak & Fiete 2012 main/SI for attractor geometry; Cannon & Robinson 1987 and Major et al. 2004 cited for integrator persistence times (not locally read); Dragoi 2026 review cited for anatomy (web, not read)",
+          "limits": "Cannon & Robinson (0.2 s vs >20 s) and Major et al. (tens of minutes-hours, reversible) are unverified by me (no local body); spring-damper is explicitly a teaching reconstruction"
+        },
+        {
+          "chapter_id": "ch:MEMORY-DYNAMICS",
+          "inspected_sections": "sec:MEMORY-WEAK-NOISE, sec:MEMORY-LINEARIZATION, sec:MEMORY-DIFFUSION, sec:MEMORY-SYMMETRIC",
+          "core_claims_checked": "Weak-fluctuation Gaussian approximation ds = F dt + sqrt(r) dB; linearization K_ij = -delta_ij/tau + phi'(gbar) W_ij, R = diag(rbar); right/left zero eigenvectors K u = 0, v^T K = 0, v^T u = 1; 2D = sum v_i^2 rbar_i; symmetric formula 2D = sum rbar_i (g_i')^2 / {tau^2 [sum r_i' g_i']^2}; mutual-inhibition example D = b/(2 tau) = 100",
+          "source_evidence_used": "Burak & Fiete 2012 SI pp.2-4 (S2-S5, S7-S18) and main Eq. 2 p.2; 2017 correction DOI 10.1073/pnas.1706051114",
+          "limits": "Verified that printed Early Edition Eq. 2 lacks the square on d bar g_i/d theta while SI S18 has it; guide flags this and attributes the fix to the 2017 correction (consistent with extraction). Two-cell example units (activation difference vs angle difference) explicitly distinguished"
+        },
+        {
+          "chapter_id": "ch:MEMORY-LONG-DELAYS",
+          "inspected_sections": "sec:MEMORY-LONG-TIME, sec:MEMORY-DRIFT-SCOPE, sec:MEMORY-FIGURES",
+          "core_claims_checked": "Fokker-Planck ∂p/∂t = ∂²[D(θ)p]/∂θ² (Itô); wrapped Gaussian uniform limit pi²/3; state-dependent D: dVar/dt = 2E[D], Var = 2D(Θ)t + D(Θ)D''(Θ)t²; mutual excitation D = theta/(4 tau) vs printed SI S40 D = theta/(2 tau) (factor of two); Stratonovich drift D'/2; correlated-noise extension v^T Q v",
+          "source_evidence_used": "Burak & Fiete 2012 SI pp.7-9 (S28-S41), Fig. S1 p.10; main Fig. 1-2 pp.2-3",
+          "limits": "Confirmed factor-of-two discrepancy S40 vs S41/projection; guide labels it and does not assert author correction. SI S85 block-sign footnote not re-confirmable from garbled extraction (see F-04). Figure excerpts treated as captions, no pixel audit"
+        },
+        {
+          "chapter_id": "ch:MEMORY-INFORMATION",
+          "inspected_sections": "sec:MEMORY-FI, sec:MEMORY-BOUND, sec:MEMORY-COMPARISONS",
+          "core_claims_checked": "Poisson Fisher J = sum (r_i')²/bar r_i, I_h = hJ; Cramér-Rao Var >= 1/(hJ); information-diffusion bound D >= 1/(2 tau² J) via Cauchy-Schwarz; equality condition v_i ∝ r_i'/bar r_i; exponential phi sufficient; linear-family counterexample (mutual excitation b0=0) where equality holds state-by-state without exponential; population scaling D ~ 1/N, J ~ N; rate scaling; tuning-width J ~ w^{d-2}, D ~ w^{2-d} (narrower better d=1, none d=2, broader d=3)",
+          "source_evidence_used": "Burak & Fiete 2012 main Eqs. 3-4 pp.2-3; SI pp.9-12 (S42-S56)",
+          "limits": "Exponential 'iff' equality claim in source requires cross-state constancy; guide's counterexample correctly qualifies it and leaves the inequality intact. Tuning-width integral is a teaching reconstruction of the cited Zhang & Sejnowski argument"
+        },
+        {
+          "chapter_id": "ch:MEMORY-READOUT",
+          "inspected_sections": "sec:MEMORY-READOUT-SETUP through sec:MEMORY-FIG3-AND-CAUTION",
+          "core_claims_checked": "Storage+readout decomposition Var = 2DT + V_read(L) under translation invariance/independence; naive V = 2DL/3 + 1/(JL), optimum L* = sqrt(3/(2DJ)); ideal V = sqrt(2D/J) coth(sqrt(2DJ)L), limit sqrt(2D/J), L* = 1/sqrt(2DJ) <= tau; partial access J_obs = alpha J; numerical examples all verified (tau=0.1, D=0.005, J=10000/40000; alpha=0.1); flag that main Eq. 6 universal lower bound 2D(T+tau) does not follow (strict counterexample T=2 s: 0.0205 < 0.021)",
+          "source_evidence_used": "Burak & Fiete 2012 SI pp.12-16 (S57-S83), main Eq. 5-6 p.4; Figs. 3, S2 pp.4, 16",
+          "limits": "Confirmed Eq. 6 flag algebraically. S71 plus-sign vs cosh flag matches extraction (sign inconsistency). Guide's 'printed plus sign' reading depends on extraction fidelity"
+        },
+        {
+          "chapter_id": "ch:EYE-DRIFT",
+          "inspected_sections": "sec:EYE-PATHWAY, sec:EYE-RECORDINGS, sec:EYE-FORWARD-FIT, sec:EYE-INVERSE-FILTER, sec:EYE-SHARED-VARIANCE, sec:EYE-CHI",
+          "core_claims_checked": "57 OMNs, 2 macaques, 25 kHz neural / 1 kHz eye, 350 ms segments (~302/cell); forward fit f_hat = k[E(t+Δt)-E_T] + r E_dot + m E_ddot with units; inverse filter double exponential, tau_+~120 ms, tau_-~5 ms, area = 1/k, static gain f0/k; R = 0.17 ± 0.02 (p = 3.8e-12), rate R p = 3e-9; chi = Cov(X,Y)/Var(Y) = 0.82 ± 0.07 weighted; independent-predictor bound sum R_i² <= 1; example R=0.17, chi=0.82 arithmetically verified",
+          "source_evidence_used": "Ben-Shushan 2022 main pp.1-11 and supplement-1; extracted text pp.2-11 checked for R, chi, MSD, kernel time constants, N=30,000/1,000/tau_s=20 ms/A=0.015/tau_d~70 ms",
+          "limits": "All checked eye figures/numbers match extraction. Segment counts per cell vary (guide notes this)"
+        },
+        {
+          "chapter_id": "ch:EYE-TIMING",
+          "inspected_sections": "sec:EYE-MEASUREMENT-NOISE, sec:EYE-FILTERED-MSD",
+          "core_claims_checked": "Measurement noise adds 2 sigma_m² at positive lag (zero at lag 0); filtered white noise MSD plateaus M = (A/tau)(1-e^{-ell/tau}); filtered Brownian M = 2D[ell - tau(1-e^{-ell/tau})], slope alpha -> 2 short, -> 1 long, alpha(tau) = e-1 ≈ 1.718; private OMN noise ~1% at 900 ms with 2000 OMNs",
+          "source_evidence_used": "Ben-Shushan 2022 main pp.5-6, Fig. 3, Eqs. 18-22; SI/peer review for noise plateau ~10^-3 deg²",
+          "limits": "Filtered-Brownian derivation is a labeled one-pole teaching reconstruction, not the full muscle model; D=0.010 example labeled constructed"
+        },
+        {
+          "chapter_id": "ch:EYE-CIRCUIT",
+          "inspected_sections": "sec:EYE-CIRCUIT-MODEL, sec:EYE-SCALING, sec:EYE-FIGURES, sec:EYE-LIMITS",
+          "core_claims_checked": "Integrator rate lambda = [zeta E_OI + lambda0 + zeta F]_+; saturating synapse X = xi/(lambda_t + lambda), lambda_t = 60 Hz; readout E_OI = sum eta(S^R - S^L); neutral condition G'(z) = 1 (approximate over -50..50 deg); motor plant s^M = k(E_i - E_T) + r E_dot_i + m E_ddot_i; feedback F = A[E(t-tau_d) - E_OI], A=0.015, tau_d ~70 ms; CV 0.22 integrator / 0.07 OMN; D scaling ~ CV²/(N lambda0 a² tau_s²) with absolute-vs-fractional slope k0 caveat; CV_drift ≈ 0.0024 << 0.07 order-of-magnitude check",
+          "source_evidence_used": "Ben-Shushan 2022 main pp.6-11 (Eqs. 1, 23-35) and SI notes S3-S6; peer review for no-central-drive chi = -0.09 ± 0.22",
+          "limits": "Eq. 1 scaling is a proportionality; k0 ambiguity honestly noted. N=30,000 main vs 15K in supplement p.5 discrepancy flagged by guide. Localization limits (no integrator recordings, no perturbation) correctly stated"
+        },
+        {
+          "chapter_id": "ch:PLACE-FIELDS",
+          "inspected_sections": "sec:PLACE-GP, sec:PLACE-KAC-RICE, sec:PLACE-INFERENCE",
+          "core_claims_checked": "GP input h, stationarity/isotropy/smoothness; sigma = sqrt(-C(0)/C''(0)), Var(z') = 1/sigma²; Kac-Rice nu_+ = e^{-q²/2}/(2 pi sigma) exact, no high-threshold need; endpoint correction Q(q) = 1 - Phi(q); mu_s = Q/nu_+, mu_g = Phi/nu_+; inversion q = Phi^{-1}(mu_g/(mu_s+mu_g)), sigma = (mu_s+mu_g)/(2 pi) e^{-q²/2}; q=1.1, sigma=2.4 m numbers verified (nu_+ = 0.03621/m, mu_s = 3.746 m, mu_g = 23.868 m, 200 m track -> 7.378 fields); selection bias conditional Poisson lambda/(1-e^{-lambda})",
+          "source_evidence_used": "Mainali 2025 main p.1111 Eq. 1-3 context; STAR Methods pp.e1-e3 (Eqs. 2-5); supplement Methods S3 (S9-S15)",
+          "limits": "q/sigma fitted values taken from paper; no independent refit performed"
+        },
+        {
+          "chapter_id": "ch:PLACE-SIZES",
+          "inspected_sections": "sec:PLACE-RARE-PEAKS, sec:PLACE-SIZE-LAW, sec:PLACE-SLICES, sec:PLACE-SLOPES",
+          "core_claims_checked": "High-threshold parabola z - q ~ epsilon - (q/(2 sigma²))||x||², radius r* = sigma sqrt(2 epsilon/q); scaled excess U = q epsilon -> Exp(1); size laws p_d(s) = (2 beta/d) s^{2/d-1} e^{-beta s^{2/d}}, beta = q²/(2 sigma² v_d^{2/d}); d=1 Rayleigh, d=2 exponential, d=3 Weibull shape 2/3; high-threshold mean at q=1.1 sigma=2.4 = 5.469 m vs exact 3.746 m (+46.0%) verified; slice dimension logic; Rayleigh boundary slope p(v) = sigma² v e^{-sigma² v²/2}; width check s = 2 sigma² v/q -> beta = q²/(8 sigma²) consistent",
+          "source_evidence_used": "Mainali 2025 main Eq. 1 p.1111; Figs. 1-5 pp.1112-1117; supplement Methods S4 (S22-S25)",
+          "limits": "Supplement algebra flags S18/S23/S25: S23 (missing sqrt2) and S25 (sign) visible in extraction; S18 claimed multiplication-vs-division not visible in extraction (extraction shows division matching guide) — needs PDF re-read (F-03). Guide derives independently and says code/fits not implicated"
+        },
+        {
+          "chapter_id": "ch:PLACE-TESTS",
+          "inspected_sections": "sec:PLACE-TOPOLOGY, sec:PLACE-DATA, sec:PLACE-WIRING",
+          "core_claims_checked": "EC definitions 1D/2D/3D; EC formulas E[chi_1/2/3] with boundary binomial terms and Q(q) corners (match STAR Eqs. 8-10); cube L/sigma=10, q=0 -> E[chi] = -20.06 verified; high-threshold count E[N] ~ V q^{d-1} e^{-q²/2}/((2pi)^{(d+1)/2} sigma^d); limiting checks q -> ±infinity; processing effects (0.5 Hz rectification, 3D median filter, >3 sigma volume removal); random-weight sum -> Gaussian via CLT; covariance C ~ v_W rho int u0(s)u0(s+dx); Gaussian width sqrt2 b",
+          "source_evidence_used": "Mainali 2025 main Figs. 2-4 pp.1113-1116, STAR Methods pp.e2-e3; supplement Methods S2-S4; Taylor (2006) Gaussian kinematic formula cited (not read locally)",
+          "limits": "Table row 'virtual-track animals rats vs mice' labeling discrepancy noted by guide; final included cell counts not clearly given (guide appropriately cautious); random-wiring is a possible mechanism, not a connectivity measurement"
+        },
+        {
+          "chapter_id": "ch:SYNTHESIS",
+          "inspected_sections": "sec:SYNTHESIS-QUESTIONS, sec:SYNTHESIS-JOINT-CALCULATION incl. covariance example, sec:SYNTHESIS-EVIDENCE, sec:SYNTHESIS-RELATED, sec:SYNTHESIS-NEXT",
+          "core_claims_checked": "Three objects kept distinct (map, memory motion, observed movement); joint covariance Cov(delta R_i, delta R_j) = 2Dt f_i' f_j'; example slopes 2/-1 Hz/m, D=0.01, t=0.5 -> Var 0.04/0.01 Hz², Cov -0.02 Hz², correlation -1 verified; negative covariance from opposite slopes, not inhibition; related studies listed (Seung, Aksay, Koyluoglu, Seeholzer, Eliav/Harland/Yartsev/Maimon, Druckmann, Bittner, Nghiem)",
+          "source_evidence_used": "Burak & Fiete 2012; Ben-Shushan 2022; Mainali 2025; related papers cited by DOI only (not locally read except as noted elsewhere)",
+          "limits": "Joint calculation is guide-derived and explicitly labeled; related-study descriptions are secondary summaries"
+        },
+        {
+          "chapter_id": "ch:HARDWARE-MEMORY",
+          "inspected_sections": "sec:HARDWARE-MEMORY-ROLES, sec:HARDWARE-MEMORY-STORAGE, sec:HARDWARE-MEMORY-UPDATES",
+          "core_claims_checked": "Separation of weights / neuron state / represented value; Q = CV capacitor; I = GV conductance; PCM read pulse charge Q ≈ GVT; Loihi 2 / SpiNNaker2 / BrainScaleS-2 table rows (local digital state vs analog membrane vs conductance)",
+          "source_evidence_used": "Pehle 2022, Le Gallo 2023, Intel Loihi 2 brief, Scholze 2026 cited; von Neumann 1958 local pp.76-82 read (quote p.66/PDF p.78 verified; flip-flop memory discussion pp.66-69)",
+          "limits": "Pehle/Scholze/LeGallo/Intel bodies not locally read (no local files); descriptions treated as unchecked architecture context. von Neumann quotation and context verified locally"
+        },
+        {
+          "chapter_id": "ch:HARDWARE-DYNAMICS",
+          "inspected_sections": "sec:HARDWARE-DYNAMICS-FEEDBACK, sec:HARDWARE-DYNAMICS-ERRORS, sec:HARDWARE-DYNAMICS-EVIDENCE",
+          "core_claims_checked": "Feedback tau_eff = tau_s/(1-g), g->1 slows forgetting, g=1 ideal retention; OU process Var = (D/kappa)(1-e^{-2 kappa t}), neutral kappa=0 gives 2Dt; pinning distinction; Massoud 32 bumps at 11.25°; Giulioni bistability seconds despite ms dynamics",
+          "source_evidence_used": "Seung 1996 local text read (line attractor, tuning, structural instability); Burak & Fiete 2012 bound; Massoud 2011 and Giulioni 2012 cited (DOI only, not locally read)",
+          "limits": "Massoud/Giulioni specific claims unverified by me; Seung 1996 read locally and consistent with guide's use"
+        },
+        {
+          "chapter_id": "ch:NEUROMORPHIC-SYSTEMS",
+          "inspected_sections": "sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES, sec:NEUROMORPHIC-SYSTEMS-ADVANCES, sec:NEUROMORPHIC-SYSTEMS-LIMITS",
+          "core_claims_checked": "Architecture table (weights/state locations, update mode, experiment consequence); Kleyko 2025 Loihi 2 reservoir/history (verified locally: Hala Point far exceeds experiment resources); Aitsam 2026 SpiNNaker 2 768-neuron bump (verified locally: ≥8 s persistence, centroid ≤0.5 cell, jitter -15%, lag +115 ms, error 2.02 -> 5.65 cells, simulated robot, power estimates); Ortner 2025 PCM rapid learning; Wang 2026 CrTe3 drift; Sun 2026 dual-memory LMU (verified locally PMC: >4x throughput, >5x energy, 40-60% fewer params, post-layout 22FDX not fabricated); Ilmberger 2025 multichip timing",
+          "source_evidence_used": "Aitsam, Kleyko, Sun local full texts; von Neumann for framing. Others DOI/arXiv only",
+          "limits": "Per review brief, Part III is a 2026-10-30 snapshot of selected studies; unread hardware bodies listed in source_access. No claim that one machine leads every task"
+        },
+        {
+          "chapter_id": "ch:HARDWARE-TESTS",
+          "inspected_sections": "sec:HARDWARE-TESTS-PROTOCOL, sec:HARDWARE-TESTS-PARAMETERS, sec:HARDWARE-TESTS-COMPARISON",
+          "core_claims_checked": "Cue-and-delay protocol; local model dtheta = b dt + sqrt(2D) dW; readout noise offset 2 sigma_m²; projection D = 1/2 ell^T B B^T ell with left neutral vector; time conversion D_p = a D_m for accelerated hardware; energy measurement scope (writing/waiting/reading/host)",
+          "source_evidence_used": "Burak & Fiete 2012 (diffusion/projection); Ben-Shushan 2022 (output filtering); Mainali 2025 (spatial vs temporal separation)",
+          "limits": "Proposed tests are guide-derived and labeled as such; no hardware results demonstrated"
+        },
+        {
+          "chapter_id": "ch:SIMULATING-MEMORY",
+          "inspected_sections": "sec:SIMULATING-MEMORY-STATE, sec:SIMULATING-MEMORY-RING, sec:SIMULATING-MEMORY-CONTROLS, sec:SIMULATING-MEMORY-OUTPUTS",
+          "core_claims_checked": "Ring settings: 1024 neurons, tau=10 ms, h=0.1 ms, 100 trials x 1000 s, exclude first 10 ms; weights w(alpha) = e^{cos alpha -1} - e^{0.3(cos alpha -1)} (A=1,k1=1,k2=0.3); b=-2; transfer tau phi = 10 e^g or 0.2[1+tanh(g+4)]; two-population: W cross = -1, b=5000, tau=100 ms, h=0.4 ms, 200 s, linear tau r = g; rate/activation diffusion conversion D_r = D_s/tau²; no public code archive identified as of snapshot",
+          "source_evidence_used": "Burak & Fiete 2012 main pp.2-6, SI p.6 (S6), p.8 (S32), p.10 (Fig. S1); 2017 correction",
+          "limits": "Negative claim (no public archive) is a search statement as of 2026-10-30, not a proof of absence; spike-draw details for two-population not fully specified in paper (guide notes)"
+        },
+        {
+          "chapter_id": "ch:SIMULATING-EYE",
+          "inspected_sections": "sec:SIMULATING-EYE-DATA, sec:SIMULATING-EYE-PATH, sec:SIMULATING-EYE-CONTROLS, sec:SIMULATING-EYE-TOOLS",
+          "core_claims_checked": "MATLAB update 1e-5 s, save every 100 steps = 1 ms samples; tau_MN = 10 ms per code; seed from trajectory index; N convention mismatch (code vector vs paper neuron number); motor variability regression differs from printed Eq. 35 per code inspection; Run_model.m / Full_model_simulation.m / Fit_OI_circuit.m roles; raw recordings one spreadsheet per cell per trial",
+          "source_evidence_used": "Ben-Shushan 2022 Methods Eqs. 23-35 pp.10-11; MATLAB repo revision 27d409... inspected Feb 28 2022, re-checked Oct 30 2026 (code inspection, not execution); Zenodo dataset DOI",
+          "limits": "Code not executed; missing MATLAB version/toolboxes; `rate` branch function absent from inspected tree; guide makes no end-to-end reproduction claim"
+        },
+        {
+          "chapter_id": "ch:SIMULATING-PLACE",
+          "inspected_sections": "sec:SIMULATING-PLACE-GENERATE, sec:SIMULATING-PLACE-FIT, sec:SIMULATING-PLACE-MEASURE, sec:SIMULATING-PLACE-TOOLS",
+          "core_claims_checked": "Python map generation: draw normal, Gaussian filter, RMS normalize, threshold, connected components; code `sigma` = filter width b vs paper ell = sqrt(-C(0)/C''(0)) with ell = sqrt2 b verified; fitted summaries per condition (200 m tunnel length+gap; 6 m length+occupied fraction; 2D size+count; 3D volume+occupied fraction); 10^4 realizations for histogram error bars; Gudhi for Betti/EC; 10 cm bins, median filter kernel 2",
+          "source_evidence_used": "Mainali 2025 STAR Methods pp.e1-e5; code archive DOI 10.5281/zenodo.14650881 and repo revision eae7eab... inspected Oct 30 2026 (not executed)",
+          "limits": "No per-panel grid/cell/seed record in README dummy settings; data availability not complete for every figure; code availability ≠ data availability"
+        },
+        {
+          "chapter_id": "ch:SIMULATION-TOOLS",
+          "inspected_sections": "sec:SIMULATION-TOOLS-ROUTES through sec:SIMULATION-TOOLS-RECORD",
+          "core_claims_checked": "Author code vs teaching reconstruction vs numerical reference; NumPy Generator seed limits; SciPy solve_ivp for deterministic ODE only (stochastic needs event rules); ndimage.label connectivity affects field counts; Brian 2 optional; convergence check definition; Brownian step-size variance scaling verified (variance per second invariant)",
+          "source_evidence_used": "Documentation pages for NumPy/SciPy/Brian 2 retrieved Oct 30 2026 (not independently re-fetched); three paper code situations summarized",
+          "limits": "No simulations run; no full reruns claimed; tool table roles are guidance, not verification of what papers used"
+        },
+        {
+          "chapter_id": "ch:GLOSSARY",
+          "inspected_sections": "all glossary entries plus sec:GLOSSARY-HARDWARE, sec:GLOSSARY-SIMULATION",
+          "core_claims_checked": "Definitions consistent with chapter usage (D diffusion, CV on ISIs, EC as alternating Betti sum, Itô/Stratonovich, sub-Poisson, superdiffusion, pinning, unwrapping); hardware terms cross-referenced to Part III",
+          "source_evidence_used": "guide text only",
+          "limits": "Lookup glossary; no new factual claims beyond chapters"
+        },
+        {
+          "chapter_id": "ch:REFERENCES",
+          "inspected_sections": "entries 1-43",
+          "core_claims_checked": "Bibliographic details match cited DOIs where checkable locally (Burak & Fiete 2012, Ben-Shushan 2022, Mainali 2025, Seung 1996, von Neumann 1958, Aitsam 2026, Sun 2026, Kleyko 2025); Mainali data/code DOIs listed",
+          "source_evidence_used": "guide reference list; local source files for the papers above",
+          "limits": "Most reference entries not independently re-verified against publisher pages; entries rely on guide transcription"
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "recorded_model": {
+        "id": "nemotron-3.5-super-vl-free",
+        "providerID": "opencode",
+        "variant": "high"
+      },
+      "local_request_id": "a5d67dab-8f7e-414d-aff1-f31fcd391887",
+      "started_utc": "2026-11-03T15:52:53.811545+00:00",
+      "completed_utc": "2026-11-03T15:56:38.948223+00:00",
+      "session_id": "ses_e5decee29ffeZxS7M01WCkpsHX",
+      "coverage": [
+        {
+          "chapter_id": "ch:READING-GUIDE",
+          "main_teaching_path": "opens with the three paper settings and questions; symbol conventions D,d,theta,q,C; contribution labels; reading paths; appendix map; scope/evidence table",
+          "terms_or_steps_checked": "diffusion coefficient D, dimension d, represented coordinate theta, place-field threshold q, spatial covariance C; Central/Supporting/Background/Guide-derived labels",
+          "verdict": "sound; front matter gives prerequisites and disambiguates colliding symbols before use",
+          "limits": "synthesis claims are guide-derived and labeled; no load-bearing factual error found"
+        },
+        {
+          "chapter_id": "ch:FOUNDATIONS",
+          "main_teaching_path": "eye muscles/tension -> synaptic activation Eqs.7-9 -> firing-rate code/population code -> Poisson variability -> ring simulation -> covariance vs bias vs measurement error",
+          "terms_or_steps_checked": "spike, firing rate, tonic firing, synapse, excitatory/inhibitory, recurrent connectivity, synaptic activation s_i, Eqs.7-9, tuning curve, population code, rate map, Poisson mean=variance=lambda, relative sd 1/sqrt(lambda), CV, Fano factor, Euler update h=0.1 ms tau=10 ms, MSD=2Dt, covariance/correlation, gain, measurement offset 2 sigma_m^2",
+          "verdict": "sound; mechanism precedes math; Poisson and CV/Fano taught before diffusion",
+          "limits": "two-cell attractor example is guide-derived and labeled; code not executed"
+        },
+        {
+          "chapter_id": "ch:PERSISTENCE",
+          "main_teaching_path": "spring-damper eye mechanics -> oculomotor integrator -> continuous attractor/line attractor -> two-cell restoring vs neutral disturbance -> independent-steps diffusion -> fixed map vs wandering value",
+          "terms_or_steps_checked": "state, fixed point, continuous attractor, attractor manifold, line attractor, Brownian motion, diffusion coefficient D, RMSD, systematic drift vs fixational drift, covariance min(s,t)",
+          "verdict": "sound; distinction time-varying memory vs fixed spatial map taught before place chapters",
+          "limits": "Cannon & Robinson 1987 and Major et al. 2004 time-constant claims not locally read (F-01/F-02); spring-damper explicitly a teaching reconstruction"
+        },
+        {
+          "chapter_id": "ch:MEMORY-DYNAMICS",
+          "main_teaching_path": "weak-fluctuation Gaussian approximation -> linearization K,R -> right/left zero eigenvectors -> surviving displacement -> diffusion formula -> symmetric-weights tuning-curve form",
+          "terms_or_steps_checked": "weak fluctuation approximation, F_i, sqrt(r_i)dB_i, linearization, K_ij, R=diag(rbar), right zero eigenvector u, left zero eigenvector v, diffusion 2D=sum v_i^2 rbar_i, symmetric formula with squared g_i'",
+          "verdict": "sound; projection derivation correct; source Eq.2 square discrepancy flagged with 2017 correction",
+          "limits": "Early Edition Eq.2 extraction vs SI S18 handled as flag; two-cell b symbol overload noted (N-01)"
+        },
+        {
+          "chapter_id": "ch:MEMORY-LONG-DELAYS",
+          "main_teaching_path": "Fokker-Planck density -> line vs wrapped ring -> state-dependent D expansion -> Stratonovich drift D'/2 -> correlated-noise extension -> figures separate storage vs readout",
+          "terms_or_steps_checked": "Itô convention, Fokker-Planck equation, wrapped Gaussian, pi^2/3 limit, dVar/dt=2E[D], mutual excitation D=theta/(4tau) vs printed S40 theta/(2tau), Stratonovich drift, v^T Q v",
+          "verdict": "sound; factor-of-two S40/S41 flag kept separate from author correction",
+          "limits": "SI S85 block-sign extraction garbled (F-04); figure excerpts not pixel-audited"
+        },
+        {
+          "chapter_id": "ch:MEMORY-INFORMATION",
+          "main_teaching_path": "Poisson Fisher info J -> Cramer-Rao bound -> information-diffusion bound via Cauchy-Schwarz -> equality condition and counterexample -> population/rate/tau/tuning-width comparisons",
+          "terms_or_steps_checked": "Fisher information, internal Fisher information rate J, likelihood, score, unbiased estimator, Cramer-Rao, information-diffusion inequality D>=1/(2 tau^2 J), equality v_i prop r_i'/rbar_i, exponential family, linear-family counterexample",
+          "verdict": "sound; heuristic separated from proof; 'iff' exponential claim qualified by linear counterexample",
+          "limits": "tuning-width integral is a teaching reconstruction of cited Zhang & Sejnowski argument"
+        },
+        {
+          "chapter_id": "ch:MEMORY-READOUT",
+          "main_teaching_path": "storage+readout decomposition -> naive equal-weighting optimum -> ideal precision recursion/coth limit -> partial access thinning -> time-constant and noise-law extensions -> Eq.6 qualification",
+          "terms_or_steps_checked": "translation invariance, V_total=2DT+V_read(L), V_naive=2DL/3+1/(JL), L*=sqrt(3/(2DJ)), V_ideal=sqrt(2D/J)coth(sqrt(2DJ)L), partial access alpha J, two-time-constant tau+tau_m, white Gaussian noise q",
+          "verdict": "sound; concrete strict counterexample to printed Eq.6 universal lower bound; derivations exact within local Gaussian model",
+          "limits": "printed plus-sign S71 vs cosh S73 flag depends on extraction (F-04)"
+        },
+        {
+          "chapter_id": "ch:EYE-DRIFT",
+          "main_teaching_path": "pathway OMNs->muscles -> recordings 57 OMNs/2 macaques -> forward fit k,r,m -> inverse double-exponential filter -> correlation R -> shared variance chi decomposition",
+          "terms_or_steps_checked": "fixational drift, ocular plant, abducens nucleus, OMN, forward fit Eq.2, inverse filter Eqs.4-7, tau_+/tau_-, impulse response, static gain 1/k, Pearson R, SEM, coefficient of determination R^2, chi=Cov(X,Y)/Var(Y)",
+          "verdict": "sound; p-value, SEM, and 82% chi given with assumptions; constructed R=0.17/chi=0.82 example labeled",
+          "limits": "all eye numbers match extraction; segment counts vary per cell"
+        },
+        {
+          "chapter_id": "ch:EYE-TIMING",
+          "main_teaching_path": "measurement noise offset 2 sigma_m^2 -> filtered white noise MSD plateau -> filtered Brownian MSD growth -> slope alpha between 1 and 2",
+          "terms_or_steps_checked": "MSD, measurement error offset, low-pass filter, stationary process, superdiffusion, filtered Brownian M=2D[ell-tau(1-e^{-ell/tau})], alpha(ell)",
+          "verdict": "sound; one-pole filtered Brownian explicitly a teaching reconstruction",
+          "limits": "D=0.010 example labeled constructed; full muscle model not reproduced"
+        },
+        {
+          "chapter_id": "ch:EYE-CIRCUIT",
+          "main_teaching_path": "two-population integrator rate -> saturating synapse -> neutral condition G'=1 -> motor plant -> delayed feedback -> CV scaling -> figures -> limits",
+          "terms_or_steps_checked": "E_OI, saturating drive X=xi/(lambda_t+lambda), G(z), G'(z)=1 neutral, motor rate lambda_i^M, feedback F=A[E(t-tau_d)-E_OI], CV 0.22/0.07, sub-Poisson thinning, D~CV^2/(N lambda_0 a^2 tau_s^2)",
+          "verdict": "sound; absolute vs fractional slope k0 caveat stated; localization limits (no integrator recordings, no perturbation) explicit",
+          "limits": "Eq.1 is a proportionality; N=30000 main vs 15K supplement discrepancy flagged by guide"
+        },
+        {
+          "chapter_id": "ch:PLACE-FIELDS",
+          "main_teaching_path": "Gaussian process input -> stationarity/isotropy/smoothness -> scale sigma -> Kac-Rice upcrossings -> endpoint correction -> mean field/gap lengths -> inversion q,sigma",
+          "terms_or_steps_checked": "Gaussian process, stationary, isotropic, smooth, sigma=sqrt(-C(0)/C''(0)), upcrossing, Kac-Rice nu_+, endpoint correction Q(q), mu_s, mu_g, selection bias conditional Poisson",
+          "verdict": "sound; exact vs approximate separated; q=1.1 sigma=2.4 m numbers verified",
+          "limits": "fitted q/sigma taken from paper; no independent refit"
+        },
+        {
+          "chapter_id": "ch:PLACE-SIZES",
+          "main_teaching_path": "high-threshold parabola -> scaled excess U exponential -> size laws d=1/2/3 -> geometry table -> slices -> boundary-slope Rayleigh -> width check",
+          "terms_or_steps_checked": "Hessian, parabolic approximation, r*=sigma sqrt(2 epsilon/q), Rayleigh/Exponential/Weibull size laws, beta, slices, boundary slope p(v)=sigma^2 v e^{-sigma^2 v^2/2}",
+          "verdict": "sound; high-threshold limit vs finite-threshold error (46% at q=1.1) quantified",
+          "limits": "supplement S18/S23/S25 flags partly extraction-dependent (F-03)"
+        },
+        {
+          "chapter_id": "ch:PLACE-TESTS",
+          "main_teaching_path": "Euler characteristic components/holes -> signed densities and boundary terms -> limiting checks -> high-threshold count -> fitted vs tested -> processing choices -> random-wiring origin",
+          "terms_or_steps_checked": "Euler characteristic, Betti numbers, Morse theory, critical point, Gaussian kinematic formula, box boundary terms, Q(q) corners, rectification, median filter, Gudhi",
+          "verdict": "sound; EC boundary formulas match STAR Eqs.8-10; cube L/sigma=10 q=0 -> -20.06 verified; wiring explicitly not a connectivity measurement",
+          "limits": "final included cell counts not clearly given; Taylor (2006) not locally read"
+        },
+        {
+          "chapter_id": "ch:SYNTHESIS",
+          "main_teaching_path": "three objects kept distinct -> joint position-error covariance -> example opposite slopes -> matched tests for each paper -> related studies -> proposed joint test",
+          "terms_or_steps_checked": "spatial map, memory motion, observed movement, Cov(delta R_i,delta R_j)=2Dt f_i' f_j', correlation -1 from opposite slopes (not inhibition)",
+          "verdict": "sound; joint calculation guide-derived and labeled; related studies are secondary summaries",
+          "limits": "none beyond citation-level summaries"
+        },
+        {
+          "chapter_id": "ch:HARDWARE-MEMORY",
+          "main_teaching_path": "weights vs neuron state vs remembered value -> bits/capacitor/PCM storage -> table of errors -> update pathways Loihi/SpiNNaker/BrainScaleS/PCM",
+          "terms_or_steps_checked": "neuromorphic computing, working memory, capacitor Q=CV, SRAM, analog state, PCM conductance G=I/V, nonvolatile, device mismatch, in-memory computing",
+          "verdict": "sound; three achievements separated; von Neumann quotation context verified locally",
+          "limits": "Pehle/Scholze/LeGallo/Intel hardware bodies not locally read (descriptions treated as unchecked context)"
+        },
+        {
+          "chapter_id": "ch:HARDWARE-DYNAMICS",
+          "main_teaching_path": "feedback tau_eff=tau_s/(1-g) -> bit restore vs continuous preserve -> OU variance -> pinning -> Massoud/Giulioni silicon examples",
+          "terms_or_steps_checked": "effective time constant, bistability, OU Var=(D/kappa)(1-e^{-2kappa t}), neutral kappa=0 -> 2Dt, pinning",
+          "verdict": "sound; Burak & Fiete bound explicitly not a universal electronic-memory bound",
+          "limits": "Massoud 2011 and Giulioni 2012 bodies not locally read; Seung 1996 read locally"
+        },
+        {
+          "chapter_id": "ch:NEUROMORPHIC-SYSTEMS",
+          "main_teaching_path": "snapshot date -> architecture table (where weights/state reside, how state changes, experiment consequence) -> five recent studies each with what persists/what it does not show -> limits (post-layout, not fabricated)",
+          "terms_or_steps_checked": "host computer, on-chip learning, mixed-signal, in-memory computing, registers, Legendre memory unit",
+          "verdict": "sound; each study qualified (measured chip vs post-layout simulation vs proposed); no SOTA-overclaim",
+          "limits": "Kleyko/Aitsam/Ortner/Wang/Sun/Ilmberger bodies mostly not locally read except Aitsam,Kleyko,Sun; Aitsam deterministic (no noise-driven diffusion test) noted"
+        },
+        {
+          "chapter_id": "ch:HARDWARE-TESTS",
+          "main_teaching_path": "cue-and-delay protocol -> local model dtheta=b dt+sqrt(2D)dW -> projection D=1/2 ell^T B B^T ell -> controlled changes table -> matching time/readout/energy",
+          "terms_or_steps_checked": "decoder, unwrapping, systematic bias b(theta), local diffusion D(theta), readout noise offset, left neutral vector ell, accelerated time D_p=a D_m",
+          "verdict": "sound; proposed tests labeled as tools not demonstrated results; connects to Parts I-II",
+          "limits": "no hardware results demonstrated; projection transfers only after local dynamics/noise checked"
+        },
+        {
+          "chapter_id": "ch:SIMULATING-MEMORY",
+          "main_teaching_path": "ring settings and weights -> two settings (exponential/sigmoid) -> readout proxy vs theoretical coordinate -> two-population controls -> outputs vs simulation -> code/archive status",
+          "terms_or_steps_checked": "1024 neurons tau=10 ms h=0.1 ms, w(alpha), two-population b=5000 tau=100 ms h=0.4 ms, D_r=D_s/tau^2, no public archive identified",
+          "verdict": "sound; settings recovered; negative archive claim hedged as search statement",
+          "limits": "two-population spike-count generation not specified in paper (noted); code not executed"
+        },
+        {
+          "chapter_id": "ch:SIMULATING-EYE",
+          "main_teaching_path": "recorded data constrain question -> four-stage generated command -> MATLAB settings/code gaps -> controls -> public code and raw recordings limits",
+          "terms_or_steps_checked": "integrator/motor/muscle/feedback stages, update 1e-5 s save 1 ms, tau_MN=10 ms per code, seed from trajectory index, N convention mismatch, Run_model.m/Full_model_simulation.m/Fit_OI_circuit.m",
+          "verdict": "sound; code/data gaps and code-vs-paper mismatches explicitly listed; no end-to-end run claimed",
+          "limits": "code inspected not executed; missing MATLAB version/toolboxes; rate branch function absent"
+        },
+        {
+          "chapter_id": "ch:SIMULATING-PLACE",
+          "main_teaching_path": "Python map generation -> fitted summaries per condition -> field detection/preprocessing -> released tools and access limits",
+          "terms_or_steps_checked": "Gaussian filter, RMS normalization, threshold, connected components, ell=sqrt(-C(0)/C''(0)) vs code sigma=b (ell=sqrt2 b), Gudhi, 10 cm bins median filter",
+          "verdict": "sound; sigma vs ell conversion and reflected/wrap edges noted; 10^4 realizations scope stated",
+          "limits": "no per-panel grid/cell/seed record; code availability != data availability; code not executed"
+        },
+        {
+          "chapter_id": "ch:SIMULATION-TOOLS",
+          "main_teaching_path": "author code vs teaching reconstruction vs numerical reference -> tool roles -> resolution/convergence -> record to save",
+          "terms_or_steps_checked": "random seed limits, solve_ivp deterministic only, ndimage.label connectivity, Brian 2 optional, discretization, convergence check, Monte Carlo independence",
+          "verdict": "sound; practical and honest about what was not rerun",
+          "limits": "no simulations run; tool table is guidance not verification of paper use"
+        },
+        {
+          "chapter_id": "ch:GLOSSARY",
+          "main_teaching_path": "lookup definitions cross-referenced to chapters; hardware and simulation subsections",
+          "terms_or_steps_checked": "all defined terms consistent with chapter usage (D, CV on ISIs, EC, Itô/Stratonovich, sub-Poisson, superdiffusion, pinning, unwrapping)",
+          "verdict": "sound; no new factual claims beyond chapters",
+          "limits": "lookup glossary only"
+        },
+        {
+          "chapter_id": "ch:REFERENCES",
+          "main_teaching_path": "entries 1-43 following first use; data/code DOIs included",
+          "terms_or_steps_checked": "bibliographic details match DOIs where locally checkable (Burak & Fiete 2012, Ben-Shushan 2022, Mainali 2025, Seung 1996, von Neumann 1958, Aitsam 2026, Sun 2026, Kleyko 2025)",
+          "verdict": "sound; reference list internally consistent",
+          "limits": "most entries not independently re-verified against publisher pages"
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "recorded_model": {
+        "id": "nemotron-3.5-super-vl-free",
+        "providerID": "opencode",
+        "variant": "high"
+      },
+      "local_request_id": "8dd7751d-6f8f-4362-b6bb-2530af2f4a3d",
+      "started_utc": "2026-11-03T15:58:58.391772+00:00",
+      "completed_utc": "2026-11-03T16:03:19.493340+00:00",
+      "session_id": "ses_e5decee29ffeZxS7M01WCkpsHX",
+      "coverage": [
+        {
+          "id": "part:MECHANISMS",
+          "current_purpose": "Frames continuous-attractor memory: noise moves a stored value while activity persists; establishes symbol conventions D,d,theta,q,C and contribution labels.",
+          "what_reader_should_be_able_to_explain": "The three paper questions, why symbol collisions are disambiguated up front, and what Central/Supporting/Background/Guide-derived labels mean.",
+          "prerequisite_locations": "Reading guide symbol list L0172-L0180; contribution-label paragraph L0081.",
+          "retain_or_change": "retain",
+          "reason": "Sets the mechanism/math/interpretation template reused in Ch 3-6."
+        },
+        {
+          "id": "ch:FOUNDATIONS",
+          "current_purpose": "Eye muscle tension → synaptic dynamics Eqs. 7-9 → rate/population code → Poisson variability → ring simulation → covariance vs bias vs measurement error.",
+          "what_reader_should_be_able_to_explain": "How spikes act on muscles, the Eqs. 7-9 feedback cycle, Poisson mean=lambda variance=lambda with relative sd 1/sqrt(lambda), why R=0.17 can coexist with chi=0.82, and that the simulation is a model test not animal data.",
+          "prerequisite_locations": "None beyond declared audience baseline (expectation/variance/sd/density known).",
+          "retain_or_change": "retain",
+          "reason": "Correct first step; mechanism precedes mathematics."
+        },
+        {
+          "id": "ch:PERSISTENCE",
+          "current_purpose": "Spring-damper eye mechanics (folded) → oculomotor integrator → line attractor → two-cell disturbance geometry → independent-steps diffusion → fixed map vs wandering value.",
+          "what_reader_should_be_able_to_explain": "Stable pattern vs vulnerable value, Var=2Dt, covariance min(s,t), and why place-map randomness is a different object from memory drift.",
+          "prerequisite_locations": "Ch 1 Eqs. 7-9, Poisson section.",
+          "retain_or_change": "retain",
+          "reason": "Bridge from muscle mechanics to neural state; two-cell example labeled guide-derived."
+        },
+        {
+          "id": "ch:MEMORY-DYNAMICS",
+          "current_purpose": "Weak-fluctuation Gaussian approximation → linearization K,R → right/left zero eigenvectors → diffusion formula → symmetric-weights tuning-curve form.",
+          "what_reader_should_be_able_to_explain": "Derive 2D = sum v_i^2 rbar_i and the squared g_i' form; know the source Eq. 2 square discrepancy and the 2017 correction.",
+          "prerequisite_locations": "Ch 1-2; SI Eqs. S7-S15 cited.",
+          "retain_or_change": "retain",
+          "reason": "Core derivation correct; source inconsistency flagged with nearby qualification."
+        },
+        {
+          "id": "ch:MEMORY-LONG-DELAYS",
+          "current_purpose": "Fokker-Planck density → line vs wrapped ring → state-dependent D expansion → Stratonovich drift D'/2 → correlated-noise extension → figures separate storage vs readout.",
+          "what_reader_should_be_able_to_explain": "Why ring MSD plateaus at pi^2/3 while line MSD grows; that diffusion alone does not determine systematic drift; S40/S41 factor-of-two flag kept separate from author correction.",
+          "prerequisite_locations": "Ch 3 diffusion derivation.",
+          "retain_or_change": "retain",
+          "reason": "Qualifications correctly local; print flag source-confirmed (F-04 relates to Ch 6 extensions, not this chapter)."
+        },
+        {
+          "id": "ch:MEMORY-INFORMATION",
+          "current_purpose": "Poisson Fisher J → Cramér-Rao → information-diffusion bound via Cauchy-Schwarz → equality condition and linear-family counterexample → population/rate/tau/tuning-width comparisons.",
+          "what_reader_should_be_able_to_explain": "Bound D >= 1/(2 tau^2 J); equality needs alignment of projection weights with information weights; 'iff' exponential claim qualified.",
+          "prerequisite_locations": "Ch 3; basic calculus.",
+          "retain_or_change": "retain",
+          "reason": "Proof separated from heuristic; counterexample correctly narrows source claim."
+        },
+        {
+          "id": "ch:MEMORY-READOUT",
+          "current_purpose": "Storage/readout decomposition → naive equal-weighting optimum → ideal coth limit → partial access alpha → time-constant/noise-law extensions → printed Eq. 6 qualification.",
+          "what_reader_should_be_able_to_explain": "Why equal weighting becomes harmful; why ideal variance limits at sqrt(2D/J); concrete strict counterexample to printed Eq. 6 as universal lower bound.",
+          "prerequisite_locations": "Ch 3-5 (D, J, tau).",
+          "retain_or_change": "retain",
+          "reason": "Derivations exact within stated local Gaussian model; extensions folded."
+        },
+        {
+          "id": "part:OBSERVATIONS",
+          "current_purpose": "Connects neural activity to eye control (monkeys) and location (rodents/bats); explicitly notes eye chapters begin with recordings then mechanism, place chapters begin with model then tests.",
+          "what_reader_should_be_able_to_explain": "The different evidentiary order of the two sub-parts and why Ch 13 comparison is guide-derived.",
+          "prerequisite_locations": "Part I for attractor integrator; Ch 1 for covariance.",
+          "retain_or_change": "retain",
+          "reason": "Deliberate, explained contrast suits both papers' logic."
+        },
+        {
+          "id": "ch:EYE-DRIFT",
+          "current_purpose": "OMN pathway → recordings (57 cells, 2 macaques) → forward fit Eq. 2 → inverse double-exponential filter → correlation R → shared variance chi.",
+          "what_reader_should_be_able_to_explain": "Calibration transfer from large movements to fixation; why R=0.17 implies chi~0.82 under unit-gain/independence assumptions; p-value and SEM meaning.",
+          "prerequisite_locations": "Ch 1 covariance/correlation; Ch 2 eye anatomy.",
+          "retain_or_change": "retain",
+          "reason": "Recordings-first order matches the paper; assumptions explicit."
+        },
+        {
+          "id": "ch:EYE-TIMING",
+          "current_purpose": "Measurement noise offset 2 sigma_m^2 → filtered white-noise MSD plateau → filtered Brownian MSD growth → slope alpha between 1 and 2.",
+          "what_reader_should_be_able_to_explain": "Why an MSD slope between 1 and 2 can arise from filtering ordinary diffusion without superdiffusive memory.",
+          "prerequisite_locations": "Ch 1 MSD definition; white noise from Ch 6 extensions.",
+          "retain_or_change": "retain",
+          "reason": "One-pole filtered Brownian labeled a teaching reconstruction, not the full muscle model."
+        },
+        {
+          "id": "ch:EYE-CIRCUIT",
+          "current_purpose": "Two-population integrator → neutral condition G'=1 → motor plant → delayed feedback → CV scaling → figures → localization limits.",
+          "what_reader_should_be_able_to_explain": "How integrator noise becomes filtered drift; why match is sufficient-not-unique (no integrator recordings, no perturbation test).",
+          "prerequisite_locations": "Ch 2 integrator; Ch 3 diffusion; Ch 8 filtering.",
+          "retain_or_change": "retain",
+          "reason": "Limits (no integrator recordings, no perturbation) explicit; CV absolute-vs-fractional slope caveat stated."
+        },
+        {
+          "id": "ch:PLACE-FIELDS",
+          "current_purpose": "Gaussian-process input → stationarity/isotropy/smoothness → scale sigma → Kac-Rice upcrossings → endpoint correction → mean field/gap inference.",
+          "what_reader_should_be_able_to_explain": "How threshold q and scale sigma separate; exact Kac-Rice result needs no high-threshold approximation; q,sigma inversion.",
+          "prerequisite_locations": "Basic probability only.",
+          "retain_or_change": "retain",
+          "reason": "Exact vs approximate clearly separated; fitted numbers verified against paper."
+        },
+        {
+          "id": "ch:PLACE-SIZES",
+          "current_purpose": "High-threshold parabola → scaled excess U exponential → size laws d=1/2/3 → slices → boundary-slope Rayleigh → width check.",
+          "what_reader_should_be_able_to_explain": "Rayleigh/exponential/Weibull laws; high-threshold error (46% at q=1.1); slice dimension changes the measured law within one map.",
+          "prerequisite_locations": "Ch 10 (sigma, q, Kac-Rice).",
+          "retain_or_change": "retain",
+          "reason": "Supplement algebra flags F-03 source-confirmed; guide derives independently and says code/fits unimplicated."
+        },
+        {
+          "id": "ch:PLACE-TESTS",
+          "current_purpose": "Euler characteristic components/holes → signed densities with boundary terms → limiting checks → fitted vs tested → processing choices → random wiring as possible origin.",
+          "what_reader_should_be_able_to_explain": "EC formula components/holes/tunnels; why matching volumes alone is insufficient; wiring is not a connectivity measurement.",
+          "prerequisite_locations": "Ch 10-11; Taylor (2006) Gaussian kinematic formula cited.",
+          "retain_or_change": "retain",
+          "reason": "Topology test goes beyond field volumes; processing limits honestly listed."
+        },
+        {
+          "id": "ch:SYNTHESIS",
+          "current_purpose": "Three objects kept distinct (map, memory motion, observed movement) → joint position-error covariance → matched tests per paper → related studies → proposed joint test.",
+          "what_reader_should_be_able_to_explain": "Cov(delta R_i,delta R_j)=2Dt f_i'f_j' and that opposite-slope negative covariance is not inhibitory wiring; what a joint test would measure.",
+          "prerequisite_locations": "All of Parts I-II.",
+          "retain_or_change": "retain",
+          "reason": "Joint calculation guide-derived and labeled; related studies are secondary summaries."
+        },
+        {
+          "id": "part:HARDWARE",
+          "current_purpose": "Compare electronic memory with neural memory; separate weights, neuron states, represented values; explicit 2026-10-30 snapshot; von Neumann framing.",
+          "what_reader_should_be_able_to_explain": "Why a durable weight, persistent activity, and remembered value are three different achievements; snapshot date means claims are not a current SOTA survey.",
+          "prerequisite_locations": "Part I separation of state vs represented value; Seung 1996 and Burak & Fiete 2012.",
+          "retain_or_change": "retain",
+          "reason": "Requested extension; appropriately hedged; von Neumann quotation locally verified."
+        },
+        {
+          "id": "ch:HARDWARE-MEMORY",
+          "current_purpose": "Bits/capacitor/PCM storage → table of error roles → update pathways (Loihi 2, SpiNNaker2, BrainScaleS-2, PCM).",
+          "what_reader_should_be_able_to_explain": "Three achievements separated; where each technology stores information and its relevant error.",
+          "prerequisite_locations": "Part I state/value separation; capacitor Q=CV taught inline.",
+          "retain_or_change": "retain",
+          "reason": "Clean conceptual separation; hardware bodies mostly unread (F-05), descriptions treated as unchecked context."
+        },
+        {
+          "id": "ch:HARDWARE-DYNAMICS",
+          "current_purpose": "Feedback tau_eff=tau_s/(1-g) → bit restore vs continuous preserve → OU variance → pinning → Massoud/Giulioni silicon evidence.",
+          "what_reader_should_be_able_to_explain": "Restoration limits local spread; neutral direction accumulates; pinning vs neutral drift; Burak & Fiete bound is not a universal electronic-memory bound.",
+          "prerequisite_locations": "Ch 3-5 (D, projection); Seung 1996 locally read.",
+          "retain_or_change": "retain",
+          "reason": "Distinction clearly drawn; Massoud/Giulioni bodies unread (F-05)."
+        },
+        {
+          "id": "ch:NEUROMORPHIC-SYSTEMS",
+          "current_purpose": "Architecture table (where weights/state reside, how state changes, experiment consequence) → five studies each qualified by measured chip / post-layout simulation / proposed → limits (post-layout not fabricated).",
+          "what_reader_should_be_able_to_explain": "The scientific choice of which physical effects to control/measure/exploit; why progress in one study does not establish others.",
+          "prerequisite_locations": "Ch 14-15; Aitsam/Kleyko/Sun locally read, others unread (F-05).",
+          "retain_or_change": "retain",
+          "reason": "Respects 2026-10-30 snapshot; no SOTA-overclaim; Aitsam deterministic/noise-test caveat noted."
+        },
+        {
+          "id": "ch:HARDWARE-TESTS",
+          "current_purpose": "Cue-and-delay protocol → local model dtheta=b dt+sqrt(2D)dW → projection D=1/2 ell^T B B^T ell → controlled-changes table → time/readout/energy matching.",
+          "what_reader_should_be_able_to_explain": "How to separate drift, bias, and readout error; D_p = a D_m under acceleration; protocol and models are proposed tools, not demonstrated results.",
+          "prerequisite_locations": "Part I projection; Ch 8 output filtering; Ch 12 spatial-vs-temporal distinction.",
+          "retain_or_change": "retain",
+          "reason": "Connects Parts I-II to hardware; labels proposals clearly."
+        },
+        {
+          "id": "part:SIMULATIONS",
+          "current_purpose": "Methods and software behind the three studies; reproduction route; distinguishes simulated trajectories, recorded analysis, generated maps.",
+          "what_reader_should_be_able_to_explain": "What each computation adds to evidence and which physical assumptions determine output; guide has not rerun full simulations.",
+          "prerequisite_locations": "Chapters 1-12 for models being simulated.",
+          "retain_or_change": "retain",
+          "reason": "Honest about limits; no false reproduction claim."
+        },
+        {
+          "id": "ch:SIMULATING-MEMORY",
+          "current_purpose": "Recover published ring/two-population settings → distinguish numerical position measurement from theoretical coordinate → controls → open reproduction choices.",
+          "what_reader_should_be_able_to_explain": "Why simulation output agrees with theory without free parameter; settings matter; no public archive identified as of snapshot (search statement, not proof of absence).",
+          "prerequisite_locations": "Ch 1-3 (update cycle, theory coordinate).",
+          "retain_or_change": "retain",
+          "reason": "Settings recovered accurately; two-population spike-count underspecification noted."
+        },
+        {
+          "id": "ch:SIMULATING-EYE",
+          "current_purpose": "Four-stage generated command → MATLAB settings/code gaps → controls → public code and raw recordings access limits.",
+          "what_reader_should_be_able-to_explain": "Code-vs-paper mismatches (N convention, motor variability regression); internal command and eye angle are different outputs.",
+          "prerequisite_locations": "Ch 7-9 mechanism; Ch 1 recordings context.",
+          "retain_or_change": "retain",
+          "reason": "Gaps listed honestly; code inspected not executed; no end-to-end run claimed."
+        },
+        {
+          "id": "ch:SIMULATING-PLACE",
+          "current_purpose": "Python map generation → fitted summaries per condition → field detection/preprocessing → code/data access limits.",
+          "what_reader_should_be_able_to_explain": "sigma vs ell conversion (ell = sqrt2 b); reflected/wrap edges matter; 10^4 realizations scope excludes recording error.",
+          "prerequisite_locations": "Ch 10-12 model and tests.",
+          "retain_or_change": "retain",
+          "reason": "Numerical choices explicitly tied to scientific method."
+        },
+        {
+          "id": "ch:SIMULATION-TOOLS",
+          "current_purpose": "Author code vs teaching reconstruction vs numerical reference → tool roles → resolution/convergence → record to save.",
+          "what_reader_should_be_able_to_explain": "Convergence check definition; Monte Carlo independence unit; seed alone does not guarantee reproducibility.",
+          "prerequisite_locations": "Part IV documentation-style roles; NumPy/SciPy/Brian docs cited.",
+          "retain_or_change": "retain",
+          "reason": "Practical and honest; no simulations run claimed."
+        },
+        {
+          "id": "ch:GLOSSARY",
+          "current_purpose": "Lookup definitions after main-path explanations; hardware and simulation subsections cross-referenced.",
+          "what_reader_should_be_able_to_explain": "Defined terms consistent with chapter usage (D, CV on ISIs, EC, Itô/Stratonovich, pinning, unwrapping).",
+          "prerequisite_locations": "All chapters it cross-references.",
+          "retain_or_change": "retain",
+          "reason": "No new factual claims beyond chapters."
+        },
+        {
+          "id": "ch:REFERENCES",
+          "current_purpose": "Bibliographic entries following first use; data/code DOIs included; 2017 correction noted.",
+          "what_reader_should_be_able_to_explain": "Source details for each cited result; supporting information shares main entry.",
+          "prerequisite_locations": "Chapters where entries first appear.",
+          "retain_or_change": "retain",
+          "reason": "Internally consistent with chapter notation and labels."
+        }
+      ]
+    }
+  ]
+}

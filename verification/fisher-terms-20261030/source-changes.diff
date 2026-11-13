@@ -1,0 +1,313 @@
+--- before/02b-memory-long-delays.md
++++ after/02b-memory-long-delays.md
+@@ -136,7 +136,20 @@
+ <!-- vale ai-tells.EmDashUsage = YES -->
+ <!-- vale ai-tells.ConsequenceParticiple = YES -->
+ 
+-**Mathematical derivation.** For state dependent $D$, where the coefficient is evaluated affects the process. [The [**Stratonovich convention**]{.definition-term custom-style="Definition Term"} uses midpoint evaluation in its limiting increments.]{.definition-explanation} With the same written coefficient and zero written drift, it describes a different process from the Itô equation. Converting the Stratonovich equation into Itô form adds a drift $D'/2$. This follows from the conversion term $bb'/2$ with $b=\sqrt{2D}$ and $bb'=D'$. The supplement uses the difference to estimate a possible scale of noise induced drift, not to identify the exact drift of every neural network.
++**Mathematical derivation.** For state dependent $D$, where the coefficient is evaluated affects the process. [The [**Stratonovich convention**]{.definition-term custom-style="Definition Term"} uses midpoint evaluation in its limiting increments.]{.definition-explanation} With the same written coefficient and zero written drift, it describes a different process from the Itô equation. If noise is stronger at larger values, a positive step samples stronger noise at its midpoint and a negative step samples weaker noise. Their average no longer cancels. Converting to Itô form expresses this effect as a drift $D'/2$. The supplement uses the difference to estimate a possible scale of noise induced drift, not to identify the exact drift of every neural network.
++
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: midpoint evaluation adds a mean displacement"}
++
++Write $b(\theta)=\sqrt{2D(\theta)}$ in a region where $D$ is positive and smooth. A Stratonovich step uses $\Delta\theta=b(\theta+\Delta\theta/2)\Delta W$. Expand about the starting value and use $\Delta\theta\simeq b\Delta W$ in the correction:
++
++$$
++\Delta\theta\simeq b\Delta W+\frac{b'}2\Delta\theta\Delta W
++\simeq b\Delta W+\frac{bb'}2(\Delta W)^2.
++$$
++
++Since $E[\Delta W]=0$ and $E[(\Delta W)^2]=\Delta t$, the added mean step is $bb'\Delta t/2$. Differentiating $b^2=2D$ gives $bb'=D'$, so the mean velocity is $D'/2$. The squared-increment term contributes to the limit as the time steps shrink. If $D$ is constant, the correction vanishes. This expansion explains the convention change. It does not determine which convention a microscopic neural process produces.
++
++:::
+ 
+ With $D$ of order $1/N$, random displacement over $dt$ is of order $\sqrt{dt/N}$, while such a mean displacement is of order $dt/N$. 
+ 
+--- before/03-memory-information.md
++++ after/03-memory-information.md
+@@ -14,11 +14,74 @@
+ 
+ ## Rate slopes and spike variability determine local information {#sec:MEMORY-FI}
+ 
+-**Neural mechanism.** Suppose two nearby memory values produce almost identical rates. A short spike sample cannot reliably tell them apart. If a small change in memory instead produces a large rate change relative to spike variability, that sample is more useful. We need a quantity that measures this local distinction.
+-
+-In a short interval $h$, let $n_i$ be neuron $i$'s count. Treat the memory state as locally constant and use the conditionally independent Poisson approximation from the neural model. The calculation below uses positive rates.
+-
+-**Mathematical derivation.** [A [**likelihood**]{.definition-term custom-style="Definition Term"} is the probability of observed data as a function of a proposed parameter value.]{.definition-explanation} For the neural model,
++<!-- vale ai-tells.ContrastiveFormulas = NO -->
++<!-- vale ai-tells.FigurativeStays = NO -->
++**Neural mechanism.** A receiving neuron gets spikes, not a label saying which angle the memory circuit represents. The same angle can produce different spike counts on different trials. To read the angle, an observer needs to know how each cell's expected count changes with angle and how much that count fluctuates when the angle stays fixed.
++<!-- vale ai-tells.FigurativeStays = YES -->
++<!-- vale ai-tells.ContrastiveFormulas = YES -->
++
++<!-- vale ai-tells.EmptyPadding = NO -->
++[[**Fisher information**]{.definition-term custom-style="Definition Term"} measures how sensitively the probabilities of possible observations change when the value being estimated changes slightly.]{.definition-explanation} Here the observations are spike counts and the unknown value is the circuit's present memory coordinate $\theta$. [Information is large when a small change in the stored value changes the expected counts strongly compared with their random spread.]{.key-statement} It is a property of the spike model at a particular value of $\theta$, before choosing a rule for decoding the spikes.
++<!-- vale ai-tells.EmptyPadding = YES -->
++
++“Local” means comparing values close to the current one. A neuron can distinguish small changes near one angle yet respond identically at two distant angles. Fisher information describes the nearby distinction. A large value alone does not resolve that distant ambiguity.
++
++Let $h$ be the observation duration in seconds and $n_i$ neuron $i$'s spike count. For this calculation, hold $\theta$ effectively fixed during observation and assume positive rates. Once that state is fixed, the model treats the counts from different cells as independent Poisson variables. Their mean and variance are both $\bar r_i(\theta)h$. This is a short observation approximation to the recurrent circuit, whose state can otherwise move while spikes are collected.
++
++<div class="publisher-worked-calculation publisher-fold-always">
++
++**Example: extra background spikes can make an angle harder to read.**
++
++<!-- vale ai-tells.FormalTransitions = NO -->
++Consider an illustrative neuron with rate 40 spikes per second at the angle of interest. Near that angle, each degree of change increases its rate by 20 spikes per second. In a 0.1-second observation, its mean count is 4 and its standard deviation is $\sqrt{4}=2$ spikes. The mean count changes by 2 spikes per degree. Thus the change per degree is as large as one standard deviation of the count noise.
++<!-- vale ai-tells.FormalTransitions = YES -->
++
++<!-- vale ai-tells.EmptyPadding = NO -->
++Now add 120 spikes per second of background firing that does not depend on angle. The mean count becomes 16 and its standard deviation becomes 4 spikes. The change per degree remains 2 spikes. The same angle change is now half as large relative to the noise. Squaring that comparison gives one quarter of the original information. More spikes have made this particular comparison worse because they added variability without increasing the response to angle.
++<!-- vale ai-tells.EmptyPadding = YES -->
++
++These numbers describe a chosen local tuning curve and a Poisson count model, not measured neurons. Multiplying the entire tuning curve would be a different change: it would increase the slope as well as the mean rate.
++
++</div>
++
++**Mathematical result.** Write $r_i'=d\bar r_i/d\theta$ for the rate change per unit change in the represented value. In an interval $h$, the expected count changes by $h r_i'\,\delta\theta$ for a small change $\delta\theta$. Dividing the squared change per unit $\theta$ by the count variance gives
++
++$$
++I_{h,i}(\theta)=\frac{(h r_i')^2}{\bar r_i h}
++=h\frac{(r_i')^2}{\bar r_i}.
++$$
++
++This sensitivity divided by noise expression is exactly the single-cell Fisher information for the Poisson model. For independent counts, the contributions add:
++
++$$
++I_h(\theta)=h\sum_i\frac{(r_i')^2}{\bar r_i}=hJ(\theta),
++\qquad
++\boxed{J(\theta)=\sum_i\frac{(r_i')^2}{\bar r_i}.}
++$$
++
++[The [**internal Fisher information rate**]{.definition-term custom-style="Definition Term"} $J$ is the information per second in these spikes about the circuit's current represented value.]{.definition-explanation} “Internal” identifies what is being estimated: the state maintained by the circuit after the cue has disappeared. If angles are measured in radians, $I_h$ has units $\mathrm{rad}^{-2}$ and $J$ has units $\mathrm{rad}^{-2}\mathrm{s}^{-1}$. They are not numbers of stored bits.[^p1-fi-source]
++
++The expression explains three ways a code can change:
++
++- Doubling a cell's tuning slope while keeping its rate fixed gives four times the local information.
++- Adding constant background firing while keeping the slope fixed lowers its contribution, as in the example.
++- Adding another independently fluctuating, tuned cell adds information. Shared fluctuations require a different calculation.
++
++A rate peak has zero slope, so that cell contributes no information about infinitesimal angle changes at that point under this positive-rate Poisson formula. Other cells with nonzero slopes can still inform the population's estimate. The following curves show where each cell's contribution comes from.
++
++<div class="figure-scroll">
++
++{{block:fig:MEMORY-TUNING-INFORMATION}}
++
++</div>
++
++Both curves change by the same amount with angle. The higher curve has more Poisson count noise, which explains its lower information away from the peak. The formal definition below shows why the sensitivity divided by noise calculation is Fisher information.
++
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: likelihood, score, and Fisher information"}
++
++Here the parameter being estimated is $\theta$ during the short observation. [A [**likelihood**]{.definition-term custom-style="Definition Term"} compares proposed parameter values by the probability each assigns to the observations already obtained.]{.definition-explanation} Suppose four spikes were recorded. A candidate angle predicting four spikes on average and one predicting sixteen assign different probabilities to that same count. Evaluating those probabilities as the proposed angle changes gives the likelihood. It is not, by itself, a probability distribution over the proposed angles.
++
++For the full vector $\mathbf n$ of observed counts, independence gives
+ 
+ $$
+ p(\mathbf n\mid\theta)=\prod_i
+@@ -37,7 +100,9 @@
+ =\sum_i\frac{r_i'}{\bar r_i}(n_i-\bar r_i h).
+ $$
+ 
+-[The [**score**]{.definition-term custom-style="Definition Term"} $S$ measures how the log likelihood changes when the proposed memory value changes.]{.definition-explanation} Its mean is zero because $E[n_i]=\bar r_i h$. Its mean square is
++<!-- vale ai-tells.StackedAnaphora = NO -->
++[The [**score**]{.definition-term custom-style="Definition Term"} $S$ is the slope of the log likelihood with respect to the proposed value.]{.definition-explanation} A positive score means that a small increase in the proposed angle makes the observed count pattern more likely. A negative score favors a small decrease. At the true value, these signed slopes average to zero over repeated spike samples because $E[n_i]=\bar r_i h$. Squaring before averaging prevents the positive and negative slopes from canceling:
++<!-- vale ai-tells.StackedAnaphora = YES -->
+ 
+ $$
+ E[S^2]
+@@ -45,13 +110,27 @@
+ =h\sum_i\frac{(r_i')^2}{\bar r_i}.
+ $$
+ 
+-The cross terms vanish by conditional independence, and Poisson variance supplies $\operatorname{Var}(n_i)=\bar r_i h$. [[**Fisher information**]{.definition-term custom-style="Definition Term"} is this expected squared score. The paper divides it by observation duration and calls the result the [**internal Fisher information rate**]{.definition-term custom-style="Definition Term"}:]{.definition-explanation}
+-
+-$$
+-\boxed{J(\theta)=\sum_i\frac{(r_i')^2}{\bar r_i}.}
+-$$
+-
+-[To understand why inverse information is an error scale, let $\hat\theta(\mathbf n)$ be an estimator whose mean equals $\theta$ locally. Such an estimator is [**unbiased**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} Differentiate $E_\theta[\hat\theta]=\theta$ with respect to $\theta$. Under the usual conditions allowing differentiation through the sum over data,
++Products of centered counts from different cells average to zero by conditional independence. The remaining terms use $\operatorname{Var}(n_i)=\bar r_i h$. The general definition of Fisher information is $I_h(\theta)=E_\theta[S(\theta)^2]$: the mean squared score over data generated at $\theta$. Here it gives the Poisson expression $I_h=hJ$ derived above. Other spike distributions can give a different expression.
++
++:::
++
++**Interpretation: information limits how accurately the value can be read.** [An [**estimator**]{.definition-term custom-style="Definition Term"} is a rule that turns observed data into an estimated value, here $\hat\theta(\mathbf n)$.]{.definition-explanation} [It is [**unbiased**]{.definition-term custom-style="Definition Term"} if repeating the observation at a fixed true value gives estimates whose average equals that value.]{.definition-explanation} Individual estimates can still be wrong. Their variance measures their trial-to-trial spread around that average.
++
++[The [**Cramér Rao bound**]{.definition-term custom-style="Definition Term"} puts a lower limit on that variance for estimators unbiased across the nearby values, under the smoothness conditions used in the proof:]{.definition-explanation}
++
++$$
++\boxed{\operatorname{Var}(\hat\theta)\ge\frac{1}{I_h(\theta)}=\frac{1}{hJ(\theta)}.}
++$$
++
++<!-- vale ai-tells.BareReaches = NO -->
++<!-- vale ai-tells.EmptyPadding = NO -->
++Four times the information halves this lower bound on the standard deviation. It does not promise that a particular decoder reaches the bound. The paper uses an approximation in which the spike sample is informative enough for a suitable estimator to approach it.[^p1-cr]
++<!-- vale ai-tells.EmptyPadding = YES -->
++<!-- vale ai-tells.BareReaches = YES -->
++
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: why inverse information bounds estimation variance"}
++
++Assume the same estimator is unbiased throughout a neighborhood of $\theta$, the probabilities vary smoothly with $\theta$, and differentiation can be exchanged with summation over the counts. Differentiate $E_\theta[\hat\theta]=\theta$:
+ 
+ $$
+ 1=\sum_{\mathbf n}\hat\theta(\mathbf n)\partial_\theta p(\mathbf n\mid\theta)
+@@ -59,7 +138,7 @@
+ =E[(\hat\theta-\theta)S].
+ $$
+ 
+-The last equality uses $E[S]=0$. Cauchy Schwarz now gives
++The last equality uses $E[S]=0$. The Cauchy Schwarz inequality says that the squared average product of two variables is no greater than the product of their mean squares. Applying it to estimation error $\hat\theta-\theta$ and score $S$ gives
+ 
+ $$
+ 1\le E[(\hat\theta-\theta)^2]E[S^2],
+@@ -67,25 +146,19 @@
+ \boxed{\operatorname{Var}(\hat\theta)\ge\frac{1}{Jh}.}
+ $$
+ 
+-**Interpretation.** [This is the [**Cramér Rao bound**]{.definition-term custom-style="Definition Term"}. It is a local bound for regular unbiased estimation.]{.definition-explanation} It does not guarantee that every finite spike sample admits an estimator attaining it. The paper works in a weak noise, informative sample regime where local likelihoods can be approximated as Gaussian and a suitable estimator can approach the bound. [A [**prior distribution**]{.definition-term custom-style="Definition Term"} represents knowledge about likely parameter values before observing the spikes.]{.definition-explanation} A strong prior, bias, boundaries, or globally ambiguous tuning changes the estimation problem.[^p1-cr]
+-
+-If the coordinate is an angle in radians, $J$ has units $\mathrm{rad}^{-2}\mathrm{s}^{-1}$. The information in a locally stationary interval of duration $h$ is $Jh$, not $J$.[^p1-fi-source] A vanishing rate requires a suitable limit and regularity of the likelihood.
+-
+-<!-- vale ai-tells.ParallelStaccato = NO -->
+-Each cell contributes squared slope divided by its count variance per unit time. High rates with zero slope do not distinguish neighboring values, so they contribute no local information. A sharply changing rate can be informative even if it is smaller than another cell's peak rate. The coordinate here describes the network's present internal state. It need not be a currently visible external stimulus. Sensory Fisher information has the same Poisson formula only when the stimulus dependent tuning curves are the relevant rates.
+-<!-- vale ai-tells.ParallelStaccato = YES -->
+-
+-<!-- vale ai-tells.CataphoricForecasting = NO -->
+-Two positive tuning curves with the same changing part isolate the effect of extra baseline firing.
+-<!-- vale ai-tells.CataphoricForecasting = YES -->
+-
+-<div class="figure-scroll">
+-
+-{{block:fig:MEMORY-TUNING-INFORMATION}}
+-
+-</div>
+-
+-The rate peak has zero local slope, so it contributes no local information at that point. Extra spikes from a constant baseline increase Poisson variability without making nearby values easier to distinguish. See [Internal Fisher information, Eq. 3, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).
++Unbiasedness makes the mean squared error equal to the variance. Dividing by $E[S^2]=I_h=hJ$ gives the bound when that information is positive and finite.
++
++:::
++
++[A [**prior distribution**]{.definition-term custom-style="Definition Term"} describes which parameter values were more plausible before observing these spikes.]{.definition-explanation} A decoder that uses this additional knowledge, or accepts a systematic error, has a different error problem. The bound above also needs care near boundaries or zero firing rates. For sensory estimation the same Poisson formula applies when the rates depend on a present stimulus, whereas here they depend on a maintained internal value.
++
++<!-- vale ai-tells.EmDashUsage = NO -->
++<!-- vale ai-tells.FigurativeStays = NO -->
++<!-- vale ai-tells.OverusedVocabulary = NO -->
++Finally, $I_h=hJ$ assumes that the represented value stays effectively fixed during observation. Longer collection in a freely evolving memory circuit also allows that value to wander. The next section links $J$ to this physical wandering, and the [readout chapter](ch-memory-readout.html) treats what changes when the observer tries to recover the initial value. See [main Eq. 3, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2) and [SI Section IV, pp. 9–10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9).
++<!-- vale ai-tells.OverusedVocabulary = YES -->
++<!-- vale ai-tells.FigurativeStays = YES -->
++<!-- vale ai-tells.EmDashUsage = YES -->
+ 
+ ## Spike information sets a lower bound on memory diffusion {#sec:MEMORY-BOUND}
+ 
+--- before/04-eye-drift.md
++++ after/04-eye-drift.md
+@@ -111,7 +111,15 @@
+ <!-- vale Google.Units = NO -->
+ <!-- vale ai-tells.AnthropomorphicCognition = NO -->
+ <!-- vale ai-tells.VerbTricolon = NO -->
+-During fixation, the authors subtracted each segment's mean firing rate, joined the segments, and compared observed and predicted rate fluctuations. Figure 1c illustrates a weak relationship for one cell. Fig. 1d shows a positive population effect. The one sided test asks whether the mean correlation is positive, compared with a zero-mean reference. [Its [**p value**]{.definition-term custom-style="Definition Term"} is the probability, under that reference, of a test statistic at least as large as observed.]{.definition-explanation} Across 57 cells it gave $p=3\times10^{-9}$. A weak single cell relationship is expected here because the tiny movement produces small rate changes against much larger spike variability. This is the first evidence of a relationship, before any estimate of the fraction of common motion.[^p2-rate-result]
++During fixation, the authors subtracted each segment's mean firing rate, joined the segments, and compared observed and predicted rate fluctuations. Figure 1c illustrates a weak relationship for one cell. Fig. 1d shows a positive population effect. The authors used a [**one sided t test**]{.definition-term custom-style="Definition Term"}: it compares the mean correlation across 57 cells with zero, after dividing that mean by its estimated sampling uncertainty. The positive direction was the one being tested.
++
++[The [**p value**]{.definition-term custom-style="Definition Term"} is the probability that this test would give a value at least as large as observed if the population mean correlation were zero and the test's sampling assumptions held.]{.definition-explanation} The reported $p=3\times10^{-9}$ measures how unusual the result is under that reference. It is not the probability that the zero-mean hypothesis, or a proposed neural mechanism, is true. A weak single cell relationship is expected here because the tiny movement produces small rate changes against much larger spike variability. This is evidence of a relationship, before any estimate of the fraction of common motion.[^p2-rate-result]
++
++::: {.publisher-clarification-note .publisher-fold-always title="Calculation: what the correlation test compares"}
++
++Let $R_i$ be the correlation for cell $i$, $\bar R$ the mean across $n=57$ cells, and $s_R$ their sample standard deviation. The number compared with the reference distribution, called the test statistic, is $t=\bar R/(s_R/\sqrt{n})$. The denominator estimates the uncertainty in the mean. The reference is the Student t distribution with $n-1=56$ degrees of freedom: the distribution of this ratio for independent, identically distributed normal observations with true mean zero. Applying it to the cell correlations uses that sampling approximation. The one sided p value is the reference probability above the observed $t$. The observations in this calculation are cells recorded from two monkeys, not 57 independent animals.
++
++:::
+ <!-- vale ai-tells.VerbTricolon = YES -->
+ <!-- vale ai-tells.AnthropomorphicCognition = YES -->
+ <!-- vale Google.Units = YES -->
+--- before/04c-eye-circuit.md
++++ after/04c-eye-circuit.md
+@@ -211,7 +211,7 @@
+ 
+ </div>
+ 
+-The most useful supplemental comparisons are Extended Data Fig. 1 for individual uncertainty, Fig. 2 for noise subtraction and its simulated control, Fig. 3 for feedback, Fig. 4 for a no-central-drive control, and Fig. 5 for the other monkey's fit. In the no-central-drive control, $\widehat\chi=-0.09\pm0.22$ is compatible with zero. That negative estimate is sampling variation. Figures 6–8 document cell classification, segment sampling, and a rank correlation check. Figure 9 shows the heterogeneous model parameters. Figure 10 separates spiking noise passed directly to the output from spiking noise that drives diffusion inside the integrator: internal stochastic spikes remain in the latter comparison. Its caption reports little direct output-noise effect beyond 50 ms.[^p2-supp-figures]
++The most useful supplemental comparisons are Extended Data Fig. 1 for individual uncertainty, Fig. 2 for noise subtraction and its simulated control, Fig. 3 for feedback, Fig. 4 for a no-central-drive control, and Fig. 5 for the other monkey's fit. In the no-central-drive control, $\widehat\chi=-0.09\pm0.22$ is compatible with zero. That negative estimate is sampling variation. Figures 6–8 document cell classification, segment sampling, and a rank correlation check. [The [**Spearman correlation**]{.definition-term custom-style="Definition Term"} used in Figure 8 replaces each set of measured values by their ranks before computing correlation.]{.definition-explanation} It checks whether larger predicted displacements tend to accompany larger recorded displacements, without requiring the relationship to be linear. Figure 9 shows the heterogeneous model parameters. Figure 10 separates spiking noise passed directly to the output from spiking noise that drives diffusion inside the integrator: internal stochastic spikes remain in the latter comparison. Its caption reports little direct output-noise effect beyond 50 ms.[^p2-supp-figures]
+ 
+ <details class="publisher-long-content publisher-source-figure">
+ <summary>Original paper figure: Ben-Shushan et al. (2022), Extended Data Figure 1</summary>
+--- before/05c-place-tests.md
++++ after/05c-place-tests.md
+@@ -34,7 +34,11 @@
+ 
+ A negative chi means that holes outnumber components in this 2D example. It does not mean a negative number of fields. When holes are absent, chi equals the component count.
+ 
+-The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical result: [for a smooth function on a compact domain whose [**critical point**]{.definition-term custom-style="Definition Term"}s have zero gradient and invertible Hessians, the Euler characteristic of a level set region can be computed as a signed count of critical points, including boundary contributions. This is the relevant conclusion of [**Morse theory**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms. The general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]
++The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical result. [A [**critical point**]{.definition-term custom-style="Definition Term"} is a location where the gradient is zero.]{.definition-explanation} [For a smooth function on a compact domain with invertible Hessians at its critical points and suitable boundary conditions, [**Morse theory**]{.definition-term custom-style="Definition Term"} expresses the Euler characteristic as a signed count of critical points, including boundary contributions.]{.definition-explanation} We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms. The general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]
++
++<!-- vale ai-tells.FormalTransitions = NO -->
++The signs have a geometric meaning. In 2D, lowering the threshold through a maximum creates an active component, adding one to $\chi$. Passing a saddle joins two components or opens a hole, subtracting one. Passing a minimum fills a hole, adding one. The Hessian has two negative eigenvalues at a maximum, opposite signs at a saddle, and two positive eigenvalues at a minimum. Thus $\det(-H)$ has the required signs $+,-,+$. The boundary terms account for changes at the edge of the observed region.
++<!-- vale ai-tells.FormalTransitions = YES -->
+ 
+ <!-- vale ai-tells.EmDashUsage = NO -->
+ First take the interior of a $j$ dimensional region, with $j\le3$, and set $\lambda=\sigma^{-2}$. A critical point has gradient zero. The multidimensional Kac–Rice rule counts these zeros with the absolute Hessian determinant. The Morse signs replace that absolute determinant by $\det(-H)$. The resulting signed density above level $q$ is
+@@ -163,15 +167,19 @@
+ The STAR Methods call the virtual-track animals rats in one sentence. Figure 1F and the main results identify them as mice. Several STAR figure cross-references also appear displaced. The table follows the main figure captions and the analyses described in full, rather than those isolated labels.
+ 
+ <!-- vale ai-tells.FormalTransitions = NO -->
+-Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its parameters were constrained by both mean length and mean gap, so the full length histogram is an additional check. Figure 1D does the same for gaps. E tests skew and excess kurtosis of log lengths. For $Y=\log s$, write $m_k=\mathbb E[(Y-\mathbb EY)^k]$. [Then [**skew**]{.definition-term custom-style="Definition Term"} is $m_3/m_2^{3/2}$ and [**excess kurtosis**]{.definition-term custom-style="Definition Term"} is $m_4/m_2^2-3$. A [**lognormal distribution**]{.definition-term custom-style="Definition Term"} of sizes makes $Y$ Gaussian and both population quantities zero.]{.definition-explanation} Finite sample estimates still fluctuate, which is why the figure compares simulated sampling distributions.[^p3-fit-tests]
+-<!-- vale ai-tells.FormalTransitions = YES -->
+-
+-For the long-tunnel data, the authors compared the Gaussian excursion model with a fitted lognormal using likelihoods and criteria that penalize fitted parameter count. Those comparisons favored the Gaussian model. [These are in-sample model comparisons. They are not reported held-out forecasts.]{.key-statement} Model histogram error bars come from $10^4$ simulations matched to the number of recorded cells. They do not quantify every source of animal-level or measurement uncertainty.[^p3-fit-tests]
++Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its parameters were constrained by both mean length and mean gap, so the full length histogram is an additional check. Figure 1D does the same for gaps. Panel E tests whether the shape of the log-length distribution agrees with the model beyond its mean and variance.
++
++<!-- vale ai-tells.ParallelStaccato = NO -->
++For $Y=\log s$, write $m_k=\mathbb E[(Y-\mathbb EY)^k]$. [[**Skew**]{.definition-term custom-style="Definition Term"}, $m_3/m_2^{3/2}$, measures signed asymmetry: the cubed deviations retain their signs, so unusually large log lengths contribute positively and unusually small ones negatively.]{.definition-explanation} [[**Excess kurtosis**]{.definition-term custom-style="Definition Term"}, $m_4/m_2^2-3$, measures the fourth moment relative to a Gaussian with the same variance. The fourth power weights large departures from the mean strongly, on either side.]{.definition-explanation} A positive value means a larger fourth moment than that Gaussian reference. [A [**lognormal distribution**]{.definition-term custom-style="Definition Term"} of lengths makes $Y$ Gaussian and both quantities zero.]{.definition-explanation} Nonzero population values therefore rule out that lognormal description. Zero values alone do not prove it, and finite sample estimates fluctuate, which is why the figure compares simulated sampling distributions.[^p3-fit-tests]
++<!-- vale ai-tells.ParallelStaccato = YES -->
++<!-- vale ai-tells.FormalTransitions = YES -->
++
++For the long-tunnel data, the authors compared the Gaussian excursion model with a fitted lognormal using likelihoods, the probabilities or densities each model assigns to the observed data, and criteria that penalize fitted parameter count. Those comparisons favored the Gaussian model. [These are in-sample model comparisons. They are not reported held-out forecasts.]{.key-statement} Model histogram error bars come from $10^4$ simulations matched to the number of recorded cells. They do not quantify every source of animal-level or measurement uncertainty.[^p3-fit-tests]
+ 
+ The processing choices affect the quantities being compared:
+ 
+-- Bat maps were rectified at about 0.5 Hz for denoising.
+-- The 3D maps, sampled in 10 cm bins, also received a median filter.
++- Bat maps were rectified at about 0.5 Hz for denoising: rates below this cutoff were set to zero, removing weak activity from the measured fields.
++- The 3D maps, sampled in 10 cm bins, also received a [**median filter**]{.definition-term custom-style="Definition Term"}, which replaces each bin's rate with a middle-ranked rate in its local neighborhood. The paper used a neighborhood two bins wide on each axis. This reduces isolated high or low values but can also change small field features.
+ - Fields larger than three standard deviations above mean 3D volume were removed as possible merges, including from slice analyses.
+ - Peak counting excluded incomplete boundary fields and used a range of smoothing widths.
+ - The 1D rate versus width comparison used an additional 1 Hz cutoff.
+--- before/glossary.md
++++ after/glossary.md
+@@ -25,13 +25,14 @@
+ - [[**Dirac delta:**]{.definition-term custom-style="Definition Term"} A point-mass distribution. In the initial-condition equation all probability is concentrated at the specified coordinate.]{.definition-explanation}
+ - [[**displacement:**]{.definition-term custom-style="Definition Term"} The change in a coordinate between two observations. For eye angle, $\Delta x=x(t+\ell)-x(t)$ over lag $\ell$.]{.definition-explanation}
+ - [[**encoding:**]{.definition-term custom-style="Definition Term"} Establishing a population activity pattern from an input.]{.definition-explanation}
++- [[**estimator:**]{.definition-term custom-style="Definition Term"} A rule that converts observed data into an estimated value. The memory decoder estimates an angle or other represented coordinate from spikes.]{.definition-explanation}
+ - [[**Euler characteristic:**]{.definition-term custom-style="Definition Term"} The alternating sum of Betti numbers. In three dimensions, components minus independent loops plus enclosed cavities.]{.definition-explanation}
+ - [[**excess kurtosis:**]{.definition-term custom-style="Definition Term"} The fourth centered moment divided by the squared variance, minus three. It is zero for a Gaussian population.]{.definition-explanation}
+ - [[**excitatory input:**]{.definition-term custom-style="Definition Term"} In the models used here, an input that increases a receiving neuron's tendency to fire.]{.definition-explanation}
+ - [[**excursion set:**]{.definition-term custom-style="Definition Term"} The positions where a function exceeds a specified level.]{.definition-explanation}
+ - [[**Fano factor:**]{.definition-term custom-style="Definition Term"} Spike-count variance divided by mean count, for a specified counting interval and condition.]{.definition-explanation}
+ - [[**firing rate:**]{.definition-term custom-style="Definition Term"} The expected number of spikes per unit time, conditional on the modeled circumstances.]{.definition-explanation}
+-- [[**Fisher information:**]{.definition-term custom-style="Definition Term"} The expected squared score, quantifying the local sensitivity of a probability distribution to a parameter.]{.definition-explanation}
++- [[**Fisher information:**]{.definition-term custom-style="Definition Term"} How sensitively the probabilities of observations change with a small change in the value being estimated. Formally, the expected squared score. In the independent Poisson model it compares squared changes in expected counts with count variance. [Explanation and example](../chapters/ch-memory-information.html#sec-memory-fi).]{.definition-explanation}
+ - [[**fixational drift:**]{.definition-term custom-style="Definition Term"} Slow eye motion during attempted fixation, between rapid eye movements.]{.definition-explanation}
+ - [[**fixed point:**]{.definition-term custom-style="Definition Term"} A state whose deterministic rate of change is zero.]{.definition-explanation}
+ - [[**Fokker Planck equation:**]{.definition-term custom-style="Definition Term"} An equation describing how a probability density evolves under drift and diffusion. The guide states the convention before using it.]{.definition-explanation}
+@@ -63,6 +64,7 @@
+ - [[**low pass filter:**]{.definition-term custom-style="Definition Term"} A filter that suppresses sufficiently rapid input changes relative to slower ones.]{.definition-explanation}
+ - [[**mean curvature:**]{.definition-term custom-style="Definition Term"} For a surface in three dimensions, the average of its two principal curvatures.]{.definition-explanation}
+ - [[**mean squared displacement:**]{.definition-term custom-style="Definition Term"} The average squared change in a coordinate across a specified time lag.]{.definition-explanation}
++- [[**median filter:**]{.definition-term custom-style="Definition Term"} A rule replacing each sampled value with a middle-ranked value from its local neighborhood. In the place maps it reduces isolated high or low rates and can change small field features.]{.definition-explanation}
+ - [[**microsaccades:**]{.definition-term custom-style="Definition Term"} Brief, rapid eye movements that occur during attempted fixation.]{.definition-explanation}
+ - [[**Morse theory:**]{.definition-term custom-style="Definition Term"} A theory relating the topology of a function's level-set regions to its critical points. The guide uses a signed critical-point count under its smoothness and nondegeneracy assumptions, including boundary contributions.]{.definition-explanation}
+ - [[**neural transfer function:**]{.definition-term custom-style="Definition Term"} The modeled relationship between a neuron's input and its expected firing rate.]{.definition-explanation}
+@@ -70,6 +72,7 @@
+ - [[**ocular motoneurons (OMNs):**]{.definition-term custom-style="Definition Term"} Neurons whose spikes activate the eye muscles.]{.definition-explanation}
+ - [[**ocular plant:**]{.definition-term custom-style="Definition Term"} The muscles and mechanical eye system that transform motor activity into eye motion.]{.definition-explanation}
+ - [[**oculomotor integrator:**]{.definition-term custom-style="Definition Term"} A neural circuit that converts movement commands into a maintained eye-position command.]{.definition-explanation}
++- [[**one sided t test:**]{.definition-term custom-style="Definition Term"} A test of a mean against a reference value in a specified direction, using the mean difference divided by its estimated sampling uncertainty. The eye paper tests whether the mean cell correlation exceeds zero.]{.definition-explanation}
+ - [[**p value:**]{.definition-term custom-style="Definition Term"} Under the specified null comparison, the probability of a test statistic at least as extreme in the tested direction as the observed one.]{.definition-explanation}
+ - [[**path integration:**]{.definition-term custom-style="Definition Term"} Updating an estimate of position from movement.]{.definition-explanation}
+   <!-- vale ai-tells.FigurativeFires = NO -->
+@@ -93,6 +96,7 @@
+ - [[**score:**]{.definition-term custom-style="Definition Term"} The derivative of log likelihood with respect to the parameter being estimated.]{.definition-explanation}
+ - [[**skew:**]{.definition-term custom-style="Definition Term"} The third centered moment divided by the variance to the power $3/2$, measuring asymmetry.]{.definition-explanation}
+ - [[**Smoothness:**]{.definition-term custom-style="Definition Term"} The existence and regularity of derivatives of a function. The crossing and peak calculations require different derivative orders.]{.definition-explanation}
++- [[**Spearman correlation:**]{.definition-term custom-style="Definition Term"} Correlation computed after replacing observations by their ranks. It checks whether the two measured quantities tend to increase together without requiring a linear relation.]{.definition-explanation}
+ - [[**spike:**]{.definition-term custom-style="Definition Term"} A brief electrical event emitted by a neuron.]{.definition-explanation}
+ - [[**standard error of the mean (SEM):**]{.definition-term custom-style="Definition Term"} An estimate of uncertainty in a sample mean. Its interpretation depends on which observations are treated as independent, such as trials, cells, or animals.]{.definition-explanation}
+ - [[**state:**]{.definition-term custom-style="Definition Term"} The quantities that specify a modeled system's current condition and determine its subsequent dynamics together with future inputs and noise.]{.definition-explanation}

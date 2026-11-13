@@ -1,0 +1,102 @@
+chapter_id: ch:EYE-DRIFT
+part_id: part:OBSERVATIONS
+title: Eye drift points to a shared neural drive
+purpose: 'Looking steadily at a small spot does not hold the eye perfectly still. Between
+  brief, rapid movements called [**microsaccades**]{.definition-term custom-style="Definition
+  Term"}, the eye makes a small, smooth, irregular movement called fixational drift. Does
+  this movement begin as noise in the muscles, or does the brain send a changing command to
+  them? Ben-Shushan and colleagues answer this in two stages. Their recordings support a large
+  shared drive upstream of the motor neurons. Their model then proposes a particular source:
+  random motion of the eye position stored in a memory circuit.[^p2-question]'
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:PERSISTENCE
+- ch:MEMORY-DYNAMICS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:EYE-PATHWAY
+  title: From stored eye position to muscle action
+  summary: 'The eye needs an ongoing command to maintain a position. A brief command to move
+    is therefore insufficient: after the movement, a circuit must maintain activity representing
+    the new position. The [**oculomotor integrator**]{.definition-term custom-style="Definition
+    Term"} is the neural circuit that performs this storage. “Integrator” refers to turning
+    a movement command into a lasting position signal. In the proposed mechanism, the continuous
+    attractor described in the [foundations](ch-persistence.html#sec-foundations-attractor)
+    and [network model](ch-memory-dynamics.html#sec-memory-spikes) stores horizontal eye position.
+    Noise moves the stored value along that attractor.[^p2-pathway]'
+  level: 2
+- id: sec:EYE-RECORDINGS
+  title: The recordings pair one motor neuron with movement at a time
+  summary: The authors reanalyzed earlier experiments in two male rhesus macaques. The animals
+    first fixated a stationary target and then tracked a moving target. A wire search coil
+    on one eye measured eye position while an electrode recorded one neuron's spikes. There
+    were 57 identified OMNs. Each recording paired one OMN with eye movement; there were no
+    simultaneous recordings of multiple OMNs. Thus the analysis cannot directly measure the
+    covariance between two recorded motor neurons.[^p2-recordings][^p2-single]
+  level: 2
+- id: sec:EYE-FORWARD-FIT
+  title: A fitted model links movement to firing rate
+  summary: Position alone does not predict a motor neuron's activity during a movement. At
+    the same position, firing can differ when the eye is moving or accelerating. The paper
+    therefore fits
+  level: 2
+- id: sec:EYE-INVERSE-FILTER
+  title: A calibrated filter predicts eye position from one cell's spikes
+  summary: 'To ask how much eye movement is shared with a neuron, it helps to express both
+    signals in degrees. The paper reverses the fitted relationship: a cell''s spike train
+    becomes the input, and its prediction of eye position becomes the output. This operation
+    is an inverse of the movement-to-rate fit, rather than a new fit to small drift residuals.'
+  level: 2
+- id: sec:EYE-SHARED-VARIANCE
+  title: The measured correlation challenges independent motor noise alone
+  summary: 'A correlation of 0.17 does not immediately tell us how much motion comes from
+    the common command. First we can ask a more limited question: could all the motion come
+    from independent motor neuron fluctuations?'
+  level: 2
+- id: sec:EYE-CHI
+  title: Calibrated covariance estimates the common share of movement variance
+  summary: The variance bound establishes that a shared signal exists, but leaves its size
+    open. The next calculation uses the fact that the inverse filter has a calibrated gain
+    in degrees. For one 350 ms interval, write the measured displacement and the single cell
+    prediction as
+  level: 2
+blocks:
+- id: fig:EYE-PHYSICAL-AND-RECORDED
+  kind: figure
+  placement: sec:EYE-RECORDINGS
+  asset: assets/approved/visuals/eye-physical-and-recorded.png
+  caption: The recordings pair one motor neuron with eye movement. Private spike variability
+    acts at individual cells, downstream physical variability acts on movement, and measurement
+    noise enters the eye-position record. The attractor storage source is proposed; the dashed
+    analysis path is a calculation from one cell through its calibrated filter. Original guide
+    schematic based on Ben-Shushan et al. (2022), Figs. 1–2 and 4–5. Signal symbols are illustrative,
+    not experimental traces.
+  alt: A proposed attractor storage circuit sends shared drive to a motor neuron population,
+    then through muscles and eye mechanics to physical eye position. Private variability enters
+    one neuron; downstream physical variability enters the muscles. Only the highlighted neuron
+    is recorded, paired with eye position. Measurement noise enters that recorded position,
+    not the physical eye. A separate dashed calculation transforms the single-cell spikes
+    through a calibrated filter into predicted eye position.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:EYE-SHARED-PRIVATE-VARIANCE
+  kind: figure
+  placement: sec:EYE-CHI
+  asset: assets/approved/visuals/eye-shared-private-variance.png
+  caption: The same common variance enters movement and the single cell predictor, but the
+    predictor has much more private noise. Increasing only private predictor variance lowers
+    correlation R while the common movement fraction χ stays at 0.82. The marked point uses
+    the chapter’s constructed example. Calculations assume unit common gain and mutually uncorrelated
+    contributions; they are not recorded cell data. Based on Ben-Shushan et al. (2022), main
+    p. 10, Eqs. 11–15.
+  alt: 'Horizontal stacked bars use one variance axis in degrees squared: movement has common
+    variance 0.00820 and other variance 0.00180; the single cell prediction has the same common
+    variance and private variance 0.22446. A curve shows R falling as private predictor variance
+    increases, reaching 0.170 at the constructed point, while χ remains 0.820.'
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

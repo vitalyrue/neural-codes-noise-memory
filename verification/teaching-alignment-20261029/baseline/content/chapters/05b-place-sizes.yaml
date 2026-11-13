@@ -1,0 +1,136 @@
+chapter_id: ch:PLACE-SIZES
+part_id: part:OBSERVATIONS
+title: High peaks explain size laws across dimensions
+purpose: A place cell’s active regions can have different sizes on a route, across a floor, or in a flight volume.
+  This chapter derives why the spatial model predicts different field-size distributions in one, two, and three
+  dimensions, and identifies the high-threshold approximation used in that derivation.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:PLACE-FIELDS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:PLACE-RARE-PEAKS
+  title: Near a high peak, the input is nearly parabolic
+  summary: The crossing calculation determines a mean length exactly, but it does not yet explain the shape of the
+    length histogram. To obtain that distribution, we examine the small region around a peak that barely exceeds
+    a high threshold.
+  level: 2
+- id: sec:PLACE-SIZE-LAW
+  title: Geometry gives different size laws in each dimension
+  summary: A round region's radius and its volume have different units and different distributions. This geometric
+    conversion explains why the model predicts different histograms in a track, an arena, and a room.
+  level: 2
+- id: sec:PLACE-SLICES
+  title: Slices test spatial structure beyond field volume
+  summary: A model can fit field volumes and still place activity incorrectly within those volumes. Slicing the
+    map tests that internal spatial structure.
+  level: 2
+- id: sec:PLACE-SLOPES
+  title: Why slopes at field boundaries are Rayleigh
+  summary: The derivative at an arbitrary position is Gaussian. A field boundary is a selected position, however,
+    and selecting it changes the derivative distribution.
+  level: 2
+blocks:
+- id: tbl:PLACE-SIZE-LAWS
+  kind: table
+  placement: sec:PLACE-SIZE-LAW
+  headers:
+  - Space
+  - Meaning of $s$
+  - Density
+  - Consequence
+  rows:
+  - - $d=1$
+    - length
+    - $2\beta s e^{-\beta s^2}$
+    - Rayleigh; density vanishes at zero
+  - - $d=2$
+    - area
+    - $\beta e^{-\beta s}$
+    - exponential; mean area $1/\beta$
+  - - $d=3$
+    - volume
+    - $(2\beta/3)s^{-1/3}e^{-\beta s^{2/3}}$
+    - Weibull with shape $2/3$; density rises without bound near zero but is integrable
+  caption: Field-size laws in one, two, and three dimensions.
+  first_column_role: row-labels
+  html_fold: never
+- id: fig:PLACE-SIZE-GEOMETRY
+  kind: figure
+  placement: sec:PLACE-SIZE-LAW
+  asset: assets/approved/visuals/place-size-geometry.png
+  caption: In the high-threshold approximation, excess peak height fixes a radius, and converting that radius into
+    length, area, or volume gives powers 2, 1, and 2/3 in $U=\beta s^{2/d}$. The round regions are a guide reconstruction
+    of the limiting geometry, not observed field shapes; see Mainali et al. (2025), Equation 1 and Supplemental
+    Methods S4, with the parabola constants checked in this chapter.
+  alt: A local parabola stands epsilon above threshold q, and its full width is twice r star. U equals q times epsilon
+    and r star is approximately square root of two times sigma divided by q times square root of U. The same radius
+    gives an interval of length 2 r star, a disk of area pi r star squared, or a ball of volume four pi r star cubed
+    over three. Therefore U depends on size to powers 2, 1, and 2/3.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PLACE-SIZE-DENSITY-COLLAPSE
+  kind: figure
+  placement: sec:PLACE-SIZE-LAW
+  asset: assets/approved/visuals/place-size-density-collapse.png
+  caption: 'The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional
+    area is exponential, and three dimensional volume has a density that rises without bound as size approaches
+    zero, while its integral remains one. Their survival probabilities, the probabilities of exceeding a threshold,
+    coincide after transformation to $U=\beta s^{2/d}$, where $\Pr(U>u)=e^{-u}$. These are exact calculations from
+    the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et
+    al. (2025), main Eq. 1, p. 1111, and Methods S3.'
+  alt: Three density curves against dimensionless size w show the one dimensional curve starting at zero, the two
+    dimensional curve starting at one, and the three dimensional curve rising without bound toward zero size. An
+    arrow marks the unbounded end. In the second panel, three differently styled survival curves coincide on exp(-u)
+    after U=w^(2/d).
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PAPER-PLACE-2
+  kind: figure
+  placement: sec:PLACE-SLICES
+  asset: assets/approved/visuals/paper-excerpts/place-fig-2.png
+  caption: Sections through two and three dimensional maps follow the size law for the dimension of the section.
+    Original Figure 2 from Mainali, Azeredo da Silveira, and Burak (2025); exact artwork excerpt. [PDF page 5](../papers/mainali-2025-universal-statistics.pdf#page=5).
+    [Open image at full size](../assets/fig-paper-place-2.png).
+  alt: Panels A–J show two and three dimensional fields, model maps, field counts and measured versus modeled length,
+    area and volume histograms.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-PLACE-3
+  kind: figure
+  placement: sec:PLACE-SLOPES
+  asset: assets/approved/visuals/paper-excerpts/place-fig-3.png
+  caption: Field shape, boundary slopes and Euler characteristic provide checks beyond mean field size. Original
+    Figure 3 from Mainali, Azeredo da Silveira, and Burak (2025); exact artwork excerpt. [PDF page 7](../papers/mainali-2025-universal-statistics.pdf#page=7).
+    [Open image at full size](../assets/fig-paper-place-3.png).
+  alt: Panels A–H show field measurement definitions, peak counts, rate versus size comparisons, boundary slope
+    density and Euler characteristic curves in one, two and three dimensions.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-PLACE-5
+  kind: figure
+  placement: sec:PLACE-RARE-PEAKS
+  asset: assets/approved/visuals/paper-excerpts/place-fig-5.png
+  caption: Higher thresholds make modeled fields simpler and move the rate versus width exponent toward two. Original
+    Figure 5 from Mainali, Azeredo da Silveira, and Burak (2025); exact artwork excerpt. [PDF page 9](../papers/mainali-2025-universal-statistics.pdf#page=9).
+    [Open image at full size](../assets/fig-paper-place-5.png).
+  alt: Panels A–D show example fields at three thresholds, multiple peak frequency, power law coefficient and the
+    short tunnel field length distribution.
+  width_inches: 6.5
+  html_fold: never
+- id: fig:PAPER-PLACE-S2
+  kind: figure
+  placement: sec:PLACE-SLICES
+  asset: assets/approved/visuals/paper-excerpts/place-fig-S2.png
+  caption: Matching field volumes alone does not reproduce section sizes or topology. Original Figure S2 from Mainali,
+    Azeredo da Silveira, and Burak (2025); exact artwork excerpt. [PDF page 3](../papers/mainali-2025-supplement.pdf#page=3).
+    [Open image at full size](../assets/fig-paper-place-s2.png).
+  alt: Panels A–E compare spherical model section sizes and Euler characteristic and compare mean and Gaussian boundary
+    curvature for data and Gaussian model.
+  width_inches: 6.5
+  html_fold: never
+source_loci: []

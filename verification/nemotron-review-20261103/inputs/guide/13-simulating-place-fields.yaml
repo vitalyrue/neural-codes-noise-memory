@@ -1,0 +1,47 @@
+chapter_id: ch:SIMULATING-PLACE
+part_id: part:SIMULATIONS
+title: Random spatial maps test the statistics of place fields
+purpose: To reproduce Mainali et al.'s (2025) place-field comparisons, we need the rules for generating
+  and fitting model maps, and for measuring both model and recorded maps. The spatial-model chapter explains
+  the statistical assumptions, and the tests chapter interprets the evidence. Here the additional detail
+  is the Python map-generation procedure, filter and boundary conventions, fitted summaries, field detectors,
+  and access to code and recordings. Position is the independent variable; each generated map is fixed
+  during analysis, so these computations do not simulate a remembered position changing over time.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:PLACE-FIELDS
+- ch:PLACE-TESTS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:SIMULATIONS
+section_list:
+- id: sec:SIMULATING-PLACE-GENERATE
+  title: A smooth random input becomes a firing map after thresholding
+  summary: For each model cell, the theory assigns a smooth Gaussian input field $h(\mathbf x)$ to locations
+    $\mathbf x$. Its covariance controls how similar nearby input values tend to be. A threshold determines
+    which locations activate the cell. In the guide's notation, the rate is proportional to
+  level: 2
+- id: sec:SIMULATING-PLACE-FIT
+  title: Fitted summaries and additional comparisons supply different evidence
+  summary: The authors choose threshold and spatial scale to match a small number of measured summaries.
+    For the long 200 m bat tunnel, they match mean field length and mean gap. In the short 6 m tunnel,
+    they use mean field length and occupied fraction, because many cells have only one field. The 2D comparison
+    fits mean field size and count, while the 3D comparison uses mean volume and occupied fraction.[^simplace-fit]
+  level: 2
+- id: sec:SIMULATING-PLACE-MEASURE
+  title: Field detection and preprocessing change what the simulation is asked to match
+  summary: To compare a generated field with a recorded one, both must be measured in compatible ways.
+    A small positive noise value can connect two regions, while thresholding can split them. Smoothing
+    can remove a peak or fill a small hole.
+  level: 2
+- id: sec:SIMULATING-PLACE-TOOLS
+  title: The released tools generate maps and analyze data, with access limits
+  summary: The paper reports using Python 3.11. The code uses NumPy for arrays and random samples, and
+    SciPy for smoothing and map measurements. The Methods identify SciPy routines for connected components,
+    peak detection, and density estimation, and Gudhi for topology. These are spatial and statistical
+    computations. A spiking-neuron simulator is not required by the released method.
+  level: 2
+blocks: []
+source_loci: []

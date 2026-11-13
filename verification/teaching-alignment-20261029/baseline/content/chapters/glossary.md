@@ -1,0 +1,101 @@
+# Glossary {#ch:GLOSSARY}
+
+These short definitions support lookup after the explanations and examples in the main chapters.
+
+- [[**abducens nucleus:**]{.definition-term custom-style="Definition Term"} A brainstem group containing the motor neurons recorded in the eye-drift study; their axons activate the lateral rectus eye muscle.]{.definition-explanation}
+- [[**activity bump:**]{.definition-term custom-style="Definition Term"} A localized peak of population firing rates across neurons ordered by their preferred represented values.]{.definition-explanation}
+- [[**attractor manifold:**]{.definition-term custom-style="Definition Term"} The continuous family of persistent activity states, described by its represented coordinates rather than by every neural activity separately.]{.definition-explanation}
+- [[**Betti numbers:**]{.definition-term custom-style="Definition Term"} Counts of independent connected components, loops, cavities, and their higher-dimensional counterparts.]{.definition-explanation}
+- [[**Brownian motion:**]{.definition-term custom-style="Definition Term"} A continuous random process starting at zero with independent Gaussian increments of mean zero and variance equal to elapsed time.]{.definition-explanation}
+- [[**causal filter:**]{.definition-term custom-style="Definition Term"} A rule whose current output depends only on present and past input.]{.definition-explanation}
+- [[**coefficient of determination:**]{.definition-term custom-style="Definition Term"} For the optimal linear prediction with an intercept, the fraction of response variance removed by prediction; with one predictor it equals the squared correlation.]{.definition-explanation}
+- [[**coefficient of variation:**]{.definition-term custom-style="Definition Term"} Standard deviation divided by mean; in the spike-train discussion it is applied to interspike intervals.]{.definition-explanation}
+- [[**continuous attractor:**]{.definition-term custom-style="Definition Term"} A continuous family of fixed points with restoring dynamics toward the family and neutral motion along it in the ideal deterministic model.]{.definition-explanation}
+- [[**convolution:**]{.definition-term custom-style="Definition Term"} An integral or sum combining past input values with a shifted response kernel to obtain a filtered output.]{.definition-explanation}
+- [[**correlation coefficient:**]{.definition-term custom-style="Definition Term"} Covariance divided by the product of standard deviations; a dimensionless measure of linear association.]{.definition-explanation}
+- [[**covariance:**]{.definition-term custom-style="Definition Term"} The mean product of two centered random variables, measuring their shared variation.]{.definition-explanation}
+- [[**Cramér Rao bound:**]{.definition-term custom-style="Definition Term"} A lower bound on local unbiased estimation variance under the required regularity conditions, expressed through inverse Fisher information.]{.definition-explanation}
+- [[**critical point:**]{.definition-term custom-style="Definition Term"} A point where a function's gradient is zero. The Euler calculation also requires invertible Hessians.]{.definition-explanation}
+- [[**decoding:**]{.definition-term custom-style="Definition Term"} Estimating a represented value from neural responses.]{.definition-explanation}
+- [[**dendrite:**]{.definition-term custom-style="Definition Term"} A branching input structure of a neuron.]{.definition-explanation}
+- [[**diffusion coefficient:**]{.definition-term custom-style="Definition Term"} The coefficient $D$ in the local one-dimensional displacement variance $2Dt$; its units are coordinate squared per time.]{.definition-explanation}
+- [[**diffusion tensor:**]{.definition-term custom-style="Definition Term"} The matrix giving local coordinate-displacement covariances per twice the elapsed time.]{.definition-explanation}
+- [[**Dirac delta:**]{.definition-term custom-style="Definition Term"} A point-mass distribution; in the initial-condition equation all probability is concentrated at the specified coordinate.]{.definition-explanation}
+- [[**encoding:**]{.definition-term custom-style="Definition Term"} Establishing a population activity pattern from an input.]{.definition-explanation}
+- [[**Euler characteristic:**]{.definition-term custom-style="Definition Term"} The alternating sum of Betti numbers; in three dimensions, components minus independent loops plus enclosed cavities.]{.definition-explanation}
+- [[**excess kurtosis:**]{.definition-term custom-style="Definition Term"} The fourth centered moment divided by the squared variance, minus three. It is zero for a Gaussian population.]{.definition-explanation}
+- [[**excitatory input:**]{.definition-term custom-style="Definition Term"} In the models used here, an input that increases a receiving neuron's tendency to fire.]{.definition-explanation}
+- [[**excursion set:**]{.definition-term custom-style="Definition Term"} The positions where a function exceeds a specified level.]{.definition-explanation}
+- [[**Fano factor:**]{.definition-term custom-style="Definition Term"} Spike-count variance divided by mean count, for a specified counting interval and condition.]{.definition-explanation}
+- [[**firing rate:**]{.definition-term custom-style="Definition Term"} The expected number of spikes per unit time, conditional on the modeled circumstances.]{.definition-explanation}
+- [[**Fisher information:**]{.definition-term custom-style="Definition Term"} The expected squared score, quantifying the local sensitivity of a probability distribution to a parameter.]{.definition-explanation}
+- [[**fixational drift:**]{.definition-term custom-style="Definition Term"} Slow eye motion during attempted fixation, between rapid eye movements.]{.definition-explanation}
+- [[**fixed point:**]{.definition-term custom-style="Definition Term"} A state whose deterministic rate of change is zero.]{.definition-explanation}
+- [[**Fokker Planck equation:**]{.definition-term custom-style="Definition Term"} An equation describing how a probability density evolves under drift and diffusion; the guide states the convention before using it.]{.definition-explanation}
+- [[**gain:**]{.definition-term custom-style="Definition Term"} The scale that converts a change in one signal into a change in another.]{.definition-explanation}
+- [[**gamma function:**]{.definition-term custom-style="Definition Term"} The function $\Gamma(t)=\int_0^\infty u^{t-1}e^{-u}\,du$ for $t>0$, extending factorials through $\Gamma(n+1)=n!$.]{.definition-explanation}
+- [[**Gaussian curvature:**]{.definition-term custom-style="Definition Term"} For a surface in three dimensions, the product of its two principal curvatures.]{.definition-explanation}
+- [[**Gaussian process:**]{.definition-term custom-style="Definition Term"} A distribution over functions whose values at any finite collection of positions have a joint Gaussian distribution.]{.definition-explanation}
+- [[**grid cell:**]{.definition-term custom-style="Definition Term"} A spatially tuned entorhinal neuron with repeated firing fields, often approximately hexagonally arranged in a two-dimensional arena.]{.definition-explanation}
+- [[**Hessian:**]{.definition-term custom-style="Definition Term"} The matrix of second derivatives of a function with respect to its coordinates.]{.definition-explanation}
+- [[**hippocampus:**]{.definition-term custom-style="Definition Term"} A brain region involved in memory and navigation.]{.definition-explanation}
+- [[**hyperbolic cotangent:**]{.definition-term custom-style="Definition Term"} The function $\coth z=1/\tanh z$, for real $z\ne0$.]{.definition-explanation}
+- [[**hyperbolic tangent:**]{.definition-term custom-style="Definition Term"} The function $\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$.]{.definition-explanation}
+- [[**impulse response:**]{.definition-term custom-style="Definition Term"} The output of a linear filter in response to a unit-area input impulse, from which responses to general input can be assembled.]{.definition-explanation}
+- [[**inhibitory input:**]{.definition-term custom-style="Definition Term"} In the models used here, an input that reduces a receiving neuron's tendency to fire.]{.definition-explanation}
+- [[**internal Fisher information rate:**]{.definition-term custom-style="Definition Term"} The local information per unit observation time about the instantaneous attractor coordinate, as defined by the 2012 spike model.]{.definition-explanation}
+- [[**inverse hyperbolic tangent:**]{.definition-term custom-style="Definition Term"} The inverse of $\tanh$ on $(-1,1)$, given by $\operatorname{artanh}z=\tfrac12\log[(1+z)/(1-z)]$.]{.definition-explanation}
+- [[**Isotropy:**]{.definition-term custom-style="Definition Term"} Invariance of the spatial probability law under rotations.]{.definition-explanation}
+- [[**Itô convention:**]{.definition-term custom-style="Definition Term"} A stochastic-increment convention that evaluates the noise coefficient at the beginning of each increment.]{.definition-explanation}
+- [[**jointly Gaussian vector:**]{.definition-term custom-style="Definition Term"} A random vector for which every linear combination of its entries is Gaussian.]{.definition-explanation}
+- [[**Kac–Rice formula:**]{.definition-term custom-style="Definition Term"} A way to compute expected crossing or critical-point counts from the joint distribution of a random function and its derivatives, under the relevant regularity assumptions.]{.definition-explanation}
+- [[**left zero eigenvector:**]{.definition-term custom-style="Definition Term"} A vector $v$ with $v^T A=0$; with appropriate normalization it extracts the persistent coordinate from a small state disturbance.]{.definition-explanation}
+- [[**likelihood:**]{.definition-term custom-style="Definition Term"} The probability or density of the observed data considered as a function of a proposed parameter value.]{.definition-explanation}
+- [[**linearization:**]{.definition-term custom-style="Definition Term"} The first-order approximation to a dynamical equation near a reference state.]{.definition-explanation}
+- [[**lognormal distribution:**]{.definition-term custom-style="Definition Term"} A distribution of positive values whose logarithms are Gaussian.]{.definition-explanation}
+- [[**low pass filter:**]{.definition-term custom-style="Definition Term"} A filter that suppresses sufficiently rapid input changes relative to slower ones.]{.definition-explanation}
+- [[**mean curvature:**]{.definition-term custom-style="Definition Term"} For a surface in three dimensions, the average of its two principal curvatures.]{.definition-explanation}
+- [[**mean squared displacement:**]{.definition-term custom-style="Definition Term"} The average squared change in a coordinate across a specified time lag.]{.definition-explanation}
+- [[**microsaccades:**]{.definition-term custom-style="Definition Term"} Brief, rapid eye movements that occur during attempted fixation.]{.definition-explanation}
+- [[**Morse theory:**]{.definition-term custom-style="Definition Term"} A theory relating the topology of a function's level-set regions to its critical points. The guide uses a signed critical-point count under its smoothness and nondegeneracy assumptions, including boundary contributions.]{.definition-explanation}
+- [[**neural transfer function:**]{.definition-term custom-style="Definition Term"} The modeled relationship between a neuron's input and its expected firing rate.]{.definition-explanation}
+- [[**neuron:**]{.definition-term custom-style="Definition Term"} A signaling cell in the nervous system.]{.definition-explanation}
+- [[**ocular motoneurons (OMNs):**]{.definition-term custom-style="Definition Term"} Neurons whose spikes activate the eye muscles.]{.definition-explanation}
+- [[**ocular plant:**]{.definition-term custom-style="Definition Term"} The muscles and mechanical eye system that transform motor activity into eye motion.]{.definition-explanation}
+- [[**oculomotor integrator:**]{.definition-term custom-style="Definition Term"} A neural circuit that converts movement commands into a maintained eye-position command.]{.definition-explanation}
+- [[**p value:**]{.definition-term custom-style="Definition Term"} Under the specified null comparison, the probability of a test statistic at least as extreme in the tested direction as the observed one.]{.definition-explanation}
+- [[**path integration:**]{.definition-term custom-style="Definition Term"} Updating an estimate of position from movement.]{.definition-explanation}
+- [[**place cell:**]{.definition-term custom-style="Definition Term"} A spatially selective hippocampal neuron that fires strongly in one or more localized regions of an environment.]{.definition-explanation}
+- [[**place field:**]{.definition-term custom-style="Definition Term"} A connected region of elevated spatial firing, as defined by the model or stated measurement procedure.]{.definition-explanation}
+- [[**Poisson process:**]{.definition-term custom-style="Definition Term"} A counting process with independent increments and a deterministic constant or time-dependent event rate; its count over an interval has equal mean and variance. In a recurrent model, conditionally Poisson instantaneous spike generation does not make complete spike trains have independent increments.]{.definition-explanation}
+- [[**population code:**]{.definition-term custom-style="Definition Term"} A representation carried by the pattern of responses across neurons.]{.definition-explanation}
+- [[**precision:**]{.definition-term custom-style="Definition Term"} The reciprocal of variance for a scalar Gaussian estimate.]{.definition-explanation}
+- [[**preferred angle:**]{.definition-term custom-style="Definition Term"} An angle where a neuron's tuning curve peaks.]{.definition-explanation}
+- [[**prior distribution:**]{.definition-term custom-style="Definition Term"} A distribution representing knowledge about likely parameter values before observing the current data.]{.definition-explanation}
+- [[**rate map:**]{.definition-term custom-style="Definition Term"} An estimate of spatial firing rate from spikes per time spent at each position.]{.definition-explanation}
+- [[**Rayleigh distribution:**]{.definition-term custom-style="Definition Term"} The distribution of a positive variable that is a scaled square root of an exponential variable.]{.definition-explanation}
+- [[**recurrent connectivity:**]{.definition-term custom-style="Definition Term"} Connections that feed activity back into the same neuronal population.]{.definition-explanation}
+- [[**renewal process:**]{.definition-term custom-style="Definition Term"} An event process with independent, identically distributed intervals under the fixed conditions being modeled.]{.definition-explanation}
+- [[**retina:**]{.definition-term custom-style="Definition Term"} The light-sensitive tissue at the back of the eye.]{.definition-explanation}
+- [[**right zero eigenvector:**]{.definition-term custom-style="Definition Term"} A state-space direction $u$ satisfying $Au=0$ for the linearized dynamics.]{.definition-explanation}
+- [[**root mean squared displacement:**]{.definition-term custom-style="Definition Term"} The square root of mean squared displacement, expressed in the original coordinate's units.]{.definition-explanation}
+- [[**score:**]{.definition-term custom-style="Definition Term"} The derivative of log likelihood with respect to the parameter being estimated.]{.definition-explanation}
+- [[**skew:**]{.definition-term custom-style="Definition Term"} The third centered moment divided by the variance to the power $3/2$, measuring asymmetry.]{.definition-explanation}
+- [[**Smoothness:**]{.definition-term custom-style="Definition Term"} The existence and regularity of derivatives of a function. The crossing and peak calculations require different derivative orders.]{.definition-explanation}
+- [[**spike:**]{.definition-term custom-style="Definition Term"} A brief electrical event emitted by a neuron.]{.definition-explanation}
+- [[**standard error of the mean (SEM):**]{.definition-term custom-style="Definition Term"} An estimate of uncertainty in a sample mean. Its interpretation depends on which observations are treated as independent, such as trials, cells, or animals.]{.definition-explanation}
+- [[**state:**]{.definition-term custom-style="Definition Term"} The quantities that specify a modeled system's current condition and determine its subsequent dynamics together with future inputs and noise.]{.definition-explanation}
+- [[**Stationarity:**]{.definition-term custom-style="Definition Term"} In the place-field model, invariance of spatial statistics under translating the map.]{.definition-explanation}
+- [[**stationary process:**]{.definition-term custom-style="Definition Term"} A random process whose probability law is unchanged by shifting its time or position origin; weaker covariance-only stationarity must be specified when used.]{.definition-explanation}
+- [[**Stratonovich convention:**]{.definition-term custom-style="Definition Term"} A stochastic-increment convention using midpoint evaluation in the limiting increments.]{.definition-explanation}
+- [[**sub-Poisson spiking:**]{.definition-term custom-style="Definition Term"} Spiking with less variability than a matched Poisson reference according to the stated measure and conditions.]{.definition-explanation}
+- [[**superdiffusion:**]{.definition-term custom-style="Definition Term"} Mean squared displacement growing faster than linearly with lag over the range being described.]{.definition-explanation}
+- [[**synapse:**]{.definition-term custom-style="Definition Term"} A connection through which one neuron influences another.]{.definition-explanation}
+- [[**systematic drift:**]{.definition-term custom-style="Definition Term"} A nonzero mean velocity of the represented coordinate, distinct from random spreading.]{.definition-explanation}
+- [[**Translation invariance:**]{.definition-term custom-style="Definition Term"} In the readout model, invariance under shifts of the represented value. It makes the readout variance independent of the cue state.]{.definition-explanation}
+- [[**tuning curve:**]{.definition-term custom-style="Definition Term"} A neuron's expected firing rate as a function of a represented variable.]{.definition-explanation}
+- [[**unbiased:**]{.definition-term custom-style="Definition Term"} Describes an estimator whose expected value equals the parameter locally under the conditions used in the estimation bound.]{.definition-explanation}
+- [[**upcrossing:**]{.definition-term custom-style="Definition Term"} A point where a function crosses upward through a specified threshold.]{.definition-explanation}
+- [[**weak fluctuation approximation:**]{.definition-term custom-style="Definition Term"} An expansion about the deterministic population dynamics in which the aggregate effects of many small spike contributions remain small.]{.definition-explanation}
+- [[**Weibull distribution:**]{.definition-term custom-style="Definition Term"} A positive-variable distribution with survival probability $\exp[-(s/b)^k]$, scale $b>0$, and shape $k>0$.]{.definition-explanation}
+- [[**White noise:**]{.definition-term custom-style="Definition Term"} An ideal noise input with zero covariance at unequal times and a delta-function covariance at equal times; its integrated increments have finite variance.]{.definition-explanation}

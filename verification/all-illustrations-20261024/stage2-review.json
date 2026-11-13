@@ -1,0 +1,640 @@
+{
+  "request_id": "stage2-necessity-terminology-20261024",
+  "reviewer": "/root/all_illustrations_review",
+  "stage": 2,
+  "reviewed_at": "2026-10-24T18:45:57.897620+03:00",
+  "scope": "Nine new insertions in proposed chapter sources and their immediately attached original passages; no guide-wide prose audit.",
+  "decision": "required focused repairs before Stage2 pass",
+  "required_repairs": [
+    {
+      "id": "W1",
+      "figure": "A02",
+      "field": "interpretation",
+      "original": "A single path can turn back toward zero even while the ensemble spread grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+      "replacement": "A single path can turn back toward zero even while the root mean squared displacement grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+      "reason": "Use the defined displayed quantity instead of introducing the specialist word ensemble.",
+      "deletion_test": "Keep the contrast between an individual path and growing RMS; deleting it loses what the path panel explains.",
+      "meaning_change": "No intended change. Focused truth recheck should confirm ensemble spread means the stated RMS scale here.",
+      "before": "A single path can turn back toward zero even while the ensemble spread grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+      "after": "A single path can turn back toward zero even while the root mean squared displacement grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale."
+    },
+    {
+      "id": "W2",
+      "figure": "A06",
+      "field": "caption",
+      "original": "For positive lags, independent measurement error adds 2σ_m² to the movement MSD, here M(ℓ)=2Dℓ. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+      "replacement": "For positive lags, independent measurement error adds $2\\sigma_m^2$ to the movement MSD, here $M(\\ell)=2D\\ell$. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+      "reason": "Render the subscript/square and the MSD function as math rather than reader-visible underscore notation.",
+      "deletion_test": "Keep both formulas: the factor two and selected movement law distinguish measurement variance from the chosen movement.",
+      "meaning_change": "Presentation only; verify the rendered formulas and neighboring qualifications.",
+      "before": "For positive lags, independent measurement error adds 2σ_m² to the movement MSD, here M(ℓ)=2Dℓ. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+      "after": "For positive lags, independent measurement error adds $2\\sigma_m^2$ to the movement MSD, here $M(\\ell)=2D\\ell$. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19."
+    },
+    {
+      "id": "W3",
+      "figure": "A06",
+      "field": "alt",
+      "original": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. Its open endpoint at zero positive lag is distinct from the true zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+      "replacement": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. The observed curve has an open endpoint at lag zero, above the actual zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+      "reason": "Zero positive lag contradicts its own terms; distinguish the excluded endpoint from the actual zero-lag sample.",
+      "deletion_test": "Keep the endpoint explanation because the discontinuous sampled-error convention is a central plotted claim.",
+      "meaning_change": "Clarifies the existing claim; focused truth recheck should compare the actual dot and open endpoint.",
+      "before": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. Its open endpoint at zero positive lag is distinct from the true zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+      "after": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. The observed curve has an open endpoint at lag zero, above the actual zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value."
+    },
+    {
+      "id": "W4",
+      "figure": "A08",
+      "field": "caption",
+      "original": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has an integrable divergence at zero. Their survival curves coincide after transformation to U=βs^(2/d), where Pr(U>u)=e^(−u). These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+      "replacement": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has a density that rises without bound as size approaches zero, while its integral remains one. Their survival probabilities, the probabilities of exceeding a threshold, coincide after transformation to $U=\\beta s^{2/d}$, where $\\Pr(U>u)=e^{-u}$. These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+      "reason": "Explain the needed density/survival meanings directly and render both transformed formulas as math.",
+      "deletion_test": "Keep the divergent-density qualification and the probability transformation: deleting either hides a main plotted difference. The exact compact terms are not necessary.",
+      "meaning_change": "No intended change. Focused truth recheck should confirm normalized integrability, limit at zero and Pr(U>u), with the high-threshold-only qualification retained.",
+      "before": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has an integrable divergence at zero. Their survival curves coincide after transformation to U=βs^(2/d), where Pr(U>u)=e^(−u). These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+      "after": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has a density that rises without bound as size approaches zero, while its integral remains one. Their survival probabilities, the probabilities of exceeding a threshold, coincide after transformation to $U=\\beta s^{2/d}$, where $\\Pr(U>u)=e^{-u}$. These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3."
+    }
+  ],
+  "optional_preferences": [
+    {
+      "figure": "A03",
+      "phrase": "on the flanks",
+      "possible": "on either side of the peak",
+      "decision": "Optional only. Current meaning is supported by the visible peak and same-caption slope explanation; no repair requested."
+    },
+    {
+      "figure": "A08",
+      "phrase": "exp(-u) and U=w^(2/d) in alt",
+      "decision": "Optional prose expansion for screen-reader preference. Keep as literal accessible notation for this round; no new wording loop requested."
+    }
+  ],
+  "units": {
+    "A01": {
+      "deletion_test": "Retain: discrete stems and their different support spacings explain why a silent single-cell sample and a concentrated pooled estimate can coexist at the same mean. The original prose supplies the numbers but does not show this comparison.",
+      "terminology": "Poisson, conditional independence, rate, SD and variance are supplied by this section and the declared probability baseline. No extra definition needed.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 58,
+          "paragraph_sha256": "ae84316193551d78420b4abb9422aeeae5a2ca31eeae43b7def87bb32ce16cbf",
+          "text": "Now suppose 20 conditionally independent cells each have that rate. Their total count is Poisson with mean 20 and standard deviation $\\sqrt{20}=4.47$. The total rate estimate has a relative standard deviation of about 22.4%, compared with 100% for one cell. Population averaging helps because the independent count variances add while the mean signal adds directly. If cells share an additional fluctuating drive, that common variation will not disappear in the same way.",
+          "decision": "retain",
+          "reason": "The original population paragraph establishes the exact two cases, averaging reason and common-drive limit; it supplies the figure inputs without changing their meaning."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 60,
+          "paragraph_sha256": "aa0421266ca1569fc3d93c4067c48a77f517a06c03ae930c267944756733d4de",
+          "text": "The two count distributions can be compared on the same rate per cell scale.",
+          "decision": "retain",
+          "reason": "Retain: identifies the shared per-cell scale that makes the two panels comparable."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "fa89a0c2afe428e5bcf6ce09672dd9c8af4cbf3da027ee447fe5e24bcddfb950",
+          "text": "Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell $K/(N\\Delta t)$, so both estimates have mean 20 Hz; their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains.",
+          "decision": "retain",
+          "reason": "Retain: rate normalization, discrete probability versus density, finite drawn range and conditional independence are needed to interpret this actual plot. Numeric repetition lets the caption identify its own model."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "f53426ef9aa08c40e87d2af357ef53930c900a757e6eb7ce89c74150b047887d",
+          "text": "Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters around twenty hertz. Their means match, but the rate standard deviation falls from twenty to 4.47 hertz.",
+          "decision": "retain",
+          "reason": "Retain: describes support spacing, the zero-count event and matched means for readers who cannot see the stems."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 68,
+          "paragraph_sha256": "2d7daa3d10f233631049c070dad41b91878e8ae242a46f9d770c721dd2d76c42",
+          "text": "Dividing the pooled rate estimate by 20 keeps the expected rate per cell fixed, while independent averaging reduces its relative spread. See [Poisson count likelihood, SI Eq. S43, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9).",
+          "decision": "retain",
+          "reason": "Retain: pooled rate estimate makes the division by20 a rate-to-rate operation; it states what normalization changes and preserves."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 70,
+          "paragraph_sha256": "117a7ab957084492c798962d1cbc2ef427e668aaabdbaea499bd7f21371d19a8",
+          "text": "For changing rates, the expected count is the integral $\\lambda=\\int r(t)\\,dt$. In a recurrent network, $r(t)$ itself depends on past activity. The useful independence statement is therefore conditional: given the current modeled state, the elementary spike-generation noise is independent across cells in the basic 2012 model. Averaging over the evolving state can still produce correlations across time and across neurons. This qualification prevents treating a recurrent Poisson network as a collection of independent complete spike trains.",
+          "decision": "retain",
+          "reason": "The following original paragraph extends fixed rates to changing recurrent rates and explains the conditional independence qualification, so the figure remains a local count example."
+        }
+      ]
+    },
+    "A02": {
+      "deletion_test": "Retain: a visible path can cross the RMS scale or return toward zero, a distinction the two analytic formulas alone do not display.",
+      "terminology": "Brownian motion and root mean squared displacement have been taught in this same section. Ensemble has no earlier first-use explanation and is not needed.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 191,
+          "paragraph_sha256": "e98b95e85dafd02f05c507c61f8179932471e5fde2a009e7bb830075e5a8cceb",
+          "text": "The deterministic and random contributions are equal at $t=2D/v^2=4$ seconds. Their equal contributions there are each $0.16$ degrees squared. At longer times the bias dominates this unbounded model even though it was small over a short observation. Removing systematic drift is therefore a substantive assumption in a theory devoted to random diffusion.",
+          "decision": "retain",
+          "reason": "The original equality paragraph supplies the4s and.16deg-squared contributions; the image then contrasts their square roots, with caption stating that distinction."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 193,
+          "paragraph_sha256": "682ea9b57198e4f02f2b7a799d285f9e1d24a6720ad2306991490428ea9f3038",
+          "text": "Sample paths show the irregular motion; exact displacement scales show how its spread differs from a fixed bias.",
+          "decision": "retain",
+          "reason": "Retain: separates sample motion from exact displacement scales before the panels use them."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "f4b28a3ed23fa7dea5d4e7c794142c5eadbafe96ec19be56cc97a881cd93cf4a",
+          "text": "Simulated Brownian teaching paths and analytic displacement scales for $D=0.02$ degrees squared per second and $v=0.10$ degrees per second. The upper paths have zero drift and start at zero; the dashed envelope is the exact root mean squared displacement, not a boundary on individual paths. Below, $\\sqrt{2Dt}$ and $vt$ are equal at 4 s, when each is 0.40 degrees. Their squares are the separate contributions to the biased model’s MSD. The coordinate is unbounded, and these chosen values are not estimates from animal recordings.",
+          "decision": "retain",
+          "reason": "Retain: simulation status, zero drift, RMS not a boundary, equal4s scales, units and unbounded coordinate prevent direct animal-data or hard-envelope interpretations."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "8df5871b95989573af15d7de4c4b0f647c42c98ea842eb641fd1c8d04be5629d",
+          "text": "Seven Brownian sample paths move irregularly above and below zero. A dashed positive and negative root mean squared envelope grows with the square root of time; some paths cross it. A second plot compares the positive root mean squared displacement with a linearly growing bias displacement. Both equal 0.40 degrees at four seconds, after which the bias line is higher.",
+          "decision": "retain",
+          "reason": "Retain: conveys the nonmonotonic paths and square-root-versus-linear comparison; its details match the figure purpose."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 201,
+          "paragraph_sha256": "9670ce2d15abaceedff220382e9a818797a9060f93141af44449b8f29cf7a2e0",
+          "text": "A single path can turn back toward zero even while the ensemble spread grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale. See [Gaussian displacement density, SI Eq. S30, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7).",
+          "decision": "revise",
+          "reason": "Revise only ensemble spread: this specialist use is unnecessary when the already defined root mean squared displacement is the exact displayed quantity. Keep the following bias comparison."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md",
+          "line": 203,
+          "paragraph_sha256": "d9d175c58f25bbeb55b5a695db7dcf469084c56df1b1eef3ab6d1ad40e73b4b6",
+          "text": "Two times along a Brownian path are correlated even though its increments are independent. For $0\\leq s\\leq t$, write $W(t)=W(s)+[W(t)-W(s)]$. The bracketed increment is independent of $W(s)$ and has mean zero, giving",
+          "decision": "retain",
+          "reason": "The next original Brownian covariance paragraph moves from visible paths to dependence between two times. The figure does not replace that derivation."
+        }
+      ]
+    },
+    "A03": {
+      "deletion_test": "Retain: holding the derivative fixed while adding a baseline isolates why firing alone is not information. Three aligned plots do more than repeat the FI formula.",
+      "terminology": "Baseline was introduced in Foundations tuning curves; derivative and local FI are taught immediately before. Flanks is interpretable as the sides of the visibly peaked curves and adds no new mathematical object.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 46,
+          "paragraph_sha256": "c2dd721fa485480c1c8d6cf6019f775807c42b22327ae42d0808ff5a69371ef1",
+          "text": "Each cell contributes squared slope divided by its count variance per unit time. High rates with zero slope do not distinguish neighboring values, so they contribute no local information. A sharply changing rate can be informative even if it is smaller than another cell's peak rate. The coordinate here describes the network's present internal state. It need not be a currently visible external stimulus. Sensory Fisher information has the same Poisson formula only when the stimulus dependent tuning curves are the relevant rates.",
+          "decision": "retain",
+          "reason": "The original paragraph teaches slope-squared/rate and the difference between sensory and current-state information. The constructed curves answer its concrete claim."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 48,
+          "paragraph_sha256": "f29106c553aa7acdd0925dfb40c80806c4ab456f94f990ad895b1823551e3b53",
+          "text": "Two positive tuning curves with the same changing part isolate the effect of extra baseline firing.",
+          "decision": "retain",
+          "reason": "Retain: names the controlled changing part and baseline comparison, rather than inventing a new network mechanism."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "9da2b83d14233064c4265e26f42d6bca045d62a4c1bbabbe550c1d99e69dc936",
+          "text": "Analytic teaching curves $r_A(\\theta)=5+35e^{-\\theta^2/(2w^2)}$ and $r_B(\\theta)=r_A(\\theta)+20$, in spikes per second, with chosen width $w=0.6$ rad. The rates have the same derivative. Their individual Poisson information contributions $(r_i^{\\prime})^2/r_i$ vanish at the rate peak, where the slope is zero, and are positive on the flanks. Adding baseline firing raises the count noise without changing the slope, reducing local information. These are illustrative tuning curves, not recorded neurons or a demonstrated attractor network.",
+          "decision": "retain",
+          "reason": "Retain: the two positive functions and width define the example; equal derivatives and flank information connect all three panels. The no-realized-attractor qualification is needed."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "04afe1aa3934f4862367fc52471c90eb3cdc166e87b6c45ed9b0cf31d88525c8",
+          "text": "The first plot shows two positive peaked rate curves separated by a constant twenty spikes per second. The second shows their shared derivative, positive to the left, zero at the central peak and negative to the right. The third shows squared slope divided by rate for each curve. Both contributions vanish at the center and rise on the flanks; the higher baseline curve contributes less at every point with nonzero slope.",
+          "decision": "retain",
+          "reason": "Retain: identifies derivative sign and relative information in a form independent of color."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 56,
+          "paragraph_sha256": "12b8515ac2dd1bfafa84bbd6fd8f06aeee05e2d705481e258766d410578b6be0",
+          "text": "The rate peak has zero local slope, so it contributes no local information at that point. Extra spikes from a constant baseline increase Poisson variability without making nearby values easier to distinguish. See [Internal Fisher information, Eq. 3, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).",
+          "decision": "retain",
+          "reason": "Retain: maps peak slope to zero contribution and extra baseline to the count-noise denominator. It explains the plotted contrast before the estimator-bound derivation."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 58,
+          "paragraph_sha256": "d760f92cf5a0fd307c44845c7925f225a3d91b32e1fda54ea47f72e046a43db9",
+          "text": "To understand why inverse information is an error scale, let $\\hat\\theta(\\mathbf n)$ be an estimator whose mean equals $\\theta$ locally. Such an estimator is [**unbiased**]{.definition-term custom-style=\"Definition Term\"}. Differentiate $E_\\theta[\\hat\\theta]=\\theta$ with respect to $\\theta$. Under the usual conditions allowing differentiation through the sum over data,",
+          "decision": "retain",
+          "reason": "The next original paragraph starts why inverse information is an error scale. This remains a separate question from the illustrated local information calculation."
+        }
+      ]
+    },
+    "A04": {
+      "deletion_test": "Retain: two aligned quantities show the gap between an attained diffusion value and a lower allowed bound across states, rather than suggesting high FI guarantees improvement.",
+      "terminology": "Lower bound, actual diffusion and information have already been derived. Activation coordinate was distinguished from angle in the preceding example.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 153,
+          "paragraph_sha256": "78ebd202d0a70719c29bf03421c45bbf2659f344fe50b14b8bc5eb8d76a4d740",
+          "text": "The actual diffusion remains $1000$. The inequality is strict because these two unequal rates no longer align the network's projection weights with the information optimal weights. This also shows why equality at a special state does not force the transfer function to be exponential on its whole domain. A constant lower bound attained everywhere and an accidental equality at one state are different claims.",
+          "decision": "retain",
+          "reason": "The original paragraph identifies strict inequality and a special-state equality. The image shows those states under exactly that scenario."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 155,
+          "paragraph_sha256": "f942006068f2c20d65d1b18c218043a94cc30ab31a67af82bc808be80c0befce",
+          "text": "The chapter’s two cell example makes the difference between a lower bound and the actual diffusion visible.",
+          "decision": "retain",
+          "reason": "Retain: its short shift from the algebraic two-cell example to the plotted inequality is useful figure introduction, despite repeating the topic."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "078d589addc30e5b282d9ec5f8a73376e22c87c858c275948456b5c87405e578",
+          "text": "Analytic teaching calculation for the chapter’s mutual inhibition example, with $b=200$ activation units and $\\tau=0.1$ s. The coordinate $\\theta$ is an activation difference. For positive rates $r_{1,2}=(b\\pm\\theta)/(2\\tau)$, $J=2000/(40000-\\theta^2)$ while $D=1000$ activation units squared per second. The lower bound $1/(2\\tau^2J)$ equals $D$ at $\\theta=0$ and falls to 750 at $\\theta=100$. Higher local information permits a lower diffusion bound but leaves the actual diffusion unchanged in this model. The plotted range stays inside the positive-rate domain $|\\theta|<200$.",
+          "decision": "retain",
+          "reason": "Retain: activation-coordinate units, chosen b/tau, positive-rate domain, the formula for J and fixed actual D are necessary to keep this comparison from becoming an angular or general circuit claim."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "2d94db8d2221b14d987e503c80d65c4217523bdbe359fdcbfa39f737598a2e17",
+          "text": "Across memory coordinates from minus one hundred sixty to one hundred sixty activation units, internal information has a minimum of 0.05 at zero and grows toward either side. Actual diffusion is a horizontal line at one thousand. The information lower bound meets it at zero and bends downward, reaching seven hundred fifty at coordinate one hundred. A marked gap separates actual diffusion from the bound there.",
+          "decision": "retain",
+          "reason": "Retain: identifies both state dependence and the visible slack at100 without requiring color discrimination."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 163,
+          "paragraph_sha256": "998c132a3d415d042cc86eea6027aba1f5cc9b69dfdafe2c6e97443e96a26239",
+          "text": "The gap at $\\theta=100$ shows why a lower minimum allowed by the inequality is not a reduction in the network’s actual diffusion. See [Diffusion bound, Eq. 4, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3).",
+          "decision": "retain",
+          "reason": "Retain: interprets the actual gap instead of introducing another result. No synonym for the established bound is needed."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md",
+          "line": 165,
+          "paragraph_sha256": "502a0595ffa468f48a16ec725c7c293b1fe2fdb93b09b9962bdfb40c0b2dd424",
+          "text": "For $m$ memory coordinates the information is a matrix,",
+          "decision": "retain",
+          "reason": "The original matrix-information paragraph extends to multiple coordinates after the scalar plot is complete."
+        }
+      ]
+    },
+    "A05": {
+      "deletion_test": "Retain: common-width segments on one physical scale and a separate R-versus-private-noise curve answer the common error that correlation itself is the common variance fraction.",
+      "terminology": "Common, private predictor noise, unit gain, covariance and correlation are established in the preceding decomposition. No first-use omission.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 235,
+          "paragraph_sha256": "340326265819a30fbab12ba07ada323a51f6ce430f6a5f60f91ca86cba3efc4f",
+          "text": "One cell explains $R^2\\simeq2.89\\%$ of displacement variance after linear rescaling, while the common signal supplies 82% of actual displacement variance. The larger, poorly predicted part of the single cell signal is private prediction noise.",
+          "decision": "retain",
+          "reason": "The original example conclusion separates rescaled explained variance from common movement variance. It supplies the question the graphic answers."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 237,
+          "paragraph_sha256": "7c010ba891d1203aae0b9cdfb828ee1a6349bec617989cae78059d6e471dfcc1",
+          "text": "The constructed variance example above gives a small correlation even though the common command supplies most of the movement variance.",
+          "decision": "retain",
+          "reason": "Retain: briefly reconnects the constructed numbers to the question of small correlation and dominant common movement; the figure then adds an actual family of varying private noise."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "ae7282035d39bf8373c4992500bf2ef4702c82fa04899c1db6c614909c547dbc",
+          "text": "The same common variance enters movement and the single cell predictor, but the predictor has much more private noise. Increasing only private predictor variance lowers correlation R while the common movement fraction χ stays at 0.82. The marked point uses the chapter’s constructed example. Calculations assume unit common gain and mutually uncorrelated contributions; they are not recorded cell data. Based on Ben-Shushan et al. (2022), main p. 10, Eqs. 11–15.",
+          "decision": "retain",
+          "reason": "Retain: the parameter being varied, unit gain, uncorrelated terms and non-recording status are needed. R and chi have already been defined by formulas."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "6654beb06c06deb7662e04c93a28d08d0511becd049bb733b9f8fa5be55ba0f4",
+          "text": "Horizontal stacked bars use one variance axis in degrees squared: movement has common variance 0.00820 and other variance 0.00180; the single cell prediction has the same common variance and private variance 0.22446. A curve shows R falling as private predictor variance increases, reaching 0.170 at the constructed point, while χ remains 0.820.",
+          "decision": "retain",
+          "reason": "Retain: the exact shared and private component sizes make the bars accessible; it distinguishes R from chi."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 245,
+          "paragraph_sha256": "7092966ea3b73970b3202c2bb54e21f73ef4164d966c5c6ccb2b808501e1b297",
+          "text": "Private prediction noise enlarges the denominator of R without changing the covariance. The bars use the same physical scale, so the equal common pieces have equal lengths. See [Shared and private variability, Eqs. 11–15, p. 10](../papers/ben-shushan-2022-fixational-drift.pdf#page=10).",
+          "decision": "retain",
+          "reason": "Retain: the denominator/covariance distinction explains the curve and the same-scale statement explains why common bars are equal."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 247,
+          "paragraph_sha256": "a65b6fdc44c554175747a64e282a650477b18593ddf8eb1d86a93d5a0618d3a5",
+          "text": "In the experiment, each cell gives a noisy estimate $\\chi_i$, and those estimates can lie outside $[0,1]$. The underlying variance fraction remains in that interval under the model, but the sample covariance need not. The paper estimates each standard error $\\Delta\\chi_i$ mainly from covariance uncertainty, treating the measured displacement variance in the denominator as comparatively well determined. It then uses inverse variance weighting:",
+          "decision": "retain",
+          "reason": "The next original paragraph moves from the illustrative decomposition to noisy empirical chi estimates, preserving the example/data boundary."
+        }
+      ]
+    },
+    "A06": {
+      "deletion_test": "Retain: endpoint conventions and the size of the uncertainty after subtraction are visibly different facts; the plot connects them to the already computed example.",
+      "terminology": "MSD and measurement covariance were defined earlier in the same section. Independent errors and uncertainty remain correctly qualified.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 283,
+          "paragraph_sha256": "3d3ef08daebdef4d2f9c40989a971e5f939a96f451bf400685ca9fc0edd83f3d",
+          "text": "For instance, a constructed measured MSD of $0.0014$ deg$^2$ with an estimated noise contribution $0.0010$ deg$^2$ leaves $0.0004$ deg$^2$. A $0.0001$ deg$^2$ uncertainty in the subtraction is already 25% of that result. This is why a corrected short lag point needs an uncertainty assessment as well as a positive value. If measurement errors were temporally correlated, the correction would instead be $2[\\sigma_m^2-C_\\nu(\\ell)]$, where $C_\\nu$ is their covariance at lag $\\ell$; a constant subtraction would then need revision.",
+          "decision": "retain",
+          "reason": "The original paragraph gives the numeric subtraction and correlated-error qualification. This remains intact, so the fixed offset is conditional on independent endpoint errors."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 285,
+          "paragraph_sha256": "b34ca6facaa856c70d89c10707022b3451e9117295904d69214d8b204a9b611d",
+          "text": "For a constructed Brownian movement with $D=0.010$ deg$^2$/s, adding independent position measurement errors with $2\\sigma_m^2=0.0010$ deg$^2$ shifts every positive-lag MSD upward by the same amount.",
+          "decision": "retain",
+          "reason": "Retain: explicitly supplies the new chosen Brownian movement and the measurement-error offset."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "97b274dd2b6c7c90512c888984911d30a480ca07b6afa3465bd065b2fd8a34a3",
+          "text": "For positive lags, independent measurement error adds 2σ_m² to the movement MSD, here M(ℓ)=2Dℓ. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+          "decision": "revise",
+          "reason": "Revise raw sigma/subscript and formula notation into rendered math. Preserve positive lags, exact-zero exception, subtraction uncertainty and analytic status."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "3bd039692a5d29149074a9fe1e2f3986a437358df057b878df9b0b64ea83f5b1",
+          "text": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. Its open endpoint at zero positive lag is distinct from the true zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+          "decision": "revise",
+          "reason": "Revise zero positive lag: zero is excluded from positive lags. Describe the open curve endpoint at lag zero separately from the actual zero-lag point."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 293,
+          "paragraph_sha256": "dfc1e9fee73efbdcf2bcb8235339349c0b844c47e23db31863cd93655235d556",
+          "text": "The offset comes from two independent position errors, one at each endpoint. Its removal changes the average MSD; it does not recover each trajectory’s unknown error. The Brownian movement is chosen only to make the constant offset visible. See [Measurement noise correction, Eqs. 18–19, p. 10](../papers/ben-shushan-2022-fixational-drift.pdf#page=10).",
+          "decision": "retain",
+          "reason": "Retain: distinguishes correcting an average from recovering individual unknown trajectory errors; chosen movement clarifies this is not a new eye fit."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md",
+          "line": 297,
+          "paragraph_sha256": "0101d6c0734265a938f788bc99e58c63c0a11379abe76b55f0ca8fe03f35f881",
+          "text": "The corrected MSD keeps increasing over the observed range, toward a second, while its logarithmic slope decreases and remains between one and two. Define that local slope by",
+          "decision": "retain",
+          "reason": "The next section opens the different issue of the corrected MSD shape. The added plot completes measurement correction first."
+        }
+      ]
+    },
+    "A07": {
+      "deletion_test": "Retain: the aligned input/rate plots show the actual threshold operation and how several fields arise, unlike the later crossing/count plot.",
+      "terminology": "Gaussian process, normalized input, threshold, rate, field and sigma have all been taught before the revised anchor. No new unsupported term.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 56,
+          "paragraph_sha256": "766c616e0154b3bb719c9924855db5e4e8fa62cfd08baac4f9c34f39bbdc3798",
+          "text": "Thus $\\sigma$ compares typical height with typical slope and has units of distance. In an isotropic field, the same definition applies along any unit direction. For the smooth Gaussian covariance $C(\\Delta x)=\\sigma_h^2\\exp[-\\|\\Delta x\\|^2/(2\\sigma^2)]$, it is exactly the parameter in that exponent. The paper uses a Gaussian covariance for its simulations. Other smooth covariances can share this local scale while having different longer distance structure.[^p3-scale]",
+          "decision": "retain",
+          "reason": "The original covariance/scale paragraph has introduced sigma; all previously defined q,z,a and positive-part notation are available."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 58,
+          "paragraph_sha256": "ebdd8b0016bad74b9e16ae42e4d433c8876d5071b8d33a62976ee07fd385b961",
+          "text": "A simulated Gaussian input map with covariance $C(\\Delta x)=\\exp[-(\\Delta x/\\sigma)^2/2]$ gives the firing map below when $q=0.8$ and $a=6$ Hz. Position is shown in units of $\\sigma$.",
+          "decision": "retain",
+          "reason": "Retain: chosen covariance, q,a and sigma units specify what was sampled and displayed. The anchor follows the sigma definition."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "867dae8925f306d590133deaf529386b45b4ad4f8a35d50a2864d3f36532fcd2",
+          "text": "One fixed Gaussian input draw becomes a nonnegative firing map through $F(x)=a[z(x)-q]_+$. Values below $q$ become zero; values above $q$ keep their relative heights after subtraction and scaling. The shaded connected intervals are the model fields. This is a simulated teaching map with chosen parameters, not a recorded cell. Based on Mainali et al. (2025), Fig. 1A and STAR Methods Eqs. 2–3, p. e1.",
+          "decision": "retain",
+          "reason": "Retain unchanged: F(x)=a[z(x)-q]+ is already inside valid math delimiters, with the positive-part meaning taught before this figure. Its model-field and simulation qualifications are needed."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "c405adf3c3749c5b0944951f10fce593dce1fd06bb08d1da01c9eda0933c550b",
+          "text": "The upper plot shows one fixed smooth input against spatial position, with a threshold at 0.8 and shaded intervals above it. The lower plot uses the same positions and plots six times the positive excess above the threshold in hertz. Its connected positive intervals align with the upper shading; all other positions have zero firing.",
+          "decision": "retain",
+          "reason": "Retain: positive excess and aligned support explain the transformation in ordinary words without relying on the subscript symbol."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 66,
+          "paragraph_sha256": "bae2857bfda07b77ed9d4f22e7513bed66ad580cd33b2bc80ef50a0c7d4e4026",
+          "text": "Thresholding changes the distribution of values and can separate one smooth input curve into several fields. Both panels describe the same fixed map over space, so neither curve is a trajectory over time. See [Gaussian input and firing rate, STAR Methods Eqs. 2–3, p. e1](../papers/mainali-2025-universal-statistics.pdf#page=13).",
+          "decision": "retain",
+          "reason": "Retain: fixed map over space distinguishes this example from the earlier temporal diffusion and prepares counting crossings."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 70,
+          "paragraph_sha256": "856ec0de26ed8e343059f6a30d4a33b37addb1f75924df0542bd202348000784",
+          "text": "Finding every root of a random curve is difficult. Counting how often the curve passes a level is easier because a small interval around a crossing has a width determined by its slope.",
+          "decision": "retain",
+          "reason": "The next section begins counting fields from crossings; the reader has now seen which intervals that count refers to."
+        }
+      ]
+    },
+    "A08": {
+      "deletion_test": "Retain: density shapes and their nonlinear probability transformation are different from the existing radius/volume geometry; the coincidence is an analytic identity, not another empirical test.",
+      "terminology": "Rayleigh has been introduced by the earlier peak derivation and has an explicit formula here. Integrable divergence is an unnecessary compact phrase for a density that rises without bound but still has integral one. Survival probability is understandable from Pr(U>u), but its ordinary-language meaning belongs beside first use.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 287,
+          "paragraph_sha256": "e0cefd2bef21d8c57c06ba03819d1f74f6d0f41e3ad03b4ed921afc4a741b404",
+          "text": "Size has units of distance to the power $d$, while $\\beta$ has units of inverse distance squared in every dimension. This makes $\\beta s^{2/d}$ dimensionless, and makes $p_d(s)$ a density per unit size. These checks catch mistakes in changing variables.",
+          "decision": "retain",
+          "reason": "The original paragraph supplies size/beta units and why beta*s^(2/d) is dimensionless; this supports the new scale variable."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 289,
+          "paragraph_sha256": "5eb4bde29d56abc33274fa983b0769051b44b928b70a23d40313217e78de35aa",
+          "text": "Writing dimensionless size as $w=\\beta^{d/2}s$ removes the size scale. The dimensional size laws then differ in shape, while the transformed variable $U=\\beta s^{2/d}=w^{2/d}$ has the same exponential law.",
+          "decision": "retain",
+          "reason": "Retain: w is explicitly defined to distinguish scale removal from the power transformation U."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "9c5aabf8fad2efe3f4f47aacf83663852c44852ac1ed160938aa48bad7ee39f4",
+          "text": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has an integrable divergence at zero. Their survival curves coincide after transformation to U=βs^(2/d), where Pr(U>u)=e^(−u). These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+          "decision": "revise",
+          "reason": "Revise code-like powers into rendered math and explain integrable divergence and survival probability in the sentence. The mathematical claims and high-threshold limit remain unchanged."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "568cf1c461d7fa93cdc75abbb809c03aadd3d566802ab24cf0ee3078b59644b3",
+          "text": "Three density curves against dimensionless size w show the one dimensional curve starting at zero, the two dimensional curve starting at one, and the three dimensional curve rising without bound toward zero size. An arrow marks the unbounded end. In the second panel, three differently styled survival curves coincide on exp(-u) after U=w^(2/d).",
+          "decision": "retain",
+          "reason": "Retain: ordinary density-origin behavior and the three coincident traces are useful. Plaintext powers in alt are accessible literal notation rather than raw TeX, so no required alt change."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 297,
+          "paragraph_sha256": "f3deb54ce8a9e5943cb5082baae607c47048ff2203832e1ac17c5f91a6a0cb9f",
+          "text": "Removing units does not erase the difference between length, area, and volume distributions. The nonlinear transformation to U removes that shape difference; its shared exponential law is the assumption used in the change of variables. See [Field-size laws, Eq. 1, p. 1111](../papers/mainali-2025-universal-statistics.pdf#page=3).",
+          "decision": "retain",
+          "reason": "Retain: explicitly says the common exponential law was used in the derivation, preventing the coincidence from being called an independent validation."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md",
+          "line": 305,
+          "paragraph_sha256": "b0cac387c1042983a3962b519a03aca42a4d5f9b880a93c1b0417150203c90f8",
+          "text": "A [**Weibull distribution**]{.definition-term custom-style=\"Definition Term\"} has survival probability $\\exp[-(s/b)^k]$ for size $s>0$, scale $b>0$, and shape $k>0$. Here $k=2/d$ and $b=\\beta^{-d/2}$. In 3D the diverging density does not mean a positive probability of exactly zero volume; the probability of $0<s<\\delta$ still tends to zero as $\\delta\\to0$.",
+          "decision": "retain",
+          "reason": "The following size-law table and Weibull paragraph give the distribution names and explain that a diverging density creates no point mass at zero. Caption should give the direct meaning when the term first appears."
+        }
+      ]
+    },
+    "A09": {
+      "deletion_test": "Retain: the two coordinate planes distinguish fixed spatial tuning from rate-change geometry, illustrating why a one-coordinate displacement yields a one-dimensional fluctuation.",
+      "terminology": "Rates, slopes, covariance and correlation have been calculated in this section. Two-rate plane refers directly to the two labeled rate-change axes and needs no separate definition.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.md",
+          "line": 63,
+          "paragraph_sha256": "48433ea57f29595c3bc120cb3f5db4a6e290fcf35a3e630b5974341a5d7cd7fd",
+          "text": "With only this one source, the two rate changes have correlation $-1$: one rises whenever the other falls. Adding independent private noise lowers the magnitude. The negative covariance here comes from opposite tuning slopes under a common position change. It does not establish an inhibitory connection between the cells.",
+          "decision": "retain",
+          "reason": "The original correlation paragraph excludes private noise and rejects the inference of inhibition. These conditions remain immediately before the new image."
+        },
+        {
+          "role": "intro",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.md",
+          "line": 65,
+          "paragraph_sha256": "c2f56feecf56a500fc37c79c93127ee82bf3c2739fd8a45c784c7317b5fd16b8",
+          "text": "For the same slopes, set both expected rates to 10 Hz at the starting position. The upper plot shows the fixed rate curves; the lower plot shows their changes under a common position displacement.",
+          "decision": "retain",
+          "reason": "Retain: the10Hz baseline is an added display choice and is declared before the plotted absolute rates."
+        },
+        {
+          "role": "caption",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.yaml",
+          "line": null,
+          "paragraph_sha256": "9d209f63a1c209dc0541da470e48b3efe0bbcca38425cca111005249752fe00f",
+          "text": "A common displacement of $+0.1$ m increases rate 1 by $0.2$ Hz and decreases rate 2 by $0.1$ Hz. The changes lie on one line. With displacement variance $0.01$ m², their covariance is $-0.02$ Hz² and their correlation is $-1$. The 10 Hz baseline is chosen only to display positive rates. These are exact lines from the guide’s local example, not recorded data.",
+          "decision": "retain",
+          "reason": "Retain: exact displacement changes, covariance, single-source correlation and baseline status are the needed interpretation. The local/not-recorded qualifiers prevent a joint empirical circuit claim."
+        },
+        {
+          "role": "alt",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.yaml",
+          "line": null,
+          "paragraph_sha256": "1beddc446e816c8693639b3bee78d965de895f80a59a6ac8aa60488a7064637c",
+          "text": "The upper plot shows two fixed linear tuning curves with slopes plus two and minus one hertz per meter, crossing at ten hertz. Moving from zero to plus 0.1 meter raises the first rate by 0.2 hertz and lowers the second by 0.1 hertz. The lower plot puts the paired rate changes on a downward sloping line through zero, with that example marked.",
+          "decision": "retain",
+          "reason": "Retain: both physical-displacement and rate-change coordinates are described, and the chosen point is identified."
+        },
+        {
+          "role": "interpretation",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.md",
+          "line": 73,
+          "paragraph_sha256": "acc2b003b116cfae9d480a6bbe9050c06a79c95a6681e7b7da78969cfca9be6a",
+          "text": "Both changes are set by the same position displacement, so they occupy one direction in the two-rate plane. Independent private fluctuations would spread them away from that line.",
+          "decision": "retain",
+          "reason": "Retain: one direction in the two-rate plane directly names the plotted line and distinguishes added independent noise."
+        },
+        {
+          "role": "following_original",
+          "source": "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.md",
+          "line": 75,
+          "paragraph_sha256": "f85833f7c39c1eb1c221033ea2363710150a1a17bd0206fc74565fa5a4b823a3",
+          "text": "This example explains why irregular or mixed single-cell responses can coexist with a low-dimensional population fluctuation. It also shows the extra evidence required to connect a spatial map to a dynamical mechanism: one must measure how population changes align with the directions implied by those maps, rather than infer dynamics from field shapes alone.",
+          "decision": "retain",
+          "reason": "The next original paragraph explains the extra joint measurement needed; the figure does not substitute a proposed experiment for a result."
+        }
+      ]
+    }
+  },
+  "input_sha256": {
+    "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.md": "0247535e450bb9d2f2de3f15cb8a962a6e8044cbc9690090a14a91fea870d549",
+    "verification/all-illustrations-20261024/proposed/content/chapters/01-foundations.yaml": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1",
+    "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.md": "23a595e0e19d0c994c140d3080afe817390f047f554385fa1f387303d8cebc0f",
+    "verification/all-illustrations-20261024/proposed/content/chapters/03-memory-information.yaml": "f5700aeab60e0eb0f2f7cc8d0dca246c40b53569943c2cfb44c6650a634aa7a1",
+    "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.md": "6704d46f75118ae21d1b336f8ea59ce523aa9824e3e809ba8fd2e26da93f7323",
+    "verification/all-illustrations-20261024/proposed/content/chapters/04-eye-drift.yaml": "a895213f00921911fa47b62bb6403d431d2a95d88fac36051002bb9051a287e7",
+    "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.md": "76c748cd30a98eaca19f26f360eb9dafa7b39c930cf5af622b73b4fee1a641a7",
+    "verification/all-illustrations-20261024/proposed/content/chapters/05-place-fields.yaml": "d42e6ec939c08bbcdda88187fad9e15f9c6ad7f9835fb9dde0eae595271ce40c",
+    "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.md": "32703a4a29b396b4952bafe287c60c917cc4f0ca56733eefbac0f274cada8557",
+    "verification/all-illustrations-20261024/proposed/content/chapters/06-synthesis.yaml": "30f4334052488ed71449232a8a558df117d3fd0ceb97c25f30f8722e2528496a",
+    "verification/all-illustrations-20261024/integration.json": "2e2768be6cadde988f6da451dd4c61a8fd557e94e4c575a1d1e42f56f9966145",
+    "verification/all-illustrations-20261024/caption-repairs.json": "907d123530fe63463e2b0ae451e08149d7a4b4dd763c83a46683a4417b684bbd"
+  },
+  "rule_sha256": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b"
+  },
+  "unresolved_questions": [],
+  "limits": [
+    "No source files edited",
+    "Stage3 connected final reading not performed",
+    "Canonical compiled source bindings remain pending",
+    "Token stats unavailable"
+  ]
+}

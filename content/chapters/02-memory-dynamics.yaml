@@ -1,0 +1,84 @@
+chapter_id: ch:MEMORY-DYNAMICS
+part_id: part:MECHANISMS
+title: Spiking noise produces diffusion along the memory attractor
+purpose: Starting from the neural model in Chapter 1, derive the weak-fluctuation approximation and follow
+  small disturbances through the circuit to calculate diffusion of a stored value.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+- ch:PERSISTENCE
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:MEMORY-WEAK-NOISE
+  title: Many weak inputs allow a continuous approximation to spike noise
+  summary: Starting from the model taught in Chapter 1, conditional Poisson counts yield a mean input
+    and a fluctuation. Small input fluctuations permit a continuous Gaussian approximation and define
+    the deterministic steady states.
+  level: 2
+- id: sec:MEMORY-LINEARIZATION
+  title: The network's return flow determines the lasting memory change
+  summary: '**Neural mechanism.** A spike perturbs many aspects of a network''s state. Most of those changes
+    decay as the state returns to the attractor. To calculate memory loss, we need the lasting change:
+    the displacement to a different fixed point. We assume a smooth continuous family with one neutral
+    memory direction, while all other local modes decay. The disturbance must be small enough that the
+    first order response describes the return flow.'
+  level: 2
+- id: sec:MEMORY-DIFFUSION
+  title: Projecting spike fluctuations gives the diffusion coefficient
+  summary: '**Neural mechanism.** We can now calculate how much random displacement remains after the
+    stable components have relaxed. Each cell''s random spikes disturb its outgoing synaptic activation.
+    The circuit''s return flow determines the lasting shift in memory. This calculation uses the weak
+    noise and conditional independence assumptions, with rates and return flow evaluated near one fixed
+    point.'
+  level: 2
+- id: sec:MEMORY-SYMMETRIC
+  title: Symmetric weights express diffusion through tuning curves
+  summary: The connection matrix W contains the weights from neuron j to neuron i. Equal weights in opposite
+    directions allow the projection vector to be expressed through tuning curves under the stated assumptions.
+  level: 2
+blocks:
+- id: fig:DRAFT-MAP-CH03
+  kind: figure
+  placement: ch:MEMORY-DYNAMICS
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch03-draft-v1.png
+  caption: Unreviewed draft map for Spiking noise produces diffusion along the memory attractor. The labels, arrows,
+    equations and numerical values have not been checked and may be incorrect.
+  alt: Unreviewed AI-generated visual draft for Spiking noise produces diffusion along the memory attractor. It
+    contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter
+    text for the checked explanation.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:MEMORY-TILTED-DECAY
+  kind: figure
+  placement: sec:MEMORY-LINEARIZATION
+  asset: assets/approved/visuals/memory-tilted-decay.png
+  caption: Original guide construction of the tilted decay example, with dimensionless coordinates and
+    $a/\lambda=1/2$. After an imposed jump from $(0,0)$ to $(0,2)$, the state relaxes toward $(1,0)$.
+    Successive time marks crowd toward that endpoint. This illustrates the left and right zero vector
+    construction in Burak and Fiete (2012), Supporting Text, Section II, pp. 3–4, Eqs. S10–S16. It is
+    not a paper network simulation.
+  alt: A line of fixed points lies at y equals zero. An imposed vertical jump from zero zero to zero two
+    is followed by a straight tilted flow toward one zero. Equal time marks crowd toward the endpoint.
+    Perpendicular projection would return to zero zero and miss the lasting shift of one. The tangent
+    is one zero. The left vector measures delta x plus one half delta y.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:MEMORY-INHIBITION-RATES
+  kind: figure
+  placement: sec:MEMORY-SYMMETRIC
+  asset: assets/approved/visuals/memory-inhibition-rates.png
+  caption: For the chapter’s two mutually inhibiting cells, b = 20 activation units and tau = 0.1 s give
+    opposite changes in the two rates. Their sum remains 200 spikes/s, so local D remains 100 coordinate
+    units squared/s. Open endpoints mark the excluded boundaries. The linear interior model does not determine
+    boundary behavior. These curves are calculated examples, not simulation data.
+  alt: As theta increases through the interior from minus 20 to 20 activation units, r1 increases toward
+    200 spikes per second and r2 decreases toward zero. Their dashed sum stays at 200. A lower aligned
+    plot shows D constant at 100 coordinate units squared per second. Open endpoint circles exclude both
+    boundaries.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

@@ -1,0 +1,70 @@
+{
+  "edits": [
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "before": "The density $p_{z,z'}(q,v)$ describes how often height is near $q$ and slope near $v$. Multiplication by $v$ compensates for the shorter spatial window of a steep crossing. Merely multiplying the probability of being above threshold by a typical slope would miss this weighting.[^p3-crossings]",
+      "after": "The density $p_{z,z'}(q,v)$ describes how often height is near $q$ and slope near $v$. Multiplication by $v$ compensates for the shorter spatial window of a steep crossing. Multiplying the probability of being above threshold by a typical slope would miss this weighting.[^p3-crossings]",
+      "kind": "independent-review-repair",
+      "reason": "Interprets slope weighting and rules out an incorrect product approximation; one modifier can be removed without losing that distinction.",
+      "review": "stage2-place.json",
+      "before_sha256": "a6a4bb3ec2a9ce7ab0d05f28a6337920d7865f8dd2ba74a5250db92da7a0164b",
+      "after_sha256": "7c06caea1c9ec32bbadb6c0a919d51cdf3fbe5146e9299a381f7eaedf18e1a21",
+      "at": "2026-10-24T21:44:12.312470+03:00"
+    },
+    {
+      "file": "content/chapters/05c-place-tests.md",
+      "before": "The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical input: for a smooth function on a compact domain whose [**critical point**]{.definition-term custom-style=\"Definition Term\"}s have zero gradient and invertible Hessians, the Euler characteristic of a level set region can be computed as a signed count of critical points, including boundary contributions. This is the relevant conclusion of [**Morse theory**]{.definition-term custom-style=\"Definition Term\"}. We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms; the general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]",
+      "after": "The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical result: for a smooth function on a compact domain whose [**critical point**]{.definition-term custom-style=\"Definition Term\"}s have zero gradient and invertible Hessians, the Euler characteristic of a level set region can be computed as a signed count of critical points, including boundary contributions. This is the relevant conclusion of [**Morse theory**]{.definition-term custom-style=\"Definition Term\"}. We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper's polynomials and boundary terms; the general Gaussian result is given by Taylor's kinematic formula.[^p3-taylor]",
+      "kind": "independent-review-repair",
+      "reason": "Critical point and Morse theory retain their meaning and required nondegeneracy; mathematical input is an unnecessary abstract phrase.",
+      "review": "stage2-place.json",
+      "before_sha256": "489cfb91198f319e2ff3a537f0ec7fe6f8e06da5282b22b676209697a3be27d0",
+      "after_sha256": "1255a4099e19f876397a063769cdf45c22013f4a0c7dda28ebe85d491d63771e",
+      "at": "2026-10-24T21:44:12.314649+03:00"
+    },
+    {
+      "file": "content/chapters/03-memory-information.md",
+      "before": "Attaining equality identifies a network that tracks its own state efficiently for a given information rate.",
+      "after": "Attaining equality means the network reaches the diffusion lower bound for its information rate and synaptic time constant.",
+      "kind": "independent-review-repair",
+      "reason": "The first version replaces efficient self tracking with another description of efficiency. The direct lower-bound statement tells the reader what equality means and states the quantities in that bound.",
+      "review": "stage2-information-eye.json",
+      "before_sha256": "7a6b6f94727c8e8965fc03f2320670563faa0a84ef8414c7f62eda4d1e7c0a82",
+      "after_sha256": "24875192fd2c1c6aec56ce1e286f9b550b9154bbbb4e614b6a8a3d9d440378ee",
+      "at": "2026-10-24T21:44:36.946404+03:00"
+    },
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "before": "[**Translation invariance**]{.definition-term custom-style=\"Definition Term\"} makes the readout variance the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$.",
+      "after": "In this readout model, [**translation invariance**]{.definition-term custom-style=\"Definition Term\"} means that shifting the represented value does not change the statistics of the readout error. Its variance is therefore the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$.",
+      "kind": "independent-review-repair",
+      "reason": "A first blue explanation should identify what remains unchanged under what change. Giving only the variance consequence leaves the unfamiliar term unexplained; the glossary already supplies the shift meaning.",
+      "review": "stage2-information-eye.json",
+      "before_sha256": "20882bc1647ef9b7f1e8cb2b309336f89e3f279295663ab5f7b38a6c395b6497",
+      "after_sha256": "d23064e7c8043588c9bddca58635923bcd0240ca13e2178ad56ae1924fdeebcc",
+      "at": "2026-10-24T21:44:36.948281+03:00"
+    },
+    {
+      "file": "content/chapters/00-reading-guide.md",
+      "before": "The central theory is derived step by step. Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified model differs from the paper's full model.",
+      "after": "Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified model differs from the paper's full model.",
+      "kind": "independent-review-repair",
+      "reason": "The first sentence only asserts that the guide derives theory in detail. The remaining paragraph explains the concrete scope and evidence distinctions.",
+      "review": "stage2-foundations-synthesis.json",
+      "before_sha256": "c6710b83c8e20670de623b11c2358396dca80e46f4196c89ea3721ab69e378c1",
+      "after_sha256": "c74d5d08af7b77cf150c0ac01d5a7423ac6d28da9e6acbc53d2b7f4b3de6b486",
+      "at": "2026-10-24T21:44:59.902684+03:00"
+    },
+    {
+      "file": "content/chapters/01-foundations.md",
+      "before": "To identify where variability enters a pathway, the eye paper compares measurements that share some fluctuations and have other fluctuations of their own. The required probability identities are short, but their interpretation matters.",
+      "after": "To identify where variability enters a pathway, the eye paper compares measurements that share some fluctuations and have other fluctuations of their own.",
+      "kind": "independent-review-repair",
+      "reason": "The removed sentence gives neither an identity nor its interpretation. The first sentence supplies the purpose and the next paragraph defines covariance directly.",
+      "review": "stage2-foundations-synthesis.json",
+      "before_sha256": "62adf6fc125739937fccfc06cdacf7af913ba2d0b860396a042f8173664e7de3",
+      "after_sha256": "6891834eb47f0cce93b27052fb69b59f26c27f0ae8b9aafd1bac41f187078785",
+      "at": "2026-10-24T21:44:59.904603+03:00"
+    }
+  ]
+}

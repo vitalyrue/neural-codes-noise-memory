@@ -1,0 +1,261 @@
+brief:
+  asset_id: fig:MAP-CH08
+  scope: chapter
+  book: burak-three-papers
+  part: II
+  chapter: '8: Drift growth distinguishes diffusion from filtered white noise'
+  purpose: Illustrate the source relationships and conditions that explain drift growth distinguishes diffusion
+    from filtered white noise.
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-for-editor-review
+  source_scope: content/chapters/04b-eye-timing.md
+  reading_width: 6.35 inches; confirm actual HTML width before acceptance
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: The pictured mechanisms and measurements explain the chapter by showing physical relationships, not
+    a list of headings.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Related but distinct illustrated scenes with visible transformations and separate routes for separate mechanisms
+  properties_not_to_transfer:
+  - Subject facts, wording, labels, numbers and arrows from the reference
+  composition: Separate connected mechanisms and comparisons; use direct arrows only for source-supported effects.
+  scenes:
+  - source_item_ids:
+    - P01
+    - P02
+    - P03
+    - P12
+    visible_objects:
+    - Two independently noisy position readings give an extra positive-lag MSD offset; the same reading at zero
+      lag cancels.
+    - A model-generated trace with a separate simulation-check label next to the correction, distinct from the recorded
+      eye trace.
+    depicted_relationship_or_change: Two independently noisy position readings give an extra positive-lag MSD offset;
+      the same reading at zero lag cancels.
+    teaching_contribution_beyond_labels: 'Show measured and corrected curves without claiming noise was removed
+      from every observation. Also address: The noise-subtraction procedure is checked in simulation; that check
+      is not a new independent biological recording.'
+  - source_item_ids:
+    - P04
+    - P05
+    - P06
+    - P10
+    - P11
+    visible_objects:
+    - White input through the mechanical filter yields an MSD that levels off.
+    - Two short-lag curves identified by one- versus two-timescale filtering, both reaching finite plateaus; a separate
+      annotated comparison marks modeled private noise near 1% at 900 ms.
+    depicted_relationship_or_change: White input through the mechanical filter yields an MSD that levels off.
+    teaching_contribution_beyond_labels: 'Show a noisy input, filter and plateau plotted against lag. Also address:
+      A one-exponential filter gives a short-lag MSD proportional to lag, while a smoother double-exponential response
+      behaves differently at short lags; both stationary white-noise outputs plateau. Also address: The paper estimates
+      that filtered private motor-neuron noise contributes roughly 1% of observed variance near 900 ms in its modeled
+      population.'
+  - source_item_ids:
+    - P07
+    - P08
+    - P09
+    visible_objects:
+    - A wandering command through the same filter produces smooth short-lag and diffusive long-lag motion.
+    depicted_relationship_or_change: A wandering command through the same filter produces smooth short-lag and diffusive
+      long-lag motion.
+    teaching_contribution_beyond_labels: Show a growing curve and separate short and long time ranges, with the
+      one-filter model labeled as simplified.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    comparison_with_reference: null
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/04b-eye-timing.md:4-20
+  - content/chapters/04b-eye-timing.md:21-58
+  - content/chapters/04b-eye-timing.md:58-85
+  - content/chapters/04b-eye-timing.md:88-105
+  - content/chapters/04b-eye-timing.md:105-151
+  - content/chapters/04b-eye-timing.md:151-163
+  - content/chapters/04b-eye-timing.md:163-227
+  - content/chapters/04b-eye-timing.md:227-249
+  - content/chapters/04b-eye-timing.md:249-260
+  - content/chapters/04b-eye-timing.yaml
+  chapter_source_sha256: 3ec9b20ceae9637ec0f00e03881f868be934bf0fb0b3bab80bdac27f960905db
+  teaching_points:
+  - id: P01
+    source_locus: content/chapters/04b-eye-timing.md:4-20
+    point: Mean squared displacement measures average squared eye displacement as a function of lag; correction
+      removes measurement-noise offset only for positive lags.
+  - id: P02
+    source_locus: content/chapters/04b-eye-timing.md:21-58
+    point: Independent position error contributes twice its variance to positive-lag displacement variance but exactly
+      cancels at zero lag.
+  - id: P03
+    source_locus: content/chapters/04b-eye-timing.md:58-85
+    point: Noise subtraction corrects an average MSD, not each trace; uncertainty matters at short lags.
+  - id: P04
+    source_locus: content/chapters/04b-eye-timing.md:88-105
+    point: Logarithmic MSD slope distinguishes linear diffusion from quadratic short-time displacement, with interpretation
+      limited to measured lag range.
+  - id: P05
+    source_locus: content/chapters/04b-eye-timing.md:105-151
+    point: A decaying linear filter driven by stationary white noise yields a bounded stationary output with an
+      MSD approaching a plateau.
+  - id: P06
+    source_locus: content/chapters/04b-eye-timing.md:151-163
+    point: Filter shape controls short-lag behavior; a simple one-pole filter is a guide model, not the complete
+      eye plant.
+  - id: P07
+    source_locus: content/chapters/04b-eye-timing.md:163-227
+    point: A diffusing position command followed by a low-pass eye plant produces correlated velocity and growing
+      position MSD after filtering.
+  - id: P08
+    source_locus: content/chapters/04b-eye-timing.md:227-249
+    point: The filtered-diffusion MSD changes from locally quadratic to long-lag linear; increasing the response
+      time moves the crossover.
+  - id: P09
+    source_locus: content/chapters/04b-eye-timing.md:249-260
+    point: Actual muscle response, motor filtering and visual feedback change details; continued growth supports
+      a candidate mechanism, not a unique circuit.
+  - id: P10
+    source_locus: content/chapters/04b-eye-timing.md:134-163
+    point: A one-exponential filter gives a short-lag MSD proportional to lag, while a smoother double-exponential
+      response behaves differently at short lags; both stationary white-noise outputs plateau.
+  - id: P11
+    source_locus: content/chapters/04b-eye-timing.md:151-162
+    point: The paper estimates that filtered private motor-neuron noise contributes roughly 1% of observed variance
+      near 900 ms in its modeled population.
+  - id: P12
+    source_locus: content/chapters/04b-eye-timing.yaml:66-76 (fig:PAPER-EYE-ED2)
+    point: The noise-subtraction procedure is checked in simulation; that check is not a new independent biological
+      recording.
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  - P10
+  - P11
+  - P12
+  not_planned_and_reason: {}
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 12
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  additional_source_files:
+  - path: content/chapters/04b-eye-timing.yaml
+    sha256: 0269c4f78ff2566c7ff78e51cc7d025e1cacd9c3a587a115e38de500b3d787be
+    role: Chapter tables and figures
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/04b-eye-timing.md
+  approved_terms: &id001
+  - Measurement noise
+  - Filtered white noise
+  - Filtered diffusing command
+  required_plain_explanations:
+  - Show measured and corrected curves without claiming noise was removed from every observation.
+  - Show a noisy input, filter and plateau plotted against lag.
+  - Show a growing curve and separate short and long time ranges, with the one-filter model labeled as simplified.
+  caption: The diagram relates the mechanisms, observations and conditions developed in drift growth distinguishes
+    diffusion from filtered white noise.
+  alt_text: Proposed diagram showing Two independently noisy position readings give an extra positive-lag MSD offset;
+    the same reading at zero lag cancels.; White input through the mechanical filter yields an MSD that levels off.;
+    A wandering command through the same filter produces smooth short-lag and diffusive long-lag motion..
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S1
+  exact_label: Measurement noise
+  teaching_point: Show measured and corrected curves without claiming noise was removed from every observation.
+  visual_role: mechanism or comparison
+- id: S2
+  exact_label: Filtered white noise
+  teaching_point: Show a noisy input, filter and plateau plotted against lag.
+  visual_role: mechanism or comparison
+- id: S3
+  exact_label: Filtered diffusing command
+  teaching_point: Show a growing curve and separate short and long time ranges, with the one-filter model labeled
+    as simplified.
+  visual_role: mechanism or comparison
+communication_plan:
+  layout: Landscape; allow reading-width legibility; use separate scenes for distinct claims.
+  keep_in_text:
+  - Detailed equations and derivations
+  - Data processing and all numerical precision not essential to visual explanation
+  required_visible_conditions:
+  - Show measured and corrected curves without claiming noise was removed from every observation.
+  - Show a noisy input, filter and plateau plotted against lag.
+  - Show a growing curve and separate short and long time ranges, with the one-filter model labeled as simplified.
+  independent_example_groups: []
+  graphical_choices:
+  - Two independently noisy position readings give an extra positive-lag MSD offset; the same reading at zero lag
+    cancels.
+  - White input through the mechanical filter yields an MSD that levels off.
+  - A wandering command through the same filter produces smooth short-lag and diffusive long-lag motion.
+  density_warning: This proposed single opener may be too dense at the intended reading width. Do not claim the
+    required coverage or proceed to acceptance until the final pixels are inspected at that width; redesign if mechanisms,
+    conditions or labels cannot all be shown readably.
+normal_flow:
+- Two independently noisy position readings give an extra positive-lag MSD offset; the same reading at zero lag
+  cancels.
+- White input through the mechanical filter yields an MSD that levels off.
+- A wandering command through the same filter produces smooth short-lag and diffusive long-lag motion.
+secondary_relationships: []
+exact_text:
+  required: *id001
+  prohibited:
+  - proof of a unique biological circuit
+  - unlabeled invented experimental data
+  - title banner
+constraints:
+- Use actual chapter terms and source-supported causal relationships.
+- Do not depict guide constructions as measured data.
+- Retain distinctions between exact and approximate results.
+- Do not treat planned coverage as actual coverage; independently inspect pixels at full and reading widths.
+- If the chapter coverage exceeds available legible space, redesign rather than lower the threshold.
+dispositions: []

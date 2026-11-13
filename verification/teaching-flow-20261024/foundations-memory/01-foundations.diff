@@ -1,0 +1,60 @@
+--- baseline/01-foundations.md
++++ proposed/01-foundations.md
+@@ -1,10 +1,10 @@
+-# Neural activity, stored values, and random motion {#ch:FOUNDATIONS}
++# Persistent neural activity can still accumulate memory error {#ch:FOUNDATIONS}
+ 
+ The eyes can hold a position after a brief movement command has ended. An animal can also keep track of its location while the activity of individual neurons fluctuates. Both abilities require a useful quantity to remain represented in a changing biological system. The three papers study different parts of this problem: the loss of a stored value, the origin of slow eye motion, and the arrangement of spatial firing patterns.
+ 
+ The first distinction is between a value and the activity that represents it. Eye position is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.[^f-memory]
+ 
+-## Spikes, rates, and population patterns {#sec:FOUNDATIONS-SPIKES}
++## Patterns of firing rates represent a value {#sec:FOUNDATIONS-SPIKES}
+ 
+ A neuron communicates through brief electrical events called [**spike**]{.definition-term custom-style="Definition Term"}s. A [**firing rate**]{.definition-term custom-style="Definition Term"} is the expected number of spikes per unit time. A rate of 20 hertz means an average of 20 spikes per second under the specified conditions, rather than a promise of one spike every 50 milliseconds.
+ 
+@@ -41,6 +41,8 @@
+ \qquad \operatorname{Var}(K)=\lambda.
+ $$
+ 
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: why a Poisson count has variance equal to its mean"}
++
+ The variance follows directly from the first two factorial moments. Summing $k\Pr(K=k)$ gives $\lambda$. Likewise, summing $k(k-1)\Pr(K=k)$ gives $\lambda^2$. Since $K^2=K(K-1)+K$,
+ 
+ $$
+@@ -49,6 +51,8 @@
+ \operatorname{Var}(K)=\mathbb E[K^2]-\mathbb E[K]^2=\lambda.
+ $$
+ 
++:::
++
+ The count variance grows with rate, while its size relative to the mean falls. Its relative standard deviation is $\sqrt\lambda/\lambda=1/\sqrt\lambda$. This is why collecting more independent spikes can improve a rate estimate. It also means that increasing a firing-rate scale does not keep absolute noise amplitude fixed. Comparisons between networks must specify which quantities are held constant.[^f-poisson]
+ 
+ [**Example: an apparently silent cell and an informative population**]{#sec-foundations-count-example}
+@@ -71,7 +75,7 @@
+ 
+ Other measurements describe other aspects of variability. The [**coefficient of variation**]{.definition-term custom-style="Definition Term"}, or CV, of interspike intervals is their standard deviation divided by their mean. A homogeneous Poisson process has exponential intervals and CV equal to one. More regular firing can have CV below one, as in the ocular motor neurons analyzed in 2022. The count variance divided by mean count is the [**Fano factor**]{.definition-term custom-style="Definition Term"}; its value also depends on the counting interval. CV and Fano factor cannot be substituted for one another without additional assumptions.
+ 
+-## Variance, covariance, and displacement {#sec:FOUNDATIONS-COVARIANCE}
++## Mean squared displacement combines random spread with mean motion {#sec:FOUNDATIONS-COVARIANCE}
+ 
+ To identify where variability enters a pathway, the eye paper compares measurements that share some fluctuations and have other fluctuations of their own. The required probability identities are short, but their interpretation matters.
+ 
+@@ -152,7 +156,7 @@
+ 
+ This construction illustrates the geometry; it is not a fit to eye-neuron recordings. In a larger network, the direction that survives depends on its connection weights and cannot always be found by an ordinary perpendicular projection. Chapter 2 derives the correct projection from the network's linearized dynamics.
+ 
+-## Repeated perturbations become diffusion {#sec:FOUNDATIONS-DIFFUSION}
++## Independent, unbiased changes give linear variance growth {#sec:FOUNDATIONS-DIFFUSION}
+ 
+ If persistent angular changes arrive repeatedly, their errors accumulate. Divide time into intervals of length $\Delta t$. Let $\xi_j$ be the change in the represented coordinate during interval $j$. Assume independent increments with mean zero and variance $2D\Delta t$, where $D$ has units coordinate squared per time. After $n$ intervals,
+ 
+@@ -213,7 +217,7 @@
+ 
+ A finite range, a periodic coordinate, external feedback, or a position-dependent diffusion coefficient changes long-time behavior. For example, ordinary squared angular distance on a ring cannot keep growing linearly forever. The basic $2Dt$ result is local or unbounded unless those conditions are treated separately.
+ 
+-## Randomness across time and across space {#sec:FOUNDATIONS-RANDOMNESS}
++## A fixed spatial map differs from a value that wanders over time {#sec:FOUNDATIONS-RANDOMNESS}
+ 
+ The memory and eye papers study fluctuations that accumulate as time passes. The place-field paper instead starts with a random function of physical position. Once drawn for a cell and an environment, that function is fixed while the animal moves through the map. Revisiting a place evaluates the same expected-rate function, although the actual spikes can still vary from visit to visit.
+ 

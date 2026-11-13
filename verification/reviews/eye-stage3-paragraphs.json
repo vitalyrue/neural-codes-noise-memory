@@ -1,0 +1,2106 @@
+{
+  "input_hash": "4fe98732e64d1bf1022430e600d6c0c3549921022a3d090813113cffaa877885",
+  "review_contract_hash": "593934f3af51c49175417df3e4263df20a0835575d099bad4f0070163b4a17dc",
+  "paragraphs": [
+    {
+      "line": 3,
+      "end_line": 3,
+      "kind": "prose",
+      "text": "Looking steadily at a small spot does not hold the eye perfectly still. Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style=\"Definition Term\"}, the eye makes a small, smooth, irregular movement called [**fixational drift**]{.definition-term custom-style=\"Definition Term\"}. Does this movement begin as noise in the muscles, or does the brain send a changing command to them? Ben-Shushan and colleagues answer this in two stages. Their recordings support a large shared drive upstream of the motor neurons. Their model then proposes a particular source: random motion of the eye position stored in a memory circuit.[^p2-question]",
+      "source_hash": "ebd17e26c2f45cd5afff890a50f0ce176c29dfbb28e8935db9492f1147329e05",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::ch:EYE-DRIFT::p3",
+      "previous": null,
+      "next": "p5",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::ch:EYE-DRIFT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Raise the observable drift question and separate the recording result from the proposed circuit source.",
+        "connection": "Starts from looking at a spot; prepares the internal-to-muscle distinction in p5.",
+        "decision": "retain",
+        "reason": "The reader can identify the movement and knows that measured sharing and an integrator explanation have different evidence."
+      }
+    },
+    {
+      "line": 5,
+      "end_line": 5,
+      "kind": "prose",
+      "text": "This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory.",
+      "source_hash": "ca0bc9dead0d4e995e3e496d098a0a1213854eccf928570a5bf5ff1473f4f55a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::ch:EYE-DRIFT::p5",
+      "previous": "p3",
+      "next": "p9",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::ch:EYE-DRIFT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain why internal diffusion must be transformed before comparison with eye motion.",
+        "connection": "Connects the preceding memory chapters to the pathway introduced at p9.",
+        "decision": "retain",
+        "reason": "Without this bridge, a smooth eye path could seem inconsistent with Brownian memory motion."
+      }
+    },
+    {
+      "line": 9,
+      "end_line": 9,
+      "kind": "prose",
+      "text": "The eye needs an ongoing command to maintain a position. A brief command to move is therefore insufficient: after the movement, a circuit must maintain activity representing the new position. The [**oculomotor integrator**]{.definition-term custom-style=\"Definition Term\"} is the neural circuit that performs this storage. “Integrator” refers to turning a movement command into a lasting position signal. In the proposed mechanism, the continuous attractor described in Chapters 1 and 2 stores horizontal eye position. Noise moves the stored value along that attractor.[^p2-pathway]",
+      "source_hash": "98346f6bbadeb4bd2fca3539c7b0e04f344b0708e160c2415c3cb7d790d8b5cf",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-PATHWAY::p9",
+      "previous": "p5",
+      "next": "p11",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-PATHWAY",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain why eye position needs persistent activity and identify the integrator's storage role.",
+        "connection": "Answers p5's need to follow the internal command before it reaches muscles.",
+        "decision": "retain",
+        "reason": "An ongoing command and a maintained coordinate have concrete roles before the attractor is used."
+      }
+    },
+    {
+      "line": 11,
+      "end_line": 11,
+      "kind": "prose",
+      "text": "The signal reaches [**ocular motoneurons (OMNs)**]{.definition-term custom-style=\"Definition Term\"}, neurons whose spikes activate the eye muscles. The recordings came from the [**abducens nucleus**]{.definition-term custom-style=\"Definition Term\"}, a group of brainstem neurons that includes OMNs activating the lateral rectus muscle, which turns the eye outward. Other neurons in that nucleus carry signals to other neurons rather than directly to muscle. The study separated these cell types using their eye movement response parameters. Finally, the muscles and the mechanical properties of the eye, together called the [**ocular plant**]{.definition-term custom-style=\"Definition Term\"}, turn neural activity into movement.[^p2-recordings]",
+      "source_hash": "326229916f9e18672b79d20aa5c7df46733a620ecb497ec93a340ebbb62f64d5",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-PATHWAY::p11",
+      "previous": "p9",
+      "next": "p13",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-PATHWAY",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Identify OMNs, the recording nucleus and the plant, with their distinct actions.",
+        "connection": "Continues the command pathway from p9 and supplies the actors separated in p13.",
+        "decision": "retain",
+        "reason": "The reader can distinguish a recorded muscle-driving cell from other local cells and from downstream mechanics."
+      }
+    },
+    {
+      "line": 13,
+      "end_line": 13,
+      "kind": "prose",
+      "text": "There are three possible contributions to an observed drift: a changing shared command sent to many OMNs, private spike variability in individual OMNs, and variability after those neurons, including muscle and measurement noise. Private spike fluctuations can partly cancel when many neurons act together. A common command survives this averaging. This is why the noisy activity of one neuron can reveal a source that dominates the much smoother eye movement.",
+      "source_hash": "d97e2460fbe82bb871fc0319c264f71113bc2af4c015683911d7736f37fc7693",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-PATHWAY::p13",
+      "previous": "p11",
+      "next": "p17",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-PATHWAY",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Separate common command fluctuations from private neural and downstream noise.",
+        "connection": "Uses p11's pathway to motivate the later covariance comparison.",
+        "decision": "retain",
+        "reason": "Averaging explains how a single noisy cell can still share the movement's dominant drive."
+      }
+    },
+    {
+      "line": 17,
+      "end_line": 17,
+      "kind": "prose",
+      "text": "The authors reanalyzed earlier experiments in two male rhesus macaques. The animals first fixated a stationary target and then tracked a moving target. A wire search coil on one eye measured eye position while an electrode recorded one neuron's spikes. There were 57 identified OMNs. Each recording paired one OMN with eye movement; there were no simultaneous recordings of multiple OMNs. Thus the analysis cannot directly measure the covariance between two recorded motor neurons.[^p2-recordings][^p2-single]",
+      "source_hash": "f8a740447bda1c1c53c16adebc30af97cc2b73076a1419a10bfee56992b223b1",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-RECORDINGS::p17",
+      "previous": "p13",
+      "next": "p19",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-RECORDINGS",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State what was measured together and the number of animals and cells.",
+        "connection": "Turns p13's proposed source separation into the actual available observations.",
+        "decision": "retain",
+        "reason": "Single-cell/eye pairs support the later method while ruling out a mistaken assumption of simultaneous neuron-pair covariance."
+      }
+    },
+    {
+      "line": 19,
+      "end_line": 19,
+      "kind": "prose",
+      "text": "The initial stationary target was followed by 500–700 ms of required fixation before the target stepped and began moving. Neural voltage was sampled at 25 kHz and eye position at 1 kHz. The authors detected microsaccades using eye speed and acceleration, removed 30 ms on each side of them, and manually checked the remaining segments. For the main displacement analysis, segments shorter than 350 ms were excluded and longer ones were split into nonoverlapping 350 ms pieces. There were 302 such pieces per cell on average, with different counts across cells. These repeated observations improve estimates within two animals; they do not create 57 independent animal samples.[^p2-segments]",
+      "source_hash": "2619e69fdb09ac2d7d66b5c6495d49fb63dd6924a2b866b628207d75ff7cd44d",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-RECORDINGS::p19",
+      "previous": "p17",
+      "next": "p21",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-RECORDINGS",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain segment selection, timing and the level at which repeated samples add information.",
+        "connection": "Builds the usable displacement sample from p17's recordings before fitting and statistics.",
+        "decision": "retain",
+        "reason": "The reader knows where 350 ms pairs come from and does not mistake many segments or cells for many animals."
+      }
+    },
+    {
+      "line": 21,
+      "end_line": 21,
+      "kind": "prose",
+      "text": "The large movements have a useful role even though the scientific question concerns tiny drifts. They produce enough rate change to estimate how each cell's activity depends on eye movement. The fitted relationship is then applied during fixation. This transfer is an assumption to examine, because an incorrect [**gain**]{.definition-term custom-style=\"Definition Term\"} during drift would change the inferred common variance. Gain is the scale that converts a change in one signal into a change in the other.",
+      "source_hash": "c0f6b279f91fc458ea3231543ac04923d1f7f24e60c06feac718b6420164efd8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-RECORDINGS::p21",
+      "previous": "p19",
+      "next": "p25",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-RECORDINGS",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain why large movements calibrate the later drift analysis and define gain.",
+        "connection": "Connects the experimental sequence with the forward fit at p25.",
+        "decision": "retain",
+        "reason": "The transfer assumption is motivated before it is needed to interpret common variance."
+      }
+    },
+    {
+      "line": 25,
+      "end_line": 25,
+      "kind": "prose",
+      "text": "Position alone does not predict a motor neuron's activity during a movement. At the same position, firing can differ when the eye is moving or accelerating. The paper therefore fits",
+      "source_hash": "2d5a4bd1401864e33fc9fc4990186090a957c2651f19cbb7b6cbd5e46eb26288",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT::p25",
+      "previous": "p21",
+      "next": "p32",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain why position, velocity and acceleration enter the fit.",
+        "connection": "Uses the large-movement calibration question from p21 to introduce the next equation.",
+        "decision": "retain",
+        "reason": "The reader sees a reason for three predictors before reading their coefficients."
+      }
+    },
+    {
+      "line": 32,
+      "end_line": 32,
+      "kind": "prose",
+      "text": "Here $E$ is horizontal eye position in degrees and $\\widehat f$ is predicted firing rate in spikes/s. The position threshold $E_T$ sets where the position term reaches zero. The coefficients have units",
+      "source_hash": "35fbef1321d69097d5535fe106bd53ca030f8ada3646621fe938d6269e80e804",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT::p32",
+      "previous": "p25",
+      "next": "p40",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Assign physical meanings and units to position, predicted rate and threshold.",
+        "connection": "Interprets the preceding forward equation before the coefficient-unit display.",
+        "decision": "retain",
+        "reason": "The threshold is explicitly for the position term, preventing a wrong dynamic-rate interpretation."
+      }
+    },
+    {
+      "line": 40,
+      "end_line": 40,
+      "kind": "prose",
+      "text": "Multiplying by position, velocity, and acceleration gives spikes/s in all three terms. The delay $\\Delta t$ is in seconds: firing at time $t$ predicts movement at the later time $t+\\Delta t$ for a positive neural lead. This is the paper's Eq. 2, including its threshold and time shift.[^p2-forward]",
+      "source_hash": "c429a3f0eb82cb1acf60cb183ba8a898a8e568f9a0da15d3a0bcee8853ffa5c5",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT::p40",
+      "previous": "p32",
+      "next": "p42",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Check dimensional consistency and explain the positive neural lead.",
+        "connection": "Completes the units introduced in p32 and prepares comparison with sampled firing.",
+        "decision": "retain",
+        "reason": "The timing sign will later determine the direction of the inverse kernel's delay."
+      }
+    },
+    {
+      "line": 42,
+      "end_line": 42,
+      "kind": "prose",
+      "text": "The observed rate $f(t)$ was estimated as the inverse of the interval between successive spikes, constant between those spikes. For each cell, the authors minimized the sum of squared rate errors,",
+      "source_hash": "f3fc314e12bf31a6fd59e7b34dfb99e911184c925b34e79a5945cd1023947062",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT::p42",
+      "previous": "p40",
+      "next": "p49",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Specify the observed-rate estimate and squared-error fitting goal.",
+        "connection": "Moves from the proposed predictor to how its parameters are chosen in data.",
+        "decision": "retain",
+        "reason": "The loss equation has a concrete observed and predicted quantity rather than unexplained symbols."
+      }
+    },
+    {
+      "line": 49,
+      "end_line": 49,
+      "kind": "prose",
+      "text": "$a$ labels trials and $T_a$ is trial duration. This is Eq. 3 with the trial count renamed so that it cannot be confused with a neuron count. Fits used full trials, including fixation and pursuit. To predict a trial's rate, that trial was left out of the parameter fit. Acceleration was estimated from velocity after local polynomial smoothing over 21 ms. Trials in which the rate fell below 20 Hz were discarded: the linear formula is intended for active cells above firing threshold, whereas firing cannot become negative.[^p2-forward]",
+      "source_hash": "c36d17f381179b57d22c89b867c01ec25faa88683b6c1562b24179d0ee188176",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT::p49",
+      "previous": "p42",
+      "next": "p51",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain trial indices, held-out prediction, acceleration estimation and active-rate restriction.",
+        "connection": "Interprets the loss then specifies the conditions of the rate comparison in p51.",
+        "decision": "retain",
+        "reason": "The reader can distinguish parameter fitting from held-out prediction and see why the linear rule is restricted."
+      }
+    },
+    {
+      "line": 51,
+      "end_line": 51,
+      "kind": "prose",
+      "text": "During fixation, the authors subtracted each segment's mean firing rate, joined the segments, and compared observed and predicted rate fluctuations. Figure 1c illustrates a weak relationship for one cell; Fig. 1d shows a positive population effect. The one sided test asks whether the mean correlation is positive, compared with a zero-mean reference. Its [**p value**]{.definition-term custom-style=\"Definition Term\"} is the probability, under that reference, of a test statistic at least as large as observed. Across 57 cells it gave $p=3\\times10^{-9}$. A weak single cell relationship is expected here because the tiny movement produces small rate changes against much larger spike variability. This is the first evidence of a relationship, before any estimate of the fraction of common motion.[^p2-rate-result]",
+      "source_hash": "e7c421b6dbe3a43a533b79a2e228dd1b59209fd8d1af1c8f68a7562f9624bb7c",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT::p51",
+      "previous": "p49",
+      "next": "p55",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FORWARD-FIT",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Report the first fixation relationship and explain its statistical comparison.",
+        "connection": "Uses the fitted predictions to establish a relationship before asking how much motion is shared.",
+        "decision": "retain",
+        "reason": "The p-value meaning and private-noise explanation prevent treating weak single-cell correlation as absence of a common drive."
+      }
+    },
+    {
+      "line": 55,
+      "end_line": 55,
+      "kind": "prose",
+      "text": "To ask how much eye movement is shared with a neuron, it helps to express both signals in degrees. The paper reverses the fitted relationship: a cell's spike train becomes the input, and its prediction of eye position becomes the output. This operation is an inverse of the movement-to-rate fit, rather than a new fit to small drift residuals.",
+      "source_hash": "bde35c11ee6ec82d0faafab73d5dce7cf71d5e140a64ea7f6bf8e66ee4f55ace",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p55",
+      "previous": "p51",
+      "next": "p57",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Motivate inversion as a conversion into common eye-position units.",
+        "connection": "Continues from rate correlation to the quantity required for the variance question.",
+        "decision": "retain",
+        "reason": "The reader knows the inversion reuses calibration rather than fitting the small drift outcome anew."
+      }
+    },
+    {
+      "line": 57,
+      "end_line": 57,
+      "kind": "prose",
+      "text": "Let $x(t)=E(t)-E_T$. Ignoring the time shift for a moment, the deterministic relation is",
+      "source_hash": "4f6c7d464c5f055b961eb1cbfceab1493dc76af31b519d8f4014631f024aa40f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p57",
+      "previous": "p55",
+      "next": "p63",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Remove the constant threshold to expose a linear differential relation.",
+        "connection": "Sets up the algebraic inversion motivated in p55.",
+        "decision": "retain",
+        "reason": "The substitution makes clear which part of position is predicted by the filter and which is added back."
+      }
+    },
+    {
+      "line": 63,
+      "end_line": 63,
+      "kind": "prose",
+      "text": "A [**causal filter**]{.definition-term custom-style=\"Definition Term\"} computes its present output from present and past input. For the equation above, its [**impulse response**]{.definition-term custom-style=\"Definition Term\"} $h_0(u)$ is the position response to one instantaneous spike at time zero. To factor the equation, consider a time component $e^{pt}$: differentiation multiplies it by $p$. The algebraic ratio of output to input for that component is",
+      "source_hash": "7f48654e5c8ea2f33c055c5899c633f4f0fe48408a259f6f7406c7737c73172a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p63",
+      "previous": "p57",
+      "next": "p70",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define causal filtering and impulse response, then obtain the exponential-component ratio.",
+        "connection": "Introduces the objects used in the factorization and forthcoming kernel construction.",
+        "decision": "retain",
+        "reason": "The definitions and exponential derivative rule are enough for the algebra here; the later inverse correspondence still needs the repair at p84."
+      }
+    },
+    {
+      "line": 70,
+      "end_line": 70,
+      "kind": "prose",
+      "text": "Factoring the quadratic gives the slow and fast decay times",
+      "source_hash": "19dbd09a54232a01ba1f66b8e50cd5c1f1d56443af3ae6383d94723a2d4a446f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p70",
+      "previous": "p63",
+      "next": "p77",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the two decay times obtained from the quadratic.",
+        "connection": "Connects the factored denominator to physically interpretable rates of decay.",
+        "decision": "retain",
+        "reason": "The following formula is presented as the result of solving that factorization rather than an unexplained fitted parameter pair."
+      }
+    },
+    {
+      "line": 77,
+      "end_line": 77,
+      "kind": "prose",
+      "text": "These are the paired signs in the paper's Eq. 7, with $\\tau_+>\\tau_-$ when $k,r,m>0$ and $r^2>4km$. In this case both components decay without oscillation. The same factorization gives two useful identities:",
+      "source_hash": "efae1bfe1de1d6e6373840e64544427f7b1283ecf19a2cd03beaa0d935fe4881",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p77",
+      "previous": "p70",
+      "next": "p84",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State the nonoscillatory domain and two identities linking fit coefficients to times.",
+        "connection": "Interprets the time-constant formulas and prepares the normalization/example checks.",
+        "decision": "retain",
+        "reason": "The reader sees when the real exponential form applies and has relations needed to check its gain."
+      }
+    },
+    {
+      "line": 84,
+      "end_line": 84,
+      "kind": "prose",
+      "text": "Partial fractions separate this ratio into terms proportional to $1/(p+1/\\tau)$. Each such term corresponds to a causal exponential response $\\Theta(u)e^{-u/\\tau}$: it decays at rate $1/\\tau$ after a unit jump at zero. Combining the two terms gives",
+      "source_hash": "d6553945a8a4df132966d2f3a78c19ce81cede3ae3378d7149c7740e290e5c30",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p84",
+      "previous": "p77",
+      "next": "p92",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Convert the factored response into a time-domain spike kernel.",
+        "connection": "Must connect H0(p) and partial fractions to the displayed h0 formula.",
+        "decision": "revise",
+        "reason": "Revise: the inverse correspondence from 1/(p+1/tau) to a causal exponential is asserted without teaching the needed transform rule; show the direct post-spike differential-equation solution and jump conditions instead."
+      }
+    },
+    {
+      "line": 92,
+      "end_line": 92,
+      "kind": "prose",
+      "text": "$\\Theta(u)$ is zero for $u<0$ and one for $u>0$; it imposes causality. Restoring the fitted neural lead delays this response: $h(u)=h_0(u-\\Delta t)$. Write the spike train as $\\xi(t)=\\sum_j\\delta(t-t_j)$, where $\\delta$ is an ideal instantaneous impulse of unit area, so integration over one spike counts one event. The prediction is",
+      "source_hash": "17b1baaff251def1ac150a79aebb365830c810003d113f5b384376630eed77b0",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p92",
+      "previous": "p84",
+      "next": "p99",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define causal support and the spike impulse, restore delay and build the position prediction.",
+        "connection": "Uses the kernel from the preceding derivation and introduces the sum over actual spikes.",
+        "decision": "retain",
+        "reason": "The reader can interpret the delayed response and why a train of impulses contributes a sum of past responses."
+      }
+    },
+    {
+      "line": 99,
+      "end_line": 99,
+      "kind": "prose",
+      "text": "These expressions reproduce Eqs. 4–6, including the factor $\\tau_+\\tau_-/m$ and the delay. The [**convolution**]{.definition-term custom-style=\"Definition Term\"} integral adds the responses to all past spikes. With spike count treated as a count, $\\xi$ has units spikes/s and $h$ has units degrees/spike. Each spike contributes a decaying position response; adding those responses produces degrees.[^p2-inversion]",
+      "source_hash": "94fdba405561135fb2ffbc1d55ee5e10ed896152ae5250c4fac6439430ea4c04",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p99",
+      "previous": "p92",
+      "next": "p101",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain convolution as summing spike responses and check the prediction's physical units.",
+        "connection": "Interprets the preceding integral before checking its total response scale.",
+        "decision": "retain",
+        "reason": "The operation is tied to actual spikes, not left as an unfamiliar symbol or a new fit."
+      }
+    },
+    {
+      "line": 101,
+      "end_line": 101,
+      "kind": "prose",
+      "text": "The kernel's area checks its normalization:",
+      "source_hash": "1682b05d154bb130d709606004cc56a1752f384ec76339a5c9586211f2f1c302",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p101",
+      "previous": "p99",
+      "next": "p109",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Set up the area check of the inverse response.",
+        "connection": "Follows the convolution units and leads directly to the normalization integral.",
+        "decision": "retain",
+        "reason": "The integral tests whether the filter converts constant neural drive into the right position change."
+      }
+    },
+    {
+      "line": 109,
+      "end_line": 109,
+      "kind": "prose",
+      "text": "Thus a constant input rate $f_0$ predicts $E_T+f_0/k$, exactly the static forward relation. A kernel with unit area would give the wrong conversion unless $k$ had already been absorbed into the input. When the two decay times coincide, $r^2=4km$, the limit is $h_0(u)=\\Theta(u)u e^{-u/\\tau}/m$. The distinct exponential formula is used for the fitted responses in the paper.",
+      "source_hash": "9342257b323d29a7490feb94bbe753fbac3b7da45624d5c8c5781848515e0a92",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p109",
+      "previous": "p101",
+      "next": "p111",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret constant-rate gain and give the coinciding-time-constant limit.",
+        "connection": "Turns the area calculation into a static check and handles the displayed formula's degenerate case.",
+        "decision": "retain",
+        "reason": "The response has the right position conversion, and the equal-times case is explained without a control-theory label."
+      }
+    },
+    {
+      "line": 111,
+      "end_line": 111,
+      "kind": "prose",
+      "text": "For a constructed example, take $k=4$ spikes/(s deg), $\\tau_+=0.120$ s, and $\\tau_-=0.005$ s. The identities above require $r=0.500$ spikes/deg and $m=0.00240$ spikes s/deg. Then",
+      "source_hash": "9b2ee830691f3039bde3143aa4ee58dbc946248e991762c153bd2baf666366b1",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p111",
+      "previous": "p109",
+      "next": "p118",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Choose physical coefficients and times for a constructed response example.",
+        "connection": "Uses the earlier identities to instantiate the kernel and preserve linked parameter values.",
+        "decision": "retain",
+        "reason": "The example tests consistent parameter choices rather than choosing unrelated time constants and coefficients."
+      }
+    },
+    {
+      "line": 118,
+      "end_line": 118,
+      "kind": "prose",
+      "text": "and its area is $2.174(0.120-0.005)=0.250$ deg s/spike, equal to $1/k$. A steady rate of 80 spikes/s predicts an offset of 20 degrees above $E_T$. This checks the gain as well as the time constants; it is not a fit to a recorded cell.",
+      "source_hash": "8c7bd8b13dc15819406aa2a41498f782c06fdd5848a2979e41a963c86d646976",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p118",
+      "previous": "p111",
+      "next": "p120",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the example's area and steady-rate position prediction.",
+        "connection": "Completes the displayed numerical response then returns to recorded fitted responses in p120.",
+        "decision": "retain",
+        "reason": "Both shape and gain are checked, and the invented example is not mistaken for a measured neuron."
+      }
+    },
+    {
+      "line": 120,
+      "end_line": 120,
+      "kind": "prose",
+      "text": "Figure 2a–b shows typical fitted times of about 5 ms and 120 ms. Figure 2c shows that a single cell's reconstructed drift is much noisier than the measured movement. Across 350 ms displacement pairs, the mean Pearson correlation was $\\langle R\\rangle=0.17\\pm0.02$, where the error is the [**standard error of the mean (SEM)**]{.definition-term custom-style=\"Definition Term\"}. SEM estimates uncertainty in the across-cell mean, rather than the spread of individual cells or uncertainty across animals. The one sided test gave $p=3.8\\times10^{-12}$. Shuffling which measured segment was paired with which spike prediction centered the comparison near zero. Here and below $\\langle\\cdot\\rangle$ over cells means a population average.[^p2-correlation]",
+      "source_hash": "2f42fd739920fd78587ec66c674b3c2ec94a21bf618217a41963038e35b868b0",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p120",
+      "previous": "p118",
+      "next": "p124",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Report the reconstructed-motion correlation, its uncertainty and shuffle comparison.",
+        "connection": "Connects the completed inverse filter to actual displacement measurements before the population bound.",
+        "decision": "retain",
+        "reason": "SEM is scoped to the across-cell mean; shuffling supplies an interpretable comparison for a weak observed correlation."
+      }
+    },
+    {
+      "line": 124,
+      "end_line": 124,
+      "kind": "prose",
+      "text": "A correlation of 0.17 does not immediately tell us how much motion comes from the common command. First we can ask a more limited question: could all the motion come from independent motor neuron fluctuations?",
+      "source_hash": "b54158d1b0264f8858ec0971143edd70bb5633c70c4b329e7ea088dd725c42bf",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p124",
+      "previous": "p120",
+      "next": "p126",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Separate detecting sharing from estimating its fraction.",
+        "connection": "Uses p120's small correlation to ask whether private noise alone could explain it.",
+        "decision": "retain",
+        "reason": "The reader has a concrete limited question before the regression and population-bound derivations."
+      }
+    },
+    {
+      "line": 126,
+      "end_line": 126,
+      "kind": "prose",
+      "text": "For a centered displacement $Y$ and one centered prediction $X$, the best linear prediction $bX$ minimizes $\\operatorname{Var}(Y-bX)$. Differentiating with respect to $b$ gives $b=\\operatorname{Cov}(X,Y)/\\operatorname{Var}(X)$. Its explained fraction of variance is",
+      "source_hash": "7b91bf7f7698525cd5c8f1eb6f2895f170f6d4d45c4d9a54f438660a098f924f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p126",
+      "previous": "p124",
+      "next": "p134",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Derive the fitted linear predictor and its explained-variance fraction.",
+        "connection": "Introduces the meaning of R squared used to answer p124.",
+        "decision": "retain",
+        "reason": "The scalar rescaling is explicit, so the result is not confused with raw predictor accuracy."
+      }
+    },
+    {
+      "line": 134,
+      "end_line": 134,
+      "kind": "prose",
+      "text": "This is the [**coefficient of determination**]{.definition-term custom-style=\"Definition Term\"} for a linear prediction with a fitted gain. It does not assert that the raw, unscaled position predictor itself has a small squared error.",
+      "source_hash": "5e6c5d292149e1cff11a4989c8f329d9f8f425a66076641ee95848e2644e5f6c",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p134",
+      "previous": "p126",
+      "next": "p136",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Name the derived coefficient and distinguish it from unscaled prediction error.",
+        "connection": "Interprets the preceding R-squared identity before extending to many neurons.",
+        "decision": "retain",
+        "reason": "The reader can use the explanatory fraction without assuming the noisy single-neuron trajectory is accurate in degrees."
+      }
+    },
+    {
+      "line": 136,
+      "end_line": 136,
+      "kind": "prose",
+      "text": "Suppose there are $N_m$ independent single neuron predictors $X_i$. Standardize each to variance one and also standardize $Y$. Independence makes the $X_i$ uncorrelated, so the residual after using them all has variance",
+      "source_hash": "19e045d8607cf3876e73fdbde10520406a5e677e00c0c12c4b2e1857a8d6b503",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p136",
+      "previous": "p134",
+      "next": "p144",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Set up standardized independent predictors for the residual-variance bound.",
+        "connection": "Extends the single-predictor argument to the relevant motor population.",
+        "decision": "retain",
+        "reason": "Centering is supplied by p126 and unit variances let the cross terms in the next equation be followed."
+      }
+    },
+    {
+      "line": 144,
+      "end_line": 144,
+      "kind": "prose",
+      "text": "Consequently $\\sum_iR_i^2\\le1$, and an average neuron explains at most $1/N_m$. This proves the bound used in Supplementary Eq. S1. It does not require equal muscle effects from all neurons. Applying it to the sampled cells does require their average explanatory power to represent the relevant motor population.[^p2-independent-bound]",
+      "source_hash": "87bd59ca3ad47cbbf9f483a691c623d8d48f9f9801046f709ee61ad1b5739a64",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p144",
+      "previous": "p136",
+      "next": "p146",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the sum bound and state the representative-sample condition.",
+        "connection": "Reads the nonnegative residual variance as a population-average limit.",
+        "decision": "retain",
+        "reason": "The bound does not quietly assume equal motor effects or that the recorded subset represents every motor neuron automatically."
+      }
+    },
+    {
+      "line": 146,
+      "end_line": 146,
+      "kind": "prose",
+      "text": "The authors avoid directly averaging noisy squared correlations. Instead,",
+      "source_hash": "0514e747eaf71b383c2e16919c381e3a8ef595ae2542aeaa531c338157ab6990",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p146",
+      "previous": "p144",
+      "next": "p154",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce a less noise-sensitive way to bound mean squared correlation.",
+        "connection": "Connects the population limit with the available measured mean R.",
+        "decision": "retain",
+        "reason": "The variance identity that follows is motivated by uncertainty in squared individual estimates."
+      }
+    },
+    {
+      "line": 154,
+      "end_line": 154,
+      "kind": "prose",
+      "text": "Thus the estimated mean correlation implies an average explained fraction of at least about 2.9%. For 1,000 independently contributing motor neurons, the bound would be 0.1%; for several thousand it is smaller. The mismatch argues against independent OMN noise as the sole source. Shared fluctuations can allow many cells to explain the same part of the movement, so their explained fractions can overlap.[^p2-independent-bound]",
+      "source_hash": "10e160e7aaec8a9ca157723de606011692baf3f7538c100a731e753b8de2bad2",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p154",
+      "previous": "p146",
+      "next": "p156",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Compare the empirical lower estimate with the independent population limit.",
+        "connection": "Uses both preceding inequalities to answer p124's private-noise question.",
+        "decision": "retain",
+        "reason": "The reader sees why 2.9 percent is too large for the illustrative thousand-neuron independent model."
+      }
+    },
+    {
+      "line": 156,
+      "end_line": 156,
+      "kind": "prose",
+      "text": "This step finds shared variation. Locating its source upstream also uses a biological premise: the private variability generated within OMNs is taken to be independent across cells. The paper supports that premise using anatomical and stimulation studies indicating little local recurrent coupling in the relevant motor nuclei. It was not tested by simultaneous recordings in this data set. Common inputs can correlate the total activity of OMNs even when their privately generated spike noise is independent.[^p2-independence]",
+      "source_hash": "56567703098d6aaa1d1e145327c006422918468b8966daa0ac8fff9abcc8dcc9",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE::p156",
+      "previous": "p154",
+      "next": "p160",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SHARED-VARIANCE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State what extra premise localizes shared activity upstream of OMNs.",
+        "connection": "Separates the bound's shared-variation result from the anatomical localization claim.",
+        "decision": "retain",
+        "reason": "The reader does not treat mathematical sharing alone as proof of its biological source or confuse total correlation with private innovations."
+      }
+    },
+    {
+      "line": 160,
+      "end_line": 160,
+      "kind": "prose",
+      "text": "The variance bound establishes that a shared signal exists, but leaves its size open. The next calculation uses the fact that the inverse filter has a calibrated gain in degrees. For one 350 ms interval, write the measured displacement and the single cell prediction as",
+      "source_hash": "69163f9e82f1a289717afbced282845042a4f51f99c5a0672ec5847b693829d0",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p160",
+      "previous": "p156",
+      "next": "p167",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Motivate the calibrated displacement decomposition needed to estimate common fraction.",
+        "connection": "Uses p156's sharing result to ask how large its contribution is.",
+        "decision": "retain",
+        "reason": "The transition explains why the earlier inverse gain matters before introducing C, eta and epsilon."
+      }
+    },
+    {
+      "line": 167,
+      "end_line": 167,
+      "kind": "prose",
+      "text": "where $C=\\delta E_C$ is the common upstream contribution, $\\eta$ combines motor neuron, muscle, and measurement contributions to measured displacement, and $\\epsilon$ is the prediction error from the individual cell. All are displacement variables in degrees. The assumptions are that the common contribution enters both signals with unit gain, meaning the same one-for-one displacement scale, and that $C,\\eta,\\epsilon$ are pairwise uncorrelated to the required accuracy.",
+      "source_hash": "5eaad1504420fc53de872e9e912758178739d07c311e10667820095656a8830b",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p167",
+      "previous": "p160",
+      "next": "p169",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define every component and the required shared-scale and covariance assumptions.",
+        "connection": "Interprets the preceding displacement equations before covariance is expanded.",
+        "decision": "retain",
+        "reason": "The same-size common displacement and three noise relations are visible conditions of the inference."
+      }
+    },
+    {
+      "line": 169,
+      "end_line": 169,
+      "kind": "prose",
+      "text": "Expanding the covariance shows exactly what those assumptions buy:",
+      "source_hash": "d51df87be810a2b313a0e4c69cdfcce0a7d1abc6157b458b11c66767c067e344",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p169",
+      "previous": "p167",
+      "next": "p178",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the expansion that reveals the assumptions' effect.",
+        "connection": "Moves from the explicit decomposition to the covariance calculation.",
+        "decision": "retain",
+        "reason": "The reader knows the purpose of retaining all cross terms in the next equation."
+      }
+    },
+    {
+      "line": 178,
+      "end_line": 178,
+      "kind": "prose",
+      "text": "The common fraction is therefore estimated by",
+      "source_hash": "b72907aed662f01ddc56a1c30fde711d28bb9b2c4e3be6c23ffa0a5cc27d01fe",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p178",
+      "previous": "p169",
+      "next": "p185",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the variance-fraction estimate.",
+        "connection": "Uses the just-derived common covariance to form a dimensionless fraction.",
+        "decision": "retain",
+        "reason": "The following ratio has an identified numerator and measured denominator."
+      }
+    },
+    {
+      "line": 185,
+      "end_line": 185,
+      "kind": "prose",
+      "text": "These are Eqs. 11–15 in displacement form. The gain assumption requires that the relation calibrated during larger movements still applies during drift. There is also a small covariance between $\\epsilon$ and $\\eta$, because the recorded neuron's private spikes contribute both to its predictor and to actual eye motion. The paper neglects this contribution as order $1/N_m$ under its many neuron model.[^p2-chi-method]",
+      "source_hash": "fa0dccc6a37f55f62728761f000ccf545242b050c2e6795366245a86f728d1eb",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p185",
+      "previous": "p178",
+      "next": "p187",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Connect the estimate to calibration transfer and acknowledge a small private-noise overlap.",
+        "connection": "Interprets chi before comparing it with R.",
+        "decision": "retain",
+        "reason": "The approximation is scoped to a many-neuron model rather than treating prediction and measured private noise as exactly unrelated."
+      }
+    },
+    {
+      "line": 187,
+      "end_line": 187,
+      "kind": "prose",
+      "text": "Correlation divides the same covariance by a different denominator:",
+      "source_hash": "01e7757b7ffe43dfc2273cd2895457e71bb691dd44694c85207a8e7d89aa11eb",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p187",
+      "previous": "p185",
+      "next": "p195",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Prepare the direct comparison between correlation and common variance fraction.",
+        "connection": "Uses the same covariance but changes its denominator.",
+        "decision": "retain",
+        "reason": "This makes the next equation answer the reader's natural question about the earlier small R."
+      }
+    },
+    {
+      "line": 195,
+      "end_line": 195,
+      "kind": "prose",
+      "text": "Large private noise in a cell inflates $\\operatorname{Var}(X)$ and makes $R$ small. It need not make the common contribution to the real movement small, because many independent private contributions average down there.",
+      "source_hash": "1645f0bba511a3396180642788336cc4728198be9bd50a9fc44f6ecd0273e6a8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p195",
+      "previous": "p187",
+      "next": "p197",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain why private predictor noise can lower R without lowering common eye-motion fraction.",
+        "connection": "Interprets the preceding denominator relation before giving numbers.",
+        "decision": "retain",
+        "reason": "The same averaging distinction introduced in the pathway now has a precise statistical role."
+      }
+    },
+    {
+      "line": 197,
+      "end_line": 197,
+      "kind": "prose",
+      "text": "**Example: correlation 0.17 with a common fraction 0.82.** These numbers are constructed to expose the distinction, not extracted from individual cells. Take independent centered variables with",
+      "source_hash": "1dc51e3ecb390dbfdf30bcb72a02357ed259fba0c9a4796682ab9c24ae89de9d",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p197",
+      "previous": "p195",
+      "next": "p205",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Set up an explicitly constructed numerical case of small R and large chi.",
+        "connection": "Turns p195's explanation into a testable variance decomposition.",
+        "decision": "retain",
+        "reason": "Independent centered components are supplied before their variances are combined, and invented numbers are not presented as data."
+      }
+    },
+    {
+      "line": 205,
+      "end_line": 205,
+      "kind": "prose",
+      "text": "Then $\\operatorname{Var}(Y)=0.01000$, $\\operatorname{Var}(X)=0.23266$, and $\\operatorname{Cov}(X,Y)=0.00820$, all in deg$^2$. It follows that",
+      "source_hash": "1719591b8fd5b83d7aa0be4ad31c39db34eed0e6295f26374e911180096ae5ef",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p205",
+      "previous": "p197",
+      "next": "p212",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Compute total predictor/movement variances and covariance in the constructed case.",
+        "connection": "Uses the component variances to prepare both resulting ratios.",
+        "decision": "retain",
+        "reason": "The intermediate totals make the contrast reconstructable rather than jumping from inputs to 0.17 and 0.82."
+      }
+    },
+    {
+      "line": 212,
+      "end_line": 212,
+      "kind": "prose",
+      "text": "One cell explains $R^2\\simeq2.89\\%$ of displacement variance after linear rescaling, while the common signal supplies 82% of actual displacement variance. The larger, poorly predicted part of the single cell signal is private prediction noise.",
+      "source_hash": "340326265819a30fbab12ba07ada323a51f6ce430f6a5f60f91ca86cba3efc4f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p212",
+      "previous": "p205",
+      "next": "p214",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the two numerical fractions and identify the noisy part of the cell predictor.",
+        "connection": "Closes the example before returning to noisy experimental estimates.",
+        "decision": "retain",
+        "reason": "The reader can state why one cell's explanatory fraction is much smaller than the shared-source contribution."
+      }
+    },
+    {
+      "line": 214,
+      "end_line": 214,
+      "kind": "prose",
+      "text": "In the experiment, each cell gives a noisy estimate $\\chi_i$, and those estimates can lie outside $[0,1]$. The underlying variance fraction remains in that interval under the model, but the sample covariance need not. The paper estimates each standard error $\\Delta\\chi_i$ mainly from covariance uncertainty, treating the measured displacement variance in the denominator as comparatively well determined. It then uses inverse variance weighting:",
+      "source_hash": "a65b6fdc44c554175747a64e282a650477b18593ddf8eb1d86a93d5a0618d3a5",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p214",
+      "previous": "p212",
+      "next": "p222",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain noisy out-of-range chi estimates and introduce their weighting.",
+        "connection": "Moves from the ideal constructed case to finite-data estimates.",
+        "decision": "retain",
+        "reason": "A sample estimate is separated from the constrained underlying fraction before the averaging formula is used."
+      }
+    },
+    {
+      "line": 222,
+      "end_line": 222,
+      "kind": "prose",
+      "text": "To see the weighting, let normalized weights $a_i$ sum to one. Independent errors give variance $\\sum_i a_i^2(\\Delta\\chi_i)^2$ for $\\sum_i a_i\\chi_i$. Minimizing this subject to $\\sum_i a_i=1$ gives $a_i\\propto1/(\\Delta\\chi_i)^2$ and the error above. The paper additionally assumes approximately normal errors around a common value. The last expression is a propagated estimation error under those assumptions. It does not measure variation across animals or uncertainty in the gain and independence assumptions. The reported result was $0.82\\pm0.07$, a weighted mean and weighted error for horizontal displacement over 350 ms. It is neither a fraction of distance traveled nor the fraction that one neuron's spikes accurately predict.[^p2-chi-error]",
+      "source_hash": "dce33de73aed51db8944cea730d1c0616c4da4f648d765856356d76fd5cd597b",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CHI::p222",
+      "previous": "p214",
+      "next": "p226",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CHI",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Derive the weighting and describe exactly what its reported error measures.",
+        "connection": "Interprets the weighted mean before changing from one interval to a curve of intervals.",
+        "decision": "retain",
+        "reason": "The reader sees why precise cells get more weight and why the error is not animal-level or model-assumption uncertainty."
+      }
+    },
+    {
+      "line": 226,
+      "end_line": 226,
+      "kind": "prose",
+      "text": "The common variance calculation uses one interval length. To learn what kind of process drives motion, the authors next compare displacements at many time separations. As in Chapter 1,",
+      "source_hash": "26ce5377cb79fdb2106ca43e517c647866c0895ffa87077eaf41e22778e6fcd3",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE::p226",
+      "previous": "p222",
+      "next": "p232",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Motivate MSD as a way to examine the time structure rather than one lag.",
+        "connection": "Uses the completed 350 ms fraction analysis to raise a different source question.",
+        "decision": "retain",
+        "reason": "The new statistic follows from a limitation of the preceding analysis rather than a sudden topic change."
+      }
+    },
+    {
+      "line": 232,
+      "end_line": 232,
+      "kind": "prose",
+      "text": "is the mean squared displacement, or MSD, at lag $\\ell$. The data estimate it within each microsaccade free segment, then average the available segment estimates at each lag. Larger lags have fewer eligible segments. The 1 ms sampling sets the available lag spacing.[^p2-msd]",
+      "source_hash": "61e04c7a4d88eae14f10f9fb9dfbcc2d3fea58e34f6077a8eabf1ac7f5d59b63",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE::p232",
+      "previous": "p226",
+      "next": "p234",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define lag-specific MSD estimation and explain which segments contribute.",
+        "connection": "Interprets the MSD equation before discussing short-lag measurement error.",
+        "decision": "retain",
+        "reason": "The reader knows why long lags have fewer samples and why sampling determines available separations."
+      }
+    },
+    {
+      "line": 234,
+      "end_line": 234,
+      "kind": "prose",
+      "text": "At short lags, the displacement can be smaller than the search coil's measurement error. Suppose its reading is $E_{\\rm obs}(t)=E(t)+\\nu(t)$, where the measurement error has zero mean, variance $\\sigma_m^2$, is independent of true movement, and is uncorrelated between distinct sampled times. For a positive lag,",
+      "source_hash": "e08773add4a29e0744fabf3e119cbfd086141cccd240e193df9e6cbc59e5504f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE::p234",
+      "previous": "p232",
+      "next": "p246",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the measured-position error model and its assumptions.",
+        "connection": "Uses the small displacement scale to motivate the upcoming noise correction.",
+        "decision": "retain",
+        "reason": "The positive-lag restriction and uncorrelated measurement errors are stated before deriving the offset."
+      }
+    },
+    {
+      "line": 246,
+      "end_line": 246,
+      "kind": "prose",
+      "text": "The mixed movement-error term vanishes by independence. This is Eqs. 18–19. The correction is the variance of a difference of two errors, $2\\sigma_m^2$, rather than the variance of a single position error. At exactly zero lag the same error is subtracted from itself, so the MSD is zero. A positive lag plateau near zero lag can still occur when successive measurement errors are independent.[^p2-msd-noise]",
+      "source_hash": "e0d20ca4b4a0a1461ac3cdbe79c18120c7eab1f23e8b468e4f451040785f920f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE::p246",
+      "previous": "p234",
+      "next": "p248",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the correction factor of two and distinguish zero lag.",
+        "connection": "Closes the noise-expansion equation and prepares its empirical use.",
+        "decision": "retain",
+        "reason": "The difference between two errors explains the offset, while exact zero lag is not mistakenly assigned the same positive plateau."
+      }
+    },
+    {
+      "line": 248,
+      "end_line": 248,
+      "kind": "prose",
+      "text": "The authors estimated the plateau contribution at order $10^{-3}$ deg$^2$, checked its scale with a coil fixed in space, and subtracted that contribution from the observed MSD. This is a correction of an average statistic, not knowledge of each trial's unknown noise. Smoothing the eye trajectories instead would also change the movement statistics the analysis seeks to measure. If the plateau estimate has uncertainty $10^{-4}$ deg$^2$, a corrected MSD of that size is unreliable even when the plateau itself is much larger. The peer review response uses this example to explain the shortest lag limitation.[^p2-noise-limit]",
+      "source_hash": "a19a889a1b976783f7fe5467fce2658ff9eb64d3b301975383306afb4c0ee1a8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE::p248",
+      "previous": "p246",
+      "next": "p250",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain empirical estimation, subtraction and its uncertainty limit.",
+        "connection": "Applies p246's result to the apparatus and motivates a numerical uncertainty example.",
+        "decision": "retain",
+        "reason": "The correction acts on an average statistic; no impossible trial-by-trial noise removal is implied."
+      }
+    },
+    {
+      "line": 250,
+      "end_line": 250,
+      "kind": "prose",
+      "text": "For instance, a constructed measured MSD of $0.0014$ deg$^2$ with an estimated noise contribution $0.0010$ deg$^2$ leaves $0.0004$ deg$^2$. A $0.0001$ deg$^2$ uncertainty in the subtraction is already 25% of that result. This is why a corrected short lag point needs an uncertainty assessment as well as a positive value. If measurement errors were temporally correlated, the correction would instead be $2[\\sigma_m^2-C_\\nu(\\ell)]$, where $C_\\nu$ is their covariance at lag $\\ell$; a constant subtraction would then need revision.",
+      "source_hash": "3d3ef08daebdef4d2f9c40989a971e5f939a96f451bf400685ca9fc0edd83f3d",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE::p250",
+      "previous": "p248",
+      "next": "p254",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-MEASUREMENT-NOISE",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Show how subtraction uncertainty can dominate a small corrected value and give the correlated-error alternative.",
+        "connection": "Completes the practical correction before interpreting the shape of the corrected curve.",
+        "decision": "retain",
+        "reason": "The reader can assess a positive short-lag point and knows when the constant-offset assumption fails."
+      }
+    },
+    {
+      "line": 254,
+      "end_line": 254,
+      "kind": "prose",
+      "text": "The corrected MSD keeps increasing over the observed range, toward a second, while its logarithmic slope decreases and remains between one and two. Define that local slope by",
+      "source_hash": "0101d6c0734265a938f788bc99e58c63c0a11379abe76b55f0ca8fe03f35f881",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p254",
+      "previous": "p250",
+      "next": "p261",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the observed logarithmic slope as the next feature to explain.",
+        "connection": "Moves from noise-corrected measurements to the time-structure question.",
+        "decision": "retain",
+        "reason": "The formal derivative that follows has a concrete empirical reason."
+      }
+    },
+    {
+      "line": 261,
+      "end_line": 261,
+      "kind": "prose",
+      "text": "Ordinary diffusion has $M=2D\\ell$ and $\\alpha=1$. A roughly constant velocity over a short interval gives displacement $v\\ell$ and $M=\\mathbb E[v^2]\\ell^2$, so $\\alpha=2$. Growth faster than linear is called [**superdiffusion**]{.definition-term custom-style=\"Definition Term\"}. Here it describes a finite range of lags; it does not assert a single power law for arbitrarily long times.[^p2-msd-result]",
+      "source_hash": "ffa29daf5431a65010c2171d6af6d8b676ba47b86589befb6cf9e5c9f6960a7e",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p261",
+      "previous": "p254",
+      "next": "p263",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Anchor slopes one and two in Brownian and nearly constant-velocity motion.",
+        "connection": "Interprets alpha before introducing filtered-noise alternatives.",
+        "decision": "retain",
+        "reason": "Superdiffusion is defined locally and restricted to the observed interval rather than an unlimited power law."
+      }
+    },
+    {
+      "line": 263,
+      "end_line": 263,
+      "kind": "prose",
+      "text": "Could temporally uncorrelated motor noise acquire the observed MSD just by passing through muscles? A [**low pass filter**]{.definition-term custom-style=\"Definition Term\"} suppresses rapid input changes relative to slow ones. [**White noise**]{.definition-term custom-style=\"Definition Term\"} here is an ideal zero mean input whose fluctuations at different times are uncorrelated. In continuous time its strength is defined by an intensity multiplying a delta function, rather than a finite variance at an individual time. A stable, decaying response to this noise produces a [**stationary process**]{.definition-term custom-style=\"Definition Term\"} in the sense needed here: its mean is constant and its covariance depends only on time separation. Its position variance consequently does not grow with absolute time. Let $E=h*\\xi$, where",
+      "source_hash": "e33bf2f79a9c3d2cf4bdf793ee1c0471eceb4ce6775bdd396fe16f43ac37d4e0",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p263",
+      "previous": "p261",
+      "next": "p269",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Pose the filtered-peripheral-noise hypothesis and define low-pass filtering, white noise and stationarity.",
+        "connection": "Uses the observed slope to choose the first competing mechanism.",
+        "decision": "retain",
+        "reason": "The covariance-only form of stationarity needed for the next calculation is stated without requiring full process theory."
+      }
+    },
+    {
+      "line": 269,
+      "end_line": 269,
+      "kind": "prose",
+      "text": "The noise intensity $A$ has units input$^2$ times seconds. Expanding the convolution and using the delta function yields, for $\\ell\\ge0$,",
+      "source_hash": "c5ee64d67fb4139bb2976e02abe152ebbb6c401c04baf0b20e4e9df6433c5397",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p269",
+      "previous": "p263",
+      "next": "p276",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State white-noise intensity units and introduce output covariance from convolution.",
+        "connection": "Continues the defined noise/filter model to a computable correlation function.",
+        "decision": "retain",
+        "reason": "The delta-function role already taught for spikes lets the overlap integral be interpreted as shared input contributions."
+      }
+    },
+    {
+      "line": 276,
+      "end_line": 276,
+      "kind": "prose",
+      "text": "For a stationary centered position, expanding the squared difference then gives",
+      "source_hash": "cce01d885c41ed45bcd0e3c82740bd4087c5ba040a3f17e8aa7c755315402583",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p276",
+      "previous": "p269",
+      "next": "p282",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Relate stationary position covariance to MSD.",
+        "connection": "Uses the overlap covariance to calculate the statistic plotted in the experiment.",
+        "decision": "retain",
+        "reason": "The mean-zero and equal-variance conditions are visible before using the two-covariance difference."
+      }
+    },
+    {
+      "line": 282,
+      "end_line": 282,
+      "kind": "prose",
+      "text": "If the kernel decays sufficiently rapidly, its overlap with a shifted copy tends to zero. The MSD consequently approaches $2C_E(0)$, a finite plateau. This reconstructs the reasoning of Eqs. 20–22.[^p2-white-noise]",
+      "source_hash": "8dc77a94cdb03285ca5537b9157718a263d3f99c8f7a4c0cabc3f62933e00f18",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p282",
+      "previous": "p276",
+      "next": "p284",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain why shifted filter overlap vanishes and the MSD plateaus.",
+        "connection": "Interprets the covariance formula to test the peripheral hypothesis.",
+        "decision": "retain",
+        "reason": "The long-lag consequence follows from decaying response memory rather than from amplitude fitting."
+      }
+    },
+    {
+      "line": 284,
+      "end_line": 284,
+      "kind": "prose",
+      "text": "For the one exponential filter $h(u)=\\Theta(u)e^{-u/\\tau}/\\tau$,",
+      "source_hash": "cfd38f1eba8c38832cd580dd38010703c95906e17fdb2bfce345f9797258724a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p284",
+      "previous": "p282",
+      "next": "p291",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Specify a simple normalized exponential response.",
+        "connection": "Instantiates the general plateau argument before comparing it with Brownian input through the same response.",
+        "decision": "retain",
+        "reason": "A concrete kernel makes the two upcoming mechanisms directly comparable."
+      }
+    },
+    {
+      "line": 291,
+      "end_line": 291,
+      "kind": "prose",
+      "text": "This simple filter has a short lag MSD proportional to $\\ell$ and a long lag plateau. A double exponential filter is smoother at short lags, but still gives a plateau because its kernel also decays. Increasing $A$ raises the curve without removing its flattening. The paper's simulated private OMN noise, passed through muscle dynamics, is both too small and too flat at long lags. In Fig. 3b, using 2,000 heterogeneous OMNs, its contribution is about 1% of the observed variance near 900 ms.[^p2-msd-result]",
+      "source_hash": "567a6f8b08ffe904a9cd0be0f622edfb43ed136a86dbdb6dba94c99e7a72861a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p291",
+      "previous": "p284",
+      "next": "p293",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the white-noise example and reconnect it to the actual heterogeneous OMN comparison.",
+        "connection": "Uses the explicit curve to distinguish raising amplitude from changing time shape.",
+        "decision": "retain",
+        "reason": "The reader understands both why the private-noise amplitude is small and why merely increasing it cannot fix the flattening."
+      }
+    },
+    {
+      "line": 293,
+      "end_line": 293,
+      "kind": "prose",
+      "text": "Now suppose the input is a stored position $B(t)$ undergoing Brownian motion with $\\mathbb E[(B(t+\\ell)-B(t))^2]=2D\\ell$. Its position variance accumulates. A low pass filter with nonzero static gain smooths the path while retaining that accumulating long time displacement variance. The following one exponential example is a teaching reconstruction, not the paper's full muscle model. It derives how smooth movement can have a slope between one and two even though the stored position undergoes ordinary diffusion.",
+      "source_hash": "0eaa6747317025286196d97819920f989b6ffaf105cedda032a8e16fd2f9531a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p293",
+      "previous": "p291",
+      "next": "p295",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Replace stationary noise by a diffusing stored-position input and state the teaching model's scope.",
+        "connection": "Sets up the alternative suggested by the failed plateau prediction.",
+        "decision": "retain",
+        "reason": "The input's accumulating variance and the nonzero static gain are identified before the differential model is introduced."
+      }
+    },
+    {
+      "line": 295,
+      "end_line": 295,
+      "kind": "prose",
+      "text": "Let",
+      "source_hash": "e947a3d4f4a1b23611f8aa204b2bb149785cfb02f5ccc687d1eb10b059e0d5aa",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p295",
+      "previous": "p293",
+      "next": "p301",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the simple dynamical equations of the Brownian-input example.",
+        "connection": "Continues the fully specified teaching reconstruction from p293.",
+        "decision": "retain",
+        "reason": "This short lead-in belongs with the following equations and adds no unsupported new assumption."
+      }
+    },
+    {
+      "line": 301,
+      "end_line": 301,
+      "kind": "prose",
+      "text": "$W$ is a Brownian process with unit increment variance per unit time, so $D$ has units deg$^2$/s. Define velocity $v=\\dot E=(B-E)/\\tau$. Taking its increment gives",
+      "source_hash": "03177a907301b9e678f307fdd80b75bf6bb748779998697b242e77837f2c9dad",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p301",
+      "previous": "p295",
+      "next": "p307",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Identify Brownian increment units and define the resulting eye velocity.",
+        "connection": "Interprets the example equations then derives the velocity increment equation.",
+        "decision": "retain",
+        "reason": "Velocity is expressed through B minus E, making the subtraction leading to its dynamics follow from calculus."
+      }
+    },
+    {
+      "line": 307,
+      "end_line": 307,
+      "kind": "prose",
+      "text": "Velocity loses its past value over time $\\tau$ and receives new random input. After its velocity transient has decayed, its solution is",
+      "source_hash": "5282ab793765fc39b4e9df56c74dc171e7d37e79ac45138ae4011e83fe52e20c",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p307",
+      "previous": "p301",
+      "next": "p315",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain velocity decay and state the after-transient solution and covariance.",
+        "connection": "Uses the velocity equation to prepare an integrated-velocity MSD.",
+        "decision": "retain",
+        "reason": "The initial-state influence is explicitly excluded from the stationary velocity calculation."
+      }
+    },
+    {
+      "line": 315,
+      "end_line": 315,
+      "kind": "prose",
+      "text": "The covariance follows by multiplying the two integrals: only their shared increments contribute, with the same exponential overlap as in the white noise calculation. Integrating velocity over an interval gives position change. The double integral over its covariance reduces to",
+      "source_hash": "77982f2934e213bed74656dc75146d62d0d0dc6fd78039297d985a7132009ce4",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p315",
+      "previous": "p307",
+      "next": "p326",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain the shared-increment covariance and why integrating it gives displacement variance.",
+        "connection": "Connects the velocity solution to the three-line MSD derivation.",
+        "decision": "retain",
+        "reason": "Earlier Brownian increment independence and the white-noise overlap integral supply the probability rule; the remaining integration is undergraduate calculus."
+      }
+    },
+    {
+      "line": 326,
+      "end_line": 326,
+      "kind": "prose",
+      "text": "At short lags, $1-e^{-\\ell/\\tau}=\\ell/\\tau-\\ell^2/(2\\tau^2)+\\cdots$, so",
+      "source_hash": "9e017f94ea3a08ca3f895cb3f314a9531f130a3879b2a838c87dd868655fd426",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p326",
+      "previous": "p315",
+      "next": "p332",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the small-lag exponential expansion.",
+        "connection": "Uses the exact MSD to extract the observable smooth-motion limit.",
+        "decision": "retain",
+        "reason": "The Taylor terms show why the linear contribution cancels and the squared-lag term survives."
+      }
+    },
+    {
+      "line": 332,
+      "end_line": 332,
+      "kind": "prose",
+      "text": "The eye keeps approximately the same velocity over that interval. At long lags,",
+      "source_hash": "d88a03ac030220b4957eb65cbe06b4f6921ffa0944c5c18e7f1f0b8eff7081b6",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p332",
+      "previous": "p326",
+      "next": "p338",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret squared-lag growth as persistent velocity, then introduce the long-lag limit.",
+        "connection": "Turns the expansion into a movement interpretation before checking the opposite scale.",
+        "decision": "retain",
+        "reason": "The two limits concern different observation intervals of the same input process."
+      }
+    },
+    {
+      "line": 338,
+      "end_line": 338,
+      "kind": "prose",
+      "text": "which grows linearly rather than approaching a plateau. Its local slope is",
+      "source_hash": "d91f634421f125a5144cad031e4f506e8cbfee428b6993a1a1b8e71edb860a17",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p338",
+      "previous": "p332",
+      "next": "p345",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the long-lag result and introduce its local slope.",
+        "connection": "Connects continuing linear growth with the measured slope comparison.",
+        "decision": "retain",
+        "reason": "The reader can contrast a linearly growing displacement variance with the earlier white-noise plateau."
+      }
+    },
+    {
+      "line": 345,
+      "end_line": 345,
+      "kind": "prose",
+      "text": "approaching two at short lags and one at long lags. At $\\ell=\\tau$ it is $e-1\\simeq1.718$; at $\\ell=5\\tau$ it is about $1.239$. Thus an intermediate slope can arise from filtering ordinary diffusion, without faster than Brownian accumulation inside the memory circuit.",
+      "source_hash": "f29b95bd4cc0c9a4f048367ca7122106a00151b9360febdc88c252c8ef2d69c8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p345",
+      "previous": "p338",
+      "next": "p347",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret the exact slope at intermediate scales and connect it to ordinary internal diffusion.",
+        "connection": "Uses the slope formula and two concrete values to resolve the original smoothness question.",
+        "decision": "retain",
+        "reason": "An output slope above one no longer has to mean faster-than-Brownian noise accumulation in the memory circuit."
+      }
+    },
+    {
+      "line": 347,
+      "end_line": 347,
+      "kind": "prose",
+      "text": "The actual muscle response contains fast and slow exponential components, and the full model also contains motor neuron filtering and feedback. Those ingredients change the detailed curve. The one exponential derivation teaches the distinction relevant to Fig. 3: a decaying low pass filter of stationary white noise saturates, whereas the same filter, with nonzero static gain, retains accumulating displacement from a wandering position. A slow correlated peripheral source is a different hypothesis from the temporally uncorrelated noise rejected by this comparison.",
+      "source_hash": "7a1b0ab6a5e4cd83c686d7a37e7dfdba33320bd8e5aa2c18c60e02364b3cfec1",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD::p347",
+      "previous": "p345",
+      "next": "p351",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FILTERED-MSD",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State the limits of the one-exponential illustration and retain slow correlated alternatives.",
+        "connection": "Closes the analytic example before presenting the fuller circuit model.",
+        "decision": "retain",
+        "reason": "The reader knows which ingredients alter the detailed curve and which peripheral hypothesis was actually tested."
+      }
+    },
+    {
+      "line": 351,
+      "end_line": 351,
+      "kind": "prose",
+      "text": "The recording analysis places much of the drive upstream of OMNs. To test whether integrator noise could supply it, the authors build a model from a noisy memory circuit through to the eye. The model adapts an earlier goldfish integrator architecture to primate tuning and variability. There are two populations, with excitation within each and inhibition between them. Their firing increases for opposite directions of gaze. This supplies the recurrent interaction needed to maintain a range of stored positions.[^p2-network]",
+      "source_hash": "eacb0612bb83ad26dc3c1da2b1afeda1529552493d67197223a2d90d0c15fee9",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p351",
+      "previous": "p347",
+      "next": "p353",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the full model as a sufficiency test of the proposed integrator source.",
+        "connection": "Uses the illustrative mechanism to motivate its anatomical implementation.",
+        "decision": "retain",
+        "reason": "The opposing populations and their recurrent roles are explained before their rate equations."
+      }
+    },
+    {
+      "line": 353,
+      "end_line": 353,
+      "kind": "prose",
+      "text": "For the right population, the model's rate is",
+      "source_hash": "2c55ee2c6b6164e165046b3628b1610bb123b45dafe2dc76be02dc1cdcf2a568",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p353",
+      "previous": "p351",
+      "next": "p360",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the right-population rate equation.",
+        "connection": "Continues the two-population setup from p351.",
+        "decision": "retain",
+        "reason": "The short lead-in identifies which population the displayed variables describe."
+      }
+    },
+    {
+      "line": 360,
+      "end_line": 360,
+      "kind": "prose",
+      "text": "$E_{OI}$ is the internally represented position in degrees, $\\zeta_i^R$ is a tuning slope in spikes/(s deg), and $\\lambda_i^0$ is a rate offset in spikes/s. Taking the maximum with zero prevents negative firing. $F$ is a feedback input in degrees, defined below. The matching left neuron has the opposite slope, $\\zeta_i^L=-\\zeta_i^R$. In an active neuron, a change of one degree changes its rate by $\\zeta_i$.",
+      "source_hash": "670a618c0d9e32cdfcced57c0ccebb39ddc8097dbe087aa1f4cefc79375840e2",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p360",
+      "previous": "p353",
+      "next": "p362",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define rate, slope, offset, rectification, feedback and the opposite left-population slope.",
+        "connection": "Interprets the preceding equation before synaptic dynamics depend on these quantities.",
+        "decision": "retain",
+        "reason": "The reader can follow sign and units without needing neuroscience jargon beyond the defined roles."
+      }
+    },
+    {
+      "line": 362,
+      "end_line": 362,
+      "kind": "prose",
+      "text": "Spikes produce synaptic activity according to",
+      "source_hash": "0fefbab2856e1562ae4a490a06ce94073bb6cf614e00e721593ea1af74d60be4",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p362",
+      "previous": "p360",
+      "next": "p370",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the spike-to-synaptic transformation.",
+        "connection": "Moves from firing rates to the state those spikes maintain.",
+        "decision": "retain",
+        "reason": "The next equations now have an identified input and changing object."
+      }
+    },
+    {
+      "line": 370,
+      "end_line": 370,
+      "kind": "prose",
+      "text": "Here $\\xi_i^R$ is a spike train generated at rate $\\lambda_i^R$, $\\tau_s$ is the synaptic decay time, and $\\lambda_t=60$ Hz sets the rate scale in the nonlinear synaptic response. Treating spikes as counts, $X_i$ and $S_i$ are dimensionless, and the weights $\\eta_i$ are in degrees. Between spikes, $S_i$ decays exponentially; one spike adds a jump of $1/[\\tau_s(\\lambda_t+\\lambda_i^R)]$. Replacing spikes by their mean rate gives a drive $\\lambda_i^R/(\\lambda_t+\\lambda_i^R)$ that approaches one as the rate increases. This is the model's saturating synaptic effect, rather than the purely linear synapses of the basic 2012 example.[^p2-network]",
+      "source_hash": "af7902f51d056f623d1f9e3bfe92c3cd163f3085baba4c42d920c06b2e517fc8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p370",
+      "previous": "p362",
+      "next": "p372",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain nonlinear synaptic drive, its units and spike jump size.",
+        "connection": "Interprets the synaptic/readout equations and contrasts their mean with the earlier linear model.",
+        "decision": "retain",
+        "reason": "The reader sees what saturates and why replacing spikes by mean rates produces the q functions used next."
+      }
+    },
+    {
+      "line": 372,
+      "end_line": 372,
+      "kind": "prose",
+      "text": "The readout $E_{OI}$ feeds back into the rates, so these equations define a recurrent network. Persistence requires a further condition on that feedback. Set $F=0$ and replace spikes by their mean rates. Define the mean saturated drives at a proposed stored value $z$ by",
+      "source_hash": "644dd42008e965323f60d3c11968b02f946c0972597764d6e0a09d713b40cf1a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p372",
+      "previous": "p370",
+      "next": "p380",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Identify persistence as an extra condition and set up the deterministic rate reduction.",
+        "connection": "Uses the recurrence just described to ask why it can store rather than simply evolve.",
+        "decision": "retain",
+        "reason": "Feedback is explicitly set to zero, and q is defined before the matching condition uses it."
+      }
+    },
+    {
+      "line": 380,
+      "end_line": 380,
+      "kind": "prose",
+      "text": "Multiply each synaptic equation by its readout weight, subtract the left contribution, and sum. Since the same $\\tau_s$ applies to every unit, the readout obeys",
+      "source_hash": "4e85e73974ec9b54a93f3b2d6ada8057939635f18aab8c0a679c6ecf72ab1cf3",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p380",
+      "previous": "p372",
+      "next": "p388",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain how weighted summation closes the readout dynamics.",
+        "connection": "Connects individual synaptic equations to the scalar E equation.",
+        "decision": "retain",
+        "reason": "The common time constant is identified as the reason this step works."
+      }
+    },
+    {
+      "line": 388,
+      "end_line": 388,
+      "kind": "prose",
+      "text": "An exact continuum of persistent readout values would require $G(z)=z$ over the represented range. For a small displacement from a fixed value, Taylor expansion gives",
+      "source_hash": "e6a2513f8858d08feee8803fd608767f0d15c0c1779cf42a9163cb098060ee08",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p388",
+      "previous": "p380",
+      "next": "p395",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State the exact fixed-point relation and introduce its local expansion.",
+        "connection": "Uses the scalar equation to make the storage condition testable.",
+        "decision": "retain",
+        "reason": "The constant term cancels at a fixed value, so the neutral-slope result follows from the ordinary Taylor rule taught earlier."
+      }
+    },
+    {
+      "line": 395,
+      "end_line": 395,
+      "kind": "prose",
+      "text": "Thus $G'(z)=1$ is the local neutral condition for the stored coordinate. Stable directions of the remaining synaptic state are also needed for an attractor. The weights were optimized to approximate the fixed-point relation across $-50$ to $50$ degrees. Residual mismatch can produce deterministic drift, so this finite optimized circuit provides approximate persistence rather than an exactly neutral continuum. The tuning slopes and thresholds were sampled to match reported macaque relationships and variation. With spikes, perturbations along the nearly neutral direction additionally accumulate. This reduction is a teaching derivation from the paper's equations; Figure 4 separates the resulting internal diffusion from later muscle smoothing.[^p2-network]",
+      "source_hash": "3d4fd9a575f1c0417e726edf74b09503c18f6a1002aa184352294f17464a8fd7",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p395",
+      "previous": "p388",
+      "next": "p397",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret neutrality, stable directions and finite optimized mismatch.",
+        "connection": "Closes the scalar reduction before sending the internal position to motor neurons.",
+        "decision": "retain",
+        "reason": "The reader can distinguish an exact continuum from approximate persistence and additional stochastic drift."
+      }
+    },
+    {
+      "line": 397,
+      "end_line": 397,
+      "kind": "prose",
+      "text": "The motor neurons receive this position signal:",
+      "source_hash": "bec9b956b359fac96d7d94ee37835ffd88b40ba3cfc1da3207f747ad35d26ab5",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p397",
+      "previous": "p395",
+      "next": "p405",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the downstream motor-neuron stage.",
+        "connection": "Uses the established internal position as input to the next model component.",
+        "decision": "retain",
+        "reason": "This supplies a concrete connection rather than adding an unrelated firing equation."
+      }
+    },
+    {
+      "line": 405,
+      "end_line": 405,
+      "kind": "prose",
+      "text": "$\\lambda_i^M$ is a motor rate in spikes/s, $E_{T_i}$ is that neuron's position threshold in degrees, and $k_i$ is its position sensitivity. $\\xi_i^M$ is its generated spike train. The filtered output $s_i^M$ also has units spikes/s, with decay time $\\tau_{MN}$. One spike makes a jump of $1/\\tau_{MN}$; at constant mean rate, the mean output is that rate.",
+      "source_hash": "dc789f13c057db91a7975ce8b20dae47a49a8bfc0a45404054f3ebe109469778",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p405",
+      "previous": "p397",
+      "next": "p407",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define motor rate, threshold, sensitivity, spike train and filtered output.",
+        "connection": "Interprets the motor equations before the plant is added.",
+        "decision": "retain",
+        "reason": "The output's jump and steady mean give a usable meaning to the filter and its units."
+      }
+    },
+    {
+      "line": 407,
+      "end_line": 407,
+      "kind": "prose",
+      "text": "Each motor unit's muscle and plant response is represented by a position contribution $E_i$ satisfying",
+      "source_hash": "ddcb220d0dfb7202998c334244af8f386a828df6a8544acf98825fc373b6d8b8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p407",
+      "previous": "p405",
+      "next": "p414",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce each motor unit's effective position contribution.",
+        "connection": "Connects filtered motor output to the second-order plant response.",
+        "decision": "retain",
+        "reason": "The following position average is motivated by the many-unit mechanical model."
+      }
+    },
+    {
+      "line": 414,
+      "end_line": 414,
+      "kind": "prose",
+      "text": "These are Eqs. 28–31. The second order equation uses the same roles and units as the forward fit. At constant $E_{OI}$, an active unit has mean $s_i^M=k_i(E_{OI}-E_{T_i})$, giving mean $E_i=E_{OI}$ when derivatives vanish. Averaging therefore transmits the common position while reducing independent private fluctuations. This is an effective model of combined motor output, not a claim that one motor unit moves an isolated eye of its own.[^p2-motor]",
+      "source_hash": "3c2d953faf07527bf3bcdf292f35e5db291ea8ddb0a0835a7b880a1c398e068f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p414",
+      "previous": "p407",
+      "next": "p416",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Check steady transmission and explain averaging of common versus private components.",
+        "connection": "Interprets the plant equations in relation to the earlier forward calibration.",
+        "decision": "retain",
+        "reason": "A unit's effective position contribution is not mistaken for an independent physical eye."
+      }
+    },
+    {
+      "line": 416,
+      "end_line": 416,
+      "kind": "prose",
+      "text": "The model used diverse thresholds and response coefficients, with motor thresholds sampled between $-45$ and $-5$ degrees, and imposed $m_i<r_i^2/(4k_i)$ to give nonoscillatory individual response kernels. Main Methods report $N=30{,}000$ integrator neurons, $N_m=1{,}000$ OMNs, and $\\tau_s=20$ ms for the main full simulation. The separate private OMN comparison in Fig. 3 used 2,000 OMNs. These neuron counts belong to different simulation comparisons.[^p2-motor]",
+      "source_hash": "136a8be33cc7785e4a5baecf0bb1832cea6b8f9f8a858e32423042a32d9d832c",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p416",
+      "previous": "p414",
+      "next": "p418",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State heterogeneous parameter constraints and distinguish the two simulated populations.",
+        "connection": "Closes model setup before adding the last feedback loop.",
+        "decision": "retain",
+        "reason": "The reader will not confuse the thousand-OMN full model with the two-thousand-OMN private-noise test."
+      }
+    },
+    {
+      "line": 418,
+      "end_line": 418,
+      "kind": "prose",
+      "text": "The final loop is delayed visual feedback:",
+      "source_hash": "8f07618e944efcd34835f24a99793429fdb45a9eb8f0aa016cb6bd2a12d40534",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p418",
+      "previous": "p416",
+      "next": "p425",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce delayed visual feedback as the final connection.",
+        "connection": "Continues the completed feedforward stages into the loop.",
+        "decision": "retain",
+        "reason": "The upcoming equation has a role in the model before its sign is interpreted."
+      }
+    },
+    {
+      "line": 425,
+      "end_line": 425,
+      "kind": "prose",
+      "text": "Both positions are in degrees, so $A$ is dimensionless in this formulation. The main value is $A=0.015$. If gaze and its internal representation have recently moved rightward, the delayed position is to their left, making $F$ negative. Its contribution to the integrator rates then opposes continued rightward movement. The difference can serve as an estimate of recent movement; it is not an error relative to a fixed absolute target position. For a slowly varying position that the eye tracks, $E(t-\\tau_d)-E_{OI}(t)\\simeq-\\tau_d\\dot E(t)$, showing the velocity-like action and sign. The approximation requires tracking and slow change over the delay.[^p2-feedback]",
+      "source_hash": "157ca33f74a870b3a44e71a52b201d3d89c57dbdd45a3120e4fe723a47144f6f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p425",
+      "previous": "p418",
+      "next": "p427",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret feedback units, sign, movement estimate and slow-tracking approximation.",
+        "connection": "Uses the delayed-position equation to explain its corrective action.",
+        "decision": "retain",
+        "reason": "The response is not mistaken for error relative to a fixed target, and the velocity-like approximation has stated conditions."
+      }
+    },
+    {
+      "line": 427,
+      "end_line": 427,
+      "kind": "prose",
+      "text": "The effect on the ongoing MSD must be checked from the coupled model, rather than inferred from the delay alone. A short MSD lag is a separation between two samples in a running process, not the time since a new perturbation. Past measurements can already affect both samples, and $F$ also contains the immediate term $-A E_{OI}(t)$. Extended Data Fig. 3 compares the model with and without feedback: feedback changes amplitude across lags, while its larger effect on logarithmic slope occurs at longer lags. Figure 5 shows the full model. Muscle filtering supplies the short-lag smoothness, and feedback improves the detailed longer-lag fit. These are results of this model comparison, not a hard delay-based cutoff or a claim excluding visual control under other tasks.[^p2-feedback]",
+      "source_hash": "c748cf8e7e32992c2f33cde2c252ae4998dccb11b1ef9cadf3a0c76263e78fcd",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL::p427",
+      "previous": "p425",
+      "next": "p431",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-CIRCUIT-MODEL",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Separate ongoing lag statistics from response latency and report the actual feedback comparison.",
+        "connection": "Closes the loop before examining parameter freedom and noise strength.",
+        "decision": "retain",
+        "reason": "Past inputs and the immediate term explain why delay alone cannot decide short-lag behavior; the comparison supplies the model-specific result."
+      }
+    },
+    {
+      "line": 431,
+      "end_line": 431,
+      "kind": "prose",
+      "text": "An agreement in amplitude is informative only if we know how much freedom the model has. The paper uses regular spike trains. Chapter 1 defined the interspike interval coefficient of variation (CV) as the interval standard deviation divided by its mean. A Poisson process at constant rate has CV one; the model uses about 0.22 for integrator neurons and about 0.07 for OMNs. Such firing is called [**sub-Poisson spiking**]{.definition-term custom-style=\"Definition Term\"} here because its long window count variability is lower than a Poisson process at the same rate, under the interval construction used in the model.[^p2-cv]",
+      "source_hash": "f09f4822b4f00383ec7978267f819d941ad75bb6448b1670d9ece8a0515ba269",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p431",
+      "previous": "p427",
+      "next": "p433",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Motivate parameter sensitivity and connect CV to the spike model.",
+        "connection": "Uses the full model's amplitude agreement to ask how restrictive that match is.",
+        "decision": "retain",
+        "reason": "The earlier CV definition is recalled for a new count-variability calculation, with integrator and OMN values kept separate."
+      }
+    },
+    {
+      "line": 433,
+      "end_line": 433,
+      "kind": "prose",
+      "text": "The construction starts with a Poisson process at $M$ times the desired rate and retains every $M$th spike. At constant rate, a retained interval is the sum of $M$ independent exponential intervals. Each initial interval has mean $1/(M\\lambda)$ and variance $1/(M\\lambda)^2$. The retained interval therefore has mean $1/\\lambda$, variance $1/(M\\lambda^2)$, and CV $1/\\sqrt M$. This preserves the mean rate while reducing variability. Its use at changing rates is part of the model; the simple interval derivation assumes a constant rate.",
+      "source_hash": "426484c85a1fa9facac2aadc3757571dcf77e291c22e7490984488a5dad39d4f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p433",
+      "previous": "p431",
+      "next": "p435",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Derive the regular-spiking construction from sums of exponential intervals.",
+        "connection": "Supplies the mechanism behind the chosen CV before using a renewal count result.",
+        "decision": "retain",
+        "reason": "Mean and variance are both followed, and constant-rate scope is retained instead of asserting the interval argument for all changing rates."
+      }
+    },
+    {
+      "line": 435,
+      "end_line": 435,
+      "kind": "prose",
+      "text": "At constant rate, the retained intervals are independent. This is a [**renewal process**]{.definition-term custom-style=\"Definition Term\"}, a spike process whose successive intervals are independent and identically distributed. Let their mean be $\\mu=1/\\lambda$ and standard deviation $\\sigma_I$. The time to $n$ spikes has variance $n\\sigma_I^2$. For a long fixed window $L\\simeq n\\mu$, a fluctuation in total interval time produces the opposite fluctuation in count divided by $\\mu$. Thus",
+      "source_hash": "1c34aa437a2473f6ff12b4d03a98c480e59c43356f8cf27507f3da19fe1cf438",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p435",
+      "previous": "p433",
+      "next": "p443",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define renewal independence and derive long-window count variance.",
+        "connection": "Uses the constructed intervals to calculate their accumulated fluctuations.",
+        "decision": "retain",
+        "reason": "The count/time inversion is explained in words, so CV squared has a mechanism rather than appearing as an empirical multiplier."
+      }
+    },
+    {
+      "line": 443,
+      "end_line": 443,
+      "kind": "prose",
+      "text": "This explains why the diffusion scale contains CV squared: it is the strength of the accumulated spike fluctuations relative to the Poisson case. Chapters 2 and 3 show how projecting those fluctuations onto a neutral memory direction adds a factor proportional to $1/\\tau_s^2$ and, for a comparable independent population, $1/N$.",
+      "source_hash": "fd539d6cd95199881e440ea6cd79ae904219dced0a907f2ef92959a7a2454a2c",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p443",
+      "previous": "p435",
+      "next": "p445",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret CV squared as fluctuation strength and connect it to neural projection scaling.",
+        "connection": "Uses the renewal result before bringing in tuning information.",
+        "decision": "retain",
+        "reason": "The earlier population and time-constant reasoning is reused without claiming arbitrary neuron additions have the same scaling."
+      }
+    },
+    {
+      "line": 445,
+      "end_line": 445,
+      "kind": "prose",
+      "text": "Rate and sensitivity need more care. Write the absolute local rate slope as $a=d\\lambda/dE$, in spikes/(s deg). If $N$ similar cells fire near rate $\\lambda_0$, their Poisson information per unit time about position is",
+      "source_hash": "ea92a5944f6936bf14c08b8eb5a686309ccd3a64074dcb0fbd8b0fd3d02a5a2f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p445",
+      "previous": "p443",
+      "next": "p451",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce absolute tuning slope and information rate of comparable cells.",
+        "connection": "Connects count noise to how strongly cells represent eye position.",
+        "decision": "retain",
+        "reason": "The role and units of slope are stated before J is approximated."
+      }
+    },
+    {
+      "line": 451,
+      "end_line": 451,
+      "kind": "prose",
+      "text": "Using the information-diffusion relation of Chapter 3 as a scale, including the $\\mathrm{CV}^2$ factor just derived and holding the network geometry fixed,",
+      "source_hash": "a3c872aa2d78f6bffb65fc539964c2c369a494bce152d719874c979b550e6033",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p451",
+      "previous": "p445",
+      "next": "p458",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Apply the earlier information-diffusion scale with the derived CV-squared factor.",
+        "connection": "Uses J from p445 under a stated fixed-geometry comparison.",
+        "decision": "retain",
+        "reason": "This carries the assumptions of the earlier network comparison into the eye-model estimate."
+      }
+    },
+    {
+      "line": 458,
+      "end_line": 458,
+      "kind": "prose",
+      "text": "If instead sensitivity is expressed as the fractional slope $b=a/\\lambda_0$, in inverse degrees, the same expression becomes",
+      "source_hash": "a97e949c6ae8180c1ec415fd1e133720415886dedd04e3fdde70ef41afb02e93",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p458",
+      "previous": "p451",
+      "next": "p464",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define fractional slope and rewrite the same scale.",
+        "connection": "Follows the absolute-slope formula to prepare comparison with the source's ambiguous notation.",
+        "decision": "retain",
+        "reason": "The definition makes the change in apparent rate dependence algebraic rather than contradictory."
+      }
+    },
+    {
+      "line": 464,
+      "end_line": 466,
+      "kind": "prose",
+      "text": "This second form has the dependence printed in the paper's Eq. 1, $D\\propto\\mathrm{CV}^2N^{-1}\\lambda_0^{-1}k_0^{-2}\\tau_s^{-2}$. However, its surrounding text calls $k_0$ position sensitivity without specifying fractional normalization. If $k_0$ means an absolute slope in Hz/degree, that printed expression has the wrong units for $D$; the version with $\\lambda_0$ in the numerator has the required units deg$^2$/s. The guide therefore distinguishes $a$ and $b$ rather than silently treating the printed $k_0$ as unambiguous. This scaling is a comparison under fixed network geometry and noise assumptions, not an exact formula for every recurrent circuit.[^p2-scaling]",
+      "source_hash": "1cfeeb6408d3bedd5ab3a9a7edbcbac20b11c45ae6b9d6ebc4cc9f77f751e71e",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p464",
+      "previous": "p458",
+      "next": "p468",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Explain the source normalization ambiguity and keep the dimensional distinction explicit.",
+        "connection": "Uses both slope conventions to interpret the printed scaling statement.",
+        "decision": "retain",
+        "reason": "The reader can compare formulas without silently changing the meaning of k0 or assuming a universal exact law."
+      }
+    },
+    {
+      "line": 468,
+      "end_line": 468,
+      "kind": "prose",
+      "text": "Doubling $N$ halves this diffusion scale; doubling CV multiplies it by four; doubling $\\tau_s$ divides it by four. Doubling the absolute slope at fixed rate also divides it by four. Increasing rate reduces diffusion when the fractional slope is fixed, because more spikes then also supply a proportionally steeper absolute slope. Increasing rate at fixed absolute slope is a different comparison and increases the scale in the first formula. A rate change alone does not specify which comparison is intended.",
+      "source_hash": "241a99addca6b8e7b023147c43e48e7a3523e9b0d52a50a7a021c64f11be65c9",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p468",
+      "previous": "p464",
+      "next": "p470",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Interpret controlled changes in neuron count, CV, time constant, slope and rate.",
+        "connection": "Turns the two scaling forms into comparisons before checking the measured CV input.",
+        "decision": "retain",
+        "reason": "Rate is varied with a declared slope convention, so the opposite outcomes answer different experiments."
+      }
+    },
+    {
+      "line": 470,
+      "end_line": 470,
+      "kind": "prose",
+      "text": "Could the measured CV itself mostly reflect drift rather than private spike variability? Supplementary Notes test this. Let $\\lambda(t)=\\bar\\lambda+aB(t)$ during a fixation of length $T$, with the rate changes small relative to $\\bar\\lambda$. For a Brownian path starting at zero, the expected time averaged squared position is $DT$, and the expected squared time mean is $2DT/3$. Subtracting gives the expected within-segment position variance $DT/3=2DT/6$:",
+      "source_hash": "96cd80b8d962767580705fe9c3c707439e072e0abeb2940437a471e7a6524b04",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p470",
+      "previous": "p468",
+      "next": "p477",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Ask whether drift contaminates the measured CV and set up the Brownian rate model.",
+        "connection": "Tests whether a model input could already include the output phenomenon.",
+        "decision": "retain",
+        "reason": "The small-rate-change condition and Brownian within-segment variance are established before reciprocal-rate expansion."
+      }
+    },
+    {
+      "line": 477,
+      "end_line": 479,
+      "kind": "prose",
+      "text": "The second term follows from $\\mathbb E[B(t)B(s)]=2D\\min(t,s)$ and $T^{-2}\\int_0^T\\int_0^T2D\\min(t,s)\\,dt\\,ds=2DT/3$. Expanding $1/(\\bar\\lambda+aB)$ to first order gives $1/\\bar\\lambda-aB/\\bar\\lambda^2$. Dividing its standard deviation by its mean then gives",
+      "source_hash": "72378fdd398d6e247d1a7cc8ca3b5e733fe43ff9b996e8ca59dadc25f329176a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p477",
+      "previous": "p470",
+      "next": "p486",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Derive the time-mean term from Brownian covariance and then expand the reciprocal rate.",
+        "connection": "Continues the within-segment calculation to the CV expression.",
+        "decision": "retain",
+        "reason": "Foundations 183–192 supplies the min(t,s) covariance; calculus supplies the integrals and first-order reciprocal expansion."
+      }
+    },
+    {
+      "line": 486,
+      "end_line": 486,
+      "kind": "prose",
+      "text": "With the supplement's values $a=1/15$ spikes/(s arcmin), $2D=100$ arcmin$^2$/s, $T=0.5$ s, and $\\bar\\lambda=80$ Hz, this is about $0.0024$, well below the OMN CV near 0.07. These are an order of magnitude check, not a fitted diffusion constant for the whole model. Since one degree is 60 arcmin, that $2D$ equals $0.0278$ deg$^2$/s, or $D=0.0139$ deg$^2$/s.[^p2-cv-drift]",
+      "source_hash": "e5b6617e73dc132c58fd249a77b9dba9c1d4461bbaac83be5095e135cc171db0",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING::p486",
+      "previous": "p477",
+      "next": "p490",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-SCALING",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Evaluate the CV scale and convert angular diffusion units.",
+        "connection": "Closes the contamination check before returning to paper figures.",
+        "decision": "retain",
+        "reason": "The small result is compared with measured OMN variability, and the conversion prevents a degree/arcminute scale mistake."
+      }
+    },
+    {
+      "line": 490,
+      "end_line": 490,
+      "kind": "prose",
+      "text": "The five figures address different steps. Their agreement is easier to assess when those questions remain separate.",
+      "source_hash": "2513ec7427b618b62fa20121149e2525f0292159e02be9770330c216990303e2",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FIGURES::p490",
+      "previous": "p486",
+      "next": "p500",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FIGURES",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce the figure map as separate steps of evidence.",
+        "connection": "Collects the developed argument for source reading rather than introducing a new mechanism.",
+        "decision": "retain",
+        "reason": "The reader knows the table will distinguish what each figure tests instead of counting apparent agreement repeatedly."
+      }
+    },
+    {
+      "line": 500,
+      "end_line": 500,
+      "kind": "prose",
+      "text": "The most useful supplemental comparisons are Extended Data Fig. 1 for individual uncertainty, Fig. 2 for noise subtraction and its simulated control, Fig. 3 for feedback, Fig. 4 for a no-central-drive control, and Fig. 5 for the other monkey's fit. In the no-central-drive control, $\\widehat\\chi=-0.09\\pm0.22$ is compatible with zero; that negative estimate is sampling variation. Figures 6–8 document cell classification, segment sampling, and a rank correlation check. Figure 9 shows the heterogeneous model parameters. Figure 10 separates spiking noise passed directly to the output from spiking noise that drives diffusion inside the integrator: internal stochastic spikes remain in the latter comparison. Its caption reports little direct output-noise effect beyond 50 ms.[^p2-supp-figures]",
+      "source_hash": "8e25cf52cee034f6fec19b6c47a272ea87fa1524a43d0eef08a670f196b1dc6f",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-FIGURES::p500",
+      "previous": "p490",
+      "next": "p504",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-FIGURES",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Identify the most useful supplemental controls and their distinct roles.",
+        "connection": "Extends the main-figure map to uncertainty, sampling, feedback and noise-isolation checks.",
+        "decision": "retain",
+        "reason": "The reader can interpret negative sample chi and output-noise removal without assuming internal stochastic diffusion was removed."
+      }
+    },
+    {
+      "line": 504,
+      "end_line": 504,
+      "kind": "prose",
+      "text": "The data and model answer different localization questions. The common variance estimate supports a drive upstream of OMNs, given the calibration and noise assumptions. The MSD comparison supports a command that accumulates variation over the measured interval, rather than stationary white noise passed through a decaying muscle filter. The circuit model shows that integrator noise with plausible parameters can generate such a command and explain its filtered amplitude and timing.",
+      "source_hash": "876534e2f608dba2b7b412a30b96f21cd84ab3537d225965e6312832209ee211",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-LIMITS::p504",
+      "previous": "p500",
+      "next": "p506",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-LIMITS",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Separate what covariance, time structure and the circuit model establish.",
+        "connection": "Uses the completed derivations and figures to state the result's levels of support.",
+        "decision": "retain",
+        "reason": "Each claim remains tied to its own assumptions rather than all evidence being promoted to direct source identification."
+      }
+    },
+    {
+      "line": 506,
+      "end_line": 506,
+      "kind": "prose",
+      "text": "Those results do not uniquely locate the noise inside integrator neurons. No integrator neurons were recorded in this study. No selective change of that circuit tested whether it was necessary for drift. Noisy inputs to the integrator, or an already diffusive upstream signal, remain possible. The authors make this distinction in the Discussion and explicitly in their peer review response. Several combinations of neuron count, variability, and synaptic time constant can also fit an amplitude, so matching one curve does not uniquely recover those parameters.[^p2-localization]",
+      "source_hash": "65e828069ea0991be0e835e6830502455675274f5dfeb53a94b894aa57258d29",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-LIMITS::p506",
+      "previous": "p504",
+      "next": "p508",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-LIMITS",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "List the untested source alternatives and absent causal intervention.",
+        "connection": "Qualifies p504's sufficient mechanism before the final cross-paper connection.",
+        "decision": "retain",
+        "reason": "The reader can say what future data would have to distinguish and why curve matching does not identify unique parameters."
+      }
+    },
+    {
+      "line": 508,
+      "end_line": 508,
+      "kind": "prose",
+      "text": "The study's empirical scope is horizontal motion during these fixation segments in two animals. Visual tasks, feedback, and other sources of input can alter the statistics. Its contribution to the connection with the 2012 theory is more precise: a continuous memory can diffuse internally, while a mechanical output of that memory looks smooth and superdiffusive at shorter lags. To compare a memory theory with behavior, the mapping from stored value to measured movement is part of the calculation.",
+      "source_hash": "e90133b47eae4fd2b41bea14ed4fbcd84fab6245e8e39ca2a6b45d74f07524b8",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-LIMITS::p508",
+      "previous": "p506",
+      "next": null,
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-LIMITS",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State the empirical scope and the lesson for comparing memory theory with behavior.",
+        "connection": "Closes the eye chapter and prepares the synthesis distinction between representations, dynamics and observation filters.",
+        "decision": "retain",
+        "reason": "The ending carries forward the complete internal-to-physical mapping without claiming the 2012 Fisher bound was measured."
+      }
+    }
+  ]
+}

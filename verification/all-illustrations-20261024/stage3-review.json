@@ -1,0 +1,592 @@
+{
+  "request_id": "stage3-connected-read-20261024",
+  "reviewer": "/root/all_illustrations_review",
+  "reviewed_at": "2026-10-24T18:49:58.550405+03:00",
+  "decision": "pass",
+  "book_model_hash": "a853f7a996cf5c54f254d458c93442377608dec60fe17e9aaba1fecf28925957",
+  "scope": "Nine inserted figures, their intro/caption/alt/interpretation and attached original paragraphs across five changed chapters. Not whole-book semantic acceptance.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; neuroscience terms taught in the guide.",
+  "reading_path_judgment": "The new figures keep the existing chapter order and use concepts taught on the relevant paths. Count variability precedes diffusion and information; eye analysis distinguishes common-source inference from a particular circuit hypothesis; place spatial maps precede field statistics; synthesis remains a local guide calculation. No figure is used as the first unexplained prerequisite for earlier reasoning.",
+  "units": {
+    "A01": {
+      "purpose": "Distinguish single-cell silence from a pooled rate estimate with the same mean.",
+      "prereqs": "Foundations SPIKES defines rate and neuron index N. POISSON gives K, lambda=r Delta t, mean/variance and the20Hz/50ms example before this image.",
+      "order": "The original population calculation motivates the comparison, the intro names normalization, the caption explains probability stems, and the interpretation returns to per-cell rate before recurrent conditional independence is qualified.",
+      "question": "Why do the two estimates share a20Hz mean but have very different possible values and spread?",
+      "answer": "K/(N Delta t) preserves mean r. One count changes the estimate by20Hz for N1 and1Hz for N20; independent variances average down, yielding SD20 versus4.47Hz. Shared state fluctuations are a separate issue handled next.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/01-foundations.md",
+          "line": 58,
+          "paragraph_sha256": "ae84316193551d78420b4abb9422aeeae5a2ca31eeae43b7def87bb32ce16cbf",
+          "decision": "retain",
+          "reason": "The original population paragraph establishes the exact two cases, averaging reason and common-drive limit; it supplies the figure inputs without changing their meaning."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/01-foundations.md",
+          "line": 60,
+          "paragraph_sha256": "aa0421266ca1569fc3d93c4067c48a77f517a06c03ae930c267944756733d4de",
+          "decision": "retain",
+          "reason": "Retain: identifies the shared per-cell scale that makes the two panels comparable."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "fa89a0c2afe428e5bcf6ce09672dd9c8af4cbf3da027ee447fe5e24bcddfb950",
+          "decision": "retain",
+          "reason": "Retain: rate normalization, discrete probability versus density, finite drawn range and conditional independence are needed to interpret this actual plot. Numeric repetition lets the caption identify its own model."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "f53426ef9aa08c40e87d2af357ef53930c900a757e6eb7ce89c74150b047887d",
+          "decision": "retain",
+          "reason": "Retain: describes support spacing, the zero-count event and matched means for readers who cannot see the stems."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/01-foundations.md",
+          "line": 68,
+          "paragraph_sha256": "2d7daa3d10f233631049c070dad41b91878e8ae242a46f9d770c721dd2d76c42",
+          "decision": "retain",
+          "reason": "Retain: pooled rate estimate makes the division by20 a rate-to-rate operation; it states what normalization changes and preserves."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/01-foundations.md",
+          "line": 70,
+          "paragraph_sha256": "117a7ab957084492c798962d1cbc2ef427e668aaabdbaea499bd7f21371d19a8",
+          "decision": "retain",
+          "reason": "The following original paragraph extends fixed rates to changing recurrent rates and explains the conditional independence qualification, so the figure remains a local count example."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A02": {
+      "purpose": "Separate one random path, its distribution-wide RMS scale and fixed-bias displacement.",
+      "prereqs": "The same section defines independent increments, Brownian motion, MSD2Dt and RMS sqrt(2Dt). It then computes the chosen D,v and4s crossover before the image.",
+      "order": "The prior paragraph supplies squared contributions; the figure explicitly switches to their square-root displacement scales. The final text now uses the defined RMS phrase, then the next paragraph develops covariance across times.",
+      "question": "Why can a path approach its starting value while the plotted random scale rises, and when does bias dominate?",
+      "answer": "A realized path can reverse. RMS averages squared displacements over possible paths and grows as sqrt(t); constant velocity gives vt, so the chosen positive scales cross at4s. Neither an RMS envelope nor these chosen values is an animal-data boundary.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/01-foundations.md",
+          "line": 191,
+          "paragraph_sha256": "e98b95e85dafd02f05c507c61f8179932471e5fde2a009e7bb830075e5a8cceb",
+          "decision": "retain",
+          "reason": "The original equality paragraph supplies the4s and.16deg-squared contributions; the image then contrasts their square roots, with caption stating that distinction."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/01-foundations.md",
+          "line": 193,
+          "paragraph_sha256": "682ea9b57198e4f02f2b7a799d285f9e1d24a6720ad2306991490428ea9f3038",
+          "decision": "retain",
+          "reason": "Retain: separates sample motion from exact displacement scales before the panels use them."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "f4b28a3ed23fa7dea5d4e7c794142c5eadbafe96ec19be56cc97a881cd93cf4a",
+          "decision": "retain",
+          "reason": "Retain: simulation status, zero drift, RMS not a boundary, equal4s scales, units and unbounded coordinate prevent direct animal-data or hard-envelope interpretations."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/01-foundations.yaml",
+          "line": null,
+          "paragraph_sha256": "8df5871b95989573af15d7de4c4b0f647c42c98ea842eb641fd1c8d04be5629d",
+          "decision": "retain",
+          "reason": "Retain: conveys the nonmonotonic paths and square-root-versus-linear comparison; its details match the figure purpose."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/01-foundations.md",
+          "line": 201,
+          "paragraph_sha256": "4cef68e04567ad5a4ae61170f22c96b4f25c85410853a8de08dc0cb857c626d2",
+          "decision": "retain",
+          "reason": "The rechecked RMS wording uses the exact defined scale; it separates individual motion from distribution-wide growth, then states why fixed bias eventually dominates."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/01-foundations.md",
+          "line": 203,
+          "paragraph_sha256": "d9d175c58f25bbeb55b5a695db7dcf469084c56df1b1eef3ab6d1ad40e73b4b6",
+          "decision": "retain",
+          "reason": "The next original Brownian covariance paragraph moves from visible paths to dependence between two times. The figure does not replace that derivation."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A03": {
+      "purpose": "Show why added constant baseline firing can reduce local Poisson information despite more spikes.",
+      "prereqs": "Foundations introduces tuning and baseline. MEMORY-FI derives squared derivative divided by rate, explains positive-rate regularity and instantaneous internal-state meaning, then introduces these controlled curves.",
+      "order": "The preceding claim about peak rates is tested by two analytic positive curves, their shared derivative and their contributions. Interpretation explains the visible difference, then the text begins inverse-information estimator error.",
+      "question": "Why do both information curves vanish at the peak, and why is the higher-rate curve less informative here?",
+      "answer": "At the peak the local derivative is zero. Elsewhere squared derivative is the same for both curves, but the higher baseline increases the Poisson variance/rate denominator. This is about these chosen curves, not a proved intervention in a recurrent network.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 46,
+          "paragraph_sha256": "c2dd721fa485480c1c8d6cf6019f775807c42b22327ae42d0808ff5a69371ef1",
+          "decision": "retain",
+          "reason": "The original paragraph teaches slope-squared/rate and the difference between sensory and current-state information. The constructed curves answer its concrete claim."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 48,
+          "paragraph_sha256": "f29106c553aa7acdd0925dfb40c80806c4ab456f94f990ad895b1823551e3b53",
+          "decision": "retain",
+          "reason": "Retain: names the controlled changing part and baseline comparison, rather than inventing a new network mechanism."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "9da2b83d14233064c4265e26f42d6bca045d62a4c1bbabbe550c1d99e69dc936",
+          "decision": "retain",
+          "reason": "Retain: the two positive functions and width define the example; equal derivatives and flank information connect all three panels. The no-realized-attractor qualification is needed."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "04afe1aa3934f4862367fc52471c90eb3cdc166e87b6c45ed9b0cf31d88525c8",
+          "decision": "retain",
+          "reason": "Retain: identifies derivative sign and relative information in a form independent of color."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 56,
+          "paragraph_sha256": "12b8515ac2dd1bfafa84bbd6fd8f06aeee05e2d705481e258766d410578b6be0",
+          "decision": "retain",
+          "reason": "Retain: maps peak slope to zero contribution and extra baseline to the count-noise denominator. It explains the plotted contrast before the estimator-bound derivation."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 58,
+          "paragraph_sha256": "d760f92cf5a0fd307c44845c7925f225a3d91b32e1fda54ea47f72e046a43db9",
+          "decision": "retain",
+          "reason": "The next original paragraph starts why inverse information is an error scale. This remains a separate question from the illustrated local information calculation."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A04": {
+      "purpose": "Show the difference between an actual diffusion value and its information-derived lower bound.",
+      "prereqs": "The chapter has derived D>=1/(2tau squared J), its model assumptions and state-dependent equality condition. The immediately preceding two-cell calculation gives the coordinate units and the0/100 examples.",
+      "order": "The image completes the scalar comparison before the text extends information to a matrix. Its caption keeps the activation coordinate distinct from angle and excludes zero-rate boundaries.",
+      "question": "Does larger information at coordinate100 make this circuit diffuse more slowly?",
+      "answer": "No. Actual D remains1000 while the permitted minimum becomes750. The gap is inequality slack in this model; high information allows low D but does not guarantee it.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 153,
+          "paragraph_sha256": "78ebd202d0a70719c29bf03421c45bbf2659f344fe50b14b8bc5eb8d76a4d740",
+          "decision": "retain",
+          "reason": "The original paragraph identifies strict inequality and a special-state equality. The image shows those states under exactly that scenario."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 155,
+          "paragraph_sha256": "f942006068f2c20d65d1b18c218043a94cc30ab31a67af82bc808be80c0befce",
+          "decision": "retain",
+          "reason": "Retain: its short shift from the algebraic two-cell example to the plotted inequality is useful figure introduction, despite repeating the topic."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "078d589addc30e5b282d9ec5f8a73376e22c87c858c275948456b5c87405e578",
+          "decision": "retain",
+          "reason": "Retain: activation-coordinate units, chosen b/tau, positive-rate domain, the formula for J and fixed actual D are necessary to keep this comparison from becoming an angular or general circuit claim."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/03-memory-information.yaml",
+          "line": null,
+          "paragraph_sha256": "2d94db8d2221b14d987e503c80d65c4217523bdbe359fdcbfa39f737598a2e17",
+          "decision": "retain",
+          "reason": "Retain: identifies both state dependence and the visible slack at100 without requiring color discrimination."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 163,
+          "paragraph_sha256": "998c132a3d415d042cc86eea6027aba1f5cc9b69dfdafe2c6e97443e96a26239",
+          "decision": "retain",
+          "reason": "Retain: interprets the actual gap instead of introducing another result. No synonym for the established bound is needed."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/03-memory-information.md",
+          "line": 165,
+          "paragraph_sha256": "502a0595ffa468f48a16ec725c7c293b1fe2fdb93b09b9962bdfb40c0b2dd424",
+          "decision": "retain",
+          "reason": "The original matrix-information paragraph extends to multiple coordinates after the scalar plot is complete."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A05": {
+      "purpose": "Explain small single-cell correlation alongside a large common movement-variance fraction.",
+      "prereqs": "EYE-CHI defines X=C+epsilon,Y=C+eta, calibrated unit gain, pairwise uncorrelated contributions, R and chi, and computes the exact constructed variance values before insertion.",
+      "order": "The prior paragraph distinguishes R squared from common fraction; bars and a varying-private-noise curve make the denominator difference visible. The following paragraph returns to uncertainty in empirical chi estimates.",
+      "question": "How can R be.17 when the common contribution is82percent of movement variance?",
+      "answer": "The individual predictor contains much more private variance, enlarging sqrt[Var(X)Var(Y)] while covariance remains Var(C). The movement denominator is much smaller. This reasoning depends on the stated gain and covariance assumptions and does not locate noise uniquely in an integrator.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 235,
+          "paragraph_sha256": "340326265819a30fbab12ba07ada323a51f6ce430f6a5f60f91ca86cba3efc4f",
+          "decision": "retain",
+          "reason": "The original example conclusion separates rescaled explained variance from common movement variance. It supplies the question the graphic answers."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 237,
+          "paragraph_sha256": "7c010ba891d1203aae0b9cdfb828ee1a6349bec617989cae78059d6e471dfcc1",
+          "decision": "retain",
+          "reason": "Retain: briefly reconnects the constructed numbers to the question of small correlation and dominant common movement; the figure then adds an actual family of varying private noise."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "ae7282035d39bf8373c4992500bf2ef4702c82fa04899c1db6c614909c547dbc",
+          "decision": "retain",
+          "reason": "Retain: the parameter being varied, unit gain, uncorrelated terms and non-recording status are needed. R and chi have already been defined by formulas."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "6654beb06c06deb7662e04c93a28d08d0511becd049bb733b9f8fa5be55ba0f4",
+          "decision": "retain",
+          "reason": "Retain: the exact shared and private component sizes make the bars accessible; it distinguishes R from chi."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 245,
+          "paragraph_sha256": "7092966ea3b73970b3202c2bb54e21f73ef4164d966c5c6ccb2b808501e1b297",
+          "decision": "retain",
+          "reason": "Retain: the denominator/covariance distinction explains the curve and the same-scale statement explains why common bars are equal."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 247,
+          "paragraph_sha256": "a65b6fdc44c554175747a64e282a650477b18593ddf8eb1d86a93d5a0618d3a5",
+          "decision": "retain",
+          "reason": "The next original paragraph moves from the illustrative decomposition to noisy empirical chi estimates, preserving the example/data boundary."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A06": {
+      "purpose": "Show what measurement-offset subtraction changes and why the corrected small value remains uncertain.",
+      "prereqs": "EYE-MEASUREMENT-NOISE defines sampled position errors, derives the positive-lag2sigma_m squared offset and exact-zero exception, and gives the numeric subtraction and correlated-error alternative.",
+      "order": "A declared Brownian illustration displays that offset; revised caption and alt keep the open endpoint separate from actual zero. Interpretation says this corrects an average, and the next section asks about corrected time dependence.",
+      "question": "Why is zero lag different, and why is.0001 uncertainty substantial after subtraction?",
+      "answer": "At zero, the same error sample cancels itself; distinct independent errors contribute twice the position-error variance. Subtracting.0010 from.0014 leaves.0004, so.0001 is25percent of the remainder. Individual trajectory errors remain unknown.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 283,
+          "paragraph_sha256": "3d3ef08daebdef4d2f9c40989a971e5f939a96f451bf400685ca9fc0edd83f3d",
+          "decision": "retain",
+          "reason": "The original paragraph gives the numeric subtraction and correlated-error qualification. This remains intact, so the fixed offset is conditional on independent endpoint errors."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 285,
+          "paragraph_sha256": "b34ca6facaa856c70d89c10707022b3451e9117295904d69214d8b204a9b611d",
+          "decision": "retain",
+          "reason": "Retain: explicitly supplies the new chosen Brownian movement and the measurement-error offset."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "180baf284bde3d6f65e70353b19049898721807f3f025cf5a68d71dc476db7aa",
+          "decision": "retain",
+          "reason": "The complete repaired caption was truth/necessity rechecked in focused-W1-W4-recheck.json; current canonical text is exactly that accepted field and keeps every condition."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/04-eye-drift.yaml",
+          "line": null,
+          "paragraph_sha256": "e59a28385d12a84c71f8a86359b5d00386f46c9889c9169cc407cab98f0c9a4e",
+          "decision": "retain",
+          "reason": "The open endpoint and actual zero-lag point are now distinguished directly; the full alt retains positive-lag and uncertainty details."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 293,
+          "paragraph_sha256": "dfc1e9fee73efbdcf2bcb8235339349c0b844c47e23db31863cd93655235d556",
+          "decision": "retain",
+          "reason": "Retain: distinguishes correcting an average from recovering individual unknown trajectory errors; chosen movement clarifies this is not a new eye fit."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/04-eye-drift.md",
+          "line": 297,
+          "paragraph_sha256": "0101d6c0734265a938f788bc99e58c63c0a11379abe76b55f0ca8fe03f35f881",
+          "decision": "retain",
+          "reason": "The next section opens the different issue of the corrected MSD shape. The added plot completes measurement correction first."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A07": {
+      "purpose": "Make the fixed Gaussian input and spatial threshold-to-rate operation concrete before counting fields.",
+      "prereqs": "PLACE-GP defines Gaussian processes, normalization z, q,a,the positive-part operation, excursion fields and sigma. The chosen anchor follows the sigma/covariance paragraph.",
+      "order": "The chosen input/gain/threshold are introduced before the aligned panels; interpretation preserves fixed space versus moving time. The next section now counts the same connected intervals that have just been pictured.",
+      "question": "What changes when the input is thresholded, and what stays fixed across repeated visits?",
+      "answer": "At every position, rate is six times the positive excess over.8. Subthreshold positions fire at zero and the remaining support separates into fields. The same input/rate map remains fixed over space; visit-to-visit spikes are not drawn.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 56,
+          "paragraph_sha256": "766c616e0154b3bb719c9924855db5e4e8fa62cfd08baac4f9c34f39bbdc3798",
+          "decision": "retain",
+          "reason": "The original covariance/scale paragraph has introduced sigma; all previously defined q,z,a and positive-part notation are available."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 58,
+          "paragraph_sha256": "ebdd8b0016bad74b9e16ae42e4d433c8876d5071b8d33a62976ee07fd385b961",
+          "decision": "retain",
+          "reason": "Retain: chosen covariance, q,a and sigma units specify what was sampled and displayed. The anchor follows the sigma definition."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "867dae8925f306d590133deaf529386b45b4ad4f8a35d50a2864d3f36532fcd2",
+          "decision": "retain",
+          "reason": "Retain unchanged: F(x)=a[z(x)-q]+ is already inside valid math delimiters, with the positive-part meaning taught before this figure. Its model-field and simulation qualifications are needed."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "c405adf3c3749c5b0944951f10fce593dce1fd06bb08d1da01c9eda0933c550b",
+          "decision": "retain",
+          "reason": "Retain: positive excess and aligned support explain the transformation in ordinary words without relying on the subscript symbol."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 66,
+          "paragraph_sha256": "bae2857bfda07b77ed9d4f22e7513bed66ad580cd33b2bc80ef50a0c7d4e4026",
+          "decision": "retain",
+          "reason": "Retain: fixed map over space distinguishes this example from the earlier temporal diffusion and prepares counting crossings."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 70,
+          "paragraph_sha256": "856ec0de26ed8e343059f6a30d4a33b37addb1f75924df0542bd202348000784",
+          "decision": "retain",
+          "reason": "The next section begins counting fields from crossings; the reader has now seen which intervals that count refers to."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A08": {
+      "purpose": "Separate unit-free size rescaling from the power transformation that makes the limiting law exponential.",
+      "prereqs": "The earlier rare-peak section defines exponential U; PLACE-SIZE-LAW derives p_d(s), beta and its units before this image. The added intro defines w. Caption now explains the first survival/density terms directly.",
+      "order": "Units are established, then scale is removed with w; the plot shows remaining shape differences and U coincidence. Interpretation says the exponential was an assumption of the calculation, followed by the existing size-law table and no-point-mass explanation.",
+      "question": "Why do the densities differ after removing the size scale but their transformed survival probabilities agree?",
+      "answer": "w removes beta but retains the d-dependent Jacobian. Raising w to2/d gives U and cancels that shape difference, producing exp(-u). The3D density diverges near zero yet integrates to one; this is the high-threshold limiting identity, not evidence of zero-volume fields or a fresh experimental collapse.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 287,
+          "paragraph_sha256": "e0cefd2bef21d8c57c06ba03819d1f74f6d0f41e3ad03b4ed921afc4a741b404",
+          "decision": "retain",
+          "reason": "The original paragraph supplies size/beta units and why beta*s^(2/d) is dimensionless; this supports the new scale variable."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 289,
+          "paragraph_sha256": "5eb4bde29d56abc33274fa983b0769051b44b928b70a23d40313217e78de35aa",
+          "decision": "retain",
+          "reason": "Retain: w is explicitly defined to distinguish scale removal from the power transformation U."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "ae05d62f3d0aa7907305ef2ca5c2d64774ef7e257b5b8d705cc5f4c0efa55c7e",
+          "decision": "retain",
+          "reason": "The complete repaired caption was truth/necessity rechecked in focused-W1-W4-recheck.json; current canonical text is exactly that accepted field and keeps every condition."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/05-place-fields.yaml",
+          "line": null,
+          "paragraph_sha256": "568cf1c461d7fa93cdc75abbb809c03aadd3d566802ab24cf0ee3078b59644b3",
+          "decision": "retain",
+          "reason": "Retain: ordinary density-origin behavior and the three coincident traces are useful. Plaintext powers in alt are accessible literal notation rather than raw TeX, so no required alt change."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 297,
+          "paragraph_sha256": "f3deb54ce8a9e5943cb5082baae607c47048ff2203832e1ac17c5f91a6a0cb9f",
+          "decision": "retain",
+          "reason": "Retain: explicitly says the common exponential law was used in the derivation, preventing the coincidence from being called an independent validation."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/05-place-fields.md",
+          "line": 305,
+          "paragraph_sha256": "b0cac387c1042983a3962b519a03aca42a4d5f9b880a93c1b0417150203c90f8",
+          "decision": "retain",
+          "reason": "The following size-law table and Weibull paragraph give the distribution names and explain that a diverging density creates no point mass at zero. Caption should give the direct meaning when the term first appears."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    },
+    "A09": {
+      "purpose": "Connect fixed tuning to common rate changes without inventing inhibitory wiring or a joint tested circuit.",
+      "prereqs": "SYNTHESIS-JOINT-CALCULATION defines R_i=f_i(x(t)), local Taylor change and covariance2Dt f_i prime f_j prime. The two-cell values and single-source qualification precede the added baseline choice.",
+      "order": "The local construction is labeled before the example, and the extra10Hz baseline is declared before the upper absolute-rate panel. The lower plane shows changes; interpretation leads to the original need for joint measurements.",
+      "question": "Why does one common position error produce perfectly opposite changes, and what would extra private noise do?",
+      "answer": "One scalar displacement multiplies slopes2 and-1, forcing delta R2=-delta R1/2 and shared-source correlation-1. Independent private noise adds variation away from that line. Opposite slopes imply negative covariance here without proving an inhibitory connection.",
+      "paragraphs": [
+        {
+          "role": "preceding_original",
+          "source": "content/chapters/06-synthesis.md",
+          "line": 63,
+          "paragraph_sha256": "48433ea57f29595c3bc120cb3f5db4a6e290fcf35a3e630b5974341a5d7cd7fd",
+          "decision": "retain",
+          "reason": "The original correlation paragraph excludes private noise and rejects the inference of inhibition. These conditions remain immediately before the new image."
+        },
+        {
+          "role": "intro",
+          "source": "content/chapters/06-synthesis.md",
+          "line": 65,
+          "paragraph_sha256": "c2f56feecf56a500fc37c79c93127ee82bf3c2739fd8a45c784c7317b5fd16b8",
+          "decision": "retain",
+          "reason": "Retain: the10Hz baseline is an added display choice and is declared before the plotted absolute rates."
+        },
+        {
+          "role": "caption",
+          "source": "content/chapters/06-synthesis.yaml",
+          "line": null,
+          "paragraph_sha256": "9d209f63a1c209dc0541da470e48b3efe0bbcca38425cca111005249752fe00f",
+          "decision": "retain",
+          "reason": "Retain: exact displacement changes, covariance, single-source correlation and baseline status are the needed interpretation. The local/not-recorded qualifiers prevent a joint empirical circuit claim."
+        },
+        {
+          "role": "alt",
+          "source": "content/chapters/06-synthesis.yaml",
+          "line": null,
+          "paragraph_sha256": "1beddc446e816c8693639b3bee78d965de895f80a59a6ac8aa60488a7064637c",
+          "decision": "retain",
+          "reason": "Retain: both physical-displacement and rate-change coordinates are described, and the chosen point is identified."
+        },
+        {
+          "role": "interpretation",
+          "source": "content/chapters/06-synthesis.md",
+          "line": 73,
+          "paragraph_sha256": "acc2b003b116cfae9d480a6bbe9050c06a79c95a6681e7b7da78969cfca9be6a",
+          "decision": "retain",
+          "reason": "Retain: one direction in the two-rate plane directly names the plotted line and distinguishes added independent noise."
+        },
+        {
+          "role": "following_original",
+          "source": "content/chapters/06-synthesis.md",
+          "line": 75,
+          "paragraph_sha256": "f85833f7c39c1eb1c221033ea2363710150a1a17bd0206fc74565fa5a4b823a3",
+          "decision": "retain",
+          "reason": "The next original paragraph explains the extra joint measurement needed; the figure does not substitute a proposed experiment for a result."
+        }
+      ],
+      "connected_read_verdict": "pass"
+    }
+  },
+  "canonical_proposal_identity": {
+    "content/chapters/01-foundations.md": {
+      "md_sha256": "ad3e8305a73c3ca5b777bcaf17e409dbb3f35d6e550a28a532ed680b44bbd84f",
+      "yaml_sha256": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1",
+      "original_md_recovers_exactly": true,
+      "original_sidecar_semantics_preserved": true
+    },
+    "content/chapters/03-memory-information.md": {
+      "md_sha256": "23a595e0e19d0c994c140d3080afe817390f047f554385fa1f387303d8cebc0f",
+      "yaml_sha256": "f5700aeab60e0eb0f2f7cc8d0dca246c40b53569943c2cfb44c6650a634aa7a1",
+      "original_md_recovers_exactly": true,
+      "original_sidecar_semantics_preserved": true
+    },
+    "content/chapters/04-eye-drift.md": {
+      "md_sha256": "6704d46f75118ae21d1b336f8ea59ce523aa9824e3e809ba8fd2e26da93f7323",
+      "yaml_sha256": "2b0de2b57e1142fb7a1dd4e9fccd684bbdf12f414142517ca013ed8baa60efdd",
+      "original_md_recovers_exactly": true,
+      "original_sidecar_semantics_preserved": true
+    },
+    "content/chapters/05-place-fields.md": {
+      "md_sha256": "76c748cd30a98eaca19f26f360eb9dafa7b39c930cf5af622b73b4fee1a641a7",
+      "yaml_sha256": "fb7583604b5645eef855582f3c06f0587918c2242d83cae8a205cbb8d58c8ee7",
+      "original_md_recovers_exactly": true,
+      "original_sidecar_semantics_preserved": true
+    },
+    "content/chapters/06-synthesis.md": {
+      "md_sha256": "32703a4a29b396b4952bafe287c60c917cc4f0ca56733eefbac0f274cada8557",
+      "yaml_sha256": "30f4334052488ed71449232a8a558df117d3fd0ceb97c25f30f8722e2528496a",
+      "original_md_recovers_exactly": true,
+      "original_sidecar_semantics_preserved": true
+    }
+  },
+  "input_sha256": {
+    "content/chapters/01-foundations.md": "ad3e8305a73c3ca5b777bcaf17e409dbb3f35d6e550a28a532ed680b44bbd84f",
+    "content/chapters/01-foundations.yaml": "d2d2e757a8f834812b95d59faae38520d3adc8f429419498020a1c41d0f433a1",
+    "content/chapters/03-memory-information.md": "23a595e0e19d0c994c140d3080afe817390f047f554385fa1f387303d8cebc0f",
+    "content/chapters/03-memory-information.yaml": "f5700aeab60e0eb0f2f7cc8d0dca246c40b53569943c2cfb44c6650a634aa7a1",
+    "content/chapters/04-eye-drift.md": "6704d46f75118ae21d1b336f8ea59ce523aa9824e3e809ba8fd2e26da93f7323",
+    "content/chapters/04-eye-drift.yaml": "2b0de2b57e1142fb7a1dd4e9fccd684bbdf12f414142517ca013ed8baa60efdd",
+    "content/chapters/05-place-fields.md": "76c748cd30a98eaca19f26f360eb9dafa7b39c930cf5af622b73b4fee1a641a7",
+    "content/chapters/05-place-fields.yaml": "fb7583604b5645eef855582f3c06f0587918c2242d83cae8a205cbb8d58c8ee7",
+    "content/chapters/06-synthesis.md": "32703a4a29b396b4952bafe287c60c917cc4f0ca56733eefbac0f274cada8557",
+    "content/chapters/06-synthesis.yaml": "30f4334052488ed71449232a8a558df117d3fd0ceb97c25f30f8722e2528496a"
+  },
+  "rule_sha256": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md": "d75f622dd92ce92b09d75c5398edc874a3d317223ffeb5e0ab02bf7d8ce262e2",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b"
+  },
+  "unresolved_findings": [],
+  "browser_status": "Pending root browser/render checks; no browser pass claimed",
+  "limits": [
+    "No original reader prose changed by reviewer",
+    "Not a full-book audit or publication decision",
+    "Token stats unavailable",
+    "Awake execution time unverified"
+  ]
+}

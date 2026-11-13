@@ -1,0 +1,66 @@
+chapter_id: ch:MEMORY-DYNAMICS
+part_id: part:MECHANISMS
+title: How spiking noise moves a stored memory
+purpose: A network can keep firing after a stimulus disappears and still lose the
+  value that the stimulus supplied. The important question is whether the activity
+  pattern stays in the right place, not just whether activity continues. Burak and
+  Fiete study this distinction in a network whose stable activity patterns form a
+  continuous set. This chapter derives how random spikes move the network along that
+  set. The next chapter asks how well another network can read the moving memory.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:FOUNDATIONS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:MEMORY-SPIKES
+  title: From individual spikes to a slowly changing network state
+  summary: How can brief spikes maintain a state for much longer than the duration
+    of a spike? In this model, each spike leaves a synaptic activation that decays
+    gradually. Incoming activations determine new firing rates; the resulting spikes
+    renew those activations. This feedback can support activity after the external
+    stimulus has ended.
+  level: 2
+- id: sec:MEMORY-LINEARIZATION
+  title: Which part of a perturbation survives?
+  summary: 'A spike perturbs many aspects of a network''s state. Most of those changes
+    decay as the state returns to the attractor. To calculate memory loss, we need
+    the one change that survives: the displacement to a different fixed point.'
+  level: 2
+- id: sec:MEMORY-DIFFUSION
+  title: Projecting spike fluctuations gives the diffusion coefficient
+  summary: We can now calculate how much random displacement remains after the stable
+    components have relaxed. Multiply the linear stochastic equation by $\mathbf v^T$.
+    Since $\mathbf v^TK=0$,
+  level: 2
+- id: sec:MEMORY-SYMMETRIC
+  title: Symmetric weights make the projection measurable
+  summary: The general formula requires the left vector of the network dynamics. When
+    $W_{ij}=W_{ji}$, can we write it using tuning curves and the input to rate rule?
+  level: 2
+- id: sec:MEMORY-LONG-TIME
+  title: From local spreading to long delay errors
+  summary: A local diffusion coefficient answers how variance initially grows. It
+    does not by itself say that variance grows at the same rate forever. Boundaries
+    and variation of $D$ can change the long time behavior.
+  level: 2
+- id: sec:MEMORY-DRIFT-SCOPE
+  title: Random drift, systematic drift, and a mistuned network
+  summary: Repeated trials can spread apart even if their average stays at the original
+    value. That random spreading differs from a reproducible movement in one direction.
+    Both can occur, and the derivation of $D$ alone does not settle the second question.
+  level: 2
+- id: sec:MEMORY-FIGURES
+  title: Reading the first two figures
+  summary: Figure 1A shows the definition of the memory coordinate. Start at a green
+    point off the attractor and follow the noise free flow to the black point on it.
+    This endpoint defines the instantaneous attractor state. After one noisy interval,
+    repeat that flow. The difference between the two endpoints is the retained memory
+    change. The relevant projection follows the flow, as in the tilted two variable
+    example above.
+  level: 2
+blocks: []
+source_loci: []

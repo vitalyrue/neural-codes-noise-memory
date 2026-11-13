@@ -1,0 +1,22 @@
+--- before/04b-eye-timing.md
++++ after/04b-eye-timing.md
+@@ -115,6 +115,8 @@
+ \tau\dot E+E=B,\qquad dB=\sqrt{2D}\,dW.
+ $$
+ 
++Here $B$ is the changing position command and $E$ is the eye angle that follows it, both in degrees. The mismatch $B-E$ drives velocity: a command to the right of the current position makes the eye move right. For the same mismatch, a larger response time $\tau$ gives a smaller velocity, so the eye takes longer to catch up and smooths rapid command changes more strongly. This response time belongs to the simplified eye filter; it is not automatically the synaptic decay time used in the memory model.
++
+ $W$ is a Brownian process with unit increment variance per unit time, so $D$ has units deg$^2$/s. Define velocity $v=\dot E=(B-E)/\tau$. Taking its increment gives
+ 
+ $$
+@@ -164,7 +166,9 @@
+ M_{\rm Brownian}(\ell)\simeq2D(\ell-\tau),
+ $$
+ 
+-which grows linearly rather than approaching a plateau. Its local slope is
++which grows linearly rather than approaching a plateau.
++
++Holding the internal diffusion coefficient $D$ fixed, increasing $\tau$ reduces short-lag displacement and moves the transition to linear growth to longer lags. It does not stop accumulating error: the long-lag MSD growth rate still approaches $2D$. Increasing $D$ instead raises the entire MSD curve in proportion, at fixed $\tau$. The local logarithmic slope of this MSD is
+ 
+ $$
+ \alpha(\ell)=\frac{\ell(1-e^{-\ell/\tau})}

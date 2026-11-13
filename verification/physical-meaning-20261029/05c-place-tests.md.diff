@@ -1,0 +1,29 @@
+--- before/05c-place-tests.md
++++ after/05c-place-tests.md
+@@ -199,6 +199,8 @@
+ 
+ The statistical model becomes biologically useful if it suggests how a circuit could make the maps. A random weighted sum of many inputs is one possible mechanism, and the supplement makes its assumptions explicit.
+ 
++At position $x$, each input cell contributes according to its spatial firing profile. Fixed connection weights determine how those contributions combine at the receiving cell. The source treats the sum as effective input relative to a background that can be balanced through inhibition or regulation of excitation and inhibition. The signed random weights below are part of this simplified input model; they do not establish the signs of individual biological synapses.
++
+ Let $u_i(x)$ be the fixed spatial tuning of input neuron $i$, and let independent weights $W_i$ have zero mean and variance $v_W$. The profiles $u_i$ may have nonzero spatial means. The expectation below is over weights: their zero means make the summed input $h(x)$ have mean zero. The summed input is
+ 
+ $$
+@@ -217,6 +219,8 @@
+ \end{aligned}
+ $$
+ 
++The same fixed weight multiplies an input cell's activity at both positions. For positive input profiles, cells active at both $x$ and $y$ therefore make positive contributions to covariance across possible weight choices. Little overlap gives a smaller contribution. For profiles defined as deviations from background, the products can also be negative. Broad input profiles can produce broad spatial covariance, as the Gaussian example below shows.
++
+ If inputs are translated copies $u_i(x)=u_0(x-x_i)$ with centres densely and uniformly covering space at density $\rho$, the sum is approximately
+ 
+ $$
+@@ -231,6 +235,8 @@
+ 
+ For input profiles with different shapes, average the last integral over the distribution of those shapes, as in Methods S2, Equation S8.
+ 
++At fixed profile shape, increasing the weight variance $v_W$ or input density $\rho$ increases the covariance amplitude. It does not change the normalized spatial dependence in this construction. Widening each input profile instead broadens the distances over which positions share input. These are different changes: input amplitude can alter the effective threshold $q$ when the absolute threshold is held fixed, whereas input width changes the spatial scale.
++
+ For example, take $u_0(s)=R_0e^{-s^2/(2b^2)}$ in one dimension. Completing the square gives
+ 
+ $$

@@ -1,0 +1,2032 @@
+                                             The Annals of Probability
+                                             2006, Vol. 34, No. 1, 122–158
+                                             DOI: 10.1214/009117905000000594
+                                              c Institute of Mathematical Statistics, 2006
+arXiv:math/0602545v1 [math.PR] 24 Feb 2006
+
+
+
+
+                                                                    A GAUSSIAN KINEMATIC FORMULA1
+
+                                                                                By Jonathan E. Taylor
+                                                                                      Stanford University
+                                                               In this paper we consider probabilistic analogues of some clas-
+                                                          sical integral geometric formulae: Weyl–Steiner tube formulae and
+                                                          the Chern–Federer kinematic fundamental formula. The probabilis-
+                                                          tic building blocks are smooth, real-valued random fields built up
+                                                          from i.i.d. copies of centered, unit-variance smooth Gaussian fields
+                                                          on a manifold M . Specifically, we consider random fields of the form
+                                                          fp = F (y1 (p), . . . , yk (p)) for F ∈ C 2 (Rk ; R) and (y1 , . . . , yk ) a vector
+                                                          of C 2 i.i.d. centered, unit-variance Gaussian fields.
+                                                             The analogue of the Weyl–Steiner formula for such Gaussian-
+                                                          related fields involves a power series expansion for the Gaussian,
+                                                          rather than Lebesgue, volume of tubes: that is, power series expan-
+                                                          sions related to the marginal distribution of the field f . The formal
+                                                          expansions of the Gaussian volume of a tube are of independent ge-
+                                                          ometric interest.
+                                                             As in the classical Weyl–Steiner formulae, the coefficients in these
+                                                          expansions show up in a kinematic formula for the expected Eu-
+                                                          ler characteristic, χ, of the excursion sets M ∩ f −1 [u, +∞) = M ∩
+                                                          y −1 (F −1 [u, +∞)) of the field f .
+                                                             The motivation for studying the expected Euler characteristic
+                                                          comes from the well-known approximation P[supp∈M f (p) ≥ u] ≃
+                                                          E[χ(f −1 [u, +∞))].
+
+
+                                               1. Introduction. In this paper we consider perhaps the simplest non-
+                                             Gaussian models of smooth random fields on a manifold M . Our fields,
+                                             which we refer to as Gaussian related, are smooth, real-valued random fields
+                                             built up from i.i.d. copies of centered, unit-variance smooth Gaussian fields
+                                             on a manifold M . Given a C 2 , centered, unit-variance Gaussian process y
+
+                                                Received November 2002; revised November 2004.
+                                                1
+                                                  Supported in part by Natural Sciences and Engineering and Research Council and the
+                                             Israel Science Foundation.
+                                                AMS 2000 subject classifications. Primary 60G15, 60G60, 53A17, 58A05; secondary
+                                             60G17, 62M40, 60G70.
+                                                Key words and phrases. Random fields, Gaussian processes, manifolds, Euler charac-
+                                             teristic, excursions, Riemannian geometry.
+
+                                              This is an electronic reprint of the original article published by the
+                                              Institute of Mathematical Statistics in The Annals of Probability,
+                                              2006, Vol. 34, No. 1, 122–158. This reprint differs from the original in pagination
+                                              and typographic detail.
+                                                                                        1
+2                                   J. E. TAYLOR
+
+on M and F ∈ C 2 (Rk ; R) we consider the field
+                             fp = F (y1 (p), . . . , yk (p)),
+where the fields yi are i.i.d. copies of y.
+  For a concrete example: set
+                                    F (x) = kxk2 ,
+then the field
+                            f (p) = F (y1 (p), . . . , yk (p))
+has a χ2k marginal distribution, and has previously been referred to as a
+“χ2k ” field [1, 20]. Note that, unlike a Gaussian field, a field with χ2k marginal
+distributions is not determined solely by its covariance function. In this work
+the fields are characterized by their covariance functions and the function
+F.
+   The motivation for studying the expected Euler characteristic of the ex-
+cursions f −1 [u, +∞) ⊂ M comes from the approximation
+                                        
+                     P sup f (p) ≥ u ≃ E[χ(f −1 [u, +∞))]
+                          p∈M
+
+[1, 2, 20, 22]. This approximation has found uses in medical imaging, astro-
+physics and multivariate analysis [15, 16, 20, 23]. A heuristic justification of
+the above approximation can be found in [2, 6], with a rigorous justification
+in [17].
+   Our main result, Theorem 4.1, expresses the expected Euler characteristic,
+χ, of the excursion sets f −1 [u, +∞)
+                                E[χ(M ∩ f −1 [u, +∞))]
+in terms of geometric quantities related to the curvature of the Riemannian
+structure induced by the covariance function of y [18] and geometric quan-
+tities related to the curvature of F −1 [u, +∞) ⊂ Rk , viewed as a subset of
+the probability space (Rk , γRk ), where γRk is the standard Gaussian measure
+on Rk :
+                                    Z
+                                                          2
+                       γRk (A) =         (2π)−k/2 e−kxk /2 dx.
+                                     A
+
+That is, the geometric quantities related to F −1 [u, +∞) depend on both the
+curvature of F −1 [u, +∞) as well as the measure γRk .
+   In Theorem 4.1, curvature enters as coefficients in certain volume of
+tubes expansions. As these expansions are slightly nonstandard, we recall
+some basic facts about such expansions, dating back to Weyl and Steiner
+[12, 14, 19]. These expansions give an expression for the volume of a tubular
+                      A GAUSSIAN KINEMATIC FORMULA                                3
+
+neighborhood of a set M ⊂ Rn , assumed either to be convex or an embed-
+ded submanifold, in terms of certain intrinsic measures on M , the so-called
+Lipschitz–Killing curvature (signed) measures (Lj (M, ·))0≤j≤n . These mea-
+sures depend on M and are finitely additive in M . When M is an embedded
+manifold in Rn , the tube formula is due to Weyl [19], and when M is a
+compact, convex domain, the expansion is generally attributed to Steiner
+(cf. [14]). The two formulae were generalized to sets of positive reach by
+Federer [11] who defined the Lipschitz–Killing curvature measures of such a
+set.
+   Weyl and Steiner’s formulae state that for r small enough
+    Hk (T (M, r)) , Hk ({y ∈ Rk : d(y, M ) ≤ r}) = λRk ({y ∈ Rk : d(y, M ) ≤ r})
+(1.1)
+                      k
+                      X                               k
+                                                      X
+                  =         Lj (M, Rk )ωk−j r k−j ,         Lj (M )ωn−j r k−j ,
+                      j=0                             j=0
+
+where d(·, M ) is the standard distance function on Rn ; ωk = π k/2 /Γ(k/2 + 1),
+the volume of the unit ball in Rk ; Hk is k-dimensional Hausdorff measure
+and λRk is Lebesgue measure. It is sometimes useful to rewrite (1.1) in terms
+of Minkowski functionals defined by
+                              Mk−j (M )
+                                        = Lj (M )ωk−j
+                               (k − j)!
+so that (1.1) reads as a (finite) Taylor series expansion
+                                            k
+                                            X                rj
+                        λRk (T (M, r)) =          Mj (M )       .
+                                            j=0
+                                                             j!
+
+   One of the deep facts about the Lipschitz–Killing curvatures, first proven
+by Weyl, is that they are intrinsic to M . That is, if we embed M into a
+different Euclidean space in an isometric fashion, the Lipschitz–Killing cur-
+vature measures of S are unchanged. They are also intrinsic in the Rieman-
+nian sense, because they are local and can be computed from a Riemannian
+metric on M .
+   However, because Lj (M ) are intrinsic to M , the Minkowski functionals
+of M are not intrinsic. In particular they depend on the dimension of the
+Euclidean space in which M is embedded. Strictly speaking, it is therefore
+                      λ
+necessary to write Mj Rk (M ) to clarify which Euclidean space we are talking
+about, where λRk refers both to which dimension M is considered to be
+embedded in as well as which measure we are using to compute the volume
+of the tube. In Section 3 we will compute the volume of a tube with measures
+other than Lebesgue; specifically we will compute a Taylor series expansion
+of the standard Gaussian volume γRk of certain tubes. These expansions will
+4                                    J. E. TAYLOR
+
+play a key role in our analogue of the Chern–Federer kinematic fundamental
+formula (KFF) [7, 10, 11, 13] in which the Lipschitz–Killing curvatures also
+play a prominent role.
+   The KFF relates the “averaged” jth Lipschitz–Killing curvature Lj (M1 ∩
+gM2 ) to the Lipschitz–Killing curvatures of M1 and M2 , averaged over “typ-
+ical” rigid motions g. Specifically, for M1 and M2 , two embedded submani-
+folds of Rk , the following relation holds:
+                   Z
+                         Lj (M1 ∩ gM2 ) dµn (g)
+                    Gk
+(1.2)
+                             X
+                             k−j
+                                   i+j
+                                           −1
+                                           k
+                         =                           Lj+i (M1 )Lk−i (M2 ),
+                                    j      i
+                             i=0
+
+where
+                                         
+                                    k       k      ωk
+                                      =                  ,
+                                    i       i    ωi ωk−i
+and Gk = Rk × O(k) is the group of rigid motions on Rk with Haar measure
+             ek , the product of Lebesgue measure and the invariant proba-
+µ k = λR k × µ
+bility measure on O(k).
+   The Chern–Gauss–Bonnet theorem [9, 11] states that L0 (·) = χ(·), the
+Euler characteristic, so that we can rewrite the case j = 0 in (1.2) as an
+“averaged,” or “expected,” Euler characteristic
+           Z                                   k  −1
+                                               X  k
+(1.3)             χ(M1 ∩ gM2 ) dµk (g) =                        Li (M1 )Lk−i (M2 ),
+             Gk                                       i
+                                               i=0
+
+keeping in mind that the measure µk is not a finite measure.
+   This brings us to the subject studied in our work here. In this work we
+study the expected Euler characteristic of certain random sets derived from
+smooth zero-mean, unit-variance Gaussian random fields on a C 3 manifold
+M . Our main results are Gaussian analogues of (1.1) and (1.3), given in
+Corollary 3.4 and Theorem 4.1.
+   Specifically, let y = (y1 , . . . , yk ) : M → Rk be a sequence of i.i.d. zero-mean
+unit-variance Gaussian random fields (satisfying certain regularity condi-
+tions specified in Theorem 4.1 below) on a C 3 manifold M . We derive,
+using techniques similar to [1, 3, 18, 21], an expression for E[χ(M ∩ y −1 D)],
+where D is a suitable C 2 domain in Rk . In particular, we show in Lemmas
+2.5 and 2.6 that if M is a C 3 n-manifold, with or without boundary, and
+for suitable F ∈ C 2 (Rk ; R)
+                                                          n
+                                                          X
+(1.4)          E[χ(M ∩ y −1 (F −1 [u, +∞)))] =                  Lj (M )ρej (F, u),
+                                                          j=0
+                      A GAUSSIAN KINEMATIC FORMULA                              5
+
+where the functions ρej (F, u), for j ≥ 1, are Gaussian analogues of MλRk and
+are given by integrals of certain functions over F −1 {u} = ∂(F −1 [u, +∞)) ⊂
+Rk . In (1.4), the quantities (Lj (M ))0≤j≤n are the (total) Lipschitz–Killing
+curvature measures of the Riemannian manifold (M, g), where g is the Rie-
+mannian metric induced by the random field f
+
+                             g(Xp , Yp ) = E[Xp f Ypf ]
+
+for tangent vectors Xp and Yp in Tp M .
+   When the yi ’s are defined on Rn and are isotropic, the functionals ρej (F, u)
+agree with the EC densities ρf,j (u) of F ◦ y (cf. [21]), where it is shown that
+for compact C 2 domains S
+                                        n
+                                        X                    j/2
+(1.5)       E[χ(S ∩ f −1 [u, +∞))] =          aj,n Mλn−j
+                                                      Rn
+                                                         (S)µ2 ρf,j (u),
+                                        j=0
+
+where µ2 is a spectral parameter of f , namely the variance of its first par-
+tial derivatives and aj,n are constants, independent of S or f . It should
+be noted that (1.5) holds for any smooth isotropic field on Rn , not just
+Gaussian-related fields, that is, those derived from i.i.d. Gaussians. Lemmas
+2.5 and 2.6 are thus extensions of (1.5) to fields derived from i.i.d. Gaussians
+on manifolds. Further, these lemmas show that in order to compute
+
+                         E[χ(M ∩ y −1 (F −1 [u, +∞)))],
+
+we need only compute (Lj (M ))0≤j≤n and ρej (F, u).
+   Lemmas 2.5 and 2.6 also provide a direct way to compute ρej (F, u), and
+hence ρf,j (u) for isotropic Gaussian-related fields of the form F ◦ y, in that
+they are represented as conditional expectations of random variables defined
+on Rk and do not contain any information concerning the derivative of the
+fields themselves. This should be compared with earlier works (cf. [8, 20])
+where ρf,j (u) (assuming without loss of generality that µ2 = 1) is expressed
+as
+
+(1.6)       ρf,j (u) = E[det(∇2 f|j,t)|∇f|j,t = 0, f|j,t ≥ u]ϕ∇f|j,t (0),
+
+where ∇2 fkl,t = ∂ 2 f (t)/∂xk ∂xl is the Hessian of f (t), f|j is the restriction
+of f to a j-dimensional subspace of Rn and ϕ∇f|j,t (0) is the density of ∇f|j,t
+for some fixed t. In these works, it was therefore necessary to work out the
+full joint distribution of the field along with its first two derivatives at a
+given point t and then carry out a fairly delicate conditioning argument.
+   The connection between the functionals ρej (F, u) and kinematic formulae
+is related to an extension of the Weyl–Steiner tube formulae. We discuss
+this extension in Section 3, where we derive a formal power series expression
+6                                    J. E. TAYLOR
+
+for the standard Gaussian volume of a tube around D, that is, we derive a
+formal expression for
+             Z                                          ∞
+                                       2                X       γ         rj
+(1.7)                   (2π)−k/2 e−kxk /2 dλRk (x) =          Mj Rk (D)      .
+              T (D,r)                                   j=0
+                                                                          j!
+                 γ k                                                 γ k
+The notation Mj R (D) is chosen to highlight the analogy between Mj R (D),
+the coefficient of r j /j! in a formal expression for the Gaussian volume of
+                 λ
+T (D, r) and Mj Rk (D), the coefficient of r j /j! in a formal expression for the
+Lebesgue volume of T (D, r). Both expansions are exact in some cases, for
+instance, when D or Dc is a compact C 2 domain.
+   The “take-home message” of this work is Theorem 4.1, where we link
+Sections 2 and 3. We prove, by direct computation, that for suitable F ∈
+C 2 (Rk ; R),
+                                                γ
+                     ρej (F, u) = (2π)−j/2 Mj Rk (F −1 [u, +∞)),
+that is, the EC densities ρj,f (u) for Gaussian-related isotropic fields are (up
+to constants) coefficients in a Gaussian volume of tubes expansion around
+F −1 [u, +∞). We can thus rewrite (1.4) as
+                                       n
+                                       X                            γ
+(1.8)         E[χ(M ∩ y −1 D)] =             Lj (M )(2π)−j/2 Mj Rk (D).
+                                       j=0
+
+   We conclude with some examples in Section 5, specifically rederiving, in
+light of (1.8), the EC densities of Gaussian and χ2 fields. While these are
+not new, their derivation sheds some light on the origin of the formulae. For
+instance, although it has been shown that the EC densities for a real-valued
+Gaussian field are essentially just Hermite polynomials times the standard
+Gaussian density, (1.8) shows that the reason the Hermite polynomials ap-
+pear is the fact that they are derivatives of the Gaussian densities, hence
+(up to constants) the coefficients of powers of r in a power series expansion
+of the Gaussian measure of the tube [u − r, +∞) of radius r around [u, +∞).
+   The new results in Section 5 are the EC densities of the noncentral χ2
+fields, as well as the EC densities of what we refer to as the “correlated
+conjunction” random field which is given by taking the minimum of two
+correlated Gaussian fields defined on a manifold M . Specifically given ρ ∈
+(−1, 1) and y = (y1 , y2 ) two independent centered, unit-variance Gaussian
+fields on M , define the new random fields
+                                  z1 = y1 ,
+                                                    q
+                                  z2 = ρ · y1 +     1 − ρ2 · y2 ,
+                          z1 ∧ z2 (p) = min(z1 (p), z2 (p)).
+                      A GAUSSIAN KINEMATIC FORMULA                                  7
+
+In Section 5.4 we derive the EC densities of z1 ∧ z2 by relating the EC den-
+sities to the Gaussian measure of tubes around arbitrary cones in R2 . The
+“correlated conjunctions” is a simple model for correlated random sets: the
+independent model (ρ = 0) has been used in certain neuroimaging applica-
+tions [24].
+   The outline of the paper is as follows: Section 2 is dedicated to deriving
+an explicit expression for the EC densities ρf,j (u) = ρej (F, u). Section 3 is
+dedicated to extending the Weyl–Steiner tube formulae to measures with
+smooth densities with respect to Lebesgue measure and is possibly of in-
+dependent interest. In Section 4 we show that the functionals ρej (F, u) are,
+up to constants, coefficients in a Taylor series expansion for the standard
+Gaussian measure of a tube around F −1 [u, +∞). Section 5 is devoted to
+examples.
+
+   2. Euler characteristic densities. In this section we derive an explicit
+integral representation for the EC densities ρej (F, u). The proof involves some
+preliminary lemmas necessary to carry out the conditioning in (1.6).
+
+   2.1. Gaussian random fields on manifolds. In this section we derive cer-
+tain expectations for Gaussian random fields on a manifold M . We first
+review some linear algebraic preliminaries; readers are referred to [3, 18]
+for further details. For an n-dimensional vector   V∗
+                                                      space V , let (T ∗ (V ), ⊗)
+denote the algebra
+               V∗
+                                                              the Grassman
+                      ofVcovariant tensors on V ; ( (V ), ∧), V       V∗
+                                                                               al-
+                         ∗                                      ∗
+gebra
+L∞
+       and ( (V )L   ⊗ (V ), ·), the algebra of double forms (V ) ⊗ (V ) =
+          r,s (V ) =  ∞      r        s
+   r,s=0 Λ            r,s=0 Λ (V ) ⊗ Λ (V ) endowed with the “double-wedge”
+product
+                      (α ⊗ β) · (γ ⊗ δ) = (α ∧ γ) ⊗ (β ∧ δ).
+                   L∞                                 V
+The subalgebra ( j=0 Λj,j (V ), ·) is denoted
+                                            V∗
+                                              by ( ∗,∗ (V ), ·). Any inner
+                                                                        V∗
+                                                                           prod-
+uct h ·, ·i on V induces an inner product on (V ), and the trace, Tr : (V )⊗
+V∗
+   (V ) → R is defined by
+                                Tr(α ⊗ β) = hα, βi,
+and extended linearly.
+  We call W : (Ω, F, P) → Λ1,1 (V ) a Gaussian double form if, for any basis
+BV = {v1 , . . . , vn } of V , the matrix W (vi , vj ) has (jointly) Gaussian entries.
+  We recall the following useful lemma from [18].
+
+  Lemma 2.1.       Suppose that W is a Gaussian double form; then
+                                 ⌊k/2⌋
+                                 X        k!
+                            k
+                      E[W ] =                    j
+                                                   µk−2j C j ,
+                                 j=0
+                                     (k − 2j)!j!2
+8                                         J. E. TAYLOR
+
+where
+            µ , E[W ] ∈ Λ1,1 (V ),              C , E[(W − E[W ])2 ] ∈ Λ2,2 (V ).
+
+   The next result we will need in subsequent sections concerns the con-
+ditional expectation of certain random double forms on finite-dimensional
+Hilbert spaces. Specifically, let (V, h ·, ·i) be a finite-dimensional Hilbert space
+and L ⊂ V , a subspace of V with PL denoting orthogonal projection onto L.
+Suppose now that (Xi )1≤i≤N ≤dim(V ) are i.i.d. V -valued random variables
+with common distribution γV , the canonical Gaussian measure on V
+                                                   Z
+                                     −dim(V )/2                 2
+                   γV (A) = (2π)                         e−kvk /2 dHdim(V ) (v).
+                                                     A
+
+We evaluate the expression
+(2.1)          E[α((Xi1 , . . . , Xik ), (Xj1 , . . . , Xjk ))|PL X1 , . . . , PL XN ],
+for α ∈ Λk,k (V ) and k-tuples ĩk = (i1 , . . . , ik ) and j̃k = (j1 , . . . , jk ) of {1, . . . , N }.
+   Before evaluating (2.1), we recall the definition of the annihilation oper-
+ator on T ∗ (V ), as well that of aVcontraction on Λ∗ (V ) ⊗ Λ∗ (V ). For v ∈ V ,
+the annihilation operator iv on ∗ (V ) by defining it on Λr (V ), as follows
+                         (iv β)(v1 , . . . , vr−1 ) = β(v, v1 , . . . , vr−1 )
+and, if β ∈ Λ0 (V ), we set iv β = 0. Although it is referred to as an annihilation
+operator, its real effect is to fix the value of the first coordinate to be v when
+the form iv β is evaluated on r −1 other vectors. Since Λ∗ (V )⊗Λ∗ (V ) consists
+of two “copies” of Λ∗ (V ) the annihilation operator can act on either the first
+or second copy. To distinguish between these two cases we define operators
+ηv and ηv′ on Λ∗ (V ) ⊗ Λ∗ (V ) by setting
+                                     ηv (β ⊗ γ) = iv β ⊗ γ,
+                                     ηv′ (β ⊗ γ) = β ⊗ iv γ,
+and extending
+          V
+              linearly.
+                   V
+  For α ∈ ∗ (V ) ⊗ ∗ (V )
+                                     ηv1 ηv2 α = −ηv2 ηv1 α,
+(2.2)                                ηv′ 1 ηv′ 2 α = −ηv′ 2 ηv′ 1 α,
+                                     ηv′ 1 ηv2 α = ηv2 ηv′ 1 α,
+as is easy to check from the definition. Also
+                                                                       k
+                                                                                          !
+                                                                       Y
+                                                                                   ′
+                α((Xi1 , . . . , Xik ), (Xj1 , . . . , Xjk )) =              ηXil ηX jl
+                                                                                          α
+                                                                       l=1
+                                 A GAUSSIAN KINEMATIC FORMULA                                                           9
+
+so that the evaluation of (2.1) is really the evaluation of the conditional
+expectation of the polynomial
+                                      k
+                                      Y
+                                                  ′
+                                            ηXil ηX j
+                                                      ∈ L(Λ∗ (V ), Λ∗ (V )),
+                                                         l
+                                      l=1
+
+a random element of the set of linear maps from Λ∗ (V ) → Λ∗ (V ).
+   Fix {v1 , . . . , vdim(V ) }, an orthonormal basis for (V, h ·, ·i) and L ⊂ V a
+subspace with orthonormal basis {v1′ , . . . , vl′ }. We define the contraction op-
+erators C, CL , CL⊥ on Λ∗ (V ) ⊗ Λ∗ (V ) as follows:
+                                      dim(V )                                    l
+                                        X                                        X
+                         Cα =                      ηvi ηv′ i α,         CL α =         ηvi′ ηv′ ′ α,
+                                                                                               i
+                                        i=1                                      i=1
+
+
+                                        CL⊥ α = (C − CL )α = CL⊥ α,
+where L⊥ is the orthogonal complement of L in V . For any two subspaces
+L1 , L2 , (2.2) implies
+                                                   CL1 CL2 = CL2 CL1
+and for α ∈ Λk,k (V )
+                                              CLk (α) = k! TrL (α|L ),
+where α|L is the restriction of α to L.
+  With the notation established, we proceed to evaluate the conditional
+expectation (2.1).
+                                                       V                V
+   Lemma 2.2. Suppose α ∈ ∗ (V ) ⊗ ∗ (V ), Xi , 1 ≤ i ≤ N , are i.i.d.
+V -valued random variables with distribution γV , and L1 , . . . , LN are sub-
+spaces of V . Suppose further that ĩp = (i1 , . . . , ip ) and j̃q = (j1 , . . . , jq ) are
+two p- and q-tuples of distinct elements of {1, . . . , N }, arranged such that
+the first n(ĩp , j̃q ) ≤ min(p, q) elements of ĩp match those of j̃q and there are
+no further matches in the remaining elements of ĩp and j̃q . The following
+relation then holds:
+            "   p            !        q            !                                   #
+                Y                     Y
+                                            ′
+        E             ηXil                 ηX jl
+                                                     α PL1 X1 , . . . , PLN XN
+                l=1                  l=1
+
+                      n(ĩp ,j̃q )                                          !           p                           !
+                         Y                                                              Y
+(2.3)           =                    (CL⊥i + ηPLi Xil ηP′ L Xi )                                       ηPLi   Xim
+                                          l              l i  l    l                                      m
+                         l=1                                                     m=n(ĩp ,j̃q )+1
+                                      q                            !
+                                      Y
+                    ×                              ηP′ L     Xim       α.
+                                                        im
+                           m=n(ĩp ,j̃q )+1
+10                                                       J. E. TAYLOR
+
+   Remark. The restriction that the indices in ĩp and j̃q be distinct is to
+rule out the trivial case when either two of the elements of ĩp or j̃q are equal
+and the polynomial
+                                                 p            !       q             !
+                                                 Y                    Y
+                                                                             ′
+                                                       ηXil                 ηX jl
+                                                                                        ≡ 0.
+                                                 l=1                  l=1
+
+   Proof of Lemma 2.2. We consider first the case in which p = q = 1,
+and note that, by linearity, it suffices to prove the lemma for α ∈ Λr (V ) ⊗
+Λs (V ). Working from the definition of ηXi1 ηX′
+                                                 j                                      1
+               ′
+         ηXi1 ηX j1
+                                                              ′
+                    (α)((w1 , . . . , wr−1 ), (w1′ , . . . , ws−1 ))
+                      n
+                      X
+                =                                                                                    ′
+                             hXi1 , vk ihXj1 , vl iα((vk , w1 , . . . , wr−1 ), (vl , w1′ , . . . , ws−1 )),
+                     k,l=1
+
+where B = {v1 , . . . , vdim(V ) } is some orthonormal basis for (V, h ·, ·i). If i1 =
+j1 , we can further choose the orthonormal basis for V so that {v1 , . . . , vdim(Li1 ) }
+is an orthonormal basis for Li1 and {vdim(Li1 )+1 , . . . , vdim(V ) } is an orthonor-
+mal basis for L⊥ i1 . The result then follows from well-known results about the
+conditional distributions of Gaussian vectors.
+    Next, consider p, q ≥ 1,
+     "    p            !     q              !                                           #
+          Y                  Y
+                                     ′
+ E              ηXil                ηX j
+                                                α PL1 X1 , . . . , PLN XN
+                                        l
+          l=1                l=1
+                " "        p            !       q             !                                                             #
+                           Y                    Y
+                                                       ′
+         =E E                    ηXil                 ηX jl
+                                                                  α X1 , . . . , PLi1 Xi1 , . . . , PLj1 Xj1 , . . . , XN
+                           l=1                  l=1
+                                                                                                                            #
+                                                                                                 PL1 X1 , . . . , PLN XN
+                "      p            !       q            !
+                       Y                    Y
+                                                  ′
+         =E                  ηXil                ηX jl
+                       l=2                 l=2
+                              ′
+                    × E[ηXi1 ηX j
+                                  α|X1 , . . . , PLi1 Xi1 , . . . , PLj1 Xj1 , . . . , XN ]
+                                        1
+                                                                                                              #
+                                                                                    PL1 X1 , . . . , PLN XN
+
+         = (δi1 j1 CL⊥i + ηPLi Xi1 ηP′ L                      Xj1 )
+                             1              1            j1
+                     "     p            !       q             !                                  #
+                           Y                    Y
+                                                       ′
+             ×E                  ηXil                 ηX jl
+                                                                  α PL1 X1 , . . . , PLk Xk ;
+                           l=2                  l=2
+                              A GAUSSIAN KINEMATIC FORMULA                                                 11
+
+the general case then follows by iteration. 
+
+   Corollary 2.3. Suppose α ∈ Λk,k (V ), X1 , . . . , Xk are i.i.d. with dis-
+tribution γV , ĩk and j̃k are as in Lemma 2.2 and v0 is a unit vector in V .
+Then
+     E[α((Xi1 , . . . , Xik ), (Xj1 , . . . , Xjk ))|hX1 , v0 i, . . . , hXk , v0 i]
+                                                           k
+                                                                                                       !
+                                                           X
+                                         v0⊥
+           = 1{n(ĩk ,j̃k )=k} k! Tr           (α|v⊥ ) +                       ′
+                                                                 ηhXi ,v0 iv0 ηhX          C k−1 (α)
+                                                                                 il ,v0 iv0 v ⊥
+                                                   0                 l                      0
+                                                           l=1
+
+               + 1{n(ĩk ,j̃k )=k−1} (ηhXi ,v0 iv0 ηhX
+                                                    ′
+                                                               C k−1 (α)).
+                                                      j ,v0 iv0 v ⊥
+                                               k             k           0
+
+
+   Proof. This is just an application of Lemma 2.2 which uses the fact
+that, if the two sets ĩk and j̃k differ by more than two indices, then the
+polynomial resulting from the application of Lemma 2.2 will be identically
+zero, since the term ηv (as well as ηv′ ) will appear at least twice [cf. (2.2)].
+
+
+   For our purposes, we can reformulate the above corollary as follows.
+
+   Corollary 2.4. Suppose y = (y1 , . . . , yj ) : M → Rj are i.i.d. mean-zero,
+unit-variance Gaussian random fields on a smooth manifold M , ν is a vector
+field on Rj and α ∈ Λk,k (Rj ). Then, for any (nonrandom) set of vector fields
+(Zi )1≤i≤m on M , where k ≤ m ≤ dim(M )
+                                   E[y ∗ α|y, hy∗ Zi , νi, 1 ≤ i ≤ m]
+is a random double form, whose restriction to L = span{Z1 , . . . , Zm } satis-
+fies, for each p ∈ M ,
+      E[y ∗ α|L |y, hy∗ Zi , νi, 1 ≤ i ≤ m]
+                                                           m
+                                                                                                  !
+                   ν ⊥ (y)                   k
+                                                           X (hy∗ Zi , νi)2
+             = Tr            (α(y)|ν ⊥ (y) )I|L +O                               kα(y)k⊗2k Ty Rj ,
+                                                           i=1
+                                                                   kν(y)k2
+
+in the sense that for each p ∈ M , on the set {kν(yp )k > 0}
+       |E[y ∗ α|L ((Zi1 , . . . , Zik ), (Zj1 , . . . , Zjk ))p |yp , hy∗ Zi , νip , 1 ≤ i ≤ m]
+                          ⊥                       k
+                  − Trν (yp ) (α(yp )|ν ⊥ (yp ) )I|L ((Zi1 , . . . , Zik ), (Zj1 , . . . , Zjk ))p |
+                             m
+                                                                             !
+                             X (hy∗ Zi , νip )2
+              ≤ Kk,j                               kα(yp )k⊗2k Typ Rj ,
+                             i=1
+                                    kν(yp )k2
+
+for some universal constant Kk,j and all k-tuples (i1 , . . . , ik ) and (j1 , . . . , jk ).
+12                                      J. E. TAYLOR
+
+   Proof. Without loss of generality, we can assume that the (Zi )1≤i≤m
+are orthonormal with respect to the metric induced by any one of the yi ’s.
+The result then follows from the fact that, for p fixed, (y∗ Zi (p))1≤i≤n are,
+conditional on y(p), i.i.d. Gaussian random vectors in Ty(p) Rj with distribu-
+tion γTy(p) Rj , combined with the previous corollary, along with the fact that
+for any vector field W on Rj ,
+                                                           hW (y), η(y)i2
+        |Cνk−1                  ′                    ′
+            ⊥ (y) ηPη(y) W (y) ηPη(y) W (y) α(y)| < Kk,j                  kα(y)k⊗2k Rj ,
+                                                             kη(y)k2
+                             ′ . 
+for some universal constant Kk,j
+
+   2.2. Integral representation of ρej (F, u). In this section we derive expres-
+sions for the expected Euler characteristic of the excursions of Gaussian-
+related fields, which we defined to be random fields of the form
+                                      f (p) = F ◦ y(p),
+where y = (y1 , . . . , yk ) : M → Rk are i.i.d. zero-mean unit-variance Gaussian
+random fields and F ∈ C 2 (Rk ). Recall that the EC densities were defined [21]
+for isotropic fields f on Rn as follows:
+                                               n
+                                               X                         j/2
+(2.4)          E[χ(M ∩ f −1 [u, +∞))] =              aj,n Mλn−j
+                                                             Rn
+                                                                (M )µ2 ρf,j (u)
+                                               j=0
+
+where the spectral parameter µ2 is just the variance of the first-order par-
+tial derivatives of f and ρf,j (u) depend only on the finite-dimensional dis-
+tributions of f and its first two derivatives at any spatial location. Suppose
+f1 = F ◦ y1 and f2 = F ◦ y2 are two (not identically distributed) isotropic
+Gaussian-related fields with µ2,1 = µ2,2 , that is, with equal variance of the
+first derivatives. Then, by inspecting the results in [20], it can be shown that
+the expected Euler characteristics, fi−1 [u, +∞), will be identical (this will
+in fact be proven in the next lemma). In particular, the EC densities are
+functionals of F , so that, for isotropic Gaussian-related fields we can rewrite
+(2.4) as
+                                               n
+                                               X
+                            −1                                           j/2
+(2.5)         E[χ(M ∩ f          [u, +∞))] =         aj,n Mn−j (M )µ2 ρej (F, u)
+                                               j=0
+
+for some functionals ρej , 0 ≤ j < ∞.
+   The simple case k = 1 and F (x) = x or F = Id, the identity map, leads to
+a real-valued Gaussian field, for which it is known [1] that
+                                                     Z ∞
+                                                                     2
+                     ρej (Id, u) = (2π)−(j+1)/2            Hj (x)e−x /2 dx,
+                                                      u
+                        A GAUSSIAN KINEMATIC FORMULA                            13
+
+with Hj the jth Hermite polynomial. In the manifold setting, if f is a real-
+valued zero-mean unit-variance Gaussian field on a C 3 manifold M , it was
+shown in [18] that
+                                                  n
+                                                  X
+                 E[χ(M ∩ f −1 [u, +∞))] =               Lj (M )ρej (Id, u),
+                                                  j=0
+
+that is, that (2.5) holds with aj,n Mn−j (M )λj/2 replaced by Lj (M ), where
+the Riemannian metric with respect to which the Lj (M ) are computed is
+the one induced by f , that is,
+                              gp (Xp , Yp ) = E[Xp f Yp f ]
+which is assumed to be C 2 .
+   One way to think of the relation (2.5) is as a partitioning of the geometric
+information from the parameter space and information depending on the
+distribution of the field. The result in the real-valued Gaussian case suggests
+that this partitioning might hold for Gaussian-related fields on manifolds.
+This would mean that in order to compute expected Euler characteristics,
+we would simply need to calculate the Lipschitz–Killing curvatures of (M, g)
+(recall that g is the metric induced by any one of the coordinate random
+fields yi ) and the EC densities of a corresponding Gaussian-related isotropic
+field. The following lemma shows that this is indeed the case, and our work is
+reduced to computing the EC densities of isotropic Gaussian-related fields.
+   We set ∇fE (p) = (E1 f (p), . . . , En f (p)) for some C 1 section of O(M ), the
+bundle of orthonormal frames on (M, g) and
+                                                             n
+                                                                     !
+                                                             ^
+                                   n −1
+                      αε (y) = (ωn ε )    1BRn (0,ε) (y)           dyj ,
+                                                             j=1
+
+an approximation to the Dirac delta, as in [18].
+
+  Lemma 2.5. Given y = (y1 , . . . , yk ) i.i.d. suitably regular centered, unit-
+variance Gaussian random fields on M , a C 3 n-manifold with or without
+boundary, and F ∈ C 2 (Rk ) is such that f = F ◦ y satisfies:
+                  R                           R
+    (i) limε→0 E[ M ∇fE∗ (αε )1{f ≥u} ] = M limε→0 E[∇fE∗ (αε )1{f ≥u} ],
+   (ii) every critical point of f in f −1 (u − δ, u + δ) for some δ > 0 is non-
+degenerate (cf. [18]), P-a.s.
+Then
+                                                  n
+                                                  X
+                 E[χ(M ∩ f −1 [u, +∞))] =               Lj (M )ρej (F, u)
+                                                  j=0
+
+for some functionals ρej (F, u).
+14                                     J. E. TAYLOR
+
+   Proof. We will prove the statement when M has no boundary, omit-
+ting the calculations for M with boundary, as they are similar to those in
+Theorem 5.1 of [18]. Further details can be found in [3].
+   Following the arguments in Theorem 4.1 of [18], under the assumptions
+of the theorem,
+      E[χ(M ∩ f −1 [u, +∞))]
+              Z
+          =         lim E[∇fE∗ (αε )1{f ≥u} ]
+              M ε→0
+                   Z
+            1
+          =      lim E[1{f ≥u,k∇fE k<ε} TrM ((−∇2 f )n )] VolM,g
+            n! M ε→0
+              Z
+            1
+          =      lim E[1{f ≥u,k∇fE k<ε} E[TrM ((−∇2 f )n )|f, ∇fE ]] VolM,g .
+            n! M ε→0
+We will therefore devote our attention to evaluating
+                            E[(−∇2 f )n |f, ∇fE ] ∈ Λn,n (M ),
+which we will show, for each p ∈ M is of the form
+                                                        ⌊n/2⌋
+                                                        X 1
+(2.6)                   E[(−∇2 f )n |f, ∇fE ]p =                  Rpj Aj (p)
+                                                        j=0
+                                                            j!
+
+for some random double forms Aj (p) [measurable with respect to σ(f (p),
+∇fE (p))]. Since the distribution of the random vector (f (p), ∇fE (p)) ∈ Rn+1
+is independent of spatial location, this will prove the claim. To see that the
+distribution of the pair (f (p), ∇fE (p)) is independent of spatial location,
+note that
+                               f (p) = F (y1 (p), . . . , yk (p))
+and
+                                           k
+                                           X                   ∂F
+                  ∇fE,i (p) = Ei f (p) =         Ei yj (p) ·                           .
+                                           j=1
+                                                               ∂yj (y1 (p),...,yk (p))
+
+Since E is an orthonormal set of frames, the Ei yj (p) are i.i.d. standard
+normal random variables, as are the (y1 (p), . . . , yk (p)) and the two sets of
+Gaussian random variables are independent of each other.
+   We now turn to (2.6). Conditional on y and y∗ , ∇2 f is a Gaussian double
+form. Further (cf. Section 2.4 of [18]),
+                                                                      k
+                                                                                   !
+                                                              ∂F      X
+                                  2        ∗        ∗   2
+                             E[∇ f |y, y ] = y ∇ F − I     yi
+                                                       i=1
+                                                              ∂yi
+
+                                               = y ∗ ∇2 F + Ih∇F, −∇kxk2 /2i|x=y
+                                 A GAUSSIAN KINEMATIC FORMULA                                 15
+
+                                                   = y ∗ ∇2 F + Ih∇F (y), yi,
+                                                                 k    
+                                                                 X   ∂F 2
+        E[(∇2 f − E[∇2 f |y, y∗ ])2 |y, y∗ ] = −(I 2 + 2R)
+                                                                 i=1
+                                                                       ∂yi
+
+                                                   = −(I 2 + 2R)k∇F k2 .
+
+
+By Lemma 2.1, it follows that
+  1
+     E[(−∇2 f )n |y, y ∗ ]
+  n!
+              ⌊n/2⌋
+              X      (−1)n+k
+          =                   k
+                                (y ∗ ∇2 F + h∇F (y), yiI)n−2k k∇F k2k (I 2 + 2R)k
+              k=0
+                  (n − 2k)!k!2
+              ⌊n/2⌋
+              X 1
+(2.7)     =               (−R)j k∇F kn
+              j=0
+                  j!
+                          n−2j
+                           X   (y ∗ (−∇2 F/k∇F k))l
+                      ×
+                           l=0
+                                         l!
+
+                                      (−1)n−2j−l
+                                 ×                 Hn−2j−l (h∇F (y)/k∇F (y)k, yi)I n−2j−l .
+                                     (n − 2j − l)!
+  By Corollary 2.4,
+        E[(y ∗ ∇2 F )l |y, ∇fE ] = E[(y ∗ ∇2 F )l |y, hy∗ E1 , ∇F i, . . . , hy∗ En , ∇F i]
+                                               ⊥
+                                       = Tr∇F (∇2 F|∇F ⊥ )l I l + Errl (∇fE , y),
+where
+                  Λl,l (M ) ∋ Errl (∇fE , y) = O(k∇fE k2Rn k(∇2 F )l k⊗2l Rk )
+in the sense described in Corollary 2.4. Combining this with (2.7)
+      1
+        E[(−∇2 f )n |y, ∇fE ]
+     n!
+                    ⌊n/2⌋
+                      X 1
+              =                  (−R)j I n−2j k∇F kn
+                      j=0
+                          j!
+                          n−2j
+                           X   (−1)n−2j−l
+                    ×                       Hn−2j−l (h∇F (y), yi)
+                          l=0
+                              (n − 2j − l)!
+                                                                       !
+                                      1    ⊥
+                                     × Tr∇F (−∇2 F|∇F ⊥ /k∇F k)l + Errn (∇fE , y)
+                                      l!
+16                                         J. E. TAYLOR
+
+where, up to constant factors
+                           ⌊n/2⌋ n−2j
+                           X X
+         n
+     Err (∇fE , y) =                    Rj I n−2j−l Hn−2j−l (h∇F (y), yi)Errl (∇fE , y),
+                           j=0 l=0
+
+from which the claim readily follows. 
+
+  We have now reduced the problem of calculating expected Euler char-
+acteristics for Gaussian-related fields to the isotropic case. The following
+lemma gives an explicit integral representation for these EC densities.
+
+   Lemma 2.6. Suppose f = F ◦ z satisfies the conditions of Lemma 2.5
+where z = (z1 , . . . , zk ) are i.i.d. isotropic, zero-mean unit-variance suitably
+regular Gaussian fields on Rn that induce the standard Riemannian structure
+on Rn . Further, suppose that, for some δ > 0:
+      (i) there exist C1 , C2 > 0 such that on F −1 (u − δ, u + δ)
+                                     C1 < k∇F (x)k < C2 ;
+      (ii) ∇F is Lipschitz on F −1 (u − δ, u + δ);
+     (iii) the functions
+ Gn,l,F (z)
+             Z
+                                                               2
+        =                       e n,l,F (x)(2π)−k/2 e−kxk /2 dHk−1 (x)
+                        k∇F (x)kG
+             F −1 {z}
+             Z
+        ,               k∇F (x)kHn−1−l (h∇F (y), yi(x))
+             F −1 {z}
+                              ⊥                                              2
+                    × Tr∇F (x) (−∇2 F (x)/k∇F (x)k)l (2π)−k/2 e−kxk /2 dHk−1 (x)
+are continuous on (u − δ, u + δ);
+   (iv) for all n, l
+        1
+       lim E[1{|F (y)−u|<ε} |Hn−1−l (−h∇F (y), yi)k∇2 F (x)k⊗2l Rk |] < ∞.
+    ε→0 2ε
+
+Then,
+                                       n−1
+                                       X                          
+                                 1                            n−1
+                 ρen (F, u) =              (−1)n−1−l              Gn,l,F (u).
+                              (2π) n/2                         l
+                                       l=0
+
+  Proof. Using the original representation of the EC densities in [1] for
+random fields on Rn
+ ρen (F, u) = ρf,n (u)
+                                    A GAUSSIAN KINEMATIC FORMULA                                    17
+                                  +                                       
+                              ∂f
+                =E                       det(−∇2 f|n−1 ) f = u, ∇f|n−1 = 0 ϕf,∇f|n−1 (u, 0)
+                              ∂tn
+                                                                           +                 
+                         1                                 ∂f
+                = lim n       E 1{|f −u|<ε} 1{k∇f|n−1 k<ε}                              2
+                                                                                  det(∇ f|n−1 ) ,
+                  ε→0 2ε ωn−1                              ∂tn
+where
+                                                                       
+                                                  ∂f         ∂f
+                                         ∇f|n−1 =     ,...,
+                                                  ∂t1       ∂tn−1
+is the vector made up of the first n − 1 coordinates of ∇f , ϕf,∇f|n−1 is the
+joint density of (f, ∇f|n−1 ) and ∇2 f|n−1 is the matrix of the Hessian of
+f in the first n − 1 coordinates. We can rewrite the expression inside the
+expectation above as
+                   +
+              ∂f
+                         det(−∇2 f|n−1 )
+              ∂tn
+                           1
+                  =              (h∇F, y∗ (∂/∂tn )i)+
+                        (n − 1)!
+                      × (−∇2 f )n−1 ((∂/∂t1 , . . . , ∂/∂tn−1 ), (∂/∂t1 , . . . , ∂/∂tn−1 )).
+From calculations similar to those in Lemma 2.5 (just restricting ∇2 f to the
+first n − 1 coordinates and reapplying Corollary 2.4), we see that
+              +                                                  
+          ∂f                        2   ∂f
+ E                    det(−∇ f|n−1 ) y,     ,1 ≤ i ≤ n − 1
+          ∂tn                           ∂ti
+                                                         
+            k∇F kn n−1
+                    X                              n−1
+          =             (−1)n−1−l                      Hn−1−l (h∇F (y), yi)
+            (2π)1/2 l=0                             l
+                                           ⊥
+                                × Tr∇F (−∇2 F/k∇F k)l + Errn−1 (∇f|n−1 , y)
+                                                             
+              k∇F (y)kn n−1
+                        X                               n−1 e
+          =                 (−1)n−1−l                       Gn,l,F (y) + Tr(Errn−1 (∇f|n−1 , y)),
+               (2π)1/2                                   l
+                        l=0
+
+where
+     Errn−1 (∇f|n−1 , y)
+                  n−1
+                  X
+              =          I n−1−l Hn−1−l (h∇F (y), yi)O(k∇f|n−1 k2Rn−1 k(∇2 F )l k⊗2l Rk ).
+                  l=0
+
+  Assumptions (i) and (iv) above imply that
+                    1
+      lim                     E[1{|F (y)−u|<ε} 1{kf|n−1 k<ε} | Tr(Errn−1 (∇f|n−1 , y))|] = 0.
+      ε→0 2εn ω         n−1
+18                                       J. E. TAYLOR
+
+     Passing to the limit for the remaining terms
+                       1
+ρeF,n (u) = lim
+             ε→0 2εn ω     n−1
+                      n−1
+                      X                           
+                                 n−1−l       n−1
+                  ×         (−1)
+                                              l
+                      l=0
+                                                                                   
+                                                             k∇F (y)kn e
+                            × E E 1{k∇f|n−1 k<ε} 1{|f −u|<ε}          Gn,l,F (y) y
+                                                              (2π)1/2
+                                                    
+                 1 n−1
+                    X                          n−1
+           = lim        (−1)n−1−l
+             ε→0 2ε                             l
+                    l=0
+                                                                               
+                                                             k∇F (y)k e
+                                e
+                            × E D(y, ε)1       {|F (y)−u|<ε}          Gn,l,F (y) ,
+                                                              (2π)1/2
+where
+                       e             γRn−1 (BRn−1 (0, ε/k∇F (y)k))
+                       D(y, ε) =                                   .
+                                        ωn−1 (ε/k∇F (y)k)n−1
+By assumption (i),
+                                     e
+                                 lim D(y, ε) = (2π)−(n−1)/2
+                                 ε→0
+
+for all y ∈ F −1 (u − δ, u + δ). Further for all such y,
+                                            γRn−1 (BRn−1 (0, r))
+ e
+|D(y, ε)−(2π)−(n−1)/2 | <            sup                n−1
+                                                                 −(2π)−(n−1)/2 , L(ε)
+                                   0<r≤ε/C1     ω n−1 r
+where the function L(ε) is increasing and continuous on [0, +∞) and
+                                           lim L(ε) = 0.
+                                         ε→0
+
+     Therefore, for ε < δ,
+                1
+                  E[1{|F (y)−u|<ε} D(y,
+                                   e              e
+                                        ε)k∇F (y)kG n,l,F (y)]
+               2ε
+                                1
+               − (2π)−(n−1)/2 E[1{|F (y)−u|<ε} k∇F (y)kG    e n,l,F (y)]
+                               2ε
+                          L(ε)
+                      <        E[1{|F (y)−u|<ε} k∇F (y)k|G
+                                                         e
+                                                           n,l,F (y)|].
+                           2ε
+The above implies that if, for some δe > 0,
+                      1
+(2.8)            sup     E[1{|F (y)−u|<ε} k∇F (y)kG
+                                                  e n,l,F (y)] < +∞,
+                0<ε<e
+                    δ
+                      2ε
+                    A GAUSSIAN KINEMATIC FORMULA                          19
+
+we need only evaluate
+                        1
+                  lim       E[1{|F (y)−u|<ε} k∇F (y)kG
+                                                     e n,l,F (y)].
+                 ε→0 2ε
+   The Lipschitz assumption on ∇F allows us to apply Federer’s coarea
+formula [5, 11] so that
+             1
+       lim E[1{|F (y)−u|<ε} k∇F (y)kG   e
+                                          n,l,F (y)]
+       ε→0 2ε
+                      Z        Z
+                    1                     e           −kxk2 /2
+             = lim                       G  n,l,F (x)e         dHk−1 (x) dz
+               ε→0 2ε (u−ε,u+ε) F −1 {z}
+                        Z
+                  1
+            = lim                   Gn,l,F (z) dz
+              ε→0 2ε    (u−ε,u+ε)
+
+            = Gn,l,F (u).
+The Lipschitz assumption on ∇F and the coarea formula also imply (2.5).
+
+
+   3. Steiner formulae for Lebesgue and other measures. In the previous
+section we derived an integral representation for ρej (F, u). Ultimately, we
+will connect this integral representation with a certain volume of tubes ex-
+pansion, to which this section is devoted. In this section we generalize the
+Weyl–Steiner tube formulae in order to compute non-Lebesgue volume of
+tubes, in particular Gaussian volumes.
+   We will limit ourselves to tubes around C 2 domains D in Rk with outward
+pointing unit normal vector field ν. That is, D is a closed set with nonempty
+interior such that ∂D is an embedded C 2 hypersurface. We write
+                        T (D, r) = {y ∈ Rk : d(y, D) ≤ r}
+and
+                              PD (y) = arg min d(x, y),
+                                          x∈D
+the metric projection onto D when the minimum is unique. We recall the
+definition of the critical radius of D,
+            rc (D) = sup{r ≥ 0 : d(y, D) ≤ r ⇒ PD (y) is unique},
+and we will assume throughout that rc (D) > 0.
+   The following lemma, whose proof we omit, summarizes some facts about
+the distance function of D, particularly the growth of the eigenvalues of the
+shape operator of the hypersurfaces at distance d from D. For a hypersurface
+M ⊂ Rk with outward pointing normal ν and y ∈ M the shape operator Sy
+at y is defined by
+                            Sy (Xy , Zy ) = −hXy , ∇Zy νi,
+where ∇ represents the usual covariant derivative on Rk .
+20                                      J. E. TAYLOR
+
+     Lemma 3.1.        Suppose FD (y) = d(y, ∂D) for some C 2 domain D. Then,
+                            ∇FD (y) = Td(y,D)νP (y) (νPD (y) )
+                                                       D
+
+
+where Tx : T ∗ (Ty Rk ) → T ∗ (Tx+y Rk ) represents translation from one tangent
+space to another. Further, let λ1 (y), . . . , λn−1 (y) be the eigenvalues of the
+shape operator Sy acting on Ty F −1 {d(y, D)}; then
+                                             λi (PD (y))
+                            λi (y) =                          .
+                                       1 − d(y, D)λi (PD (y))
+
+   Lemma 3.1 describes the geometry of the hypersurfaces at distance r
+from D and can be used to derive Steiner’s formula, Theorem 3.2, which
+gives an expression for the Lebesgue volume of the tube T (D, r) around D,
+in terms of the Lipschitz–Killing curvature measures (Lj (D, ·))0≤j≤k of D.
+The interested reader is referred to [11, 12, 13, 16, 19] for additional details.
+
+
+     Theorem 3.2 (Steiner’s formula).                If we set
+                    Ar = {(p, Xp ) ∈ N (∂D) : p ∈ A ∩ ∂D, Xp = rνp },
+where N (∂D) is the normal bundle of ∂D in Rk , then Steiner ’s formula
+states that for r < rc (D)
+                                               n
+                                               X     r j−1   λ
+(3.1)                Hk−1 (exp∂D (Ar )) =                   Mj Rk (D, A).
+                                               j=1
+                                                   (j − 1)!
+
+   In the next corollary, which is just an application of Steiner’s formula, we
+derive a formal Taylor series expansion of the integral of smooth functions
+over T (D, r). The functions are assumed to be in S(Rk ), the Schwartz space
+of functions on Rk .
+
+    Corollary 3.3. Suppose D is a C 2 domain in Rk with critical radius
+rc (D) > 0. Further, suppose D satisfies, for any 0 ≤ j ≤ k,
+                           Z
+                                      1     λ
+                                         β
+                                           Mj Rk (D, dx) < ∞,
+                               ∂D 1 + kxk
+
+for some β > 0. Then, for any n, r < min(rc (D), 1), ϕ ∈ S(Rk ) there exist
+(Cl (D; ϕ))l≥0 and a constant Kn (D, ϕ) such that
+         Z                     Z               n+k
+                                               X   rl              r n+2
+(3.2)               ϕ dλRk −        ϕ dλRk −          Cl (D; ϕ) <          Kn (D, ϕ).
+          T (D,r)               D              l=1
+                                                   l!             (n + 2)!
+                               A GAUSSIAN KINEMATIC FORMULA                                           21
+
+Specifically,
+                                 l−1 Z                       
+                                 X                      l−1       dl−1−m ϕ    λRk
+            Cl (D; ϕ) =                                                      Mm+1 (D, dx),
+                                                         m        dν l−1−m
+                                m=0 ∂D                                     x
+
+where d/dν represents differentiation in the direction of the outward unit
+                λ k
+normal ν and Mj R (D, ·) is defined to be zero for j > k.
+
+  Proof. As ϕ ∈ S(Rk ) for n > 0, at each p ∈ ∂D, ϕ(exp∂D (p, rνp )) can
+be expressed as
+                                                    n
+                                                    X r j dj ϕ              r n+1 dn+1 ϕ
+(3.3)       ϕ(exp∂D (p, rνp )) =                                       +                          ,
+                                                    j=0
+                                                          j! dν j p        (n + 1)! dν n+1 α(r,p)
+where α(r, p) = p + θ(r, p)rνp for some θ : [0, rc (D)] × ∂D → (0, 1).
+  Combining (3.1) and (3.3) we see
+                Z
+                                 ϕ(y) dHk−1 (y)
+                exp∂D (Ar )
+                           n+k−1 l 
+                            X rl X                            Z
+                                                          m         dm ϕ    λRk
+                      =                                                    Ml−m+1 (D, dp)
+                                       l! m=0             l       A dν m
+                                                                         p
+                               l=0
+                                 k−1           Z
+                                 X                    r n+1 dn+1 ϕ           λRk
+                           +           rl                        n+1
+                                                                            Ml+1 (D, dp)
+                                 l=0               A (n + 1)! dν     α(r,p)
+
+and
+                k−1        Z
+                X             r n+1 dn+1 ϕ           λRk
+                      rl                 n+1
+                                                    Ml+1 (D, dp)
+                l=0        A (n + 1)! dν     α(r,p)
+                                                                                               
+                                r n+1                         dn+1 ϕ
+                       ≤               Ck max sup (1 + kxkβ )
+                               (n + 1)! 1≤i≤k x               dxn+1
+                                                                i    x
+                                k−1
+                                X              Z
+                                           l           1         λRk
+                           ×           r                      β
+                                                                Ml+1 (D, dp)
+                                l=0            A 1 + |α(r, p)|
+
+                                r n+1
+                       ≤                Kn (D, ϕ).
+                               (n + 1)!
+  Integrating over ∂D and [0, r] we are left with (3.2), which concludes the
+proof. 
+
+  The following corollary gives the expression for Cl (D; ϕ) when ϕ is the
+density of γRk with respect to λRk , that is,
+                                      1          2
+                          ϕ(x) =        k/2
+                                            e−kxk /2 .
+                                 (2π)
+22                                  J. E. TAYLOR
+
+The Cl (D; ϕ) are coefficients in the promised power series expansion of the
+Gaussian volume of the tube T (D, r).
+
+  Corollary 3.4.         If γRk is the canonical Gaussian measure on Rk , we
+define, for l ≥ 1,
+          γ                                 2
+        Ml Rk (D) , Cl (D; (2π)−k/2 e−kxk /2 )
+                               l−1
+                               X    Z
+                         1                  (l − 1)!
+(3.4)             =        k/2
+                                      (−1)m
+                      (2π)     m=0 ∂D
+                                               m!
+                                                                  2      λ
+                                        × Hm (hp, νp i)e−kpk /2 Ml−m
+                                                                  Rk
+                                                                     (D, dp)
+and
+                                    γ
+                               M0Rk (D) , γRk (D).
+If, further,
+                         Z
+                                 1     λ
+                                    β
+                                      Mj Rk (D, dp) < ∞,
+                          ∂D 1 + kpk
+
+for some β > 0, then the following formal expansion holds:
+                                                 ∞ j
+                                                 X r          γ
+                   γRk (T (D, r)) = γRk (D) +               Mj Rk (D).
+                                                 j=1
+                                                       j!
+
+                                γ
+   3.1. Normalization of Mj Rk (·). We conclude this section by showing
+                          γ
+that the functionals Mj Rk (·) can be seen to be normalized independent of
+the dimension k, and can thus be extended, at least formally, to sets in RN .
+Because of this normalization, we would be justified in writing Mγ instead
+of MγRk in what follows, though we keep the latter notation in order to
+minimize confusion.
+   For a finite subset I of N, we denote the projection from RN onto RI
+by πI . For D ⊂ Rk , with k = #I, we can define the functionals Mγj (·) on
+cylindrical sets of the form πI−1 (D) as
+                                                 γ k
+                             Mγj (πI−1 (D)) , Mj R (D).
+The functionals Mγj (·) can then hypothetically be extended by taking limits
+of cylindrical sets, though we will not pursue this matter here, except to show
+that these limits exist for at least j = 0, 1, 2. Of course, the functional Mγ0 is
+well defined, since it is just the infinite-dimensional i.i.d. Gaussian measure
+on RN .
+   For j > 0, however, it is not immediately clear that the extension is possi-
+ble. The following corollary, which is really just an application of the coarea
+                           A GAUSSIAN KINEMATIC FORMULA                                    23
+
+formula in [5] and whose proof we omit, shows why such extensions are pos-
+sible, at least in the cases j = 1, 2. By the coarea formula the expression
+       γ
+for M2Rk (D) is the integral of what is referred to as the mean Gaussian
+curvature of ∂D in [4], and can be extended to codimension-1 submanifolds
+of Wiener space and other infinite-dimensional Gaussian measure spaces.
+
+   Corollary 3.5. Suppose the C 2 domain D is given by F −1 [u, +∞). If
+      γ                       γ
+both M1Rk (F −1 [u, +∞)) and M2Rk (F −1 [u, +∞)) < ∞, then
+          γ
+        M1Rk (F −1 [u, +∞)) = E[k∇F k | F = u]ϕF (u),
+                                                    
+         γRk −1                  ∇2 F (∇F, ∇F )
+        M2 (F [u, +∞)) = E −LF +          2
+                                                F = u ϕF (u),
+                                                                k∇F k
+
+
+where ϕF (·) is the density of the random variable F (Z1 , . . . , Zk ) for Zi , i.i.d.
+N(0,1) and
+                                            k                  k
+                                            X ∂ 2 F (x)        X ∂F (x)
+                           LF (x) =                       −                xk
+                                            i=1
+                                                  ∂x2i         i=1
+                                                                     ∂xk
+
+is the Ornstein–Uhlenbeck operator on C 2 (Rk ).
+
+   4. EC densities and Weyl–Steiner formulae: the Gaussian KFF. In Sec-
+tion 2 we derived an expression for the EC densities of Gaussian-related fields
+involving the integral of certain functions Ge n,l,F over the surface F −1 {u}.
+In Section 3 we derived expressions for coefficients in a formal series expan-
+sion of the canonical Gaussian volume of a tube around a C 2 domain D.
+In this section we will show that these expressions agree, up to a constant.
+Specifically, we show that for suitable F ∈ C 2 (Rk )
+                                                          γ
+                       ρej (F, u) = (2π)−j/2 Mj Rk (F −1 [u, +∞))
+which by Lemma 2.5 translates into the following Gaussian KFF:
+          Z                                           n
+                                                      X                         γ
+(4.1)             χ(M ∩ y(ω)−1 D) dP(ω) =                     (2π)−j/2 Lj (M )Mj Rk (D).
+              Ω                                       j=0
+
+
+   Theorem 4.1 (Gaussian KFF). Suppose y = (y1 , . . . , yk ) are i.i.d. real-
+valued zero-mean unit-variance suitably regular (cf. [18]) Gaussian random
+fields on a C 3 n-dimensional manifold M that satisfy
+                                                                    
+                       P         sup        kyei (p) − yei (q)k2 > ε = o(hn )
+                               q∈Bτ (p,h)
+24                                       J. E. TAYLOR
+
+for any h < h0 and any ε > 0 where
+                                                                                 2
+                     yei (p) = (yi (p), ∇yi,E (p), ∇2 yi,E (p)) ∈ R × Rn ×⊗ Rn ,
+         k(x, V, H)k2 = |x| + kV kRn + kHk⊗2 Rn ,
+
+and ∇fE (resp. ∇2 fE ) are the coefficients of ∇f (resp. ∇2 f ) read off in a
+fixed orthonormal frame (E1 , . . . , En ).
+   Let fD = FD ◦ y where FD is the distance function of a C 2 domain in Rk ,
+not necessarily compact, with rc (D) > 0 which satisfies:
+      (i) the functions
+                                     Z
+                                                              2
+                        G± (z) =       −1
+                                                ezhν,xi−kxk /2 dHk−1 (x)
+                                      FD  {z}
+
+are continuous on some neighborhood of zero where ν is the outward pointing
+unit normal vector field;
+    (ii) the second fundamental form S of ∂D is bounded, that is,
+
+                                   |S(X, Y )x | ≤ KkXx kkYx k
+
+for some K > 0 and all x ∈ ∂D.
+     Then,
+                        −1
+               E[χ(M ∩ fD  [0, +∞))] = E[χ(M ∩ y −1 D)]
+(4.2)
+                                                   n
+                                                   X                  1    γ
+                                               =         Lj (M )          M Rk (D).
+                                                   j=0
+                                                                   (2π)j/2 j
+
+  In particular, the above relation holds for every compact C 2 domain D,
+and its complement Dc .
+
+  Remark. The conditions above are not necessary; indeed, there are
+cases such as the F field defined in [20] (cf. Section 5.3) where the bound-
+edness condition on the second fundamental form of the boundary of the
+domain is not satisfied but the EC densities exist and are given by
+             n−1
+             X                          
+                                   n−1           1
+                   (−1)n−1−l                 lim    E[1{|F (y)−u|} k∇F kGn,l,F (y)].
+                                    l        ε→0 2ε
+             l=0
+
+However, it should be noted that in this case, the above coefficients are
+not the true coefficients in the corresponding power series, because the do-
+main Du , defined in Section 5.3, has rc (Du ) = 0.
+                       A GAUSSIAN KINEMATIC FORMULA                            25
+
+   Remark. Using the generalized Morse theorem of [16] or stratified Morse
+theory [3], Theorem 4.1 can be extended to include piecewise smooth do-
+mains and/or submanifolds of Rk (i.e., the domains in the space where the
+random fields take values). We give an example of a piecewise smooth con-
+                                                        γ
+vex domain D in Section 5.4, where we calculate the Mj Rk (D) for D a cone
+in R2 and show that the result agrees with known results for right-angled
+cones [24]. One approach to these generalizations, following the notions of
+continuity of the Lipschitz–Killing curvature measures as in [11], would be
+to construct a limiting argument to justify the following computation for
+certain smooth D sets with positive critical radius in Rk :
+ Z
+      χ(M ∩ y(ω)−1 D) dP(ω)
+  Ω
+               Z
+       = lim       χ(M ∩ y(ω)−1 T (D, r)) dP(ω)
+         r→0 Ω
+
+            Xn                                    Xn
+                            1      γRk                           1      γ
+       = lim     Li (M )      i/2
+                                  Mi (T (D, r)) =     Li (M )      i/2
+                                                                       Mi Rk (D).
+         r→0
+             i=0
+                         (2π)                     i=0
+                                                              (2π)
+In the interest of brevity, we will not pursue these generalizations here. The
+above theorem, however, does specify the functional form that all of these
+generalizations should have, that is, the contribution of the parameter space
+is in the form of the Lipschitz–Killing curvature measures, which can be
+defined for piecewise C 2 submanifolds of C 3 manifolds, and the contribution
+from the Gaussian space is in the form of the coefficients in an expansion for
+the volume of a Gaussian tube, which can similarly be defined for piecewise
+C 2 manifolds in Rk . For a more geometric approach to the above problem,
+see [3] which shows that (4.2) can be thought of as a limit of the classical
+KFF.
+
+   Remark. Note that the conditions on the yi ’s are not overly restrictive
+(cf. [18]), as C 2 fields whose second derivatives have a covariance function
+satisfying the “usual” 1/(− log(h))1+δ moduli of continuity conditions are
+included above.
+
+  Proof. Most of the work has been done in the preliminary lemmas.
+The conclusion
+                                                   γ
+                          ρej (FD , u) = (2π)−j/2 Mj Rk (D)
+follows from the fact that fD satisfies the conditions of Lemmas 2.5 and 2.6.
+Lemma 3.1 ensures that the second fundamental form, or shape operator S
+of ∂D is bounded. Verifying the equality above then follows from compar-
+                                            γ
+ing the definitions in Corollary 3.4 of Mj Rk (D) and those of Gn,l,FD (0) in
+26                                J. E. TAYLOR
+
+Lemma 2.6, noting that for x ∈ ∂D and all Xx , Yx ∈ Tx ∂D,
+                               ∇FD (x) = νx ,
+                         ∇2 FD (Xx , Yx ) = −S(Xx , Yx ).
+   The fact that the conditions of Lemma 2.5 are satisfied follows from Lem-
+mas 2.4 and 2.5 of [18] combined with the growth conditions on yi and
+its derivatives as well as the boundedness of S. As for the conditions of
+Lemma 2.6, since FD is a distance function of a set with positive critical
+radius, conditions (ii) and (iv) (cf. [11]) of Lemma 2.6 are automatically
+satisfied. A straightforward calculation shows that assumptions (i) and (ii)
+above imply conditions (ii) and (iii) of Lemma 2.6. 
+
+  5. Examples. Throughout this section, y = (y1 , . . . , yk ) : M → Rk will de-
+note a generic sequence of i.i.d. zero-mean unit-variance Gaussian fields on
+M satisfying the conditions of Theorem 4.1, whose dimension k will vary as
+needed in each example.
+
+   5.1. Real-valued Gaussian processes. Given a unit vector z ∈ Rk , we de-
+fine the function ψz (x) = hx, zi, so that ψz ◦ y is a real-valued, centered
+unit-variance Gaussian random field. As mentioned in Section 2, the EC
+densities of ψz ◦ y are given, for j ≥ 1, by
+                                        1                 2
+(5.1)               ρej (ψz , u) =     (j+1)/2
+                                               Hj−1 (u)e−u /2 .
+                                   (2π)
+   This result can easily be rederived in light of Theorem 4.1 as follows. Let
+Du = ψz−1 ([u, +∞)) be a half-space in Rk . Clearly
+                      T (Du , r) = ψz−1 [u − r, +∞) = Du−r ,
+that is, a tube around a half-space in Rk is another half-space. As
+                         dj −x2 /2                  2
+                            e      = (−1)j Hj (x)e−x /2 ,
+                        dxj
+it follows that
+      γRk (T (Du , r)) = 1 − Φ(u − r)
+                                        ∞
+                                                                             !
+                                        X (−r)j (−1)j−1             −u2 /2
+                      = 1 − Φ(u) +                 √        Hj−1 (u)e
+                                        j=1
+                                              j!       2π
+                                     ∞
+                                     X   rj 1           2
+                      = 1 − Φ(u) +         √ Hj−1 (u)e−u /2 ,
+                                     j=1
+                                         j! 2π
+so that, for j ≥ 1,
+                      γ            1          2
+                   Mj Rk (Du ) = √ Hj−1 (u)e−u /2 ,
+                                    2π
+which, by Theorem 4.1, implies (5.1).
+                     A GAUSSIAN KINEMATIC FORMULA                                              27
+
+   5.2. The χ2 and noncentral χ2 case. In this subsection we derive the
+EC densities of a χ2k random field, as defined in [1, 20]. Note that the EC
+densities were also derived in [20], but we rederive them here as a simple
+application of Theorem 4.1. We set G(x) = kxk2 ; then g = G ◦ y is a χ2k
+                                                        √
+random field on M . Note that the EC densities of g are related to the EC
+densities of g by
+                        √           √ √
+                 ρ√g,j ( u ) = ρej ( G, u ) = ρej (G, u) = ρg,j (u),
+                                                       √
+so that it suffices to calculate the EC densities of g.
+   We set
+                             √ −1
+                      Dx = G [x, +∞) = Rk \BRk (0, x),
+so that T (Dx , r) = Dx−r . Therefore,
+                            γRk (T (Dx , r)) = γRk (Dx−r ).
+
+                       √ right-hand side above as a Taylor series in r.
+It remains to express the
+   The density fk = d( G∗ (γRk ))/dλR of the square root of a χ2k random
+variable is
+                                    1                 2
+                     fk (x) =         (k−2)/2
+                                              xk−1 e−x /2
+                              Γ(k/2)2
+and
+                                            ∞ j
+                                            X r                dj−1 fk
+              γRk (Dx−r ) = γRk (Dx ) −                (−1)j              .
+                                            j=1
+                                                  j!            dtj−1 t=x
+
+Direct calculations show that
+                        2       ⌊(j−1)/2⌋ j−1−2l                                          
+   dj−1 fk     tk−j e−t /2         X       X                                   k−1
+           =                                       1{k≥j−m−2l}
+    dtj−1    Γ(k/2)2(k−2)/2                                               j − 1 − m − 2l
+                                   l=0     m=0
+
+                                                       (−1)m+l (j − 1)! 2m+2l
+                                                   ×                   t      .
+                                                           m!l!2l
+Combining the two equations gives
+                                   ∞ j                   2
+                                   X r     xk−j e−x /2
+      γRk (Dx−r ) = γRk (Dx ) +
+                                   j=1
+                                       j! Γ(k/2)2(k−2)/2
+                        ⌊(j−1)/2⌋ j−1−2l
+                             X       X                                             
+                                                                        k−1
+                    ×                      1{k≥j−m−2l}
+                                                                   j − 1 − m − 2l
+                             l=0     m=0
+                                                                                    !
+                                             (−1)j−1+m+l (j − 1)! 2m+2l
+                                           ×                     x      .
+                                                   m!l!2l
+28                                         J. E. TAYLOR
+
+We thus conclude, by Theorem 4.1, that for j ≥ 1,
+                                 2
+          √             xk−j e−x /2
+     ρej ( G, x) =
+                   (2π)j/2 Γ(k/2)2(k−2)/2
+                               ⌊(j−1)/2⌋ j−1−2l
+                                  X        X                                         
+                                                                         k−1
+                         ×                        1{k≥j−m−2l}
+                                                                    j − 1 − m − 2l
+                                  l=0      m=0
+                                                                                      !
+                                                    (−1)j−1+m+l (j − 1)! 2m+2l
+                                                  ×                     x      ,
+                                                          m!l!2l
+and thus the EC densities for j ≥ 1 of the χ2k random field g are given by
+                            u(k−j)/2 e−u/2
+         ρej (G, u) =
+                        (2π)j/2 Γ(k/2)2(k−2)/2
+                              ⌊(j−1)/2⌋ j−1−2l
+                                 X         X                                         
+                                                                         k−1
+                        ×                         1{k≥j−m−2l}
+                                                                    j − 1 − m − 2l
+                                 l=0       m=0
+                                                                                      !
+                                                    (−1)j−1+m+l (j − 1)! m+l
+                                                  ×                     u    ,
+                                                          m!l!2l
+which agrees with [20].
+  Using the above formula for the χ2k EC densities, we can derive the EC
+densities of a noncentral χ2 which we define to be a Gaussian-related field
+with the function Gµ : Rk → R
+                                        Gµ (y) = ky − µk2 .
+Recalling that the density fα,k of the square root of a noncentral χ2k random
+variable with noncentrality parameter α can be expressed as
+                                           ∞
+                                           X         αj
+                              fα,k (x) =       e−α/2 j fk+2j (x),
+                                           j=0
+                                                    2 j!
+where fk (x) is as above, the density of a χ2k random variable, and noting
+that, in our case α = kµk2 , we obtain the following.
+
+     Lemma 5.1.
+                        ∞
+                        X          2     kµk2i          u(k+2i−j)/2 e−u/2
+       ρej (Gµ , u) =         e−kµk /2
+                        i=0
+                                          2i i! (2π)j/2 Γ((k + 2i)/2)2(k+2i−2)/2
+                              ⌊(j−1)/2⌋ j−1−2l
+                                X          X                                             
+                                                                          k + 2i − 1
+                        ×                        1{k≥j−m−2l−2i}
+                                                                        j − 1 − m − 2l
+                                l=0       m=0
+                                                                                  !
+                                                   (−1)j−1+m+l (j − 1)! m+l
+                                                 ×                     u    .
+                                                         m!l!2l
+                      A GAUSSIAN KINEMATIC FORMULA                                          29
+
+   5.3. The F case. In this subsection we derive the EC densities of an
+Fk1 ,k2 random field, as defined in [20]. Unlike the previous two subsections,
+instead of using the representation of the EC densities as coefficients in a
+Taylor series expansion of the volume of certain tubular neighborhoods, for
+                                              γ k +k
+the Fk1 ,k2 field we use the expression for Mj R 1 2 (·) given in Corollary 3.4.
+   We set
+                                           k1   P
+                                      k2       (yi )2
+                               F (y) = Pk2i=1           ,
+                                      k1 i=1 (yk1 +i )2
+
+and define the Fk1 ,k2 random fields f by f = F ◦ y. Setting Du = F −1 [u, +∞)
+we see
+                                         [
+               ∂Du = F −1 {u} =                 Srk1 u/k2 (Rk1 ) × Sr (Rk2 ).
+                                      r∈R+
+                                             γ k +k2
+The definition of the functionals (Mj R 1                 (·))j≥0 , along with the fact h∇F (y),
+yi = 0 for all y ∈ Rk and
+                                  
+                                   0,                              n odd,
+                      Hn (0) =            (2l)!
+                                   (−1)l       ,                   n = 2l,
+                                           l!2l
+imply that
+                        γ k +k2
+ (2π)j/2 ρej (F, u) = Mj R 1      (Du )
+                                ⌊(j−1)/2⌋
+                                  X         (−1)l       1
+                  = (j − 1)!
+                                   l=0
+                                             l!2l (2π)(k1 +k2 )/2
+                                                Z
+                                                                2
+                                            ×             e−kxk /2 Mj−2l (Du ; dx)
+                                                    ∂Du
+(5.2)
+                                ⌊(j−1)/2⌋
+                                  X         (−1)l      1
+                  = (j − 1)!                    l
+                                   l=0
+                                                     (k
+                                             l!2 (2π) 1 +k2 )/2
+                                                Z
+                                                                2           1
+                                            ×             e−kxk /2
+                                                    ∂Du               (j − 2l − 1)!
+                                                                    j−2l−1
+                                                          × Tr∂Du (S∂D u
+                                                                           ) dHk1 +k2 −1 (x).
+We now proceed to evaluate, for 0 ≤ m ≤ k1 + k2 − 1,
+                m
+        Tr∂DF (S∂D F
+                     )(y) = Tr∂DF (y) ((−k∇F (y)k−1 ∇2 F (y)|∂DF (y) )m )
+                      Pk1        2            Pk2          2
+in terms of U (y) =     j=1 (yj ) and V (y) =  j=1 (yj+k1 ) and G(y) = U (y)/
+V (y).
+30                                              J. E. TAYLOR
+
+     Lemma 5.2.             We have the following expression for Tr∂DF (S∂D
+                                                                         m ):
+                                                                            F
+
+ 1                  1
+    Tr∂DF (S∂D
+            m
+                 )=    Tr∂DF ((−k∇F k−1 ∇2 F|∂DF )m )
+ m!            F
+                    m!
+                                                        m X
+                                                            m                                              
+                                  1                                         m−i    i       k1 − 1        k2 − 1
+                            = p                                     (−1)          G                             .
+                               V G(1 + G)                                                  m−i              i
+                                                              i=0
+Further,
+                        Z
+           1                 1                     2
+                                Tr∂Du (S∂D
+                                        m
+                                             )e−kxk dHk1 +k2 −1 (x)
+     (2π)(k1 +k2 )/2     ∂Du m!
+                                           u
+
+                                                             (k1 −1−m)/2                     −(k1 +k2 −2)/2
+            Γ((k1 + k2 − m − 1)/2) k1 u                                                  k1 u
+          = (m−1)/2                                                                   1+
+           2        Γ(k1 /2)Γ(k2 /2) k2                                                   k2
+                 m
+                 X                           i                            
+                                       k1 u          k1 − 1           k2 − 1
+             ×         (−1)m−i                                               .
+                                        k2           m−i                 i
+                 i=0
+
+     Proof. Since F = k2 U/k1 V , a straightforward calculation shows
+                      2k2 q               1
+             k∇F k =       G(1 + G) · √ ,
+                       k1                  V
+                                   s                                  s
+                   −1                   1  1                               G  1
+           k∇F k        ∇F =               √ ∇U −                             √ ∇V,
+                                       1+G2 U                             1+G2 V
+                            1
+          k∇F k−1 ∇2 F = p
+                        2 G(1 + G)
+                                       
+                             1            1
+                        × √ ∇2 U − 3/2 (dV ⊗ dU + dU ⊗ dV )
+                              V         V
+                                                                   
+                                           2G               G 2
+                                       + 3/2 dV ⊗ dV − √ ∇ V .
+                                          V                  V
+                                         −1  2
+  We now evaluate the matrix of k∇F k ∇ F in a specific set of orthonor-
+mal frames of ∇F ⊥ . Considering Rk1 +k2 to be the product Rk1 ×Rk2 with the
+product metric, we fix subspaces L1 the kernel of ∇U in Rk1 and similarly L2 ,
+the kernel of ∇V in Rk2 , for which we choose orthonormal frames B1 , B2 .
+The desired set of frames for the kernel of ∇F is then B = {B1 , B2 , X},
+where
+                               s                                s
+                                    G  1                               1  1
+                        X=             √ ∇U −                             √ ∇V.
+                                   1+G2 U                             1+G2 V
+     The matrix of −k∇F k−1 ∇2 F in this set of frames is diagonal, with entries
+                                                         k1 −1times       k2 −1times
+                                  1        z    }|      { z }| {
+                              p           (−1, . . . , −1,G, . . . , G,0),
+                               V G(1 + G)
+                             A GAUSSIAN KINEMATIC FORMULA                                                    31
+
+from which the result follows by expanding the trace of the mth power of
+such a diagonal matrix.
+   Federer’s coarea formula (cf. [5, 11]) implies
+                         Z
+             1                           2   1
+                                 e−kxk /2               m
+                                                Tr∂Du (S∂D   ) dHk1 +k2 −1 (x)
+     (2π)(k1 +k2 )/2     ∂Du                 m!            u
+
+                         Z
+                     1                                         1
+            = lim                      k∇F k1{|F −u|<ε}                   m
+                                                                  Tr∂DF (S∂D   ) dγRk1 +k2 (x)
+              ε→0 2ε         Rk1 +k2                           m!            F
+
+                                                                
+                              1                      dF∗ (γRk1 +k2 )
+            = E k∇F k                    m
+                                 Tr∂DF (S∂D   ) F =u                 (u).
+                              m!            F
+                                                          dλR
+The second conclusion now follows after substituting in the density
+dF∗ (γRk1 +k2 )/dλR and noting that V (1 + G) = U + V ∼ χ2k1 +k2 is indepen-
+dent of G and
+                                                     Γ((k1 + k2 )/2 + p)
+                         E[(U + V )p ] = 2p                              .                                   
+                                                       Γ((k1 + k2 )/2)
+
+  Combining (5.2) and the previous lemma we have, in agreement with [20],
+the following
+
+  Lemma 5.3.         The EC densities for the Fk1 ,k2 random field are given by
+
+  (2π)j/2 ρej (F, u)
+                                                       (k1 −j)/2                    −(k1 +k2 −2)/2
+               Γ((k1 + k2 − j)/2)     k1 u                                      k1 u
+        =                                                                 1+
+            2(j−2)/2 Γ(k1 /2)Γ(k2 /2) k2                                         k2
+
+                                       ⌊(j−1)/2⌋
+                                          X         Γ((k1 + k2 − j)/2 + l)
+            × (−1)j−1 (j − 1)!
+                                          l=0
+                                                     Γ((k1 + k2 − j)/2)l!
+
+                                                        j−2l−1
+                                                         X                            i+l
+                                                                                k1 u
+                                                    ×          (−1)i+l
+                                                         i=0
+                                                                                 k2
+                                                                                                      
+                                                                            k1 − 1                 k2 − 1
+                                                                 ×                                        .
+                                                                         j − 1 − 2l − i               i
+
+   5.4. Cones in R2 and correlated conjunctions. In this section we study
+conjunctions of correlated Gaussian fields, which in terms of fields can be de-
+fined in terms of the minimum of two correlated Gaussian processes. Specif-
+ically, as in the Introduction, given y = (y1 , y2 ) i.i.d. centered unit-variance
+32                                    J. E. TAYLOR
+
+Gaussian processes on some manifold M , we form two new Gaussian pro-
+cesses as follows:
+                               z1 = y1 ,
+                                               q
+                               z2 = ρ · y1 +    1 − ρ2 · y2 ,
+
+
+and define ze1 and ze2 , our isotropic versions of these processes, as in Section 3.
+We define the conjunction of z1 and z2 at a point p ∈ M by
+                            z1 ∧ z2 (p) , min(z1 (p), z2 (p)).
+It is easy to see that
+                   z1 ∧ z2−1 [u, +∞) = z1−1 [u, +∞) ∩ z2−1 [u, +∞)
+                                       = y −1 (K(u, ρ)),
+where K(u, ρ) is a cone in R2 so that, to calculate the EC densities for
+this process, it suffices to calculate the expected Euler characteristic of
+M ∩ y −1 K for a general cone with arbitrary vertex in R2 , which we pro-
+ceed to do.
+   Define the cone
+            C(v1 , v2 , w) = {z ∈ R2 : z = w + a1 v1 + a2 v2 , a1 , a2 ≥ 0}
+                         = w + {z ∈ Tw R2 : z = a1 v1 + a2 v2 , a1 , a2 ≥ 0},
+where Tw R2 is the tangent space to R2 at w. A sketch of the cone appears
+in Figure 1. We derive an expression for the quantity
+                                    Mγ (C(v1 , v2 , w))
+which, by Theorem 4.1 and the remarks following it, allows us to compute
+                              E[χ(M ∩ y −1 C(v1 , v2 , w))].
+     Associated to C(v1 , v2 , w) is its normal cone
+                C ⊥ (v1 , v2 , w) = {z ∈ Tw R2 : hz, v1 i < 0, hz, v2 i < 0},
+with link
+            L(C ⊥ (v1 , v2 , w)) = {z ∈ S(Tw R2 ) : hz, v1 i < 0, hz, v2 i < 0},
+where S(Tw R2 ) is the unit sphere in Tw R2 .
+   In this case, the domain C(v1 , v2 , w) is not smooth; however, for any δ > 0,
+T (C(v1 , v2 , w), δ) is at least C 1 and the coefficients of
+                             γR2 (T (T (C(v1 , v2 , w), δ), r)),
+                       A GAUSSIAN KINEMATIC FORMULA                                 33
+
+
+
+
+                    Fig. 1.   Tube of radius r around C(v1 , v2 , w).
+
+
+as a power series in r will, for small δ > 0, be close to those of γR2 (T (C(v1 , v2 , w),
+r)), that is, for small δ > 0,
+  E[χ(M ∩ y −1 C(v1 , v2 , w))] ≃ E[χ(M ∩ y −1 (T (C(v1 , v2 , w), δ)))]
+                                             Xn
+                                       1                 γ
+                                =        n/2
+                                                 Lj (M )Mj R2 (T (C(v1 , v2 , w), δ))
+                                    (2π)     j=0
+
+                                             Xn
+                                       1                 γ
+                                ≃        n/2
+                                                 Lj (M )Mj R2 (C(v1 , v2 , w)),
+                                    (2π)     j=0
+                                         γ
+where, for the cone C(v1 , v2 , w), Mj R2 (C(v1 , v2 , w)) is defined as the coeffi-
+cient of r j /j! in a Taylor series expansion of γR2 (T (D, r)). The expansion is
+split up into integrals over three regions, depicted in Figure 2.
+   Without loss of generality, we can choose a basis of Tw R2 so that the coeffi-
+cients of v1 are (1, 0) and those of v2 are (cos θ, sin θ) where θ = cos−1 (hv1 , v2 i).
+We then set v1⊥ to be the unit vector orthogonal to v1 such that hv1⊥ , v2 i > 0,
+34                                      J. E. TAYLOR
+
+
+
+
+     Fig. 2.   Regions of integration for power series expansion of γR2 (T (C(v1 , v2 , w))).
+
+
+
+that is, the coefficients of v1⊥ with respect to our chosen basis are (0, 1). The
+volume of the first region, R1 (r), is thus
+
+γR2 (R1 (r)) = γR2 ({z ∈ R2 : hv1⊥ , zi ∈ [hv1⊥ , wi − r, hv1⊥ , wi], hv1 , zi ≥ hv1 , wi})
+                                     ∞ j
+                                                                                !
+                  (1 − Φ(hv1 , wi)) X   r                      ⊥    2
+                =       √                  Hj−1 (hv1⊥ , wi)e−hv1 ,wi /2 .
+                         2π         j=1
+                                        j!
+
+
+By symmetry,
+
+γR2 (R3 (r)) = γR2 ({z ∈ R2 : hv2⊥ , zi ∈ [hv2⊥ , wi − r, hv2⊥ , wi], hv2 , zi ≥ hv2 , wi})
+                                     ∞ j
+                                                                                !
+                  (1 − Φ(hv2 , wi)) X   r                      ⊥    2
+                =       √                  Hj−1 (hv2⊥ , wi)e−hv2 ,wi /2 .
+                         2π         j=1
+                                        j!
+                          A GAUSSIAN KINEMATIC FORMULA                                                    35
+
+Finally, using polar coordinates
+                         ∞          Z                                                2
+                      1 X                           tj+1 dj e−kzk /2
+      γR2 (R2 (r)) =                                                     dt dν
+                     2π j=0 [0,r]×L(C ⊥ (v1 ,v2 ,w)) j!      dν j    z=w
+
+                             ∞ j                   Z                                       2
+                          1 X   r                             dj−2 e−kzk /2
+                       =           (j − 1)                                      dν.
+                         2π j=2 j!         L(C ⊥ (v1 ,v2 ,w))    dν j−2     z=w
+
+
+Writing ν = − sin θe · v1 − cos θe · v1⊥ , we have
+                   2                                                            j−2
+     dj−2 e−kzk /2                       d           d                                         2
+           j−2
+                       = (−1)j−2 sin θe     + cos θe ⊥                                   e−kzk /2
+        dν         z=w                  dv1         dv1                                             z=w
+
+                                   X
+                                   j−2
+                                          j−2
+                                                   
+                               =              sinj−2−l θe cosl θe
+                                           l
+                                   l=0
+                                                                                               2
+                                         × Hj−2−l (hv1 , wi)Hl (hv1⊥ , wi)e−kwk /2 .
+
+
+Noting that ν ∈ L(C ⊥ (v1 , v2 , w)) if and only if θe ∈ (0, π − θ) we see
+                         ∞ j X           j−2                          
+                      1 X   r              j−2
+      γR2 (R2 (r)) =               (j − 1)
+                     2π j=2 j! l=0          l
+                                                                                                    2
+                                               × Hj−2−l (hv1 , wi)Hl (hv1⊥ , wi)e−kwk /2
+                                                   Z π−θ
+                                               ×                                      e
+                                                                 sinj−2−l θe cosl θe dθ.
+                                                       0
+  Straightforward calculations show
+                         Z π−θ
+   Kj,l (θ) , (j − 1)              sinj−2−l θe cosl θe dθe
+                           0
+                                          √
+                j−1
+               
+                    IB(j−1−l)/2,(l+1)/2 (  sin θ ),                          if θ ≥ π/2,
+               
+                2
+               
+                                                                           √
+                          j−1
+           =
+               
+                 (−1)l          (B(j−1−l)/2,(l+1)/2 − IB(j−1−l)/2,(l+1)/2 ( sin θ ))
+               
+                           2
+               
+                           j−1
+                         +       B(j−1−l)/2,(l+1)/2 ,     if θ < π/2,
+                              2
+where
+                                                Z x
+                           IBν1 ,ν2 (x) =                  tν1 −1 (1 − t)ν2 −1 dt
+                                                   0
+is the incomplete beta function and Bν1 ,ν2 = IBν1 ,ν2 (1) is the beta function.
+   Putting the above together, we have proved the following.
+36                                    J. E. TAYLOR
+
+     Lemma 5.4.        The coefficient of r j /j! in the power series expansion of
+                                 γR2 (T (C(v1 , v2 , w), r))
+is given by
+     γ
+ Mj R2 (C(v1 , v2 , w))
+             
+             
+              γR2 (C(v1 , v2 , w)),                                             j = 0,
+             
+              (1 − Φ(hv1 , wi)) −hv⊥ ,wi2 /2 (1 − Φ(hv2 , wi)) −hv⊥ ,wi2 /2
+             
+             
+             
+                    √            e 1          +        √      e 2           ,
+             
+                      2π                                 2π
+             
+             
+             
+                                                                                j = 1,
+             
+             
+             
+              (1 − Φ(hv1 , wi))                      ⊥    2
+                    √            Hj−1 (hv1⊥ , wi)e−hv1 ,wi /2
+         =             2π
+             
+                     (1 − Φ(hv2 , wi))                     ⊥    2
+             
+                   +       √           Hj−1 (hv2⊥ , wi)e−hv2 ,wi /2
+             
+             
+             
+                             2π
+             
+                        j−2        
+             
+                      1 X j −2                                                    2
+             
+                   +                  Kj,l (θ)Hj−2−l (hv1 , wi)Hl (hv1⊥ , wi)e−kwk /2 ,
+             
+                                l
+             
+                     2π l=0
+             
+                                                                                 j ≥ 2.
+
+   It remains only to relate the above lemma to our original goal, that is,
+                                                                   p v1 , v2
+the EC densities of the field z1 ∧ z2 , which amounts to determining
+and w for the cone K(u, ρ). We              ⊥             ⊥
+                                                         v2 = (ρ, 1 − ρ2 )
+                              p can take v1 = (1, 0) and √
+                                    2
+so that v1 = (0, 1) and v2 = ( 1 − ρ , −ρ) and w = (u, u/ 1 + ρ ).
+
+  Acknowledgments. The author would like to thank Drs. Robert Adler
+and Keith Worsley for their help and encouragement as thesis advisors,
+which is where this work originated.
+
+                                     REFERENCES
+ [1] Adler, R. J. (1981). The Geometry of Random Fields. Wiley, Chichester. MR611857
+ [2] Adler, R. J. (2000). On excursion sets, tube formulae, and maxima of random fields.
+         Ann. Appl. Probab. 10 1–74. MR1765203
+ [3] Adler, R. J. and Taylor, J. E. (2006). Random Fields and Geometry. Birkhäuser,
+         Boston. To appear. Preliminary versions of Chapters 1–12 available at
+         http://iew3.technion.ac.il/˜radler/grf.pdf.
+ [4] Airault, H. (1991). Differential calculus on finite codimensional submanifolds
+         of the Wiener space—the divergence operator. J. Funct. Anal. 100 291–316.
+         MR1125228
+ [5] Airault, H. and Malliavin, P. (1988). Intégration géométrique sur l’espace de
+         Wiener. Bull. Sci. Math. (2) 112 3–52. MR942797
+ [6] Aldous, D. (1989). Probability Approximations via the Poisson Clumping Heuristic.
+         Springer, New York. MR969362
+ [7] Bernig, A. and Bröcker, L. (2002). Lipschitz–Killing invariants. Math. Nachr. 245
+         5–25. MR1936341
+ [8] Cao, J. and Worsley, K. J. (1999). The detection of local shape changes via the
+         geometry of Hotelling’s T 2 fields. Ann. Statist. 27 925–942. MR1724036
+                       A GAUSSIAN KINEMATIC FORMULA                                   37
+
+ [9] Chern, S.-S. (1944). A simple intrinsic proof of the Gauss–Bonnet formula for closed
+         Riemannian manifolds. Ann. of Math. (2) 45 747–752. MR11027
+[10] Chern, S.-S. (1966). On the kinematic formula in integral geometry. J. Math. Mech.
+         16 101–118. MR198406
+[11] Federer, H. (1959). Curvature measures. Trans. Amer. Math. Soc. 93 418–491.
+         MR110078
+[12] Gray, A. (1990). Tubes. Addison–Wesley Publishing Company Advanced Book Pro-
+         gram, Redwood City, CA. MR1044996
+[13] Klain, D. A. and Rota, G.-C. (1997). Introduction to Geometric Probability. Cam-
+         bridge Univ. Press. MR1608265
+[14] Schneider, R. (1993). Convex Bodies: The Brunn–Minkowski Theory. Cambridge
+         Univ. Press. MR1216521
+[15] Siegmund, D. O. and Worsley, K. J. (1995). Testing for a signal with unknown
+         location and scale in a stationary Gaussian random field. Ann. Statist. 23 608–
+         639. MR1332585
+[16] Takemura, A. and Kuriki, S. (2002). Maximum of Gaussian field on piecewise
+         smooth domain: Equivalence of tube method and Euler characteristic method.
+         Ann. Appl. Probab. 12 768–796. MR1910648
+[17] Taylor, J., Takemura, A. and Adler, R. (2005). Validity of the expected Euler
+         characteristic heuristic. Ann. Probab. 33 1362–1396. MR2150192
+[18] Taylor, J. E. and Adler, R. J. (2003). Euler characteristics for Gaussian fields on
+         manifolds. Ann. Probab. 31 533–563. MR1964940
+[19] Weyl, H. (1939). On the volume of tubes. Amer. J. Math. 61 461–472. MR1507388
+[20] Worsley, K. J. (1994). Local maxima and the expected Euler characteristic of
+         excursion sets of χ2 , F and t fields. Adv. in Appl. Probab. 26 13–42. MR1260300
+[21] Worsley, K. J. (1995). Boundary corrections for the expected Euler characteristic
+         of excursion sets of random fields, with an application to astrophysics. Adv. in
+         Appl. Probab. 27 943–959. MR1358902
+[22] Worsley, K. J. (1995). Estimating the number of peaks in a random field using the
+         Hadwiger characteristic of excursion sets, with applications to medical images.
+         Ann. Statist. 23 640–669. MR1332586
+[23] Worsley, K. J. (1996). The geometry of random images. Chance 9 27–40.
+[24] Worsley, K. J. and Friston, K. J. (2000). A test for a conjunction. Statist. Probab.
+         Lett. 47 135–140. MR1747100
+
+                                                        Department of Statistics
+                                                        Sequoia Hall
+                                                        Stanford University
+                                                        Stanford, California 94305-4065
+                                                        USA
+                                                        e-mail: jtaylor@stat.stanford.edu
+

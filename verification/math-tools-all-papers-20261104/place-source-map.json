@@ -1,0 +1,121 @@
+{
+  "status": "writer draft; independent correctness, wording and reader-flow acceptance pending",
+  "started_utc": "2026-11-04T14:20:33Z",
+  "finished_utc": "2026-11-04T14:23:22.608629+00:00",
+  "awake_execution": "unverified; Windows sleep/resume events were not checked",
+  "token_stats": "unavailable",
+  "audience": "Physics and CS reader who knows calculus, linear algebra, expectation, variance and probability density; teach field-specific meanings.",
+  "scope": "Only new sections for the 2025 place field paper; no manuscript edits and no figures.",
+  "sources_checked_directly": [
+    {
+      "file": "assets/papers/mainali-2025-universal-statistics.pdf",
+      "pdf_pages": [
+        3,
+        13,
+        14,
+        15
+      ],
+      "claims": [
+        "fixed sampled map and joint Gaussian law",
+        "threshold normalization and excursion set",
+        "local scale Eq. 4",
+        "finite track endpoint term Eq. 8",
+        "size distribution Eq. 1 is high threshold limit"
+      ]
+    },
+    {
+      "file": "assets/papers/mainali-2025-supplement.pdf",
+      "pdf_pages": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "claims": [
+        "random input sums and spatial covariance",
+        "Kac Rice slope weighting and exact 1D crossing density S9-S13",
+        "large q size distributions S18",
+        "quadratic high peak argument S22 and scaled excess S24-S25"
+      ]
+    }
+  ],
+  "source_map": [
+    {
+      "section": "sec:MATH-TOOLS-RANDOM-FIELDS",
+      "footnotes": [
+        "tools-place-map",
+        "tools-place-scale"
+      ],
+      "support": "Main PDF pp. 3,13,14; supplement PDF pp. 10-11 for across-map input interpretation."
+    },
+    {
+      "section": "sec:MATH-TOOLS-CROSSINGS-PEAKS",
+      "footnotes": [
+        "tools-place-crossing",
+        "tools-place-peaks"
+      ],
+      "support": "Supplement PDF pp. 11-12 crossing; main PDF p. 15 endpoint; supplement PDF pp. 13-15 and main PDF p. 3 limiting size law."
+    }
+  ],
+  "teaching_reconstructions": [
+    "band width 2epsilon/v explains slope weighting",
+    "endpoint correction written as probability term and crosschecked with Eq. 8",
+    "local covariance curvature yields directional conditional curvature",
+    "change from scaled exponential peak excess to size survival law"
+  ],
+  "printed_source_cautions": [
+    "S23 misses sqrt(2) when solving the S22 parabola; retained sqrt(2) in radius.",
+    "S25 finite excess exponent should be -q epsilon - epsilon^2/2; limiting exponential is retained.",
+    "S18 normalization has a printed algebra issue; no reliance on its constant here."
+  ],
+  "duplicate_blue_removal_candidates": [
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "line": 15,
+      "term": "upcrossing",
+      "action": "Strip definition-term and definition-explanation wrappers from this repeated definition; retain teaching sentence."
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "line": 23,
+      "term": "Gaussian process; jointly Gaussian vector",
+      "action": "Strip both definition-term and enclosing definition-explanation wrappers; retain subject-specific map explanation."
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "line": 49,
+      "term": "Stationarity",
+      "action": "Strip term and explanation wrappers; retain bullet and equation."
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "line": 52,
+      "term": "Isotropy",
+      "action": "Strip term and explanation wrappers; retain full qualifier."
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "line": 81,
+      "term": "excursion set",
+      "action": "Strip term and explanation wrappers; retain equation and connected component interpretation."
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "line": 134,
+      "term": "Kac–Rice formula",
+      "action": "Strip term and explanation wrappers; retain local crossing derivation."
+    }
+  ],
+  "retain_later_first_definitions": [
+    "05-place-fields.md smoothness: earlier section discusses requirements but does not give a separate blue definition.",
+    "05b-place-sizes.md:28 Hessian: new sections avoid the term, so retain its first blue definition."
+  ],
+  "notation_integration_note": "New sections use sigma_0 for input SD and ell_c for spatial distance scale. Existing place chapters use sigma_h and sigma; if retained, add a brief explicit translation when those chapters begin, or adopt ell_c consistently as separately authorized.",
+  "checks": [
+    "Primary PDF pages read directly using PyMuPDF; exact page locations checked.",
+    "Only task-folder draft files written.",
+    "Two H2 sections and two explicit details blocks."
+  ]
+}

@@ -1,0 +1,145 @@
+brief:
+  asset_id: fig:MEMORY-BOUND-STRICTNESS
+  scope: chapter
+  book: burak-three-papers
+  chapter: ch:MEMORY-INFORMATION
+  purpose: Show by an existing exact example that higher information can loosen a
+    bound while actual diffusion stays fixed.
+  target_use: sec:MEMORY-BOUND
+  generation_authorized: true
+  insertion_authorized: true
+author: /root/all_draw_foundations_information
+figure_role: quantitative-figure
+visual_explanation:
+  applicable: true
+  figure_role: quantitative-figure
+  required_scene_ids: &id001
+  - state-dependent-information
+  - constant-diffusion-and-lower-bound
+  reference_reason: Exact mathematical plots; no structural template or opener reference
+    applies.
+chapter_map_coverage:
+  applicable: false
+  reason: Section calculation figure, not an opening map.
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: vector
+  profile_id: house-graphic-v1
+  profile_version: 0.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  palette:
+    colors_and_roles:
+      ink: '#17365D'
+      blue: '#1F4E79'
+      text: '#19202C'
+      muted: '#5D6876'
+      flow: '#0B7F95'
+      success: '#0F6B78'
+      risk: '#C4580B'
+      risk_deep: '#B85209'
+      line: '#9AA7B5'
+      fill_blue: '#EAF2F8'
+      fill_teal: '#E4F2F0'
+      fill_orange: '#FCEEE3'
+      fill_gray: '#F1F3F6'
+      paper: '#FFFFFF'
+      paper_warm: '#FFFDF7'
+      panel_warm: '#F8F4EC'
+    color_distance: Exact SVG color token membership; no raster pixel deviation claim.
+    maximum_deviation_fraction: 0
+    allowed_special_purpose_colors: []
+parameters:
+  b_activation_units: 200
+  tau_s: 0.1
+  theta_range_activation_units:
+  - -160
+  - 160
+  marked_theta:
+  - 0
+  - 100
+required_items:
+- J=.05 at theta0 and 1/15 at theta100.
+- Actual D=1000 throughout displayed interior domain.
+- Bound=1000 at theta0 and 750 at theta100.
+- Activation coordinate is not an angular coordinate.
+- No claim that arbitrary higher information reduces actual diffusion.
+source_locator: Guide sec:MEMORY-BOUND, exact b=200, tau=.1 mutual inhibition example;
+  Ch. 2 mutual inhibition derivation; Burak and Fiete (2012), main PDF p. 3, Eq. 4
+  and Fig. 2E–G; SI PDF pp. 10–11, Eqs. S45–S49.
+language_contract:
+  book_loci:
+  - sec:MEMORY-BOUND
+  caption: Analytic teaching calculation for the chapter’s mutual inhibition example,
+    with $b=200$ activation units and $\tau=0.1$ s. The coordinate $\theta$ is an
+    activation difference. For positive rates $r_{1,2}=(b\pm\theta)/(2\tau)$, $J=2000/(40000-\theta^2)$
+    while $D=1000$ activation units squared per second. The lower bound $1/(2\tau^2J)$
+    equals $D$ at $\theta=0$ and falls to 750 at $\theta=100$. Higher local information
+    permits a lower diffusion bound but leaves the actual diffusion unchanged in this
+    model. The plotted range stays inside the positive-rate domain $|\theta|<200$.
+  alt_text: Across memory coordinates from minus one hundred sixty to one hundred
+    sixty activation units, internal information has a minimum of 0.05 at zero and
+    grows toward either side. Actual diffusion is a horizontal line at one thousand.
+    The information lower bound meets it at zero and bends downward, reaching seven
+    hundred fifty at coordinate one hundred. A marked gap separates actual diffusion
+    from the bound there.
+  teaching_introduction: The chapter’s two cell example makes the difference between
+    a lower bound and the actual diffusion visible.
+  conclusion: The gap at $\theta=100$ shows why a lower minimum allowed by the inequality
+    is not a reduction in the network’s actual diffusion.
+review_contract:
+  schema_version: 1
+  figure_role: quantitative-figure
+  route: vector
+  unit_scope: chapter
+  author: /root/all_draw_foundations_information
+  role_reason: Show by an existing exact example that higher information can loosen
+    a bound while actual diffusion stays fixed.
+  source_files:
+  - content/chapters/03-memory-information.md
+  - content/chapters/03-memory-information.yaml
+  - verification/all-illustrations-20261024/draw_foundations_information.py
+  - verification/all-illustrations-20261024/A04-brief.yaml
+  - verification/illustrations/figure_style.py
+  - assets/papers/burak-fiete-2012-persistent-activity.pdf
+  - assets/papers/burak-fiete-2012-persistent-activity-si.pdf
+  - verification/all-illustrations-20261024/foundation-information-source-extracts.txt
+  - verification/all-illustrations-20261024/foundation-information-source-extra.txt
+  - content/chapters/02-memory-dynamics.md
+  - content/chapters/02-memory-dynamics.yaml
+  rule_files:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md
+  - C:/Users/vital/.codex/skills/course-diagram-builder/references/review-record-template.yaml
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/visual-integration-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md
+  - C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md
+  style_lock: source-maps/book-style-lock.yaml
+  style_profile: C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml
+  reference_images: []
+  palette_audit: candidate-content/visuals/candidates/20261024-all/A04/qa.json
+  vector_spec: verification/all-illustrations-20261024/draw_foundations_information.py
+  insertion_width_px: 700
+  required_scene_ids: *id001
+  coverage:
+    applicable: false
+    reason: Internal mathematical teaching figure, not an opening map; no chapter
+      coverage claim.
+limitations:
+- Analytic or simulated teaching construction using explicitly chosen parameters;
+  not new experimental data.
+- No structural vector template gate or raster pixel audit is claimed; computed checks
+  and pixel inspection support independent review.
+manual_rule_disposition:
+  applicable:
+  - semantic correspondence
+  - numerical accuracy
+  - units and domain assumptions
+  - full size and 700px readability
+  - palette color roles
+  - canvas clipping
+  not_applicable:
+  - opening-map coverage
+  - generic structural-template geometry gates
+  - raster pixel-deviation measurement

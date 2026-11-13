@@ -1,0 +1,237 @@
+{
+  "local_request_id": "stage1-place-synthesis",
+  "reviewer": "divide_information_eye, GPT-6.1-sol/high",
+  "stage": "1. Truth and reasoning",
+  "started_at": "2026-10-24T20:24:23.5202102+03:00",
+  "fresh_scope": "Reviewer drafted information/eye proposals, not place/synthesis proposals. Actual current place/synthesis chapters were read before forming these judgments. No writer defense or historical review findings used.",
+  "scope": "New titles and opening paragraphs in 05-place-fields.md, 05b-place-sizes.md, 05c-place-tests.md, 06-synthesis.md; changed cross-reference paragraphs; new chapter boundaries and notation homes. Full current bodies read as context. These unchanged bodies are not newly approved or re-audited against whole papers.",
+  "verdict": "pass for this stage and scope",
+  "findings": [],
+  "passage_evidence": [
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "lines": [
+        1,
+        3,
+        5
+      ],
+      "decision": "retain",
+      "literal_claim": "The title concerns parameter inference. The first two opening paragraphs motivate spatial field variety and describe a thresholded random-input model that predicts distributions, rather than exact next-field locations.",
+      "support": "PLACE-GP defines a distribution over fixed functions and the threshold rule; PLACE-INFERENCE derives threshold and scale from occupied and inactive means. Later PLACE-DATA and PLACE-TOPOLOGY supply the shape/hole checks. The opening retains 'may' for possible cell patterns and attributes the model to the paper rather than treating it as measured hidden input.",
+      "qualification": "The word 'strongest' is an assessment of why further shape tests help distinguish models, not an asserted numerical ranking. It is supported by the later spherical-field alternative and separation of fitted versus additional quantities. No correctness repair needed."
+    },
+    {
+      "file": "content/chapters/05-place-fields.md",
+      "lines": [
+        7,
+        9
+      ],
+      "decision": "retain",
+      "literal_claim": "Track crossings lead to counts; field and gap lengths separate threshold and scale; the sampled map stays fixed through movement.",
+      "support": "PLACE-KAC-RICE derives the crossing density and finite-track endpoint correction. PLACE-INFERENCE divides active/inactive fractions by crossing density and explicitly inverts their means. PLACE-GP takes expectations over possible maps or cells. Thus spatial coordinate and time are kept distinct.",
+      "qualification": "The overview summarizes crossing counts; the first relevant heading and complete calculation explicitly retain the active-left-endpoint correction. It does not discard that convention or promise an exact finite-sample ratio rule."
+    },
+    {
+      "file": "content/chapters/05b-place-sizes.md",
+      "lines": [
+        1,
+        3
+      ],
+      "decision": "retain",
+      "literal_claim": "High peaks give a way to explain the distribution of sizes, which a mean length alone does not specify.",
+      "support": "The preceding PLACE-INFERENCE determines means and warns that means do not determine distributions. PLACE-RARE-PEAKS takes a high-threshold limit, derives excess height and local radius, and PLACE-SIZE-LAW changes radius into length, area and volume.",
+      "qualification": "'Unusually high' in the opening and the explicit approximation in the next paragraph prevent the title from claiming an exact finite-threshold law. The body keeps its regularity and asymptotic assumptions."
+    },
+    {
+      "file": "content/chapters/05b-place-sizes.md",
+      "lines": [
+        5
+      ],
+      "decision": "retain",
+      "literal_claim": "A local parabola links height to radius and dimensional size. Slices and boundary slopes check further spatial structure. The slope law and high-threshold size law have distinct validity ranges.",
+      "support": "PLACE-RARE-PEAKS displays the parabolic expansion and radius formula. PLACE-SLICES explains Gaussian restriction and sampling cautions. PLACE-SLOPES derives the slope-weighted exact Rayleigh boundary law without a high threshold and its folded independent width check uses the parabolic approximation.",
+      "qualification": "The opening explicitly calls the parabolic form approximate and distinguishes the exact boundary-slope derivation under the smooth stationary Gaussian assumptions. It does not transfer exactness to the width check."
+    },
+    {
+      "file": "content/chapters/05b-place-sizes.md",
+      "lines": [
+        7
+      ],
+      "decision": "retain",
+      "literal_claim": "The continuation carries z, q, sigma, a, d and the rectified firing rule from the first spatial chapter.",
+      "support": "The normalized variance-one input, threshold and gain were explicitly defined in PLACE-GP. The reminder gives all symbols needed before the Hessian calculation, including the positive-part notation. Units remain spatial distance, normalized input, and rate gain.",
+      "qualification": "No conflict with memory theta or diffusion D is introduced."
+    },
+    {
+      "file": "content/chapters/05c-place-tests.md",
+      "lines": [
+        1,
+        3
+      ],
+      "decision": "retain",
+      "literal_claim": "Size and count agreement leaves holes and arrangement open, and agreement with the spatial model does not by itself establish a circuit mechanism.",
+      "support": "PLACE-TOPOLOGY distinguishes connected-component counts from holes/tunnels and derives Euler characteristic. PLACE-WIRING gives one random-summation mechanism and explicitly lists other possibilities and unmeasured weights/input.",
+      "qualification": "The opening asks what agreement would imply; it does not claim that every map has holes or that a unique wiring pattern follows."
+    },
+    {
+      "file": "content/chapters/05c-place-tests.md",
+      "lines": [
+        5
+      ],
+      "decision": "retain",
+      "literal_claim": "Joint component and hole counts predict a threshold-dependent statistic with boundary terms; data processing/fitting must be separated from further tests; random weighted inputs supply a possible Gaussian mechanism under conditions.",
+      "support": "PLACE-TOPOLOGY supplies signed densities and box boundary coefficients. PLACE-DATA identifies fitted parameters, processing and added tests. PLACE-WIRING states independent zero-mean weights, a central-limit condition, no dominant input, and separate spatial assumptions.",
+      "qualification": "'One way' and 'could' keep sufficiency distinct from identified biological causation. Boundary terms are preserved rather than silently replaced by a large-box approximation."
+    },
+    {
+      "file": "content/chapters/05c-place-tests.md",
+      "lines": [
+        7
+      ],
+      "decision": "retain",
+      "literal_claim": "Map randomness is still spatial; q, sigma, a and d retain their meanings, and dimension d differs from memory diffusion D.",
+      "support": "This is consistent with PLACE-GP and the immediately preceding PLACE-SIZES notation. The topology section defines new chi, Hessian-related symbols and lambda as it needs them. Earlier z is still the normalized input throughout the connected reading path.",
+      "qualification": "The new boundary does not create a missing notation definition: it is a continuation, and the basic symbols are taught before use."
+    },
+    {
+      "file": "content/chapters/06-synthesis.md",
+      "lines": [
+        1,
+        3
+      ],
+      "decision": "retain",
+      "literal_claim": "Explaining static code shape, explaining its maintenance and locating measured behavior have different evidence needs.",
+      "support": "SYNTHESIS-QUESTIONS distinguishes x in a fixed spatial map, theta as a dynamical state, and internal versus actual eye position. SYNTHESIS-EVIDENCE separates distributional comparisons, calibration/covariance/MSD inference and the mathematical information bound.",
+      "qualification": "'Can' describes compatible possibilities, not a claim that every successful model fails other tasks. The title's separate tests are consistent with the later proposed joint experiment, which measures both kinds of constraints."
+    },
+    {
+      "file": "content/chapters/06-synthesis.md",
+      "lines": [
+        5
+      ],
+      "decision": "retain",
+      "literal_claim": "Separating objects permits a conditional calculation of shared rate changes and identifies missing joint measurements.",
+      "support": "SYNTHESIS-JOINT-CALCULATION defines fixed tuning and moving state, then derives the leading covariance from a common small displacement. Its example includes opposite slopes, so 'change together' correctly means a shared cause rather than necessarily positive correlation. SYNTHESIS-NEXT calls the proposed work a follow-up, not a completed joint test.",
+      "qualification": "The model's local linear approximation and extra private/shared sources remain explicit in the unchanged context."
+    },
+    {
+      "file": "content/chapters/05b-place-sizes.md",
+      "lines": [
+        56
+      ],
+      "decision": "retain changed cross-reference",
+      "literal_claim": "The higher-dimensional q to the power d minus 1 high-peak count factor is supported by a later Euler-characteristic calculation.",
+      "support": "The destination ch-place-tests.html#sec-place-topology contains the high-threshold large-box count with q^(d-1). The current paragraph retains its warning that a rigorous excursion theorem needs more control. This forward support is explicitly marked as later and is not falsely presented as an already proved prerequisite."
+    },
+    {
+      "file": "content/chapters/05b-place-sizes.md",
+      "lines": [
+        147
+      ],
+      "decision": "retain changed cross-reference",
+      "literal_claim": "The exact stationary crossing-based mean at q=1.1 and sigma=2.4 m is 3.746 m, as distinct from the high-threshold approximation.",
+      "support": "The destination ch-place-fields.html#sec-place-inference gives mu_s=2 pi sigma Q(q) exp(q^2/2), the same parameter example and the stated mean. The changed words preserve both the value and exact-versus-approximate distinction."
+    },
+    {
+      "file": "content/chapters/05b-place-sizes.md",
+      "lines": [
+        171
+      ],
+      "decision": "retain changed cross-reference",
+      "literal_claim": "Selecting a boundary slope reuses the earlier crossing integral with its slope weight.",
+      "support": "The destination ch-place-fields.html#sec-place-kac-rice defines nu_plus as integral v p_(z,zprime)(q,v) dv and explains weighting by v. The current paragraph correctly restricts that same measure before normalization; moving the section did not change the object reused."
+    },
+    {
+      "file": "content/chapters/06-synthesis.md",
+      "lines": [
+        13
+      ],
+      "decision": "retain moved figure link",
+      "literal_claim": "The earlier guide map compares the three paper questions.",
+      "support": "The figure block fig:FOUNDATIONS-PAPER-MAP is now placed in 01b-persistence.md at line 122 in FOUNDATIONS-RANDOMNESS. Its chapter URL is ch-persistence.html, matching the revised link. This review confirms source placement and subject, while root's output checks own rendered anchor behavior."
+    }
+  ],
+  "boundary_calls": [
+    {
+      "boundary": "PLACE-INFERENCE to PLACE-RARE-PEAKS",
+      "decision": "retain",
+      "reason": "The mean-to-distribution question is explicit at both end and new start. Exact crossing statistics remain before the separate high-threshold approximation, and normalized notation is repeated."
+    },
+    {
+      "boundary": "PLACE-SLOPES to PLACE-TOPOLOGY",
+      "decision": "retain",
+      "reason": "Size, slices and local edge slopes are complete before asking about global holes. The topology start defines Euler characteristic before formulas and keeps its 1D result tied to earlier crossing work."
+    },
+    {
+      "boundary": "PLACE-WIRING to SYNTHESIS",
+      "decision": "retain",
+      "reason": "The spatial chapter ends with a statistical-versus-mechanistic distinction. The synthesis opening preserves that distinction and expands it to dynamics and measured movement; it does not claim the three papers tested a joint circuit."
+    }
+  ],
+  "stage_limits": [
+    "Only stage 1 completed. Wording/necessity and reader-understanding stages remain for separate requests.",
+    "No new artwork, fonts, build outputs, paper-wide scientific claims or unchanged derivations accepted by this record.",
+    "No defects found in the requested changed passages. The unchanged context was read to test these claims and boundaries, not certified anew."
+  ],
+  "source_observations": [
+    {
+      "path": "content/chapters/05-place-fields.md",
+      "sha256": "6ba9de0e4fa3ff62eb12c9adfc638ca6c6dc58856c10adb6b1e43ecf2758e783",
+      "source_last_write": "2026-10-24T20:23:47.0582660+03:00"
+    },
+    {
+      "path": "content/chapters/05b-place-sizes.md",
+      "sha256": "e0c5acc1701055851a97b018b6d0e48cf67d35c8b4419cea7c83b81a138eba7f",
+      "source_last_write": "2026-10-24T20:23:47.0592630+03:00"
+    },
+    {
+      "path": "content/chapters/05c-place-tests.md",
+      "sha256": "28ec15a9c2d2bf2a3b791d0a665703d6a9b6f56330657bf16367cdaaa6c5e5e6",
+      "source_last_write": "2026-10-24T20:23:47.0612758+03:00"
+    },
+    {
+      "path": "content/chapters/06-synthesis.md",
+      "sha256": "273f789b432bdf40bb4b20dcd3cecee453d0f6b1ef6ab3898b9d7bfcabe5d346",
+      "source_last_write": "2026-10-24T20:23:47.0622751+03:00"
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "1cc3061cfc840b1903a116de7641d1b99b76f40f5f7a8bb4760b48b2a7eca29a",
+      "source_last_write": "2026-10-24T20:23:47.0456933+03:00"
+    },
+    {
+      "path": "verification/chapter-size-20261024/integration.json",
+      "sha256": "4c80941db70cd77772e289b30c042021ab6aa02c688d6177a8ddeeaa62b4e802",
+      "source_last_write": "2026-10-24T20:23:47.9606052+03:00"
+    },
+    {
+      "path": "verification/chapter-size-20261024/reference-edits.json",
+      "sha256": "82b94cc1dddbe631a02b891a49142bb7ea83e23e3df41e12c4efb5f864c6195b",
+      "source_last_write": "2026-10-24T20:23:46.4727576+03:00"
+    }
+  ],
+  "rule_observations": [
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\SKILL.md",
+      "sha256": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+      "source_last_write": "2026-10-23T15:48:41.0000000+03:00"
+    },
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\structural-preservation-contract.md",
+      "sha256": "8f7b052a3a2ccf194966574da3ad88e69d5d5746f195ffffa59e97d25dbe8a35",
+      "source_last_write": "2026-10-23T15:48:41.0000000+03:00"
+    },
+    {
+      "path": "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md",
+      "sha256": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+      "source_last_write": "2026-10-23T15:48:41.0000000+03:00"
+    }
+  ],
+  "timing": {
+    "awake_execution": "Unverified; no sleep/resume evidence inspected",
+    "token_stats": "Token stats unavailable",
+    "review_wall_seconds": 79.7590234,
+    "task_wall_seconds": 494.0214275
+  },
+  "completed_at": "2026-10-24T20:25:42.7590234+03:00"
+}

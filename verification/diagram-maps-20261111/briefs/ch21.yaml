@@ -1,0 +1,259 @@
+brief:
+  asset_id: fig:MAP-CH21
+  scope: chapter
+  book: burak-three-papers
+  part: part:SIMULATIONS
+  chapter: ch:SIMULATING-PLACE
+  purpose: Random spatial maps test the statistics of place fields
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Physical objects, changing states, signals, and separate comparisons explain the chapter mechanisms
+    beyond topic labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Arrange related scenes according to their true dependence; show independent comparisons separately.
+    Do not draw a single implied causal chain across unrelated examples.
+  scenes: &id001
+  - source_item_ids:
+    - P01
+    visible_objects_and_relation: Random grid smoothed into continuous field then thresholded into active regions
+    teaching_contribution_beyond_labels: A smooth Gaussian input field with specified spatial covariance is thresholded
+      and scaled into firing-rate maps.
+  - source_item_ids:
+    - P02
+    visible_objects_and_relation: Five sequential grid-state representations with normalized scale
+    teaching_contribution_beyond_labels: The released spatial generator uses random grid draws, smoothing, RMS normalization,
+      thresholding and connected field detection.
+  - source_item_ids:
+    - P03
+    visible_objects_and_relation: Position axis clearly separate from time trajectory
+    teaching_contribution_beyond_labels: These are static spatial maps, not direct simulations of recurrent hippocampal
+      spikes or synapses.
+  - source_item_ids:
+    - P04
+    visible_objects_and_relation: Data summaries entering parameter fitting loop
+    teaching_contribution_beyond_labels: Threshold and spatial scale are selected using condition-specific summaries;
+      matching those summaries is a fit.
+  - source_item_ids:
+    - P05
+    visible_objects_and_relation: Fitted features separated from additional histogram and topology comparisons
+    teaching_contribution_beyond_labels: Full distributions, slices, peaks and holes supply further comparisons,
+      though some also fit a gain.
+  - source_item_ids:
+    - P06
+    visible_objects_and_relation: Two model likelihood comparisons marked in-sample
+    teaching_contribution_beyond_labels: The lognormal model comparison uses the available data, not a reported
+      held-out forecast; simulation realizations sample model variation.
+  - source_item_ids:
+    - P07
+    visible_objects_and_relation: Same grid under two connectivity or cutoff rules
+    teaching_contribution_beyond_labels: Connectivity, thresholds and smoothing can merge or split fields, changing
+      counts, lengths and topology.
+  - source_item_ids:
+    - P08
+    visible_objects_and_relation: Filter kernel and broader covariance curve with different boundary treatments
+    teaching_contribution_beyond_labels: The Gaussian filter width differs from the resulting correlation scale;
+      boundary handling varies by implementation.
+  - source_item_ids:
+    - P09
+    visible_objects_and_relation: Tools linked to operations; missing dataset depicted separately
+    teaching_contribution_beyond_labels: NumPy and SciPy generate and measure maps and Gudhi evaluates topology;
+      code availability differs from data and run-setting availability.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/13-simulating-place-fields.md
+  - content/chapters/13-simulating-place-fields.yaml
+  chapter_source_sha256: bc3696905a30434683102aadcc8c7f341b041d69dc826e6d6c651aa05b2571fd
+  teaching_points:
+  - id: P01
+    point: A smooth Gaussian input field with specified spatial covariance is thresholded and scaled into firing-rate
+      maps.
+    source_locus: content/chapters/13-simulating-place-fields.md:5-26 (#sec:SIMULATING-PLACE-GENERATE)
+  - id: P02
+    point: The released spatial generator uses random grid draws, smoothing, RMS normalization, thresholding and
+      connected field detection.
+    source_locus: content/chapters/13-simulating-place-fields.md:5-26 (#sec:SIMULATING-PLACE-GENERATE)
+  - id: P03
+    point: These are static spatial maps, not direct simulations of recurrent hippocampal spikes or synapses.
+    source_locus: content/chapters/13-simulating-place-fields.md:5-26 (#sec:SIMULATING-PLACE-GENERATE)
+  - id: P04
+    point: Threshold and spatial scale are selected using condition-specific summaries; matching those summaries
+      is a fit.
+    source_locus: content/chapters/13-simulating-place-fields.md:27-36 (#sec:SIMULATING-PLACE-FIT)
+  - id: P05
+    point: Full distributions, slices, peaks and holes supply further comparisons, though some also fit a gain.
+    source_locus: content/chapters/13-simulating-place-fields.md:27-36 (#sec:SIMULATING-PLACE-FIT)
+  - id: P06
+    point: The lognormal model comparison uses the available data, not a reported held-out forecast; simulation
+      realizations sample model variation.
+    source_locus: content/chapters/13-simulating-place-fields.md:27-36 (#sec:SIMULATING-PLACE-FIT)
+  - id: P07
+    point: Connectivity, thresholds and smoothing can merge or split fields, changing counts, lengths and topology.
+    source_locus: content/chapters/13-simulating-place-fields.md:37-61 (#sec:SIMULATING-PLACE-MEASURE)
+  - id: P08
+    point: The Gaussian filter width differs from the resulting correlation scale; boundary handling varies by implementation.
+    source_locus: content/chapters/13-simulating-place-fields.md:37-61 (#sec:SIMULATING-PLACE-MEASURE)
+  - id: P09
+    point: NumPy and SciPy generate and measure maps and Gudhi evaluates topology; code availability differs from
+      data and run-setting availability.
+    source_locus: content/chapters/13-simulating-place-fields.md:62-80 (#sec:SIMULATING-PLACE-TOOLS)
+  - id: P10
+    point: The sampled spatial map is normalized by its root mean square before thresholding; finite-grid smoothing
+      and edge handling affect the realized map.
+    source_locus: content/chapters/13-simulating-place-fields.md:15-25
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 10
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P10: Newly identified source point; retain in inventory and decide whether it can be clearly shown during scene
+      design.
+  connected_source_sha256:
+    content/chapters/13-simulating-place-fields.yaml: 7c0b7837e13fd6701de92210921cb7f6d650f85d9a6894f646eddd1f4e8c6dc0
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/13-simulating-place-fields.md
+  approved_terms: &id002
+  - Random input
+  - Spatial smoothing
+  - Threshold
+  - Fitted summaries
+  - Field measurements
+  - Topology
+  caption: The scene relates the physical states, measurements, and assumptions described in Random spatial maps
+    test the statistics of place fields.
+  alt_text: Random grid smoothed into continuous field then thresholded into active regions; Five sequential grid-state
+    representations with normalized scale; Position axis clearly separate from time trajectory; Data summaries entering
+    parameter fitting loop; Fitted features separated from additional histogram and topology comparisons; Two model
+    likelihood comparisons marked in-sample; Same grid under two connectivity or cutoff rules; Filter kernel and
+    broader covariance curve with different boundary treatments; Tools linked to operations; missing dataset depicted
+    separately.
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S01
+  teaching_point: A smooth Gaussian input field with specified spatial covariance is thresholded and scaled into
+    firing-rate maps.
+  visual_role: Random grid smoothed into continuous field then thresholded into active regions
+- id: S02
+  teaching_point: The released spatial generator uses random grid draws, smoothing, RMS normalization, thresholding
+    and connected field detection.
+  visual_role: Five sequential grid-state representations with normalized scale
+- id: S03
+  teaching_point: These are static spatial maps, not direct simulations of recurrent hippocampal spikes or synapses.
+  visual_role: Position axis clearly separate from time trajectory
+- id: S04
+  teaching_point: Threshold and spatial scale are selected using condition-specific summaries; matching those summaries
+    is a fit.
+  visual_role: Data summaries entering parameter fitting loop
+- id: S05
+  teaching_point: Full distributions, slices, peaks and holes supply further comparisons, though some also fit a
+    gain.
+  visual_role: Fitted features separated from additional histogram and topology comparisons
+- id: S06
+  teaching_point: The lognormal model comparison uses the available data, not a reported held-out forecast; simulation
+    realizations sample model variation.
+  visual_role: Two model likelihood comparisons marked in-sample
+- id: S07
+  teaching_point: Connectivity, thresholds and smoothing can merge or split fields, changing counts, lengths and
+    topology.
+  visual_role: Same grid under two connectivity or cutoff rules
+- id: S08
+  teaching_point: The Gaussian filter width differs from the resulting correlation scale; boundary handling varies
+    by implementation.
+  visual_role: Filter kernel and broader covariance curve with different boundary treatments
+- id: S09
+  teaching_point: NumPy and SciPy generate and measure maps and Gudhi evaluates topology; code availability differs
+    from data and run-setting availability.
+  visual_role: Tools linked to operations; missing dataset depicted separately
+communication_plan:
+  segments: *id001
+  layout: Use subject-driven scenes with readable short labels; separate independent examples and preserve their
+    conditions.
+  keep_in_text:
+  - Detailed formulas and numerical calculations
+  - Full discussion and citations
+  required_visible_conditions:
+  - Distinguish measured demonstrations, numerical simulations, and proposed tests where applicable
+  independent_example_groups:
+  - Independent study or architecture examples unless the source establishes an action between them
+  readability_risk: This draft lists 9 separate scenes. At the intended reading width this may be too dense; group
+    related mechanisms or split across existing chapter figures. Do not claim coverage until inspected.
+normal_flow:
+- Connect events only where source text gives an actual causal, computational or measurement relationship.
+secondary_relationships:
+- Show comparisons side by side without a causal arrow; use explicitly labeled feedback only where it exists.
+exact_text:
+  required: *id002
+  prohibited:
+  - paper title banner
+  - unsupported universal claims
+  - visual-review notes or caption inside image
+constraints:
+- Match the book palette and style lock.
+- Do not treat planned teaching points as established visual coverage.
+- Do not imply that different experiments are one continuous causal experiment.
+- Keep caption and alt text outside the artwork.
+- Do not shrink labels to hide excessive density.
+- If a point cannot be shown with its important condition, leave its coverage pending.
+dispositions: []

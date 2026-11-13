@@ -1,0 +1,1210 @@
+{
+  "schema_version": 1,
+  "stage": 2,
+  "status": "requires_repair",
+  "reviewer": "/root/sim_sources_memory",
+  "request_id": "local-parent-stage2-memory-20261030",
+  "started_utc": "2026-10-30T17:01:04.1992792Z",
+  "scope": "Current 11-simulating-memory.md/yaml, Part I attribution, and only the changed correction paragraph in 02-memory-dynamics.md. No Stage 3 verdict.",
+  "audience": "Basic calculus, probability and linear algebra. Expectation, variance, SD and density assumed. Simulation terms must be taught.",
+  "paragraph_replacements": [
+    {
+      "line": 3,
+      "after": "Burak and Fiete (2012) derive memory diffusion from assumptions about recurrent connections and random spike timing. To test that prediction, they simulate individual spikes and measure how the stored value moves. The central result remains an analytical bound. The simulations check its predicted motion in different network designs, including the limits imposed by an angular coordinate.",
+      "reason": "A simulation does not ask a question. Name who tests what, which events are generated, and the measured output. Retain the analytical-versus-simulation distinction.",
+      "before": "Burak and Fiete (2012) derive memory diffusion from assumptions about recurrent connections and random spike timing. A numerical simulation asks whether the full spiking network follows that prediction when its individual events are generated explicitly. The central result remains an analytical bound. The simulations support it by checking the predicted motion in different network designs, including the limits imposed by an angular coordinate.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 24,
+      "replace_within_paragraph": {
+        "before": "This discretization approximates the continuous dynamics",
+        "after": "This finite step approximates the continuous dynamics"
+      },
+      "reason": "Discretization adds an unused specialist name. Finite step points directly to the update just taught; retain Euler update as the exact method name.",
+      "before": "The ring simulation uses an [[**Euler update**]{.definition-term custom-style=\"Definition Term\"}, which approximates a variable's change over a short interval by its current derivative times that interval.]{.definition-explanation} For decay alone, an interval $h$ changes $s_i$ to approximately $s_i(1-h/\\tau)$. Spike increments are added according to the event model. This discretization approximates the continuous dynamics, so its accuracy must be checked at the resolution needed for the reported statistic.",
+      "after": "The ring simulation uses an [[**Euler update**]{.definition-term custom-style=\"Definition Term\"}, which approximates a variable's change over a short interval by its current derivative times that interval.]{.definition-explanation} For decay alone, an interval $h$ changes $s_i$ to approximately $s_i(1-h/\\tau)$. Spike increments are added according to the event model. This finite step approximates the continuous dynamics, so its accuracy must be checked at the resolution needed for the reported statistic.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 26,
+      "after": "[Each generated spike changes the recurrent inputs and can change the rates of later spikes.]{.key-statement} The theory explains when these interacting changes can be described by diffusion of one coordinate.",
+      "reason": "The random-walk contrast and nevertheless wrap the causal point in an unnecessary alternative. State the event-to-input-to-rate consequence directly and keep the diffusion limit.",
+      "before": "[Generating random spikes in a recurrent network tests more than adding a random walk to a fixed angle: the spikes themselves change the inputs that generate later spikes.]{.key-statement} The analytical reduction explains when that interacting system can nevertheless be described by diffusion of one coordinate.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 34,
+      "replace_within_paragraph": {
+        "before": "This saturation limits the reported angular error; it does not recover the initial angle.",
+        "after": "This saturation limits the reported angular error. It does not recover the initial angle."
+      },
+      "reason": "Full stop preserves the needed warning and avoids an unnecessary semicolon.",
+      "before": "At short lags, the displacement variance tests the local relation $\\operatorname{Var}(\\Delta\\theta)\\simeq2D\\ell$, where $D$ has units of angle squared per second and $\\ell$ is the lag in seconds. At long lags, the reported differences are wrapped into $(-\\pi,\\pi)$, so the mean square levels off. The long-lag comparison uses a diffusion calculation with periodic boundaries. This saturation limits the reported angular error; it does not recover the initial angle.",
+      "after": "At short lags, the displacement variance tests the local relation $\\operatorname{Var}(\\Delta\\theta)\\simeq2D\\ell$, where $D$ has units of angle squared per second and $\\ell$ is the lag in seconds. At long lags, the reported differences are wrapped into $(-\\pi,\\pi)$, so the mean square levels off. The long-lag comparison uses a diffusion calculation with periodic boundaries. This saturation limits the reported angular error. It does not recover the initial angle.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 38,
+      "replace_within_paragraph": {
+        "before": "seconds each; the displacement",
+        "after": "seconds each. The displacement"
+      },
+      "reason": "Separate trial count from exclusion settings without changing either condition.",
+      "before": "The Methods specify 1,024 neurons, synaptic time constant 10 ms, and update interval 0.1 ms. Each step generates a spike with probability $r_i h$. This one-event approximation requires that probability to remain small. There are 100 trials of 1,000 seconds each; the displacement analysis excludes the first 10 ms. Error bars are standard errors across trials.",
+      "after": "The Methods specify 1,024 neurons, synaptic time constant 10 ms, and update interval 0.1 ms. Each step generates a spike with probability $r_i h$. This one-event approximation requires that probability to remain small. There are 100 trials of 1,000 seconds each. The displacement analysis excludes the first 10 ms. Error bars are standard errors across trials.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 46,
+      "after": "The common input is $b=-2$. The two transfer rules are $\\tau\\phi(g)=10e^g$ and $\\tau\\phi(g)=0.2[1+\\tanh(g+4)]$. Initial activations are independently uniform between 0 and 0.01. These settings describe the finite simulation. The supporting text separately divides a connection rule by $N$ to study larger populations. Applying that extra factor here would change the reported weights.",
+      "reason": "Separate large-population scaling convention hides the arithmetic choice. State the factor, why it appears elsewhere, and the effect of adding it here.",
+      "before": "The common input is $b=-2$. The two transfer rules are $\\tau\\phi(g)=10e^g$ and $\\tau\\phi(g)=0.2[1+\\tanh(g+4)]$. Initial activations are independently uniform between 0 and 0.01. These are the finite simulation settings in the main Methods. The supporting text's separate large-population scaling convention must not be inserted as an extra normalization of these weights.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 54,
+      "after": "A second network contains two mutually inhibiting units, interpreted also as two neural populations. Increasing one population's activity while decreasing the other's changes the stored value. Figure 2E–G tests diffusion in this family without relying on rotational symmetry. The diffusion calculation applies to both models because each has a continuous family of states and restoring dynamics toward that family.[^simmem-two]",
+      "reason": "Replace This matters because and the repeated literal-ring contrast with the shared condition that permits the calculation.",
+      "before": "A second network contains two mutually inhibiting units, interpreted also as two neural populations. Increasing one population's activity while decreasing the other's changes the stored value. Figure 2E–G tests diffusion in this family without relying on rotational symmetry. This matters because the theory uses a continuous family of states and the network's relaxation toward it, rather than requiring a literal ring of neurons.[^simmem-two]",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 60,
+      "replace_within_paragraph": {
+        "before": " This is a supporting illustration of the analytical extension.",
+        "after": ""
+      },
+      "reason": "The announcement repeats the immediately preceding state-dependent-diffusion result. Deletion retains the concrete result, link and correction limit.",
+      "before": "The supporting text also tests a mutually excitatory pair in Figure S1. Across 4,000 trials started at the same coordinate, its variance grows linearly even though the local diffusion coefficient depends on the state. This is a supporting illustration of the analytical extension. The guide's [long-delay chapter](ch-memory-long-delays.html#sec-memory-long-time) explains the coordinate and the printed factor-of-two discrepancy. That discrepancy is separate from the authors' 2017 correction.",
+      "after": "The supporting text also tests a mutually excitatory pair in Figure S1. Across 4,000 trials started at the same coordinate, its variance grows linearly even though the local diffusion coefficient depends on the state. The guide's [long-delay chapter](ch-memory-long-delays.html#sec-memory-long-time) explains the coordinate and the printed factor-of-two discrepancy. That discrepancy is separate from the authors' 2017 correction.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 64,
+      "after": "Figures 3 and S2 plot formulas for readout error. They compare an ideal estimator with an estimator that weights all observations equally as the observation interval grows. The sources do not describe an additional spiking-network experiment or a biological circuit implementing ideal estimation in these figures.",
+      "reason": "Remove the final method-summary instruction that repeats the heading. Keep the computed quantity, estimator distinction, and evidence limit in connected prose.",
+      "before": "Figures 3 and S2 compare derived readout-error curves. They show how observing a moving memory for longer affects an ideal estimator and an estimator that weights all observations equally. The sources do not describe these plots as an additional spiking-network experiment, or as a biological implementation of the ideal estimator. A method summary should therefore distinguish evaluated formulas from generated neural trajectories.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 66,
+      "replace_within_paragraph": {
+        "before": "This describes the search as of October 30, 2026; it is not proof that no code exists.",
+        "after": "This describes the search as of October 30, 2026. It is not proof that no code exists."
+      },
+      "reason": "Separate the dated search limit from its necessary uncertainty warning.",
+      "before": "The paper specifies its network equations and several numerical settings, but does not identify a programming language or simulator package. No public simulation-code archive was identified in the checked paper, supplement, or author publication entries. This describes the search as of October 30, 2026; it is not proof that no code exists. A new implementation must document choices the paper leaves open, including seeds and event generation for aggregate populations.",
+      "after": "The paper specifies its network equations and several numerical settings, but does not identify a programming language or simulator package. No public simulation-code archive was identified in the checked paper, supplement, or author publication entries. This describes the search as of October 30, 2026. It is not proof that no code exists. A new implementation must document choices the paper leaves open, including seeds and event generation for aggregate populations.",
+      "dependent_fields": "Mirror matching paragraph text in chapter YAML purpose/section summaries where duplicated."
+    },
+    {
+      "line": 58,
+      "before": "The coordinate convention affects a reconstruction. Let $\\theta_s=s_1-s_2$ be the activation difference and $\\theta_r=r_1-r_2$ the rate difference along the steady-state family. Since $s_i=\\tau r_i$ there, $\\theta_r=\\theta_s/\\tau$ and their diffusion coefficients satisfy $D_r=D_s/\\tau^2$. Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring's at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not document the count sampler or full initialization for this example.",
+      "after": "Converting between activation and rate changes the units of the stored value. Let $\\theta_s=s_1-s_2$ be the activation difference and $\\theta_r=r_1-r_2$ the rate difference along the steady-state family. Since $s_i=\\tau r_i$ there, $\\theta_r=\\theta_s/\\tau$ and their diffusion coefficients satisfy $D_r=D_s/\\tau^2$. Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring's at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not say how spike counts were drawn or give the complete initial state for this example.",
+      "reason": "Reconstruction, count sampler and full initialization hide concrete actions. The replacement keeps the exact repaired coordinate algebra and names spike-count drawing and starting state.",
+      "dependent_fields": "No YAML paragraph duplicate."
+    }
+  ],
+  "part_i_grammar": [
+    {
+      "row": "Chapter 1",
+      "before": "Burak and Fiete (2012) supplies",
+      "after": "Burak and Fiete (2012) supply"
+    },
+    {
+      "row": "Chapter 3",
+      "before": "Burak and Fiete (2012) derives",
+      "after": "Burak and Fiete (2012) derive"
+    },
+    {
+      "row": "Chapter 4",
+      "before": "Burak and Fiete (2012) explains",
+      "after": "Burak and Fiete (2012) explain"
+    },
+    {
+      "row": "Chapter 5",
+      "before": "Burak and Fiete (2012) relates",
+      "after": "Burak and Fiete (2012) relate"
+    },
+    {
+      "row": "Chapter 6",
+      "before": "Burak and Fiete (2012) derives",
+      "after": "Burak and Fiete (2012) derive"
+    }
+  ],
+  "part_i_opening_repair": {
+    "instruction": "In both purpose and its duplicated content paragraph, split the two semicolons between the chapter groups into full stops. Keep the top-level singular derives: its grammatical subject is The central source, with author-year apposition. Keep plural supply for the combined Ben-Shushan and Mainali subject.",
+    "chapter1": "Split the semicolon after Poisson network model into a full stop; capitalize the following author name as already written.",
+    "chapter2": "Split the semicolon after the Burak/Fiete link into a full stop and capitalize The two-variable illustrations.",
+    "labels": "The four contribution labels are a mapping requested by the user. Their close definition clauses justify the three semicolons in that compact legend; retain with a local ai-tells.SemicolonUsage exception if the rule reports it.",
+    "chapter4": "Retain the three concrete domains long-delay behavior, angular boundaries, and state-dependent diffusion. They are distinct contents, not rhetorical padding. Narrow ai-tells.VerbTricolon exception for that single factual list."
+  },
+  "narrow_correction_paragraph": {
+    "location": "02-memory-dynamics.md:292",
+    "decision": "retain",
+    "deletion_test": "Each sentence identifies the measured input slope, invertibility condition, exact original error, official correction, or distinction from guide calculations. Deleting the latter would misattribute other guide checks. Technical terms are used by the directly preceding derivation and are necessary here."
+  },
+  "limitations": [
+    "No manuscript edits made.",
+    "No Stage 3 verdict or concept-order acceptance.",
+    "No figure artwork, table, or runnable listing was added in this chapter."
+  ],
+  "diagnostic_alerts": [
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Parentheses encode author-year attribution or journal volume/issue. Removing them harms the requested citation format."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 3,
+      "rule": "ai-tells.AnthropomorphicCognition",
+      "match": "A numerical simulation asks whether",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Passive",
+      "match": "are generated",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 3,
+      "rule": "Microsoft.Passive",
+      "match": "are generated",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 7,
+      "rule": "Microsoft.Adverbs",
+      "match": "briefly",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 7,
+      "rule": "ai-tells.FormalTransitions",
+      "match": "therefore",
+      "decision": "narrow_exception",
+      "reason": "Therefore makes the stated recurrence consequence explicit: spike-induced input changes renew firing. This is a real causal connection, not an ornamental transition."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 9,
+      "rule": "Google.Passive",
+      "match": "are calculated",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 9,
+      "rule": "Microsoft.Passive",
+      "match": "are calculated",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 24,
+      "rule": "Microsoft.SentenceLength",
+      "match": "The",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 24,
+      "rule": "Google.Passive",
+      "match": "are added",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 24,
+      "rule": "Microsoft.Passive",
+      "match": "are added",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 24,
+      "rule": "Google.Passive",
+      "match": "be checked",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 24,
+      "rule": "Microsoft.Passive",
+      "match": "be checked",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 26,
+      "rule": "Microsoft.SentenceLength",
+      "match": "Generating",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 26,
+      "rule": "ai-tells.FormalTransitions",
+      "match": "nevertheless",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 26,
+      "rule": "Google.Passive",
+      "match": "be described",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 26,
+      "rule": "Microsoft.Passive",
+      "match": "be described",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 28,
+      "rule": "Microsoft.HeadingAcronyms",
+      "match": "RING",
+      "decision": "false_positive",
+      "reason": "RING occurs only in the structural section ID; reader-visible heading spells Ring as a word."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 30,
+      "rule": "Google.Passive",
+      "match": "are ordered",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 30,
+      "rule": "Microsoft.Passive",
+      "match": "are ordered",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 30,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 30,
+      "rule": "ai-tells.CataphoricForecasting",
+      "match": "Two transfer functions",
+      "decision": "narrow_exception",
+      "reason": "Two transfer functions points to the compared exponential and sigmoid rules in the same sentence, with different bound outcomes. No later promised list is missing."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 30,
+      "rule": "Microsoft.Vocab",
+      "match": "above",
+      "decision": "retain",
+      "reason": "Above denotes a larger mathematical value than a lower bound, not a page-location reference."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 34,
+      "rule": "Google.Passive",
+      "match": "are wrapped",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 34,
+      "rule": "Microsoft.Passive",
+      "match": "are wrapped",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 34,
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; it does not recover the initial angle.",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 34,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 34,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 38,
+      "rule": "Microsoft.Vocab",
+      "match": "specify",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 38,
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; the displacement analysis excludes the first 10 ms. Error bars are standard errors across trials.",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 38,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 38,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 46,
+      "rule": "ai-tells.CataphoricForecasting",
+      "match": "The two transfer",
+      "decision": "narrow_exception",
+      "reason": "The two transfer rules directly introduces the two immediately displayed source equations; it is a useful factual label, not an empty forecast."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 46,
+      "rule": "Google.Passive",
+      "match": "be inserted",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 46,
+      "rule": "Microsoft.Passive",
+      "match": "be inserted",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 54,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 54,
+      "rule": "ai-tells.Metacommentary",
+      "match": "This matters because",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 54,
+      "rule": "ai-tells.StrawmanContrast",
+      "match": ", rather than requiring a literal ring of neurons.",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 56,
+      "rule": "Google.Passive",
+      "match": "be read",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 56,
+      "rule": "Microsoft.Passive",
+      "match": "be read",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 58,
+      "rule": "ai-tells.CataphoricForecasting",
+      "match": "Two details affect",
+      "decision": "stale_alert",
+      "reason": "Earlier text was replaced in Stage1. Neither matched phrase exists in the current paragraph."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 58,
+      "rule": "ai-tells.FormalTransitions",
+      "match": "therefore",
+      "decision": "stale_alert",
+      "reason": "Earlier text was replaced in Stage1. Neither matched phrase exists in the current paragraph."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 58,
+      "rule": "Google.Passive",
+      "match": "be copied",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 58,
+      "rule": "Microsoft.Passive",
+      "match": "be copied",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 60,
+      "rule": "ai-tells.AbstractionSubject",
+      "match": "That discrepancy is",
+      "decision": "narrow_exception",
+      "reason": "That discrepancy directly refers to the linked factor-of-two mathematical disagreement. It attributes no action or intention to an abstract agent and preserves the distinction from the official correction."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 64,
+      "rule": "ai-tells.ParallelStaccato",
+      "match": "They show how observing a moving memory for longer affects an ideal estimator and an estimator that weights all observations equally. The sources do not describe these plots as an additional spiking-network experiment, or as a biological implementation of the ideal estimator.",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 64,
+      "rule": "ai-tells.FormalTransitions",
+      "match": "therefore",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Google.Passive",
+      "match": "was identified",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Microsoft.Passive",
+      "match": "was identified",
+      "decision": "retain_or_absorbed_by_paragraph_repair",
+      "reason": "These forms describe calculated rates, generated events, wrapped differences, absent code-search results or checks. The object is the point; no missing actor prevents understanding. Some disappear in proposed connected replacements."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Microsoft.Vocab",
+      "match": "author",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; it is not proof that no code exists.",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "paragraph_repair",
+      "reason": "Use the exact paragraph replacement at this line; no blind rule-based replacement."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Google.OxfordComma",
+      "match": ", including seeds and event generation for aggregate populations.",
+      "decision": "false_positive",
+      "reason": "Seeds and event generation are two items, not a three-item list needing another comma."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 66,
+      "rule": "Microsoft.OxfordComma",
+      "match": ", including seeds and event generation for aggregate populations.",
+      "decision": "false_positive",
+      "reason": "Seeds and event generation are two items, not a three-item list needing another comma."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 68,
+      "rule": "Google.Parens",
+      "match": "(2022)",
+      "decision": "retain",
+      "reason": "Parentheses encode author-year attribution or journal volume/issue. Removing them harms the requested citation format."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Parentheses encode author-year attribution or journal volume/issue. Removing them harms the requested citation format."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "Google.Parens",
+      "match": "(43)",
+      "decision": "retain",
+      "reason": "Parentheses encode author-year attribution or journal volume/issue. Removing them harms the requested citation format."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "retain",
+      "reason": "Context supplies a concrete technical meaning: briefly refers to spike duration, specify means the Methods give values, author identifies publication entries, and sentence length alone does not establish confusion."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 70,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 72,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 74,
+      "rule": "Google.Parens",
+      "match": "(2017)",
+      "decision": "retain",
+      "reason": "Parentheses encode author-year attribution or journal volume/issue. Removing them harms the requested citation format."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 76,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Parentheses encode author-year attribution or journal volume/issue. Removing them harms the requested citation format."
+    },
+    {
+      "file": "content/chapters/11-simulating-memory.md",
+      "diagnostic_line": 76,
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "narrow_exception",
+      "reason": "Actual character is an en dash in a factual figure, equation or page range (2A–D, 2E–G, 7–11, 5–6, I–II, or 17645–17650), not an em dash interrupting prose. Preserve exact source labels."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Microsoft.Adverbs",
+      "match": "quickly",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Passive",
+      "match": "be lost",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Microsoft.Passive",
+      "match": "be lost",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Passive",
+      "match": "be read",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Microsoft.Passive",
+      "match": "be read",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; Chapters 4 and 6 explain long-delay behavior and readout. Expanded examples and marked checks of printed formulas are guide-derived.",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 3,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Microsoft.SentenceLength",
+      "match": "The",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "retain_narrow_exception",
+      "reason": "Compact four-label definition mapping benefits from close parallel clauses; keep this factual legend."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "retain_narrow_exception",
+      "reason": "Compact four-label definition mapping benefits from close parallel clauses; keep this factual legend."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "retain_narrow_exception",
+      "reason": "Compact four-label definition mapping benefits from close parallel clauses; keep this factual legend."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "retain_narrow_exception",
+      "reason": "Compact four-label definition mapping benefits from close parallel clauses; keep this factual legend."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "retain_narrow_exception",
+      "reason": "Compact four-label definition mapping benefits from close parallel clauses; keep this factual legend."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 5,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "retain_narrow_exception",
+      "reason": "Compact four-label definition mapping benefits from close parallel clauses; keep this factual legend."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 7,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 7,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 7,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 7,
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; Ben-Shushan et al. (2022) and Mainali et al. (2025) supply eye-control and spatial-coding context. The elementary numerical examples are guide-derived.",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 7,
+      "rule": "Google.Parens",
+      "match": "(2022)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 7,
+      "rule": "Google.Parens",
+      "match": "(2025)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 9,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 9,
+      "rule": "Google.Semicolons",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 9,
+      "rule": "Microsoft.Semicolon",
+      "match": ";",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 9,
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; the two-variable illustrations are guide-derived.",
+      "decision": "punctuation_repair",
+      "reason": "Split these prose semicolons as specified in part_i_opening_repair; scientific attribution and chapter mapping remain."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 11,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 13,
+      "rule": "ai-tells.VerbTricolon",
+      "match": ": Burak and Fiete (2012) explains long-delay behavior, angular boundaries, and state-dependent diffusion",
+      "decision": "narrow_exception",
+      "reason": "The three domains are distinct actual chapter contents, not rhetorical padding. Correct explains to explain separately."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 13,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 13,
+      "rule": "Google.Passive",
+      "match": "be used",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 13,
+      "rule": "Microsoft.Passive",
+      "match": "be used",
+      "decision": "retain",
+      "reason": "Quickly qualifies diffusion rate, passive forms state the estimated quantities, and the requested compact label legend justifies its sentence length. No removal of evidence or author attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 15,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    },
+    {
+      "file": "verification/part4-simulations-20261030/lint-part-openings.md",
+      "diagnostic_line": 17,
+      "rule": "Google.Parens",
+      "match": "(2012)",
+      "decision": "retain",
+      "reason": "Requested author-year attribution."
+    }
+  ],
+  "paragraph_decisions": [
+    {
+      "line": 1,
+      "sha256": "c07e3f2ff619548af4cc44cb7c8c7e9b3f379d68c0273fe14a6f2732ae833dac",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Title states the actual causal simulation outcome; no inflated promise."
+    },
+    {
+      "line": 3,
+      "sha256": "897540bf80a48b371219affff1783263d0593df66c3efed8260ef827731f672a",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Needed link between theory and a numerical test; replace the abstract asking actor."
+    },
+    {
+      "line": 5,
+      "sha256": "2f5b888a15dd0b86b5745a45a95958e2d9a4d47ead2e6bbe20c8bb0f0626d229",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Heading distinguishes the simulated state from its analytical approximation."
+    },
+    {
+      "line": 7,
+      "sha256": "87e9ad18362e934e16d4fda5eecab4b8d40364376b08ccf3cc806cf5ba81948f",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "One complete feedback cycle is necessary before equations; recurrent, spike and synaptic activation are already taught in Chapters1/3. Therefore carries a useful causal link."
+    },
+    {
+      "line": 9,
+      "sha256": "fe1302e5faa4bd528ec56486af269f353469b60aa071872a0d73cf5001f0f22a",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Names which quantities are stored and derived, preparing the equation."
+    },
+    {
+      "line": 11,
+      "sha256": "238a701ccefe29f4de6591e7a2919e9a99bc7a993228683c94af8ca0781008b7",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Weighted input and rate transfer are essential algorithm definitions; earlier model chapter supplies their technical meanings."
+    },
+    {
+      "line": 15,
+      "sha256": "af35ae20bc3c9fdb67eb3a80d5cfb03c736865dbf929ee73de92fb471e94a584",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Variable roles, spike normalization, time constant, units and link prevent ambiguous implementation."
+    },
+    {
+      "line": 17,
+      "sha256": "015d7f9553249679cd96c84b5c3e4e8495eab8188786c8dc9fb5544ec9aab4c9",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Introduces an ordered procedure; causal order is a sufficient familiar description."
+    },
+    {
+      "line": 19,
+      "sha256": "56eb18fa74a4d390ce6359b69bef29af2bf06d96bec070505a49c5d75cb35cda",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Retain all four ordered steps: state/rate calculation, random event generation, decay/update, readout. Removing any hides part of one simulation cycle."
+    },
+    {
+      "line": 24,
+      "sha256": "8be670cb79be899255762e943ad14f3e8b1dfd5e26847cadc96cebd6b8aff550",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Euler update is the exact method name and is defined by its current-derivative action. Remove only the unused extra name discretization."
+    },
+    {
+      "line": 26,
+      "sha256": "e2bf59e5e9b815a397cc65ec4de8045b4f26213eadbee63123a77ba5f4bbe132",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Retain the spike/input/rate causal point in the shorter replacement; remove the unnecessary random-walk alternative."
+    },
+    {
+      "line": 28,
+      "sha256": "2ab685aeee2a8410e6fd757bf588f02490a077280376ee903608251c1e1d7414",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Heading states the two measured effects without promising more than simulated evidence."
+    },
+    {
+      "line": 30,
+      "sha256": "fc15caf46c2dd19f81ba8b1af02e2cf72c0dd77082899275b96aca763e43a988",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Keep the distinct transfer rules and equality outcomes; deleting either removes the purpose of this comparison. Localized pattern, preferred angle and sigmoid are supported by the earlier memory reading path."
+    },
+    {
+      "line": 32,
+      "sha256": "cff8830899eacd5de5f08667383331d3aaa8c95e1de01f25c6bcd25b9ebfcac1",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Required separation of numerical theory prediction from trajectory measurement and rate-max decoder from ideal estimator. First/then marks actual computational order."
+    },
+    {
+      "line": 34,
+      "sha256": "9e54b869f4f7a54c866a8e024d18c0f15f13a535e4d1e2e5dd0a44fe7fad2f0c",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Required short versus long lag distinction and periodic reporting. Preserve the false-recovery warning and replace only the semicolon."
+    },
+    {
+      "line": 36,
+      "sha256": "ab31111243fe42dc18c85d86ca56f239bcc15bacb12d9febceb2600aba2eb6eb",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "The factual note title tells the reader this is published setup, with figures identified."
+    },
+    {
+      "line": 38,
+      "sha256": "4ad0bfb3c68d8384d750a61678c5a04f00f9e5cbe3325d2951825ce76f5d7529",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Each parameter, repetition count, excluded initial interval and error-bar meaning supports reconstruction; retain all with simpler punctuation."
+    },
+    {
+      "line": 40,
+      "sha256": "7be57c9479d670355e62ededa616e3f70a4228abd7c5fde4013be4cb9ce6290d",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Defines angle separation before the weight equation. Preferred angle has its earlier population-coding meaning."
+    },
+    {
+      "line": 42,
+      "sha256": "352ee162c6408468c3bbfadd4f7e673d3189f2295551e0aa76d477349056df56",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Exact finite weight function is needed to distinguish architecture from a generic ring."
+    },
+    {
+      "line": 46,
+      "sha256": "854c2eb90e5c0036c506d5211414c02a149dcd0a7b7325d5001981fd246a5cfe",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Keep both transfer rules and random initial conditions; explain the N factor concretely rather than an abstract scaling convention."
+    },
+    {
+      "line": 48,
+      "sha256": "8fe13adffbf0227085dd3495473b72c1827a731526a804a1d24719eeca28d03f",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Official-correction attribution prevents use of a known printed error. This is necessary beside the source settings and distinct from other guide checks."
+    },
+    {
+      "line": 50,
+      "sha256": "f1ae2a75ed1f99721f02ef869e2fb3d4df102fdd73e2d00b424a222f9c1ea69c",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Pure closing delimiter; no reader-facing claim. Structural equation/callout boundary retained."
+    },
+    {
+      "line": 52,
+      "sha256": "f8a528265fc78f0416b972e18c508a0a3e4bea0655fdc373727791cf088ad686",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Heading states why additional models are included."
+    },
+    {
+      "line": 54,
+      "sha256": "5d2b9f7c46ce51f6da23790eef5d559d0cf864afb55235de8577e5d8fb368c4b",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Keep the second model, opposition of activities, absence of rotational symmetry and shared restoring-family condition. Replace commentary with the reason the calculation applies."
+    },
+    {
+      "line": 56,
+      "sha256": "f386f204e54c3a2f8fa5389a2288ff45388064b3d5fcbb1801cee1def34ac9c5",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "All numerical settings and valid-positive-range qualification are needed. Aggregate population interpretation prevents a biologically implausible reading of large rates."
+    },
+    {
+      "line": 58,
+      "sha256": "9b6a3b45fd439583b6dcf7843c27bdf892f82dd0cc24a7d722019adeb5032b67",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Both coordinates and squared diffusion conversion are essential and now correct. Replace reconstruction/count sampler/full initialization with concrete actions; retain multiple-spike limitation."
+    },
+    {
+      "line": 60,
+      "sha256": "fc750d93933c4c32bd37abdd14bde7fef76061b69870dbb9e3ec4e0785493625",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "The state-dependent-diffusion example and original discrepancy link are necessary. Remove only the sentence announcing its supporting role, which repeats the preceding result."
+    },
+    {
+      "line": 62,
+      "sha256": "d100c8b418c9391af13c23f67e0220b333608c02a1d0731c9cb6f6ead455bdcd",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Heading separates evaluated formulas from event-generated network trajectories."
+    },
+    {
+      "line": 64,
+      "sha256": "d19d936df89495c54d52a4426f5280413d15262081443af8e1bcb8f7767a2bba",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Keep the estimator comparison and evidence limit. Drop the final generic instruction already supplied by the heading."
+    },
+    {
+      "line": 66,
+      "sha256": "41a67c263eae0d7f200cffa7caf29623a93da78130a3e9c52e3bfe810f710ccf",
+      "decision": "revise",
+      "deletion_and_terminology_answer": "Keep software-search uncertainty and missing implementation choices. Author code is a real source category, not a vague actor. Split the semicolon."
+    },
+    {
+      "line": 68,
+      "sha256": "fc3f3f3148a75c408897a3b52814eca6cafe440535bd0c93aed5dda6bff766ec",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "The link to measured behavior explains the next research setting, with an explicit evidence limit."
+    },
+    {
+      "line": 70,
+      "sha256": "42c1a30f4cf6a9b45fb7775a6e93080c24c7d529bf2e6757aef53a0e2c35eea0",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Citation metadata and model-equation locations are needed; page ranges and author-year parentheses are factual labels."
+    },
+    {
+      "line": 72,
+      "sha256": "905c670ee9ae888faab83a5a425124ae0a7386a227806a3e7a8528edd3a71d66",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Retain exact figure and SI equation locations."
+    },
+    {
+      "line": 74,
+      "sha256": "2dc8a75b4639fe9ee6786c9e1119c397b4df1d898b88e4fbef3d9bfa59e4e869",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Retain official-correction title and links; exact title is a quotation-level bibliographic object."
+    },
+    {
+      "line": 76,
+      "sha256": "9788601e40bd935180d12344dcb19b23255b569f86092801ee487661ee3466d4",
+      "decision": "retain",
+      "deletion_and_terminology_answer": "Retain inhibition/SI figure evidence and exact ranges."
+    }
+  ],
+  "input_sha256": {
+    "content/chapters/11-simulating-memory.md": "8d383fc8843fb4aa00646ae44c499ffcd681422e07dce195a0165f56a5a01af3",
+    "content/chapters/11-simulating-memory.yaml": "b621d33741c5f23f7a3f9708a643aa6a108f3eeb5afbf82e928a923adc965a59",
+    "plan/chapter-plan.yaml": "002809002d716eb478a7998f522149414bac3ead62dd28a96140f4807b9c55ac",
+    "content/chapters/02-memory-dynamics.md": "82d23e1d86e2c8c0e227b0522191689e114fde55ca600c045f95df16f62b39a7",
+    "verification/part4-simulations-20261030/vale-current.json": "91ac664a3c01ce74be52e9cbb04e2b4c5a27a7f4d54e0ec505c69ee31434325a",
+    "verification/part4-simulations-20261030/lint-part-openings.md": "81442c1a8631afd4950ce7b488c2605427c7d9290a1dfff005220e5551d585fd"
+  },
+  "rule_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "completed_utc": "2026-10-30T17:06:21.111138+00:00",
+  "wall_elapsed_review_seconds": 317.1,
+  "awake_execution_time": "Unverified; no sleep/resume logs read.",
+  "previous_measured_checkpoint_utc": "2026-10-30T17:04:52.8965655Z",
+  "token_stats": "unavailable",
+  "diagnostic_freshness": "Vale input predates the Stage1 coordinate repair. All alerts were checked against current text. Two old line58 error matches are stale; remaining line58 passive alert has current equivalent."
+}

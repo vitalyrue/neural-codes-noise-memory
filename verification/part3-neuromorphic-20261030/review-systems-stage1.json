@@ -1,0 +1,295 @@
+{
+  "review_id": "part3-systems-stage1-20261030",
+  "request_id": "local-request-/root/part3_review_systems-stage1",
+  "request_id_kind": "local task path, not a platform call ID",
+  "reviewer": "/root/part3_review_systems; assigned gpt-6.1-sol high",
+  "stage": 1,
+  "stage_name": "truth and reasoning",
+  "review_scope": [
+    "09-neuromorphic-systems.md and YAML",
+    "References entries 18-30 consistency",
+    "selected new source-map and research-ledger rows"
+  ],
+  "context_only": [
+    "07-hardware-memory.md",
+    "08-hardware-dynamics.md"
+  ],
+  "audience": "Guide reader with basic statistics; preceding chapters teach weight/state/readout distinction, SRAM, PCM, continuous versus discrete memory, feedback and time constants.",
+  "independence": "Fresh delegated task. Read manuscript and linked source reports; conclusions below use independent primary-source spot checks. No manuscript edits, builds, figure checks or stages 2/3 performed.",
+  "timestamps": {
+    "started_utc": "2026-10-30T14:18:14+00:00",
+    "checkpoint_utc": "2026-10-30T14:20:42+00:00",
+    "finished_utc": "2026-10-30T14:23:31.474074+00:00",
+    "awake_execution_time": "unverified; Windows sleep/resume logs not inspected",
+    "system_clock_change": "none observed"
+  },
+  "source_sha256": {
+    "content/chapters/09-neuromorphic-systems.md": "2b10820d597011cd7576a29b9eb08ff1597adcad86eedac62446623503f6bb8e",
+    "content/chapters/09-neuromorphic-systems.yaml": "5c45bb50cf704463df416f0b03b827cbdfd8696f8f45e677bceba1568d80b860",
+    "content/chapters/07-hardware-memory.md": "4821bf04058c32a3be221b6a470b53cc33960dc8ac81854cca36ee44ff7ccf22",
+    "content/chapters/08-hardware-dynamics.md": "c49d55f918fd0fea608af451b5e732a81b57214870542b98ff14377031a97161",
+    "content/chapters/references.md": "b141e615e147deb9d83609de2f8699dc589ee3fde714a7dffa9a4cbeffed6c96",
+    "content/chapters/references.yaml": "bd3438c9ca97a07924f2d7591abcea7052424ca162a73de91ef651a3f68a71c6",
+    "source-maps/source-inventory.csv": "1fba93688b4cce2746b0fc8d14551a678e6f4624dd22864d7c23e85c69345cfb",
+    "source-maps/source-coverage.csv": "725c44c580aa5a4054133d2a7763f4a9b98889501d61333548db8c64f4754905",
+    "source-maps/research-ledger.csv": "47578bece38af99d4f6802cfcfa9ef3363b350efacc469134257f7a1c59aa7d7",
+    "verification/part3-neuromorphic-20261030/hardware-sources.md": "a8344091b2dad7d0c0a3693550352d5c7c652bc48f2b83e31b896020d0c2b245",
+    "verification/part3-neuromorphic-20261030/device-sources.md": "cd18d27668dfb14cef1d0f44a1b468d595a51670d6e5a0e1fb3407997129e35e",
+    "verification/part3-neuromorphic-20261030/research/aitsam-2026.pdf": "9e8adce5e83dce41ddb186216d01ae35b22a188fa6e02420981b77d27755fee5",
+    "verification/part3-neuromorphic-20261030/research/sun-review.xml": "d6f4c38808bce771fd88790889e17266fc9bc5fcc25ed047a3134061de66898b",
+    "verification/part3-neuromorphic-20261030/research/kleyko-review.xml": "ffd51a59bc442020e0a50920ce69fbaf5111c4c2fb7550b51aed6bbd6dd3ef29"
+  },
+  "rule_sha256": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/reference-citation-contract.md": "5c3a40b775395c981150b9796680b023108a27879cf517fa313a3f3b063cde9a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "verdict": "chapter truth/reasoning passes; source-map and research-ledger location corrections required",
+  "chapter_text_defects": [],
+  "findings": [
+    {
+      "id": "SYS-S1-01",
+      "priority": "P2",
+      "kind": "source-location inconsistency",
+      "locations": [
+        "source-maps/source-coverage.csv:125-127",
+        "source-maps/source-coverage.csv:131-135",
+        "source-maps/research-ledger.csv:32-34",
+        "source-maps/research-ledger.csv:38-42"
+      ],
+      "passage": "Several new covered rows list teaching locations where the selected source or result is absent.",
+      "failed_check": "Covered source and claim rows must point to actual explanation in the current manuscript, not a planned or related section.",
+      "confirmed_examples": [
+        {
+          "source": "Sun2026",
+          "wrong_locations": [
+            "sec:HARDWARE-MEMORY-UPDATES",
+            "sec:NEUROMORPHIC-SYSTEMS-ADVANCES"
+          ],
+          "actual_teaching": "sec:NEUROMORPHIC-SYSTEMS-LIMITS, chapter 09 line 38"
+        },
+        {
+          "source": "Kleyko2025",
+          "wrong_locations": [
+            "sec:HARDWARE-DYNAMICS-EVIDENCE"
+          ],
+          "actual_teaching": "sec:NEUROMORPHIC-SYSTEMS-ADVANCES, chapter 09 line 26"
+        },
+        {
+          "source": "Aitsam2026",
+          "wrong_locations": [
+            "sec:HARDWARE-DYNAMICS-EVIDENCE"
+          ],
+          "actual_teaching": "sec:NEUROMORPHIC-SYSTEMS-ADVANCES, chapter 09 line 28"
+        },
+        {
+          "source": "Scholze2026",
+          "wrong_locations": [
+            "sec:NEUROMORPHIC-SYSTEMS-LIMITS"
+          ],
+          "actual_teaching": "chapter 07 updates and chapter 09 architectures, including learning paragraph"
+        },
+        {
+          "source": "Ortner2025",
+          "wrong_locations": [
+            "sec:NEUROMORPHIC-SYSTEMS-LIMITS"
+          ],
+          "actual_teaching": "sec:NEUROMORPHIC-SYSTEMS-ADVANCES, chapter 09 line 30"
+        },
+        {
+          "source": "Wang2026",
+          "wrong_locations": [
+            "sec:HARDWARE-DYNAMICS-ERRORS"
+          ],
+          "actual_teaching": "sec:NEUROMORPHIC-SYSTEMS-ADVANCES, chapter 09 line 32"
+        },
+        {
+          "source": "Ilmberger2025",
+          "wrong_locations": [
+            "sec:NEUROMORPHIC-SYSTEMS-ADVANCES"
+          ],
+          "actual_teaching": "sec:NEUROMORPHIC-SYSTEMS-LIMITS, chapter 09 line 56"
+        }
+      ],
+      "prerequisite_locations_checked": [
+        "07 HARDWARE-MEMORY-UPDATES",
+        "08 HARDWARE-DYNAMICS-ERRORS and HARDWARE-DYNAMICS-EVIDENCE",
+        "09 all three sections"
+      ],
+      "proposed_repair": "Remove wrong locations from guide_locus and guide_location, retain actual teaching locations, and check the remaining new source rows in the same narrow correction. No extra teaching text is needed solely to make an old mapping true.",
+      "scope_limit": "Chapter 10 and the Part opening are outside this reviewer assignment; their mapping locations are not judged here."
+    }
+  ],
+  "unit_answers": [
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:1-5",
+      "literal_claim": "The chapter compares physical implementations and selected recent capabilities, not a universal ranking.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Opening explicitly limits the snapshot and separates measured chips, mixed host work and simulations. This matches the selected sources and makes no unsupported worldwide record claim."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:9-16",
+      "literal_claim": "Digital state, analog membrane state and PCM weights expose different controllable variables.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Rows preserve the distinct roles already taught in 07. Intel local state/weight memory; Scholze software Euler steps and SRAM; Pehle capacitor membrane/6-bit SRAM; Le Gallo PCM MVM and digital operations support the physical distinctions. Timing-deadline advice is conditional and explained by Scholze."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:18",
+      "literal_claim": "BrainScaleS-2 analog dynamics are about 1000 times faster than biological model time.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Pehle section 2.2 states 1000-fold acceleration and physical capacitance/current dynamics. Messages and measurements remain physical processes, so delay mapping matters; no zero-delay inference is made."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:20",
+      "literal_claim": "On-chip learning differs from loading trained weights and from a particular experiment using a host.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Definition requires chip circuitry to compute and apply some weight change. Intel programmable rules, Scholze section 4.6 measured E-prop and Pehle hybrid plasticity substantiate capability; explicit caveat prevents inferring that all cited experiments learn on chip."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:24-26",
+      "literal_claim": "Kleyko demonstrates useful recent input information on measured Loihi 2 hardware.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Primary hardware section and Fig. 5 describe implemented buffer and Sigma-Pi features with a trained readout. Fig. 5 explicitly separates huge pictured Hala Point capacity from experiment needs. The text does not infer indefinite cue retention."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:28",
+      "literal_claim": "Aitsam demonstrates 768-neuron chip state persisting through an 8 s input gap with <=0.50-cell centroid movement.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Primary sections 2.1 and 4.1 give the counts and measurement; Fig. 3 explains lifetime lower bounds. Sections 4.4-4.5 explicitly identify simulated robot and estimated component power. The paragraph keeps all three limits."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:30",
+      "literal_claim": "Ortner demonstrates rapid adaptation using physical PCM MVMs with host work.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Primary introduction describes a single task adaptation update. Methods printed p. 11 assigns MVMs to two units and all other operations to the host. PCM conductance is a weight, so autonomous recurrent-state retention is not established."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:32",
+      "literal_claim": "Wang demonstrates low drift in CrTe3 without proving a complete electrical multilevel processor.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Primary paper p. 460 and Extended Data Fig. 4 describe laser programming/electrical readout; separate electrical switching and pp. 460-461 future nanoscale/endurance/array work substantiate the limits. Online 2025 and issue 2026 are both correct."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:34",
+      "literal_claim": "Temporal state, adaptation and weight stability answer different questions.",
+      "decision": "retain",
+      "truth_reasoning_answer": "This follows from the explicitly distinct state and weight roles and the bounded demonstrations, rather than claiming one source measures all three."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:38",
+      "literal_claim": "Sun slow shared state is evaluated in proposed post-layout simulated hardware and trained offline.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Independently retrieved published full-text XML; Fig. 4 has successive memory-state register slots and SRAM; Methods explicitly names post-layout QuestaSim/Innovus and offline networks. The paragraph correctly resolves the paper own loose hardware-measurement wording using its methods."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:40-46",
+      "literal_claim": "A simplified retained-fraction recurrence forgets exponentially after input ends.",
+      "decision": "retain",
+      "truth_reasoning_answer": "For zero subsequent z, repeated substitution gives alpha^n m. Alpha is dimensionless; beta has state/input units; k counts updates. Text labels this a teaching model, so it does not misstate Sun full architecture."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:50-52",
+      "literal_claim": "The physical decay time depends on retained fraction and update spacing.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Equating exponents gives tau=-Delta_t/ln(alpha)>0. Recomputed tau=0.9994999166249727 s for 1 ms and alpha=.999; 1000-fold faster updates give .9994999166249726 ms. Units and approximations are correct and model/wall-time mapping caveat is present."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:56",
+      "literal_claim": "Ilmberger reports measured four-chip communication and accelerated dynamics increase its model-time significance.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Primary sections III-IV identify four-chip prototype, three senders/one receiver and measured latency. The general timing consequence follows from continuous dynamics and acceleration, without asserting a larger measured system."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:58",
+      "literal_claim": "Fair memory/energy comparison requires task and system boundaries.",
+      "decision": "retain",
+      "truth_reasoning_answer": "Condition when costs are outside the measured unit prevents claiming every matrix measurement omits the same costs. Host, communication and state maintenance are real distinct operations in the cited designs."
+    },
+    {
+      "location": "content/chapters/09-neuromorphic-systems.md:60-67",
+      "literal_claim": "Footnotes identify supporting primary papers and locators.",
+      "decision": "retain",
+      "truth_reasoning_answer": "DOIs/titles/authors/years match corresponding new References entries; preprints retain versions; Wang publication dates and Ortner p.11 location match checked primary records. The printed/PDF page relation for Wang is correct: PDF p.4 begins printed p.459."
+    }
+  ],
+  "primary_checks": [
+    {
+      "source": "Intel Labs 2021",
+      "url": "https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf",
+      "checked": "pp.5-7 local neural state access, flexible neuron/synapse memory, finite-precision multiplication and programmable learning",
+      "result": "supports chapter table and capabilities; no vendor speed benchmark used"
+    },
+    {
+      "source": "Scholze 2026 v1",
+      "url": "https://arxiv.org/html/2607.24396v1",
+      "checked": "sections 4.4,4.6,6.5.1,6.7",
+      "result": "SRAM storage and software time steps; missed step risk; measured on-chip E-prop, host streams input. Chapter makes no energy comparison."
+    },
+    {
+      "source": "Pehle 2022",
+      "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.795876/full",
+      "checked": "sections 2.2-2.3",
+      "result": "Capacitor voltage dynamics, 1000-fold acceleration, local 6-bit SRAM weights and hybrid plasticity support rows."
+    },
+    {
+      "source": "Kleyko 2025",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11733134/",
+      "independent_copy": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11733134/fullTextXML",
+      "checked": "hardware experiments and Fig.5 in retrieved published XML",
+      "result": "Implemented Loihi buffer/features; illustrated scale exceeds experiment requirements."
+    },
+    {
+      "source": "Aitsam 2026",
+      "url": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2026.1910808/full",
+      "checked": "sections 2.1,4.1,4.4,4.5 and Fig.3",
+      "result": "All paragraph numerical and hardware/host/simulation/power distinctions supported."
+    },
+    {
+      "source": "Ortner 2025",
+      "url": "https://www.nature.com/articles/s41467-025-56345-4.pdf?error=cookies_not_supported",
+      "checked": "introduction and Methods printed p.11",
+      "result": "Single task update and physical PCM MVM with remaining host operations supported."
+    },
+    {
+      "source": "Wang 2026, online 2025",
+      "url": "https://www.nature.com/articles/s41563-025-02361-0.pdf?error=cookies_not_supported",
+      "checked": "first-page dates; printed pp.460-461; Extended Data Fig.4",
+      "result": "Laser multilevel and electrical readout distinguished; nanoscale multilevel, endurance beyond million cycles and large-array variability remain future tests."
+    },
+    {
+      "source": "Sun 2026",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13286998/",
+      "independent_copy": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13286998/fullTextXML",
+      "checked": "published Fig.4 description and Implementation/evaluation methods in retrieved XML",
+      "result": "Dual register slots, SRAM, offline training and post-layout-only hardware evaluation supported."
+    },
+    {
+      "source": "Ilmberger 2025 v1",
+      "url": "https://arxiv.org/html/2512.03781v1",
+      "checked": "sections III-IV",
+      "result": "Four-chip prototype with measured communication; future expansion not treated as demonstrated."
+    },
+    {
+      "source": "Le Gallo 2023 / author version 2022",
+      "url": "https://arxiv.org/abs/2212.02872v1",
+      "checked": "primary author version abstract and version/DOI identity",
+      "result": "Fabricated PCM MVM chip with digital processing; abstract supports table-level generic claims. Detailed full final paper not independently inspected in this review."
+    }
+  ],
+  "metadata_checks": {
+    "references": "Entries 18-30 read; chapter citations are represented once in references, and referenced preprint versions/dates and checked recent paper identities agree. Older entries 18/23/24 read for consistency, not a separate fresh full primary-paper audit.",
+    "sidecar": "Chapter id/title, three section ids/titles, prerequisite and summaries agree with chapter Markdown. Empty blocks/source_loci are existing record style, not judged a new defect.",
+    "inventory_hashes": "All 14 newly selected source rows resolve to existing local files and their actual SHA256 values match. Report evidence rows explicitly say their hashes identify local reports, not original primary papers.",
+    "register_limit": "reference-register.json remains an older supporting Crossref cache; README does not declare it canonical publication content. Its absent new entries are recorded as a limit, not a fabricated reader-reference defect."
+  },
+  "unperformed": [
+    "stages 2 and 3",
+    "whole-book acceptance",
+    "full original-source audit for all 18-30 entries",
+    "rendered citation/link checks",
+    "figure review",
+    "builds and repository tests"
+  ],
+  "token_stats": "unavailable"
+}

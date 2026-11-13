@@ -1,0 +1,210 @@
+{
+  "review_stage": "1. Truth and reasoning only",
+  "reviewer": "/root/sim_sources_eye",
+  "started_utc": "2026-10-30T16:57:09.9872384Z",
+  "finished_utc": "2026-10-30T17:01:49.2361923Z",
+  "verdict": "Two narrow corrections required; remaining reviewed claims retained",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; expected value, variance, standard deviation and density are assumed. Neural, filtering and stochastic-process mechanisms use actual earlier teaching.",
+  "scope": [
+    "12-simulating-eye-drift.md and YAML, all reader-facing prose, headings, callout title and footnotes",
+    "14-simulation-tools.md and YAML, all prose, headings, example, table cells/caption and footnotes",
+    "00-reading-guide.md sec:READING-SIMULATIONS and matching YAML summary",
+    "Six appended glossary definitions, glossary.md lines 146-151; glossary YAML inspected for its role/section summary"
+  ],
+  "input_hashes": {
+    "content/chapters/12-simulating-eye-drift.md": "e78b9d5263660742ac87110f85ac098ba22b738ee4c3503d72336515a39b4dff",
+    "content/chapters/12-simulating-eye-drift.yaml": "fbac628357558caabadd4453eb84e37c170a0691130b29a68a529ac8da4c0a76",
+    "content/chapters/14-simulation-tools.md": "d8891055be50a326660d9f95f196248e94c7969685b883094b9b10c24fdfa72d",
+    "content/chapters/14-simulation-tools.yaml": "6402779684f1faf4cc72778a360601259f31d255361cdfa72070f9bc4e432b72",
+    "content/chapters/00-reading-guide.md": "9dbcac22561905d51f6e28b976d8a772735933c60bf214d1fcd971fd3d3e55b9",
+    "content/chapters/00-reading-guide.yaml": "2c2e155e813fff4ecfee69548ea35e455c656e9f925aacde7b4db2255ddb1ccd",
+    "content/chapters/glossary.md": "119f0e3478871b9d0cd2e07f8f02eec724cc6081b81c661339c2a8710af1a961",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "content/chapters/01-foundations.md": "a3d82e833c2de9d5576c6ac86c4b60c310a2985b95e6585f75e150f306109822",
+    "content/chapters/04-eye-drift.md": "a6393aa211e9b38d16e0620b7b67d240f24e35a8dddb5c200cd5cf0b9e218c52",
+    "content/chapters/04b-eye-timing.md": "4d7395f284ca8a2e09b2d301c97cef98070c0528b756ceb06ca75570badac3bc",
+    "content/chapters/04c-eye-circuit.md": "eb8df5d89c1242a4703365d524f2688ca66f0e927229750be08d44172fee7e8b",
+    "content/chapters/11-simulating-memory.md": "8d383fc8843fb4aa00646ae44c499ffcd681422e07dce195a0165f56a5a01af3",
+    "content/chapters/13-simulating-place-fields.md": "5b9ff87365eeabb7f950dfae2e2fd7f8292151a40ab232238bb6f448f7c13c6f",
+    "content/chapters/09-neuromorphic-systems.md": "8e0feb35b61a4f5d1514a7911021da0e1aa11ef40a44c0ec9a367cc6b16db381",
+    "plan/chapter-plan.yaml": "002809002d716eb478a7998f522149414bac3ead62dd28a96140f4807b9c55ac",
+    "verification/part4-simulations-20261030/eye-code-snapshot/zenodo-record.json": "cc82ba6c05a22f59ac4071dc1a9dcc736e434ac0bee9ffe55d456ac8a46f3203",
+    "verification/part4-simulations-20261030/eye-code-snapshot/Run_model.m": "dfa618f2ab92279ed374d98e502fa60d9639d89d20bfad7ed00670e7dc038592",
+    "verification/part4-simulations-20261030/eye-code-snapshot/Full_model_simulation.m": "14418cfec00ff9c8a51c4b3c3e3dd5fe6bca0130eb4332a0eb94547f6de0a5cf",
+    "verification/part4-simulations-20261030/eye-code-snapshot/Fit_OI_circuit.m": "9e506a4038515a5b74aa24220cde1cd9c1cbd0801748eeea188636051be71a0d",
+    "verification/part4-simulations-20261030/eye-code-snapshot/tree.json": "1a2f837ce2d801521528f1d6a665bcd31ee62929992ac9e448ab796700faae80"
+  },
+  "rule_hashes": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "findings": [
+    {
+      "id": "EYE-S1-01",
+      "severity": "minor correctness",
+      "file": "content/chapters/glossary.md",
+      "line": 148,
+      "passage": "The starting state of a pseudorandom generator, used with a specified implementation to repeat a sample sequence.",
+      "literal_claim": "The seed is the generator's complete starting state.",
+      "reader_inference": "Saving a seed and saving the generator state are the same operation.",
+      "reason": "A seed initializes or determines the generator state; it need not be the state itself. NumPy's documented integer seed goes through SeedSequence to derive BitGenerator state. Chapter 14 correctly says the seed fixes the state, so the glossary should match it.",
+      "evidence": "https://numpy.org/doc/stable/reference/random/generator.html, seed parameter; live title NumPy v2.5, checked 2026-10-30.",
+      "proposed_replacement": "A value used to initialize a pseudorandom generator so that a specified implementation can repeat a sample sequence.",
+      "affected_connections": [
+        "14-simulation-tools.md line 25",
+        "12-simulating-eye-drift.md line 32"
+      ],
+      "status": "open; root integrates"
+    },
+    {
+      "id": "EYE-S1-02",
+      "severity": "minor source metadata",
+      "file": "content/chapters/12-simulating-eye-drift.md",
+      "line": 69,
+      "passage": "Fixational drift is driven by diffusive dynamics in central neural circuitry [Dataset]. Zenodo.",
+      "literal_claim": "The dataset's deposited title is the same as the final article title.",
+      "reader_inference": "The bibliography transcribes the dataset record title.",
+      "reason": "Zenodo record 6076911 has the shorter title 'Fixational drift is driven by central neural circuitry', publication date 2022-02-14. DOI and dataset identity are correct; only the title needs repair. The parent reported the same issue independently and requested direct verification; saved API metadata confirms it.",
+      "evidence": "eye-code-snapshot/zenodo-record.json metadata.title and metadata.publication_date; https://zenodo.org/api/records/6076911",
+      "proposed_replacement": "In footnote simeye-deposit, replace the italicized title with 'Fixational drift is driven by central neural circuitry', retaining authors, year, Dataset, Zenodo and DOI.",
+      "affected_connections": [
+        "References dataset entry for DOI 10.5281/zenodo.6076911, outside this review's edit scope"
+      ],
+      "status": "open; root integrates"
+    }
+  ],
+  "passage_answers": [
+    {
+      "location": "12-simulating-eye-drift.md title and lines 3-11; YAML title, purpose and DATA summary",
+      "answer": "Retain. Distinguishes paired single-cell recordings from simultaneous population recordings, calibration/held-out-trial prediction from the generative model, and shared upstream inference from integrator localization. Main paper pp.3-5,9-10 and SI2 p.19 support the roles. The 82% claim explicitly retains gain and shared/private-noise assumptions, so it does not claim direct measurement of intrinsic integrator noise. Parameter nonuniqueness is explicit in main p.6."
+    },
+    {
+      "location": "12-simulating-eye-drift.md lines 13-24; YAML PATH title and summary",
+      "answer": "Retain. Each numbered stage maps the actual command, motor rate/spikes, mechanical response and feedback to different quantities. E_OI is the synaptic readout and E the physical angle. The current-command minus delayed physical-angle comparison is not confused with an external position target. Main Eqs.23-34 support these claims. Earlier 04c-eye-circuit.md lines 14-60 already derives the readout, fixed-point condition and approximate nature of persistence, so the brief statement about intended continuous states does not replace that derivation or promise a uniquely fitted drift trace."
+    },
+    {
+      "location": "12-simulating-eye-drift.md line 26",
+      "answer": "Retain. At constant rate, thinning an M-times-faster Poisson process sums M independent exponential intervals; mean is 1/lambda, variance 1/(M lambda^2), hence CV=1/sqrt(M). Text limits this argument to constant rate and does not claim the complete recurrent spike trains are independent. Published CV values approximately .22 and .07 agree with main p.11. Earlier 01-foundations.md lines 109-116 teaches conditional spike generation and CV; 04c-eye-circuit.md lines 130-146 supplies the full thinning/renewal calculation."
+    },
+    {
+      "location": "12-simulating-eye-drift.md callout title, lines 28-36",
+      "answer": "Retain. Final main p.11 states N=30000, Nm=1000, tau_s=.020 s, A=.015 and tau_d approximately .070 s. Code Run_model.m gives dt=1e-5 and MOD=100, hence .001 s saved spacing; Full_model_simulation.m gives tau_MN=.010, seed, central-gaze initial state, Euler synaptic updates and velocity-before-position calculation. N-counting ambiguity and final Eq.35/code regression difference are stated as limits rather than resolved by assumption. No code execution or exact figure reproduction is claimed."
+    },
+    {
+      "location": "12-simulating-eye-drift.md lines 38-49; YAML CONTROLS title and summary",
+      "answer": "Retain all four bullets and supplementary-control paragraph. Main Figure 3 uses private motor spiking plus physical filtering; Figure 4 tracks the simulated internal command; Figure 5 compares final eye output and tests covariance analysis on synthetic spikes/angles. SI1 Extended Data 2-5,10 separately tests noise removal, feedback and direct output noise. The last control retains diffusion-driving integrator spiking. Sufficiency and nonunique physical localization are correctly separated."
+    },
+    {
+      "location": "12-simulating-eye-drift.md lines 51-59; YAML TOOLS title and summary",
+      "answer": "Retain. Public source files implement the stated roles, and monkeys_MSD.mat contains processed MSD rather than the full raw reconstruction pipeline. Zenodo metadata describes one cell spreadsheet and trial sheets with angle/spike columns and 1ms eye samples. README supplies no MATLAB version/environment; tree lacks Model_wo_spiking_noise called by Run_model's rate branch. This is source inspection, not a failed run. Controlled parameter changes are a proposed study method, not an animal result. The Mainali bridge correctly describes static spatial fields rather than dynamic memory or eye movement."
+    },
+    {
+      "location": "12-simulating-eye-drift.md footnotes lines 61-69",
+      "answer": "Retain article identity, Methods pp.9-11/Eqs.23-35, Aksay architecture citation, inspected commit date and hash, and Figures 3-5/SI figure mapping. Correct only the deposited dataset title under EYE-S1-02. Code-inspection language explicitly matches this review's evidence and does not imply execution."
+    },
+    {
+      "location": "14-simulation-tools.md title and lines 3-11; YAML title, purpose and ROUTES summary",
+      "answer": "Retain. Visual plausibility cannot establish matched spike law/mechanics/measurement. Three reproduction routes have distinct targets: author implementation, independent implementation and reduced teaching model. Code availability is carefully limited to inspected records for 2012, while 2022 MATLAB and 2025 Python deposits are source-supported. No-code-found is not turned into no-code-exists. The no-full-campaign/no-animal-reprocessing statement is accurate for this guide work."
+    },
+    {
+      "location": "14-simulation-tools.md line 13",
+      "answer": "Retain. The Sun 2026 source XML abstract/Methods explicitly reports post-layout simulations, not measured fabricated DMP silicon. Pehle 2022 directly describes physical analog circuits and hardware experiments. Earlier 09-neuromorphic-systems.md lines 6-21,41 already establishes the distinctions. Both can address memory is a possible-use statement, not a claim of identical tasks or evidence."
+    },
+    {
+      "location": "14-simulation-tools.md lines 15-25; YAML SOFTWARE summary; table MATLAB row",
+      "answer": "Retain. Author implementation is a reasonable first route for reproducing its figures, qualified by code access and verification limits. MATLAB fitting/trajectory/MSD roles are visible in source. NumPy Generator samples random variables; a seed fixes its initial state under a specified implementation. Recording generator, versions and call order is warranted; official v2.5 docs explicitly disclaim version compatibility. The chapter definition is correct; the glossary identity statement needs EYE-S1-01."
+    },
+    {
+      "location": "14-simulation-tools.yaml table Python/NumPy/SciPy and Gudhi rows",
+      "answer": "Retain. Mainali paper key resources names Python 3.11; STAR Methods names SciPy label/peak/KDE operations and Gudhi Betti-number calculation; archived implementation inspected for this task uses NumPy random arrays and SciPy smoothing. Gudhi's role is topology, not neural time integration. The status cells distinguish reported/verified tools from proposed optional tools."
+    },
+    {
+      "location": "14-simulation-tools.md line 27; YAML table solve_ivp row",
+      "answer": "Retain. Official SciPy 1.18.0 solve_ivp documentation specifies an ODE initial-value solver. A stochastic point process additionally needs event generation and jump rules; a Brownian model needs correctly scaled random increments. Fresh independent noise on arbitrary solver RHS calls does not define those laws. This warning is about model specification and does not falsely claim ODE solvers can never be embedded in a hybrid stochastic scheme."
+    },
+    {
+      "location": "14-simulation-tools.md line 29",
+      "answer": "Retain. Official scipy.ndimage.label treats nonzero entries as features and uses an explicit connectivity structure. Its 2D default excludes diagonal-only contact, while an all-neighbor structure merges it. Therefore counts and component sizes can change with that choice. It is not claimed that every change alters every map."
+    },
+    {
+      "location": "14-simulation-tools.md line 31; YAML table Brian 2 row",
+      "answer": "Retain. Official Brian 2 v2.11.0 documentation calls it a spiking-network simulator; its model page defines equation-based NeuronGroups and threshold/reset/custom events. It is identified as optional, and preserving model states/noise/update rules is a condition for comparison, not an assertion that Brian was used by the three papers."
+    },
+    {
+      "location": "14-simulation-tools.md lines 33-39; YAML RESOLUTION title and summary",
+      "answer": "Retain. Discretization's definition is correct for these finite time/space computations. Refinement at fixed physical parameters tests numerical error rather than changing the model; saving resolution is distinct from integration resolution. Reported statistics, repeat variability and a chosen acceptable difference give the correct limited meaning of convergence check, without promising proof of exact convergence."
+    },
+    {
+      "location": "14-simulation-tools.md example title and lines 43-49",
+      "answer": "Retain. Recomputed independently: D=.5 deg^2/s; h=.01 gives variance .01 and SD .1 degree, 100 steps/s, total variance 1. h=.0025 gives variance .0025, SD .05 degree, 400 steps/s, total variance 1. Wrong SD=.025 gives total variance .25. Units and conditional scope are correct. Gaussian increments of the reduced Brownian model are explicitly separated from point-process spikes and jumps. This is arithmetic, not an executed author simulation."
+    },
+    {
+      "location": "14-simulation-tools.md line 53",
+      "answer": "Retain. Halving grid spacing doubles the same physical smoothing/correlation length measured in samples. Holding sample width fixed halves the physical width, so it changes the model. The relation assumes the same physical domain and length, as the paragraph states. Earlier place model/simulation chapters explain physical versus grid/filter scales."
+    },
+    {
+      "location": "14-simulation-tools.md lines 55-63; YAML RECORD title and summary",
+      "answer": "Retain all five record items. Model source, parameter status, initial/boundary/noise settings, numerical/sample resolution, measurement and repeat uncertainty determine the target comparison. Burak/Fiete Figure 2 tests memory diffusion, while Mainali field-size histograms test spatial distributions. No fixed claim of a complete runnable recipe is made."
+    },
+    {
+      "location": "14-simulation-tools.md lines 65-69",
+      "answer": "Retain. Monte Carlo definition is appropriate here; effective independent repeats govern sampling uncertainty. Overlapping windows are not independent whole trajectories, and fields from a map share one realization. Small deterministic/field checks before ensembles are a proposed diagnostic progression. Final physical-model/animal distinction correctly limits the evidence."
+    },
+    {
+      "location": "14-simulation-tools.md footnotes lines 71-77; YAML table caption, headers and status labels",
+      "answer": "Retain. Live official page titles match NumPy 2.5, SciPy 1.18.0 and Brian 2.11.0 as of 2026-10-30. URLs support the described operations. They are documentation citations for optional tools, not claims those versions ran the published 2012/2022/2025 experiments. Table title/caption accurately describes software roles and evidence status."
+    },
+    {
+      "location": "00-reading-guide.md sec:READING-SIMULATIONS lines 77-83; matching YAML section",
+      "answer": "Retain. New Part chapters actually distinguish trajectories, recording analysis and fixed spatial maps, and disclose source inspection/full-run limits. 'Each chapter' is read in the paragraph's reference to the three paper summaries; the final comparison chapter is separately described. Contribution-label meanings match the actual chapter-plan.yaml Part content: central main result, supporting qualification, background concepts and guide-derived comparison/explanation/test. These labels describe use in an argument rather than replacing attribution."
+    },
+    {
+      "location": "glossary.md lines 146-151; glossary YAML metadata",
+      "answer": "Retain Euler update, fitted statistic, discretization, convergence check and Monte Carlo definitions. Their roles agree with earlier teaching in Chapters 11,13,14 and with the guide's use. Correct random seed under EYE-S1-01. Glossary is explicitly a lookup appendix, so these brief definitions are not treated as substitutes for prior mechanism teaching."
+    }
+  ],
+  "prerequisite_checks": [
+    {
+      "needed": "Poisson spikes, interspike CV, recurrence and conditional independence",
+      "actual_teaching": "01-foundations.md lines 51-116; 04c-eye-circuit.md lines 130-146",
+      "dependent_use": "12-simulating-eye-drift.md line 26",
+      "answer": "Supplied in the earlier path; basic standard deviation/variance is assumed, not retaught."
+    },
+    {
+      "needed": "Internal command versus eye angle, approximate fixed points and muscle filtering",
+      "actual_teaching": "04c-eye-circuit.md lines 14-60 and 73-109; 04b-eye-timing.md filtered-Brownian derivation",
+      "dependent_use": "12-simulating-eye-drift.md lines 17-26 and 42-49",
+      "answer": "The earlier equations teach the causal objects; current chapter recaps them without changing meanings."
+    },
+    {
+      "needed": "Euler steps and Brownian independent increments with variance 2D h",
+      "actual_teaching": "11-simulating-memory.md line 24; 04b-eye-timing.md simplified Brownian command derivation and disjoint-increment independence",
+      "dependent_use": "12-simulating-eye-drift.md line 32; 14-simulation-tools.md lines 43-49",
+      "answer": "Supplied. The example applies those premises; it does not assume a derivative of a Brownian path."
+    },
+    {
+      "needed": "Spatial grid, physical width, connected components and topology",
+      "actual_teaching": "13-simulating-place-fields.md GENERATE, MEASURE and width-convention callout; earlier spatial-model/place-test chapters referenced there",
+      "dependent_use": "14-simulation-tools.md lines 29,37,53 and table Gudhi row",
+      "answer": "Current preceding simulation chapter states the grid/model/measurement roles before the tools comparison. Connectedness rule is restated where consequential."
+    }
+  ],
+  "checks_and_limits": {
+    "arithmetic": "Executed PowerShell recomputation of Brownian step variances/SD and variance per second; outputs .1, .05, 1, .25 as reported.",
+    "code": "Read exact MATLAB source snapshot at commit 27d4093008c6756fe8ae2ad77567176ed626bd17, including Run_model, Full_model_simulation, Fit_OI_circuit and complete API tree. No author program executed; manuscript explicitly says source inspection.",
+    "official_docs": [
+      "https://numpy.org/doc/stable/reference/random/generator.html",
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html",
+      "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.label.html",
+      "https://brian2.readthedocs.io/en/stable/",
+      "https://brian2.readthedocs.io/en/stable/user/models.html"
+    ],
+    "source_support": "Final local Ben-Shushan main pp.3-11, SI1 relevant notes/captions, SI2 p.19; Zenodo metadata; Mainali STAR Methods and current/archived-code source report; Burak/Fiete Figure 2/Methods and source availability report; Sun published XML and Pehle primary full text.",
+    "no_listings": "These chapters contain no reader-facing runnable code listing. Literal software identifiers are source-role descriptions. Full-run tests are therefore outside this source-explanation review, not unperformed claimed executions.",
+    "not_performed": "Later necessity/terminology or reader-understanding/flow approval; full-book audit, rendering, figure acceptance, full tests, manuscript edits or simulation campaigns.",
+    "existing_holds": "Old whole-book and figure holds remain unchanged.",
+    "timing": "Wall time uses measured UTC start/end; awake execution cannot be separated without Windows sleep/resume events, which were not queried.",
+    "token_stats": "unavailable"
+  },
+  "wall_elapsed_seconds": 279.2489539
+}

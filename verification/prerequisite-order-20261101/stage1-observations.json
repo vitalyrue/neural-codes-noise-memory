@@ -1,0 +1,87 @@
+{
+  "review_id": "stage1-observations",
+  "reviewer": "/root/prereq_observations",
+  "stage": "1_truth_and_reasoning",
+  "created_utc": "2026-11-01T13:47:57.433639+00:00",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "awake_time": "unverified",
+  "scope": "Current changed GP passage, its crossing-use connection, current eye timing white-noise reminder and earlier newly supplied white-noise definition. Exact baseline comparison made for changed Part II files. No wording/flow stage or whole-guide acceptance claimed.",
+  "verdict": "pass_for_this_stage_and_scope",
+  "required_repairs": [],
+  "evidence": [
+    {
+      "path": "content/chapters/05-place-fields.md",
+      "lines": [
+        19,
+        57
+      ],
+      "file_sha256": "8085fd1efc879663917d0cee272b8fff5650c5aa05742dd71733fa67938e0211",
+      "passage_sha256": "7696339fc7f86e906c03e82c95c80929ba0ecf1a176e113264dfa6471d082ce7"
+    },
+    {
+      "path": "content/chapters/05-place-fields.md",
+      "lines": [
+        121,
+        176
+      ],
+      "file_sha256": "8085fd1efc879663917d0cee272b8fff5650c5aa05742dd71733fa67938e0211",
+      "passage_sha256": "f5a9b8f567c73221d0e42b2ea8b933d7af39dc1ed4124cdedd8f49b234bc8651"
+    },
+    {
+      "path": "content/chapters/04b-eye-timing.md",
+      "lines": [
+        76,
+        127
+      ],
+      "file_sha256": "a1163ec8c245e699111671cb92b99f8d0f02a4ab8d297b6911d431b3d6c3794d",
+      "passage_sha256": "f52e81a1818a33c11387501bbf51fe266d738f6cedb207016ac9bbe84d3fef02"
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "lines": [
+        270,
+        315
+      ],
+      "file_sha256": "dca9f79953953780d38fbd8ab9ea6ba21458cd4b69cd28644315dbac6a39b863",
+      "passage_sha256": "dc19e5f9c3884a640d3476bd78aa1173eb780ae8bfb42981ce691ea439c1e4db"
+    }
+  ],
+  "passage_answers": [
+    {
+      "location": "05-place-fields.md:23-25",
+      "claim": "A Gaussian process has jointly Gaussian finite-dimensional values; every linear combination of a jointly Gaussian vector is Gaussian; mean and covariance determine those laws.",
+      "reasoning": "These are the correct defining property and characterization. Merely Gaussian one-position marginals are weaker, so the new distinction is true. Moving this definition into the visible text adds no model assumption or new empirical inference.",
+      "decision": "retain"
+    },
+    {
+      "location": "05-place-fields.md:30-39 and 49-57",
+      "claim": "Expectations are over possible maps; Gaussian subvectors with zero cross covariance are independent; Gaussian values alone do not ensure differentiable paths.",
+      "reasoning": "The retained mathematical statements remain valid. Stationarity, isotropy and smoothness are still separate requirements. The move does not imply that Gaussian marginals or a covariance amplitude alone guarantee a smooth sample path.",
+      "decision": "retain"
+    },
+    {
+      "location": "05-place-fields.md:153-176",
+      "claim": "The normalized stationary height and derivative have zero covariance, Gaussianity makes them independent, and the resulting upcrossing density is exp(-q^2/2)/(2*pi*sigma).",
+      "reasoning": "The finite-dimensional GP definition now precedes this use. Under the explicitly retained differentiability and nondegeneracy conditions, derivative limits preserve joint Gaussianity. Constant variance gives E[zz prime]=0, the product density factorization is justified, and the displayed elementary integral has the required inverse-distance units. No threshold-limit assumption was accidentally added.",
+      "decision": "retain"
+    },
+    {
+      "location": "03b-memory-readout.md:278-284",
+      "claim": "White noise is an ideal zero-mean drive with unequal-time fluctuations uncorrelated and strength represented through a delta-function covariance; xi_i dt=sqrt(r_i)dB_i has conditional increment variance r_i dt.",
+      "reasoning": "The generalized continuous-time noise convention is mathematically consistent and avoids assigning an ordinary finite point variance. The text explicitly conditions on current rates for the state-dependent Gaussian approximation, so it does not assert a globally constant noise intensity for the recurrent model. The drift-plus-noise synaptic equation has consistent activation-per-time roles.",
+      "decision": "retain"
+    },
+    {
+      "location": "04b-eye-timing.md:91-124",
+      "claim": "The eye timing input uses the earlier white-noise convention; covariance A delta through a decaying linear filter produces the stated overlap covariance and MSD plateau.",
+      "reasoning": "The link resolves to an earlier chapter section in the declared reading order. The local equation still supplies its own constant A and its units, so moving the generic definition does not identify eye-noise intensity with the readout model rate r_i. For the shown exponential kernel, direct integration gives A/(2*tau)*exp(-lag/tau), and MSD=A/tau*(1-exp(-lag/tau)); the earlier definition introduces no unsupported peripheral-source or biological inference.",
+      "decision": "retain"
+    }
+  ],
+  "checks_not_run": [
+    "No simulations or full builds needed for the definition move.",
+    "No source paper reread; the review checks preserved mathematical identities and model assumptions directly from current passages.",
+    "Later necessity/terminology and reader-understanding/flow stages remain separate."
+  ],
+  "canonical_files_changed": false
+}

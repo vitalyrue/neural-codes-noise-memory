@@ -1,0 +1,54 @@
+[
+  {
+    "id": "V04",
+    "visual_id": "fig:EYE-PHYSICAL-AND-RECORDED",
+    "stem": "04-eye-drift",
+    "placement": "sec:EYE-RECORDINGS",
+    "anchor": "The large movements have a useful role even though the scientific question concerns tiny drifts. They produce enough rate change to estimate how each cell's activity depends on eye movement. The fitted relationship is then applied during fixation. This transfer is an assumption to examine, because an incorrect [**gain**]{.definition-term custom-style=\"Definition Term\"} during drift would change the inferred common variance. Gain is the scale that converts a change in one signal into a change in the other.",
+    "intro": "The diagram separates the physical pathway from the paired recordings and the later calculation of predicted eye position.",
+    "caption": "The recordings pair one motor neuron with eye movement. Private spike variability acts at individual cells, downstream physical variability acts on movement, and measurement noise enters the eye-position record. The attractor storage source is proposed; the dashed analysis path is a calculation from one cell through its calibrated filter. Original guide schematic based on Ben-Shushan et al. (2022), Figs. 1–2 and 4–5. Signal symbols are illustrative, not experimental traces.",
+    "alt": "A proposed attractor storage circuit sends shared drive to a motor neuron population, then through muscles and eye mechanics to physical eye position. Private variability enters one neuron; downstream physical variability enters the muscles. Only the highlighted neuron is recorded, paired with eye position. Measurement noise enters that recorded position, not the physical eye. A separate dashed calculation transforms the single-cell spikes through a calibrated filter into predicted eye position.",
+    "interpretation": "The upper path describes a possible physical source and its output. The recording design provides one cell and eye movement at a time; it does not measure covariance between simultaneously recorded motor neurons. The predicted position is a later analysis result, not a signal sent backward through the physical pathway.",
+    "author": "/root/draw_eye_figures",
+    "candidate": "candidate-content/visuals/candidates/20261023/V04",
+    "source_locator": "Chapter 4 EYE-PATHWAY, EYE-RECORDINGS and EYE-INVERSE-FILTER; Ben-Shushan et al. 2022, Figs. 1–2 and 4–5; peer-review response p. 19 and p. 34 for single-neuron recording limitation.",
+    "paths": {
+      "svg": "candidate-content/visuals/candidates/20261023/V04/figure.svg",
+      "png": "candidate-content/visuals/candidates/20261023/V04/figure.png",
+      "book_width": "candidate-content/visuals/candidates/20261023/V04/book-width.png",
+      "qa": "candidate-content/visuals/candidates/20261023/V04/qa.json"
+    },
+    "spec": "verification/illustrations/draw_eye.py",
+    "insertion_width_px": 700,
+    "review_status": "pending independent review",
+    "root_task_started_at": "2026-10-23T21:56:31.9322700+03:00",
+    "checkpoint_at": "2026-10-23T22:05:02.464004+03:00",
+    "awake_execution_time": "unverified"
+  },
+  {
+    "id": "V05",
+    "visual_id": "fig:EYE-FILTERED-NOISE-MSD",
+    "stem": "04-eye-drift",
+    "placement": "sec:EYE-FILTERED-MSD",
+    "anchor": "approaching two at short lags and one at long lags. At $\\ell=\\tau$ it is $e-1\\simeq1.718$; at $\\ell=5\\tau$ it is about $1.239$. Thus an intermediate slope can arise from filtering ordinary diffusion, without faster than Brownian accumulation inside the memory circuit.",
+    "intro": "The calculated curves show how the same one-pole filter separates stationary white input from a wandering stored position.",
+    "caption": "Filtering stationary white input produces an MSD plateau; filtering Brownian stored position preserves long-lag growth. Each panel uses its own normalization, M_white/(A/τ) and M_Brownian/(2Dτ), so the figure compares shapes without matching physical noise amplitudes. Original guide calculation for the one-pole teaching model, connected to Ben-Shushan et al. (2022), Fig. 3 and main Eqs. 20–22; these are not measured data or the fitted full-model curves.",
+    "alt": "Two alternative inputs pass through identical one-pole filters. On matched logarithmic lag axes x equals lag divided by tau, normalized white-input MSD is 1 minus exp(-x), rising with short-lag slope one and approaching a plateau of one. Independently normalized filtered Brownian MSD is x minus one plus exp(-x), starting with slope two and continuing to grow with long-lag slope one. The two vertical scales differ.",
+    "interpretation": "The white-input short-lag slope of one belongs to this one-pole example. The paper uses a smoother muscle response and additional motor filtering and feedback. The useful contrast is the plateau versus continued accumulation, not equality of the curves’ physical amplitudes.",
+    "author": "/root/draw_eye_figures",
+    "candidate": "candidate-content/visuals/candidates/20261023/V05",
+    "source_locator": "Chapter 4 EYE-FILTERED-MSD one-pole derivation; Ben-Shushan et al. 2022, Fig. 3 and main Eqs. 20–22. Brownian curve is an original guide calculation, not a paper-data reconstruction.",
+    "paths": {
+      "svg": "candidate-content/visuals/candidates/20261023/V05/figure.svg",
+      "png": "candidate-content/visuals/candidates/20261023/V05/figure.png",
+      "book_width": "candidate-content/visuals/candidates/20261023/V05/book-width.png",
+      "qa": "candidate-content/visuals/candidates/20261023/V05/qa.json"
+    },
+    "spec": "verification/illustrations/draw_eye.py",
+    "insertion_width_px": 700,
+    "review_status": "pending independent review",
+    "root_task_started_at": "2026-10-23T21:56:31.9322700+03:00",
+    "checkpoint_at": "2026-10-23T22:05:02.464727+03:00",
+    "awake_execution_time": "unverified"
+  }
+]

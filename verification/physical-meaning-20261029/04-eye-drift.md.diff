@@ -1,0 +1,24 @@
+--- before/04-eye-drift.md
++++ after/04-eye-drift.md
+@@ -73,7 +73,9 @@
+ [m]=\frac{\text{spikes}\,\text{s}}{\text{deg}}.
+ $$
+ 
+-Multiplying by position, velocity, and acceleration gives spikes/s in all three terms. The delay $\Delta t$ is in seconds: firing at time $t$ predicts movement at the later time $t+\Delta t$ for a positive neural lead. This is the paper's Eq. 2, including its threshold and time shift.[^p2-forward]
++Multiplying by position, velocity, and acceleration gives spikes/s in all three terms.
++
++The position term describes ongoing firing associated with holding the eye at an angle. The velocity term allows a different rate while the eye passes through that same angle; the acceleration term allows another change while its velocity changes. Thus $k$, $r$, and $m$ describe different demands on the motor signal. They are fitted coefficients of the combined neural and mechanical relationship. In particular, $m$ is not a direct measurement of the eye's mass. The delay $\Delta t$ is in seconds: firing at time $t$ predicts movement at the later time $t+\Delta t$ for a positive neural lead. This is the paper's Eq. 2, including its threshold and time shift.[^p2-forward]
+ 
+ The observed rate $f(t)$ was estimated as the inverse of the interval between successive spikes, constant between those spikes. For each cell, the authors minimized the sum of squared rate errors,
+ 
+@@ -119,7 +121,9 @@
+ \tau_-=\frac{2}{r/m+\sqrt{(r/m)^2-4k/m}}.
+ $$
+ 
+-These are the paired signs in the paper's Eq. 7, with $\tau_+>\tau_-$ when $k,r,m>0$ and $r^2>4km$. In this case both components decay without oscillation. The same factorization gives two useful identities:
++These are the paired signs in the paper's Eq. 7, with $\tau_+>\tau_-$ when $k,r,m>0$ and $r^2>4km$. Under these conditions both components decay without oscillation.
++
++At rest, the inverse equation gives $x=f/k$: with the threshold fixed, doubling $k$ halves the position offset predicted from the same steady firing rate. During a change, $r$ and $m$ also affect the response through the two timescales. This is a consequence of the fitted relationship, not evidence that changing one recorded neuron's rate alone sets eye position. The same factorization gives two useful identities:
+ 
+ $$
+ \tau_+\tau_-=\frac{m}{k},\qquad

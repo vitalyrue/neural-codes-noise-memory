@@ -1,0 +1,159 @@
+{
+  "task": "Authorized targeted M1-M6 clarity repairs",
+  "recorded_before_application_at": "2026-10-28T15:38:28.954322+02:00",
+  "status": "applied and author connected reread complete; independent reviewer pending",
+  "scope": "Assigned Markdown only; no YAML, index, plan or figure edits.",
+  "changes": [
+    {
+      "id": "M1",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\02-memory-dynamics.md",
+      "section": "MEMORY-SPIKES",
+      "old": "Let $N_i(t)$ count neuron $i$'s spikes up to time $t$. The activation $s_i$ rises by one at each of its spikes and otherwise decays:",
+      "new": "Let $N_i(t)$ count neuron $i$'s spikes up to time $t$. The activation $s_i$ tracks the decaying synaptic effect of those outgoing spikes on receiving cells. It rises by one at each spike and otherwise decays:",
+      "reason": "Locate activation on the sending side of the connection, before received total input is introduced.",
+      "source_support": "Main text lines 104-106; Methods Eqs. 7-9.",
+      "old_sha256": "61c32bf6c7d5010ea5cf1e69d2756805fc74d756d49004d89b08ff238b5fe5cf",
+      "new_sha256": "4e98e41d1fbec5bb08ca301bda32f8eabb0926fcb6d8fce004f3008db716f7d7"
+    },
+    {
+      "id": "M2a",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\01-foundations.md",
+      "section": "FOUNDATIONS-COVARIANCE",
+      "old": "Thus a growing mean squared displacement can contain random spread, a systematic change in the mean, or both. This identity will distinguish random memory diffusion from a biased or leaky integrator.",
+      "new": "Thus a growing mean squared displacement can contain random spread, a systematic change in the mean, or both. This identity will help distinguish random spreading of a stored value from a systematic change in its average.",
+      "reason": "Remove early dependence on an unexplained neural integrator; keep the distinction actually taught here.",
+      "source_support": "Direct interpretation of displayed MSD identity.",
+      "old_sha256": "eb28b92d03f26da97d3b70224465f8ad73f500aae18f4aa7c52df353bd0ef344",
+      "new_sha256": "b0a93c92957cdda81dc14b88a4fa4f12bf318fb6d7c892b7b5f6ffcec1eeb4c7"
+    },
+    {
+      "id": "M2b",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03b-memory-readout.md",
+      "section": "MEMORY-FIG3-AND-CAUTION",
+      "old": "The short readout interval is not a short lifetime of the underlying integrator. A tuned integrator can continue to represent the mean of accumulated inputs while its variance grows. A leak would instead pull its mean toward a particular value. Diffusion limits the accuracy of the integral and the usefulness of long observation; it does not by itself introduce that restoring pull. Applying these predictions to an animal also requires checking its spike statistics, tuning, drift, access to spikes, and other sources of movement noise.[^p1-integrator]",
+      "new": "When a continuous attractor circuit is used to accumulate an incoming signal over time, its stored value represents the integral of that signal. The short useful readout interval does not imply a short lifetime for this accumulated value. A tuned circuit can continue to represent the mean of accumulated inputs while its variance grows. A leak would instead pull its mean toward a particular value. Diffusion limits the accuracy of the integral and the usefulness of long observation; it does not by itself introduce that restoring pull. Applying these predictions to an animal also requires checking its spike statistics, tuning, drift, access to spikes, and other sources of movement noise.[^p1-integrator]",
+      "reason": "Explain the input and stored result in plain language; retain all mean, variance, leak and empirical limits without adding a formal term. The glossary oculomotor-integrator entry was checked and not changed.",
+      "source_support": "SI Integration time constant, lines 930-938; main Discussion lines 617-627.",
+      "old_sha256": "cf1ea8596827b92b23789a962cd2d903919685a7e4eb6df23bb1804c8f051dc6",
+      "new_sha256": "23ff4264c6ef1607918748902544288b13ad68ed8556022ba9b15281e0724d4d"
+    },
+    {
+      "id": "M3a",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03b-memory-readout.md",
+      "section": "MEMORY-EXTENSIONS",
+      "old": "The time constant in the inequality comes from the dynamics that carry an activation fluctuation into a lasting memory change. If those dynamics contain both synaptic and rate relaxation, which time constant matters?",
+      "new": "The time constant in the inequality comes from the dynamics that carry an activation fluctuation into a lasting memory change. If both synaptic activation and firing rate adjust gradually, which time constant matters?",
+      "reason": "Introduce the second stage with the change it causes rather than an unexplained relaxation label.",
+      "source_support": "SI A model with two time scales, Eq. S84.",
+      "old_sha256": "ddd05bb8f0c1013e29baae21784eb0f6a39d5745c8324ad8bcca7bcd068972cc",
+      "new_sha256": "aa166e25d6ee058da191486e960837f3d08fc62543b2194ea25b4894de2ea279"
+    },
+    {
+      "id": "M3b",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03b-memory-readout.md",
+      "section": "MEMORY-EXTENSIONS",
+      "old": "The supplement adds rate relaxation with time constant $\\tau_m$:",
+      "new": "In the basic model, the firing rate changes immediately when the summed input changes. The extension instead lets $r_i$ approach $\\phi(g_i)$ gradually, with time constant $\\tau_m$, while synaptic activation still decays with time constant $\\tau$:",
+      "reason": "Explain how rate adjustment differs from the already taught synaptic decay before presenting the extra equation.",
+      "source_support": "SI lines 940-951, Eq. S84; basic main Eqs. 7-9.",
+      "old_sha256": "ef6398e829dab87a2f03f34c1d16d88438e4c840e2ee50f4ff974f8cb62e15bd",
+      "new_sha256": "d45ac262d766f081951b21bfdef4d52569024f12af8387680a5ca41c4f6e067b"
+    },
+    {
+      "id": "M4a",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\02-memory-dynamics.md",
+      "section": "MEMORY-SYMMETRIC",
+      "old": "Translation symmetry is unnecessary.[^p1-symmetric]",
+      "new": "The result does not require translation symmetry, in which shifting an activity pattern along the represented coordinate leaves the network dynamics unchanged in form.[^p1-symmetric]",
+      "reason": "State the meaning of translation symmetry so it is not confused with equal connection weights in opposite directions.",
+      "source_support": "Main symmetric-weight result and ring versus mutual-inhibition designs, lines 174-217; SI S12-S18.",
+      "old_sha256": "e4015272f4dab7442d0651ee28c0594f13e2dbc08c902d5746c84d94a5a18b06",
+      "new_sha256": "a8a9252690ef449cd43ee728b4cdf960bfcd1dee3cd3a42b58d8a8d5bc02bf98"
+    },
+    {
+      "id": "M4b",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\02b-memory-long-delays.md",
+      "section": "MEMORY-FIGURES",
+      "old": "[Figure 2, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,18) tests the diffusion calculation in two different network designs. Panel A shows a ring with weights determined by differences of preferred angles. In B, compare the firing rate curves and spike marks in the inset before reading the wandering angular trace. The curve describes rates; the marks are particular random spike events. The trace shows the represented angle rather than overall activity amplitude.",
+      "new": "[Figure 2, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3&zoom=125,0,18) tests the diffusion calculation in two different network designs. Panel A shows a ring with weights determined by differences of preferred angles. This gives rotational symmetry: rotating the activity pattern around the ring leaves its dynamics unchanged in form. In B, compare the firing rate curves and spike marks in the inset before reading the wandering angular trace. The curve describes rates; the marks are particular random spike events. The trace shows the represented angle rather than overall activity amplitude.",
+      "reason": "Explain rotational symmetry beside the ring design before the later comparison relies on it.",
+      "source_support": "Main Fig. 2A and contrast in lines 214-217; ring network Methods weights depend on preferred-angle difference.",
+      "old_sha256": "bd9665d48a36f2206a98a65d6c1e26a09197ab81435556997e9cd7b3c20ead47",
+      "new_sha256": "3376e33621b9e21b605d9b98ff0be6fafc10ad68003f521ec8668ec5fafd361b"
+    },
+    {
+      "id": "M5",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\01-foundations.md",
+      "section": "FOUNDATIONS-POISSON",
+      "old": "If cells share an additional fluctuating drive, that common variation will not disappear in the same way.",
+      "new": "If a common varying input makes several cells' firing rates rise and fall together, that shared variation will not disappear in the same way.",
+      "reason": "Name the shared input and its effect on rates without adding a claim about its biological source.",
+      "source_support": "Existing independent averaging and covariance explanations; no new empirical claim.",
+      "old_sha256": "d0ead582eaf13308dc2d9cd4871c6bed2d2da4b0a1ad440c0c0d64685338b2b4",
+      "new_sha256": "f0e17a44a82e1f6a27dfd630e84e16cd8bc16d077acadc626f167a06514f71c0"
+    },
+    {
+      "id": "M6",
+      "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03-memory-information.md",
+      "section": "chapter opening",
+      "old": "A downstream neuron reads a memory through spikes.",
+      "new": "A neuron that receives the memory circuit's spikes can use them to estimate its stored value.",
+      "reason": "Explain the recipient relationship in ordinary words while preserving readout as a possible use of the spikes.",
+      "source_support": "Main Discussion lines 587-591; SI Section VI lines 649-658.",
+      "old_sha256": "52f84bddad38e18e0be3e72e5b4671adbeefe9f9e225c040d8997e425ce5d70c",
+      "new_sha256": "3ca0a51803729e39badfc5cf21d95bafea225d7e755660aff1afc980c53ad076"
+    }
+  ],
+  "files": {
+    "02-memory-dynamics.md": {
+      "before_sha256": "01be72e6ca078991be4d270124498058e93353777f9e4bd0097b8f296485d42f",
+      "after_sha256": "f21241a321a3f30f1895e0b7e1fc52e119bcc14a18887811ede4328e7004132e"
+    },
+    "01-foundations.md": {
+      "before_sha256": "599892122dc98de34e6ee22148e5688415c6b50e776ed25a6043cb8108234a01",
+      "after_sha256": "5cdf42d7ef8aa1e11a21e1ceef450382170bcaed9acf052f20d7bb82d82ef63e"
+    },
+    "03b-memory-readout.md": {
+      "before_sha256": "4f679e0af18caf1c98a745f43e21b738a57bf96bccb024856d52c58a89464ae6",
+      "after_sha256": "40838058f6eade08eae8425e0bc055531a46955dd0b489c634b2575f83e75452"
+    },
+    "02b-memory-long-delays.md": {
+      "before_sha256": "9f0284363f76796c1523ead3f70861b62bbfdd6e791a2437faa64890669cefbd",
+      "after_sha256": "8586645d980d1392b638b210b04ddbcd377f8c9ac9e90711398629b45ef5c563"
+    },
+    "03-memory-information.md": {
+      "before_sha256": "ac8adf9c7bd11012812c485fedb674c413a9a86f1a9ac2a2cda7dfeba1c3f4d2",
+      "after_sha256": "0493ce19f0101b56b8299939ffb23f7ed2e13568a048742cbff2ba2ca2a736c1"
+    }
+  },
+  "source_rule_hashes": {
+    "C:\\dev\\clsc\\burak-papers\\research\\burak-fiete-2012-main.txt": "10a33ffff51519638bae8f54b97994e1235646be284189e86a33e077ee291354",
+    "C:\\dev\\clsc\\burak-papers\\research\\burak-fiete-2012-si.txt": "e92cb5b43d206ed99eca6e916cc702f89908228d913176aa850aad9201915552",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+  },
+  "connected_recheck": {
+    "completed_at": "2026-10-28T15:39:33.449625+02:00",
+    "scope": "All modified paragraphs and their adjacent explanation; source roles, rate extension, symmetry and integration passages reread.",
+    "result": "Changes preserve the model conditions and qualify possible readout; no displayed equations, numerical examples, headings, structure, source claims or empirical distinctions changed. M6 pronoun clarified in a separately recorded followup.",
+    "remaining": "Separate independent reviewer stage requested by coordinator; no whole-guide acceptance claimed."
+  },
+  "applied_at": "2026-10-28T15:38:48.228690+02:00",
+  "direct_checks": [
+    "Each exact old passage matched once before application.",
+    "All before file hashes matched the pre-application record.",
+    "All displayed equation blocks are byte-equivalent text.",
+    "All Markdown headings are unchanged."
+  ],
+  "reread_followup": {
+    "id": "M6-referent",
+    "recorded_before_application_at": "2026-10-28T15:39:21.825306+02:00",
+    "file": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03-memory-information.md",
+    "old": "A neuron that receives the memory circuit's spikes can use them to estimate its stored value.",
+    "new": "A neuron that receives spikes from a memory circuit can use them to estimate the value stored by that circuit.",
+    "reason": "Remove ambiguity in its: the value belongs to the sending memory circuit, not the receiving neuron.",
+    "before_sha256": "d57b16a0e28d0e9c92b3b319983a4ba38f78ebd3ae917c6ba359e1dce4d426f7",
+    "after_sha256": "0493ce19f0101b56b8299939ffb23f7ed2e13568a048742cbff2ba2ca2a736c1",
+    "applied_at": "2026-10-28T15:39:33.449502+02:00"
+  }
+}

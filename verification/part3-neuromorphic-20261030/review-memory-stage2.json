@@ -1,0 +1,461 @@
+{
+  "review_stage": "2. Necessity and terminology, separate call",
+  "reviewer": "Independent gpt-6.1-sol high reviewer; draft not authored by reviewer",
+  "started_utc": "2026-10-30T14:24:57Z",
+  "finished_utc": "2026-10-30T14:28:08+00:00",
+  "scope": "Complete current Part III purpose/content in plan/chapter-plan.yaml and complete 07/08 Markdown and YAML sidecars. Exact scoped native Vale errors judged individually. Earlier foundations/persistence/dynamics passages searched and read where they supply relevant meanings.",
+  "reviewed_files_sha256": {
+    "plan/chapter-plan.yaml": "859ca0ef9dd190cd56afa80598749c519f770091157daae460040973160bfad2",
+    "content/chapters/07-hardware-memory.md": "11953d6b3e1f0ba61f5c69191dd985f68c0683cd952cbbec83166f975ba04a97",
+    "content/chapters/07-hardware-memory.yaml": "8a96707a6cab9936173810a401e774cc64b37727559a72166b2ef6faec523645",
+    "content/chapters/08-hardware-dynamics.md": "4491c3a50ecbdb9f284169c8d7673436c705d65cab6d5cc8e59dc3b262c0e455",
+    "content/chapters/08-hardware-dynamics.yaml": "b2a0c4f3ccc01c2c7f59f941cb785672851f07161fe320d8181088c10e15e359"
+  },
+  "baseline": "Undergraduate calculus, probability and linear algebra. No electronics course assumed. Expected value, variance, SD and density are assumed.",
+  "findings": [
+    {
+      "id": "N1",
+      "severity": "required_teaching_repair",
+      "locations": [
+        "content/chapters/07-hardware-memory.md:29-35",
+        "content/chapters/07-hardware-memory.md:54",
+        "content/chapters/07-hardware-memory.yaml:28-32"
+      ],
+      "issue": "The new capacitor relation helps, but physical reasoning still depends on current and voltage without giving their physical meanings. Q and V first appear in Q=CV without an explicit symbol mapping; resistance appears before its role is explained. The conductance definition uses linear read regime before saying what linear means here. The earlier neural chapters use mathematical activation/current models but do not supply this electronics bridge.",
+      "repair_requirement": "Add a compact bridge before the capacitor calculation: current is charge flow per unit time; voltage measures electrical energy difference per unit charge; identify Q as stored separated charge and V as voltage across the capacitor. State that C is treated as fixed in this relation, give the units if retaining the formula, and explain resistance/conductance as the current response to an applied voltage. Replace linear read regime with a direct statement such as at read voltages where current is approximately proportional to voltage. In I=GV identify I and V directly. Keep this to the physical relationships needed later, not a general electronics lesson.",
+      "reason_needed": "A reader must explain why input current changes stored voltage and why conductance converts input voltage to a weighted current. Treating the names as self-explanatory leaves the central physical mechanism unstated."
+    },
+    {
+      "id": "N2",
+      "severity": "required_term_repair",
+      "locations": [
+        "content/chapters/07-hardware-memory.md:35"
+      ],
+      "issue": "Physical phase configuration is a needed specialist meaning: it is not the timing phase used elsewhere. The current definition repeats phase-change without explaining the material change that stores information.",
+      "repair_requirement": "Explain in a short phrase that programming changes the material atomic arrangement, for example the proportions of ordered/crystalline and disordered/amorphous regions, which changes resistance. Use only the extra terms that help; do not add crystallography detail.",
+      "reason_needed": "Without this phrase, the reader knows the PCM abbreviation but cannot state what physically persists after power is removed."
+    }
+  ],
+  "additional_truth_check": {
+    "new_capacitor_definition": "Q=CV is correct for the intended fixed, linear capacitance approximation. Separated charge storage and changing charge through net current correctly explain voltage change. No new physical contradiction found; the missing symbol/assumption bridge is recorded in N1.",
+    "new_conductance_definition": "Current/voltage ratio and inverse resistance agree in the stated linear regime. Explain that regime in plain words as required by N1; the definition is not a claim of globally linear PCM behavior.",
+    "source_meaning": "Stage 1 source identities and limits retained. Current wording changes do not turn the illustrative gain/OU models into measured hardware results. No fresh source download was needed."
+  },
+  "necessity_judgments": [
+    {
+      "location": "plan/chapter-plan.yaml part:HARDWARE",
+      "judgment": "Retain quotation, its source context, the three different kinds of memory, chapter route and first-pass guidance. They establish purpose and scope; do not edit exact historical wording to satisfy lint."
+    },
+    {
+      "location": "07:3-23 and sidecar purpose/ROLES",
+      "judgment": "Retain the weight/state/decoded-value distinction, scoped working memory definition and invented ring example. The example tests whether changing a remembered value requires changing a weight. Neuromorphic is a necessary family name and is defined at first substantial use."
+    },
+    {
+      "location": "07:27-46 and sidecar STORAGE",
+      "judgment": "Retain SRAM, analog state, capacitor, conductance, PCM, nonvolatile and device mismatch because each is used to compare a different storage mechanism or error source. Add only the compact physical meanings in N1/N2. The table has a useful job: it relates stored quantity to role and error. A transistor can remain a component reference at this stage; transistor circuit design is not needed to compare discrete feedback with analog voltage."
+    },
+    {
+      "location": "07:48-61 and sidecar UPDATES",
+      "judgment": "Retain the event-to-input-to-state-to-event trace, mixed-signal and in-memory terms, and named platform examples. The platform names are grounded in the stated architecture roles. The final statement links storage survival to state updates, a necessary bridge into feedback."
+    },
+    {
+      "location": "08:3-38 and sidecar purpose/FEEDBACK",
+      "judgment": "Retain feedback, gain, effective decay time and the gain-sensitivity example. The scalar equation adds a concrete causal calculation. The fold explains the derivation without making it mandatory for first-pass readers."
+    },
+    {
+      "location": "08:40-68 and sidecar ERRORS",
+      "judgment": "Retain the discrete/continuous and digital/analog distinctions. Neutral direction, continuous attractor and Brownian increments have earlier teaching in 01b-persistence and 02-memory-dynamics. Pinning is directly defined and needed for the variance-versus-bias interpretation. The OU derivation explains why restoring errors saturate while neutral errors accumulate. Explicit model/source limitations earn their space."
+    },
+    {
+      "location": "08:70-83 and sidecar EVIDENCE",
+      "judgment": "Retain both early demonstrations because they test different memory tasks. Bistability is necessary, directly defined and restricted to the ongoing conditions. Footnote dates/versions and discrete-resolution qualifications prevent unsupported comparisons."
+    }
+  ],
+  "lint_input": {
+    "path": "verification/part3-neuromorphic-20261030/vale-native-current.json",
+    "sha256": "ed6ecfd14a3d4371717012964da02b2692a6a9845d44749ef1b7aa6798e5ff0a",
+    "engine": "vale version 3.24.0",
+    "scoped_error_count": 27,
+    "decisions_are_for": "Native report and exact reviewed source hashes; recheck changed lines after repair."
+  },
+  "lint_decisions": [
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 31,
+      "span": [
+        378,
+        550
+      ],
+      "rule": "ai-tells.ParallelStaccato",
+      "match": "Several bits can encode a weight or a changing neuron variable. Reliable bits do not imply unlimited numerical precision: a finite word represents only finitely many values.",
+      "decision": "justified_narrow_exception",
+      "reason": "The first sentence explains how bits encode a variable; the next states the separate finite-precision limit. Each makes a needed point, and both are readable in the full paragraph.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 33,
+      "span": [
+        237,
+        245
+      ],
+      "rule": "ai-tells.FormalTransitions",
+      "match": "therefore",
+      "decision": "fix",
+      "reason": "The causal relation is needed, but so is simpler here.",
+      "repair": "Change and therefore changes voltage to and so changes voltage."
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 58,
+      "span": [
+        174,
+        174
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 59,
+      "span": [
+        127,
+        127
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 59,
+      "span": [
+        267,
+        347
+      ],
+      "rule": "ai-tells.ContrastiveFormulas",
+      "match": "an architecture description, not a current availability or performance comparison",
+      "decision": "justified_narrow_exception",
+      "reason": "The footnote limits how an older architecture brief is being used. Keeping current availability and performance outside its evidence is useful source guidance.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 60,
+      "span": [
+        112,
+        119
+      ],
+      "rule": "ai-tells.OverusedVocabulary",
+      "match": "scalable",
+      "decision": "justified_narrow_exception",
+      "reason": "This exact wording belongs to a cited paper title. Editing the title would reduce source accuracy. Preserve it unchanged.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 60,
+      "span": [
+        250,
+        324
+      ],
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; the inspected version places demonstrated SNN states and weights in SRAM.",
+      "decision": "fix",
+      "reason": "Author-written punctuation can be changed without altering a source title or scientific meaning.",
+      "repair": "Use a period, or use and to join the two terms in the loss/replacement explanation at 08:15. Preserve the citation, version and date qualifications."
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 61,
+      "span": [
+        189,
+        189
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 61,
+      "span": [
+        276,
+        276
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/07-hardware-memory.md",
+      "line": 61,
+      "span": [
+        321,
+        392
+      ],
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; detailed implementation descriptions refer to that manuscript version.",
+      "decision": "fix",
+      "reason": "Author-written punctuation can be changed without altering a source title or scientific meaning.",
+      "repair": "Use a period, or use and to join the two terms in the loss/replacement explanation at 08:15. Preserve the citation, version and date qualifications."
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 3,
+      "span": [
+        98,
+        259
+      ],
+      "rule": "ai-tells.ParallelStaccato",
+      "match": "The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity does not by itself identify what is being preserved.",
+      "decision": "justified_narrow_exception",
+      "reason": "The first sentence explains the feedback mechanism; the next distinguishes persistence from the value preserved. The short sentences perform different teaching jobs.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 15,
+      "span": [
+        185,
+        224
+      ],
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; **** replaces a fraction of that loss.",
+      "decision": "fix",
+      "reason": "Author-written punctuation can be changed without altering a source title or scientific meaning.",
+      "repair": "Use a period, or use and to join the two terms in the loss/replacement explanation at 08:15. Preserve the citation, version and date qualifications."
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 26,
+      "span": [
+        360,
+        421
+      ],
+      "rule": "ai-tells.ContrastiveFormulas",
+      "match": "a chosen state, not a full transistor or spiking-network model",
+      "decision": "justified_narrow_exception",
+      "reason": "This sentence limits a scalar linear teaching model before readers transfer it to real circuits. The explicit contrast prevents a material scientific misunderstanding.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 40,
+      "span": [
+        4,
+        113
+      ],
+      "rule": "ai-tells.StackedAnaphora",
+      "match": "A bit corrects small displacements. A continuous memory preserves some of them {#sec:HARDWARE-DYNAMICS-ERRORS}",
+      "decision": "justified_narrow_exception",
+      "reason": "The paired heading states the two different dynamical responses readers must compare. The short parallel structure makes the comparison clear.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 44,
+      "span": [
+        9,
+        98
+      ],
+      "rule": "ai-tells.ContrastiveFormulas",
+      "match": "a distinction between dynamics, not a division between all digital and all analog machines",
+      "decision": "justified_narrow_exception",
+      "reason": "The preceding section compares discrete and continuous dynamics. This sentence prevents those categories from being mistaken for the digital/analog implementation split; the following examples substantiate it.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 62,
+      "span": [
+        277,
+        284
+      ],
+      "rule": "ai-tells.FillerPhrases",
+      "match": "tends to",
+      "decision": "justified_narrow_exception",
+      "reason": "Tends to zero describes a mathematical limit, not vague likelihood or filler. Deleting it would break the derivation.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 68,
+      "span": [
+        188,
+        307
+      ],
+      "rule": "ai-tells.VerbTricolon",
+      "match": "freezes a number, uses explicit error correction, or changes the noise and readout assumptions poses a different problem",
+      "decision": "justified_narrow_exception",
+      "reason": "Frozen numerical storage, error correction and changed noise/readout assumptions are distinct reasons a neural diffusion bound may not apply. The list is useful and exact; its count does not make it filler.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 80,
+      "span": [
+        141,
+        141
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 81,
+      "span": [
+        191,
+        191
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 82,
+      "span": [
+        5,
+        396
+      ],
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; author-posted manuscript.",
+      "decision": "fix",
+      "reason": "Author-written punctuation can be changed without altering a source title or scientific meaning.",
+      "repair": "Use a period, or use and to join the two terms in the loss/replacement explanation at 08:15. Preserve the citation, version and date qualifications."
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 82,
+      "span": [
+        80,
+        110
+      ],
+      "rule": "ai-tells.NounString",
+      "match": "VLSI head direction cell system",
+      "decision": "justified_narrow_exception",
+      "reason": "This exact wording belongs to a cited paper title. Editing the title would reduce source accuracy. Preserve it unchanged.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 82,
+      "span": [
+        185,
+        185
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 82,
+      "span": [
+        253,
+        253
+      ],
+      "rule": "ai-tells.EmDashUsage",
+      "match": "–",
+      "decision": "justified_narrow_exception",
+      "reason": "The exact match is an en dash in a page or section range, not an em dash in explanatory prose. Preserve the range.",
+      "repair": null
+    },
+    {
+      "file": "content/chapters/08-hardware-dynamics.md",
+      "line": 83,
+      "span": [
+        387,
+        418
+      ],
+      "rule": "ai-tells.SemicolonUsage",
+      "match": "; the volume and DOI carry 2011.",
+      "decision": "fix",
+      "reason": "Author-written punctuation can be changed without altering a source title or scientific meaning.",
+      "repair": "Use a period, or use and to join the two terms in the loss/replacement explanation at 08:15. Preserve the citation, version and date qualifications."
+    },
+    {
+      "file": "verification/part3-neuromorphic-20261030/part-opening.md",
+      "line": 3,
+      "span": [
+        4,
+        9
+      ],
+      "rule": "ai-tells.SequencingMarkers",
+      "match": "Lastly",
+      "decision": "justified_narrow_exception",
+      "reason": "This is an exact historical quotation from von Neumann, checked in Stage 1. Preserve quoted words, including Lastly.",
+      "repair": null
+    },
+    {
+      "file": "verification/part3-neuromorphic-20261030/part-opening.md",
+      "line": 3,
+      "span": [
+        14,
+        150
+      ],
+      "rule": "ai-tells.VerbTricolon",
+      "match": "would like to mention that systems of nerve cells, which stimulate each other in various possible cyclical ways, also constitute memories",
+      "decision": "justified_narrow_exception",
+      "reason": "This is an exact historical quotation from von Neumann, checked in Stage 1. Preserve quoted words, including Lastly.",
+      "repair": null
+    },
+    {
+      "file": "verification/part3-neuromorphic-20261030/part-opening.md",
+      "line": 11,
+      "span": [
+        121,
+        214
+      ],
+      "rule": "ai-tells.VerbTricolon",
+      "match": "we compare digital spiking processors, analog neural circuits, and phase-change weight storage",
+      "decision": "justified_narrow_exception",
+      "reason": "The three implementation families define the actual comparison. Removing or adding a family merely to change list length would harm the scope description.",
+      "repair": null
+    }
+  ],
+  "verdict": "REPAIR REQUIRED for N1/N2 before Stage 2 acceptance. Six scoped style fixes are straightforward; remaining scoped errors have justified narrow exceptions. Stage 3 pending.",
+  "limits": [
+    "No manuscript edits.",
+    "No Stage 3 review.",
+    "No render, figures, build, full audit or publication acceptance.",
+    "No blanket rule disable recommended. Retain exact quotation/title/range exceptions only at the affected passage."
+  ],
+  "checkpoints": [
+    {
+      "utc": "2026-10-30T14:24:57Z",
+      "state": "Stage 2 start; 3-5 minute estimate."
+    },
+    {
+      "utc": "2026-10-30T14:26:14Z",
+      "state": "Complete text reread and 27 scoped errors mapped; compact missing electronics meanings identified.",
+      "wall_elapsed_seconds": 77,
+      "since_previous_seconds": 77
+    },
+    {
+      "utc": "2026-10-30T14:28:08+00:00",
+      "state": "Findings and individual lint decisions saved.",
+      "wall_elapsed_seconds": 191,
+      "awake_execution": "unverified"
+    }
+  ],
+  "awake_execution": "unverified",
+  "token_stats": "unavailable"
+}

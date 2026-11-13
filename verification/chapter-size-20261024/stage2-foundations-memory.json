@@ -1,0 +1,225 @@
+{
+  "review_id": "stage2-foundations-memory",
+  "stage": "2: necessity and terminology",
+  "reviewer": "Independent agent; separate pass after stage 1",
+  "model": "GPT-6.1-sol/high as assigned",
+  "started_at": "2026-10-24T20:26:00.5561048+03:00",
+  "shared_task_started_at": "2026-10-24T20:17:28.7375959+03:00",
+  "scope": "Each new title/opening paragraph and changed reference paragraph in the four assigned foundations and memory chapters, plus the changed reading paths in 00-reading-guide.md",
+  "verdict": "One small wording repair recommended; no section, opening or notation paragraph should be removed",
+  "findings": [
+    {
+      "id": "NM1",
+      "severity": "low",
+      "file": "content/chapters/01-foundations.md",
+      "line": 5,
+      "quoted_passage": "A model of spike counts then shows why one brief observation can be uncertain and why pooling cells can help. Finally, covariance and mean squared displacement give us the tools to distinguish shared fluctuations, random spread, and a change in the average value.",
+      "issue": "Pooling acts on the observed counts, rather than on the cells themselves. The next sentence previews two technical terms before this opening has explained them. Their names are not needed to explain why the steps follow in this order.",
+      "replacement": "A model of spike counts then shows why one brief observation can be uncertain and how combining counts from several cells can help. We then learn how to tell whether measurements vary together and how to separate random spreading from a change in the average value.",
+      "meaning_preserved": "The count-combination benefit and the purpose of both probability tools remain. The precise terms are still introduced and defined in their actual teaching section at lines 78-113.",
+      "repair_scope": "Replace these two sentences only. Retain the rest of the opening paragraph and the complete covariance/MSD teaching."
+    }
+  ],
+  "retained_passages": [
+    {
+      "passage": "01-foundations.md:1",
+      "decision": "Retain title",
+      "reason": "It says what is represented and what carries it. 'Spikes' is the essential subject and is defined in the first section; replacing it with 'signals' would lose the focus on count variability."
+    },
+    {
+      "passage": "01-foundations.md:3",
+      "decision": "Retain first opening paragraph",
+      "reason": "Eye position and navigation give concrete questions before the shared representation problem. The final sentence distinguishes the three papers' questions. The paragraph is short enough to do both without an extra overview list."
+    },
+    {
+      "passage": "01-foundations.md:5, first two and final sentences",
+      "decision": "Retain around NM1 repair",
+      "reason": "The opening establishes why representation and variability come before persistence, then links the tools to memory and measured eye motion. Each sentence supplies a dependency or a reason to keep reading."
+    },
+    {
+      "passage": "01-foundations.md:104",
+      "decision": "Retain changed reference paragraph",
+      "reason": "The correlation-versus-source-fraction caution is essential. 'Signal, noise, and measurement gains' specifies what the linked model must account for. The link names the actual calculation and avoids a chapter number that would now be wrong."
+    },
+    {
+      "passage": "01b-persistence.md:1",
+      "decision": "Retain title",
+      "reason": "The apparent tension between stable activity and growing error is the chapter's central question, answered by the following concrete angle example. 'Stable' has its mathematical meaning explained in the first section."
+    },
+    {
+      "passage": "01b-persistence.md:3",
+      "decision": "Retain first opening paragraph",
+      "reason": "The value/activity distinction prevents the reader from treating persistence of firing as persistence of the correct value. The two possible disturbances motivate the later geometry. 'Coherent activity pattern' has the ordinary sense of a consistent population pattern here and is immediately made concrete in the example."
+    },
+    {
+      "passage": "01b-persistence.md:5",
+      "decision": "Retain second opening paragraph",
+      "reason": "It explains the move from one disturbance to repeated errors, then the need to separate temporal changes from a fixed map. 'Fixed bias' is previewed as a change to the spreading prediction, and the body supplies its velocity and effect. No extra technical label is needed."
+    },
+    {
+      "passage": "01b-persistence.md:49",
+      "decision": "Retain changed reference paragraph",
+      "reason": "The caution about ordinary perpendicular projection explains why the later network derivation is needed. Projection is appropriate language for the linear-algebra audience; the actual definition and example are at the linked location."
+    },
+    {
+      "passage": "02-memory-dynamics.md:1",
+      "decision": "Retain title",
+      "reason": "Diffusion and continuous attractors were taught in the preceding persistence chapter. The title now identifies the precise mechanism calculated, without adding a new term before its teaching location."
+    },
+    {
+      "passage": "02-memory-dynamics.md:3",
+      "decision": "Retain first opening paragraph",
+      "reason": "It renews the concrete question after a chapter boundary: sustained firing can still hold the wrong value. The continuous-set description is lighter than reopening with matrix notation."
+    },
+    {
+      "passage": "02-memory-dynamics.md:5",
+      "decision": "Retain path paragraph",
+      "reason": "It links spike renewal, return dynamics, lasting shifts and spreading causally. The symmetric-weight condition and two-cell example each announce a distinct part of the retained derivation. The last sentence motivates the new long-delay chapter."
+    },
+    {
+      "passage": "02-memory-dynamics.md:7",
+      "decision": "Retain PDF-use paragraph",
+      "reason": "This practical instruction explains how to find the evidence in the links that follow. Its warning about absent text-line numbers prevents a specific navigation confusion; shortening it to a generic source notice would lose that help."
+    },
+    {
+      "passage": "02-memory-dynamics.md:9",
+      "decision": "Retain notation paragraph",
+      "reason": "It gives current and initial coordinates, steady-rate notation, the shared time constant and diffusion units before equations use them. The constant-D and boundary qualifications are needed rather than decorative length."
+    },
+    {
+      "passage": "02-memory-dynamics.md:198",
+      "decision": "Retain changed reference paragraph",
+      "reason": "Its local-state and weak-noise limits explain what the just-derived quantity can support. The separate drift link is necessary at this new boundary."
+    },
+    {
+      "passage": "02b-memory-long-delays.md:1",
+      "decision": "Retain title",
+      "reason": "Boundaries, drift and long delays are ordinary words for the concrete causes of changed error behavior. The title does not add an unnecessary technical label."
+    },
+    {
+      "passage": "02b-memory-long-delays.md:3",
+      "decision": "Retain first opening paragraph",
+      "reason": "It states what the local calculation leaves unanswered and gives three concrete ways a longer delay changes the problem. The final sentence distinguishes average movement from random spreading in plain words."
+    },
+    {
+      "passage": "02b-memory-long-delays.md:5",
+      "decision": "Retain path paragraph",
+      "reason": "Repeated trials motivate the density description; the line-versus-angle comparison motivates boundary conventions; separating mean drift explains the noise assumptions; readout uncertainty motivates the following chapter. These are needed links rather than a list of headings."
+    },
+    {
+      "passage": "02b-memory-long-delays.md:7",
+      "decision": "Retain notation reminder",
+      "reason": "It repairs the break caused by the new chapter page and marks current versus initial value. State dependence is shown explicitly in D(theta), with a link back to its derivation. The no-drift condition prevents misuse of the variance convention."
+    },
+    {
+      "passage": "02b-memory-long-delays.md:110",
+      "decision": "Retain changed projection reference",
+      "reason": "The passage explains how to read the figure and points to the particular tilted return example. 'Projection follows the flow' is made concrete by the starting point and endpoint description before that sentence."
+    },
+    {
+      "passage": "02b-memory-long-delays.md:112",
+      "decision": "Retain changed information/readout references",
+      "reason": "The paragraph explains the two errors in the figure before sending the reader to their separate treatments. The terms 'activity bump' and 'preferred angles' are defined here or in the preceding chapter; they are needed to read the original paper's figure."
+    },
+    {
+      "passage": "00-reading-guide.md:15,23,31,33",
+      "decision": "Retain changed contribution-to-chapter references",
+      "reason": "Each range gives a direct route from the specific paper's question to its new chapters. The labels distinguish inference, timing and mechanism, or model, predictions and tests; dropping them would leave readers with a range of unexplained numbers."
+    },
+    {
+      "passage": "00-reading-guide.md:37",
+      "decision": "Retain revised overview paragraph",
+      "reason": "This is the one compact whole-guide route. Its repetition of shorter range references elsewhere has a different purpose: locating the full sequence after the audience baseline. The final sentence sets the expectation for the newly requested chapter openings."
+    },
+    {
+      "passage": "00-reading-guide.md:39-41,51",
+      "decision": "Retain revised reading paths and notation references",
+      "reason": "The paths distinguish the full memory/eye route from the shorter place-field route. The map link and diffusion link replace relocated targets. The D/d/q distinctions prevent real symbol confusion and should not be shortened away."
+    }
+  ],
+  "limits": [
+    "No canonical edits were made. NM1 is a concrete two-sentence candidate for the coordinator to apply and recheck.",
+    "This stage judges necessity and terminology only; stage 3 reading-flow review remains separate.",
+    "No whole-paper audit, unchanged-body approval or visual verification is implied."
+  ],
+  "awake_execution_time": "Unverified",
+  "token_stats": "Token stats unavailable",
+  "source_snapshots": [
+    {
+      "path": "content/chapters/01-foundations.md",
+      "sha256": "47485b84424e2dacb6daad07b3d4cedd64a54281418b3d6971b4796278c1bc23",
+      "last_write_utc": "2026-10-24T17:23:47.0436821Z",
+      "bytes": 12374
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "1cc3061cfc840b1903a116de7641d1b99b76f40f5f7a8bb4760b48b2a7eca29a",
+      "last_write_utc": "2026-10-24T17:23:47.0456933Z",
+      "bytes": 11005
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "sha256": "e6f86ac4902afe56562e41e9e4a19068b2d80cf35a544af8bc715461a173a092",
+      "last_write_utc": "2026-10-24T17:23:47.0471853Z",
+      "bytes": 18379
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "sha256": "9f0db00d7aee4de3918c53cd4875d746e31fbcc2feba0e304b3632eee3f29f49",
+      "last_write_utc": "2026-10-24T17:23:47.0482835Z",
+      "bytes": 16221
+    },
+    {
+      "path": "content/chapters/00-reading-guide.md",
+      "sha256": "5a70f680341ed5141ff59f5740cbeeca7b61476de6175c2c3660066bb8e22ccc",
+      "last_write_utc": "2026-10-24T17:24:07.3796106Z",
+      "bytes": 14003
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "sha256": "258c636f81fb2daf7741e1f6a0a955693439761c213fd32b4959291bbccb2946",
+      "last_write_utc": "2026-10-24T17:23:47.0502634Z",
+      "bytes": 19332
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "sha256": "8b68f20cac79489a54e89b62818f79eeb861eead66f9dbecefde6af9178e3d69",
+      "last_write_utc": "2026-10-24T17:23:47.0522770Z",
+      "bytes": 21739
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "15c1a3b9157572762ed2c4c0dbc03b4602b25537530ed86fac3f3f3e172628f0",
+      "last_write_utc": "2026-10-24T17:23:47.0542759Z",
+      "bytes": 26056
+    },
+    {
+      "path": "plan/chapter-plan.yaml",
+      "sha256": "20ba449269de19bd8559ea3f58086c9ff7b5b1c24a1f2a270768b096accc7857",
+      "last_write_utc": "2026-10-24T17:23:47.0729987Z",
+      "bytes": 1384
+    },
+    {
+      "path": "verification/chapter-size-20261024/integration.json",
+      "sha256": "4c80941db70cd77772e289b30c042021ab6aa02c688d6177a8ddeeaa62b4e802",
+      "last_write_utc": "2026-10-24T17:23:47.9606052Z",
+      "bytes": 44877
+    },
+    {
+      "path": "verification/chapter-size-20261024/reference-edits.json",
+      "sha256": "82b94cc1dddbe631a02b891a49142bb7ea83e23e3df41e12c4efb5f864c6195b",
+      "last_write_utc": "2026-10-24T17:23:46.4727576Z",
+      "bytes": 3662
+    },
+    {
+      "path": "verification/chapter-size-20261024/orientation-edits.json",
+      "sha256": "e15a4805c9e0ebe68c683585e0ec7edad0f4863f64c2645b2fcb141ac48fe453",
+      "last_write_utc": "2026-10-24T17:24:07.6748847Z",
+      "bytes": 3187
+    }
+  ],
+  "changed_sources_since_stage1": [],
+  "completed_at": "2026-10-24T20:27:06.8370358+03:00",
+  "review_wall_clock_seconds": 66.8,
+  "task_wall_clock_seconds": 578.8
+}

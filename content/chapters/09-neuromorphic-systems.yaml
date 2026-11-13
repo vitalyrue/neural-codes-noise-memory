@@ -1,0 +1,87 @@
+chapter_id: ch:NEUROMORPHIC-SYSTEMS
+part_id: part:HARDWARE
+title: Neuromorphic chips choose where physics performs the calculation
+purpose: Suppose we want to study how a noisy network retains an angle. One machine can calculate every state
+  update as arithmetic. Another can let capacitor voltages perform part of the dynamics. A third can use material
+  conductances to multiply inputs by stored weights. The scientific choice is which physical effects we want
+  to control, measure, or exploit. This chapter compares these implementations and then examines recent demonstrations
+  of memory and learning.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:HARDWARE-DYNAMICS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:HARDWARE
+section_list:
+- id: sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES
+  title: Digital and analog implementations expose different parts of the neural model
+  summary: A useful platform must make the variables of interest accessible. If the question concerns a specific
+    noise law, a digital update may allow precise control of the injected noise. If the question concerns physical
+    circuit variability, analog dynamics expose that variability directly. Interpreting either choice as a
+    biological result requires a matched model and experiment. [[**Hardware calibration**]{.definition-term
+    custom-style="Definition Term"} adjusts circuit settings to make measured device responses match requested
+    responses more closely.]{.definition-explanation}
+  level: 2
+- id: sec:NEUROMORPHIC-SYSTEMS-ADVANCES
+  title: Recent results improve temporal computation, adaptation, and device stability
+  summary: The following studies make progress on different parts of the memory problem. For each, ask what
+    information persists and which physical component is responsible.
+  level: 2
+- id: sec:NEUROMORPHIC-SYSTEMS-LIMITS
+  title: Explicit slow memory is a current design choice, with distinct costs
+  summary: Fast spiking units can lose earlier inputs before a later decision needs them. One solution is to
+    add a slower state that summarizes recent activity and sends input back to the fast units. Sun and colleagues'
+    2026 dual-memory-pathway design takes this route. Its proposed digital hardware holds successive slow states
+    in [[**registers**]{.definition-term custom-style="Definition Term"}, small, fast digital storage locations]{.definition-explanation},
+    and other variables in SRAM. The hardware results came from post-layout simulations, which model a circuit
+    after its physical layout has been designed. They were not measurements of a fabricated chip. The weights
+    were trained before the evaluated tasks.[^systems-sun]
+  level: 2
+blocks:
+- id: fig:DRAFT-MAP-CH17-A
+  kind: figure
+  placement: ch:NEUROMORPHIC-SYSTEMS
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch17-a-draft-v1.png
+  caption: "Unreviewed draft diagram, first part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them."
+  alt: "Unreviewed generated draft: first diagram for the chapter Neuromorphic chips choose where physics performs the calculation."
+  width_inches: 7.0
+  html_fold: never
+- id: fig:DRAFT-MAP-CH17-B
+  kind: figure
+  placement: ch:NEUROMORPHIC-SYSTEMS
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch17-b-draft-v1.png
+  caption: "Unreviewed draft diagram, second part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them."
+  alt: "Unreviewed generated draft: second diagram for the chapter Neuromorphic chips choose where physics performs the calculation."
+  width_inches: 7.0
+  html_fold: never
+- id: tbl:NEUROMORPHIC-ARCHITECTURES
+  kind: table
+  placement: sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES
+  headers:
+  - System
+  - Where weights and changing states reside
+  - How the neural state changes
+  - Consequence for a memory experiment
+  rows:
+  - - Loihi 2
+    - Local digital memory holds weights and neuron variables
+    - Programmable, finite-precision updates; events communicate between units
+    - Separate the chosen noise model and numerical precision from physical bit reliability
+  - - SpiNNaker2
+    - Demonstrated SNN workloads use local SRAM for parameters, weights, and states
+    - Processor software executes time-stepped neuron updates
+    - Check the update interval and whether the mapped workload meets its timing deadlines
+  - - BrainScaleS-2
+    - Local 6-bit SRAM weights; physical analog membrane states
+    - Currents change capacitor voltages continuously
+    - Measure remaining differences between responses after calibration, and relate chip time to model time
+  - - PCM computing systems
+    - Conductances store weights; other states depend on the surrounding design
+    - Electrical reads form weighted sums; analog or digital circuits perform remaining operations
+    - Locate the recurrent state and host work before claiming a physical memory circuit
+  caption: Where selected neuromorphic systems store and update their variables.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

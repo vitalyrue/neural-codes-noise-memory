@@ -1,0 +1,49 @@
+--- baseline/content/chapters/01-foundations.md
++++ content/chapters/01-foundations.md
+@@ -6,13 +6,33 @@
+ <!-- vale ai-tells.VerbTricolon = YES -->
+ <!-- vale ai-tells.CataphoricForecasting = YES -->
+ 
+-Before asking how a circuit keeps a value, we need to know how its activity represents that value and what makes the activity variable. We begin with the spikes that cells send and the patterns of firing rates across a population. A model of spike counts then shows why one brief observation can be uncertain and how combining counts from several cells can help. We then learn how to tell whether measurements vary together and how to separate random spreading from a change in the average value. Those distinctions will let us interpret both a memory model and measurements of eye motion.
+-
+-## Patterns of firing rates represent a value {#sec:FOUNDATIONS-SPIKES}
++Before asking how a circuit keeps a value, we need to know what its signals do. We begin with brief neural spikes and the eye muscles they activate, explaining how repeated activation can maintain an eye angle. We then ask how firing rates across a group of neurons represent that angle or an animal's location. A model of spike counts shows why one brief observation can be uncertain and how combining counts from several cells can help. Finally, we separate shared variation, random spreading and a change in the average value. These distinctions prepare us to interpret both a memory model and measurements of eye motion.
++
++## Repeated spikes maintain eye muscle tension {#sec:FOUNDATIONS-EYE-ACTION}
++
++For the eye to stay directed at a target, its muscles must keep exerting force after the movement command ends.
+ 
+ <!-- vale ai-tells.StrawmanContrast = NO -->
+ [A neuron communicates through brief electrical events called [**spike**]{.definition-term custom-style="Definition Term"}s.]{.definition-explanation} [A [**firing rate**]{.definition-term custom-style="Definition Term"} is the expected number of spikes per unit time.]{.definition-explanation} A rate of 20 hertz means an average of 20 spikes per second under the specified conditions, rather than a promise of one spike every 50 milliseconds.
+ <!-- vale ai-tells.StrawmanContrast = YES -->
++
++**Anatomy: muscles turn the eyeball.** In humans and macaques, the eyeball rotates within the bony eye socket, or orbit. [The six [**extraocular muscles**]{.definition-term custom-style="Definition Term"} attach to the outside of the eyeball and control its orientation.]{.definition-explanation} The medial rectus pulls it toward the nose; the lateral rectus pulls it away. The superior and inferior rectus and the two oblique muscles contribute to vertical movement and rotation about the line of sight. Their actions depend on the eye's orientation.[^p-eye-anatomy]
++
++[**Ocular motoneurons (OMNs)**]{.definition-term custom-style="Definition Term"} [are neurons that activate these muscles through long nerve fibres.]{.definition-explanation} Their cell bodies lie in brainstem groups, and these fibres travel through three cranial nerves. The abducens nerve, VI, supplies the lateral rectus; the trochlear nerve, IV, supplies the superior oblique; the oculomotor nerve, III, supplies the other four. For horizontal gaze, changing the relative pull of the medial and lateral rectus rotates the eye. [A force's turning effect is its [**torque**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} Opposing torques can balance even while the muscles remain under tension.[^p-eye-anatomy]
++
++**Repeated spikes maintain tension.** Each motor spike affects muscle force for longer than the electrical event lasts. Repeated activation and the combined action of many muscle fibres give a smoother force than a sequence of isolated eye movements. [**Tonic firing**]{.definition-term custom-style="Definition Term"} [means sustained firing during the holding period.]{.definition-explanation} It need not be perfectly periodic. During a rapid repositioning movement, called a [**saccade**]{.definition-term custom-style="Definition Term"}, a brief strong drive moves the eye; a sustained position-dependent drive then holds the new angle. This is the pulse-and-step description: the step means continuing drive, not one more spike.[^p-eye-mechanics][^p-eye-plasticity]
++
++The mechanical properties contribute in different ways:
++
++- [**Elasticity**]{.definition-term custom-style="Definition Term"} [creates restoring forces when muscles and surrounding tissues are stretched.]{.definition-explanation} At an off-centre gaze angle, active muscle torque must balance the restoring tendency.
++- [**Viscosity**]{.definition-term custom-style="Definition Term"} [resists motion and dissipates mechanical energy.]{.definition-explanation} It damps rapid changes but supplies no holding torque once velocity is zero.
++- [**Inertia**]{.definition-term custom-style="Definition Term"} [is resistance to a change in angular velocity.]{.definition-explanation} It matters during acceleration, not as a force holding a stationary eye. In primate eye movements, elastic and viscous effects dominate inertia.[^p-eye-mechanics]
++
++[Mechanical damping smooths movement; sustained neural drive selects the angle around which the eye is held. Inertia cannot preserve a stationary gaze against an unbalanced elastic pull.]{.key-statement}
++
++The next question is how activity across a group of neurons represents the angle to be held.
++
++## Patterns of firing rates represent a value {#sec:FOUNDATIONS-SPIKES}
+ 
+ [Neurons affect one another through connections called [**synapse**]{.definition-term custom-style="Definition Term"}s.]{.definition-explanation} In the models used here, inputs have two contrasting effects:
+ 
+@@ -287,3 +307,9 @@
+ <!-- vale ai-tells.EmDashUsage = YES -->
+ 
+ [^f-poisson-limit]: Massachusetts Institute of Technology, OpenCourseWare (2018). *Introduction to Probability: Lecture 22 notes, the Poisson process*. [PDF, pp. 3–5](https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3). The guide reconstructs the independent-bin limit using $r$ for rate and $\lambda=r\Delta t$ for expected count.
++
++[^p-eye-anatomy]: Dragoi, V. (2026, July 7 review). *Ocular Motor Control*. Neuroscience Online, Section 3, Chapter 8, McGovern Medical School, UTHealth Houston. [Sections 8.2–8.3 and Fig. 8.1](https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html). Anatomy, muscle innervation and visual/vestibular control.
++
++[^p-eye-mechanics]: Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). *Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation*. Journal of Neurophysiology, 101(6), 2907–2923. [DOI](https://doi.org/10.1152/jn.91045.2008). Introduction and stimulation/relaxation results. The spring-and-damper calculation is a guide reconstruction of the physical roles, not a fitted reproduction of these experiments.
++
++[^p-eye-plasticity]: Major, G., Baker, R., Aksay, E., Mensh, B., Seung, H. S., and Tank, D. W. (2004). *Plasticity and tuning by visual feedback of the stability of a neural integrator*. Proceedings of the National Academy of Sciences, 101(20), 7739–7744. [DOI](https://doi.org/10.1073/pnas.0401970101). Fig. 1 for movement and holding signals; Figs. 2–4 and Discussion for goldfish training, reversibility and unresolved cellular mechanisms.

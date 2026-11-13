@@ -1,0 +1,72 @@
+derived under quite general conditions, are valid for highly non-   can provide a good estimate of neural noise-driven diffusivity. In
+linear systems, in contrast to existing results on information loss    turn, at least in the goldfish oculomotor integrator with its well-
+through neural noise in linear memory networks (29, 33). Our    characterized tuning curves and parameters, it may be possible
+results also contrast with existing analytical results on network    to compute the internal FI (2, 47). Thus, this work provides a
+models of integration and short-term memory, which are predo-    theoretical framework for assessing whether drift during fixations
+minantly deterministic or focus on memory degradation due to     is dominated by integrator noise rather than other sources of varia-
+systematic parameter mistuning (8, 9, 25, 26, 34–36).                  bility, such as motor noise.
+  Neural coding is typically analyzed from the perspective of a     Using the information-diffusion  inequality, we found  that
+downstream recipient of spikes. Our results highlight that the way   estimation of the memory network’s state does not significantly
+a variable is coded in a memory network has consequences not   improve by waiting to collect spikes over longer intervals than
+only for representational capacity, as viewed from outside the   approximately τ. This result solves what would otherwise be a
+network, but also for the network’s own internal dynamics.       conundrum: If it were profitable to integrate spikes for longer than
+  Our spiking model for single neurons is quite simple, and more   a single-neuron time-constant, then a memory network would be
+detailed models of neural spiking will doubtless produce some-   required to read out the variable stored in another memory net-
+what different results for the diffusivity and internal FI. Already,   work. Instead, a network with no persistence can be near optimal
+in two extensions of the basic Poisson neuron model (a modified    in this task. We predict that our readout performance curves
+noise model and a model of neurons with two time-constants),    (Fig. 3) should match psychometric curves on recall performance
+the diffusion coefficient and the internal FI had modified forms   as a function of the length of the postcue recall interval, with τ
+(SI Appendix, section VII). Interestingly, however, in each case    likely corresponding to biophysical single-neuron time-scales.
+the information-diffusion inequality remained valid (SI Appendix,    Further, whether the measured psychometric curve is found to
+section VII). The very general nature of the principle underlying   be monotonically increasing or peaked at the single-neuron time-
+the information-diffusion inequality suggests that it may hold for   constant may reveal whether memory readout is based on an ideal
+neural models that contain more biophysical detail (24) and   estimator or a simple but near-optimal estimator that assumes a
+include more dynamical time-scales (37); for networks where    static memory state.
+spike–spike correlations are important and modify the Fisher in-    We conclude with an intriguing implication of the information-
+formation (38, 39) and diffusivity; as well as for different kinds of    diffusion inequality: With an exponential neural nonlinearity,
+biological systems like gene–protein regulatory networks where   minimizing diffusivity in symmetric networks  is equivalent tostochasticity in the copy number of transcriptional regulators   maximizing internal FI, which implies that the same conditions                                     NEUROSCIENCE
+plays the role of Poisson noise (40). Deterministic spiking net-   optimize both memory performance and sensory representation.§
+works can have chaotic dynamics and produce Poisson-like spike   This suggests that a single brain area could perform both sensory
+trains (41, 42). If our assumption of Poisson independence holds   representation and maintain a short-term memory, and thus
+true in those networks, then our results may also apply to such   provides mathematical support for the hypothesis from recent
+systems. These conjectures remain to be tested.                   empirical findings (4, 5, 48), that sensory brain areas may be in-
+  Our results suggest that in continuous attractor neural integra-   volved in storing the variables they represent.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      PHYSICStors (8–10, 25, 26, 34), neural noise has a similar effect as noise in
+the input variable being integrated, justifying the phenomenolo-   Materials and Methods
+gical approach taken by many (25, 26, 43), who add a Gaussian    Neural Network. We consider a network of N linear–nonlinear Poisson (LNP)
+noise term to the input of an otherwise perfect integrator. When    neurons with the following dynamics: The synaptic activation  si due to
+this added term represents noise in only the stimulus [e.g., in    spikes produced by neuron i is obtained by convolving the spike train with
+random-dot motion stimuli (26)], its statistics are known and   an exponential function:
+                                                                                                                                         si
+can be used to set the noise variance. However, in general the                                                       _si þ ¼    δðt −tαi Þ;                 [7]
+variance of added noise should also include the effects of stochas-                        τ ∑α
+ticity in the neural integrator, which is the diffusivity we have   where τ is the synaptic time-constant, taken for simplicity to be identical in all
+computed here. The variance of this term depends on the net-    synapses, and t iα are the spike times. The total synaptic input to neuron i is
+work structure and the nonlinearity of the integrator neurons,    given by a weighted sum over the synaptic activations of its afferents
+as given in Eq. 2 or SI Appendix, Eq. S15. This intrinsic neural
+noise reduces the accuracy of the integrator but does not shorten                                   gi ¼ ∑W ijsj þ bi;                   [8]
+the integration time-constant.                                                                                                            j
+  Our results have implications for empirical studies of memory.   where Wij is the weight matrix. The neuron emits spikes as an inhomoge-
+The result that memory degradation due to neural noise is diffu-    neous Poisson process with rate
+sive, implies that the variance in the recall of analog variables
+                                                                                                                                          ri ¼ ϕðgiÞ:                      [9](44, 45), if stored directly in a continuous attractor network, is
+predicted by the diffusion equation (SI Appendix, Eq. S26), using
+the diffusion coefficient D. The latter could be derived from our   Weak Fluctuations. In the limit in which each neuron is driven by many spikes,
+results, Eq. 2 or SI Appendix, Eq. S15, and in addition (or instead)    Eq. 7 can be replaced by (see SI Appendix, section I)
+                                                                                                                                             sibe measured experimentally—by observing the instantaneous                                                             _si þ                                                      ¼ ri þ ξi;                  [10]
+growth of recall variance starting from all possible states of the                          τ
+variable. At short times in the tuned system, the variance of recall   where ξi is a Gaussian process with covariance
+should increase linearly, with slope D.
+                                                                                                  hξiðtÞξjðt 0Þi ¼ riðtÞδijδðt −t 0Þ:            [11]  The quantitative expression for the diffusion rate derived here
+can be used to probe to what extent short-term memory errors    This approximation is justified when the appropriate corresponding fluctua-
+are due to fundamental neural fluctuations and, thus, whether the    tions in gi are small compared to the mean. It may seem more justified
+system performance is otherwise optimized. For example, it may be    to introduce the small noise term in g rather than s, but formally the two
+possible to estimate how much of the drift during oculomotor fixa-    formulations are equivalent (SI Appendix, section  I) because g and s are
+tions is due to neural noise in the oculomotor integrator (46). The
+diffusion formula of Eq. 2 cannot be directly applied in this case
+                                                                                      §The conclusion supposes that internal  FI equals the Fisher information in sensory
+because oculomotor spikes are significantly sub-Poisson. However,     representation, or in other words, that tuning curves with and without external inputs
+the information-diffusion inequality suggests that the internal FI     are similar, which is typically true in continuous attractor networks (7).
+
+
+
+Burak and Fiete                                                                                           PNAS Early Edition    ∣  5 of 6

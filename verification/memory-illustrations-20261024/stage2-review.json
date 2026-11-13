@@ -1,0 +1,78 @@
+{
+  "stage": 2,
+  "stage_name": "Necessity and terminology",
+  "reviewer": "/root/review_memory_illustrations",
+  "model": "GPT 6.1 sol high reasoning",
+  "local_request_id": "memory-illustrations-20261024-stage2",
+  "timestamp": "2026-10-24T18:17:34.043498+03:00",
+  "root_start": "2026-10-24T18:06:16.7630300+03:00",
+  "awake_time": "unverified",
+  "scope": "Only new insertions, captions, alt text, plot labels and source links, with their immediate existing context; no audit of unchanged chapter math.",
+  "input_hashes": {
+    "content\\chapters\\02-memory-dynamics.md": "954f651997b2818862b5f125142b8ca866437c9cd073e5da402107bca60e02de",
+    "content\\chapters\\02-memory-dynamics.yaml": "c511f7aef991b7010b5a36354db3ba63686afff78edca623c7796110bd8b3af0",
+    "verification\\memory-illustrations-20261024\\integration-rows.yaml": "35041fc1b6483af009316b56761246e40db16d091e3d06592f80663c7e0b282c",
+    "verification\\memory-illustrations-20261024\\M01-brief.yaml": "81e03887ef7dd5b90591e5c423663279e909b4c138d9fcec1cda012dcc82242d",
+    "verification\\memory-illustrations-20261024\\M02-brief.yaml": "08c7db35f60afb1d1ef8257643dc8e58945be34b707ff1b4107d978ad0943acb",
+    "verification\\memory-illustrations-20261024\\M03-brief.yaml": "1186ec00e7b830d7d5e9cd054e6cd8f0b5def117964a4b6fe99ad6f32645984c"
+  },
+  "verdict": "four bounded wording repairs required, then focused recheck",
+  "required_edits": [
+    {
+      "id": "W1",
+      "line": 257,
+      "original": "The mutual inhibition example makes the distinction between individual rates and their contribution to diffusion visible.",
+      "replacement": "The plot uses $b=20$ activation units and $\\tau=0.1\\,\\mathrm{s}$.",
+      "reason": "The original only announces that the figure makes a distinction visible. The preceding paragraph has already explained that distinction. State the chosen inputs so the reader can connect the numerical curves to the symbolic example."
+    },
+    {
+      "id": "W2",
+      "line": 265,
+      "original": "The individual rates vary with the stored value, but their summed variability and therefore the local diffusion coefficient remain constant inside the valid range.",
+      "replacement": "The dashed rate sum in the upper plot stays fixed, so the lower plot has the same $D$ at every interior value of $\\theta$.",
+      "reason": "The original repeats the preceding derivation and caption. The replacement connects the two plotted panels directly and keeps the interior-domain limit."
+    },
+    {
+      "id": "W3",
+      "line": 312,
+      "original": "Wrapping the Gaussian around a circle changes long delay errors even when the local diffusion coefficient stays constant.",
+      "replacement": "For $D=0.5\\,\\mathrm{rad}^2/\\mathrm{s}$, the plots show how the density and squared error change with delay.",
+      "reason": "The original repeats the immediately preceding explanation. The replacement introduces what is actually plotted and its chosen diffusion coefficient."
+    },
+    {
+      "id": "W4",
+      "line": 320,
+      "original": "A flattening angular error curve can follow from the bounded way error is reported; it does not require the local noise mechanism to weaken.",
+      "replacement": "As the upper density approaches uniform, the wrapped error below approaches $\\pi^2/3$; the line error keeps growing.",
+      "reason": "The existing paragraph immediately before the figure and its caption already explain unchanged local noise and bounded error. The replacement interprets the relationship between the two panels without repeating that conclusion a third time."
+    }
+  ],
+  "retained": [
+    {
+      "location": "Chapter opening, paper-link note",
+      "reason": "Explains the PDF locator behavior and the lack of numbered original text lines. Viewer support is qualified; SI is expanded at first use."
+    },
+    {
+      "location": "M01 introduction and interpretation, lines 27 and 35",
+      "reason": "The introduction identifies chosen input events before the plot. The interpretation distinguishes spike events from the state they leave behind, which is the local teaching task. No added technical name or missing first use."
+    },
+    {
+      "location": "All three captions and alt descriptions",
+      "reason": "They retain chosen parameters, analytic versus paper-data status, plotted relationships, units and domain conventions. Each is needed for a figure inspected separately. Repetition of essential limits in a caption is justified."
+    },
+    {
+      "location": "Plot labels and legends",
+      "reason": "Activation, rates, D, density and angular error have already been taught before each plot. Symbols and units identify the plotted quantities without new specialist vocabulary."
+    },
+    {
+      "location": "48 paper links and all 14 footnotes",
+      "reason": "Equation/figure/paragraph labels are the requested means of inspecting exact source support. Complete references and source-discrepancy limits remain necessary. Longer references can be scanned without reading every item as narrative."
+    }
+  ],
+  "not_done": [
+    "No reader source edits.",
+    "No Stage 3 approval.",
+    "No new mathematical claim review of replacement text; coordinator should request a focused Stage 1 recheck before final Stage 2 recheck.",
+    "No browser output approval or final hash binding."
+  ]
+}

@@ -1,0 +1,99 @@
+chapter_id: ch:FOUNDATIONS
+part_id: part:MECHANISMS
+title: Neural activity, stored values, and random motion
+purpose: 'The eyes can hold a position after a brief movement command has ended. An
+  animal can also keep track of its location while the activity of individual neurons
+  fluctuates. Both abilities require a useful quantity to remain represented in a
+  changing biological system. The three papers study different parts of this problem:
+  the loss of a stored value, the origin of slow eye motion, and the arrangement of
+  spatial firing patterns.'
+role: chapter
+page_break_before: true
+pedagogical_prerequisites: []
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:FOUNDATIONS-SPIKES
+  title: Spikes, rates, and population patterns
+  summary: A neuron communicates through brief electrical events called [**spike**]{.definition-term
+    custom-style="Definition Term"}s. A [**firing rate**]{.definition-term custom-style="Definition
+    Term"} is the expected number of spikes per unit time. A rate of 20 hertz means
+    an average of 20 spikes per second under the specified conditions, rather than
+    a promise of one spike every 50 milliseconds.
+  level: 2
+- id: sec:FOUNDATIONS-POISSON
+  title: A variable spike count at a fixed rate
+  summary: 'Even when the represented value stays fixed, the spikes need not repeat
+    from trial to trial. The 2012 model starts with a tractable description of this
+    variability: a [**Poisson process**]{.definition-term custom-style="Definition
+    Term"}. At constant rate $r$, the number $K$ of spikes in an interval of length
+    $\Delta t$ obeys'
+  level: 2
+- id: sec:FOUNDATIONS-COUNT-EXAMPLE
+  title: 'Example: an apparently silent cell and an informative population'
+  summary: Suppose the expected rate is 20 spikes per second and an observation lasts
+    50 ms. The expected count is $20\times0.05=1$. The probability of seeing no spike
+    is $e^{-1}=0.368$. A silent interval is therefore common even though the expected
+    rate is positive.
+  level: 3
+- id: sec:FOUNDATIONS-COVARIANCE
+  title: Variance, covariance, and displacement
+  summary: To identify where variability enters a pathway, the eye paper compares
+    measurements that share some fluctuations and have other fluctuations of their
+    own. The required probability identities are short, but their interpretation matters.
+  level: 2
+- id: sec:FOUNDATIONS-ATTRACTOR
+  title: Stable activity with a vulnerable stored value
+  summary: A circuit's current activities are its [**state**]{.definition-term custom-style="Definition
+    Term"}. A dynamical equation specifies how that state changes. A [**fixed point**]{.definition-term
+    custom-style="Definition Term"} is a state where the deterministic rate of change
+    is zero. It is stable in a direction if a small disturbance in that direction
+    decays.
+  level: 2
+- id: sec:FOUNDATIONS-ATTRACTOR-EXAMPLE
+  title: 'Example: two disturbances to the same stored angle'
+  summary: Consider a teaching model with two activities $r_1,r_2$ in spikes per second.
+    Let $b=40$ spikes per second and let $k=2$ spikes per second per degree. A stored
+    angle $\theta$ corresponds to
+  level: 3
+- id: sec:FOUNDATIONS-DIFFUSION
+  title: Repeated perturbations become diffusion
+  summary: If persistent angular changes arrive repeatedly, their errors accumulate.
+    Divide time into intervals of length $\Delta t$. Let $\xi_j$ be the change in
+    the represented coordinate during interval $j$. Assume independent increments
+    with mean zero and variance $2D\Delta t$, where $D$ has units coordinate squared
+    per time. After $n$ intervals,
+  level: 2
+- id: sec:FOUNDATIONS-DIFFUSION-EXAMPLE
+  title: 'Example: why the noise grows slower than a fixed bias'
+  summary: Take an illustrative angular diffusion coefficient $D=0.02$ degrees squared
+    per second. At 0.35 s its variance is $0.014$ degrees squared and its root mean
+    squared displacement is 0.118 degrees, or about 7.10 arcminutes. At 1 s the root
+    mean squared displacement is 0.20 degrees. These are teaching values, not a new
+    estimate from either monkey.
+  level: 3
+- id: sec:FOUNDATIONS-RANDOMNESS
+  title: Randomness across time and across space
+  summary: The memory and eye papers study fluctuations that accumulate as time passes.
+    The place-field paper instead starts with a random function of physical position.
+    Once drawn for a cell and an environment, that function is fixed while the animal
+    moves through the map. Revisiting a place evaluates the same expected-rate function,
+    although the actual spikes can still vary from visit to visit.
+  level: 2
+blocks:
+- id: fig:FOUNDATIONS-ATTRACTOR
+  kind: figure
+  placement: sec:FOUNDATIONS-ATTRACTOR-EXAMPLE
+  asset: assets/approved/visuals/attractor-directions.svg
+  caption: A common activity disturbance returns to the initial angle, while an along-line
+    disturbance persists as a changed angle. The solid arrow is deterministic recovery;
+    the dashed arrow is an imposed disturbance. This is the guide's two-activity construction,
+    not experimental data.
+  alt: Two activity axes in hertz, a diagonal fixed-point line, initial state at 50
+    and 30, common disturbance at 53 and 33 with a solid arrow back, and along-line
+    disturbance at 53 and 27 corresponding to 6.5 degrees.
+  width_inches: 6.4
+  html_fold: never
+source_loci: []

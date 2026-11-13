@@ -1,0 +1,877 @@
+chapter_id: ch:EXAM-REVIEW
+part_id: part:MECHANISMS
+title: 'Exam review: connect mechanisms, measurements and results'
+purpose: Return after studying the three papers to reconstruct their arguments, locate a formula, read its
+  symbols and check its assumptions. Core results are visible; supporting results remain in closed notes.
+role: frontmatter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:MATHEMATICAL-TOOLS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies: []
+section_list:
+- id: sec:EXAM-MAP
+  title: Three questions organize the three papers
+  summary: Use the question and reasoning chain to choose a paper before looking up its formulas.
+  level: 2
+- id: sec:EXAM-MEMORY
+  title: Feedback sustains activity while noisy spikes move the remembered value
+  summary: Reconstruct the paper argument, then consult locally defined symbols and exact paper/guide locations
+    for each result.
+  level: 2
+- id: sec:EXAM-EYE
+  title: Covariance identifies a shared component of eye movement
+  summary: Reconstruct the paper argument, then consult locally defined symbols and exact paper/guide locations
+    for each result.
+  level: 2
+- id: sec:EXAM-PLACE
+  title: Thresholded Gaussian input links spatial structure to place-field statistics
+  summary: Reconstruct the paper argument, then consult locally defined symbols and exact paper/guide locations
+    for each result.
+  level: 2
+- id: sec:EXAM-DISTINCTIONS
+  title: Different quantities answer different questions
+  summary: Check the distinctions most likely to cause an incorrect explanation of these papers.
+  level: 2
+blocks:
+- id: tbl:EXAM-MAP
+  kind: table
+  placement: sec:EXAM-MAP
+  headers:
+  - Question and system
+  - Reasoning chain
+  - What the result establishes
+  rows:
+  - - '**[Memory: Burak and Fiete (2012)](#sec-exam-memory).** A modeled recurrent neural circuit retains a
+      continuous value after its cue ends.'
+    - Spikes renew synaptic activity → fixed connections sustain a family of activity patterns → some noise
+      survives relaxation as a value change → Fisher information constrains how small that change can be.
+    - A lower bound links memory diffusion to spike precision and synaptic decay. Simulated networks test the
+      theory; this paper does not fit animal memory errors.
+  - - '**[Eye drift: Ben-Shushan et al. (2022)](#sec-exam-eye).** Motor-neuron spikes and horizontal fixation
+      movements were recorded in macaque monkeys.'
+    - Calibrate spikes into predicted displacement → compare predicted and measured movement → separate shared
+      variance from private noise → test how muscles filter candidate noise sources.
+    - The recordings support a large shared contribution; the model explains how a diffusing command can produce
+      smooth motion. They do not uniquely locate the source in one circuit.
+  - - '**[Place fields: Mainali et al. (2025)](#sec-exam-place).** Spatial firing patterns in rodents and bats
+      are compared with a statistical model.'
+    - Draw a correlated Gaussian spatial map → apply a threshold → count crossings and active regions → use
+      high-peak geometry for sizes → compare dimension, slices and holes.
+    - One model predicts several spatial statistics. Crossing formulas can be exact within the Gaussian model;
+      the universal size laws require a high-threshold limit.
+  caption: Choose the physical question before choosing an equation.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:EXAM-MEMORY-CORE
+  kind: table
+  placement: sec:EXAM-MEMORY
+  headers:
+  - formula and symbols
+  - location and derivation
+  - decoding
+  rows:
+  - - <span id="result-m1"></span>**M1. Spike-driven feedback · model**<br>$ds_i=-s_i\,dt/\tau+dN_i$<br>$g_i=\sum_jW_{ij}s_j+b_i$<br>$r_i=\phi(g_i)$<br>**Extra
+      symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$N_i(t)$
+      counts cell $i$'s spikes up to time $t$; $dN_i$ counts new spikes in $dt$.</span></span></span>
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity.pdf#page=5).
+      Main, Materials and Methods, Neural Network, Eqs. 7-9, PDF p. 5 (Early Edition 5 of 6). The count-increment
+      equation is the guide''s equivalent form of the impulse-train Eq. 7.<br>**Guide location:** [Chapter
+      1, §1.2, Recurrent spikes renew decaying synaptic activity](../chapters/ch-foundations.html#sec-memory-spikes).<br>**Origin:**
+      Paper model; first formula is an exact count-process rewrite of paper Eq. 7, rather than its printed
+      notation.<br>**Derivation route:** Each spike increases outgoing activation $s_i$ by one; the count process
+      $N_i$ records these events. Between spikes, activation decays over time $\tau$. The fixed weight $W_{ij}$
+      sends cell $j$''s activation to receiver $i$; bias $b_i$ completes total input $g_i$.'
+    - The circuit stores a value through activity that renews itself. The weights determine who affects whom;
+      they do not change during storage. The response $\phi$ converts input into firing rate, rather than directly
+      into eye angle.
+  - - '<span id="result-m3"></span>**M3. Lasting displacement · central**<br>$K\mathbf u=0$<br>$\mathbf v^TK=0,\quad\mathbf
+      v^T\mathbf u=1$<br>$2D(\theta)=\sum_i v_i^2\bar r_i$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$\delta\mathbf s$: a small activation disturbance,
+      an $N$-vector. Its retained coordinate shift is $\mathbf v^T\delta\mathbf s$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3).
+      SI, II. The Coefficient of Diffusion: Eqs. S8-S9 define $K$, S11 gives $\mathbf u$, S12-S13 give the
+      left-vector condition and normalization, and S14-S15 give projected variance and $2D$. All are on PDF
+      p. 3. $K\mathbf u=0$ follows by differentiating the fixed-point family and is explained in the guide.<br>**Guide
+      location:** [Chapter 3, §3.2, The network''s return flow determines the lasting memory change](../chapters/ch-memory-dynamics.html#sec-memory-linearization);
+      [§3.3, Projecting spike fluctuations gives the diffusion coefficient](../chapters/ch-memory-dynamics.html#sec-memory-diffusion).<br>**Origin:**
+      Paper leading weak-noise result. The guide supplies the explicit tangent differentiation and explains
+      why the left vector gives the lasting change.<br>**Derivation route:** $K$ is the matrix governing small
+      activation disturbances, and $\mathbf u=\partial\bar{\mathbf s}/\partial\theta$ follows the steady-state
+      family. The left vector $\mathbf v$ removes the decaying part: a disturbance $\delta\mathbf s$ leaves
+      shift $\mathbf v^T\delta\mathbf s$. Add independent projected spike variances.'
+    - $v_i$ measures the lasting change in the represented value caused by one activation change in cell $i$,
+      after other disturbances relax. $D$ is half the local growth rate of displacement variance. This is a
+      leading weak-noise result near a tuned continuous family with stable transverse directions.
+  - - '<span id="result-m7"></span>**M7. Spike precision · central**<br>$J(\theta)=\sum_i\dfrac{(\bar r_i'')^2}{\bar
+      r_i}$<br>$I_h=hJ$<br>$\operatorname{Var}(\hat\theta)\ge1/(hJ)$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$I_h=hJ$: information
+      in a short observation, in inverse coordinate units squared. The state is effectively fixed during $h$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).
+      Main Eq. 3, PDF p. 2, displays $J$. SI IV, S42-S43, PDF p. 9, defines information per short interval
+      and gives the Poisson likelihood; its continuation on p. 10 refers to the standard population-code derivation.
+      Main, Information-Diffusion Inequality, PDF p. 3, invokes the Cramer Rao error bound in prose. The explicit
+      score proof and $\operatorname{Var}(\hat\theta)\ge1/(hJ)$ display are guide derivations of that standard
+      bound, not separately numbered equations in this paper.<br>**Guide location:** [Chapter 5, §5.1, Rate
+      slopes and spike variability determine local information](../chapters/ch-memory-information.html#sec-memory-fi).<br>**Origin:**
+      Paper information-rate formula plus a guide derivation of its count-information relation and the regular
+      locally unbiased estimation bound.<br>**Derivation route:** Differentiate the log probability of independent
+      Poisson counts with respect to $\theta$. The mean squared derivative is Fisher information $I_h$; independent
+      terms add. Cauchy Schwarz applied to estimation error gives the variance bound for regular locally unbiased
+      estimates.'
+    - Steep tuning relative to spike noise makes nearby current values easier to distinguish. $J$ is information
+      per second about the present state, not stored bits or certainty about the original cue. The state is
+      effectively fixed during this short count calculation, and finite-sample attainment is not guaranteed.
+  - - <span id="result-m8"></span>**M8. Information–diffusion bound · central**<br>$D\ge\dfrac{1}{2\tau^2J}$<br>$2DJ\tau^2\ge1$
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity.pdf#page=3).
+      Main, Information-Diffusion Inequality, Eq. 4, PDF p. 3, displays $D\ge J^{-1}/(2\tau^2)$. SI V, S45-S49,
+      PDF pp. 10-11, proves it; S49 on p. 11 displays $2DJ\ge\tau^{-2}$. The row''s Cauchy Schwarz proof is
+      the guide''s shorter equivalent proof.<br>**Guide location:** [Chapter 5, §5.2, Spike information sets
+      a lower bound on memory diffusion](../chapters/ch-memory-information.html#sec-memory-bound).<br>**Origin:**
+      Paper inequality for the tuned weak-noise model; the dimensionless form is exact algebra. Symmetric connections
+      are not required.<br>**Derivation route:** The normalization of the lasting-shift weights gives $\tau\sum_i
+      v_i\bar r_i''=1$. Cauchy Schwarz bounds its square by $\tau^2(\sum_i v_i^2\bar r_i)(\sum_i(\bar r_i'')^2/\bar
+      r_i)$.'
+    - The same noisy spikes convey the value and renew the activity carrying it. At fixed $J$ and synaptic
+      time $\tau$, tuning the network cannot reduce diffusion below this bound in the stated model. It assumes
+      the tuned continuous family, weak independent conditional spike noise, a common decay time and no external
+      anchoring signal.
+  - - '<span id="result-m9"></span>**M9. Attaining the bound · central**<br>$v_i=\bar r_i''/(\tau J\bar r_i)$<br>$\phi(g)=A
+      e^{kg}\quad\text{is sufficient for }W=W^T$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$A>0$: rate scale (spikes/s).</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$k>0$: sensitivity to total input, in inverse
+      input units; $kg$ is dimensionless.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$W=W^T$
+      means symmetric connection weights.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=11).
+      SI V, Saturation of the inequality, following S49 through S51, PDF p. 11, gives the equality condition
+      and exponential transfer class. Main, Saturation of the information-diffusion inequality, PDF p. 3, states
+      exponential sufficiency. The explicitly normalized $v_i=\bar r_i''/(\tau J\bar r_i)$ is the guide''s
+      exact equality-condition reconstruction, not an equation printed in that form. The source''s stronger
+      exponential-necessity claim is qualified by the guide''s linear counterexample.<br>**Guide location:**
+      [Chapter 5, §5.2, Spike information sets a lower bound on memory diffusion, equality condition and linear
+      counterexample](../chapters/ch-memory-information.html#sec-memory-bound).<br>**Origin:** Paper sufficient
+      exponential class; guide-derived explicit normalized equality condition and guide qualification of the
+      source''s necessity claim.<br>**Derivation route:** Equality in Cauchy Schwarz requires $v_i\sqrt{\bar
+      r_i}$ to be proportional to $\bar r_i''/\sqrt{\bar r_i}$ for every contributing cell. In a symmetric
+      network an exponential transfer rule supplies the required common ratio $\phi''/\phi$; $A>0$ and $k>0$
+      are constants.'
+    - The retained effect of each cell's spike noise must match the information its spikes provide. Suitable
+      symmetric exponential networks reach the lower bound under the same tuned-model assumptions. Exponential
+      transfer is a sufficient class, not a general necessity; the guide gives a linear counterexample to the
+      stronger source claim.
+  - - '<span id="result-m13"></span>**M13. Diffusion-aware readout · central**<br>$V_{\rm ideal}(L)=\sqrt{\dfrac{2D}{J}}\coth(\sqrt{2DJ}\,L)$<br>$V_{\rm
+      ideal}(\infty)=\sqrt{2D/J}$<br>$L^*=1/\sqrt{2DJ}\le\tau$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$V_{\rm ideal}(L)$: variance of error in
+      reading the cue-time state; $V_{\rm ideal}(\infty)$ is its long-observation limit.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$L^*=1/\sqrt{2DJ}$: characteristic approach
+      time (s), not a finite optimum.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$P=1/V_{\rm
+      ideal}$: Gaussian precision, in inverse coordinate units squared.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\coth z=(e^{2z}+1)/(e^{2z}-1)$; the argument here is dimensionless.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$D,J$ are held locally constant in this
+      Gaussian readout calculation.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=15).
+      SI VI, Ideal estimator, S58-S63, PDF p. 13, defines the Gaussian model; S64-S74 on p. 14 gives the covariance
+      solution; S75 on p. 15 displays the finite-$L$ variance and the following paragraph states its limit
+      and characteristic time. Main Eq. 5, PDF p. 4, displays $L^*\le\tau$. The backward precision equation
+      $P''=J-2DP^2$ is the guide''s independent reconstruction, not a printed source equation; it confirms
+      S75 despite the sign mismatch in S71.<br>**Guide location:** [Chapter 6, §6.3, Accounting for diffusion
+      makes readout improve toward a limit](../chapters/ch-memory-readout.html#sec-memory-ideal).<br>**Origin:**
+      Paper finite and limiting ideal-readout results, exact within its local Gaussian observation model; guide
+      provides an equivalent precision derivation. The inequality gives a characteristic time, not an abrupt
+      end of benefit.<br>**Derivation route:** Combine observation precision backward in time while adding
+      diffusion variance between observations. Precision $P$ obeys $dP/dL=J-2DP^2$, $P(0)=0$; solve and use
+      $V=1/P$.'
+    - Accounting for motion makes more observation keep helping, toward a finite limit. $L^*$ is a characteristic
+      saturation time, not a hard deadline. This is an ideal observer within the local Gaussian readout model;
+      it does not show a biological decoder implementing the rule.
+  caption: Feedback sustains activity while noisy spikes move the remembered value. Core argument.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:EXAM-MEMORY-SUPPORT
+  kind: table
+  placement: sec:EXAM-MEMORY
+  headers:
+  - formula and symbols
+  - location and derivation
+  - decoding
+  rows:
+  - - '<span id="result-m2"></span>**M2. Spike variability · model**<br>$K_i\mid\theta\sim\mathrm{Poisson}(\lambda_i)$<br>$\lambda_i=h\bar
+      r_i(\theta)$<br>$\operatorname{Var}(K_i\mid\theta)=\lambda_i$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$K_i$: cell $i$''s spike
+      count during the observation interval, dimensionless; distinct from response matrix $K$.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$\lambda_i=h\bar r_i$: expected count, dimensionless.
+      Poisson names the count distribution.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9).
+      SI, IV. Internal Fisher Information, Eq. S43, PDF p. 9, displays the joint product-Poisson likelihood
+      with observation duration $\delta t$ and counts $n_i$. Main Eq. 9, PDF p. 5, states the Poisson spike
+      model. Equal mean and variance and the rare-event derivation are worked out in the guide, not separately
+      displayed source results.<br>**Guide location:** [Chapter 1, §1.4, A variable spike count at a fixed
+      rate](../chapters/ch-foundations.html#sec-foundations-poisson).<br>**Origin:** Paper count model with
+      guide aliases $K_i,h,\lambda_i$; the count moments and elementary derivation are exact properties of
+      that model when the state is held fixed.<br>**Derivation route:** Independent rare events in short subdivisions
+      give the Poisson count law over a duration $h$. Its first two moments give equal count mean and variance.
+      Here $\bar r_i$ is the steady tuning curve at value $\theta$.'
+    - Higher firing supplies more events and more absolute count noise. The elementary spike noise is independent
+      across cells conditional on the current state; recurrent interactions can still correlate complete neural
+      trajectories.
+  - - <span id="result-m4"></span>**M4. Symmetric connections · supporting**<br>$2D=\dfrac{\sum_i\bar r_i(g_i')^2}{\tau^2(\sum_i\bar
+      r_i' g_i')^2}$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span
+      class="definition-explanation">$g_i$ is evaluated at a steady state here; $g_i'=dg_i/d\theta$ has input
+      units per coordinate unit.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$W_{ij}=W_{ji}$
+      is pairwise connection symmetry. Primes are first derivatives.</span></span></span>
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4).
+      SI, II. The Coefficient of Diffusion, Eqs. S16-S18, PDF p. 4: S18 displays the squared input slope in
+      the numerator and the full formula. Main Eq. 2, PDF p. 2, omits that square in the supplied Early Edition
+      PDF. The guide links the 2017 author correction for main Eq. 2.<br>**Guide location:** [Chapter 3, §3.4,
+      Symmetric weights express diffusion through tuning curves](../chapters/ch-memory-dynamics.html#sec-memory-symmetric).<br>**Origin:**
+      Corrected source expression, directly supported by SI S18. It uses symmetric weights, the tuned continuous
+      family and the same leading weak-noise assumptions.<br>**Derivation route:** If $W_{ij}=W_{ji}$, differentiate
+      the fixed-state equations to find $v_i\propto g_i''$, then normalize by $\mathbf v^T\mathbf u=1$. Primes
+      mean derivatives with respect to memory value $\theta$.'
+    - For this special connectivity, tuning and input slopes determine diffusion without separately solving
+      for $\mathbf v$. The numerator contains squared input slopes, as in the published correction. The general
+      projection formula does not require symmetric weights.
+  - - '<span id="result-m5"></span>**M5. More than one stored coordinate · supporting**<br>$2D_{\alpha\beta}=\sum_i
+      v_i^\alpha\bar r_i v_i^\beta$<br>$J_{\alpha\beta}=\sum_i(\partial_\alpha\bar r_i)(\partial_\beta\bar
+      r_i)/\bar r_i$<br>$2D\succeq\tau^{-2}J^{-1}$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$m$: number of stored coordinates; $\boldsymbol\theta$
+      is an $m$-vector. Indices $\alpha,\beta=1,\ldots,m$ label coordinates.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\mathbf u^\beta=\partial\bar{\mathbf s}/\partial\theta_\beta$ and
+      $\mathbf v^\alpha$: matching right and left $N$-vectors, with activation/coordinate and coordinate/activation
+      units.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$\partial_\alpha\bar
+      r_i$: rate slope in coordinate $\alpha$; $\delta_{\alpha\beta}$ is one for equal indices and zero otherwise.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">Here $D,J$ are $m\times m$ matrices. $D_{\alpha\beta}$
+      has coordinate-$\alpha$ times coordinate-$\beta$/s units; $J_{\alpha\beta}$ has inverse coordinate-$\alpha$
+      times inverse coordinate-$\beta$/s units. $J$ must be invertible.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$A\succeq B$ means $A-B$ has a nonnegative quadratic form in every
+      direction.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6).
+      SI: S21 defines $D$ on PDF p. 5; S22-S24 give tangents, normalization and the displayed diffusion tensor
+      on p. 6. S44 displays the information matrix on p. 10. S52 displays the matrix bound on p. 11; S53-S56
+      prove it on p. 12. [Information matrix](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10);
+      [matrix bound](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=11); [proof](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12).<br>**Guide
+      location:** [Chapter 3, §3.3, Projecting spike fluctuations gives the diffusion coefficient](../chapters/ch-memory-dynamics.html#sec-memory-diffusion);
+      [Chapter 5, §5.2, Spike information sets a lower bound on memory diffusion, matrix derivation](../chapters/ch-memory-information.html#sec-memory-bound).<br>**Origin:**
+      Paper diffusion and information matrices and paper matrix inequality; guide proof uses an equivalent
+      nonnegative residual matrix. The ordinary inverse needs nonsingular $J$.<br>**Derivation route:** Choose
+      a tangent for each stored coordinate and left vectors satisfying $\sum_i v_i^\alpha u_i^\beta=\delta_{\alpha\beta}$.
+      Project the same spike noise onto each pair of coordinates.  Applying the same normalization in matrix
+      form gives the bound when the information matrix $J$ is invertible.'
+    - The diagonal entries give spreading in each coordinate. Off-diagonal entries give coupled changes in
+      two stored coordinates, even when the elementary spike noises are independent. The weak-noise and local-state
+      assumptions remain. The matrix inequality means every linear combination of coordinate changes obeys
+      its variance bound, including coupled directions.
+  - - '<span id="result-m6"></span>**M6. Accumulated storage error · supporting**<br>$\partial_t p=\partial_\theta^2[D(\theta)p]$<br>$\operatorname{Var}[\theta(t)-\Theta]=2Dt$<br>$p(\theta,t)=\dfrac{e^{-(\theta-\Theta)^2/(4Dt)}}{\sqrt{4\pi
+      Dt}}$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$p(\theta,t)$:
+      density across trials, in inverse coordinate units. The Gaussian and $2Dt$ formulas use constant $D$.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$\mathbb E[D(\theta)]$: trial-averaged diffusion
+      coefficient.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">For
+      the circle example the coordinate is an angle in radians and error is wrapped to $[-\pi,\pi)$; its limiting
+      MSD is $\pi^2/3$ rad$^2$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7).
+      SI, III. Diffusive Dynamics Along the Attractor: S28-S30, PDF p. 7, give the density equation, point
+      initial condition and Gaussian with variance $2Dt$. S31 (p. 7) and S32 (p. 8) give the wrapped density
+      and angular-error moment. The limit $\pi^2/3$ and the moment-rate identity $d\operatorname{Var}/dt=2\mathbb
+      E[D]$ are exact guide deductions under the displayed diffusion model and suitable boundary conditions,
+      not separately displayed source formulas.<br>**Guide location:** [Chapter 4, §4.1, Long delay errors
+      depend on boundaries and local diffusion](../chapters/ch-memory-long-delays.html#sec-memory-long-time).<br>**Origin:**
+      Paper diffusion equation and constant-$D$ line solution; guide derives the circle''s uniform-error limit
+      and the general variance-rate identity. These assume zero systematic drift and the appropriate boundary
+      rules.<br>**Derivation route:** Combine small Itô diffusion increments, with no systematic drift, into
+      a probability evolution equation. The Gaussian and $2Dt$ formulas additionally require constant $D$,
+      a point initial value $\Theta$ and an unbounded coordinate.'
+    - The remembered value spreads even while neural activity persists. With state-dependent $D$, variance
+      instead grows at rate $2\mathbb E[D(\theta)]$. Boundaries, angular wrapping and systematic drift require
+      their own treatment; a linear MSD need not continue forever. For constant angular diffusion on a circle,
+      wrapped error eventually becomes uniform and its MSD tends to $\pi^2/3$ in radian-squared units; the
+      plateau does not mean noise stopped.
+  - - '<span id="result-m10"></span>**M10. Controlled changes of circuit parameters · supporting**<br>$J\propto
+      N,\quad D\propto N^{-1}$<br>$J\mapsto cJ,\quad D\mapsto D/c$<br>$D\propto\tau^{-2}$<br>**Extra symbols
+      and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$c>0$:
+      dimensionless multiplier of each rate tuning curve and its slope; distinct from preferred-value vector
+      $\mathbf c$ in M11.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">Each
+      proportionality describes the controlled change specified in the derivation, with the other properties
+      kept fixed.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).
+      Main, Diffusive Drift due to Ongoing Neural Noise, paragraph following Eq. 2, PDF p. 2, states the network-size,
+      firing-rate and decay-time comparisons. SI I, PDF pp. 1-2, gives population replication and $1/N$ weight
+      scaling, including S6 for a ring. The explicit proportionality powers and $J\mapsto cJ$, $D\mapsto D/c$
+      are guide algebra from corrected Eq. 2 and Eq. 3 under the listed constraints, not a separately displayed
+      source equation.<br>**Guide location:** [Chapter 5, §5.3, Improving persistence depends on what a comparison
+      holds fixed](../chapters/ch-memory-information.html#sec-memory-comparisons).<br>**Origin:** Guide-derived
+      scaling relationships supporting paper comparisons. The rate-to-diffusion scaling needs equality in the
+      bound or preserved tuning/input geometry; changing $\tau$ here holds rate tuning fixed by adjusting the
+      circuit.<br>**Derivation route:** Replicate a population of $N$ neurons with the same tuning distribution
+      and weights scaled as $1/N$. Count the sums in the symmetric diffusion formula. A uniform rate multiplier
+      $c>0$ also multiplies tuning slopes. For the time comparison, hold rate tuning and its input relation
+      fixed.'
+    - More comparable neurons can reduce independent noise, and longer synaptic effects can reduce the lasting
+      shift per spike. The stated rate-to-diffusion scaling needs an equality-achieving network or preserved
+      tuning/input geometry. Changing rate or decay time without the corresponding circuit adjustment need
+      not preserve the stored-state family.
+  - - '<span id="result-m11"></span>**M11. Tuning width depends on dimension · supporting**<br>$J_{\alpha\alpha}\propto\rho
+      a w^{d-2}$<br>$D_{\alpha\alpha}\propto w^{2-d}\quad\text{at equality}$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$d$: number of stored
+      spatial coordinates; $\alpha$ labels one of them. Here $D,J$ are $d\times d$ matrices with the coordinate-wise
+      units given in M5.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$\boldsymbol\theta,\mathbf
+      c$: represented and preferred positions, both $d$-vectors in coordinate units. $\mathbf c$ is not multiplier
+      $c$ in M10.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$w>0$:
+      tuning width (coordinate units).</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$a$:
+      fixed peak rate (spikes/s); $f$: fixed dimensionless radial tuning shape, whose argument $(\boldsymbol\theta-\mathbf
+      c)/w$ is dimensionless.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$\rho$:
+      preferred-position density, in coordinate$^{-d}$ units.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity.pdf#page=4).
+      Main, discussion of internal information and tuning width, PDF p. 4, states that narrower curves help
+      in 1D and broader curves in 3D and cites sensory coding work (ref. 31). The displayed $w^{d-2}$ and $w^{2-d}$
+      power laws and the integral derivation are guide reconstructions under fixed peak rate, uniform center
+      density, radial shape and equality in the matrix bound. They are not formulas displayed in this paper.<br>**Guide
+      location:** [Chapter 5, §5.3, Improving persistence depends on what a comparison holds fixed, tuning-width
+      integral](../chapters/ch-memory-information.html#sec-memory-comparisons).<br>**Origin:** Guide-derived
+      scaling laws explaining a paper argument under explicit resource and symmetry assumptions; the diffusion
+      power additionally assumes a circuit that attains the information bound.<br>**Derivation route:** Use
+      tuning $a f[(\boldsymbol\theta-\mathbf c)/w]$ with uniform preferred-value density $\rho$, fixed peak
+      rate $a$, radial shape $f$ and width $w$. The information integral gains $w^d$ from recruited cells and
+      $w^{-2}$ from squared slopes.'
+    - Under these fixed resources, narrower tuning helps in one dimension and broader tuning helps in three;
+      the leading width power vanishes in two. The diffusion statement additionally assumes an equality-achieving
+      network. Holding total spike rate fixed would be a different comparison. This is the guide's reconstruction
+      of the paper's width argument.
+  - - '<span id="result-m12"></span>**M12. Equal-weight readout · supporting**<br>$V_{\rm naive}(L)=\dfrac1{JL}+\dfrac{2DL}{3}$<br>$L_{\rm
+      naive}^*=\sqrt{\dfrac3{2DJ}}$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226;
+      <span class="definition-explanation">$V_{\rm naive}(L)$: error variance for the cue-time state under
+      equal observation weights; $L_{\rm naive}^*$ minimizes it (s).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">In covariance $2D\min(t,s)$, both $t$ and $s$ are elapsed observation
+      times (s); this $s$ is not activation.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$D,J$
+      are held locally constant, and state-motion and observation noises are separate in the Gaussian readout
+      model.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=15).
+      SI VI, Naive estimator, S76-S79, PDF p. 15, gives the equal-weight estimator, Brownian time covariance
+      and displayed variance. S80 on p. 15 gives the optimal duration; S81 on p. 16 gives its minimum variance.
+      The double covariance integral in the guide exposes the cross-time terms absent from the printed S77
+      sum-of-squares line.<br>**Guide location:** [Chapter 6, §6.2, Equal weighting becomes harmful when observation
+      lasts too long](../chapters/ch-memory-readout.html#sec-memory-naive).<br>**Origin:** Paper Gaussian-readout
+      result; guide derives S79 explicitly through the covariance integral. This variance concerns reading
+      the cue state, before adding storage error.<br>**Derivation route:** Average observations for duration
+      $L$ after the readout cue. Count noise averages to $1/(JL)$; integrating Brownian covariance $2D\min(t,s)$
+      over the observation square gives $2DL/3$. Differentiate to find the optimum.'
+    - Collecting more spikes first helps, then hurts because later spikes represent a state that has moved
+      further from the cue state. $V$ is readout error variance under the local Gaussian observation model,
+      with constant $D,J$ and separate state-motion and observation noise.
+  - - '<span id="result-m14"></span>**M14. Storage plus partial readout · supporting**<br>$V_{\rm recall}=2DT+V_{\rm
+      readout}$<br>$J_{\rm obs}=\alpha J$<br>$L_{\rm obs}^*=L^*/\sqrt\alpha$<br>$V_{\rm ideal,obs}(\infty)=\sqrt{2D/(\alpha
+      J)}$<br>$V_{\rm recall}(T,L)\ge2DT+\sqrt{2D/J}$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$0<\alpha\le1$: probability of observing
+      each spike independently, or a verified information fraction; distinct from the coordinate index in M5.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$J_{\rm obs}$: observed information rate,
+      with the same units as $J$.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$L^*$
+      and $L_{\rm obs}^*$: full- and partial-access characteristic readout times (s).</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$V_{\rm recall}$: error variance about the
+      original value; $V_{\rm readout}$: error variance in reading the cue-time state.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$V_{\rm ideal,obs}(\infty)$: ideal partial-access
+      limiting readout variance. The final displayed lower bound is the full-access benchmark, $\alpha=1$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=16).
+      SI VI, S57, PDF p. 12, gives storage-plus-readout error addition. The Incomplete readout paragraph, S82
+      and Fig. S2, PDF p. 16, replace $J$ by $\alpha J$ and give the time/variance factors. The source''s S83
+      on p. 16 and main Eq. 6 on p. 4 print a stronger lower bound whose direction does not follow. The row''s
+      full-access $2DT+\sqrt{2D/J}$ lower limit is guide algebra from S57 and S75, not a displayed corrected
+      source equation. [Error addition](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12); [finite
+      ideal variance](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=15).<br>**Guide location:**
+      [Chapter 6, §6.1, Storage loss and readout error add under specific assumptions](../chapters/ch-memory-readout.html#sec-memory-readout-setup);
+      [§6.4, Limited access can make observation slower](../chapters/ch-memory-readout.html#sec-memory-partial);
+      [§6.6, Readout saturates, and one printed error bound needs qualification](../chapters/ch-memory-readout.html#sec-memory-fig3-and-caution).<br>**Origin:**
+      Paper error decomposition and partial-access relationships, plus guide derivation of the full-access
+      total-error bound. Error addition needs local unbiasedness and independent future noise. $2D(T+\tau)$
+      is this asymptotic expression only when the information-diffusion bound is attained, not a general lower
+      bound.<br>**Derivation route:** Storage for delay $T$ adds independent error when readout is locally
+      unbiased and future noise is independent of storage history. Independently retain each spike with probability
+      $\alpha$; substitute the thinned rates into the FI formula.'
+    - Missing spikes reduces readout information while the full circuit keeps diffusing at the same $D$. Reading
+      becomes slower and less precise. A selected fraction of neurons need not carry the same fraction of information;
+      $\alpha J$ follows from random spike thinning or a verified information fraction. With full spike access,
+      the ideal total-error limit is $2DT+\sqrt{2D/J}$; it equals $2D(T+\tau)$ only at equality in the information
+      bound. [Why printed Eq. 6 needs this qualification](../chapters/ch-memory-readout.html#sec-memory-fig3-and-caution).
+  - - '<span id="result-m15"></span>**M15. A rate response time changes the bound · extension**<br>$\tau_m\dot
+      r_i=-r_i+\phi(g_i)$<br>$D\ge\dfrac{1}{2(\tau+\tau_m)^2J}$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$\tau_m$: firing-rate response time (s),
+      distinct from synaptic decay $\tau$.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$\dot
+      r_i$: time derivative of rate (spikes/s$^2$); $\phi(g_i)$ is the target rate at the present input.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=18).
+      SI VII, More than one time constant, S84, PDF p. 17, displays the rate equation; S85-S90 on pp. 17-18
+      develops the linear modes; S91-S92 on p. 18 display diffusion and its bound. Source S85 prints a positive
+      rate-decay block, although differentiating S84 gives the negative block used in the guide. [Rate model](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=17).<br>**Guide
+      location:** [Chapter 6, §6.5, Time scales and noise laws change the bound and its equality condition,
+      two-time-constant derivation](../chapters/ch-memory-readout.html#sec-memory-extensions).<br>**Origin:**
+      Paper two-stage extension for symmetric weights; the displayed bound is S92 divided by two. The guide
+      repairs the sign of the intermediate linear rate-decay block from the source''s own rate equation.<br>**Derivation
+      route:** Keep synaptic activation decay $\tau$ and add a firing-rate response time $\tau_m$. Linearize
+      both sets of variables and normalize the left mode against their combined tangent. In the symmetric model
+      the diffusion denominator gains $(\tau+\tau_m)^2$ in place of $\tau^2$.'
+    - Slower intrinsic rate response can also carry memory between spikes. The two times add for this specified
+      two-stage model, with the same Poisson drive and stable transverse directions. Replacing $\tau$ by a
+      sum of arbitrary biological response times is not justified.
+  - - '<span id="result-m16"></span>**M16. Noise law changes the equality condition · extension**<br>$J=\sum_i(\bar
+      r_i'')^2/q_n$<br>$2D=q_n\sum_i v_i^2$<br>$2DJ\ge\tau^{-2}$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$q_n>0$: common additive Gaussian noise
+      intensity, activation units squared/s, or s$^{-1}$ with unit-spike activation. A noise increment has
+      variance $q_n\,dt$; the rate average over $h$ has noise variance $q_n/h$ (s$^{-2}$).</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">Here $J$ is information per second in Gaussian
+      rate observations. The coordinate, projection and time units are unchanged.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">This $q_n$ is unrelated to the dimensionless place-field threshold
+      $q$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=19).
+      SI VII, White Gaussian noise, S93-S95, PDF p. 19, changes the noise law and states that a linear transfer
+      rule attains equality. The row''s explicit $q_n$ normalization and the matched formulas for $J$ and $D$
+      are guide reconstructions, not equations printed in that exact form: the supplied S94-S95 omit noise/time
+      factors. The guide chapter writes this noise strength as $q$; the table renames it $q_n$ to avoid the
+      spatial-threshold alias.<br>**Guide location:** [Chapter 6, §6.5, Time scales and noise laws change the
+      bound and its equality condition, Gaussian-noise reconstruction](../chapters/ch-memory-readout.html#sec-memory-extensions).<br>**Origin:**
+      Guide-derived matched Gaussian-noise formulas explaining the paper extension while keeping units explicit.
+      The information-diffusion inequality follows by the same normalized projection proof; symmetric linear
+      transfer is a sufficient equality class.<br>**Derivation route:** Replace Poisson fluctuations by independent
+      additive Gaussian noise with constant intensity $q_n>0$; a rate observation averaged for $h$ has noise
+      variance $q_n/h$. Repeat the likelihood and projection calculations with this same noise law.'
+    - The information–diffusion relation survives this matched noise model, but equality now needs $v_i\propto\bar
+      r_i'$. In the symmetric model a linear transfer rule is sufficient. An optimal transfer rule therefore
+      depends on how neurons fluctuate. The noise intensity $q_n$ is unrelated to the place-field threshold
+      $q$.
+  caption: Feedback sustains activity while noisy spikes move the remembered value. Further results, tests
+    and model extensions.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:EXAM-EYE-CORE
+  kind: table
+  placement: sec:EXAM-EYE
+  headers:
+  - formula and symbols
+  - location and derivation
+  - decoding
+  rows:
+  - - '<span id="result-e1"></span>**E1. From spikes to eye position · method**<br>$m\ddot x+r\dot x+kx=f$<br>$h_0(u)=\dfrac{\tau_+\tau_-}{m(\tau_+-\tau_-)}(e^{-u/\tau_+}-e^{-u/\tau_-}),\
+      u>0$<br>$\widehat E(t)=E_T+\sum_j h(t-t_j)$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$f$: firing rate (spikes/s); $x=E-E_T$:
+      position offset from fitted threshold angle $E_T$ (degrees).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$k$: position coefficient (spikes/(s degree)); $r$: velocity coefficient
+      (spikes/degree), not firing rate; $m$: acceleration coefficient (spikes s/degree).</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$t_j$: time of spike $j$; $\Delta t$: fitted
+      neural lead (both s); $p$: Laplace frequency (s$^{-1}$).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\tau_+,\tau_-$: distinct positive slow and fast response times
+      (s).</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$h_0,h$: causal
+      position responses before and after the delay, in degrees/spike; each vanishes before its effective input.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-fixational-drift.pdf#page=9). Ben-Shushan
+      et al. (2022), main Methods ''OMN firing rate estimators'' Eqs. 2–3 and ''Model inversion'' Eqs. 4–7,
+      PDF p. 9. Factoring the polynomial and checking impulse weights are expanded in the guide.<br>**Guide
+      location:** [Chapter 7, section 7.4, A calibrated filter predicts eye position from one cell''s spikes](../chapters/ch-eye-drift.html#sec-eye-inverse-filter)<br>**Origin:**
+      Paper calibration method; guide expands the factorization, normalization, and physical units.<br>**Derivation
+      route:** Invert the fitted rate–movement equation for $x=E-E_T$. Factor $mp^2+rp+k=m(p+1/\tau_+)(p+1/\tau_-)$;
+      each root supplies a decay. Set $h_0=0$ for $u<0$ and restore the fitted delay by $h(u)=h_0(u-\Delta
+      t)$.'
+    - Each recorded spike at $t_j$ contributes a calibrated position response in degrees. Coefficients $k,r,m$
+      couple firing to position, velocity and acceleration; $r$ here is not a firing rate. The two distinct
+      positive decay times describe the fitted response. This predicts movement from one cell, rather than
+      claiming that one cell controls the eye by itself.
+  - - '<span id="result-e3"></span>**E3. Shared movement fraction · central**<br>$X=C+\epsilon,\quad Y=C+\eta$<br>$\chi\simeq\dfrac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(Y)}$<br>$\chi\simeq
+      R\sqrt{\operatorname{Var}(X)/\operatorname{Var}(Y)}$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$X,Y$: spike-predicted and measured displacements
+      over 350 ms (degrees).</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$C$:
+      shared upstream displacement; $\epsilon$: private prediction error; $\eta$: other measured-displacement
+      contributions (all degrees). Here $C$ is not a covariance function.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\chi=\operatorname{Var}(C)/\operatorname{Var}(Y)$: dimensionless
+      shared fraction; $\widehat\chi$ is its weighted estimate.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">The reported $0.82\pm0.07$ uses propagated weighted estimation error,
+      not between-animal spread.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-fixational-drift.pdf#page=10).
+      Ben-Shushan et al. (2022), main Methods ''Estimated contribution of central source to measured eye position'',
+      Eqs. 11–15 and weighted estimation Eqs. 16–17, PDF p. 10; measured result Fig. 2e–f, PDF p. 4.<br>**Guide
+      location:** [Chapter 7, section 7.6, Calibrated covariance estimates the common share of movement variance](../chapters/ch-eye-drift.html#sec-eye-chi)<br>**Origin:**
+      Paper central estimate under unit calibration gain and nearly uncorrelated contributions; not a unique
+      circuit identification.<br>**Derivation route:** $X$ is spike-predicted displacement and $Y$ is measured
+      displacement, both calibrated in degrees. Expand their covariance: it retains the shared component variance
+      $\operatorname{Var}(C)$ when the other covariances are negligible.'
+    - Weak single-cell correlation can coexist with a large common contribution to movement. The paper reports
+      $\widehat\chi=0.82\pm0.07$ at 350 ms. This requires transferable gain calibration and nearly uncorrelated
+      private contributions; the recorded cell creates a neglected order-$1/N_m$ covariance. Locating the shared
+      source upstream also uses the biological independence premise.
+  - - '<span id="result-e5"></span>**E5. Filtered white noise · supporting**<br>$C_E(\ell)=A\int_0^\infty h(u)h(u+\ell)\,du$<br>$M(\ell)=2[C_E(0)-C_E(\ell)]$<br>**Extra
+      symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$\xi$:
+      white input in a chosen input unit $U$; $A$ is its intensity, defined by $\mathbb E[\xi(t)\xi(t'')]=A\delta(t-t'')$,
+      with units $U^2$ s.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">For
+      this normalization $h$ has units degrees/($U$ s). $E$ is centered and stationary in this calculation.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$A$ here is noise intensity, not the visual-feedback
+      gain used elsewhere.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-fixational-drift.pdf#page=10).
+      Ben-Shushan et al. (2022), main Methods ''MSD curve of low-pass filtered white noise'', Eqs. 20–22, PDF
+      p. 10; related private-OMN comparison Fig. 3, PDF p. 6.<br>**Guide location:** [Chapter 8, section 8.2,
+      The MSD plateaus for filtered white noise but grows for filtered diffusion](../chapters/ch-eye-timing.html#sec-eye-filtered-msd)<br>**Origin:**
+      Paper stationary filtered-noise result; a decaying kernel gives a finite MSD plateau.<br>**Derivation
+      route:** Convolve white input of intensity $A$ with a stable response $h$, then average the product at
+      two times. For a centered stationary position, expand the squared displacement.'
+    - If filter overlap decays to zero, MSD tends to the finite plateau $2C_E(0)$. Muscle filtering can smooth
+      private motor noise, but cannot make this stationary position noise accumulate displacement variance
+      indefinitely. Eye MSD instead keeps growing over the observed range.
+  - - '<span id="result-e6"></span>**E6. Filtered accumulating command · guide derivation**<br>$\tau_f\dot
+      E+E=B,\quad dB=\sqrt{2D}\,dW$<br>$M(\ell)=2D[\ell-\tau_f(1-e^{-\ell/\tau_f})]$<br>$M\sim D\ell^2/\tau_f\
+      (\ell\ll\tau_f)$<br>$M\sim2D(\ell-\tau_f)\ (\ell\gg\tau_f)$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$B$: accumulating Brownian
+      position command (degrees).</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$\tau_f$:
+      the single eye-response time (s), written $\tau$ in the detailed chapter; distinct from the 2012 synaptic
+      time.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$W$: standard
+      Brownian process with increment variance $dt$ and units sqrt(s), not a connection weight.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$v=\dot E$: eye velocity (degrees/s); $C_v(s)$:
+      stationary velocity covariance (degrees$^2$/s$^2$), where $s$ is a time lag.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-fixational-drift.pdf#page=6). Guide
+      derivation, not a displayed paper equation. Related context: Ben-Shushan et al. (2022), main Fig. 3 and
+      discussion of diffusion versus muscle filtering, PDF pp. 5–6; stationary white-noise comparison Eqs.
+      20–22, PDF p. 10. The paper''s full model instead has two muscle times and feedback, Methods Eqs. 23–34,
+      PDF p. 11.<br>**Guide location:** [Chapter 8, section 8.2, The MSD plateaus for filtered white noise
+      but grows for filtered diffusion](../chapters/ch-eye-timing.html#sec-eye-filtered-msd)<br>**Origin:**
+      Guide teaching derivation using a one-time-constant filter; not the paper''s full circuit formula.<br>**Derivation
+      route:** A Brownian position command $B$ drives a one-time-constant eye response $\tau_f$. After velocity
+      transients, $C_v(s)=(D/\tau_f)e^{-|s|/\tau_f}$. Integrate it as $M=2\int_0^\ell(\ell-s)C_v(s)\,ds$.'
+    - The eye can move smoothly while its internal position command diffuses. Increasing $\tau_f$ reduces short-lag
+      motion; increasing $D$ raises the entire curve. The synaptic time $\tau$ from 2012 is a different parameter.
+      This simplified calculation illustrates the 2022 interpretation; the paper uses two muscle times and
+      feedback, and does not uniquely identify the circuit.
+  caption: Covariance identifies a shared component of eye movement. Core argument.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:EXAM-EYE-SUPPORT
+  kind: table
+  placement: sec:EXAM-EYE
+  headers:
+  - formula and symbols
+  - location and derivation
+  - decoding
+  rows:
+  - - '<span id="result-e2"></span>**E2. Independent-noise limit · supporting**<br>$\sum_{i=1}^{N_m}R_i^2\le1$<br>$\langle
+      R_i^2\rangle\le1/N_m$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226;
+      <span class="definition-explanation">Angle brackets denote a motor-population mean; a representative
+      sample estimates it with sampling uncertainty.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$R_i^2$:
+      explained variance fraction after best linear rescaling. Predictors and measured displacement are standardized
+      to zero mean and unit variance for the proof.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-supplement-1.pdf#page=2). Ben-Shushan
+      et al. (2022), Supplementary Notes ''The explanatory power of a single OMN'', Eqs. S1–S2, supplement
+      1 PDF p. 2; related main ''Central source'' discussion PDF p. 3. Guide supplies the residual-variance
+      proof.<br>**Guide location:** [Chapter 7, section 7.5, The measured correlation challenges independent
+      motor noise alone](../chapters/ch-eye-drift.html#sec-eye-shared-variance)<br>**Origin:** Paper independent-noise
+      bound; guide proof under independence and representative sampling.<br>**Derivation route:** Standardize
+      independent single-cell predictors and measured displacement. Subtract their best linear prediction;
+      its residual variance $1-\sum_iR_i^2$ cannot be negative. Here $R_i$ is the displacement correlation
+      and $N_m$ is motor population size.'
+    - If independent motor fluctuations alone supplied the movement, the average cell could explain only a
+      small fraction of its variance. The measured mean correlation gives $\langle R^2\rangle\ge0.17^2\simeq0.029$,
+      challenging that explanation for a population of thousands. Applying the bound to sampled cells requires
+      a representative average.
+  - - '<span id="result-e4"></span>**E4. Measurement offset · method**<br>$M_{\rm obs}(\ell)=M(\ell)+2\sigma_m^2,\quad\ell>0$<br>**Extra
+      symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$\nu(t)$:
+      position-reading error (degrees); $\sigma_m^2$: variance of one reading error (degrees$^2$).</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$M_{\rm obs}$: MSD from measured angles
+      $E_{\rm obs}$, with the same units as $M$. Displacement error uses two readings.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-fixational-drift.pdf#page=10).
+      Ben-Shushan et al. (2022), main Methods ''Removal of measurement noise'', Eqs. 18–19, PDF p. 10; supporting
+      noise plateau and fixed-coil control in Extended Data Fig. 2, supplement 1 PDF p. 8.<br>**Guide location:**
+      [Chapter 8, section 8.1, Independent measurement error adds a constant offset to the MSD](../chapters/ch-eye-timing.html#sec-eye-measurement-noise)<br>**Origin:**
+      Paper measurement correction assuming temporally independent errors independent of true movement.<br>**Derivation
+      route:** For measured position $E_{\rm obs}=E+\nu$, expand its squared displacement. Independent errors
+      at the two times each contribute variance $\sigma_m^2$; movement–error cross terms vanish. $M(\ell)=\mathbb
+      E[(E(t+\ell)-E(t))^2]$.'
+    - Independent position-reading error raises every positive-lag MSD by a constant, which can dominate the
+      smallest movements. At zero lag it cancels exactly. Temporally correlated measurement error needs a lag-dependent
+      correction instead.
+  - - '<span id="result-e7"></span>**E7. Firing variability and sensitivity set a noise scale · supporting
+      estimate**<br>$J\simeq Na^2/\lambda_0$<br>$D\propto\dfrac{\mathrm{CV}^2\lambda_0}{Na^2\tau_s^2}=\dfrac{\mathrm{CV}^2}{N\lambda_0
+      b^2\tau_s^2}$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span
+      class="definition-explanation">$N$: number of comparable integrator neurons, rather than motor count
+      $N_m$.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$\lambda,\lambda_0$:
+      rate and typical mean rate (spikes/s).</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$a=d\lambda/dE$:
+      absolute slope (spikes/(s degree)); $b=a/\lambda_0$: fractional slope (degree$^{-1}$). These are not
+      the place-field gain.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$J$:
+      Poisson information rate about angle (s$^{-1}$ degree$^{-2}$).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\mathrm{CV}$: interspike-interval standard deviation divided by
+      its mean, dimensionless; $\tau_s$: synaptic decay time (s).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">The paper calls $k_0$ position sensitivity but leaves its absolute/fractional
+      normalization unclear.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/ben-shushan-2022-fixational-drift.pdf#page=6). Guide
+      Poisson/renewal scale comparison. Related paper expression: Ben-Shushan et al. (2022), main Eq. 1 and
+      parameter discussion, PDF p. 6; sub-Poisson construction in Methods ''Sub-Poisson spike trains'', PDF
+      p. 11. The paper prints inverse lambda_0 dependence without clarifying the slope normalization.<br>**Guide
+      location:** [Chapter 9, section 9.2, Spike regularity and circuit parameters set the model''s drift scale](../chapters/ch-eye-circuit.html#sec-eye-scaling)<br>**Origin:**
+      Guide supporting scale estimate and paper Eq. 1 comparison; not an exact equation for the full saturating,
+      sub-Poisson network.<br>**Derivation route:** In a comparable population of $N$ cells, write mean firing
+      $\lambda_0$, absolute position slope $a=d\lambda/dE$ and fractional slope $b=a/\lambda_0$. Long-window
+      renewal count variance supplies the squared interval coefficient of variation, $\mathrm{CV}^2$; project
+      that noise with fixed network geometry.'
+    - Within this estimate, more regular spikes, more comparable cells or longer synaptic decay $\tau_s$ reduce
+      diffusion. Increasing rate helps at fixed fractional slope but raises the scale at fixed absolute slope.
+      The paper's Eq. 1 leaves slope normalization unclear. This simpler Poisson-based scale comparison is
+      not an exact formula for its full saturating, sub-Poisson network.
+  caption: Covariance identifies a shared component of eye movement. Further results, tests and model extensions.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:EXAM-PLACE-CORE
+  kind: table
+  placement: sec:EXAM-PLACE
+  headers:
+  - formula and symbols
+  - location and derivation
+  - decoding
+  rows:
+  - - '<span id="result-p1"></span>**P1. Active spatial regions · model**<br>$z=(h-\mu)/\sigma_0$<br>$q=(h_{\rm
+      th}-\mu)/\sigma_0$<br>$F=a[z-q]_+$<br>$\ell_c=\sqrt{-C(0)/C''''(0)}$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$[u]_+=\max(u,0)$ retains
+      positive excess and sets negative excess to zero; $u=z-q$ is dimensionless.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$C''''(0)$: second spatial covariance derivative along a unit direction
+      (input units squared/distance$^2$). The normalized covariance is $C/C(0)$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-universal-statistics.pdf#page=13).
+      Mainali et al. (2025), STAR Methods ''Model details'', Eqs. 2–3, main PDF pp. 13–14; local spatial scale
+      Eq. 4, main PDF p. 14. The guide makes the removable constant mean and rate gain explicit. Supplement
+      Methods S1, PDF p. 9, defines the spatial Gaussian process.<br>**Guide location:** [Chapter 10, section
+      10.1, Thresholding a smooth Gaussian input produces place fields](../chapters/ch-place-fields.html#sec-place-gp)<br>**Origin:**
+      Paper spatial Gaussian threshold model and local scale, with explicit guide normalization.<br>**Derivation
+      route:** Normalize a stationary Gaussian input map $h$ with mean $\mu$, standard deviation $\sigma_0$
+      and covariance $C$. Threshold at $q$; gain $a$ converts excess into firing. Differentiating covariance
+      gives $\operatorname{Var}(z'')=\ell_c^{-2}$.'
+    - A field is one connected region where $z>q$. The sampled map stays fixed during traversal. Raising threshold
+      removes active space; increasing $\ell_c$ stretches the local spatial scale. Here $\ell_c$ is the distance
+      scale called $\sigma$ in later place chapters, not input standard deviation $\sigma_0$.
+  - - '<span id="result-p3"></span>**P3. Crossing density and finite-track count · exact**<br>$\nu_+(q)=\dfrac{e^{-q^2/2}}{2\pi\ell_c}$<br>$\mathbb
+      E[N_L]=L\nu_+(q)+Q(q)$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226;
+      <span class="definition-explanation">$L$: track length (distance); $N_L$: count of connected active intervals
+      intersecting $[0,L]$, including clipped intervals.</span></span><br><span role="listitem">&#8226; <span
+      class="definition-explanation">$z''$: spatial derivative (distance$^{-1}$); height density times the
+      mean positive part of slope gives a count per distance.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=11). Mainali et
+      al. (2025), supplement Methods S3 ''Field statistics in 1D'', Eqs. S9–S10, PDF p. 11; crossing density
+      Eqs. S11–S13, PDF p. 12. The finite-track endpoint term is also in main STAR Methods Eq. 8, PDF p. 15.
+      The guide explains the counting identity explicitly.<br>**Guide location:** [Chapter 10, section 10.2,
+      Upcrossings count fields, with an endpoint correction](../chapters/ch-place-fields.html#sec-place-kac-rice)<br>**Origin:**
+      Exact paper crossing and expected Euler-characteristic results; guide explains the endpoint field convention.<br>**Derivation
+      route:** Kac–Rice multiplies height density at $q$ by mean positive part of the spatial slope there.
+      Stationary Gaussian height and slope are independent. Add $Q(q)=\Pr(Z>q)$, $Z\sim N(0,1)$, for a field
+      already active at the left end of a track of length $L$.'
+    - This counts active components intersecting the track, including clipped boundary fields. It is exact
+      for a sufficiently smooth stationary nondegenerate Gaussian map at any threshold. Higher $q$ reduces
+      counts when $q>0$; larger $\ell_c$ reduces crossings per unit length at fixed $q$.
+  - - '<span id="result-p4"></span>**P4. Means identify threshold and scale · exact**<br>$\mu_s=Q(q)/\nu_+$<br>$\mu_g=[1-Q(q)]/\nu_+$<br>$q=Q^{-1}\!\left(\dfrac{\mu_s}{\mu_s+\mu_g}\right)$<br>$\ell_c=\dfrac{\mu_s+\mu_g}{2\pi}e^{-q^2/2}$<br>**Extra
+      symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$\mu_s,\mu_g$:
+      stationary mean complete-field and complete-gap lengths (distance), measured per field or gap rather
+      than per occupied position.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$Q^{-1}$:
+      inverse Gaussian upper-tail function, dimensionless.</span></span><br><span role="listitem">&#8226; <span
+      class="definition-explanation">These are not finite clipped-track ratios; $\mu_s$ is distinct from input
+      mean $\mu$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=12). Mainali et
+      al. (2025), supplement Methods S3, Eqs. S14–S15 for mean field/gap lengths, PDF p. 12; related main STAR
+      Methods ''Parameter inference in 1D environments'', PDF p. 14. The explicit inversion for q and ell_c
+      is guide algebra from those means.<br>**Guide location:** [Chapter 10, section 10.3, Mean field and gap
+      lengths separate threshold from scale](../chapters/ch-place-fields.html#sec-place-inference)<br>**Origin:**
+      Paper exact stationary 1D means; guide derives the explicit parameter inversion.<br>**Derivation route:**
+      Divide active and inactive spatial fractions by the same upcrossing density to obtain mean field length
+      $\mu_s$ and gap length $\mu_g$. The ratio $\mu_s/(\mu_s+\mu_g)$ gives active fraction; invert the Gaussian
+      upper tail and crossing scale.'
+    - Two measured means constrain two model parameters before testing the full length histograms. These are
+      stationary complete-field and complete-gap means. Finite-track clipping or selection of only cells with
+      fields must be handled before treating sample means as these quantities.
+  - - '<span id="result-p6"></span>**P6. Universal size laws · central approximation**<br>$\Pr(s>S)\simeq e^{-\beta
+      S^{2/d}}$<br>$\beta=\dfrac{q^2}{2\ell_c^2v_d^{2/d}}$<br>$(v_1,v_2,v_3)=(2,\pi,4\pi/3)$<br>**Extra symbols
+      and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$U=q\epsilon$:
+      dimensionless scaled excess tending to a mean-one exponential variable.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$r_*$: approximate field radius (distance), not a firing rate.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">Each field is sampled once, rather than
+      weighted by occupied volume.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-universal-statistics.pdf#page=3). Mainali
+      et al. (2025), main Eq. 1, PDF p. 3; supplement Methods S4, local parabola/full-width Eqs. S22–S23, PDF
+      p. 14, and scaled peak excess Eqs. S24–S25, PDF p. 15. The guide reconstructs the geometric beta with
+      the sqrt(2) width factor missing from printed S23 and the corrected negative quadratic term before S25.<br>**Guide
+      location:** [Chapter 11, section 11.2, Geometry gives different size laws in each dimension](../chapters/ch-place-sizes.html#sec-place-size-law)<br>**Origin:**
+      Paper central high-threshold size law; guide derives and checks the leading geometric constant and corrects
+      printed algebra.<br>**Derivation route:** For a smooth stationary isotropic Gaussian map at large positive
+      $q$, a typical counted field surrounds one nearly quadratic peak: radius $r_*\simeq\ell_c\sqrt{2\epsilon/q}$
+      for peak excess $\epsilon$. The scaled excess $q\epsilon$ tends to a unit-mean exponential law. Substitute
+      size $s=v_dr_*^d$.'
+    - The same input mechanism gives Rayleigh lengths in 1D, exponential areas in 2D and a Weibull volume law
+      with exponent $2/3$ in 3D. Each field has equal sampling weight. These are high-threshold limits; multi-peak
+      fields and finite thresholds can change the distribution.
+  caption: Thresholded Gaussian input links spatial structure to place-field statistics. Core argument.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:EXAM-PLACE-SUPPORT
+  kind: table
+  placement: sec:EXAM-PLACE
+  headers:
+  - formula and symbols
+  - location and derivation
+  - decoding
+  rows:
+  - - '<span id="result-p2"></span>**P2. Random inputs create spatial covariance · supporting**<br>$h(x)=\sum_i
+      W_i u_i(x)$<br>$C(x,y)=v_W\sum_i u_i(x)u_i(y)$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$i$: input-cell index; $u_i(x)$: fixed input
+      firing profile (Hz).</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$W_i$:
+      zero-mean random weight (input units/Hz); $v_W=\operatorname{Var}(W_i)$: weight variance (input units
+      squared/Hz$^2$). These are not Brownian quantities.</span></span><br><span role="listitem">&#8226; <span
+      class="definition-explanation">Covariance is over choices of weights. The Gaussian limit requires many
+      active terms with no dominant input; spatial properties also depend on the fixed profiles.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=10). Mainali et
+      al. (2025), supplement Methods S2 ''Derivation of Gaussian process input to CA1 cells'', Eqs. S2–S5,
+      PDF p. 10, and heterogeneous-profile Eqs. S6–S8, PDF p. 11. The covariance formula is Eq. S4; guide expands
+      its cancellation of cross terms.<br>**Guide location:** [Chapter 12, section 12.3, Random input weights
+      can generate Gaussian maps](../chapters/ch-place-tests.html#sec-place-wiring)<br>**Origin:** Paper supporting
+      input-generation model; guide expands the covariance calculation and conditions for a Gaussian limit.<br>**Derivation
+      route:** Use fixed input profiles $u_i(x)$ and independent random weights with mean zero and variance
+      $v_W$. Average over weight choices; cross terms vanish. Many individually small contributions permit
+      a Gaussian limit.'
+    - The same input cell contributes at nearby positions, creating spatial covariance. Broader input profiles
+      can broaden fields; changing weight variance instead changes input amplitude and hence effective threshold
+      if the absolute threshold stays fixed. Random weights alone do not guarantee smooth, stationary or isotropic
+      maps.
+  - - '<span id="result-p5"></span>**P5. Rare field locations and gaps · limiting approximation**<br>$N_L\approx\mathrm{Poisson}(\nu_+L)$<br>$\Pr(G>g)\simeq
+      e^{-\nu_+g}$<br>$\mathbb E[N\mid N\ge1]=\lambda/(1-e^{-\lambda})$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$L$: track length; $G$:
+      inactive gap length; $g$: nonnegative gap cutoff (all distance units).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$N_L$: rare-field count on that track; $N$: unconditioned field
+      count; $\lambda$: unconditioned Poisson mean count, dimensionless rather than a firing rate.</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">The survival law concerns large gaps in
+      the rare-field limit; the conditioned mean excludes zero-field cells.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=13). Mainali et
+      al. (2025), supplement Methods S3 ''Distributions in the high threshold regime'', PDF p. 13, gives limiting
+      Poisson counts/exponential gaps; main STAR Methods Eq. 5, PDF p. 14, gives the zero-truncation mean used
+      in the 2D fit. Guide states the extra weak-dependence condition and separates it from exact crossing
+      density.<br>**Guide location:** [Chapter 10, section 10.3, Mean field and gap lengths separate threshold
+      from scale](../chapters/ch-place-fields.html#sec-place-inference)<br>**Origin:** Paper limiting rare-event
+      distributions and Poisson selection correction; not an exact finite-threshold field-count law.<br>**Derivation
+      route:** At high threshold, well-separated rare excursions can approach independent locations if spatial
+      correlations decay sufficiently. Their spacing is then approximately exponential, and short field widths
+      make gaps $G$ approach the same scale. Conditioning a Poisson count with mean $\lambda$ on at least one
+      field gives the last expression.'
+    - The model predicts whole count and gap distributions beyond their means. Smoothness and stationarity
+      alone do not imply independence. The bulk count omits finite-track boundary effects; excluding zero-field
+      cells also raises the observed mean and must be accounted for in fitting.
+  - - '<span id="result-p7"></span>**P7. Peak firing and field size · supporting approximation**<br>$F_{\max}=a\epsilon$<br>$F_{\max}\simeq\dfrac{aq}{2\ell_c^2}(s/v_d)^{2/d}$<br>**Extra
+      symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$F_{\max}$:
+      peak rate (Hz); $r_*$: approximate field radius (distance).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$s^{1/d}$: linear-size measure (distance); for a 1D full width,
+      $v_1=2$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=14). Mainali et
+      al. (2025), supplement Methods S4, Eqs. S22–S23 and following peak-amplitude discussion, PDF pp. 14–15;
+      empirical/model comparisons main Fig. 3C–D, PDF p. 7, and shape progression Fig. 5, PDF p. 9. Guide corrects
+      the full-width factor and writes the explicit rate-size equation.<br>**Guide location:** [Chapter 11,
+      section 11.1, Near a high peak, the input is nearly parabolic](../chapters/ch-place-sizes.html#sec-place-rare-peaks)<br>**Origin:**
+      Paper high-threshold peak-size prediction, expanded in the guide; not an exact empirical square law.<br>**Derivation
+      route:** Use the same high-peak parabola: $\epsilon\simeq q r_*^2/(2\ell_c^2)$ and $s=v_dr_*^d$. Firing
+      above threshold is $a\epsilon$ at the peak.'
+    - Higher peaks create wider fields, with limiting exponent two against linear size $s^{1/d}$. The exponent
+      against area or volume differs. Finite-threshold data and simulations have smaller fitted exponents,
+      so the limiting square law is not an exact empirical relation.
+  - - '<span id="result-p8"></span>**P8. Size moments and shape · supporting approximation**<br>$\mathbb E[s^k]\simeq\Gamma(1+kd/2)\beta^{-kd/2}$<br>$\mu_s\simeq\Gamma(1+d/2)\beta^{-d/2}$<br>**Extra
+      symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$k\ge0$:
+      dimensionless moment order, not the eye coefficient.</span></span><br><span role="listitem">&#8226; <span
+      class="definition-explanation">$\mu_s=\mathbb E[s]$: mean field size (distance$^d$). This limiting mean
+      differs from the exact 1D mean in P4.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$u=\beta
+      s^{2/d}$: dimensionless integration variable; $\Gamma(t)=\int_0^\infty u^{t-1}e^{-u}\,du$ for dimensionless
+      $t>0$. The moment has distance$^{dk}$ units.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=13). Mainali et
+      al. (2025), supplement Methods S3, paragraph before Eq. S18, PDF p. 13, states the mean Gamma(1+d/2)
+      beta^(−d/2); main Eq. 1, PDF p. 3, supplies the size density. The guide derives arbitrary nonnegative
+      moments and corrects the multiplication/division error in printed S18.<br>**Guide location:** [Chapter
+      11, section 11.2, Geometry gives different size laws in each dimension](../chapters/ch-place-sizes.html#sec-place-size-law)<br>**Origin:**
+      Paper limiting mean plus guide general-moment derivation, inheriting the high-threshold approximation.<br>**Derivation
+      route:** Differentiate the size survival law to obtain its density; set $u=\beta s^{2/d}$ in the moment
+      integral. Here $k\ge0$ and $\Gamma$ is the gamma function, defined by its integral in the linked derivation.'
+    - After the mean fixes size scale, higher moment ratios test the predicted shape. No extra shape fit is
+      needed in the limiting law. These moments inherit its high-threshold assumption and describe complete
+      fields rather than fields selected by occupied volume.
+  - - '<span id="result-p9"></span>**P9. Slices retain Gaussian structure · central test**<br>$h_{\rm line}(t)=h(x_0+t\mathbf
+      e)$<br>$C_{\rm line}(t,t'')=C[(t-t'')\mathbf e]$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$x_0$: point on the sampling line (position
+      vector, distance units); $\mathbf e$: dimensionless unit direction.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$t,t''$: signed spatial coordinates along the line (distance), not
+      times.</span></span><br><span role="listitem">&#8226; <span class="definition-explanation">$h_{\rm line}$
+      and $C_{\rm line}$: restricted input and covariance, with the same units as $h,C$. The original map dimension
+      $d$ differs from the slice dimension.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-universal-statistics.pdf#page=5). Mainali
+      et al. (2025), main Fig. 2C–D and H–J, PDF p. 5, and Results ''Statistics of place fields in two- and
+      three-dimensional environments'', PDF pp. 3,6; alternative spherical model and slice comparison Fig.
+      S2, supplement PDF pp. 3–4. The Gaussian restriction equation is an explicit guide explanation, not a
+      numbered paper equation.<br>**Guide location:** [Chapter 11, section 11.3, Slices test spatial structure
+      beyond field volume](../chapters/ch-place-sizes.html#sec-place-slices)<br>**Origin:** Paper central slice
+      test; guide states the exact Gaussian restriction property, with limiting size laws applied to the slice
+      dimension.<br>**Derivation route:** Restrict a jointly Gaussian map to points on a line with unit direction
+      $\mathbf e$, or to a plane. The retained joint distributions remain Gaussian with the restricted covariance.
+      Under isotropy they retain the local scale $\ell_c$.'
+    - At high threshold, line-slice lengths approach a Rayleigh law and plane-slice areas an exponential law,
+      even within a 3D map. Slice components have different sampling weights from complete fields; larger objects
+      are more likely to be intersected. A chosen central cut through each field is a different sampling rule.
+  - - '<span id="result-p10"></span>**P10. Boundary slopes · exact**<br>$p_{\uparrow}(v)=\ell_c^2v\,e^{-\ell_c^2v^2/2},\quad
+      v>0$<br>**Extra symbols and notes:**<br><span role="list"><span role="listitem">&#8226; <span class="definition-explanation">$v=z''(x)>0$:
+      normalized input slope at an upcrossing (distance$^{-1}$).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$p_{\uparrow}(v)$: density of slopes selected at upcrossings; $p_{z''}(v)$:
+      derivative density at an ordinary spatial point (both have distance units).</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$w$: positive slope integration variable (distance$^{-1}$); $av$:
+      rate slope (Hz/distance). This $v$ is not eye velocity or unit-ball volume $v_d$.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-universal-statistics.pdf#page=15).
+      Mainali et al. (2025), main Results prediction and Fig. 3E, PDF pp. 6–7; STAR Methods ''Boundary slopes'',
+      PDF p. 15, describes the 0.1 m finite-difference measurement. The slope-weighted Kac–Rice density and
+      its normalization are derived explicitly in the guide; no numbered paper equation gives this density.<br>**Guide
+      location:** [Chapter 11, section 11.4, Why slopes at field boundaries are Rayleigh](../chapters/ch-place-sizes.html#sec-place-slopes)<br>**Origin:**
+      Paper boundary-slope prediction; guide exact density derivation under smooth stationary Gaussian assumptions,
+      without a high-threshold limit.<br>**Derivation route:** Select an upcrossing rather than a uniformly
+      chosen position. Its slope density is proportional to $v p_{z''}(v)$; normalize over positive slopes.
+      Here $v=z''$ is the normalized input slope at a boundary.'
+    - Steep slopes are sampled more often at crossings. This Rayleigh law is independent of $q$ under the smooth
+      stationary Gaussian model, without a high-threshold approximation. Firing-rate slope is $av$, so its
+      scale also depends on the rate gain $a$.
+  - - '<span id="result-p11"></span>**P11. Components and holes · exact**<br>$\eta_1=\dfrac{e^{-q^2/2}}{2\pi\ell_c}$<br>$\eta_2=\dfrac{qe^{-q^2/2}}{(2\pi)^{3/2}\ell_c^2}$<br>$\eta_3=\dfrac{(q^2-1)e^{-q^2/2}}{(2\pi)^2\ell_c^3}$<br>$\mathbb
+      E[\chi_d]=Q(q)+\sum_{j=1}^d\binom dj L^j\eta_j$<br>**Extra symbols and notes:**<br><span role="list"><span
+      role="listitem">&#8226; <span class="definition-explanation">$L$: side length of the box (distance);
+      $j=1,\ldots,d$: dimension of the contributing interior, face or edge.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\eta_j$: signed Euler-characteristic contribution per $j$-dimensional
+      measure (distance$^{-j}$), not a positive field density.</span></span><br><span role="listitem">&#8226;
+      <span class="definition-explanation">$\chi_d$: Euler characteristic of the active set in the closed box,
+      a dimensionless signed count; unrelated to eye fraction $\chi$. The sum retains real boundary terms.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-universal-statistics.pdf#page=15).
+      Mainali et al. (2025), main STAR Methods ''Euler characteristics'', Eqs. 8–10, PDF p. 15; comparisons
+      Fig. 3F–H, PDF p. 7. The guide obtains eta_j by a signed critical-point Kac–Rice calculation and derives
+      box face factors, relying on the underlying Morse/kinematic theorem.<br>**Guide location:** [Chapter
+      12, section 12.1, Holes distinguish maps with the same field count](../chapters/ch-place-tests.html#sec-place-topology)<br>**Origin:**
+      Paper exact expected topology formulas; guide derivation of signed densities and boundary factors. Not
+      an exact component-count formula at general threshold.<br>**Derivation route:** Count spatial critical
+      points with signs: maxima create components, while other critical points join regions or alter holes.
+      The signed Kac–Rice calculation gives $\eta_j$; faces and edges supply the coefficients for a closed
+      box of side $L$, in $d=1,2,3$.'
+    - Here $\chi_d$ is Euler characteristic, unrelated to the eye variance fraction $\chi$. It counts components
+      minus holes in 2D, and components minus tunnels plus cavities in 3D. These formulas retain boundary contributions
+      for a smooth stationary isotropic nondegenerate Gaussian map; they are not periodic-box formulas or general
+      field counts.
+  - - '<span id="result-p12"></span>**P12. Rare-field count in higher dimensions · supporting approximation**<br>$\mathbb
+      E[N]\simeq\dfrac{Vq^{d-1}e^{-q^2/2}}{(2\pi)^{(d+1)/2}\ell_c^d}$<br>**Extra symbols and notes:**<br><span
+      role="list"><span role="listitem">&#8226; <span class="definition-explanation">$N$: number of connected
+      active fields, not neurons; $V$: environment length, area or volume (distance$^d$).</span></span><br><span
+      role="listitem">&#8226; <span class="definition-explanation">$\chi_d$: signed Euler-characteristic count
+      from P11; it approaches $N$ only for isolated simple blobs at high threshold. The bulk formula omits
+      boundary terms.</span></span></span>'
+    - '**Paper location:** [Open cited PDF page](../papers/mainali-2025-supplement.pdf#page=13). Mainali et
+      al. (2025), supplement Methods S3 ''Field statistics in higher dimensions'', Eq. S16, PDF p. 13; related
+      exact Euler-characteristic Eqs. 8–10, main PDF p. 15. Guide keeps the leading volume term and high-q
+      polynomial power explicitly.<br>**Guide location:** [Chapter 12, section 12.1, Holes distinguish maps
+      with the same field count](../chapters/ch-place-tests.html#sec-place-topology)<br>**Origin:** Paper supporting
+      high-threshold, volume-dominated component-count approximation; not an exact count at ordinary thresholds.<br>**Derivation
+      route:** At high $q$, isolated components usually have one peak and no holes, so their count approaches
+      Euler characteristic. Retain the leading volume term and leading power of $q$ in the preceding formula;
+      $V$ is environment length, area or volume.'
+    - This predicts how field count changes with threshold, spatial scale and dimension in a large region at
+      high threshold. It drops boundary terms and holes; the exact Euler-characteristic formula must not be
+      used as an exact component count at ordinary thresholds.
+  caption: Thresholded Gaussian input links spatial structure to place-field statistics. Further results, tests
+    and model extensions.
+  first_column_role: row-labels
+  html_fold: never
+source_loci:
+- P1-p02
+- P1-p03
+- P1-p05
+- P1-p06
+- P2-p09
+- P2-p10
+- P3-p03
+- P3-p13
+- P3-p14
+- P3-p15

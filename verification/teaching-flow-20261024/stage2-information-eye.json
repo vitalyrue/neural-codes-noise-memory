@@ -1,0 +1,319 @@
+{
+  "stage": 2,
+  "reviewer": "GPT-6.1-sol/high, teach_place_synthesis",
+  "local_request_id": "root-to-teach_place_synthesis-stage2-information-eye",
+  "platform_call_id": "not exposed",
+  "timestamp": "2026-10-24T19:08:49.247163+03:00",
+  "root_wall_elapsed_seconds": 866.694725,
+  "stage_elapsed_seconds": 76.629888,
+  "awake_execution_time": "unverified",
+  "source_hashes": {
+    "03-memory-information.md": {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\teaching-flow-20261024\\proposed\\content\\chapters\\03-memory-information.md",
+      "sha256": "3b7b31f18eede72f48ffce697f4dee991616fcb923f68a02dc2291bdd18cf035"
+    },
+    "03-memory-information.yaml": {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\teaching-flow-20261024\\proposed\\content\\chapters\\03-memory-information.yaml",
+      "sha256": "c42aa864ed858e5a6d27eb1b10bcd41fb03a617808d675d1e8594f7a980f8d4f"
+    },
+    "04-eye-drift.md": {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\teaching-flow-20261024\\proposed\\content\\chapters\\04-eye-drift.md",
+      "sha256": "0666119c1cde474f643ebffe2052682abe29695d65729cfb287bcbc5ea0d56bb"
+    },
+    "04-eye-drift.yaml": {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\teaching-flow-20261024\\proposed\\content\\chapters\\04-eye-drift.yaml",
+      "sha256": "18bd1fcaad4752ec5fce029c43f91c6e8bf78969b0f830d2f0fbd3b9a9ee6c0f"
+    }
+  },
+  "scope": "Necessity and terminology in current frozen-v2 titles, fold titles, moved/repaired paragraphs, connected teaching and reader fields. No paper audit, manuscript edits or whole-book verdict.",
+  "method": "Read actual current sources and baseline source text, not author defenses. Applied deletion tests before considering changes. Retained sufficient wording and exact scientific terms. Stage 1 remains separate evidence.",
+  "title_checks": [
+    {
+      "file": "03-memory-information.md",
+      "line": 1,
+      "id": "ch:MEMORY-INFORMATION",
+      "quote": "How spike information limits memory stability and recall",
+      "passage_sha256": "0d91f3251801da7dd131d053a8ab7a1a7509d071eaa89641a7001cc9d3296e36",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Spike information connects distinguishable current states to memory diffusion and recall error; the opening explains spikes and moving rates before formal information. Keeping the heading gives the chapter its shared question."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 7,
+      "id": "sec:MEMORY-FI",
+      "quote": "Rate slopes and spike variability determine local information",
+      "passage_sha256": "a8db37176205a7c486e6bc3cc9d0db1702331f4ff9358aca3c2170938f927f1c",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Rate slopes and spike variability are the numerator and denominator in the taught Poisson information expression. The opening gives the neighboring-value discrimination problem before likelihood, score and Fisher information definitions."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 76,
+      "id": "sec:MEMORY-BOUND",
+      "quote": "Spike information sets a lower bound on memory diffusion",
+      "passage_sha256": "9b95cc5957b689d9aec380bd25ffe71bbbbd075bbba70427297f69de86ede0a2",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Lower bound is the exact direction needed to distinguish permitted stability from achieved stability. Diffusion and the projection formula were taught in Chapters 1 and 2, and information immediately above."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 196,
+      "id": "sec:MEMORY-COMPARISONS",
+      "quote": "Improving persistence depends on what a comparison holds fixed",
+      "passage_sha256": "6bc0c8c3520377bf86ca7456a3debf77e8ceefd053a2452fda8e4163565922a6",
+      "decision": "retain",
+      "deletion_and_terminology_test": "What is held fixed is the question governing the N, rate, time-constant and width comparisons. Removing this emphasis would encourage incompatible parameter comparisons; no specialist shorthand is needed in the title."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 231,
+      "id": "sec:MEMORY-READOUT-SETUP",
+      "quote": "Storage loss and readout error add under specific assumptions",
+      "passage_sha256": "593d22871cba9b78c5836774a4553abc8e95bc3bdaaee48451f2f5eb2e9b9a1f",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Storage loss and readout error are explained through s and e in the next two paragraphs; specific assumptions correctly warn that their variances add only after the cross term vanishes. The visible equations make the quantity precise. Variances could sharpen the heading, but the existing connected prose is sufficient."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 275,
+      "id": "sec:MEMORY-NAIVE",
+      "quote": "Equal weighting becomes harmful when observation lasts too long",
+      "passage_sha256": "18df4bf67d1c6b397861dd573e0e57c27ef84f598937e2b86c69545579acaf23",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Equal weighting identifies the cause of the error increase rather than implying that every long readout is harmful. The opening explains the averaging and movement conflict before its calculation."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 328,
+      "id": "sec:MEMORY-IDEAL",
+      "quote": "Accounting for diffusion makes readout improve toward a limit",
+      "passage_sha256": "15cab343deba07e2b07b96b5eb9d82b3f66063eae4180d0d026bfb390447fded",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Accounting for diffusion is the needed contrast with equal weighting; toward a limit preserves continuing diminishing benefit. Precision is defined before the backward recursion uses it."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 404,
+      "id": "sec:MEMORY-PARTIAL",
+      "quote": "Limited access can make observation slower",
+      "passage_sha256": "4b6d38bb1754791addb02e4831ddf94567aa7ee7f05b7079d91c8c576857e17b",
+      "decision": "retain",
+      "deletion_and_terminology_test": "The following text explains limited access as missing spikes, and slower as a longer useful observation interval. The unchanged heading is sufficient with that immediate explanation and the exact alpha scaling; no rewrite is required for this local revision."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 429,
+      "id": "sec:MEMORY-EXTENSIONS",
+      "quote": "Time scales and noise laws change the bound and its equality condition",
+      "passage_sha256": "3ee38cd3f92385a568f74a3d6c1a4b03b877825a66f2792b61b91ead9b8399d6",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Time scales and noise laws identify the two assumptions whose changes matter. The section separately derives the sum of time constants and changes to the equality condition, so no extra technical label belongs in the heading."
+    },
+    {
+      "file": "03-memory-information.md",
+      "line": 477,
+      "id": "sec:MEMORY-FIG3-AND-CAUTION",
+      "quote": "Readout saturates, and one printed error bound needs qualification",
+      "passage_sha256": "2f09931e765d758886a81937c5867ef4d0c0df1dc54af58b22db7c0171ab9b73",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Saturates summarizes the limiting improvement just derived. Printed error bound needs qualification points to the actual algebraic caution while keeping its apparent, not author-confirmed, status in the text."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 1,
+      "id": "ch:EYE-DRIFT",
+      "quote": "Eye drift points to a shared neural drive",
+      "passage_sha256": "6409399c70d8ccbe948ffa64462d5313a23f99eeae4a7a249efdd84a7c39d5eb",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Points to conveys inference rather than unique circuit identification. The opening defines fixational drift and immediately separates shared upstream evidence from the proposed storage mechanism."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 7,
+      "id": "sec:EYE-PATHWAY",
+      "quote": "From stored eye position to muscle action",
+      "passage_sha256": "28de60af8c97cf132f19d018bdeb205c6839c7e673dfac831f5126cfc3d087e6",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Stored eye position to muscle action is the section purpose. Oculomotor integrator, motoneurons and plant are each explained before later filtering and covariance reasoning relies on them."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 15,
+      "id": "sec:EYE-RECORDINGS",
+      "quote": "The recordings pair one motor neuron with movement at a time",
+      "passage_sha256": "a5960fb67abe504acea3bbbe8b71a9ca40b9646df2609aad2609cee1d08b97ba",
+      "decision": "retain",
+      "deletion_and_terminology_test": "One motor neuron at a time states the recording limitation needed for later covariance interpretation. The full section directly distinguishes repeated paired recordings from simultaneous neural recording."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 33,
+      "id": "sec:EYE-FORWARD-FIT",
+      "quote": "A fitted model links movement to firing rate",
+      "passage_sha256": "6cdbf0be109b0be3f377c81d43538d199187060febb1deef74c524ae3148a699",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Fitted model and movement-to-rate direction keep the calibration distinct from inverse prediction. Position, velocity and acceleration are motivated before the equation, and the parameter units are then given."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 63,
+      "id": "sec:EYE-INVERSE-FILTER",
+      "quote": "A calibrated filter predicts eye position from one cell's spikes",
+      "passage_sha256": "fea9f0664147660ed08e821d70bb111ed221ee50d05988459feed9f97bc159f3",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Calibrated filter states the retained physical gain and one-cell input. Causal filter and impulse response are defined before the h0 expression; convolution is explained before later degrees-based comparisons."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 155,
+      "id": "sec:EYE-SHARED-VARIANCE",
+      "quote": "The measured correlation challenges independent motor noise alone",
+      "passage_sha256": "9f6453352b3f77e386b04e0dbaac9eb8b63457f84f306775eaebf010f4cdb9b1",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Challenges independent noise alone is needed to keep the first statistical inference weaker than locating a specific integrator. Correlation and coefficient of determination have the needed definitions before population bounds."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 191,
+      "id": "sec:EYE-CHI",
+      "quote": "Calibrated covariance estimates the common share of movement variance",
+      "passage_sha256": "257de09c30080ce6d98c68cecc663b914b16efb7f34bf91c72432e6e0fe0948d",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Calibrated covariance distinguishes this estimate from raw correlation. Common share of movement variance identifies the quantity in the numerator/denominator; gain is defined earlier and unit common gain is explained again before use."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 267,
+      "id": "sec:EYE-MEASUREMENT-NOISE",
+      "quote": "Independent measurement error adds a constant offset to the MSD",
+      "passage_sha256": "e070e94468bd5d8fe71602865a37004019e90393b5d61170d7c0159e8d7aab4b",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Constant offset identifies the useful consequence of temporally independent error. MSD is already taught in Chapter 1 and repeated at section start; positive-lag and covariance conditions are taught visibly before subtraction."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 305,
+      "id": "sec:EYE-FILTERED-MSD",
+      "quote": "The MSD plateaus for filtered white noise but grows for filtered diffusion",
+      "passage_sha256": "f79a7970ba8e5d6b979512c5c17481f78d388144f8a2da1da93eaeb1d0bd778d",
+      "decision": "retain",
+      "deletion_and_terminology_test": "The plateau/growth contrast gives the reader the model-discriminating result. White noise, low pass filtering and stationarity are defined before the overlap calculation; diffusion is earlier background."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 412,
+      "id": "sec:EYE-CIRCUIT-MODEL",
+      "quote": "A noisy integrator can reproduce drift after muscle filtering",
+      "passage_sha256": "00e621e2808404efa8c0177835e32a581f1b14dea0c7b9c0be0742d9bb759de7",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Can reproduce keeps a sufficient model distinct from uniquely measured cause. Noisy integrator and muscle filtering have both been taught before this more detailed mechanism."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 492,
+      "id": "sec:EYE-SCALING",
+      "quote": "Spike regularity and circuit parameters set the model's drift scale",
+      "passage_sha256": "e07445c5b2ea50a21488b0e19b18640ee82a0c86a787c1e26e009dae2bb164eb",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Spike regularity and circuit parameters state what controls the modeled amplitude. CV, sub-Poisson spiking and renewal-process assumptions are supplied before their scaling roles."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 551,
+      "id": "sec:EYE-FIGURES",
+      "quote": "The figures test shared drive, diffusion, and the full circuit model",
+      "passage_sha256": "a3b9ac6c7be952009fa24c2bb33ab79996e61d6cd5663b530686de3f98f5d26c",
+      "decision": "retain",
+      "deletion_and_terminology_test": "The three tested claims give a useful reading purpose. The table distinguishes empirical drive evidence, simulated diffusion and the full model comparison; no heading-only technical claim is left unexplained."
+    },
+    {
+      "file": "04-eye-drift.md",
+      "line": 563,
+      "id": "sec:EYE-LIMITS",
+      "quote": "The evidence places shared drive upstream without identifying one circuit",
+      "passage_sha256": "0a1333c548aeb56b13f25f9c6ad7dbe64f02757e38acd29b3c223cbd996826c0",
+      "decision": "retain",
+      "deletion_and_terminology_test": "Upstream drive and no unique circuit summarize the distinction needed for the final interpretation. All components of this distinction have already been taught; the section retains animal, movement-axis and task limits."
+    }
+  ],
+  "reader_field_checks": [
+    {
+      "file": "03-memory-information.yaml",
+      "fields": "chapter title, purpose, all section titles/summaries, figure captions/alts and table cells",
+      "assessment": "The title fields match the actual source headings. The existing purpose/summary openings still describe their sections. Figure/table fields retain the units, inferred-versus-measured distinctions and model/example labels used in the prose; no new undefined term or changed claim was introduced through these reader fields."
+    },
+    {
+      "file": "04-eye-drift.yaml",
+      "fields": "chapter title, purpose, all section titles/summaries, figure captions/alts and table cells",
+      "assessment": "The title fields match the actual source headings. The existing purpose/summary openings still describe their sections. Figure/table fields retain the units, inferred-versus-measured distinctions and model/example labels used in the prose; no new undefined term or changed claim was introduced through these reader fields."
+    }
+  ],
+  "moved_repaired_paragraph_checks": [
+    {
+      "file": "03-memory-information.md",
+      "quote": "The matrix inequality applies when every independent small coordinate change can be distinguished through a change in rates, so $J$ is invertible. It also explains why a scalar bound in each coordinate separately would miss coupled directions.[^p1-matrix]",
+      "decision": "retain",
+      "deletion_test": "Removing this paragraph would hide invertibility and the reason for a matrix result from the closed reading path. Applies is appropriate before the proof; This proves would falsely point back to proof steps now below it.",
+      "terminology": "Independent coordinate change is explained by changes in rates. The U,V symbols and positive-semidefinite meaning are visible before the fold.",
+      "line": 183,
+      "passage_sha256": "9b8afe6a0b2f66fda0c7733c075358665564568e751ccdbfad6bbfb3ada10f7b"
+    },
+    {
+      "file": "04-eye-drift.md",
+      "quote": "Substituting $B=-A$ gives $A(1/\\tau_- -1/\\tau_+)=1/m$, hence $A=\\tau_+\\tau_-/[m(\\tau_+-\\tau_-)]$. Making the response zero before the spike gives the impulse response $h_0(u)$.",
+      "decision": "retain",
+      "deletion_test": "The first sentence solves the pulse-matching constants; the final sentence connects them and the causal condition to the response. Deleting it would leave the coefficient calculation without its link to the response being derived.",
+      "terminology": "Impulse response and h0 were defined before the visible formula. The repaired wording uses that exact term rather than adding a new label.",
+      "line": 126,
+      "passage_sha256": "cf9badc5a588635909f7997060bc4015fc6ee7aaada1d42cb3a7fbf0a4ce583a"
+    },
+    {
+      "file": "04-eye-drift.md",
+      "quote": "For a constructed example, take $k=4$ spikes/(s deg), $\\tau_+=0.120$ s, and $\\tau_-=0.005$ s.",
+      "decision": "retain at its moved visible position",
+      "deletion_test": "The example converts the formula into decay coefficients, area 1/k and a rate-to-position gain. Removing it would remove the shortest physical-units check from the visible route. Placing it before the optional general area/repeated-root check is sufficient.",
+      "terminology": "Constructed marks the illustrative values; the paper data comparison that follows is separately labeled.",
+      "line": 130,
+      "passage_sha256": "a3f0538098bf177eee373d10c5c237400fcd8485494bdccf6789609de91fe758"
+    }
+  ],
+  "fold_title_checks": [
+    {
+      "title": "Check: equality can also hold with a linear transfer rule",
+      "decision": "retain",
+      "deletion_test": "The fold adds the constructive counterexample supporting sufficient rather than necessary. The visible qualification already teaches the result, so it is optional depth rather than the first use of that limit.",
+      "terms": "Equality refers to the immediately preceding diffusion bound; linear transfer rule was taught in Chapter 2."
+    },
+    {
+      "title": "Check: the residual matrix proves the lower bound",
+      "decision": "retain",
+      "deletion_test": "The fold adds a compact proof of the visible matrix result; the difference Q and its squared norm show what residual means. The matrix construction and invertibility remain visible.",
+      "terms": "Residual is a standard linear-algebra remainder, displayed immediately as Q=V-U(U-transpose U) inverse. Replacing the technical term is unnecessary."
+    },
+    {
+      "title": "Derivation: the weights of the two decaying responses",
+      "decision": "retain",
+      "deletion_test": "Weights identifies the A/B coefficients solved by pulse matching, after the response and decay times have been shown. Removing that purpose would leave a generic derivation label.",
+      "terms": "Decay times, causality and impulse response are already taught; the fold has no new required biological term."
+    },
+    {
+      "title": "Check: static gain and coincident decay times",
+      "decision": "retain as sufficient; optional simpler word below",
+      "deletion_test": "Static gain and equal-root behavior are the two actual checks. Both add depth after a visible gain example, and neither is needed for the next statistical inference.",
+      "terms": "Gain was defined in the recording section. Coincident means equal here and is explained by the repeated-time condition inside the fold."
+    }
+  ],
+  "defects": [],
+  "optional_preferences": [
+    {
+      "id": "S2-IE-OPT-01",
+      "file": "04-eye-drift.md",
+      "line": 139,
+      "quote": "Check: static gain and coincident decay times",
+      "suggestion": "Check: static gain and equal decay times",
+      "reason": "Equal is the everyday word for the same repeated-time condition. The existing title is mathematically sufficient and the body explains it, so this is optional and does not block the scoped review."
+    }
+  ],
+  "verdict": "No required wording or terminology repair in the scoped current text. One optional simpler fold-title word is recorded separately. Reader-flow Stage 3 remains pending.",
+  "token_stats": "unavailable"
+}

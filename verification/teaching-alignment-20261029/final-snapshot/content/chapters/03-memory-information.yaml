@@ -1,0 +1,69 @@
+chapter_id: ch:MEMORY-INFORMATION
+part_id: part:MECHANISMS
+title: Spike information limits memory stability
+purpose: A neuron receiving spikes from a memory circuit has access to information about the stored value.
+  This chapter sets a bound on estimation error under the model’s assumptions and derives the constraint
+  that spike information places on the circuit’s memory stability.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:MEMORY-DYNAMICS
+- ch:MEMORY-LONG-DELAYS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:MEMORY-FI
+  title: Rate slopes and spike variability determine local information
+  summary: '**Neural mechanism.** Suppose two nearby memory values produce almost identical rates. A short
+    spike sample cannot reliably tell them apart. If a small change in memory instead produces a large
+    rate change relative to spike variability, that sample is more useful. We need a quantity that measures
+    this local distinction.'
+  level: 2
+- id: sec:MEMORY-BOUND
+  title: Spike information sets a lower bound on memory diffusion
+  summary: '**Neural mechanism.** The network has no access to its exact firing rates as noiseless numbers.
+    Its recurrent input is built from the same random spikes that an external observer sees. The lower
+    bound on diffusion follows directly by comparing the state sensitivity of the network with the spike
+    information.'
+  level: 2
+- id: sec:MEMORY-COMPARISONS
+  title: Improving persistence depends on what a comparison holds fixed
+  summary: '**Neural mechanism.** The inequality compares diffusion and information for the same network.
+    To compare different networks, we must say what stays fixed. Otherwise an apparent benefit of a parameter
+    change may come from changing another property at the same time. The comparisons below control how
+    added neurons, altered firing rates, or slower synaptic decay affect the tuning curves and recurrent
+    input.'
+  level: 2
+blocks:
+- id: fig:MEMORY-TUNING-INFORMATION
+  kind: figure
+  placement: sec:MEMORY-FI
+  asset: assets/approved/visuals/memory-tuning-information.png
+  caption: Analytic teaching curves $r_A(\theta)=5+35e^{-\theta^2/(2w^2)}$ and $r_B(\theta)=r_A(\theta)+20$,
+    in spikes per second, with chosen width $w=0.6$ rad. The rates have the same derivative. Their individual
+    Poisson information contributions $(r_i^{\prime})^2/r_i$ vanish at the rate peak, where the slope
+    is zero, and are positive on the flanks. Adding baseline firing raises the count noise without changing
+    the slope, reducing local information. These are illustrative tuning curves, not recorded neurons
+    or a demonstrated attractor network.
+  alt: "The first plot shows two positive peaked rate curves separated by a constant twenty spikes per second. The second shows their shared derivative, positive to the left, zero at the central peak and negative to the right. The third shows squared slope divided by rate for each curve. Both contributions vanish at the center and rise on the flanks. The higher baseline curve contributes less at every point with nonzero slope."
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:MEMORY-BOUND-STRICTNESS
+  kind: figure
+  placement: sec:MEMORY-BOUND
+  asset: assets/approved/visuals/memory-bound-strictness.png
+  caption: Analytic teaching calculation for the chapter’s mutual inhibition example, with $b=200$ activation
+    units and $\tau=0.1$ s. The coordinate $\theta$ is an activation difference. For positive rates $r_{1,2}=(b\pm\theta)/(2\tau)$,
+    $J=2000/(40000-\theta^2)$ while $D=1000$ activation units squared per second. The lower bound $1/(2\tau^2J)$
+    equals $D$ at $\theta=0$ and falls to 750 at $\theta=100$. Higher local information permits a lower
+    diffusion bound but leaves the actual diffusion unchanged in this model. The plotted range stays inside
+    the positive-rate domain $|\theta|<200$.
+  alt: Across memory coordinates from minus one hundred sixty to one hundred sixty activation units, internal
+    information has a minimum of 0.05 at zero and grows toward either side. Actual diffusion is a horizontal
+    line at one thousand. The information lower bound meets it at zero and bends downward, reaching seven
+    hundred fifty at coordinate one hundred. A marked gap separates actual diffusion from the bound there.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "W1",
+    "figure": "A02",
+    "field": "interpretation",
+    "before": "A single path can turn back toward zero even while the ensemble spread grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+    "after": "A single path can turn back toward zero even while the root mean squared displacement grows. A constant bias grows linearly, so it eventually exceeds the square root growth of the random displacement scale.",
+    "reason": "Use the defined displayed quantity instead of introducing the specialist word ensemble.",
+    "meaning_change": "No intended change. Focused truth recheck should confirm ensemble spread means the stated RMS scale here."
+  },
+  {
+    "id": "W2",
+    "figure": "A06",
+    "field": "caption",
+    "before": "For positive lags, independent measurement error adds 2σ_m² to the movement MSD, here M(ℓ)=2Dℓ. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+    "after": "For positive lags, independent measurement error adds $2\\sigma_m^2$ to the movement MSD, here $M(\\ell)=2D\\ell$. The isolated point at zero lag stays zero because each sample is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004 deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10, Eqs. 18–19.",
+    "reason": "Render the subscript/square and the MSD function as math rather than reader-visible underscore notation.",
+    "meaning_change": "Presentation only; verify the rendered formulas and neighboring qualifications."
+  },
+  {
+    "id": "W3",
+    "figure": "A06",
+    "field": "alt",
+    "before": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. Its open endpoint at zero positive lag is distinct from the true zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+    "after": "Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD is higher by 0.0010 degrees squared. The observed curve has an open endpoint at lag zero, above the actual zero-lag point at zero. At 20 milliseconds the observed and corrected values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and an uncertainty bar on the corrected value.",
+    "reason": "Zero positive lag contradicts its own terms; distinguish the excluded endpoint from the actual zero-lag sample.",
+    "meaning_change": "Clarifies the existing claim; focused truth recheck should compare the actual dot and open endpoint."
+  },
+  {
+    "id": "W4",
+    "figure": "A08",
+    "field": "caption",
+    "before": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has an integrable divergence at zero. Their survival curves coincide after transformation to U=βs^(2/d), where Pr(U>u)=e^(−u). These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+    "after": "The limiting size densities differ with spatial dimension: one dimensional length is Rayleigh, two dimensional area is exponential, and three dimensional volume has a density that rises without bound as size approaches zero, while its integral remains one. Their survival probabilities, the probabilities of exceeding a threshold, coincide after transformation to $U=\\beta s^{2/d}$, where $\\Pr(U>u)=e^{-u}$. These are exact calculations from the high-threshold limiting law, not finite-threshold simulations or measured histograms. Based on Mainali et al. (2025), main Eq. 1, p. 1111, and Methods S3.",
+    "reason": "Explain the needed density/survival meanings directly and render both transformed formulas as math.",
+    "meaning_change": "No intended change. Focused truth recheck should confirm normalized integrability, limit at zero and Pr(U>u), with the high-threshold-only qualification retained."
+  }
+]

@@ -1,0 +1,124 @@
+chapter_id: ch:FOUNDATIONS
+part_id: part:MECHANISMS
+title: Persistent neural activity can still accumulate memory error
+purpose: 'The eyes can hold a position after a brief movement command has ended. An animal
+  can also keep track of its location while the activity of individual neurons fluctuates.
+  Both abilities require a useful quantity to remain represented in a changing biological
+  system. The three papers study different parts of this problem: the loss of a stored
+  value, the origin of slow eye motion, and the arrangement of spatial firing patterns.'
+role: chapter
+page_break_before: true
+pedagogical_prerequisites: []
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:FOUNDATIONS-SPIKES
+  title: Patterns of firing rates represent a value
+  summary: A neuron communicates through brief electrical events called [**spike**]{.definition-term
+    custom-style="Definition Term"}s. A [**firing rate**]{.definition-term custom-style="Definition
+    Term"} is the expected number of spikes per unit time. A rate of 20 hertz means an
+    average of 20 spikes per second under the specified conditions, rather than a promise
+    of one spike every 50 milliseconds.
+  level: 2
+- id: sec:FOUNDATIONS-POISSON
+  title: A variable spike count at a fixed rate
+  summary: 'Even when the represented value stays fixed, the spikes need not repeat from
+    trial to trial. The 2012 model starts with a tractable description of this variability:
+    a [**Poisson process**]{.definition-term custom-style="Definition Term"}. At constant
+    rate $r$, the number $K$ of spikes in an interval of length $\Delta t$ obeys'
+  level: 2
+- id: sec:FOUNDATIONS-COVARIANCE
+  title: Mean squared displacement combines random spread with mean motion
+  summary: To identify where variability enters a pathway, the eye paper compares measurements
+    that share some fluctuations and have other fluctuations of their own. The required
+    probability identities are short, but their interpretation matters.
+  level: 2
+- id: sec:FOUNDATIONS-ATTRACTOR
+  title: Stable activity with a vulnerable stored value
+  summary: A circuit's current activities are its [**state**]{.definition-term custom-style="Definition
+    Term"}. A dynamical equation specifies how that state changes. A [**fixed point**]{.definition-term
+    custom-style="Definition Term"} is a state where the deterministic rate of change
+    is zero. It is stable in a direction if a small disturbance in that direction decays.
+  level: 2
+- id: sec:FOUNDATIONS-DIFFUSION
+  title: Independent steps with equal duration and variance give linear variance growth
+  summary: If persistent angular changes arrive repeatedly, their errors accumulate. Divide
+    time into intervals of length $\Delta t$. Let $\xi_j$ be the change in the represented
+    coordinate during interval $j$. Assume independent increments with mean zero and variance
+    $2D\Delta t$, where $D$ has units coordinate squared per time. After $n$ intervals,
+  level: 2
+- id: sec:FOUNDATIONS-RANDOMNESS
+  title: A fixed spatial map differs from a value that wanders over time
+  summary: The memory and eye papers study fluctuations that accumulate as time passes.
+    The place-field paper instead starts with a random function of physical position.
+    Once drawn for a cell and an environment, that function is fixed while the animal
+    moves through the map. Revisiting a place evaluates the same expected-rate function,
+    although the actual spikes can still vary from visit to visit.
+  level: 2
+blocks:
+- id: fig:FOUNDATIONS-ATTRACTOR
+  kind: figure
+  placement: sec:FOUNDATIONS-ATTRACTOR
+  asset: assets/approved/visuals/attractor-directions.svg
+  caption: A common activity disturbance returns to the initial angle, while an along-line
+    disturbance persists as a changed angle. The solid arrow is deterministic recovery;
+    the dashed arrow is an imposed disturbance. This is the guide's two-activity construction,
+    not experimental data.
+  alt: Two activity axes in hertz, a diagonal fixed-point line, initial state at 50 and
+    30, common disturbance at 53 and 33 with a solid arrow back, and along-line disturbance
+    at 53 and 27 corresponding to 6.5 degrees.
+  width_inches: 6.4
+  html_fold: never
+- id: fig:FOUNDATIONS-PAPER-MAP
+  kind: figure
+  placement: sec:FOUNDATIONS-RANDOMNESS
+  asset: assets/approved/visuals/foundations-paper-map.png
+  caption: Memory loss and eye drift concern changes over time; place-field statistics
+    concern variation across a fixed spatial map. The eye pathway shows the proposed changing-command
+    mechanism. Original guide schematic based on the three papers, with illustrative traces
+    rather than recorded data.
+  alt: Three separate rows compare a wandering stored value over time, a proposed changing
+    command passing through muscles to eye position, and one fixed spatial rate curve
+    evaluated twice at the same place. They link to the 2012 memory, 2022 eye-drift and
+    2025 place-field papers respectively.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:FOUNDATIONS-POISSON-POPULATION
+  kind: figure
+  placement: sec:FOUNDATIONS-POISSON
+  asset: assets/approved/visuals/foundations-poisson-population.png
+  caption: Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The
+    count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent
+    cells. Both panels plot the rate per cell $K/(N\Delta t)$, so both estimates have
+    mean 20 Hz; their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability
+    at one possible estimate, rather than a continuous density. Only estimates through
+    100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete
+    recurrent spike trains.
+  alt: Two discrete Poisson distributions share a rate per cell axis. One cell has widely
+    spaced possible estimates at zero, twenty, forty hertz and so on, with probability
+    0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters
+    around twenty hertz. Their means match, but the rate standard deviation falls from
+    twenty to 4.47 hertz.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:FOUNDATIONS-DIFFUSION-BIAS
+  kind: figure
+  placement: sec:FOUNDATIONS-DIFFUSION
+  asset: assets/approved/visuals/foundations-diffusion-bias.png
+  caption: Simulated Brownian teaching paths and analytic displacement scales for $D=0.02$
+    degrees squared per second and $v=0.10$ degrees per second. The upper paths have zero
+    drift and start at zero; the dashed envelope is the exact root mean squared displacement,
+    not a boundary on individual paths. Below, $\sqrt{2Dt}$ and $vt$ are equal at 4 s,
+    when each is 0.40 degrees. Their squares are the separate contributions to the biased
+    model’s MSD. The coordinate is unbounded, and these chosen values are not estimates
+    from animal recordings.
+  alt: Seven Brownian sample paths move irregularly above and below zero. A dashed positive
+    and negative root mean squared envelope grows with the square root of time; some paths
+    cross it. A second plot compares the positive root mean squared displacement with
+    a linearly growing bias displacement. Both equal 0.40 degrees at four seconds, after
+    which the bias line is higher.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

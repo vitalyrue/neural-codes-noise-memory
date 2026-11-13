@@ -1,0 +1,331 @@
+{
+  "first_persisted_utc": "2026-11-03T14:35:10.580659+00:00",
+  "stage": "author pass complete; independent review pending",
+  "edits": [
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "MSD before simulation measurement",
+      "before": "**What is measured and compared.** At each step,",
+      "after": "Before comparing simulated motion with theory, we need a measure of how far the represented value moves. Let $x(t)$ be that value at absolute time $t$, and let $\\ell$ be the time between two observations, called the lag. [The [**displacement**]{.definition-term custom-style=\"Definition Term\"} is $\\Delta x=x(t+\\ell)-x(t)$. The [**mean squared displacement**]{.definition-term custom-style=\"Definition Term\"}, or MSD, is the average of $(\\Delta x)^2$ over intervals with the same lag.]{.definition-explanation} The average can use different starting times along a recording, repeated trials, or both; which intervals can be combined depends on whether their movement statistics are comparable. Squaring prevents leftward and rightward changes from cancelling.\n\nFor an angle measured in degrees, MSD has units degrees squared. An MSD plot puts lag on the horizontal axis and MSD on the vertical axis. Lag is a duration, not the clock time at which an interval starts. If the statistics change during a trial, the MSD can depend on that starting time as well as on lag.\n\n[A straight MSD curve on ordinary axes means that squared displacement grows at a constant rate over that range.]{.key-statement} The zero-mean diffusion model taught in the next chapter gives $\\operatorname{MSD}(\\ell)=2D\\ell$, with slope $2D$ in degrees squared per second. On axes that plot logarithms, a relation $\\operatorname{MSD}\\propto\\ell^\\beta$ has slope $\\beta$: diffusion has slope one, while constant-velocity motion has slope two. A slope alone does not identify the neural cause. Bias, smoothing by muscles, boundaries and the range of lags measured can change the curve.\n\n**What is measured and compared.** At each step,",
+      "sources": [
+        "Burak and Fiete 2012 main Fig.2 pp.3-4; SI S26-S31 pp.6-7",
+        "Guide mathematical definition; no new data"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "Reuse displacement already taught",
+      "before": "**Physical meaning: random wandering differs from a persistent directional error.** Let $x(t)$ be horizontal eye angle in degrees and let $\\ell$ be the time between two measurements, called the lag, in seconds. [The [**displacement**]{.definition-term custom-style=\"Definition Term\"} $\\Delta x=x(t+\\ell)-x(t)$ is the change in that angle.]{.definition-explanation}",
+      "after": "**Physical meaning: random wandering differs from a persistent directional error.** Apply the displacement measure above to horizontal eye angle $x(t)$ in degrees, using a lag $\\ell$ in seconds.",
+      "sources": [
+        "Same mathematical definition, now applied to measured eye motion"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "MSD reminder preserves variance identity",
+      "before": "[The **mean squared displacement**, or MSD, averages $(\\Delta x)^2$ across repeated intervals and has units degrees squared.]{.definition-explanation} Its two contributions are",
+      "after": "The MSD of this eye displacement has units degrees squared. Its two contributions are",
+      "sources": [
+        "Existing variance and squared-mean identity retained"
+      ]
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "label": "Rate toy to paper network bridge",
+      "before": "## Independent steps with equal duration and variance give linear variance growth {#sec:FOUNDATIONS-DIFFUSION}",
+      "after": "The paper's two-unit mutual-inhibition network has this same geometry. Over its positive linear firing range, its rate dynamics reproduce the example with common-mode decay rate $a=2/\\tau$, where $\\tau$ is the synaptic decay time. The difference between the rates remains neutral. The [network chapter](ch-memory-dynamics.html#sec-memory-symmetric) uses synaptic activations to describe this network and gives the conversion between its coordinate and the angle used here. This small network illustrates one possible memory mechanism; the gaze-holding circuit also needs the motor and muscle stages described above.\n\n## Independent steps with equal duration and variance give linear variance growth {#sec:FOUNDATIONS-DIFFUSION}",
+      "sources": [
+        "Burak and Fiete 2012 main Fig.2E-G p.3 and Network Simulations p.6",
+        "Guide algebra: dot r1=dot r2=-(r1+r2-2b)/tau"
+      ]
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "label": "Fixational versus systematic drift",
+      "before": "A theory of random diffusion must account separately for [**systematic drift**]{.definition-term custom-style=\"Definition Term\"}, a nonzero mean velocity.",
+      "after": "A theory of random diffusion must account separately for [**systematic drift**]{.definition-term custom-style=\"Definition Term\"}, a nonzero mean velocity. The eye paper's term “fixational drift” names the eye's slow motion between saccades, which can be largely random; it does not imply a nonzero mean velocity.",
+      "sources": [
+        "Ben-Shushan et al. 2022 abstract and Introduction; Burak and Fiete 2012 SI Systematic drift pp.4-5"
+      ]
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "label": "State coordinate estimate distinction and visible flow definition",
+      "before": "The memory coordinate is $\\theta$. Its initial value is $\\Theta$. A bar denotes a noise free steady state, so $\\bar r_i(\\theta)$ is neuron $i$'s steady firing rate at memory value $\\theta$. The common synaptic time constant is $\\tau$. A one dimensional diffusion coefficient $D$ has units of memory coordinate squared per time, with the convention $\\operatorname{Var}[\\theta(t)-\\Theta]=2Dt$ when $D$ is constant and boundaries do not matter.",
+      "after": "Here the physical network state is the vector of synaptic activations $\\mathbf s=(s_1,\\ldots,s_N)$; firing rates follow from that state through the input and transfer function. The memory coordinate is $\\theta$, and its initial value is $\\Theta$. “Stored value” and “represented value” refer to this same coordinate, rather than to the whole activation vector. An observer's estimate $\\widehat\\theta$, obtained from a finite spike sample, can differ from $\\theta$.\n\nNoise generally puts $\\mathbf s$ slightly away from the attractor. To assign it a memory coordinate, imagine turning off further noise and following the deterministic return flow. [The fixed point reached by this flow is the paper's [**instantaneous attractor state**]{.definition-term custom-style=\"Definition Term\"}; $\\theta$ labels that point.]{.definition-explanation} This local definition assumes that nearby states return to a unique point on the continuous family. It uses the circuit's return dynamics, which can differ from a perpendicular geometric projection. [Original definition and Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).\n\nA bar denotes a noise free steady state, so $\\bar r_i(\\theta)$ is neuron $i$'s steady firing rate at memory value $\\theta$, and $\\bar s_i=\\tau\\bar r_i$. The common synaptic time constant is $\\tau$. A one dimensional diffusion coefficient $D$ has units of memory coordinate squared per time, with the convention $\\operatorname{Var}[\\theta(t)-\\Theta]=2Dt$ when $D$ is constant and boundaries do not matter.",
+      "sources": [
+        "Burak and Fiete 2012 main p.2 flow definition and Fig.1A; main Eqs.7-9 p.5"
+      ]
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "label": "Map mutual inhibition coordinate to earlier toy",
+      "before": "The coordinate is $\\theta=s_1-s_2$. The sum $s_1+s_2$ relaxes to $b$, while the difference is neutral.",
+      "after": "Here $b$ is an activation bias and $\\theta=s_1-s_2$ is an activation difference. These have different units from the rate baseline and angle in the [earlier two-cell example](ch-persistence.html#sec-foundations-attractor-example). Writing that example's baseline as $b_{\\mathrm{rate}}$ and its angle as $\\theta_{\\mathrm{angle}}$, the conversion is $b=2\\tau b_{\\mathrm{rate}}$ and $\\theta=2\\tau k\\theta_{\\mathrm{angle}}$. The sum $s_1+s_2$ relaxes to $b$ at rate $2/\\tau$, while the difference is neutral.",
+      "sources": [
+        "Burak and Fiete 2012 main Fig.2E-G p.3 and Network Simulations p.6; guide coordinate conversion from linear transfer and rate toy"
+      ]
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "label": "Figure recap points to earlier flow teaching",
+      "before": "**Neural mechanism in the figures.** [Figure 1A, p. 2](ch-memory-long-delays.html#fig-paper-memory-1) shows the definition of the memory coordinate. Start at a green point off the attractor and follow the noise free flow to the black point on it. This endpoint defines the instantaneous attractor state. After one noisy interval, repeat that flow. The difference between the two endpoints is the retained memory change. The relevant projection follows the flow, as in the [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization).",
+      "after": "**Neural mechanism in the figures.** [Figure 1A, p. 2](ch-memory-long-delays.html#fig-paper-memory-1) illustrates the [flow-defined coordinate established in Chapter 3](ch-memory-dynamics.html#ch-memory-dynamics). The green state returns to the black attractor point under noise free dynamics. Comparing the endpoints before and after one noisy interval isolates the retained memory change. The [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization) shows why the return path matters.",
+      "sources": [
+        "Burak and Fiete 2012 main Fig.1A p.2"
+      ]
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "label": "Physical bound heuristic before proof",
+      "before": "**Neural mechanism.** The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. The lower bound on diffusion follows directly by comparing the state sensitivity of the network with the spike information.",
+      "after": "**Neural mechanism.** The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. Burak and Fiete give this physical interpretation: maintaining the state acts like estimating it again from roughly one synaptic time constant $\\tau$ of the network's own spikes. That sample supplies information $J\\tau$, so even an ideal locally unbiased estimate has variance at least $1/(J\\tau)$. Comparing this with the variance $2D\\tau$ accumulated over the same time suggests $2D\\tau\\ge1/(J\\tau)$. One factor of $\\tau$ comes from collecting information; the other comes from accumulating displacement variance. This is the paper's heuristic interpretation, not a separate model in which the network resets every $\\tau$. The proof below establishes the inequality from the projection assumptions. [Paper interpretation, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3).",
+      "sources": [
+        "Burak and Fiete 2012 main p.3 interpretation after Eq.4; unchanged proof SI S45-S49 pp.10-11"
+      ]
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "label": "Running model information reminder",
+      "before": "In the two cell mutual inhibition model, use $b=200$ activation units and $\\tau=0.1\\,\\mathrm{s}$.",
+      "after": "Return to the [two cell mutual inhibition model](ch-memory-dynamics.html#sec-memory-symmetric), now using $b=200$ activation units and $\\tau=0.1\\,\\mathrm{s}$. This changes the illustrative bias from the preceding chapter's plot, while retaining the same network equations.",
+      "sources": [
+        "Existing numerical example unchanged; previous chapter plot uses b=20"
+      ]
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "label": "One sentence on readout independence",
+      "before": "In this approximation, these increments and errors are independent, zero-mean Gaussian variables. The equivalent observation model is",
+      "after": "In this approximation, these increments and errors are independent, zero-mean Gaussian variables. This treats the noise moving the state as separate from the noise in the observed counts, excluding the dependence that can arise when the same spikes both change recurrent activation and supply the observation. The equivalent observation model is",
+      "sources": [
+        "Burak and Fiete 2012 SI S57-S62 pp.12-13; F01 narrowed Stage3; no alternative formula"
+      ]
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "label": "Remove transition variance q collision",
+      "before": "Bringing that likelihood one step backward adds transition variance $q=2Dh$, since the next state equals the earlier state plus an independent Gaussian increment.",
+      "after": "Bringing that likelihood one step backward adds transition variance $2Dh$, since the next state equals the earlier state plus an independent Gaussian increment.",
+      "sources": [
+        "Existing recursion; direct notation only"
+      ]
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "label": "Use transition variance directly in recursion",
+      "before": "\\frac{1}{1/P+q}=\\frac{P}{1+2DhP}.",
+      "after": "\\frac{1}{1/P+2Dh}=\\frac{P}{1+2DhP}.",
+      "sources": [
+        "Existing recursion; algebra unchanged"
+      ]
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "label": "Carry mutual inhibition through readout without new numbers",
+      "before": "**Neural question and model.** A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$.",
+      "after": "**Neural question and model.** A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$.\n\nFor the recurring mutual-inhibition example, opposite changes in the two rates signal a change in the activation difference. Its $D$ describes how that difference wanders; its $J$ describes how well the spikes distinguish nearby values. The readout calculation combines those same quantities: longer collection reduces count uncertainty while allowing more motion. Here we apply the local model with $D$ and $J$ held fixed near the chosen state. The two-cell network has state-dependent $J$, so these constant-coefficient formulas do not describe excursions across its whole range.",
+      "sources": [
+        "Burak and Fiete 2012 main readout p.4; SI S58-S81 pp.13-16; existing guide mutual inhibition D and J formulas"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "Define D before using MSD slope",
+      "before": "[A straight MSD curve on ordinary axes means that squared displacement grows at a constant rate over that range.]{.key-statement} The zero-mean diffusion model taught in the next chapter gives $\\operatorname{MSD}(\\ell)=2D\\ell$, with slope $2D$ in degrees squared per second.",
+      "after": "[A straight MSD curve on ordinary axes means that the average squared displacement grows at a constant rate over that range.]{.key-statement} The zero-mean diffusion model taught in the next chapter gives $\\operatorname{MSD}(\\ell)=2D\\ell$, where the diffusion coefficient $D$ is half the rate of displacement-variance growth. The MSD slope is $2D$ in degrees squared per second.",
+      "sources": [
+        "Author reread prerequisite-order correction; no numerical or result changes"
+      ]
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "label": "Keep drift distinction visible before optional example",
+      "before": "<div class=\"publisher-worked-calculation publisher-fold-always\">\n\n[**Example: why the noise grows slower than a fixed bias**]",
+      "after": "[A [**systematic drift**]{.definition-term custom-style=\"Definition Term\"} is a nonzero mean velocity.]{.definition-explanation} The eye paper's term “fixational drift” names the eye's slow motion between saccades, which can be largely random; it does not imply a nonzero mean velocity.\n\n<div class=\"publisher-worked-calculation publisher-fold-always\">\n\n[**Example: why the noise grows slower than a fixed bias**]",
+      "sources": [
+        "Author reread prerequisite-order correction; no numerical or result changes"
+      ]
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "label": "Use visible drift definition in folded example",
+      "before": "A theory of random diffusion must account separately for [**systematic drift**]{.definition-term custom-style=\"Definition Term\"}, a nonzero mean velocity. The eye paper's term “fixational drift” names the eye's slow motion between saccades, which can be largely random; it does not imply a nonzero mean velocity.",
+      "after": "A theory of random diffusion must account separately for this systematic drift.",
+      "sources": [
+        "Author reread prerequisite-order correction; no numerical or result changes"
+      ]
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "label": "Keep bound intuition explicitly heuristic",
+      "before": "That sample supplies information $J\\tau$, so even an ideal locally unbiased estimate has variance at least $1/(J\\tau)$.",
+      "after": "For a state held fixed, that sample would supply information $J\\tau$, so even an ideal locally unbiased estimate would have variance at least $1/(J\\tau)$.",
+      "sources": [
+        "Burak and Fiete 2012 main p.3 heuristic; fixed-state FI assumptions already taught"
+      ]
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "label": "Shorten heuristic qualifier",
+      "before": "This is the paper's heuristic interpretation, not a separate model in which the network resets every $\\tau$. The proof below establishes the inequality from the projection assumptions.",
+      "after": "This is the paper's heuristic interpretation; the proof below establishes the inequality from the projection assumptions.",
+      "sources": [
+        "Author wording repair; heuristic and proof remain distinct"
+      ]
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "label": "Plain link label for return-flow coordinate",
+      "before": "flow-defined coordinate established in Chapter 3",
+      "after": "coordinate assigned by the return flow in Chapter 3",
+      "sources": [
+        "Same existing local link target and claim"
+      ]
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "label": "Preferred angle repeat uses plain reminder",
+      "before": "[For a ring network, a neuron's [**preferred angle**]{.definition-term custom-style=\"Definition Term\"} is an angle where its tuning curve peaks.]{.definition-explanation}",
+      "after": "For a ring network, a neuron's preferred angle is an angle where its tuning curve peaks.",
+      "sources": [
+        "S2-06 first-definition marking; complete local reminder retained"
+      ]
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "label": "Dirac delta repeat uses plain local interpretation",
+      "before": "[Here the [**Dirac delta**]{.definition-term custom-style=\"Definition Term\"} denotes a point mass: initially all probability is at $\\Theta$.]{.definition-explanation}",
+      "after": "Here the Dirac delta denotes a point mass: initially all probability is at $\\Theta$.",
+      "sources": [
+        "S2-06 first-definition marking; complete local reminder retained"
+      ]
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "label": "Activity bump repeat uses plain reminder",
+      "before": "[In Fig. 1B, an [**activity bump**]{.definition-term custom-style=\"Definition Term\"} is a localized peak of population firing rates across the neurons' preferred angles.]{.definition-explanation}",
+      "after": "In Fig. 1B, an activity bump is a localized peak of population firing rates across the neurons' preferred angles.",
+      "sources": [
+        "S2-06 first-definition marking; complete local reminder retained"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "D first teaching receives blue definition",
+      "before": "where the diffusion coefficient $D$ is half the rate of displacement-variance growth.",
+      "after": "where [the [**diffusion coefficient**]{.definition-term custom-style=\"Definition Term\"} $D$ is half the rate of displacement-variance growth.]{.definition-explanation}",
+      "sources": [
+        "S2-06 first-definition marking; complete local reminder retained"
+      ]
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "label": "D later teaching uses plain reminder",
+      "before": "[The **diffusion coefficient** $D$ measures half the rate at which the variance of the stored angle grows.]{.definition-explanation}",
+      "after": "The diffusion coefficient $D$ measures half the rate at which the variance of the stored angle grows.",
+      "sources": [
+        "S2-06 first-definition marking; complete local reminder retained"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "Transition now points to D explanation rather than first naming",
+      "before": "The next chapter calls this rate of spreading the diffusion coefficient $D$ and explains why it depends on spike variability and the circuit's response to each spike.",
+      "after": "The next chapter explains why the diffusion coefficient $D$ depends on spike variability and the circuit's response to each spike.",
+      "sources": [
+        "S2-06 first-definition marking; complete local reminder retained"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "Retain earliest reading-guide MSD blue marking; fuller Ch1 teaching plain",
+      "before": "[The [**displacement**]{.definition-term custom-style=\"Definition Term\"} is $\\Delta x=x(t+\\ell)-x(t)$. The [**mean squared displacement**]{.definition-term custom-style=\"Definition Term\"}, or MSD, is the average of $(\\Delta x)^2$ over intervals with the same lag.]{.definition-explanation}",
+      "after": "[The [**displacement**]{.definition-term custom-style=\"Definition Term\"} is $\\Delta x=x(t+\\ell)-x(t)$.]{.definition-explanation} The mean squared displacement, or MSD, is the average of $(\\Delta x)^2$ over intervals with the same lag.",
+      "sources": [
+        "Coordinator resolves first book occurrence as reading-guide MSD definition"
+      ]
+    },
+    {
+      "path": "content/chapters/01-foundations.md",
+      "label": "Retain earliest reading-guide D blue marking; fuller Ch1 teaching plain",
+      "before": "where [the [**diffusion coefficient**]{.definition-term custom-style=\"Definition Term\"} $D$ is half the rate of displacement-variance growth.]{.definition-explanation}",
+      "after": "where the diffusion coefficient $D$ is half the rate of displacement-variance growth.",
+      "sources": [
+        "Coordinator resolves first book occurrence as reading-guide D definition"
+      ]
+    }
+  ],
+  "execution_start_utc": "2026-11-03T14:35:20.861656+00:00",
+  "execution_end_utc": "2026-11-03T14:35:20.881684+00:00",
+  "before_sha256": {
+    "content/chapters/01-foundations.md": "54d6c7a7e79ad37a7c367795078eebb80dff735aca5892127574ae2c0a08e7c0",
+    "content/chapters/01b-persistence.md": "564679cac879ebb5fcadadeb7cdf5e4d341a41ac54bac85a2b7d83b3596991db",
+    "content/chapters/02-memory-dynamics.md": "f70d1cf9a1e0acc6d995f913b1a5a413473733cbcaa7bd9460053b2c9297bebe",
+    "content/chapters/02b-memory-long-delays.md": "a088bae67645f1ceaa3389c8ed71700ecd24c9fcd010b8997f6adee0ced978a7",
+    "content/chapters/03-memory-information.md": "446579eda5404135c066aa8834849319feb5ff8b73418fdcf94bf2231a159fa0",
+    "content/chapters/03b-memory-readout.md": "9ebe00e5eb4e62a81fc4b70f01fceab59e938ba08e48366d40a91fecdc0daf3e"
+  },
+  "reread_followups_recorded_utc": "2026-11-03T14:36:08.777058+00:00",
+  "reread_followups_applied_utc": "2026-11-03T14:36:18.083647+00:00",
+  "final_followups_recorded_utc": "2026-11-03T14:37:09.753056+00:00",
+  "completed_utc": "2026-11-03T14:38:46.982812+00:00",
+  "preservation_checks": [
+    {
+      "path": "content/chapters/01-foundations.md",
+      "after_sha256": "8610e42ffaeb64eb2ca83c36f044f87bf10116a7f0edf478eeb997f234af42a3",
+      "ids_preserved": true,
+      "figure_blocks_preserved": true,
+      "display_equations_preserved_except_intended_q_notation": true,
+      "reverse_replay_matches_before_sha256": true
+    },
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "after_sha256": "c9e032797f173dd4894366d3821b257a20ba753379461aec22e8ae547225bdae",
+      "ids_preserved": true,
+      "figure_blocks_preserved": true,
+      "display_equations_preserved_except_intended_q_notation": true,
+      "reverse_replay_matches_before_sha256": true
+    },
+    {
+      "path": "content/chapters/02-memory-dynamics.md",
+      "after_sha256": "621cc668c8d0b15bfc73deb793650bf85d329ca9d15de260f0141bdb0559e712",
+      "ids_preserved": true,
+      "figure_blocks_preserved": true,
+      "display_equations_preserved_except_intended_q_notation": true,
+      "reverse_replay_matches_before_sha256": true
+    },
+    {
+      "path": "content/chapters/02b-memory-long-delays.md",
+      "after_sha256": "c7e06c0c5530599d7f81ff2a352ee599f54f554c7d65140214bf43e209da8800",
+      "ids_preserved": true,
+      "figure_blocks_preserved": true,
+      "display_equations_preserved_except_intended_q_notation": true,
+      "reverse_replay_matches_before_sha256": true
+    },
+    {
+      "path": "content/chapters/03-memory-information.md",
+      "after_sha256": "32305b7a603bfa1cd172665bb0a6a48040ec8dde50e032e72469a16817895fc8",
+      "ids_preserved": true,
+      "figure_blocks_preserved": true,
+      "display_equations_preserved_except_intended_q_notation": true,
+      "reverse_replay_matches_before_sha256": true
+    },
+    {
+      "path": "content/chapters/03b-memory-readout.md",
+      "after_sha256": "d6e3655890ef0f2b3ed24bb6927f2eac1b12ef8fdf146e4ef82405117940199f",
+      "ids_preserved": true,
+      "figure_blocks_preserved": true,
+      "display_equations_preserved_except_intended_q_notation": true,
+      "reverse_replay_matches_before_sha256": true
+    }
+  ],
+  "unresolved_choices": [
+    "No replacement bound or same-spike research formula inserted.",
+    "Full independent correctness, wording and connected-reading review remains for root.",
+    "Build, browser checks, gates, sidecars and checkpoint updates intentionally left to coordinator."
+  ],
+  "blue_followups_recorded_utc": "2026-11-03T14:37:55.110096+00:00",
+  "coordinator_style_followups_recorded_utc": "2026-11-03T14:38:34.604709+00:00"
+}

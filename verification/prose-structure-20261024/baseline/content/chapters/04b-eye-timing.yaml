@@ -1,0 +1,64 @@
+chapter_id: ch:EYE-TIMING
+part_id: part:OBSERVATIONS
+title: Drift growth distinguishes diffusion from filtered white noise
+purpose: The shared movement estimate concerns a single interval length. It leaves open whether
+  the command merely fluctuates around a stable value or keeps accumulating changes. Comparing
+  displacements over different time separations can distinguish these possibilities, but the
+  smallest measured displacements may include a large contribution from recording error.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:EYE-DRIFT
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:OBSERVATIONS
+section_list:
+- id: sec:EYE-MEASUREMENT-NOISE
+  title: Independent measurement error adds a constant offset to the MSD
+  summary: The common variance calculation uses one interval length. To learn what kind of
+    process drives motion, the authors next compare displacements at many time separations.
+    Using the [earlier definition of mean squared displacement](ch-foundations.html#sec-foundations-covariance),
+  level: 2
+- id: sec:EYE-FILTERED-MSD
+  title: The MSD plateaus for filtered white noise but grows for filtered diffusion
+  summary: The corrected MSD keeps increasing over the observed range, toward a second, while
+    its logarithmic slope decreases and remains between one and two. Define that local slope
+    by
+  level: 2
+blocks:
+- id: fig:EYE-FILTERED-NOISE-MSD
+  kind: figure
+  placement: sec:EYE-FILTERED-MSD
+  asset: assets/approved/visuals/eye-filtered-noise-msd.png
+  caption: Filtering stationary white input produces an MSD plateau; filtering Brownian stored
+    position preserves long-lag growth. Each panel uses its own normalization, $M_{\mathrm{white}}/(A/\tau)$
+    and $M_{\mathrm{Brownian}}/(2D\tau)$, so the figure compares shapes without matching physical
+    noise amplitudes. Original guide calculation for the one-pole teaching model, connected
+    to Ben-Shushan et al. (2022), Fig. 3 and main Eqs. 20–22; these are not measured data
+    or the fitted full-model curves.
+  alt: Two alternative inputs pass through identical one-pole filters. On matched logarithmic
+    lag axes x equals lag divided by tau, normalized white-input MSD is 1 minus exp(-x), rising
+    with short-lag slope one and approaching a plateau of one. Independently normalized filtered
+    Brownian MSD is x minus one plus exp(-x), starting with slope two and continuing to grow
+    with long-lag slope one. The two vertical scales differ.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:EYE-MSD-MEASUREMENT-OFFSET
+  kind: figure
+  placement: sec:EYE-MEASUREMENT-NOISE
+  asset: assets/approved/visuals/eye-msd-measurement-offset.png
+  caption: For positive lags, independent measurement error adds $2\sigma_m^2$ to the movement
+    MSD, here $M(\ell)=2D\ell$. The isolated point at zero lag stays zero because each sample
+    is subtracted from itself. At 20 ms, subtracting 0.0010 from 0.0014 deg² leaves 0.0004
+    deg²; the shown ±0.0001 deg² subtraction uncertainty is 25% of that remainder. Original
+    analytic example, not experimental data, using Ben-Shushan et al. (2022), main p. 10,
+    Eqs. 18–19.
+  alt: Movement MSD rises linearly from zero. For all strictly positive lags, observed MSD
+    is higher by 0.0010 degrees squared. The observed curve has an open endpoint at lag zero,
+    above the actual zero-lag point at zero. At 20 milliseconds the observed and corrected
+    values are 0.0014 and 0.0004 degrees squared, with a bracket showing the subtraction and
+    an uncertainty bar on the corrected value.
+  width_inches: 7.29167
+  html_fold: never
+source_loci: []

@@ -1,0 +1,96 @@
+chapter_id: ch:MEMORY-READOUT
+part_id: part:MECHANISMS
+title: Readout accuracy depends on how a moving memory is observed
+purpose: Reading spikes from a memory circuit takes time, during which its stored value can keep changing. This
+  chapter calculates how much longer observation can help recover the value present at a recall cue, and explains
+  why it cannot recover every earlier random displacement.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:MEMORY-INFORMATION
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:MECHANISMS
+section_list:
+- id: sec:MEMORY-READOUT-SETUP
+  title: "Optimal Observation Time for Memory Readout: separating storage and readout error"
+  summary: "**Neural question and model.** At time $T$, a recall cue arrives. The observer must estimate the original value $\\Theta$, but only has access to future spikes. The network has already diffused during storage."
+  level: 2
+- id: sec:MEMORY-IDEAL
+  title: Accounting for diffusion makes readout improve toward a limit
+  summary: "**Neural question and model.** An observer that accounts for diffusion can use later observations without confusing them with direct measurements of $x$. Their value is limited by the motion separating them from $x$. This is an ideal inference rule for an observer. The readout calculation does not demonstrate a neural circuit implementing it. Its error can be derived by combining information backward from the end of the observation interval."
+  level: 2
+- id: sec:MEMORY-NAIVE
+  title: Equal weighting becomes harmful when observation lasts too long
+  summary: '**Neural question and model.** A decoder designed for a stationary state averages its observations with
+    equal weight. That reduces independent observation noise, but late observations reflect a state that has moved
+    further from $x$.'
+  level: 2
+- id: sec:MEMORY-PARTIAL
+  title: Limited access can make observation slower
+  summary: '**Neural mechanism.** A downstream area may receive only some of the memory network''s spikes. That
+    reduces its information without reducing the fluctuations that already move the full memory network.'
+  level: 2
+- id: sec:MEMORY-FIG3-AND-CAUTION
+  title: Readout saturates, and one printed error bound needs qualification
+  summary: 'Figure 3 isolates readout uncertainty, rescaling variance by $\sqrt{2D/J}$ and duration by $L^*$. In
+    these axes the ideal curve is $\coth z$ and the naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations
+    because too few spikes are available. The plotted features are:'
+  level: 2
+- id: sec:MEMORY-MINIMUM-VARIANCE
+  title: "Minimum Variance of Stimulus Estimation: checking the printed bound"
+  summary: The guide checks the printed lower bound against the ideal readout result.
+  level: 2
+blocks:
+- id: fig:DRAFT-MAP-CH06
+  kind: figure
+  placement: ch:MEMORY-READOUT
+  asset: candidate-content/visuals/candidates/20261111-opening-maps/ch06-draft-v1.png
+  caption: Unreviewed draft map for Readout accuracy depends on how a moving memory is observed. The labels, arrows,
+    equations and numerical values have not been checked and may be incorrect.
+  alt: Unreviewed AI-generated visual draft for Readout accuracy depends on how a moving memory is observed. It
+    contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter
+    text for the checked explanation.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:MEMORY-READOUT-TIMELINE
+  kind: figure
+  placement: sec:MEMORY-READOUT-SETUP
+  asset: assets/approved/visuals/memory-readout-timeline.png
+  caption: Original guide construction of storage and cue state readout, based on Burak and Fiete (2012), Supporting
+    Text, p. 12, Eq. S57. The illustrated path is one possible construction, and the orange estimate concerns the
+    state at the cue rather than the state at the end of observation. With the conditions shown, storage and readout
+    variances add because their cross covariance is zero.
+  alt: "The stored value starts at Theta at encoding time zero and wanders until the recall cue at T. Its cue value is x. Later spikes, collected through T plus L, give an estimate x hat of that cue state. Storage error is x minus Theta. Readout error is x hat minus x. The estimate is drawn separately from the path endpoint. Under the listed independence, unbiasedness and translation assumptions, total variance is two D T plus readout variance."
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:MEMORY-READOUT-CURVES
+  kind: figure
+  placement: sec:MEMORY-FIG3-AND-CAUTION
+  asset: assets/approved/visuals/memory-readout-curves.png
+  caption: "Original guide construction from the analytic readout formulas in Burak and Fiete (2012), Fig. 3 and Supporting Text, Eqs. S75 and S79–S81, rather than digitized data. Ideal readout approaches a normalized variance of one. Simple averaging reaches $2/\\sqrt3$ at $z=\\sqrt3$ and then worsens. These curves contain no storage variance $2DT$."
+  alt: Readout variance divided by square root of two D over J is plotted against z equals L times square root of
+    two D J. Both curves diverge as z approaches zero. Ideal readout coth z falls toward one. Simple averaging z
+    over three plus one over z reaches its minimum at square root of three, two over square root of three, and then
+    rises. The storage variance is absent.
+  width_inches: 7.29167
+  html_fold: never
+- id: fig:PAPER-MEMORY-3
+  kind: figure
+  placement: sec:MEMORY-FIG3-AND-CAUTION
+  asset: assets/approved/visuals/paper-excerpts/memory-fig-3.png
+  caption: "The ideal readout error approaches a limit, while the error of equal weighting rises after its minimum. Original Figure 3 from Burak and Fiete (2012), reproduced as an exact artwork excerpt. [PDF page 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4). [Open image at full size](../assets/fig-paper-memory-3.png)."
+  alt: "Rescaled variance versus observation duration. A solid curve falls toward one. A dashed curve falls then rises. A vertical dotted line marks the dashed curve minimum."
+  width_inches: 4.8
+  html_fold: never
+- id: fig:PAPER-MEMORY-S2
+  kind: figure
+  placement: sec:MEMORY-FIG3-AND-CAUTION
+  asset: assets/approved/visuals/paper-excerpts/memory-fig-S2.png
+  caption: "Access to a tenth of the spikes shifts the useful observation time and the readout error upward. Original Figure S2 from Burak and Fiete (2012), reproduced as an exact artwork excerpt. [PDF page 16](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=16). [Open image at full size](../assets/fig-paper-memory-s2.png)."
+  alt: Rescaled error curves compare full access and a spike fraction of one tenth for ideal and naive estimators.
+    Dotted partial-access curves have a higher error scale and longer useful time.
+  width_inches: 5.1
+  html_fold: never
+source_loci: []

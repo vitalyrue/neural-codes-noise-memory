@@ -1,0 +1,52 @@
+{
+  "local_request_id": "stage1-recheck-information-eye",
+  "stage": "Focused Stage 1 meaning recheck",
+  "started_at": "2026-10-24T21:44:47.2892124+03:00",
+  "finished_at": "2026-10-24T21:45:07.491444+03:00",
+  "awake_execution": "unverified",
+  "reviewer": "structure_foundations_memory",
+  "model": "GPT-6.1-sol/high",
+  "rule_hashes": {
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:\\dev\\NBIS\\publisher-releases\\0.8.23\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+  },
+  "checks": [
+    {
+      "repair_id": "S2-IE-01",
+      "file": "03-memory-information.md",
+      "section": "sec:MEMORY-COMPARISONS",
+      "line": 238,
+      "prior_proposed_sha256": "7a6b6f94727c8e8965fc03f2320670563faa0a84ef8414c7f62eda4d1e7c0a82",
+      "current_proposed_sha256": "24875192fd2c1c6aec56ce1e286f9b550b9154bbbb4e614b6a8a3d9d440378ee",
+      "old": "Attaining equality identifies a network that tracks its own state efficiently for a given information rate.",
+      "new": "Attaining equality means the network reaches the diffusion lower bound for its information rate and synaptic time constant.",
+      "actual_full_paragraph": "These conclusions change under another resource constraint. Fixing the total population spike rate instead of peak rate makes $a\\propto w^{-d}$, giving $J\\propto w^{-2}$ in every dimension. Sparse coverage, a large baseline rate, finite boundaries, correlated noise, or a width too small for the population integral can also change the comparison. Attaining equality means the network reaches the diffusion lower bound for its information rate and synaptic time constant. Minimizing diffusion still requires deciding how much information the allowed architecture and firing budget can supply.",
+      "before_meaning": "Equality was described as efficient tracking for a given information rate, without saying directly what quantity reaches its limit.",
+      "after_meaning": "Equality means actual D equals 1/(2 tau^2 J), for the network information rate J and synaptic time constant tau. This does not choose the information budget or guarantee every network attains equality.",
+      "evidence": "The earlier Cauchy-Schwarz proof gives D >= 1/(2 tau^2 J), with explicit equality conditions and a strict-inequality example. The resource-constraint paragraph and following sensory-memory comparison retain their original conditions.",
+      "verdict": "retain; focused Stage 1 recheck passed",
+      "new_question": null
+    },
+    {
+      "repair_id": "S2-IE-02",
+      "file": "03b-memory-readout.md",
+      "section": "sec:MEMORY-READOUT-SETUP",
+      "line": 21,
+      "prior_proposed_sha256": "20882bc1647ef9b7f1e8cb2b309336f89e3f279295663ab5f7b38a6c395b6497",
+      "current_proposed_sha256": "d23064e7c8043588c9bddca58635923bcd0240ca13e2178ad56ae1924fdeebcc",
+      "old": "[**Translation invariance**]{.definition-term custom-style=\"Definition Term\"} makes the readout variance the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$.",
+      "new": "In this readout model, [**translation invariance**]{.definition-term custom-style=\"Definition Term\"} means that shifting the represented value does not change the statistics of the readout error. Its variance is therefore the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$.",
+      "actual_full_paragraph": "Assume the readout is locally unbiased at every possible $x$ and the future noise is independent of the storage history. Conditional on that history, the readout error then has mean zero. Since $s$ is fixed by the history, $\\mathbb E[se]=\\mathbb E[s\\,\\mathbb E(e\\mid\\text{storage history})]=0$. Both errors have zero mean, so their covariance vanishes. In this readout model, [**translation invariance**]{.definition-term custom-style=\"Definition Term\"} means that shifting the represented value does not change the statistics of the readout error. Its variance is therefore the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$. Using $\\operatorname{Var}(s)=2DT$ gives",
+      "before_meaning": "The sentence gave equal variance across cue states as a consequence of translation invariance, without explaining the shift symmetry.",
+      "after_meaning": "Changing the represented cue value by an additive shift leaves the distribution of readout error unchanged in this local model, so its variance does not depend on x.",
+      "evidence": "The observation model is theta_next=theta+eta and y=theta+epsilon with fixed D and J, independent centered Gaussian increments and errors. A common shift of states and observations leaves estimation error unchanged. The surrounding paragraph retains local unbiasedness and storage-history independence; the next paragraph retains state-dependence, boundary, prior and encoding limits.",
+      "verdict": "retain; focused Stage 1 recheck passed",
+      "new_question": null
+    }
+  ],
+  "only_authorized_repairs_present": true,
+  "verdict": "Both replacements preserve the model meaning and make the intended explanation explicit. No correctness defect or unresolved question.",
+  "unresolved_questions": [],
+  "scope_limit": "Only the two replacements and their connected contexts were rechecked; this does not replace Stage 3.",
+  "token_stats": "unavailable"
+}

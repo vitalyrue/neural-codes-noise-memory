@@ -1,0 +1,29 @@
+--- baseline/content/chapters/01b-persistence.md
++++ content/chapters/01b-persistence.md
+@@ -3,24 +3,12 @@
+ Holding the eye at an angle requires muscles to maintain tension after the command to move has ended. The brain must therefore keep producing a position-dependent signal. The horizontal eye angle considered here is one number, but a circuit can represent it through thousands of neural activities. A disturbance can change those activities without changing the represented value. Another disturbance can leave a coherent activity pattern while changing the value. The geometry of these two changes will explain why a stable-looking circuit can still accumulate memory error.[^f-memory]
+ 
+ <!-- vale ai-tells.FigurativeStays = NO -->
+-We first follow the physical path from motor neurons to muscles and eye rotation, separating mechanical smoothing from the neural command that holds a gaze angle. A small circuit example then shows why some disturbances fade while others leave a different stored angle. Repeating those lasting changes gives the diffusion calculation. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals.
++Chapter 1 established how spikes act on eye muscles and how firing rates can represent an angle. We now examine the mechanical balance and continuing neural command needed to hold that angle. A small circuit example then shows why some disturbances fade while others leave a different stored angle. Repeating those lasting changes gives the diffusion calculation. The final distinction is between this changing value and an irregular spatial map that stays fixed. It explains why the memory, eye-motion, and place-field papers need different models even though all three concern variable neural signals.
+ <!-- vale ai-tells.FigurativeStays = YES -->
+ 
+ ## Sustained muscle tension holds the eye against elastic restoring forces {#sec:PERSISTENCE-EYE-MECHANICS}
+ 
+-**Anatomy: muscles turn the eyeball.** In humans and macaques, the eyeball rotates within the bony eye socket, or orbit. [The six [**extraocular muscles**]{.definition-term custom-style="Definition Term"} attach to the outside of the eyeball and control its orientation.]{.definition-explanation} The medial rectus pulls it toward the nose; the lateral rectus pulls it away. The superior and inferior rectus and the two oblique muscles contribute to vertical movement and rotation about the line of sight. Their actions depend on the eye's orientation.[^p-eye-anatomy]
+-
+-[**Ocular motoneurons (OMNs)**]{.definition-term custom-style="Definition Term"} [are neurons that activate these muscles through long nerve fibres.]{.definition-explanation} Their cell bodies lie in brainstem groups, and these fibres travel through three cranial nerves. The abducens nerve, VI, supplies the lateral rectus; the trochlear nerve, IV, supplies the superior oblique; the oculomotor nerve, III, supplies the other four. For horizontal gaze, changing the relative pull of the medial and lateral rectus rotates the eye. [A force's turning effect is its [**torque**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} Opposing torques can balance even while the muscles remain under tension.[^p-eye-anatomy]
+-
+-**Repeated spikes maintain tension.** Each motor spike affects muscle force for longer than the electrical event lasts. Repeated activation and the combined action of many muscle fibres give a smoother force than a sequence of isolated eye movements. [**Tonic firing**]{.definition-term custom-style="Definition Term"} [means sustained firing during the holding period.]{.definition-explanation} It need not be perfectly periodic. During a rapid repositioning movement, called a [**saccade**]{.definition-term custom-style="Definition Term"}, a brief strong drive moves the eye; a sustained position-dependent drive then holds the new angle. This is the pulse-and-step description: the step means continuing drive, not one more spike.[^p-eye-mechanics][^p-eye-plasticity]
+-
+-The mechanical properties contribute in different ways:
+-
+-- [**Elasticity**]{.definition-term custom-style="Definition Term"} [creates restoring forces when muscles and surrounding tissues are stretched.]{.definition-explanation} At an off-centre gaze angle, active muscle torque must balance the restoring tendency.
+-- [**Viscosity**]{.definition-term custom-style="Definition Term"} [resists motion and dissipates mechanical energy.]{.definition-explanation} It damps rapid changes but supplies no holding torque once velocity is zero.
+-- [**Inertia**]{.definition-term custom-style="Definition Term"} [is resistance to a change in angular velocity.]{.definition-explanation} It matters during acceleration, not as a force holding a stationary eye. In primate eye movements, elastic and viscous effects dominate inertia.[^p-eye-mechanics]
+-
+-[Mechanical damping smooths movement; sustained neural drive selects the angle around which the eye is held. Inertia cannot preserve a stationary gaze against an unbalanced elastic pull.]{.key-statement}
++The [eye anatomy and motor pathway](ch-foundations.html#sec-foundations-eye-action) explain why holding an angle needs continuing muscle force. We now separate two questions: how that force balances the eye's elastic pull, and how the brain maintains the command that produces it. The folded calculation answers the mechanical question; the experiments below test the neural one.
+ 
+ ::: {.publisher-clarification-note .publisher-fold-always title="Mechanical calculation: what holds an angle, and what only slows its change"}
+ 

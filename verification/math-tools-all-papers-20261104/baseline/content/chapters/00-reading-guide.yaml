@@ -1,0 +1,175 @@
+chapter_id: ch:READING-GUIDE
+part_id: part:MECHANISMS
+title: What the three papers establish
+purpose: These neuroscience papers study memory, eye control, and navigation. Their settings are mathematical models
+  of stored values, eye-movement and neural recordings from macaque monkeys, and recordings of location-dependent
+  neural activity in rodents and bats. This reading guide explains each study’s question, methods, findings, and
+  limits.
+role: frontmatter
+page_break_before: true
+pedagogical_prerequisites: []
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies: []
+section_list:
+- id: sec:READING-FIELD
+  title: Variable neural signals must support reliable behavior
+  summary: A remembered direction must remain useful after its cue disappears. The eyes must hold an angle while
+    an animal looks at a target. A moving animal must keep track of where it is. These tasks depend on groups of
+    [**neuron**]{.definition-term custom-style="Definition Term"}s, the brain's signaling cells, whose electrical
+    signals are brief and variable. Computational and systems neuroscience studies how these cells and their interactions
+    support such behavior. Mathematical models connect assumptions about cells and their interactions to predictions.
+    Recordings test those predictions against neural activity and movement.
+  level: 2
+- id: sec:READING-MEMORY
+  title: Persistent activity can still lose memory accuracy
+  summary: Burak and Fiete (2012) study short-term memory for a continuous quantity, such as a direction or eye
+    angle. A proposed mechanism is that interacting neurons keep activity going after the original input ends. Yet
+    the remembered value can change while the activity persists. The problem is to explain how the properties of
+    the cells and their connections set the rate of this loss of accuracy.
+  level: 2
+- id: sec:READING-EYE
+  title: Eye drift points to a shared neural source
+  summary: Even while gaze is held on a stationary target, the eyes move smoothly and irregularly between brief,
+    rapid movements. This smooth motion is called [**fixational drift**]{.definition-term custom-style="Definition
+    Term"}. It changes the image reaching the [**retina**]{.definition-term custom-style="Definition Term"}, the
+    light-sensitive tissue at the back of the eye. Understanding its source is therefore part of understanding the
+    visual signals the brain receives. Ben-Shushan and colleagues (2022) ask whether the motion begins mainly in
+    muscles or in neural commands sent to them.
+  level: 2
+- id: sec:READING-PLACE
+  title: Smooth random maps explain the variety of place fields
+  summary: A [**place cell**]{.definition-term custom-style="Definition Term"} in the [**hippocampus**]{.definition-term
+    custom-style="Definition Term"}, a brain region involved in memory and navigation, becomes more active in particular
+    locations. Each connected region of elevated activity is a [**place field**]{.definition-term custom-style="Definition
+    Term"}. Small environments encouraged a picture of one smooth field per cell. Larger environments reveal multiple
+    fields with widely varying sizes and shapes. Mainali, Azeredo da Silveira, and Burak (2025) ask whether one
+    statistical account can explain this variety across species and spatial dimensions.
+  level: 2
+- id: sec:READING-HARDWARE
+  title: Electronic implementations make memory mechanisms testable
+  summary: '[Part III](../parts/part-hardware.html) asks how the neural memory mechanisms can be implemented in
+    electronic circuits. The setting is neuromorphic computing, where engineered systems implement computations
+    inspired by neural organization and dynamics. The chapters distinguish connection weights from changing neural
+    states, explain how feedback affects retention, and examine selected hardware research through October 30, 2026.
+    They end with a proposed experiment that separates systematic drift, random spreading, and readout error. This
+    extension is a comparison of mechanisms and evidence. The original papers remain the foundation of Parts I and
+    II.'
+  level: 2
+- id: sec:READING-SIMULATIONS
+  title: Simulations separate the model from the evidence used to test it
+  summary: '[Part IV](../parts/part-simulations.html) follows the computational methods in Burak and Fiete (2012),
+    Ben-Shushan et al. (2022), and Mainali et al. (2025). It distinguishes simulated neural trajectories, recorded-data
+    analysis, and generated spatial maps. Each chapter identifies the model states, numerical procedure, measurements,
+    available code, and limits on reproducing the published figures. The final chapter compares tools and explains
+    resolution and repeatability checks. These are explanations of the sources, not a claim that the guide reran
+    their full simulations.'
+  level: 2
+- id: sec:READING-START
+  title: Starting knowledge and reading paths
+  summary: The guide assumes undergraduate calculus, basic probability, and linear algebra, including expected value,
+    variance, standard deviation and probability density. Before Part I, the [mathematical-tools chapter](ch-mathematical-tools.html)
+    explains why the neural model needs a connection matrix and how Fisher information links spike precision to
+    memory stability. The later chapters develop the full derivations and the remaining tools in context.
+  level: 2
+- id: sec:READING-MECHANISM-MATH
+  title: Neural mechanisms and mathematical derivations answer different questions
+  summary: 'Chapters 3–6 explain how interacting neurons can retain a value while random spike timing changes it.
+    Their treatment of the Burak and Fiete appendix separates three parts of each substantial topic:'
+  level: 2
+- id: sec:READING-SCOPE
+  title: How to interpret the calculations and evidence
+  summary: Examples chosen for the guide distinguish independent from shared fluctuations, complete from limited
+    access to neural signals, and exact formulas from approximations for rare fields. Their numbers are checked
+    separately from the published experimental measurements. A teaching reconstruction is labeled when its simplified
+    model differs from the paper's full model.
+  level: 2
+- id: sec:READING-PAPERS
+  title: The original papers
+  summary: The copies are the published versions. Supporting information is linked separately.
+  level: 2
+blocks:
+- id: tbl:READING-APPENDIX
+  kind: table
+  placement: sec:READING-MECHANISM-MATH
+  headers:
+  - Appendix section
+  - Neural question
+  - Mathematical explanation in the guide
+  rows:
+  - - '[I: large-network limit, p. 1](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1)'
+    - How can many variable spike inputs produce small fluctuations in total input?
+    - '[Mean and variance scaling; Gaussian approximation](../chapters/ch-memory-dynamics.html#sec-memory-weak-noise)'
+  - - '[II: diffusion coefficient, p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3)'
+    - Which changes in neural activity leave the stored value displaced?
+    - '[Linearization and projection](../chapters/ch-memory-dynamics.html#sec-memory-linearization), [diffusion](../chapters/ch-memory-dynamics.html#sec-memory-diffusion),
+      and [systematic drift](../chapters/ch-memory-long-delays.html#sec-memory-drift-scope)'
+  - - '[III: motion along the attractor, p. 6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6)'
+    - How do memory errors grow over long delays or around an angular range?
+    - '[Probability-density evolution and boundary conditions](../chapters/ch-memory-long-delays.html#sec-memory-long-time)'
+  - - '[IV: internal Fisher information, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9)'
+    - How well can nearby stored values be distinguished from their spikes?
+    - '[Spike likelihood and information per unit time](../chapters/ch-memory-information.html#sec-memory-fi)'
+  - - '[V: information–diffusion inequality, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10)'
+    - How does uncertainty in the circuit’s own spikes constrain memory stability?
+    - '[Scalar and matrix bounds, with equality conditions](../chapters/ch-memory-information.html#sec-memory-bound)'
+  - - '[VI: readout, p. 12](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12)'
+    - How much does longer observation help when the stored value keeps moving?
+    - '[Storage and readout error](../chapters/ch-memory-readout.html#sec-memory-readout-setup), [equal weighting](../chapters/ch-memory-readout.html#sec-memory-naive),
+      [ideal readout](../chapters/ch-memory-readout.html#sec-memory-ideal), and [partial access](../chapters/ch-memory-readout.html#sec-memory-partial)'
+  - - '[VII: model extensions, p. 17](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=17)'
+    - What changes when firing rates respond gradually or the noise law changes?
+    - '[Two time scales and alternative noise statistics](../chapters/ch-memory-readout.html#sec-memory-extensions)'
+  caption: Reading map for the Burak and Fiete supporting text. Page numbers refer to the appendix PDF.
+  first_column_role: row-labels
+  html_fold: never
+- id: tbl:READING-EVIDENCE
+  kind: table
+  placement: sec:READING-SCOPE
+  headers:
+  - Step in the evidence
+  - Burak and Fiete (2012)
+  - Ben-Shushan et al. (2022)
+  - Mainali et al. (2025)
+  rows:
+  - - Physical system and question
+    - A proposed neural circuit maintaining a continuous value after a cue ends. How quickly does its accuracy deteriorate?
+    - Motor-neuron activity and eye motion during macaque fixation. Where does the shared motion originate?
+    - Place-cell responses in rodent and bat environments. Why do field sizes and shapes vary?
+  - - Actors, variables, and interactions
+    - Fixed neural connections turn outgoing spike effects into new firing rates. Spikes renew activation and disturb
+      the represented value. [Connection-matrix explanation](ch-mathematical-tools.html#sec-math-tools-weights).
+    - Two neural populations produce command $E_{\mathrm{OI}}$. Motor spikes, muscles, and delayed feedback connect
+      it to actual eye angle $E$. The two angles are different signals.
+    - Cell $i$ receives smooth Gaussian input $h_i(\mathbf x)$ at position $\mathbf x$. Activity occurs above a
+      threshold; the spatial map is fixed during analysis.
+  - - Derived prediction
+    - Spike fluctuations produce memory diffusion. An information bound limits stability under the model assumptions.
+    - Shared and private fluctuations imply displacement-covariance relations. Filtering a diffusing command predicts
+      the time dependence of eye motion.
+    - Covariance, threshold, and dimension determine field statistics, with exact results and high-threshold approximations
+      kept separate.
+  - - Simulation comparison
+    - Stochastic ring and two-population networks test theoretical memory diffusion. These are model tests, not
+      animal-data validation.
+    - A noisy integrator and motor pathway test whether the proposed mechanism can produce the observed motion and
+      analysis results.
+    - Generated spatial maps test analytical approximations and provide finite-threshold comparisons with recorded
+      field statistics.
+  - - Empirical comparison
+    - This study does not directly test the bound against animal recordings.
+    - Paired single-neuron and eye recordings support a substantial shared source upstream of the final motor neurons,
+      under the inference assumptions.
+    - Existing rodent and bat recordings test field sizes, arrangements, shapes, and connectedness. Parameters fitted
+      to summaries remain distinct from additional comparisons.
+  - - What remains unknown
+    - Whether a biological memory circuit meets the assumptions or approaches the bound.
+    - Whether the shared source is specifically the modeled integrator. A successful model does not uniquely locate
+      it.
+    - Which connections, learning rules, and dynamics generate the spatial inputs. A statistical fit does not establish
+      a memory circuit.
+  caption: Guide-derived map of the three source papers' evidence. Each column follows a separate study; the table
+    does not claim a jointly tested circuit.
+  first_column_role: row-labels
+  html_fold: never
+source_loci: []

@@ -1,0 +1,200 @@
+{
+  "scope": "Read-only structural proposal for original 05-place-fields.md and 06-synthesis.md",
+  "model_allocation": "GPT-6.1-sol/high for structural teaching reasoning, as assigned by coordinator",
+  "shared_task_started_at": "2026-10-24T20:17:28.7375959+03:00",
+  "first_observed_checkpoint_at": "2026-10-24T20:20:24.8106928+03:00",
+  "draft_checkpoint_at": "2026-10-24T20:21:04.7130953+03:00",
+  "awake_execution_time": "Unverified; wall time includes any intervening pauses",
+  "status": "Proposed, requires independent correctness, wording and reading-flow reviews",
+  "audience": "Undergraduate calculus, probability and linear algebra; teach subject-specific concepts when first needed",
+  "materials_read": [
+    "verification/chapter-size-20261024/BRIEF.md",
+    "content/chapters/00-reading-guide.md",
+    "plan/chapter-plan.yaml",
+    "content/chapters/05-place-fields.md",
+    "content/chapters/05-place-fields.yaml",
+    "content/chapters/06-synthesis.md",
+    "content/chapters/06-synthesis.yaml",
+    "C:/dev/NBIS/publisher-releases/0.8.23/skills/course-study-guide-builder/SKILL.md",
+    "C:/dev/NBIS/publisher-releases/0.8.23/skills/course-study-guide-builder/references/structural-preservation-contract.md",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md"
+  ],
+  "groups": [
+    {
+      "proposal_key": "place-1",
+      "original_chapter": "ch:PLACE-FIELDS",
+      "title": "Field counts and gaps reveal threshold and scale",
+      "section_ids": [
+        "sec:PLACE-GP",
+        "sec:PLACE-KAC-RICE",
+        "sec:PLACE-INFERENCE"
+      ],
+      "rationale": "This is one complete inference path: define the random spatial map and its fields, derive crossing density, then combine occupied and inactive lengths to separate the model's two arrangement parameters. Stop before the shift from exact mean formulas to the high-threshold approximation for whole distributions.",
+      "opening_paragraphs": [
+        "A cell recorded on a short track may have one smooth firing hill. On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?",
+        "Mainali, Azeredo da Silveira, and Burak propose that a cell's spatial input is a smooth random function. The cell fires where this function exceeds a threshold. The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests ask whether fitting field sizes and counts also explains field shapes and holes.[^p3-question]",
+        "We begin on a track, where a field starts when the input crosses upward through the threshold. Counting these crossings gives the average number of fields. Combining that count with the lengths of active fields and inactive gaps then separates the effect of the threshold from the distance over which the map changes. These calculations establish the parameters needed for the later predictions of sizes and shapes.",
+        "Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning."
+      ],
+      "prerequisites": [
+        "The probability and covariance background in ch:FOUNDATIONS; no dependence on the full memory-information derivation"
+      ],
+      "required_reminders": [],
+      "original_opening_disposition": "Retain the first two original paragraphs exactly, with p3-question. Replace the third paragraph's generic chapter announcement with the proposed path paragraph, while retaining its full static-map scope statement as a separate paragraph. Nothing from the original scientific setup is dropped.",
+      "retained_blocks": [
+        "fig:PLACE-GP-TO-FIRING",
+        "fig:PLACE-CROSSINGS"
+      ],
+      "handoff": "The mean lengths are exact stationary ratios under their averaging assumptions; they do not determine the whole length distribution. The next chapter begins with precisely that missing question.",
+      "reference_cautions": [
+        "Keep p3-question, p3-model, p3-scale, p3-crossings, p3-ec-source, p3-means and p3-selection with their actual uses.",
+        "p3-ec-source is also used by the later topology group, so copy a shared definition into every chapter requiring it or use the project's supported global-note mechanism.",
+        "The reading guide currently calls this whole material Chapter 5. Its chapter-number references and reading paths must describe the three new chapters."
+      ]
+    },
+    {
+      "proposal_key": "place-2",
+      "original_chapter": "ch:PLACE-FIELDS",
+      "title": "High peaks explain size laws across dimensions",
+      "section_ids": [
+        "sec:PLACE-RARE-PEAKS",
+        "sec:PLACE-SIZE-LAW",
+        "sec:PLACE-SLICES",
+        "sec:PLACE-SLOPES"
+      ],
+      "rationale": "The rare-peak argument and geometric change of variables form an inseparable derivation. Slices then test what the geometry predicts inside a field, and boundary slopes check the local crossing structure and independently recover the width constant. This gives a complete size-and-local-shape argument before the next chapter changes to holes, whole-map tests and possible circuitry.",
+      "opening_paragraphs": [
+        "Knowing the average field length does not tell us how often very small or very large fields occur. Why should the same spatial model give one size distribution on a track, another in an arena, and a third in a room? The next step is to find the shape of a typical field when only unusually high input peaks rise above the threshold.",
+        "Near such a peak, the smooth input is approximately a downward parabola. Its height above the threshold sets a radius, and converting that radius into length, area or volume gives the different size laws. Cuts through a map and slopes at field edges provide further checks of its spatial structure. The slope calculation also checks the width constant by returning to the crossing argument. The size laws use a high threshold approximation; the boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.",
+        "We keep the earlier notation: $z(x)$ is the spatial input normalized to variance one, $q$ is its threshold, $\\sigma$ is its local distance scale, and $a$ converts positive excess input into firing rate. The number of spatial dimensions is $d$."
+      ],
+      "prerequisites": [
+        "place-1, particularly Gaussian conditioning, normalized input, smoothness assumptions, crossing density and mean length"
+      ],
+      "required_reminders": [
+        "Maintain F(x)=a[z(x)-q]_+ as the earlier firing rule; a continuation can add this one formula if the short verbal reminder is judged insufficient.",
+        "Keep the exact stationary mean from sec:PLACE-INFERENCE available through a direct section link because sec:PLACE-SIZE-LAW compares its numerical value with the limiting mean."
+      ],
+      "original_opening_disposition": "The original broad opening stays with place-1. This new opening supplies the question, path, notation reminder and distinction between limiting and exact claims. Do not copy the full Gaussian-process definition into this continuation.",
+      "retained_blocks": [
+        "fig:PLACE-SIZE-GEOMETRY",
+        "fig:PLACE-SIZE-DENSITY-COLLAPSE",
+        "tbl:PLACE-SIZE-LAWS"
+      ],
+      "handoff": "After local sizes, cuts and edge slopes, the remaining question is how many separate regions and holes exist across the whole map. This motivates topology without requiring any section reorder.",
+      "reference_cautions": [
+        "Change 'the Euler characteristic calculation below' in sec:PLACE-RARE-PEAKS to a direct link to sec:PLACE-TOPOLOGY in place-3; the calculation is no longer below on this page.",
+        "The phrase 'Using the radius from the preceding section' in sec:PLACE-SIZE-LAW remains correct because both complete sections stay together.",
+        "'Return to the crossing integral' in sec:PLACE-SLOPES should link to sec:PLACE-KAC-RICE in place-1.",
+        "Retain both folded notes, including the three supplement corrections and the independent boundary-slope calculation. Their claims and labels are unchanged.",
+        "Keep the rare-source, shapes, size-source, corrections, slices-source and slope-source footnotes with the appropriate uses.",
+        "Do not describe slices or the exact slope law as consequences that require the high threshold approximation. The opening explicitly distinguishes their assumptions."
+      ]
+    },
+    {
+      "proposal_key": "place-3",
+      "original_chapter": "ch:PLACE-FIELDS",
+      "title": "Holes and measurements test the spatial explanation",
+      "section_ids": [
+        "sec:PLACE-TOPOLOGY",
+        "sec:PLACE-DATA",
+        "sec:PLACE-WIRING"
+      ],
+      "rationale": "The chapter asks how much the successful size and shape description explains. Holes first supply a demanding whole-map prediction, the data section separates fitted quantities from further checks and processing choices, and the wiring section examines one possible source of Gaussian maps without treating it as uniquely identified. The long topology calculation remains complete, including its folded algebra and boundary terms.",
+      "opening_paragraphs": [
+        "Two maps can have the same field sizes and counts while arranging their active regions differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial model account for these differences, and how much would that agreement tell us about the circuit that produced the maps?",
+        "We first count connected regions and holes together, which gives a prediction across activity thresholds. The boundary of the observed environment matters for this calculation, so we keep its contributions. We then examine which measured quantities set the model's parameters and which provide further tests. Finally, a sum of many randomly weighted inputs shows one way a circuit could produce Gaussian spatial input, while making clear which assumptions and circuit measurements that explanation still needs.",
+        "The map is still fixed over space. As before, q is the normalized activity threshold, $\\sigma$ is the local spatial scale, and a converts normalized input above threshold into firing rate. The number of spatial dimensions is $d$; it is separate from the diffusion coefficient $D$ used in the memory chapters."
+      ],
+      "prerequisites": [
+        "place-1 for the spatial model and one-dimensional crossing calculation",
+        "place-2 for the size and shape predictions evaluated by the data section"
+      ],
+      "required_reminders": [
+        "The topology section writes Q(q)=1-Phi(q), using the standard normal cumulative distribution function first defined in place-1. Add a compact local reminder before its first equation if the opening's notation reminder is kept brief.",
+        "The topology section uses the Hessian H, the matrix of second spatial derivatives first explained in place-2. Add 'Here H is again the matrix of second spatial derivatives' before the signed-density calculation.",
+        "For the sentence 'We already derived the 1D case', add a direct link to sec:PLACE-KAC-RICE rather than repeating its proof.",
+        "Retain the distinction between exact mean Euler characteristic and approximate high-threshold field count."
+      ],
+      "original_opening_disposition": "The original broad opening stays with place-1. The new opening motivates the topology calculation as a stronger test, then explains why data processing and the proposed input mechanism follow it.",
+      "retained_blocks": [
+        "fig:PLACE-TOPOLOGY",
+        "tbl:PLACE-DATA-COMPARISONS"
+      ],
+      "handoff": "Keep the final original paragraph that carries the specific result into synthesis: spatial statistics constrain arrangement, shape and topology, but circuit mechanism needs additional measurements or perturbations.",
+      "reference_cautions": [
+        "Replace 'We already derived the 1D case' with a linked reference to sec:PLACE-KAC-RICE in place-1.",
+        "The topology section's 'independently checking the size-law mean' should link to sec:PLACE-SIZE-LAW in place-2.",
+        "The p3-taylor note says 'This chapter uses' the signed critical-point framework; that remains true for this new chapter.",
+        "Keep p3-ec-source, p3-taylor, p3-higher-count, p3-processing, p3-fit-tests, p3-supp-tests, p3-trends, p3-threshold-variation, p3-wiring-source and p3-discussion with their actual uses.",
+        "Keep every condition, sample-count caution and processing limit in sec:PLACE-DATA. The new chapter opening must not make these comparisons sound like newly collected experiments or held-out forecasts.",
+        "Synthesis's prerequisite that currently names ch:PLACE-FIELDS must include completion of the final place-field chapter."
+      ]
+    },
+    {
+      "proposal_key": "synthesis",
+      "original_chapter": "ch:SYNTHESIS",
+      "title": "Spatial maps and memory dynamics need separate tests",
+      "section_ids": [
+        "sec:SYNTHESIS-QUESTIONS",
+        "sec:SYNTHESIS-JOINT-CALCULATION",
+        "sec:SYNTHESIS-COVARIANCE-EXAMPLE",
+        "sec:SYNTHESIS-EVIDENCE",
+        "sec:SYNTHESIS-RELATED",
+        "sec:SYNTHESIS-NEXT"
+      ],
+      "rationale": "Retain one synthesis chapter. Its comparison motivates a short shared-position calculation; that calculation explains what a joint test would measure; evidence and related studies state the limits before the research proposal. The example remains a level-3 child of the calculation. A split before evidence would separate the proposed connection from the qualifications and test that give it meaning.",
+      "opening_paragraphs": [
+        "A model can explain the shape of a neural code without explaining how that code is maintained. It can also explain fluctuations inside a circuit without uniquely locating the source of a measured behavior. The three papers become more useful together when these different claims are kept attached to their actual mathematical and experimental tests.",
+        "To connect them, we first separate the spatial map, the changing represented position, and the movement measured downstream. A short calculation then shows how a common position error can make cells with different tuning change together. Comparing that calculation with each paper's evidence and related studies identifies what a joint experiment would still need to measure. This gives a specific path from the three separate results to a possible test of their connection."
+      ],
+      "prerequisites": [
+        "Final memory-information chapter",
+        "Final eye-drift chapter",
+        "All three place-field chapters"
+      ],
+      "required_reminders": [
+        "Retain the existing explanation that theta(t) is an attractor coordinate, x is physical spatial position in the place-field model, and an internal eye command differs from measured eye angle.",
+        "Retain the explicit statement that R_i(t)=f_i(x(t)) is a guide calculation, not a model jointly tested by the three studies.",
+        "Retain the local-small-displacement, conditional covariance and added-noise qualifications."
+      ],
+      "original_opening_disposition": "Retain the original opening exactly and append the proposed path paragraph before the first section.",
+      "retained_blocks": [
+        "tbl:SYNTHESIS-MODELS",
+        "fig:SYNTHESIS-SHARED-POSITION"
+      ],
+      "reference_cautions": [
+        "The guide-map link currently points at ch-foundations.html#fig-foundations-paper-map; update its page if the foundations split relocates that figure.",
+        "All existing synthesis footnotes remain with this single chapter.",
+        "The reading guide currently calls synthesis Chapter 6. Update all numbered references after the final chapter order is set.",
+        "The plan's observation-Part purpose currently says 'The final chapter connects their results'; this remains correct because synthesis stays one chapter."
+      ]
+    }
+  ],
+  "alternatives_compared": [
+    {
+      "scheme": "Two place-field chapters: first three sections, then all remaining seven sections",
+      "assessment": "Reject. The second chapter would still combine a long rare-peak derivation, size laws, several shape tests, the long topology derivation, empirical processing and circuit interpretation. It does little to address the long-chapter problem."
+    },
+    {
+      "scheme": "Four place-field chapters: first three sections; rare peaks, size law and slices; slopes and topology; data and wiring",
+      "assessment": "Plausible if the final rendered three-chapter result still feels too long. It isolates geometry, local/whole-map checks, and data/mechanism questions more sharply. Three chapters are preferred now because slopes provide a useful independent check immediately after the size-law argument, while holes naturally open the assessment of the model's explanatory reach. Four adds another page transition and duplicates reminders for a two-section chapter without a prerequisite need."
+    },
+    {
+      "scheme": "Split synthesis after the joint calculation and its example",
+      "assessment": "Reject for now. The synthesis is shorter and answers one connected question: how the separate results could be tested together. Its evidence limits and final test should remain beside the proposed connection."
+    }
+  ],
+  "global_handoff": [
+    "Root chooses final chapter IDs and filenames; proposal keys are not new canonical IDs.",
+    "All existing section IDs and their full content remain in the original order. No section is subdivided, omitted or reordered.",
+    "Move sidecar blocks according to their placement section, preserving captions, alt text, assets, fold settings and width.",
+    "Update explicit numbered references in the reading guide and any cross-chapter HTML links only after the final chapter order is fixed.",
+    "Record the original opening disposition and complete-section moves in the structure ledger.",
+    "The original place-field notation choices q, C and d must remain taught in sec:PLACE-GP and briefly recalled in continuation chapters.",
+    "No whole-paper audit or visual rebuild was performed by this proposal agent."
+  ],
+  "token_stats": "Token stats unavailable",
+  "completed_at": "2026-10-24T20:22:27.7869897+03:00",
+  "wall_clock_elapsed_seconds": 299.0
+}

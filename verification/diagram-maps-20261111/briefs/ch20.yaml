@@ -1,0 +1,244 @@
+brief:
+  asset_id: fig:MAP-CH20
+  scope: chapter
+  book: burak-three-papers
+  part: part:SIMULATIONS
+  chapter: ch:SIMULATING-EYE
+  purpose: Eye simulations connect a noisy neural command to measured motion
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Physical objects, changing states, signals, and separate comparisons explain the chapter mechanisms
+    beyond topic labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Arrange related scenes according to their true dependence; show independent comparisons separately.
+    Do not draw a single implied causal chain across unrelated examples.
+  scenes: &id001
+  - source_item_ids:
+    - P01
+    visible_objects_and_relation: Sequential single-cell records with held-out trial
+    teaching_contribution_beyond_labels: Recordings come from 57 motor neurons in two macaques in separate single-cell
+      recordings; held-out trials test rate predictions.
+  - source_item_ids:
+    - P02
+    visible_objects_and_relation: Measured and predicted displacement traces sharing a latent drive
+    teaching_contribution_beyond_labels: Eye motion and a prediction from one neuron covary; the shared fraction
+      estimate depends on calibration and noise assumptions.
+  - source_item_ids:
+    - P03
+    visible_objects_and_relation: Opposing populations to common internal command
+    teaching_contribution_beyond_labels: Two integrator populations produce an internal position command through
+      their activity difference.
+  - source_item_ids:
+    - P04
+    visible_objects_and_relation: Command to motor spikes to mechanical filter to eye angle
+    teaching_contribution_beyond_labels: Motor neurons translate command into noisy spike trains and muscles filter
+      their contributions into eye position.
+  - source_item_ids:
+    - P05
+    visible_objects_and_relation: Eye-output delay branch and current-command branch entering subtraction
+    teaching_contribution_beyond_labels: Delayed eye position and current internal command contribute differently
+      to feedback input.
+  - source_item_ids:
+    - P06
+    visible_objects_and_relation: Three separated control pipelines with common observation statistic
+    teaching_contribution_beyond_labels: Compare fixed-command private motor noise, noisy internal command, and
+      full pathway rather than relying on one irregular trajectory.
+  - source_item_ids:
+    - P07
+    visible_objects_and_relation: Simulated motor spikes and eye output entering the same analysis
+    teaching_contribution_beyond_labels: Apply the measured-data reconstruction to simulations and check measurement-noise
+      and feedback controls.
+  - source_item_ids:
+    - P08
+    visible_objects_and_relation: Separate model code, raw recordings and processed summary inputs
+    teaching_contribution_beyond_labels: Released MATLAB model code and raw recordings support different reproductions;
+      a processed MSD alone is not raw data reanalysis.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/12-simulating-eye-drift.md
+  - content/chapters/12-simulating-eye-drift.yaml
+  chapter_source_sha256: c707d3cd85817d4da89548aec063aa6a320b6d400c4459863a24a5cf170758fb
+  teaching_points:
+  - id: P01
+    point: Recordings come from 57 motor neurons in two macaques in separate single-cell recordings; held-out trials
+      test rate predictions.
+    source_locus: content/chapters/12-simulating-eye-drift.md:5-12 (#sec:SIMULATING-EYE-DATA)
+  - id: P02
+    point: Eye motion and a prediction from one neuron covary; the shared fraction estimate depends on calibration
+      and noise assumptions.
+    source_locus: content/chapters/12-simulating-eye-drift.md:5-12 (#sec:SIMULATING-EYE-DATA)
+  - id: P03
+    point: Two integrator populations produce an internal position command through their activity difference.
+    source_locus: content/chapters/12-simulating-eye-drift.md:13-39 (#sec:SIMULATING-EYE-PATH)
+  - id: P04
+    point: Motor neurons translate command into noisy spike trains and muscles filter their contributions into eye
+      position.
+    source_locus: content/chapters/12-simulating-eye-drift.md:13-39 (#sec:SIMULATING-EYE-PATH)
+  - id: P05
+    point: Delayed eye position and current internal command contribute differently to feedback input.
+    source_locus: content/chapters/12-simulating-eye-drift.md:13-39 (#sec:SIMULATING-EYE-PATH)
+  - id: P06
+    point: Compare fixed-command private motor noise, noisy internal command, and full pathway rather than relying
+      on one irregular trajectory.
+    source_locus: content/chapters/12-simulating-eye-drift.md:40-50 (#sec:SIMULATING-EYE-CONTROLS)
+  - id: P07
+    point: Apply the measured-data reconstruction to simulations and check measurement-noise and feedback controls.
+    source_locus: content/chapters/12-simulating-eye-drift.md:40-50 (#sec:SIMULATING-EYE-CONTROLS)
+  - id: P08
+    point: Released MATLAB model code and raw recordings support different reproductions; a processed MSD alone
+      is not raw data reanalysis.
+    source_locus: content/chapters/12-simulating-eye-drift.md:51-69 (#sec:SIMULATING-EYE-TOOLS)
+  - id: P09
+    point: The model reports neuron counts and timing, but the meaning of N differs between paper wording and code
+      population vectors and must be resolved before claiming exact reproduction.
+    source_locus: content/chapters/12-simulating-eye-drift.md:32-36
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 9
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P09: Newly identified source point; retain in inventory and decide whether it can be clearly shown during scene
+      design.
+  connected_source_sha256:
+    content/chapters/12-simulating-eye-drift.yaml: 94f50171bdfec375ae5f238d1565122a146ff6229914e8a01367fe6663ea4371
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/12-simulating-eye-drift.md
+  approved_terms: &id002
+  - Recorded spikes
+  - Internal command
+  - Motor spikes
+  - Eye response
+  - Delayed feedback
+  - Controls
+  caption: The scene relates the physical states, measurements, and assumptions described in Eye simulations connect
+    a noisy neural command to measured motion.
+  alt_text: Sequential single-cell records with held-out trial; Measured and predicted displacement traces sharing
+    a latent drive; Opposing populations to common internal command; Command to motor spikes to mechanical filter
+    to eye angle; Eye-output delay branch and current-command branch entering subtraction; Three separated control
+    pipelines with common observation statistic; Simulated motor spikes and eye output entering the same analysis;
+    Separate model code, raw recordings and processed summary inputs.
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S01
+  teaching_point: Recordings come from 57 motor neurons in two macaques in separate single-cell recordings; held-out
+    trials test rate predictions.
+  visual_role: Sequential single-cell records with held-out trial
+- id: S02
+  teaching_point: Eye motion and a prediction from one neuron covary; the shared fraction estimate depends on calibration
+    and noise assumptions.
+  visual_role: Measured and predicted displacement traces sharing a latent drive
+- id: S03
+  teaching_point: Two integrator populations produce an internal position command through their activity difference.
+  visual_role: Opposing populations to common internal command
+- id: S04
+  teaching_point: Motor neurons translate command into noisy spike trains and muscles filter their contributions
+    into eye position.
+  visual_role: Command to motor spikes to mechanical filter to eye angle
+- id: S05
+  teaching_point: Delayed eye position and current internal command contribute differently to feedback input.
+  visual_role: Eye-output delay branch and current-command branch entering subtraction
+- id: S06
+  teaching_point: Compare fixed-command private motor noise, noisy internal command, and full pathway rather than
+    relying on one irregular trajectory.
+  visual_role: Three separated control pipelines with common observation statistic
+- id: S07
+  teaching_point: Apply the measured-data reconstruction to simulations and check measurement-noise and feedback
+    controls.
+  visual_role: Simulated motor spikes and eye output entering the same analysis
+- id: S08
+  teaching_point: Released MATLAB model code and raw recordings support different reproductions; a processed MSD
+    alone is not raw data reanalysis.
+  visual_role: Separate model code, raw recordings and processed summary inputs
+communication_plan:
+  segments: *id001
+  layout: Use subject-driven scenes with readable short labels; separate independent examples and preserve their
+    conditions.
+  keep_in_text:
+  - Detailed formulas and numerical calculations
+  - Full discussion and citations
+  required_visible_conditions:
+  - Distinguish measured demonstrations, numerical simulations, and proposed tests where applicable
+  independent_example_groups:
+  - Independent study or architecture examples unless the source establishes an action between them
+  readability_risk: This draft lists 8 separate scenes. At the intended reading width this may be too dense; group
+    related mechanisms or split across existing chapter figures. Do not claim coverage until inspected.
+normal_flow:
+- Connect events only where source text gives an actual causal, computational or measurement relationship.
+secondary_relationships:
+- Show comparisons side by side without a causal arrow; use explicitly labeled feedback only where it exists.
+exact_text:
+  required: *id002
+  prohibited:
+  - paper title banner
+  - unsupported universal claims
+  - visual-review notes or caption inside image
+constraints:
+- Match the book palette and style lock.
+- Do not treat planned teaching points as established visual coverage.
+- Do not imply that different experiments are one continuous causal experiment.
+- Keep caption and alt text outside the artwork.
+- Do not shrink labels to hide excessive density.
+- If a point cannot be shown with its important condition, leave its coverage pending.
+dispositions: []

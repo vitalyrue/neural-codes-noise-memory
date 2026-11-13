@@ -1,0 +1,14 @@
+{
+  "recorded_at": "2026-10-29T13:18:06.105995+02:00",
+  "source": "content\\chapters\\03-memory-information.md",
+  "source_sha256": "c0136cbc43748a376655d3aeba17f76af323db38b05663e61c4fc481812c6dba",
+  "rule": "ai-tells.SemicolonUsage",
+  "match": "; pp.",
+  "actual_source": "p1-scaling footnote",
+  "native_reported_source": "p1-colocation footnote",
+  "reason": "Vale 3.24.0 reports this already independently retained bibliographic separator at the later footnote. A rule comment around the actual separator did not suppress it. The additional bounded comment at the native reported footnote does. No reader text, shared rule, severity or raw diagnostic result changed.",
+  "independent_decision": "memory-stage2.json; original diagnostic line282 versus actual source line278",
+  "probe": "Actual full chapter sent through native Vale stdin with the extra bounded comment: zero errors. Original full-guide run retains the one error in vale-final.",
+  "limit": "The extra region is a parser-location workaround, not a judgment that this later footnote contains a semicolon. Source/context changes require new review.",
+  "full_guide_rerun": "requested after this change"
+}

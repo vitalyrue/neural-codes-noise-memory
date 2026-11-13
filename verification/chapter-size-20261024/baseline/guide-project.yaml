@@ -1,0 +1,74 @@
+schema_version: 4
+book_id: burak-three-papers
+guide:
+  id: burak-three-papers
+  title: 'Neural Codes, Noise, and Memory: A Guide to Three Papers'
+  language: en
+  contributors: []
+  description: This guide teaches the neural background and central derivations of Burak
+    and Fiete (2012), Ben-Shushan and colleagues (2022), and Mainali and colleagues (2025).
+    Begin with the reading path for paper copies, assumed knowledge, and the route through
+    the mathematics.
+source:
+  content_root: content/chapters
+  chapter_plan: plan/chapter-plan.yaml
+  source_inventory: source-maps/source-inventory.csv
+  source_coverage: source-maps/source-coverage.csv
+  research_ledger: source-maps/research-ledger.csv
+visuals:
+  ledger: source-maps/visual-ledger.yaml
+  approved_root: assets/approved/visuals
+  candidates_root: candidate-content/visuals/candidates
+candidate_content:
+  root: candidate-content
+  transitions: candidate-content/transitions
+  evidence_selections: candidate-content/evidence-selections
+  extensions: candidate-content/extensions
+dependencies:
+  evidence_packages: dependencies/evidence-packages.yaml
+workflow:
+  checkpoint: CURRENT_STATE.md
+publication:
+  reproducibility:
+    source_date_epoch: 1792685167
+  outputs:
+    html: site
+    docx: dist/burak-three-papers.docx
+    pdf: dist/burak-three-papers.pdf
+  required_outputs:
+  - html
+  build_root: .build
+  renderers:
+    quarto:
+      enabled: true
+      word_finish:
+        enabled: false
+        header_template: '{title}'
+        footer_template: '{author} | {page}'
+        header_alignment: center
+        footer_alignment: center
+        chapter_page_break_exceptions: []
+        page_geometry:
+          width_inches: 8.5
+          height_inches: 11.0
+          top_margin_inches: 1.0
+          bottom_margin_inches: 1.0
+          left_margin_inches: 1.0
+          right_margin_inches: 1.0
+          header_distance_inches: 0.5
+          footer_distance_inches: 0.5
+      html_folding:
+        enabled: true
+    word:
+      enabled: false
+    latex:
+      enabled: false
+verification:
+  semantic_reviews: verification/semantic-review-ledger.yaml
+  audits: verification/audits
+  rendered_pages: verification/rendered-pages
+  migration: verification/migration
+  publication: verification/publication
+  manifests: verification/manifests
+plan:
+  structure_lock: plan/structural-locks/current.yaml

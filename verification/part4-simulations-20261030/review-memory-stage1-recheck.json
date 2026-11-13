@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "review_stage": 1,
+  "review_type": "focused_truth_reasoning_recheck",
+  "status": "pass",
+  "reviewer": "/root/sim_sources_memory",
+  "request_id": "local-parent-stage1-memory-recheck-20261030",
+  "started_utc": "2026-10-30T17:00:20.3831183Z",
+  "completed_utc": "2026-10-30T17:00:42.174943+00:00",
+  "wall_elapsed_review_seconds": 22.2,
+  "awake_execution_time": "unverified; no sleep/resume logs read",
+  "scope": "Only repaired coordinate-conversion paragraph, with immediate context; earlier Stage 1 report preserved. No Stage 2 or 3 judgment.",
+  "current_file_sha256": "8d383fc8843fb4aa00646ae44c499ffcd681422e07dce195a0165f56a5a01af3",
+  "current_paragraph_sha256": "9b6a3b45fd439583b6dcf7843c27bdf892f82dd0cc24a7d722019adeb5032b67",
+  "current_paragraph": "The coordinate convention affects a reconstruction. Let $\\theta_s=s_1-s_2$ be the activation difference and $\\theta_r=r_1-r_2$ the rate difference along the steady-state family. Since $s_i=\\tau r_i$ there, $\\theta_r=\\theta_s/\\tau$ and their diffusion coefficients satisfy $D_r=D_s/\\tau^2$. Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring's at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not document the count sampler or full initialization for this example.",
+  "rules_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "previous_report": "review-memory-stage1.json",
+  "finding_disposition": {
+    "id": "MEM-S1-001",
+    "status": "resolved",
+    "answer": "The text now defines both coordinates, derives the direction theta_r=theta_s/tau from s_i=tau*r_i on the steady family, and gives D_r=D_s/tau^2. This is consistent with main Methods p.6, the fixed-state equation, and the guide activation coordinate. It correctly avoids a numerical smaller/larger claim for dimensional quantities. The subsequent multiple-event and missing-protocol statements remain qualified and true.",
+    "source_check": "For this mutual-inhibition model g1-g2=s1-s2, while tau*(r1-r2)=g1-g2. Therefore the difference conversion is also exact away from the steady family while both linear rates remain valid; limiting the stated argument to the steady family does not invalidate its attractor-diffusion use."
+  },
+  "unchanged_passage_hash_verification": [
+    {
+      "location": "content/chapters/11-simulating-memory.md:1-3",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:5-15",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:17-22",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:24-26",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:28-30",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:32-32",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:34-34",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:36-38",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:40-46",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:48-50",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:52-56",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:60-60",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:62-64",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:66-66",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:68-68",
+      "hash_unchanged": true
+    },
+    {
+      "location": "content/chapters/11-simulating-memory.md:70-76",
+      "hash_unchanged": true
+    }
+  ],
+  "new_findings": [],
+  "limits": [
+    "No whole earlier chapter approval",
+    "No visual checks, builds or tests needed for this algebra-only sentence repair"
+  ],
+  "token_stats": "unavailable"
+}

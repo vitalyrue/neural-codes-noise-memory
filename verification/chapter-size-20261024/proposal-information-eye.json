@@ -1,0 +1,95 @@
+{
+  "task_started_at": "2026-10-24T20:17:28.7375959+03:00",
+  "proposal_drafted_at": "2026-10-24T20:21:33.5404768+03:00",
+  "author_model": "GPT-6.1-sol/high",
+  "status": "Draft proposal for root integration and independent staged review; no canonical edits",
+  "scope_read": ["PLAN.md", "content/chapters/00-reading-guide.md", "content/chapters/02-memory-dynamics.md opening and sec:MEMORY-DIFFUSION", "content/chapters/03-memory-information.md complete", "content/chapters/03-memory-information.yaml complete", "content/chapters/04-eye-drift.md complete", "content/chapters/04-eye-drift.yaml complete"],
+  "skill": "C:/dev/NBIS/publisher-releases/0.8.23/skills/course-study-guide-builder/SKILL.md; structural preservation and pedagogy opening/review rules read",
+  "overall_rationale": "Use two information chapters and three eye chapters. Each stop answers one scientific question without separating a method from the inference it supports. All section bodies and their order remain intact. The final information chapter retains extensions and the printed-bound qualification, which depend on earlier results. The last eye chapter retains the whole-paper figure guide and final limits so the three kinds of evidence can be compared together.",
+  "groups": [
+    {
+      "suggested_key": "memory-information-bound",
+      "original_chapter": "ch:MEMORY-INFORMATION",
+      "title": "Spike information limits memory stability",
+      "section_ids": ["sec:MEMORY-FI", "sec:MEMORY-BOUND", "sec:MEMORY-COMPARISONS"],
+      "rationale": "Measure how well nearby states can be distinguished, relate that quantity to the already derived diffusion, then interpret controlled changes of neuron count, firing, width and time constant. These form one question about stability.",
+      "opening_paragraphs": [
+        "A downstream neuron reads a memory through spikes. Collecting more spikes helps distinguish nearby activity patterns, but during collection the pattern itself keeps moving. The same variability that limits readout also perturbs the recurrent network. Burak and Fiete connect these two effects by deriving a lower bound on memory diffusion from the information in the spikes.[^p1-info-main]",
+        "The useful quantity is how clearly a short spike sample distinguishes nearby memory values. Comparing that quantity with the random motion already derived gives a minimum rate of memory spreading. This is a limit for a particular network, so using it to compare different networks also requires keeping track of what changes and what stays fixed. More information can permit better stability without ensuring that a particular circuit achieves it."
+      ],
+      "required_reminders": ["Retain original notation paragraph after these opening paragraphs: theta, Theta, rate tuning, tau and variance convention. Its T/L distinction may stay here as an early explanation and receives a short repeat at the start of the next chapter.", "The reader needs the projection coefficient v, tangent u and normalization from memory dynamics. Link to their exact teaching sections.", "Keep the scalar and matrix bound, equality qualifications, both cell examples and all folds together in MEMORY-BOUND."],
+      "old_opening_disposition": "Original first paragraph retained verbatim as opening paragraph 1, including footnote. Original notation paragraph retained below the added route paragraph. No original opening content omitted.",
+      "reference_cautions": ["MEMORY-BOUND says 'From the preceding chapter'; replace that with a section link because memory dynamics may itself be split.", "The equality counterexample's 'Chapter 2' must point to the actual mutual-excitation section after renumbering.", "Two first-chapter figures stay with FI and BOUND, including captions and source links."],
+      "handoff": "The network's stability does not yet tell us how accurately later spikes can recover the original value. The next chapter must separate storage loss from readout error."
+    },
+    {
+      "suggested_key": "memory-readout",
+      "original_chapter": "ch:MEMORY-INFORMATION",
+      "title": "Reading a memory while it moves",
+      "section_ids": ["sec:MEMORY-READOUT-SETUP", "sec:MEMORY-NAIVE", "sec:MEMORY-IDEAL", "sec:MEMORY-PARTIAL", "sec:MEMORY-EXTENSIONS", "sec:MEMORY-FIG3-AND-CAUTION"],
+      "rationale": "Storage and observation are distinct sources of error. The complete readout derivation and its assumptions stay together. The extensions qualify the model before the final figure reading and apparent printed inequality issue. This is longer than its partner but avoids a short chapter mixing unrelated extensions and a readout conclusion.",
+      "opening_paragraphs": [
+        "When a recall cue arrives, the stored value has already moved. Later spikes can help estimate the value present at that cue, but they cannot reveal the particular random displacements that occurred before it. Waiting for more spikes also allows the network to move further. The question is how much observation helps when the value being read keeps changing.",
+        "Separating the error accumulated during storage from the error of reading the cue state makes that question precise. Equal weighting of later observations shows why simply waiting can become harmful. Allowing for the state's motion then shows how observation can keep helping toward a limit, and how access to only some spikes changes the useful duration. The time constants and noise assumptions also need checking before the resulting limits can be compared with the paper's final error claim.",
+        "As before, the memory coordinate is $\\theta$, its initial value is $\\Theta$, and its displacement variance is $2Dt$ for constant diffusion coefficient $D$ without boundaries or systematic drift. The storage delay $T$ ends at the recall cue; the observation interval $L$ begins there. The spike information rate $J$ measures how clearly nearby present states can be distinguished, and $\\tau$ is the basic model's common synaptic time constant."
+      ],
+      "required_reminders": ["Link J and the information-diffusion bound to the preceding chapter; do not reteach their proofs.", "Retain local Gaussian approximation and independence assumptions in READOUT-SETUP before either decoder calculation.", "EXTENSIONS compares alternative dynamics/noise to the basic model; the final figure/caution section returns to the original one-time-constant Poisson/Gaussian-readout setup. Add a brief return reminder if its current transition becomes unclear.", "The next eye analysis uses the information bound for scaling, but not every recall result. Sidecar prerequisites should reflect actual needed sections."],
+      "old_opening_disposition": "Continuation opening is new. Original information opening remains in the first group. The short notation reminder deliberately repeats the distinction needed for this continuation.",
+      "reference_cautions": ["Keep READOUT-TIMELINE and READOUT-CURVES blocks with their own sections.", "Partial access retains the distinction between spike fraction and information fraction.", "Do not turn the printed equation inconsistency into an author-confirmed correction.", "Update references to previous Chapter 3 across eye/synthesis/navigation by section meaning, since information and recall now have different destinations."],
+      "handoff": "A smooth eye trajectory need not directly show the motion inside a memory circuit; the pathway from stored position to measured movement must be examined."
+    },
+    {
+      "suggested_key": "eye-shared-drive",
+      "original_chapter": "ch:EYE-DRIFT",
+      "title": "Eye drift points to a shared neural drive",
+      "section_ids": ["sec:EYE-PATHWAY", "sec:EYE-RECORDINGS", "sec:EYE-FORWARD-FIT", "sec:EYE-INVERSE-FILTER", "sec:EYE-SHARED-VARIANCE", "sec:EYE-CHI"],
+      "rationale": "The recordings and calibration serve one inference: whether a shared command exists and how much displacement variance it supplies. Ending before the covariance estimate would postpone the answer to the chapter's central question. Six sections are justified by this argument, rather than by a count target.",
+      "opening_paragraphs": [
+        "Looking steadily at a small spot does not hold the eye perfectly still. Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style=\"Definition Term\"}, the eye makes a small, smooth, irregular movement called [**fixational drift**]{.definition-term custom-style=\"Definition Term\"}. Does this movement begin as noise in the muscles, or does the brain send a changing command to them? Ben-Shushan and colleagues answer this in two stages. Their recordings support a large shared drive upstream of the motor neurons. Their model then proposes a particular source: random motion of the eye position stored in a memory circuit.[^p2-question]",
+        "This distinction connects the previous chapters to a measurement outside the brain. A memory coordinate can diffuse inside a neural network, but the movement produced by that coordinate also depends on the muscles and the mechanics of the eye. We need to follow the signal through those stages before comparing a neural diffusion law with an eye trajectory.",
+        "A recording from one motor neuron becomes useful for this comparison only after its spikes and the eye's movement can be expressed on the same scale. The larger movements provide that calibration. Applying it during fixation then lets us ask whether independent motor noise could explain the observed relationship, and estimate the shared contribution under explicit gain and independence assumptions."
+      ],
+      "required_reminders": ["Both original eye opening paragraphs retained verbatim; third paragraph supplies the reason for this chapter's internal path.", "Keep pathway definitions before recordings and inverse filtering.", "Keep the covariance gain assumptions and small shared private-noise term visible in CHI.", "0.82 plus/minus 0.07 is the weighted common contribution estimate for horizontal displacement over 350 ms in this experiment; it does not identify integrator neurons."],
+      "old_opening_disposition": "Both original opening paragraphs retained in the first eye group, followed by the new route paragraph. Their whole-paper two-stage orientation remains accurate because later eye chapters supply timing and modeling.",
+      "reference_cautions": ["Update 'Chapters 1 and 2' in PATHWAY to exact earlier attractor sections.", "Keep PHYSICAL-AND-RECORDED and SHARED-PRIVATE-VARIANCE with their sections.", "No simultaneous multi-neuron covariance was recorded; retain the recording design limitation.", "Do not attach the whole-paper figure guide here because it would refer ahead to untaught model and MSD details."],
+      "handoff": "The shared fraction answers how much variation is common over one interval. Its change with interval length asks what kind of changing command could supply it."
+    },
+    {
+      "suggested_key": "eye-drift-timing",
+      "original_chapter": "ch:EYE-DRIFT",
+      "title": "The timing of drift distinguishes accumulating noise",
+      "section_ids": ["sec:EYE-MEASUREMENT-NOISE", "sec:EYE-FILTERED-MSD"],
+      "rationale": "These two substantial sections form a complete comparison: first remove the measurement contribution to the timing statistic, then compare stationary filtered noise with filtered diffusion. The correction must precede interpreting the curve.",
+      "opening_paragraphs": [
+        "The shared movement estimate concerns a single interval length. It leaves open whether the command merely fluctuates around a stable value or keeps accumulating changes. Comparing displacements over different time separations can distinguish these possibilities, but the smallest measured displacements may include a large contribution from recording error.",
+        "The mean squared displacement measures the average squared position change over a chosen interval. Separating the recording error from that quantity is necessary before interpreting its growth. The next comparison follows two possible inputs through a decaying muscle response: fluctuations that do not accumulate and a position that wanders by diffusion. Their different long interval behavior explains how a smooth eye movement can still reflect a wandering stored value."
+      ],
+      "required_reminders": ["OMNs are the motor neurons whose spikes activate eye muscles; the ocular plant includes those muscles and eye mechanics.", "The earlier inverse filter established decaying responses, with fast and slow components. This chapter's one exponential filter is a teaching simplification, not the fitted full muscle response.", "MSD is defined in the opening and again precisely with its equation in the first section; this short plain reminder is deliberate.", "The chapter's conclusion is conditional on tested noise and filter assumptions. Slow correlated peripheral input remains a different possibility."],
+      "old_opening_disposition": "New continuation opening; original whole-paper opening retained in eye-shared-drive. No existing section introductions removed.",
+      "reference_cautions": ["Replace 'As in Chapter 1' with an exact earlier MSD/diffusion link.", "Keep MSD-MEASUREMENT-OFFSET and FILTERED-NOISE-MSD blocks with their original sections.", "The two panels use separate amplitude normalizations; do not imply an amplitude fit from their shapes."],
+      "handoff": "Filtered diffusion supplies a possible form of the command. A circuit model must also show how neural noise produces it at a suitable scale."
+    },
+    {
+      "suggested_key": "eye-circuit-and-evidence",
+      "original_chapter": "ch:EYE-DRIFT",
+      "title": "A noisy memory circuit can produce eye drift",
+      "section_ids": ["sec:EYE-CIRCUIT-MODEL", "sec:EYE-SCALING", "sec:EYE-FIGURES", "sec:EYE-LIMITS"],
+      "rationale": "The model, its parameter freedom and its evidence limits answer one question: can a concrete memory circuit explain the motion, and what would that establish? The figure guide then compares all earlier evidence without splitting its table.",
+      "opening_paragraphs": [
+        "The recordings support a shared source before the motor neurons, and the movement's timing is compatible with a stored position that wanders. Neither result identifies the circuit that supplies that command. A noisy memory circuit is a proposed explanation whose output must pass through the motor neurons and muscles before it can be compared with eye movement.",
+        "Following that complete path lets the model test whether neural noise can produce both the amount and timing of the observed drift. Its spike variability, neuron count and time constants determine how much freedom this match allows. Comparing the model with the separate recording and timing results then shows what the study supports, and why it still leaves other upstream sources possible."
+      ],
+      "required_reminders": ["The oculomotor integrator maintains a position signal; the continuous attractor supplies a nearly neutral direction in which noise can accumulate.", "OMNs send spikes to muscles; their independent private fluctuations can average down, while a common input survives.", "The information-diffusion comparison comes from MEMORY-BOUND/COMPARISONS. It is used as a scaling guide here, with changed spike statistics, not an exact transplantation of the basic Poisson network.", "Keep approximate persistence, deterministic mismatch, feedback interpretation and scaling caveats in their full sections."],
+      "old_opening_disposition": "New continuation opening. Its summary draws only on the two immediately preceding eye chapters. It preserves the original distinction between recording inference and a possible circuit mechanism.",
+      "reference_cautions": ["EYE-SCALING's references to Chapters 1, 2 and 3 need exact section destinations after renumbering.", "Keep the full EYE-FIGURE-GUIDE block here. Link its first three figure rows to the first two eye chapters, and its final two to the model section.", "Model neuron counts differ by simulation comparison; do not merge 30,000 integrator/1,000 motor neurons with the separate 2,000 motor-neuron control.", "Retain the printed absolute/fractional slope normalization ambiguity and every associated footnote."],
+      "handoff": "The eye result connects noisy internal storage with behavior while leaving the biological source open. The later synthesis should refer separately to shared-drive evidence, timing evidence and circuit possibility."
+    }
+  ],
+  "alternatives_compared": [
+    {"candidate": "Three information chapters, with the last beginning at MEMORY-EXTENSIONS", "decision": "Reject", "reason": "It makes a short final unit containing alternative dynamics and a conclusion about recall already derived in the preceding unit. Keeping extensions before the printed-bound caution in the same chapter preserves order and the qualification of the basic result."},
+    {"candidate": "Three eye chapters of four sections each: pathway through inverse filter; shared variance through filtered MSD; circuit through limits", "decision": "Reject", "reason": "The first unit would end with a calibrated predictor and correlation but postpone its main scientific inference. The middle unit would combine the single-interval covariance inference with the distinct time-dependence test. The proposed 6/2/4 division keeps each complete scientific question together, even though section counts are unequal."},
+    {"candidate": "Two eye chapters, split before EYE-CIRCUIT-MODEL", "decision": "Reject", "reason": "Scientifically defensible as data then model, but the first still combines calibration, covariance and a long filtering derivation. The timing question is a substantial natural stopping point and a useful separate chapter for this requested finer division."}
+  ],
+  "implementation_cautions": ["Root assigns final chapter IDs and filenames. Preserve every existing section ID and whole section body.", "Move each typed block and all cited footnote definitions with its section; shared definitions can be copied with globally unique labels managed by root.", "Original relative PDF URLs retain depth when chapters stay in content/chapters; verify generated chapter URLs and redirects for old chapter links.", "Update sidecar purpose, section list, prerequisites, block ownership, plan and source map destinations. Old numbered chapter mentions need passage-level meaning checks.", "No full-paper correctness audit was performed or requested. New openings and changed boundaries still require separate independent truth, wording and reading-flow calls."],
+  "timing": {"wall_elapsed_at_draft_timestamp": "4m05s", "awake_execution": "Unverified; no sleep/resume log evidence inspected", "token_stats": "Token stats unavailable"}
+}

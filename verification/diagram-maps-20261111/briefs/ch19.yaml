@@ -1,0 +1,244 @@
+brief:
+  asset_id: fig:MAP-CH19
+  scope: chapter
+  book: burak-three-papers
+  part: part:SIMULATIONS
+  chapter: ch:SIMULATING-MEMORY
+  purpose: Network simulations test how random spikes move a stored value
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Physical objects, changing states, signals, and separate comparisons explain the chapter mechanisms
+    beyond topic labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Arrange related scenes according to their true dependence; show independent comparisons separately.
+    Do not draw a single implied causal chain across unrelated examples.
+  scenes: &id001
+  - source_item_ids:
+    - P01
+    visible_objects_and_relation: State to weighted input to rate to random events to next state loop
+    teaching_contribution_beyond_labels: At each step, activations set weighted input and rate, conditional random
+      spikes are generated, and activation decays and renews.
+  - source_item_ids:
+    - P02
+    visible_objects_and_relation: Short step and low-probability event indicator
+    teaching_contribution_beyond_labels: The time step must resolve decay and have a small event probability for
+      the one-spike update.
+  - source_item_ids:
+    - P03
+    visible_objects_and_relation: Ring and position-coded bump
+    teaching_contribution_beyond_labels: A ring orders neurons by preferred angle and encodes the value in an activity
+      bump.
+  - source_item_ids:
+    - P04
+    visible_objects_and_relation: Separate tuning-curve prediction and stochastic trials converge at comparison
+    teaching_contribution_beyond_labels: The noise-free tuning curves predict diffusion; simulated trajectories
+      independently supply angle displacement measurements.
+  - source_item_ids:
+    - P05
+    visible_objects_and_relation: Largest-rate index beside continuous projection marked distinct
+    teaching_contribution_beyond_labels: The highest-rate neuron is a quantized numerical proxy, not the same as
+      projection to the noise-free attractor.
+  - source_item_ids:
+    - P06
+    visible_objects_and_relation: Circle wrapping and bounded angular-error curve
+    teaching_contribution_beyond_labels: Wrapped angle displacement reaches a finite range; flattening does not
+      prove restored original memory.
+  - source_item_ids:
+    - P07
+    visible_objects_and_relation: Two units with reciprocal inhibitory links and rate/activation coordinate key
+    teaching_contribution_beyond_labels: A two-unit mutually inhibitory system tests conclusions without ring symmetry,
+      with a change of coordinates affecting diffusion units.
+  - source_item_ids:
+    - P08
+    visible_objects_and_relation: Formula curve separated from event-driven simulation
+    teaching_contribution_beyond_labels: Readout-error formula plots are analytical comparisons, not additional
+      neural-network simulations; original simulator software was not identified.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/11-simulating-memory.md
+  - content/chapters/11-simulating-memory.yaml
+  chapter_source_sha256: 930c3178863f81723c980b0ac87f4d9e25714d8f3302b011dcb9554c4d02ffec
+  teaching_points:
+  - id: P01
+    point: At each step, activations set weighted input and rate, conditional random spikes are generated, and activation
+      decays and renews.
+    source_locus: content/chapters/11-simulating-memory.md:5-27 (#sec:SIMULATING-MEMORY-STATE)
+  - id: P02
+    point: The time step must resolve decay and have a small event probability for the one-spike update.
+    source_locus: content/chapters/11-simulating-memory.md:5-27 (#sec:SIMULATING-MEMORY-STATE)
+  - id: P03
+    point: A ring orders neurons by preferred angle and encodes the value in an activity bump.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P04
+    point: The noise-free tuning curves predict diffusion; simulated trajectories independently supply angle displacement
+      measurements.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P05
+    point: The highest-rate neuron is a quantized numerical proxy, not the same as projection to the noise-free
+      attractor.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P06
+    point: Wrapped angle displacement reaches a finite range; flattening does not prove restored original memory.
+    source_locus: content/chapters/11-simulating-memory.md:28-51 (#sec:SIMULATING-MEMORY-RING)
+  - id: P07
+    point: A two-unit mutually inhibitory system tests conclusions without ring symmetry, with a change of coordinates
+      affecting diffusion units.
+    source_locus: content/chapters/11-simulating-memory.md:52-72 (#sec:SIMULATING-MEMORY-CONTROLS)
+  - id: P08
+    point: Readout-error formula plots are analytical comparisons, not additional neural-network simulations; original
+      simulator software was not identified.
+    source_locus: content/chapters/11-simulating-memory.md:73-87 (#sec:SIMULATING-MEMORY-OUTPUTS)
+  - id: P09
+    point: 'A mutually excitatory pair supplies a separate control: across trials variance can grow linearly even
+      when local diffusion varies with state.'
+    source_locus: content/chapters/11-simulating-memory.md:69-71
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 9
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P09: Newly identified source point; retain in inventory and decide whether it can be clearly shown during scene
+      design.
+  connected_source_sha256:
+    content/chapters/11-simulating-memory.yaml: a44fbbf98549bd198ac213e9ef6b5442149da81e46be28d45bb2eaece471aec9
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/11-simulating-memory.md
+  approved_terms: &id002
+  - Synaptic activation
+  - Random spikes
+  - Activity bump
+  - Theory
+  - Simulation
+  - Wrapped angle
+  caption: The scene relates the physical states, measurements, and assumptions described in Network simulations
+    test how random spikes move a stored value.
+  alt_text: State to weighted input to rate to random events to next state loop; Short step and low-probability
+    event indicator; Ring and position-coded bump; Separate tuning-curve prediction and stochastic trials converge
+    at comparison; Largest-rate index beside continuous projection marked distinct; Circle wrapping and bounded
+    angular-error curve; Two units with reciprocal inhibitory links and rate/activation coordinate key; Formula
+    curve separated from event-driven simulation.
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S01
+  teaching_point: At each step, activations set weighted input and rate, conditional random spikes are generated,
+    and activation decays and renews.
+  visual_role: State to weighted input to rate to random events to next state loop
+- id: S02
+  teaching_point: The time step must resolve decay and have a small event probability for the one-spike update.
+  visual_role: Short step and low-probability event indicator
+- id: S03
+  teaching_point: A ring orders neurons by preferred angle and encodes the value in an activity bump.
+  visual_role: Ring and position-coded bump
+- id: S04
+  teaching_point: The noise-free tuning curves predict diffusion; simulated trajectories independently supply angle
+    displacement measurements.
+  visual_role: Separate tuning-curve prediction and stochastic trials converge at comparison
+- id: S05
+  teaching_point: The highest-rate neuron is a quantized numerical proxy, not the same as projection to the noise-free
+    attractor.
+  visual_role: Largest-rate index beside continuous projection marked distinct
+- id: S06
+  teaching_point: Wrapped angle displacement reaches a finite range; flattening does not prove restored original
+    memory.
+  visual_role: Circle wrapping and bounded angular-error curve
+- id: S07
+  teaching_point: A two-unit mutually inhibitory system tests conclusions without ring symmetry, with a change of
+    coordinates affecting diffusion units.
+  visual_role: Two units with reciprocal inhibitory links and rate/activation coordinate key
+- id: S08
+  teaching_point: Readout-error formula plots are analytical comparisons, not additional neural-network simulations;
+    original simulator software was not identified.
+  visual_role: Formula curve separated from event-driven simulation
+communication_plan:
+  segments: *id001
+  layout: Use subject-driven scenes with readable short labels; separate independent examples and preserve their
+    conditions.
+  keep_in_text:
+  - Detailed formulas and numerical calculations
+  - Full discussion and citations
+  required_visible_conditions:
+  - Distinguish measured demonstrations, numerical simulations, and proposed tests where applicable
+  independent_example_groups:
+  - Independent study or architecture examples unless the source establishes an action between them
+  readability_risk: This draft lists 8 separate scenes. At the intended reading width this may be too dense; group
+    related mechanisms or split across existing chapter figures. Do not claim coverage until inspected.
+normal_flow:
+- Connect events only where source text gives an actual causal, computational or measurement relationship.
+secondary_relationships:
+- Show comparisons side by side without a causal arrow; use explicitly labeled feedback only where it exists.
+exact_text:
+  required: *id002
+  prohibited:
+  - paper title banner
+  - unsupported universal claims
+  - visual-review notes or caption inside image
+constraints:
+- Match the book palette and style lock.
+- Do not treat planned teaching points as established visual coverage.
+- Do not imply that different experiments are one continuous causal experiment.
+- Keep caption and alt text outside the artwork.
+- Do not shrink labels to hide excessive density.
+- If a point cannot be shown with its important condition, leave its coverage pending.
+dispositions: []

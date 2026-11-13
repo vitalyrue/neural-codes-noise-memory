@@ -1,0 +1,3404 @@
+{
+  "schema_version": 1,
+  "rule_version": "concept-prerequisites-1",
+  "tool_sha256": "a69c1533fce3222039842da245054b4349ab78e46f05c790a66cc8454a05e188",
+  "extractor_sha256": "90e32ead2c84725aa3989aa92c546e3718be94f66337780088acbd75b237ebe0",
+  "teaching_rule_sha256": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+  "project": "C:\\dev\\clsc\\burak-papers\\guide\\guide-project.yaml",
+  "plan_path": "plan/chapter-plan.yaml",
+  "plan_sha256": "d0c4c0c6ee34d9e20ae3e2938c532ed582596935a9ef3602da5c7833f128babc",
+  "chapter_order": [
+    "ch:READING-GUIDE",
+    "ch:FOUNDATIONS",
+    "ch:PERSISTENCE",
+    "ch:MEMORY-DYNAMICS",
+    "ch:MEMORY-LONG-DELAYS",
+    "ch:MEMORY-INFORMATION",
+    "ch:MEMORY-READOUT",
+    "ch:EYE-DRIFT",
+    "ch:EYE-TIMING",
+    "ch:EYE-CIRCUIT",
+    "ch:PLACE-FIELDS",
+    "ch:PLACE-SIZES",
+    "ch:PLACE-TESTS",
+    "ch:SYNTHESIS",
+    "ch:HARDWARE-MEMORY",
+    "ch:HARDWARE-DYNAMICS",
+    "ch:NEUROMORPHIC-SYSTEMS",
+    "ch:HARDWARE-TESTS",
+    "ch:SIMULATING-MEMORY",
+    "ch:SIMULATING-EYE",
+    "ch:SIMULATING-PLACE",
+    "ch:SIMULATION-TOOLS",
+    "ch:GLOSSARY",
+    "ch:REFERENCES"
+  ],
+  "scope_chapters": [
+    "ch:SIMULATING-MEMORY",
+    "ch:SIMULATING-EYE",
+    "ch:SIMULATING-PLACE",
+    "ch:SIMULATION-TOOLS"
+  ],
+  "source_sha256": {
+    "content/chapters/11-simulating-memory.md": "74f22899e8bd826f5270d4e29ece048d7258f76077bc8ce3534ffce89b6cf0ab",
+    "content/chapters/11-simulating-memory.yaml": "abf531b039d70f4bd3a6e7beb0fb375bf5c48ff4c62179e1fad41244403db906",
+    "content/chapters/12-simulating-eye-drift.md": "90a472d9da5c785f22e8f7f903ed0c608affb529eefddfaa00985d05bb0bda19",
+    "content/chapters/12-simulating-eye-drift.yaml": "d5cd6ba823302ad399bed51400771394ed04647a17daedc69d9fbeb531657387",
+    "content/chapters/13-simulating-place-fields.md": "cbd21926ec5977a209226e3218761009b69ee040afed5c58f090da6a65aca881",
+    "content/chapters/13-simulating-place-fields.yaml": "4d62e6fe80ffd75f31c4301263f2723262537758b0c88045eb66ab51ced05285",
+    "content/chapters/14-simulation-tools.md": "b885bc2c59c9996421158830064ce6a10809ed3c078494e98f85d6041efc5244",
+    "content/chapters/14-simulation-tools.yaml": "0639fc2fa3f94bc9e76eb4d7aa798181b35de926b90279b30824742ae047be20"
+  },
+  "audience": {
+    "status": "reviewed",
+    "description": "Basic calculus, probability and linear algebra; expectation, variance, standard deviation and probability density assumed per task. Earlier neural concepts are treated as learned only at the explicit prior chapter passages cited in relation evidence and the Stage3 prerequisite map. No seed knowledge is assumed: the premature term was removed at p66. Undergraduate calculus, basic probability and linear algebra, with expected value, variance, SD and density known. The new Part also uses actual earlier teaching: Poisson/CV (foundations and eye circuit), covariance/shared sources (eye drift), Brownian filtering (eye timing), Euler (preceding memory simulation), fields/grid/topology (place chapters), and hardware evidence types (PartIII). These are earlier-reading prerequisites, not unstated innate background. Undergraduate calculus, linear algebra and basic probability, with expectation/variance/SD/density known. At ch20 entry, the earlier place-field sequence has taught Gaussian fields, covariance, thresholds, scale, likelihood comparisons, high-threshold laws, Betti/EC and median filtering; these specific prior teachings were checked, not inferred from expertise.",
+    "assumed_concepts": [
+      "betti_euler",
+      "brownian-increments",
+      "calculus",
+      "connected_field",
+      "continuous-attractor",
+      "covariance",
+      "density",
+      "diffusion-coefficient",
+      "elementary_probability",
+      "euler-update",
+      "expectation",
+      "expected-value",
+      "eye-integrator",
+      "firing-rate",
+      "grid-scale",
+      "hardware-evidence",
+      "high_threshold_limit",
+      "ideal-memory-estimator",
+      "independent-repeat-unit",
+      "information-diffusion-bound",
+      "internal-information-rate",
+      "interval-cv",
+      "lag",
+      "linear-algebra",
+      "lognormal_likelihood",
+      "mean-squared-displacement",
+      "median_filter",
+      "muscle-filter",
+      "neural-spike",
+      "neural-transfer-function",
+      "normal_distribution",
+      "parameter_fitting",
+      "poisson-process",
+      "preferred-angle",
+      "probability-density",
+      "rate_threshold",
+      "recurrent-connectivity",
+      "rotational-symmetry",
+      "shared-private-noise",
+      "spatial-field",
+      "spatial_covariance",
+      "spatial_gaussian_field",
+      "spatial_scale",
+      "standard-deviation",
+      "standard-error-mean",
+      "symmetric-weights",
+      "synaptic-activation",
+      "synaptic-decay",
+      "topology",
+      "variance",
+      "wrapped-angle-error"
+    ]
+  },
+  "audience_sha256": "4c7968060fdfa5357d35b142c78aacec3f4069475fca896ed32c6d60f21d89f4",
+  "concepts": [
+    {
+      "id": "neural-spike",
+      "aliases": [
+        "spike"
+      ]
+    },
+    {
+      "id": "firing-rate",
+      "aliases": [
+        "firing rate"
+      ]
+    },
+    {
+      "id": "synaptic-activation",
+      "aliases": [
+        "synaptic activation"
+      ]
+    },
+    {
+      "id": "recurrent-connectivity",
+      "aliases": [
+        "Recurrent connections"
+      ]
+    },
+    {
+      "id": "neural-transfer-function",
+      "aliases": [
+        "transfer function"
+      ]
+    },
+    {
+      "id": "continuous-attractor",
+      "aliases": [
+        "continuous family of states"
+      ]
+    },
+    {
+      "id": "diffusion-coefficient",
+      "aliases": [
+        "diffusion coefficient"
+      ]
+    },
+    {
+      "id": "preferred-angle",
+      "aliases": [
+        "preferred angles"
+      ]
+    },
+    {
+      "id": "internal-information-rate",
+      "aliases": [
+        "information rate"
+      ]
+    },
+    {
+      "id": "information-diffusion-bound",
+      "aliases": [
+        "bound"
+      ]
+    },
+    {
+      "id": "ideal-memory-estimator",
+      "aliases": [
+        "ideal estimator"
+      ]
+    },
+    {
+      "id": "lag",
+      "aliases": [
+        "lag"
+      ]
+    },
+    {
+      "id": "rotational-symmetry",
+      "aliases": [
+        "rotational symmetry"
+      ]
+    },
+    {
+      "id": "poisson-process",
+      "aliases": [
+        "Poisson process"
+      ]
+    },
+    {
+      "id": "standard-error-mean",
+      "aliases": [
+        "standard errors"
+      ]
+    },
+    {
+      "id": "wrapped-angle-error",
+      "aliases": [
+        "wrapped"
+      ]
+    },
+    {
+      "id": "symmetric-weights",
+      "aliases": [
+        "symmetric-network"
+      ]
+    },
+    {
+      "id": "expectation",
+      "aliases": [
+        "expectation"
+      ]
+    },
+    {
+      "id": "variance",
+      "aliases": [
+        "variance"
+      ]
+    },
+    {
+      "id": "standard-deviation",
+      "aliases": [
+        "standard deviation"
+      ]
+    },
+    {
+      "id": "probability-density",
+      "aliases": [
+        "probability density"
+      ]
+    },
+    {
+      "id": "calculus",
+      "aliases": [
+        "derivative"
+      ]
+    },
+    {
+      "id": "linear-algebra",
+      "aliases": [
+        "linear algebra"
+      ]
+    },
+    {
+      "id": "network-simulation",
+      "aliases": [
+        "network simulation",
+        "simulate individual spikes"
+      ]
+    },
+    {
+      "id": "euler-update",
+      "aliases": [
+        "Euler steps",
+        "Euler update"
+      ]
+    },
+    {
+      "id": "one-event-spike-step",
+      "aliases": [
+        "one-event approximation"
+      ]
+    },
+    {
+      "id": "rate-activation-conversion",
+      "aliases": [
+        "activation difference",
+        "rate difference"
+      ]
+    },
+    {
+      "id": "evaluated-readout-formula",
+      "aliases": [
+        "plot formulas for readout error"
+      ]
+    },
+    {
+      "id": "finite-weight-normalization",
+      "aliases": [
+        "extra factor"
+      ]
+    },
+    {
+      "id": "expected-value",
+      "aliases": [
+        "expected value"
+      ]
+    },
+    {
+      "id": "density",
+      "aliases": [
+        "density"
+      ]
+    },
+    {
+      "id": "interval-cv",
+      "aliases": [
+        "interval coefficient of variation"
+      ]
+    },
+    {
+      "id": "eye-integrator",
+      "aliases": [
+        "oculomotor integrator",
+        "noisy integrator"
+      ]
+    },
+    {
+      "id": "shared-private-noise",
+      "aliases": [
+        "shared and private fluctuations"
+      ]
+    },
+    {
+      "id": "mean-squared-displacement",
+      "aliases": [
+        "mean squared displacement",
+        "MSD"
+      ]
+    },
+    {
+      "id": "muscle-filter",
+      "aliases": [
+        "muscle filtering"
+      ]
+    },
+    {
+      "id": "brownian-increments",
+      "aliases": [
+        "Brownian model",
+        "Gaussian increments"
+      ]
+    },
+    {
+      "id": "spatial-field",
+      "aliases": [
+        "spatial firing map",
+        "spatial maps"
+      ]
+    },
+    {
+      "id": "grid-scale",
+      "aliases": [
+        "grid spacing",
+        "physical correlation length"
+      ]
+    },
+    {
+      "id": "topology",
+      "aliases": []
+    },
+    {
+      "id": "hardware-evidence",
+      "aliases": [
+        "post-layout hardware simulations"
+      ]
+    },
+    {
+      "id": "synaptic-decay",
+      "aliases": [
+        "decaying synaptic activity"
+      ]
+    },
+    {
+      "id": "covariance",
+      "aliases": [
+        "covariance"
+      ]
+    },
+    {
+      "id": "independent-repeat-unit",
+      "aliases": [
+        "independent repeats",
+        "independent trajectories"
+      ]
+    },
+    {
+      "id": "recording-reconstruction",
+      "aliases": [
+        "reconstruct movement"
+      ]
+    },
+    {
+      "id": "source-model-evidence",
+      "aliases": [
+        "shared-source inference"
+      ]
+    },
+    {
+      "id": "spike-thinning",
+      "aliases": [
+        "retains every"
+      ]
+    },
+    {
+      "id": "command-eye-separation",
+      "aliases": [
+        "internal command and the physical eye angle"
+      ]
+    },
+    {
+      "id": "parameter-sources",
+      "aliases": [
+        "constrained by earlier physiological studies"
+      ]
+    },
+    {
+      "id": "synthetic-analysis-check",
+      "aliases": [
+        "Measurement procedure applied to simulated signals"
+      ]
+    },
+    {
+      "id": "model-reproduction",
+      "aliases": [
+        "Reproducing a result",
+        "reproduction"
+      ]
+    },
+    {
+      "id": "random-seed",
+      "aliases": [
+        "random seed"
+      ]
+    },
+    {
+      "id": "ode-integration",
+      "aliases": [
+        "ordinary differential equations",
+        "solve_ivp"
+      ]
+    },
+    {
+      "id": "connected-components",
+      "aliases": [
+        "connected groups of nonzero array entries"
+      ]
+    },
+    {
+      "id": "simulator-equivalence",
+      "aliases": [
+        "replacement must preserve"
+      ]
+    },
+    {
+      "id": "discretization",
+      "aliases": [
+        "Discretization",
+        "discretization"
+      ]
+    },
+    {
+      "id": "convergence-check",
+      "aliases": [
+        "convergence check"
+      ]
+    },
+    {
+      "id": "monte-carlo-simulation",
+      "aliases": [
+        "Monte Carlo simulation"
+      ]
+    },
+    {
+      "id": "elementary_probability",
+      "aliases": []
+    },
+    {
+      "id": "normal_distribution",
+      "aliases": [
+        "normally distributed",
+        "Gaussian"
+      ]
+    },
+    {
+      "id": "spatial_gaussian_field",
+      "aliases": [
+        "Gaussian input field",
+        "Gaussian process"
+      ]
+    },
+    {
+      "id": "spatial_covariance",
+      "aliases": []
+    },
+    {
+      "id": "rate_threshold",
+      "aliases": [
+        "threshold",
+        "gain"
+      ]
+    },
+    {
+      "id": "spatial_scale",
+      "aliases": [
+        "spatial correlation scale",
+        "local correlation scale"
+      ]
+    },
+    {
+      "id": "connected_field",
+      "aliases": [
+        "connected nonzero regions",
+        "fields"
+      ]
+    },
+    {
+      "id": "parameter_fitting",
+      "aliases": [
+        "match",
+        "fitted statistic"
+      ]
+    },
+    {
+      "id": "lognormal_likelihood",
+      "aliases": [
+        "lognormal",
+        "likelihood-based criteria"
+      ]
+    },
+    {
+      "id": "high_threshold_limit",
+      "aliases": [
+        "high-threshold analytical laws",
+        "limiting formulas"
+      ]
+    },
+    {
+      "id": "betti_euler",
+      "aliases": [
+        "Betti numbers",
+        "Euler characteristic"
+      ]
+    },
+    {
+      "id": "median_filter",
+      "aliases": [
+        "median filter"
+      ]
+    },
+    {
+      "id": "gaussian_filter",
+      "aliases": [
+        "Gaussian filter",
+        "Gaussian smoothing filter"
+      ]
+    },
+    {
+      "id": "rms_normalization",
+      "aliases": [
+        "root mean square"
+      ]
+    },
+    {
+      "id": "bin_measurement",
+      "aliases": [
+        "grid-bin boundaries",
+        "physical lengths"
+      ]
+    },
+    {
+      "id": "volume_measurement",
+      "aliases": [
+        "bin volume",
+        "mean volume"
+      ]
+    }
+  ],
+  "catalog_sha256": "6e119e1e184ca88e68749774224ce44518895da25750f84379c05b467d0bd5ae",
+  "sections": [
+    {
+      "id": "ch:SIMULATING-MEMORY/s0",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "path": "content/chapters/11-simulating-memory.md",
+      "heading": "Chapter opening",
+      "line": 1,
+      "anchor": "ch:SIMULATING-MEMORY",
+      "passage_ids": [
+        "ch:SIMULATING-MEMORY/p3"
+      ],
+      "sha256": "4fbd6c35cd1637549d322ce7c0b241c77e8eaf9ccb39febf5b4637edfbb3a320",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/s1",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "path": "content/chapters/11-simulating-memory.md",
+      "heading": "A simulation renews the same synaptic state that the theory approximates",
+      "line": 5,
+      "anchor": "sec:SIMULATING-MEMORY-STATE",
+      "passage_ids": [
+        "ch:SIMULATING-MEMORY/p7",
+        "ch:SIMULATING-MEMORY/p9",
+        "ch:SIMULATING-MEMORY/p15",
+        "ch:SIMULATING-MEMORY/p17",
+        "ch:SIMULATING-MEMORY/p19",
+        "ch:SIMULATING-MEMORY/p20",
+        "ch:SIMULATING-MEMORY/p21",
+        "ch:SIMULATING-MEMORY/p22",
+        "ch:SIMULATING-MEMORY/p24",
+        "ch:SIMULATING-MEMORY/p26"
+      ],
+      "sha256": "41f1e69d0f194b16727d7b3b4698dfedcb7f4fa8a23cf7b4aabee0aaeb0b3006",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/s2",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "path": "content/chapters/11-simulating-memory.md",
+      "heading": "Ring trajectories test both the diffusion rate and the effect of angular boundaries",
+      "line": 28,
+      "anchor": "sec:SIMULATING-MEMORY-RING",
+      "passage_ids": [
+        "ch:SIMULATING-MEMORY/p30",
+        "ch:SIMULATING-MEMORY/p32",
+        "ch:SIMULATING-MEMORY/p34",
+        "ch:SIMULATING-MEMORY/p38",
+        "ch:SIMULATING-MEMORY/p40",
+        "ch:SIMULATING-MEMORY/p46",
+        "ch:SIMULATING-MEMORY/p48"
+      ],
+      "sha256": "1d20dd7e29e3e96c056e3bae5be5c1b096bc0abc61ff540dd38f2678b244ff69",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/s3",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "path": "content/chapters/11-simulating-memory.md",
+      "heading": "Other network designs test which conclusions depend on the ring",
+      "line": 52,
+      "anchor": "sec:SIMULATING-MEMORY-CONTROLS",
+      "passage_ids": [
+        "ch:SIMULATING-MEMORY/p54",
+        "ch:SIMULATING-MEMORY/p56",
+        "ch:SIMULATING-MEMORY/p58",
+        "ch:SIMULATING-MEMORY/p60"
+      ],
+      "sha256": "3096e44ad7deece9c56ac1037f147dd8db32150e398aa33469a22f464feafc57",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/s4",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "path": "content/chapters/11-simulating-memory.md",
+      "heading": "A plotted analytical curve is different from a network simulation",
+      "line": 62,
+      "anchor": "sec:SIMULATING-MEMORY-OUTPUTS",
+      "passage_ids": [
+        "ch:SIMULATING-MEMORY/p64",
+        "ch:SIMULATING-MEMORY/p66",
+        "ch:SIMULATING-MEMORY/p68"
+      ],
+      "sha256": "f5767a7ae04176fc3a28c7424369d4a018ba51376ba0fee295f79f41158fe87a",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/s0",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "heading": "Chapter opening",
+      "line": 1,
+      "anchor": "ch:SIMULATING-EYE",
+      "passage_ids": [
+        "ch:SIMULATING-EYE/p3"
+      ],
+      "sha256": "90db92e13be66c1adb3bf97d941e9c9b19daa70ccba55bd268aeb46e47e4590a",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/s1",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "heading": "Recorded data constrain the question before the model generates a trajectory",
+      "line": 5,
+      "anchor": "sec:SIMULATING-EYE-DATA",
+      "passage_ids": [
+        "ch:SIMULATING-EYE/p7",
+        "ch:SIMULATING-EYE/p9",
+        "ch:SIMULATING-EYE/p11"
+      ],
+      "sha256": "331420b7061e0380b07a035d2416dd3cb01535c4295e5fc4b0049e940080d8ce",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/s2",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "heading": "The generated command acts through spikes, muscle response, and delayed feedback",
+      "line": 13,
+      "anchor": "sec:SIMULATING-EYE-PATH",
+      "passage_ids": [
+        "ch:SIMULATING-EYE/p15",
+        "ch:SIMULATING-EYE/p17",
+        "ch:SIMULATING-EYE/p18",
+        "ch:SIMULATING-EYE/p19",
+        "ch:SIMULATING-EYE/p20",
+        "ch:SIMULATING-EYE/p22",
+        "ch:SIMULATING-EYE/p24",
+        "ch:SIMULATING-EYE/p26",
+        "ch:SIMULATING-EYE/p30",
+        "ch:SIMULATING-EYE/p32",
+        "ch:SIMULATING-EYE/p34"
+      ],
+      "sha256": "1938b3600bcf760878768ef944597d132a67e104dcf23ec8154c0a6cc1f481e4",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/s3",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "heading": "Controls test which stage can explain the observed fluctuations",
+      "line": 38,
+      "anchor": "sec:SIMULATING-EYE-CONTROLS",
+      "passage_ids": [
+        "ch:SIMULATING-EYE/p40",
+        "ch:SIMULATING-EYE/p42",
+        "ch:SIMULATING-EYE/p43",
+        "ch:SIMULATING-EYE/p44",
+        "ch:SIMULATING-EYE/p45",
+        "ch:SIMULATING-EYE/p47",
+        "ch:SIMULATING-EYE/p49"
+      ],
+      "sha256": "d8981719af2cfc66bea6b334a1916c31ddbe23efbd03b88a3f4153dcfa40a493",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/s4",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "heading": "Public MATLAB code and recordings support different reproduction tasks",
+      "line": 51,
+      "anchor": "sec:SIMULATING-EYE-TOOLS",
+      "passage_ids": [
+        "ch:SIMULATING-EYE/p53",
+        "ch:SIMULATING-EYE/p55",
+        "ch:SIMULATING-EYE/p57",
+        "ch:SIMULATING-EYE/p59"
+      ],
+      "sha256": "0a07b40437c100d6faa5562b5bbdf1b77dbb29e66f765c23198fc128bc3a5b0a",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/s0",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "heading": "Chapter opening",
+      "line": 1,
+      "anchor": "ch:SIMULATING-PLACE",
+      "passage_ids": [
+        "ch:SIMULATING-PLACE/p3"
+      ],
+      "sha256": "57e66e48dd54496ac89007f571739334ce64bb7eb2d86639c0ff905f7d3163b7",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/s1",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "heading": "A smooth random input becomes a firing map after thresholding",
+      "line": 5,
+      "anchor": "sec:SIMULATING-PLACE-GENERATE",
+      "passage_ids": [
+        "ch:SIMULATING-PLACE/p7",
+        "ch:SIMULATING-PLACE/p13",
+        "ch:SIMULATING-PLACE/p15",
+        "ch:SIMULATING-PLACE/p17",
+        "ch:SIMULATING-PLACE/p18",
+        "ch:SIMULATING-PLACE/p19",
+        "ch:SIMULATING-PLACE/p20",
+        "ch:SIMULATING-PLACE/p21",
+        "ch:SIMULATING-PLACE/p23",
+        "ch:SIMULATING-PLACE/p25"
+      ],
+      "sha256": "f102ebae97b9960d832d65a20843c398882605cb039f4dba805c9ce127e06499",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/s2",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "heading": "Fitted summaries and additional comparisons supply different evidence",
+      "line": 27,
+      "anchor": "sec:SIMULATING-PLACE-FIT",
+      "passage_ids": [
+        "ch:SIMULATING-PLACE/p29",
+        "ch:SIMULATING-PLACE/p31",
+        "ch:SIMULATING-PLACE/p33",
+        "ch:SIMULATING-PLACE/p35"
+      ],
+      "sha256": "1bdb88b2a51733d23ae7df2a930440e8854369c7662d6442352613616379e8e9",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/s3",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "heading": "Field detection and preprocessing change what the simulation is asked to match",
+      "line": 37,
+      "anchor": "sec:SIMULATING-PLACE-MEASURE",
+      "passage_ids": [
+        "ch:SIMULATING-PLACE/p39",
+        "ch:SIMULATING-PLACE/p41",
+        "ch:SIMULATING-PLACE/p43",
+        "ch:SIMULATING-PLACE/p44",
+        "ch:SIMULATING-PLACE/p45",
+        "ch:SIMULATING-PLACE/p46",
+        "ch:SIMULATING-PLACE/p48",
+        "ch:SIMULATING-PLACE/p50",
+        "ch:SIMULATING-PLACE/p54",
+        "ch:SIMULATING-PLACE/p56",
+        "ch:SIMULATING-PLACE/p58"
+      ],
+      "sha256": "eb24ccd74c518f7ef394985dbd4e0239bf0be8c9ed090b8e9002963fd7e20165",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/s4",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "heading": "The released tools generate maps and analyze data, with access limits",
+      "line": 62,
+      "anchor": "sec:SIMULATING-PLACE-TOOLS",
+      "passage_ids": [
+        "ch:SIMULATING-PLACE/p64",
+        "ch:SIMULATING-PLACE/p66",
+        "ch:SIMULATING-PLACE/p68",
+        "ch:SIMULATING-PLACE/p70"
+      ],
+      "sha256": "617dd1467ca3c58fe281b2cecde466938ae90c73ba949cac342519271b91f82f",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/s0",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "path": "content/chapters/14-simulation-tools.md",
+      "heading": "Chapter opening",
+      "line": 1,
+      "anchor": "ch:SIMULATION-TOOLS",
+      "passage_ids": [
+        "ch:SIMULATION-TOOLS/p3"
+      ],
+      "sha256": "51c690752de614a9f9fb66779ff958d04614a0af149c5dc56d7e498af05eead7",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/s1",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "path": "content/chapters/14-simulation-tools.md",
+      "heading": "The original code and a teaching reconstruction serve different purposes",
+      "line": 5,
+      "anchor": "sec:SIMULATION-TOOLS-ROUTES",
+      "passage_ids": [
+        "ch:SIMULATION-TOOLS/p7",
+        "ch:SIMULATION-TOOLS/p9",
+        "ch:SIMULATION-TOOLS/p11",
+        "ch:SIMULATION-TOOLS/p13"
+      ],
+      "sha256": "e0bef7b1400fd8ef88c2517ec8f1aced71126f068d627a56d55135ab4f8b1fe6",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/s2",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "path": "content/chapters/14-simulation-tools.md",
+      "heading": "Tools should match the operation being tested",
+      "line": 15,
+      "anchor": "sec:SIMULATION-TOOLS-SOFTWARE",
+      "passage_ids": [
+        "ch:SIMULATION-TOOLS/p17",
+        "ch:SIMULATION-TOOLS/p19",
+        "ch:SIMULATION-TOOLS/p21",
+        "ch:SIMULATION-TOOLS/p23",
+        "ch:SIMULATION-TOOLS/p25",
+        "ch:SIMULATION-TOOLS/p27",
+        "ch:SIMULATION-TOOLS/p29",
+        "ch:SIMULATION-TOOLS/p31"
+      ],
+      "sha256": "f2c5b43814889dc06dfdc71f1c93db61cabb02375f18d85e35d9338817e64eee",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/s3",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "path": "content/chapters/14-simulation-tools.md",
+      "heading": "Time and space resolution must preserve the modeled physics",
+      "line": 33,
+      "anchor": "sec:SIMULATION-TOOLS-RESOLUTION",
+      "passage_ids": [
+        "ch:SIMULATION-TOOLS/p35",
+        "ch:SIMULATION-TOOLS/p37",
+        "ch:SIMULATION-TOOLS/p39",
+        "ch:SIMULATION-TOOLS/p41",
+        "ch:SIMULATION-TOOLS/p43",
+        "ch:SIMULATION-TOOLS/p45",
+        "ch:SIMULATION-TOOLS/p47",
+        "ch:SIMULATION-TOOLS/p49",
+        "ch:SIMULATION-TOOLS/p51",
+        "ch:SIMULATION-TOOLS/p53"
+      ],
+      "sha256": "de6210d9aa383253bc47a95b3e20c2b0c46445699b4ee309168ebdc74f2ada14",
+      "coverage": "reviewed"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/s4",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "path": "content/chapters/14-simulation-tools.md",
+      "heading": "A useful reproduction saves the choices that determine the conclusion",
+      "line": 55,
+      "anchor": "sec:SIMULATION-TOOLS-RECORD",
+      "passage_ids": [
+        "ch:SIMULATION-TOOLS/p57",
+        "ch:SIMULATION-TOOLS/p59",
+        "ch:SIMULATION-TOOLS/p60",
+        "ch:SIMULATION-TOOLS/p61",
+        "ch:SIMULATION-TOOLS/p62",
+        "ch:SIMULATION-TOOLS/p63",
+        "ch:SIMULATION-TOOLS/p65",
+        "ch:SIMULATION-TOOLS/p67",
+        "ch:SIMULATION-TOOLS/p69"
+      ],
+      "sha256": "9d8b59302108fbb461547fb26e4b6f7268cfeeba173c32889290c802f5259996",
+      "coverage": "reviewed"
+    }
+  ],
+  "passages": [
+    {
+      "id": "ch:SIMULATING-MEMORY/p3",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s0",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 3,
+      "end_line": 3,
+      "kind": "prose",
+      "sha256": "5d0b95e6c710c8fb38c83ee02c9f31c72ed708025a8cba5fe408321758709529",
+      "text": "Burak and Fiete (2012) derive memory diffusion from assumptions about recurrent connections and random spike timing. To test that prediction, they simulate individual spikes and measure how the stored value moves. The central result remains an analytical bound. The simulations check its predicted motion in different network designs, including the limits imposed by an angular coordinate."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p7",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 7,
+      "end_line": 7,
+      "kind": "prose",
+      "sha256": "87e9ad18362e934e16d4fda5eecab4b8d40364376b08ccf3cc806cf5ba81948f",
+      "text": "The physical idea is continuing neural activity after a cue has ended. A spike briefly increases synaptic activation. That activation decays, but it also changes the rates at which other neurons fire. Recurrent connections can therefore renew the activity. Random event times disturb the pattern that represents the remembered value."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p9",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 9,
+      "end_line": 9,
+      "kind": "prose",
+      "sha256": "fe1302e5faa4bd528ec56486af269f353469b60aa071872a0d73cf5001f0f22a",
+      "text": "The computer stores each neuron's synaptic activation $s_i$. The recurrent input $g_i$ and firing rate $r_i$ are calculated from it:"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p15",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 15,
+      "end_line": 15,
+      "kind": "prose",
+      "sha256": "af35ae20bc3c9fdb67eb3a80d5cfb03c736865dbf929ee73de92fb471e94a584",
+      "text": "Here $W_{ij}$ is the connection from neuron $j$ to neuron $i$, $b_i$ is a constant input, and $\\phi$ converts total input into a rate in spikes per second. In the paper's normalization, each spike increases $s_i$ by one and activation decays with time constant $\\tau$. The [earlier neural mechanism and derivation](ch-memory-dynamics.html#sec-memory-spikes) explain these variables and the continuous-time equations.[^simmem-model]"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p17",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 17,
+      "end_line": 17,
+      "kind": "prose",
+      "sha256": "015d7f9553249679cd96c84b5c3e4e8495eab8188786c8dc9fb5544ec9aab4c9",
+      "text": "One short simulation step has a causal order:"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p19",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 19,
+      "end_line": 19,
+      "kind": "list_item",
+      "sha256": "d1f9454b0627dd5e22cb71cea64938ee5e7db6b35ba401ef10ad4cee80f42b66",
+      "text": "Read the current activations and calculate the recurrent inputs and firing rates."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p20",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 20,
+      "end_line": 20,
+      "kind": "list_item",
+      "sha256": "b0147ce2778a362174d397c0f2c98ec1c3d8e40a6d8ddc580e270666173285b6",
+      "text": "Generate spikes using those rates and the chosen time interval."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p21",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 21,
+      "end_line": 21,
+      "kind": "list_item",
+      "sha256": "42dd07c5ecb39b9a916e3f0cc110b0c179e4388430a97a1f7e116ca03a962b3c",
+      "text": "Apply synaptic decay and the increments caused by those spikes."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p22",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 22,
+      "end_line": 22,
+      "kind": "list_item",
+      "sha256": "dfceacdd897347d0c81ce6936e5c8f2a1149e171b631ffbf11de4f86bcb55ec8",
+      "text": "Decode the represented value and repeat after the external cue is absent."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p24",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 24,
+      "end_line": 24,
+      "kind": "prose",
+      "sha256": "92349f91336c109071dbfa51d50841cbf86e572df2142b88d386c24e15ac7a4a",
+      "text": "The ring simulation uses an [[**Euler update**]{.definition-term custom-style=\"Definition Term\"}, which approximates a variable's change over a short interval by its current derivative times that interval.]{.definition-explanation} For decay alone, an interval $h$ changes $s_i$ to approximately $s_i(1-h/\\tau)$. Spike increments are added according to the event model. This finite step approximates the continuous dynamics, so its accuracy must be checked at the resolution needed for the reported statistic."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p26",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s1",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 26,
+      "end_line": 26,
+      "kind": "prose",
+      "sha256": "7bc5c4d6e40329b792195e0355aa16e5972c100b09a2cc083760fb23a5bdde9c",
+      "text": "[Each generated spike changes the recurrent inputs and can change the rates of later spikes.]{.key-statement} The theory explains when these interacting changes can be described by diffusion of one coordinate."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p30",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 30,
+      "end_line": 30,
+      "kind": "prose",
+      "sha256": "fc15caf46c2dd19f81ba8b1af02e2cf72c0dd77082899275b96aca763e43a988",
+      "text": "In the ring model, neurons are ordered by their preferred angles. Their connections support a localized activity pattern whose position represents an angle. Figure 2A–D compares the wandering position with predictions calculated from the network's steady tuning curves. Two transfer functions test different relationships between diffusion and spike information: the exponential case attains the bound under the model assumptions, while the illustrated sigmoid case lies above it.[^simmem-ring]"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p32",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 32,
+      "end_line": 32,
+      "kind": "prose",
+      "sha256": "cff8830899eacd5de5f08667383331d3aaa8c95e1de01f25c6bcd25b9ebfcac1",
+      "text": "The comparison separates prediction from measurement. First, solve the noise-free network for its steady activity pattern and calculate the predicted diffusion coefficient and information rate. Then run the stochastic network and measure its angular displacement. For this simulation the authors decode the angle of the neuron with the largest instantaneous rate. That convenient numerical readout differs from the ideal spike-based estimator studied later in the paper."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p34",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 34,
+      "end_line": 34,
+      "kind": "prose",
+      "sha256": "b9c3559c7d550cba4cd3e771dfccef799782cf8ea0965247eb055beedd4bf3c8",
+      "text": "At short lags, the displacement variance tests the local relation $\\operatorname{Var}(\\Delta\\theta)\\simeq2D\\ell$, where $D$ has units of angle squared per second and $\\ell$ is the lag in seconds. At long lags, the reported differences are wrapped into $(-\\pi,\\pi)$, so the mean square levels off. The long-lag comparison uses a diffusion calculation with periodic boundaries. This saturation limits the reported angular error. It does not recover the initial angle."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p38",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 38,
+      "end_line": 38,
+      "kind": "prose",
+      "sha256": "8d258e4fe8bc1951d93c2b13f6e6c3c81cda1490fcf708e7b30b69914aba771a",
+      "text": "The Methods specify 1,024 neurons, synaptic time constant 10 ms, and update interval 0.1 ms. Each step generates a spike with probability $r_i h$. This one-event approximation requires that probability to remain small. There are 100 trials of 1,000 seconds each. The displacement analysis excludes the first 10 ms. Error bars are standard errors across trials."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p40",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 40,
+      "end_line": 40,
+      "kind": "prose",
+      "sha256": "7be57c9479d670355e62ededa616e3f70a4228abd7c5fde4013be4cb9ce6290d",
+      "text": "Writing $\\alpha$ for the separation of preferred angles, the finite network uses"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p46",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 46,
+      "end_line": 46,
+      "kind": "prose",
+      "sha256": "4d3ea7f0151453d4ee059bce556b53f0e44ef968c8573bc0e11d126d5b8624ab",
+      "text": "The common input is $b=-2$. The two transfer rules are $\\tau\\phi(g)=10e^g$ and $\\tau\\phi(g)=0.2[1+\\tanh(g+4)]$. Initial activations are independently uniform between 0 and 0.01. These settings describe the finite simulation. The supporting text separately divides a connection rule by $N$ to study larger populations. Applying that extra factor here would change the reported weights."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p48",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s2",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 48,
+      "end_line": 48,
+      "kind": "prose",
+      "sha256": "8fe13adffbf0227085dd3495473b72c1827a731526a804a1d24719eeca28d03f",
+      "text": "The symmetric-network prediction uses the squared input slope in its numerator. Burak and Fiete's 2017 correction confirms that square, which was missing in the supplied Early Edition's Eq. 2. The correction does not change these simulation settings.[^simmem-correction]"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p54",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s3",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 54,
+      "end_line": 54,
+      "kind": "prose",
+      "sha256": "f1c28cd99a93186c52124d2e73b033a2a3cf0cb65bb108784e602d3c50bb78e1",
+      "text": "A second network contains two mutually inhibiting units, interpreted also as two neural populations. Increasing one population's activity while decreasing the other's changes the stored value. Figure 2E–G tests diffusion in this family without relying on rotational symmetry. The diffusion calculation applies to both models because each has a continuous family of states and restoring dynamics toward that family.[^simmem-two]"
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p56",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s3",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 56,
+      "end_line": 56,
+      "kind": "prose",
+      "sha256": "f386f204e54c3a2f8fa5389a2288ff45388064b3d5fcbb1801cee1def34ac9c5",
+      "text": "The Methods report cross-couplings of $-1$, no self-coupling, common input $b=5{,}000$, time constant 100 ms, update interval 0.4 ms, and duration 200 seconds. The transfer rule is $\\tau r_i=g_i$ in the valid positive-rate range. These large rates can represent aggregate population activity. They should not be read as ordinary firing rates of two biological cells."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p58",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s3",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 58,
+      "end_line": 58,
+      "kind": "prose",
+      "sha256": "aab2a85a6e6b322c40aa00cd3efc1bbf80fbcbd2dcfeb1c332e6ba15ab83f864",
+      "text": "Converting between activation and rate changes the units of the stored value. Let $\\theta_s=s_1-s_2$ be the activation difference and $\\theta_r=r_1-r_2$ the rate difference along the steady-state family. Since $s_i=\\tau r_i$ there, $\\theta_r=\\theta_s/\\tau$ and their diffusion coefficients satisfy $D_r=D_s/\\tau^2$. Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring's at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not say how spike counts were drawn or give the complete initial state for this example."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p60",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s3",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 60,
+      "end_line": 60,
+      "kind": "prose",
+      "sha256": "38ffa72190d275a11c92bd7af1b4655a62d09ba7aa6ea9622d9273bf8fbadcd9",
+      "text": "The supporting text also tests a mutually excitatory pair in Figure S1. Across 4,000 trials started at the same coordinate, its variance grows linearly even though the local diffusion coefficient depends on the state. The guide's [long-delay chapter](ch-memory-long-delays.html#sec-memory-long-time) explains the coordinate and the printed factor-of-two discrepancy. That discrepancy is separate from the authors' 2017 correction."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p64",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s4",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 64,
+      "end_line": 64,
+      "kind": "prose",
+      "sha256": "b5a7900a9169f8cf4570444715627d800c3eaeede24fad46c7d41beb621281e3",
+      "text": "Figures 3 and S2 plot formulas for readout error. They compare an ideal estimator with an estimator that weights all observations equally as the observation interval grows. The sources do not describe an additional spiking-network experiment or a biological circuit implementing ideal estimation in these figures."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p66",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s4",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 66,
+      "end_line": 66,
+      "kind": "prose",
+      "sha256": "5cb2a6025fc7d2e7e53c1953106aea9ecb22d2e29c572d61dab62e66072e715d",
+      "text": "The paper specifies its network equations and several numerical settings, but does not identify a programming language or simulator package. No public simulation-code archive was identified in the checked paper, supplement, or author publication entries. This describes the search as of October 30, 2026. It is not proof that no code exists. A new implementation must document choices the paper leaves open, including how it generates random numbers and events for aggregate populations."
+    },
+    {
+      "id": "ch:SIMULATING-MEMORY/p68",
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "section_id": "ch:SIMULATING-MEMORY/s4",
+      "path": "content/chapters/11-simulating-memory.md",
+      "line": 68,
+      "end_line": 68,
+      "kind": "prose",
+      "sha256": "fc3f3f3148a75c408897a3b52814eca6cafe440535bd0c93aed5dda6bff766ec",
+      "text": "[The simulations show that the stated network models can produce the predicted memory errors. Connecting those errors to animal behavior requires a measurement model and biological data.]{.key-statement} Ben-Shushan et al. (2022) add those elements by following an internal eye-position command through motor neurons and muscles to measured motion."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p3",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s0",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 3,
+      "end_line": 3,
+      "kind": "prose",
+      "sha256": "9f511edd618bec2fabe77262be3ee74261c8110334c2ee345d590cc2c4c453d0",
+      "text": "Ben-Shushan et al. (2022) ask whether fluctuations in a neural memory circuit can explain the small eye movements that continue during fixation. Their simulation must turn a changing neural command into muscle action and eye position. It must also produce signals that can be analyzed like the recordings. The paper's central evidence combines a shared-source inference from data with a model showing that a noisy integrator can account for the observed motion."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p7",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s1",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 7,
+      "end_line": 7,
+      "kind": "prose",
+      "sha256": "b4fced25b38ee5ccecf689324f56dba64b55460c84169eff63872a23f466f475",
+      "text": "The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of all 57 neurons. The authors fit each cell's relation to eye position, velocity, and acceleration, then use it to reconstruct movement from that cell's spikes. A trial held out of the fit tests prediction on data that did not determine the fitted parameters.[^simeye-data]"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p9",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s1",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 9,
+      "end_line": 9,
+      "kind": "prose",
+      "sha256": "c75d57c736c0980bb9833e24c5affc7a4df064b239a55f702b3ad36b4a14a087",
+      "text": "After excluding rapid eye movements, the analysis compares measured and reconstructed displacements over 350 ms segments. Their covariance supports a substantial shared drive upstream of the motor neurons. The estimate near 82% depends on calibrated gains and the assumed separation of shared and private fluctuations. It is not a measurement of noise inside the integrator itself."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p11",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s1",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 11,
+      "end_line": 11,
+      "kind": "prose",
+      "sha256": "733ec2a193f3ea5a7db5e65b19560c22eeff9757f253348dc022545cd4fe20d3",
+      "text": "The authors then test whether an integrator with plausible cellular properties can generate enough shared motion, with the right timing, after the motor pathway filters it. Its tuning distributions and spike variability are constrained by earlier physiological studies. Some remaining choices are adjusted to compare with the measured drift. The paper notes that several parameter combinations can match its magnitude."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p15",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 15,
+      "end_line": 15,
+      "kind": "prose",
+      "sha256": "7902127b91a9ad60cc774235fb35d0b1963a48eeaaf3350f05ac53fc50df9e2f",
+      "text": "The model has four connected stages. Each stage changes a different physical or represented quantity:"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p17",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 17,
+      "end_line": 17,
+      "kind": "list_item",
+      "sha256": "7b2a16c80ff77712ff3565c9bc40aa0b1b434308c82bcace2b77e55e1e805cdc",
+      "text": "**Integrator activity:** two opposing neural populations sustain a represented eye-position command. Spikes renew decaying synaptic activity, and recurrent input sets later firing rates. A weighted difference between the populations produces the command $E_{\\mathrm{OI}}$."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p18",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 18,
+      "end_line": 18,
+      "kind": "list_item",
+      "sha256": "fe5a8608893a8f7aa88b9229b81e27aa5f24080a560f312fbc18e725771e953b",
+      "text": "**Motor-neuron spikes:** each simulated motor neuron receives that command. Its tuning slope and threshold convert the commanded angle into a firing rate. Spike generation adds that neuron's private variability."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p19",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 19,
+      "end_line": 19,
+      "kind": "list_item",
+      "sha256": "8bcaca24aee1e60e81e9eb60fa983ff230d0c081153019d29ef37d0a026c558e",
+      "text": "**Muscle and eye response:** filtered motor activity drives a mechanical response with position, velocity, and acceleration terms. Combining the motor contributions gives the eye angle $E$."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p20",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 20,
+      "end_line": 20,
+      "kind": "list_item",
+      "sha256": "da5710384a1c0707196af4eb3fddec6331d92691a0435aafeda0aac862f2fba7",
+      "text": "**Delayed visual feedback:** the difference between an earlier eye position and the current internal command changes the integrator's input. The delay prevents this correction from acting instantaneously.[^simeye-model]"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p22",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 22,
+      "end_line": 22,
+      "kind": "prose",
+      "sha256": "5ccbc41b9bf6eb612b763ac3bb51d385e5546f19d273ea6a8c021dbfda76e03b",
+      "text": "[The internal command and the physical eye angle are separate outputs. The muscles smooth rapid command fluctuations, so the eye's short-lag motion need not have the same statistics as the neural state.]{.key-statement} The [eye-timing chapter](ch-eye-timing.html) derives a simplified filtering example. The [circuit chapter](ch-eye-circuit.html) explains the full model's neural assumptions."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p24",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 24,
+      "end_line": 24,
+      "kind": "prose",
+      "sha256": "97e703e41a4e3840256c0a1bf6e98d557f808b8079d098a1755fec3b110c4cdc",
+      "text": "The circuit structure is adapted from Aksay et al. (2007), with tuning and noise assumptions adjusted to primate evidence. Its weights are fitted so that a range of commands can persist in the mean-rate model. This is different from fitting an eye-drift trace."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p26",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 26,
+      "end_line": 26,
+      "kind": "prose",
+      "sha256": "273d1dc424751204ef694905646192be4750f48db70bce55f7457a24c8b9d404",
+      "text": "The spikes are more regular than a Poisson process. The model generates candidate events at $M$ times the desired rate and retains every $M$th event. At constant rate, each retained interval sums $M$ exponential waiting times, giving interval coefficient of variation $1/\\sqrt M$. This preserves the mean firing rate while reducing interval variability. The published simulations use integrator variability around 0.22 and motor-neuron variability around 0.07."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p30",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 30,
+      "end_line": 30,
+      "kind": "prose",
+      "sha256": "bbad1cecf355b8a9952af4d85bcd4f17a615b27487e00f4282deb9839d9f11c5",
+      "text": "The final main Methods report an integrator size $N=30{,}000$, 1,000 motor neurons, synaptic time constant 20 ms, and feedback strength $A=0.015$. The feedback delay is about 70 ms. These are the main model settings, not values to combine with the different comparison runs in the supplement."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p32",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 32,
+      "end_line": 32,
+      "kind": "prose",
+      "sha256": "3400b5a64750a1cc521bb75d49ec6b1c05233d9c6bea63010d4416d76e412343",
+      "text": "The inspected MATLAB code sets its internal update interval to $10^{-5}$ s and saves every 100 steps, giving 1 ms output samples. It uses a 10 ms motor-neuron synaptic time constant, initializes central gaze, and sets the random seed from the trajectory index. Synaptic decay is updated by first-order Euler steps. The mechanical calculation updates velocity and then position."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p34",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s2",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 34,
+      "end_line": 34,
+      "kind": "prose",
+      "sha256": "773e50932ebbc85f4c2fa14c27010c6dbf4a7b6a491f94b29349a6ba989a62f0",
+      "text": "The code's `N` creates a vector in each of the paired populations, whereas the paper describes $N$ as the network's neuron number. That convention must be resolved before claiming a function call reproduces the published size. The code also uses a different motor-neuron variability regression from the final printed Eq. 35.[^simeye-code]"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p40",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 40,
+      "end_line": 40,
+      "kind": "prose",
+      "sha256": "1095244415c9eecf5115fa3cb444637ccac732ea450482a1600a809502b738d3",
+      "text": "One matching trajectory is weak evidence because many mechanisms can look irregular. The paper compares outputs after changing sources of variability or feedback:"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p42",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 42,
+      "end_line": 42,
+      "kind": "list_item",
+      "sha256": "ce0205f16d9417afc9223b94f0108dd630d3b8b9fafb782f5f78116a03e295fe",
+      "text": "**Private motor noise alone:** with a constant central command, independent motor-neuron fluctuations produce limited, saturating displacement variance. Figure 3 compares this contribution with the larger continued drift in the recordings."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p43",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 43,
+      "end_line": 43,
+      "kind": "list_item",
+      "sha256": "0b21472f8f38e7765e60f4476d56a9443a9759d54e5e8b821edabdb6503ad0da",
+      "text": "**Noisy integrator before the muscles:** Figure 4 measures the simulated internal command. At sufficiently long lags, its mean squared displacement approaches the linear dependence expected for diffusion."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p44",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 44,
+      "end_line": 44,
+      "kind": "list_item",
+      "sha256": "40de0e6fe368d06f1de523cecd64e4853e6a81daf983a725f26d9f6894140aa6",
+      "text": "**Full pathway:** Figure 5 compares the final eye output with the recordings. Muscle filtering shapes the short-lag behavior, while delayed feedback changes the longer-lag behavior."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p45",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 45,
+      "end_line": 45,
+      "kind": "list_item",
+      "sha256": "ee0365376c0224fd4cc8c19801c3bb5fbb15011f0a5826c9d46e956cf944f7e1",
+      "text": "**Measurement procedure applied to simulated signals:** simulated motor spikes and eye motion are passed through the same reconstruction and covariance analysis used for the recordings. This tests whether the analysis can recover the shared contribution under a model where its origin is known.[^simeye-figures]"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p47",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 47,
+      "end_line": 47,
+      "kind": "prose",
+      "sha256": "a9bbe1792a691b899c97dbe652cc3085987d01e5c6033d182ad3dc22cfeed3b1",
+      "text": "The supplement adds checks of measurement-noise subtraction, feedback removal, and the contribution of direct output spiking noise. In the last check, noise still drives the internal integrator, so removing motor-output noise does not turn the entire model deterministic."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p49",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s3",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 49,
+      "end_line": 49,
+      "kind": "prose",
+      "sha256": "fd62f2643c2c85da0b14872c6e67d861d0d33faf6443b12cd41b9f63be442686",
+      "text": "These controls support the integrator as a sufficient explanation under the tested assumptions. They do not show that it is the only central circuit capable of producing the recordings. The shared-source estimate from data and the proposed location of that source remain different conclusions."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p53",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s4",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 53,
+      "end_line": 53,
+      "kind": "prose",
+      "sha256": "61a23bb8ca46234389c577ebba0c87dd560dda4f39350144a22c141b0e99672e",
+      "text": "The authors release MATLAB `.m` functions and `.mat` parameter files. `Run_model.m` starts trajectories and their mean-squared-displacement analysis. `Full_model_simulation.m` updates the integrator, motor neurons, and eye. `Fit_OI_circuit.m` fits a persistent mean-rate circuit, while the analysis routines compare generated trajectories with an already processed empirical MSD file.[^simeye-code]"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p55",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s4",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 55,
+      "end_line": 55,
+      "kind": "prose",
+      "sha256": "92423a10a0e2229b5fb547c2b1856c4d6dd54d4edb532c1c2116219233075923",
+      "text": "The separately deposited raw recordings contain one spreadsheet per cell and one sheet per trial. The columns give horizontal and vertical eye angles and spike times. Eye samples are spaced by 1 ms. Reanalyzing those recordings tests the empirical reconstruction. Running the model tests a proposed source of the motion. Loading the processed MSD file alone does not reproduce the raw-data analysis.[^simeye-deposit]"
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p57",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s4",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 57,
+      "end_line": 57,
+      "kind": "prose",
+      "sha256": "cf7a81bb015d960fe87e8dd3965055ff9b335ba1e839c124b34d182e0a8a1eb5",
+      "text": "The inspected repository does not specify a MATLAB version or a complete environment. Source calls include constrained least squares, random sampling, and correlation routines, whose required functions and toolboxes must be available. The repository's `rate` branch calls a function absent from the inspected file tree. These are practical limits to check before treating the package as a complete figure-reproduction workflow. No such end-to-end run is claimed here."
+    },
+    {
+      "id": "ch:SIMULATING-EYE/p59",
+      "chapter_id": "ch:SIMULATING-EYE",
+      "section_id": "ch:SIMULATING-EYE/s4",
+      "path": "content/chapters/12-simulating-eye-drift.md",
+      "line": 59,
+      "end_line": 59,
+      "kind": "prose",
+      "sha256": "ae2ef44e70c2fad7feed10009457465588b8acee0683d78b486a6f1473943420",
+      "text": "For a neurophysics study, the useful next calculation is controlled: vary one cellular or mechanical assumption, keep the measurement procedure fixed, and examine which observed statistic changes. Mainali et al. (2025) use a different form of this reasoning. Their simulations change spatial maps and measure the regions where cells would fire, without simulating eye motion or a time-dependent memory circuit."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p3",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s0",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 3,
+      "end_line": 3,
+      "kind": "prose",
+      "sha256": "27d758408a726369dfee15000c91a5cac27d4f505b28ae9c7a5ce4664e84e2ae",
+      "text": "Mainali et al. (2025) ask whether one statistical model can explain the many firing regions observed in hippocampal place cells across different environments. Their simulation generates a cell's firing-rate map over space and measures the active regions. Position is the independent variable. The generated map is fixed while it is analyzed, so this simulation addresses spatial coding rather than how a neural circuit retains a position over time."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p7",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 7,
+      "end_line": 7,
+      "kind": "prose",
+      "sha256": "6097922381deb20b0c5b378d1282a7bc2b07fa3a2de8fc13b70635cba84a1735",
+      "text": "For each model cell, the theory assigns a smooth Gaussian input field $h(\\mathbf x)$ to locations $\\mathbf x$. Its covariance controls how similar nearby input values tend to be. A threshold determines which locations activate the cell. In the guide's notation, the rate is proportional to"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p13",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 13,
+      "end_line": 13,
+      "kind": "prose",
+      "sha256": "4f0ebc35829ca5a1f020dc41b9d9415f7ea1a8dd44d1ba1efb0fa3d217a8c687",
+      "text": "Here $q$ is the dimensionless threshold, $C(0)$ is the input variance, and an overall gain converts positive excess input into a rate. The threshold and spatial correlation scale govern the shapes and sizes of the active regions. The gain supplies the firing-rate scale. The [spatial-model chapter](ch-place-fields.html) develops these quantities before deriving field-count and gap predictions.[^simplace-model]"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p15",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 15,
+      "end_line": 15,
+      "kind": "prose",
+      "sha256": "2eafa43a63920c8d682394f3ae5cd605070ae1bb7c6a469596efa032764075a6",
+      "text": "The published Python archive constructs such maps directly:"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p17",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 17,
+      "end_line": 17,
+      "kind": "list_item",
+      "sha256": "dfcd25f5971dafd780f4cb92ae625f4615bfde6522808b887af9eecc8836045f",
+      "text": "Draw independent normally distributed values at the spatial grid points for each cell."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p18",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 18,
+      "end_line": 18,
+      "kind": "list_item",
+      "sha256": "34b42963529dfa65d56dc584cbe3394262bafff7312d22ed2741e522c314a123",
+      "text": "Smooth the array with a [[**Gaussian filter**]{.definition-term custom-style=\"Definition Term\"}, which averages nearby values with weights that decrease with distance.]{.definition-explanation} Neighboring outputs share inputs, making them correlated."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p19",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 19,
+      "end_line": 19,
+      "kind": "list_item",
+      "sha256": "1a580a25aea0c9eca932cd0355cc397e2f09f857c5c48fe3abb93d41c38861f8",
+      "text": "Divide each map by the square root of the mean of its squared grid values, its root mean square. This sets its sampled root mean square to one."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p20",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 20,
+      "end_line": 20,
+      "kind": "list_item",
+      "sha256": "2766f48f934cdd290a403b7120ac03e1884b8d62e9324d5468188450882b67a6",
+      "text": "Subtract the threshold and replace negative values with zero."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p21",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 21,
+      "end_line": 21,
+      "kind": "list_item",
+      "sha256": "5ccc9c30dfa308c7a607ca40468eef0ee4876200ba90f56579032910056a6caa",
+      "text": "Measure the connected nonzero regions as fields."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p23",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 23,
+      "end_line": 23,
+      "kind": "prose",
+      "sha256": "0b44800986d28bd25e731de39c1fb8a12427c52c3df520a6419acb13826c5695",
+      "text": "This procedure implements the spatial model without explicitly simulating presynaptic neurons or their synapses. The paper's random-input argument explains one possible origin of a Gaussian field. It is not a simulated recurrent hippocampal circuit in this code. [Agreement with place-field statistics tests the spatial description, while the proposed wiring remains an interpretation requiring further evidence.]{.key-statement}"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p25",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s1",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 25,
+      "end_line": 25,
+      "kind": "prose",
+      "sha256": "078bcd1c7dec7d805d3235cb3f7ef7bc755bd4106e7ca970c9602ba1d74873b8",
+      "text": "Smoothing, amplitude normalization, and edge handling affect the finite sampled map. Matching the published implementation requires these numerical choices.[^simplace-code]"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p29",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s2",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 29,
+      "end_line": 29,
+      "kind": "prose",
+      "sha256": "7b3ab18951df4e031aca38ecd8461ead6aaa4c576fea401dab613b0d653dbced",
+      "text": "The authors choose threshold and spatial scale to match a small number of measured summaries. For the long 200 m bat tunnel, they match mean field length and mean gap. In the short 6 m tunnel, they use mean field length and occupied fraction, because many cells have only one field. The 2D comparison fits mean field size and count, while the 3D comparison uses mean volume and occupied fraction.[^simplace-fit]"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p31",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s2",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 31,
+      "end_line": 31,
+      "kind": "prose",
+      "sha256": "e0b00f0a8e38086384181c06f15138947def5596f78e264cc753c749d45f2045",
+      "text": "A [[**fitted statistic**]{.definition-term custom-style=\"Definition Term\"} is a measured summary used to choose a model's parameters.]{.definition-explanation} Recovering that statistic checks the fit, but gives less independent evidence than successfully describing other features. The full size distribution, lower-dimensional slices, multiple peaks, and holes in fields provide further comparisons. Some of those analyses also fit a firing-rate gain, which must remain visible when judging how independent a test is."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p33",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s2",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 33,
+      "end_line": 33,
+      "kind": "prose",
+      "sha256": "c09f73f1d09ffb556e22a7a345fc48fbb67eecab371eb1576a664c1c9764388d",
+      "text": "The paper compares simulated size distributions with a fitted lognormal alternative using likelihood-based criteria. This is a comparison on the available data, rather than a reported test on a separate held-out dataset. Its high-threshold analytical laws also have a different role from finite-threshold simulation: the simulations can examine regimes where those limiting formulas are only approximate."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p35",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s2",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 35,
+      "end_line": 35,
+      "kind": "prose",
+      "sha256": "6ab1b6e23eb2a9c7f3be0b1057132c26f7b09e2fc4176e74cf982c22d30066a3",
+      "text": "For uncertainty in size histograms, the Methods describe $10^4$ model realizations, each containing the experimental number of cells. The resulting spread reflects variation between model samples of that size. It does not include every source of recording error or uncertainty about the biological model."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p39",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 39,
+      "end_line": 39,
+      "kind": "prose",
+      "sha256": "133e6ba73933b6b66d9b40c3ae3bb5f527e990115e1c80469988f11a94496401",
+      "text": "To compare a generated field with a recorded one, both must be measured in compatible ways. A small positive noise value can connect two regions, while thresholding can split them. Smoothing can remove a peak or fill a small hole."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p41",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 41,
+      "end_line": 41,
+      "kind": "prose",
+      "sha256": "85a5eb86b01cf41bd0f0ac38c6985f0f590412dda5008d6b0dd30a8fb9ee2460",
+      "text": "The STAR Methods specify several distinct measurements:"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p43",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 43,
+      "end_line": 43,
+      "kind": "list_item",
+      "sha256": "ebd494532ff135260f82dea838b5ada2455326d47c2d82dae2258bca559a4c2b",
+      "text": "**Lengths and gaps in 1D:** count consecutive nonzero or zero bins and convert their counts to physical lengths. The archived implementation places field edges at grid-bin boundaries."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p44",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 44,
+      "end_line": 44,
+      "kind": "list_item",
+      "sha256": "4f9a5dfb2d14d720de2a7ab11c651affe65e3cf3348e88600d17b9c7ea0a1c12",
+      "text": "**Volumes in 3D:** label connected nonzero components and multiply their bin counts by bin volume. The reported analysis removes fields more than three standard deviations above the mean volume as probable mergers."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p45",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 45,
+      "end_line": 45,
+      "kind": "list_item",
+      "sha256": "a7aa3b8105523f5745e39544255885c1ed78df8231704ef690cdbbb3ba74c55c",
+      "text": "**Peak and boundary shape:** use peak detection and local finite differences, with additional smoothing or rate thresholds stated for the relevant comparison."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p46",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 46,
+      "end_line": 46,
+      "kind": "list_item",
+      "sha256": "a32bcbffe1e5abaa24a3ea995c822b19ace5b44839c510e93df4c597ff01c6a1",
+      "text": "**Connectedness and holes:** use the Gudhi Python library to calculate Betti numbers and form their alternating sum, the Euler characteristic. The [place-field tests chapter](ch-place-tests.html) explains why this statistic contains information absent from field volumes alone.[^simplace-measure]"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p48",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 48,
+      "end_line": 48,
+      "kind": "prose",
+      "sha256": "6ef85875e8331946d3b1570bfc23a7b0381f22342862a4d9db7e82f6301ddd88",
+      "text": "The experimental 3D maps have 10 cm spatial bins and receive a median filter in the described processing. Different analyses use different cutoffs. A reproduction therefore needs the rule for its target panel, rather than one generic threshold applied to every figure."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p50",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 50,
+      "end_line": 50,
+      "kind": "prose",
+      "sha256": "7223e266206cac8a93f7815fac3fb3bc5c0789d1f962090c33eb5fe4e5dcbf14",
+      "text": "Figures 1 and 2 connect the generated maps to size, count, gap, and slice statistics. Figure 3 tests shapes and connectedness. Figures 4 and 5 examine how fitted parameters and threshold changes relate to field structure. The supplement checks alternative spherical fields, cell-to-cell threshold variation, and sensitivity to processing choices. These comparisons extend the evidence beyond a visually similar random map."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p54",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 54,
+      "end_line": 54,
+      "kind": "prose",
+      "sha256": "108753a23b364ef8cdf1b920529ca2bb9e898aa75dbb8416a0a88ff37ff3db1f",
+      "text": "The paper defines its local correlation scale by $\\ell=\\sqrt{-C(0)/C''(0)}$ in one dimension. The code also uses a parameter called `sigma`, but as the width $b$ of the Gaussian smoothing filter. For ideal continuous white noise smoothed by a Gaussian of width $b$, the covariance is proportional to $\\exp[-x^2/(4b^2)]$. Differentiating at zero gives $\\ell=\\sqrt2\\,b$. The two widths are therefore different quantities."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p56",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 56,
+      "end_line": 56,
+      "kind": "prose",
+      "sha256": "2a0b96d539a470fb20b8a6813c14f793200f1b144b6d04658bf263c8ed92c4e4",
+      "text": "This conversion follows from the smoothing construction. It is not another fitted biological result. Finite sampling and filter truncation can modify the ideal relation. The archived 1D generator uses reflected edges, whereas its 3D generator wraps the filter around the array edges. The boundary rule used for smoothing also does not, by itself, specify the boundary rule for a later topology calculation."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p58",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s3",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 58,
+      "end_line": 58,
+      "kind": "prose",
+      "sha256": "c43382f90626a2d3b100e9f5d108276bcdfc3da991a06749c92156c952a19184",
+      "text": "The README's dummy-data settings illustrate package use. They are not a complete list of the grid, cell count, and random seed used for each published panel. Exact reproduction needs those panel-specific choices as well as the archive."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p64",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s4",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 64,
+      "end_line": 64,
+      "kind": "prose",
+      "sha256": "83a0290a433e9155b5794a7d55630f028ae2de206f85dfa39c948945a1c9cd26",
+      "text": "The paper reports using Python 3.11. The code uses NumPy for arrays and random samples, and SciPy for smoothing and map measurements. The Methods identify SciPy routines for connected components, peak detection, and density estimation, and Gudhi for topology. These are spatial and statistical computations. A spiking-neuron simulator is not required by the released method."
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p66",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s4",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 66,
+      "end_line": 66,
+      "kind": "prose",
+      "sha256": "d09cb89fee77ee1b0e8aa98730ecc9a0a16f119cd492f9108d0efaee1e216638",
+      "text": "The published code is archived on Zenodo, with an accompanying public GitHub repository. The inspected archive contains source files and dependency information. It does not contain all recording data or a complete set of per-figure run records. A current repository example therefore cannot automatically establish the settings used in the 2025 publication.[^simplace-code]"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p68",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s4",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 68,
+      "end_line": 68,
+      "kind": "prose",
+      "sha256": "42e05c91291cfdf99307ae0da3c36303c55115602faa9db5511440c478f5130d",
+      "text": "The article points to public source datasets, including the bat-tunnel deposit. It also acknowledges directly shared full bat maps and a 20-cell sample of rat maps used for particular analyses. Access to every required map must be checked for the intended figure. Availability of the model code is different from availability of all experimental inputs.[^simplace-data]"
+    },
+    {
+      "id": "ch:SIMULATING-PLACE/p70",
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "section_id": "ch:SIMULATING-PLACE/s4",
+      "path": "content/chapters/13-simulating-place-fields.md",
+      "line": 70,
+      "end_line": 70,
+      "kind": "prose",
+      "sha256": "21eb86d85cdab2bd1fd31bc79566a14b912a45ead73747eae9040a1a4f14e88a",
+      "text": "For a new study, two questions can now be separated. One is whether thresholded smooth random inputs describe the measured spatial patterns. The other is which neural dynamics, connections, and learning rules create those inputs. The simulations in this paper directly address the first and provide constraints for investigating the second."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p3",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s0",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 3,
+      "end_line": 3,
+      "kind": "prose",
+      "sha256": "919680ba2ba5e438ee336b1611ec0444b8b10882e0def5dcdf95e17d75c89d51",
+      "text": "A simulated eye trace can look convincing while answering the wrong question. It may use different spike statistics, a different muscle response, or a different definition of displacement from the experiment. Reproducing a result requires matching those choices before comparing curves. This chapter collects the practical decisions shared by the three papers and identifies tools for making those decisions visible."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p7",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s1",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 7,
+      "end_line": 7,
+      "kind": "prose",
+      "sha256": "534219377da3b638238cc6cec194aa6bdb0abdf55c702a3136a83d4adde6bbb7",
+      "text": "The starting point depends on the intended result. Running the authors' program tests whether its implementation produces the reported output. Rebuilding the equations in another program tests whether an independent implementation agrees. A smaller teaching model can isolate a mechanism, but its numerical output belongs to that smaller model."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p9",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s1",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 9,
+      "end_line": 9,
+      "kind": "prose",
+      "sha256": "e214a875ce70386d95c7ad3610f0a03c27c027c7ced625f5bebbcbdef4da7ef1",
+      "text": "For Burak and Fiete (2012), the paper and supporting text specify the network equations and numerical settings. The inspected publication records did not identify a public simulation-code package. For Ben-Shushan et al. (2022), public MATLAB code and deposited recordings support a more direct route. Mainali et al. (2025) provide Python code and links to the source datasets. The preceding chapters identify what was checked in each package and where the inspected defaults differ from the publication."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p11",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s1",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 11,
+      "end_line": 11,
+      "kind": "prose",
+      "sha256": "c340c2fe72d61664e2819dd599f80fcd0fcf7a6bc08528687da982c7d8189cd9",
+      "text": "[A successful program run establishes that the chosen program executed. Agreement with a paper also requires matching its model, parameters, measurements, and uncertainty.]{.key-statement} The simulation summaries here are source-based explanations. The guide has not rerun the authors' full simulations or reprocessed their animal recordings."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p13",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s1",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 13,
+      "end_line": 13,
+      "kind": "prose",
+      "sha256": "0dd45f0552f549faa139cd37677b313963e9b80a20013bec4b3719b228fd550f",
+      "text": "One further distinction matters for Part III. A computer can calculate a neural model, calculate a proposed transistor circuit, or collect measurements from a fabricated chip. Sun et al. (2026) report post-layout hardware simulations. Pehle et al. (2022) describe physical analog neural circuits. Both can address memory, but their outputs support different claims about an electronic device. The [hardware comparison](ch-neuromorphic-systems.html) keeps these cases separate."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p17",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 17,
+      "end_line": 17,
+      "kind": "prose",
+      "sha256": "c3466a00f6973d02402527d9c34a27157cfeee9ffed7b60c32ce959b23c01732",
+      "text": "The authors' implementation is the first choice when the goal is to reproduce their figures. Other libraries are useful when the goal is to isolate a mechanism or change a model. The following tools have distinct roles. The optional tools are suggestions for a new implementation, not claims about what all three papers used."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p19",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 19,
+      "end_line": 19,
+      "kind": "prose",
+      "sha256": "9960784fd6b96a12fbf5b8855619bf1a26dae079bce219c3b96e0c64ec075ad2",
+      "text": "<div class=\"table-responsive\">"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p21",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 21,
+      "end_line": 21,
+      "kind": "block",
+      "block_id": "tbl:SIMULATION-TOOLS",
+      "sidecar_path": "content/chapters/14-simulation-tools.yaml",
+      "sidecar_line": 47,
+      "sidecar_key": "blocks[tbl:SIMULATION-TOOLS]",
+      "sha256": "2431c3b30445413f0ecd27fd827e766da6baf4df7416047f4125dc354b51bd2f",
+      "text": "{\"caption\": \"Software roles and the evidence for their use.\", \"first_column_role\": \"row-labels\", \"headers\": [\"Tool or package\", \"Role\", \"Status in this guide\"], \"html_fold\": \"never\", \"id\": \"tbl:SIMULATION-TOOLS\", \"kind\": \"table\", \"placement\": \"sec:SIMULATION-TOOLS-SOFTWARE\", \"rows\": [[\"MATLAB author code\", \"Time-stepped integrator and eye model; parameter fitting and MSD analysis\", \"Released for Ben-Shushan et al. (2022); source inspected, full runs not repeated\"], [\"Python 3.11, NumPy and SciPy\", \"Generate and process spatial maps; measure fields, peaks and distributions\", \"Reported or verified in Mainali et al. (2025) and its archived code\"], [\"Gudhi\", \"Compute Betti numbers used in Euler characteristic measurements\", \"Reported by Mainali et al. (2025)\"], [\"SciPy solve_ivp\", \"Integrate deterministic ordinary differential equations\", \"Optional reconstruction tool; stochastic events need additional rules\"], [\"Brian 2\", \"Specify spiking-network equations and event handling\", \"Optional alternative; equations and spike statistics must match the chosen model\"]]}"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p23",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 23,
+      "end_line": 23,
+      "kind": "prose",
+      "sha256": "aac32651b10f567c461b9b4f255d6fb1fa6859b5368d8bd9a51af920ab21cf23",
+      "text": "</div>"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p25",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 25,
+      "end_line": 25,
+      "kind": "prose",
+      "sha256": "053afab4a52a9dd3afe0fd25186bbdfa11b890ba1f17a8280bdc3d83101f28eb",
+      "text": "NumPy's `Generator` supplies random samples for a Python implementation. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} fixes the starting state of a pseudorandom generator so that a specified implementation can repeat its sample sequence.]{.definition-explanation} Record the generator, software versions, and order of calls as well as the seed. A seed alone does not guarantee identical results after changing the program or library version.[^simtools-numpy]"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p27",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 27,
+      "end_line": 27,
+      "kind": "prose",
+      "sha256": "fe202bd8e417764bbe33ab26bb5bee5378bd1b63a3d78e2f8f82ee60c40e595e",
+      "text": "SciPy's `solve_ivp` integrates ordinary differential equations from an initial state. It can handle deterministic decay or a deterministic rate model. A stochastic spiking model also needs rules for generating events and applying their jumps. A Brownian-noise model needs a numerical method with the appropriate random increments. Passing freshly drawn noise into an adaptive deterministic solver does not, by itself, specify either model.[^simtools-ode]"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p29",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 29,
+      "end_line": 29,
+      "kind": "prose",
+      "sha256": "1c2aeea6e58ba73fac8eb9e29098ccafc7bb85cb6842dff91ec1005e0df10a27",
+      "text": "For a spatial firing map, SciPy's `ndimage.label` identifies connected groups of nonzero array entries. Its connectivity rule determines which neighboring samples belong to one field. Diagonal contact can merge two regions under one rule and leave them separate under another. That choice changes field counts and sizes, so it belongs in the scientific method.[^simtools-label]"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p31",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s2",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 31,
+      "end_line": 31,
+      "kind": "prose",
+      "sha256": "7c1cbd85ffb54bd531b2a72e5405e04ac6e165105ddcd0626309111095266ff9",
+      "text": "Brian 2 is an optional simulator for spiking neural networks, with equation-based neuron definitions and event handling. Its convenience does not make a default neuron model equivalent to the papers' models. A replacement must preserve the actual state variables, rate rule, spike statistics, and synaptic update before its results can be compared.[^simtools-brian]"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p35",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 35,
+      "end_line": 35,
+      "kind": "prose",
+      "sha256": "b4253264d368456e1d0986a1260b95e46fb6d876ceb641916caf014008377e64",
+      "text": "A simulated trajectory is recorded at finitely many times, and a generated field is sampled at finitely many positions. [[**Discretization**]{.definition-term custom-style=\"Definition Term\"} replaces a continuous variable such as time or position by a finite set of sample points.]{.definition-explanation} The resulting numerical approximation can introduce its own drift, missed spikes, or merged fields."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p37",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 37,
+      "end_line": 37,
+      "kind": "prose",
+      "sha256": "a415a7a084f054ffacc35abb725ddeb7e9fffd1f67a9cf58af116af471e9cdaf",
+      "text": "For a time simulation, reduce the update interval while preserving physical rates and time constants. Compare the estimated diffusion coefficient, correlation function, and any drift of the mean. Separately change the interval at which results are saved: a small internal update does not recover information discarded by sparse output sampling. For a spatial simulation, reduce the grid spacing while preserving the physical correlation length and domain. Then examine field counts, size distributions, and the smallest features that remain resolved."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p39",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 39,
+      "end_line": 39,
+      "kind": "prose",
+      "sha256": "0c37ac5d7815190edc52435a83a7be9cc2e3f1ff257fa7ad11949c7b12c56495",
+      "text": "A [[**convergence check**]{.definition-term custom-style=\"Definition Term\"} tests whether the quantity being reported changes acceptably little when the numerical resolution is refined.]{.definition-explanation} The acceptable difference depends on the scientific comparison and the uncertainty from repeated random realizations. A smooth-looking trajectory is not a convergence check."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p41",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 41,
+      "end_line": 41,
+      "kind": "prose",
+      "sha256": "8e19185c156210567a045f638d7d3d1269765f40e35d9cff42cebc457898c408",
+      "text": "<div class=\"publisher-worked-calculation publisher-fold-always\">"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p43",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 43,
+      "end_line": 43,
+      "kind": "prose",
+      "sha256": "4c00524db5156c4c91f6a238b1b53aa4291ee40996c9deca1cba9aba9b541cfd",
+      "text": "**Example: a smaller time step must keep the same diffusion per second.**"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p45",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 45,
+      "end_line": 45,
+      "kind": "prose",
+      "sha256": "de745bb774ea86ff32a23924a123b67dc56e2859cc469d3bd9ce8fa26795b513",
+      "text": "Consider the guide's reduced Brownian model, with diffusion coefficient $D=0.5$ deg$^2$/s. Over a step of duration $h$, the angular increment has variance $2Dh$. At $h=0.01$ s, its standard deviation is $0.1^\\circ$. Reducing the step to $0.0025$ s makes the standard deviation $0.05^\\circ$."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p47",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 47,
+      "end_line": 47,
+      "kind": "prose",
+      "sha256": "fab73d80352bd16b55b06f7041004108efc002f8b9bac2b3b7e1e69321ff22a2",
+      "text": "There are now four times as many steps per second, each with one quarter of the variance. The variance accumulated in one second remains $1$ deg$^2$. If the increment's standard deviation were reduced by four instead of two, that variance would fall to $0.25$ deg$^2$. The program would be simulating a different noise strength."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p49",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 49,
+      "end_line": 49,
+      "kind": "prose",
+      "sha256": "83149ffc926096b6b3454e25b5241310823ebed2033d3a8b3b083f0aded8b3c8",
+      "text": "This calculation concerns Gaussian increments of the reduced model. A network driven by discrete spikes instead generates events according to its firing-rate rule and applies the specified synaptic jumps."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p51",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 51,
+      "end_line": 51,
+      "kind": "prose",
+      "sha256": "aac32651b10f567c461b9b4f255d6fb1fa6859b5368d8bd9a51af920ab21cf23",
+      "text": "</div>"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p53",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s3",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 53,
+      "end_line": 53,
+      "kind": "prose",
+      "sha256": "47d2327ab8b30c25c36b0525d3d412d24ae1e3897d60ade6a2d8f227bf3eb845",
+      "text": "The spatial counterpart is a field defined in meters whose grid spacing is halved. Its correlation scale in grid samples must double to represent the same physical length. Keeping a filter width fixed in samples would change the model while appearing to improve resolution."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p57",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 57,
+      "end_line": 57,
+      "kind": "prose",
+      "sha256": "3f4d099eaed2b8a8dd8b7d087fc0bd788c96dd2ff7ec46de419e5135e9ca2a38",
+      "text": "To reproduce one panel, identify its target quantity before running the model. Figure 2 of Burak and Fiete (2012) tests memory diffusion, whereas a field-size histogram in Mainali et al. (2025) tests a spatial distribution. The following record connects a computation to the claim it can support:"
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p59",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 59,
+      "end_line": 59,
+      "kind": "list_item",
+      "sha256": "40ef97520515319115c426105513329b84db277f0d96430a80c007133ea5b276",
+      "text": "**Source and target:** paper, correction if applicable, figure or equation, code revision, and the statistic being compared."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p60",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 60,
+      "end_line": 60,
+      "kind": "list_item",
+      "sha256": "1d387a3658af7826c6b7cc02b6f1cb8b46d081128f9f4cd4eb788514fed6613d",
+      "text": "**Model and inputs:** equations, initial state, boundaries, noise law, and which parameters are measured, fitted, or chosen."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p61",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 61,
+      "end_line": 61,
+      "kind": "list_item",
+      "sha256": "bd6a763c1e48a323f44a40f60e86fa731e5b47c87bedf5f921dcc4ea22968201",
+      "text": "**Numerical choices:** update rule, time or spatial resolution, output sampling, trial count, and random-generator settings."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p62",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 62,
+      "end_line": 62,
+      "kind": "list_item",
+      "sha256": "e1013c47c94a1621079ee551659e316fc631d87a433dce44d47070e5d391f8bd",
+      "text": "**Measurement:** decoder or field detector, filtering, discarded transients, normalization, and units."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p63",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 63,
+      "end_line": 63,
+      "kind": "list_item",
+      "sha256": "abe82922f93eb1f2e8dca3ec970102839ea769f0f7380cea4fb73a0ded580889",
+      "text": "**Comparison:** published prediction or dataset, uncertainty over independent repeats, and the effect of refining numerical resolution."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p65",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 65,
+      "end_line": 65,
+      "kind": "prose",
+      "sha256": "0463b57598b7056cac514c96edc46abd217ff80da4791549ff99312409403702",
+      "text": "[[**Monte Carlo simulation**]{.definition-term custom-style=\"Definition Term\"} estimates a quantity by repeating a calculation with random samples.]{.definition-explanation} Its uncertainty depends on the effective number of independent repeats. Hundreds of overlapping time windows from one eye trace are not hundreds of independent trajectories. Many fields from one generated map can also share the same underlying random realization. The unit of repetition should match the uncertainty being estimated."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p67",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 67,
+      "end_line": 67,
+      "kind": "prose",
+      "sha256": "7a9cb707f5e21066acd045093bdf54a5bfb04fa429f6ec5ea9c8d4d9ceffa82b",
+      "text": "A practical progression is to test one deterministic decay or one generated field, then a small ensemble, and then the published parameter set. Saving the inputs and intermediate measurements makes a disagreement diagnosable. A mismatch in the final plot can then be traced to the dynamics, the measurement rule, or the comparison itself."
+    },
+    {
+      "id": "ch:SIMULATION-TOOLS/p69",
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "section_id": "ch:SIMULATION-TOOLS/s4",
+      "path": "content/chapters/14-simulation-tools.md",
+      "line": 69,
+      "end_line": 69,
+      "kind": "prose",
+      "sha256": "2d08b0bc7c9ce981e0958ab5d3017d246e602a0cef314399fe84222d792d8d0b",
+      "text": "[The common neurophysics question is which physical assumption produces the measured pattern, and whether that pattern remains after reasonable changes to the numerical implementation.]{.key-statement} Software supplies controlled experiments on a model. The link to an animal or a fabricated circuit still comes from the evidence used to constrain and test that model."
+    }
+  ],
+  "relations": [
+    {
+      "concept_id": "network-simulation",
+      "passage_id": "ch:SIMULATING-MEMORY/p3",
+      "role": "teach",
+      "span": [
+        142,
+        212
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "Defines the generated object, observed quantity, and purpose before the cycle and numerical details.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "network-simulation",
+      "passage_id": "ch:SIMULATING-MEMORY/p17",
+      "role": "use",
+      "span": [
+        0,
+        25
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "The stated step sequence instantiates the spike-network test introduced at p3.",
+      "need": "required"
+    },
+    {
+      "concept_id": "euler-update",
+      "passage_id": "ch:SIMULATING-MEMORY/p24",
+      "role": "teach",
+      "span": [
+        32,
+        205
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "Method name and derivative-based action are together before its decay calculation.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "euler-update",
+      "passage_id": "ch:SIMULATING-MEMORY/p24",
+      "role": "use",
+      "span": [
+        232,
+        312
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "The immediately preceding definition supplies the numerical method; earlier decay equation supplies the derivative.",
+      "need": "required"
+    },
+    {
+      "concept_id": "one-event-spike-step",
+      "passage_id": "ch:SIMULATING-MEMORY/p38",
+      "role": "teach",
+      "span": [
+        93,
+        218
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "States event, probability and validity limit before another population model can tempt reuse.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "one-event-spike-step",
+      "passage_id": "ch:SIMULATING-MEMORY/p58",
+      "role": "use",
+      "span": [
+        471,
+        540
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "The p38 definition and p58 multiple-spike sentence explain the stated failure to reuse it.",
+      "need": "required"
+    },
+    {
+      "concept_id": "rate-activation-conversion",
+      "passage_id": "ch:SIMULATING-MEMORY/p58",
+      "role": "teach",
+      "span": [
+        78,
+        315
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "Defines both coordinates and their exact conversion before interpreting numerical units; prior steady balance supplies the premise.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "rate-activation-conversion",
+      "passage_id": "ch:SIMULATING-MEMORY/p58",
+      "role": "use",
+      "span": [
+        316,
+        409
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "The stated conversion precedes the comparison rule in this paragraph.",
+      "need": "required"
+    },
+    {
+      "concept_id": "evaluated-readout-formula",
+      "passage_id": "ch:SIMULATING-MEMORY/p64",
+      "role": "teach",
+      "span": [
+        0,
+        172
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "Identifies what is evaluated and varied, with named estimator roles supplied by prior readout chapter.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "finite-weight-normalization",
+      "passage_id": "ch:SIMULATING-MEMORY/p46",
+      "role": "teach",
+      "span": [
+        225,
+        317
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "States the normalization action and its different purpose rather than leaving scaling as an unexplained name.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "finite-weight-normalization",
+      "passage_id": "ch:SIMULATING-MEMORY/p46",
+      "role": "use",
+      "span": [
+        318,
+        384
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "The factor N was just identified; displayed finite weights were given immediately before it.",
+      "need": "required"
+    },
+    {
+      "concept_id": "neural-spike",
+      "passage_id": "ch:SIMULATING-MEMORY/p3",
+      "role": "use",
+      "span": [
+        96,
+        115
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01-foundations.md:13 defines spikes as brief electrical events. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "firing-rate",
+      "passage_id": "ch:SIMULATING-MEMORY/p9",
+      "role": "use",
+      "span": [
+        91,
+        102
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01-foundations.md:13 defines expected spikes per unit time; 02-memory-dynamics.md:39 gives units. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "synaptic-activation",
+      "passage_id": "ch:SIMULATING-MEMORY/p7",
+      "role": "use",
+      "span": [
+        97,
+        116
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "02-memory-dynamics.md:17-29 explains decaying outgoing-spike effects, unit increments and dimensionless activation. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "recurrent-connectivity",
+      "passage_id": "ch:SIMULATING-MEMORY/p7",
+      "role": "use",
+      "span": [
+        201,
+        222
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01-foundations.md:23 defines signals fed back into the same population; 02-memory-dynamics.md:13 and55 traces renewal. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "neural-transfer-function",
+      "passage_id": "ch:SIMULATING-MEMORY/p30",
+      "role": "use",
+      "span": [
+        274,
+        292
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "02-memory-dynamics.md:50 defines input-to-rate map; :55 explains weight signs and transfer response. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "continuous-attractor",
+      "passage_id": "ch:SIMULATING-MEMORY/p54",
+      "role": "use",
+      "span": [
+        344,
+        371
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01b-persistence.md:19 defines stable family/neutral direction; 02-memory-dynamics.md:93-103 derives steady balance. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "diffusion-coefficient",
+      "passage_id": "ch:SIMULATING-MEMORY/p32",
+      "role": "use",
+      "span": [
+        150,
+        171
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01b-persistence.md:111-124 explains half the variance growth rate; 02-memory-dynamics.md:9 fixes units and convention. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "preferred-angle",
+      "passage_id": "ch:SIMULATING-MEMORY/p30",
+      "role": "use",
+      "span": [
+        48,
+        64
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "02-memory-dynamics.md:93 defines tuning-curve peak angle and ring density. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "internal-information-rate",
+      "passage_id": "ch:SIMULATING-MEMORY/p32",
+      "role": "use",
+      "span": [
+        176,
+        192
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "03-memory-information.md:62 defines information per second about current stored state. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "information-diffusion-bound",
+      "passage_id": "ch:SIMULATING-MEMORY/p30",
+      "role": "use",
+      "span": [
+        384,
+        401
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "03-memory-information.md:163-240 derives the bound and qualifies exponential sufficient equality. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "ideal-memory-estimator",
+      "passage_id": "ch:SIMULATING-MEMORY/p64",
+      "role": "use",
+      "span": [
+        66,
+        81
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "03b-memory-readout.md:127-228 explains ideal estimation accounting for diffusion; :70 gives equal weighting. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "lag",
+      "passage_id": "ch:SIMULATING-MEMORY/p34",
+      "role": "use",
+      "span": [
+        3,
+        13
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01-foundations.md:172 defines time between measurements. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "rotational-symmetry",
+      "passage_id": "ch:SIMULATING-MEMORY/p54",
+      "role": "use",
+      "span": [
+        255,
+        274
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "02b-memory-long-delays.md:182 defines unchanged dynamics under rotation. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-process",
+      "passage_id": "ch:SIMULATING-MEMORY/p58",
+      "role": "use",
+      "span": [
+        563,
+        578
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "01-foundations.md:49-109 teaches finite counts; 02-memory-dynamics.md:59-75 gives conditional spike counts. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "standard-error-mean",
+      "passage_id": "ch:SIMULATING-MEMORY/p38",
+      "role": "use",
+      "span": [
+        330,
+        345
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "04-eye-drift.md:243 defines SEM as uncertainty of a mean and distinguishes population spread. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "wrapped-angle-error",
+      "passage_id": "ch:SIMULATING-MEMORY/p34",
+      "role": "use",
+      "span": [
+        239,
+        246
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "02b-memory-long-delays.md:58-65 builds wrapped density and pi^2/3 error limit. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "symmetric-weights",
+      "passage_id": "ch:SIMULATING-MEMORY/p48",
+      "role": "use",
+      "span": [
+        4,
+        21
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "02-memory-dynamics.md:255 defines equal weights in both directions. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "variance",
+      "passage_id": "ch:SIMULATING-MEMORY/p34",
+      "role": "use",
+      "span": [
+        32,
+        40
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "Explicit task audience baseline. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "calculus",
+      "passage_id": "ch:SIMULATING-MEMORY/p24",
+      "role": "use",
+      "span": [
+        174,
+        184
+      ],
+      "status": "reviewed",
+      "review": "local-parent-stage3-memory-20261030",
+      "evidence": "Explicit task audience baseline. This earlier teaching is sufficient for the specific use here; it is not assumed from basic statistics alone.",
+      "need": "required"
+    },
+    {
+      "concept_id": "eye-integrator",
+      "passage_id": "ch:SIMULATING-EYE/p3",
+      "role": "use",
+      "span": [
+        408,
+        424
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier 04c-eye-circuit.md explains stored position, recurrent populations and noise; opening recalls the object rather than defining it from its name.",
+      "need": "required"
+    },
+    {
+      "concept_id": "recording-reconstruction",
+      "passage_id": "ch:SIMULATING-EYE/p7",
+      "role": "teach",
+      "span": [
+        223,
+        365
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Explicit input, fitted relation and reconstructed output; held-out-trial sentence supplies calibration validation. Earlier eye chapter teaches the equations.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "covariance",
+      "passage_id": "ch:SIMULATING-EYE/p9",
+      "role": "use",
+      "span": [
+        122,
+        205
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04-eye-drift.md sec:EYE-CHI gives X=C+epsilon/Y=C+eta and covariance assumptions before this summary.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-private-noise",
+      "passage_id": "ch:SIMULATING-EYE/p9",
+      "role": "use",
+      "span": [
+        264,
+        317
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04-eye-drift.md explains private OMN independence and shared upstream command, including limitations.",
+      "need": "required"
+    },
+    {
+      "concept_id": "source-model-evidence",
+      "passage_id": "ch:SIMULATING-EYE/p9",
+      "role": "teach",
+      "span": [
+        206,
+        381
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "States what data infer and what they do not localize, preserving the assumptions.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "parameter-sources",
+      "passage_id": "ch:SIMULATING-EYE/p11",
+      "role": "teach",
+      "span": [
+        173,
+        418
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Separates physiological constraints, comparison choices and nonunique magnitude match.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "synaptic-decay",
+      "passage_id": "ch:SIMULATING-EYE/p17",
+      "role": "use",
+      "span": [
+        101,
+        186
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04c-eye-circuit.md gives tau_s dS/dt=-S+X, spike jumps and between-spike decay; current list traces their causal role.",
+      "need": "required"
+    },
+    {
+      "concept_id": "command-eye-separation",
+      "passage_id": "ch:SIMULATING-EYE/p22",
+      "role": "teach",
+      "span": [
+        1,
+        202
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Explicit output distinction and causal filtering consequence; lists p17-p20 supply component inputs/outputs.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "muscle-filter",
+      "passage_id": "ch:SIMULATING-EYE/p22",
+      "role": "use",
+      "span": [
+        71,
+        116
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04b-eye-timing.md derives B to E filter and resulting MSD; 04c gives full second-order mechanics.",
+      "need": "required"
+    },
+    {
+      "concept_id": "poisson-process",
+      "passage_id": "ch:SIMULATING-EYE/p26",
+      "role": "use",
+      "span": [
+        35,
+        50
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "01-foundations.md teaches event counts/intervals and conditional independence; 04c teaches this thinning construction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "interval-cv",
+      "passage_id": "ch:SIMULATING-EYE/p26",
+      "role": "use",
+      "span": [
+        234,
+        267
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "01-foundations.md defines interval SD/mean; 04c-eye-circuit.md gives the full interval-sum derivation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spike-thinning",
+      "passage_id": "ch:SIMULATING-EYE/p26",
+      "role": "teach",
+      "span": [
+        52,
+        353
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Complete constant-rate transformation, changed interval statistics and unchanged rate. M>1 follows the stated more-regular model; no changing-rate independence claim.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "parameter-sources",
+      "passage_id": "ch:SIMULATING-EYE/p30",
+      "role": "use",
+      "span": [
+        0,
+        29
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Prior p11 distinguishes source constraints and adjustable settings; this identifies the final published source for a particular setting set.",
+      "need": "required"
+    },
+    {
+      "concept_id": "euler-update",
+      "passage_id": "ch:SIMULATING-EYE/p32",
+      "role": "use",
+      "span": [
+        290,
+        313
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "11-simulating-memory.md explicitly teaches derivative-times-step update before this code-setting description.",
+      "need": "required"
+    },
+    {
+      "concept_id": "parameter-sources",
+      "passage_id": "ch:SIMULATING-EYE/p34",
+      "role": "use",
+      "span": [
+        227,
+        324
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Final paper and inspected implementation are distinct sources, introduced in this callout and p11.",
+      "need": "required"
+    },
+    {
+      "concept_id": "shared-private-noise",
+      "passage_id": "ch:SIMULATING-EYE/p42",
+      "role": "use",
+      "span": [
+        64,
+        101
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier private-noise mechanism and filtering teach why independent contributions average and saturate.",
+      "need": "required"
+    },
+    {
+      "concept_id": "mean-squared-displacement",
+      "passage_id": "ch:SIMULATING-EYE/p43",
+      "role": "use",
+      "span": [
+        122,
+        147
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier foundations and eye-timing chapters define the lag statistic; this applies it to internal command output.",
+      "need": "required"
+    },
+    {
+      "concept_id": "synthetic-analysis-check",
+      "passage_id": "ch:SIMULATING-EYE/p45",
+      "role": "teach",
+      "span": [
+        56,
+        294
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Known synthetic origin is the reference; analysis recovery is the output, separate from biological circuit localization.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "source-model-evidence",
+      "passage_id": "ch:SIMULATING-EYE/p49",
+      "role": "use",
+      "span": [
+        186,
+        293
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p9 and the model/control sequence establish the empirical versus mechanistic claim distinction before this conclusion.",
+      "need": "required"
+    },
+    {
+      "concept_id": "model-reproduction",
+      "passage_id": "ch:SIMULATION-TOOLS/p7",
+      "role": "teach",
+      "span": [
+        51,
+        344
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Three routes defined by intended result and ownership of output.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "hardware-evidence",
+      "passage_id": "ch:SIMULATION-TOOLS/p13",
+      "role": "use",
+      "span": [
+        201,
+        233
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "09-neuromorphic-systems.md lines6-21,41 distinguishes calculations of proposed hardware from measurements on physical analog circuitry.",
+      "need": "required"
+    },
+    {
+      "concept_id": "model-reproduction",
+      "passage_id": "ch:SIMULATION-TOOLS/p17",
+      "role": "use",
+      "span": [
+        0,
+        92
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p7 defines original versus independent versus reduced-model purposes before this tool-selection recommendation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "topology",
+      "passage_id": "ch:SIMULATION-TOOLS/p21",
+      "role": "use",
+      "span": [
+        672,
+        727
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier place tests teach connectedness/holes and alternating Betti sum; ch20 restates the measurement before this reference table.",
+      "need": "required"
+    },
+    {
+      "concept_id": "random-seed",
+      "passage_id": "ch:SIMULATION-TOOLS/p25",
+      "role": "teach",
+      "span": [
+        73,
+        262
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Meaning/purpose given in the defining sentence; following sentences retain generator/version/call-order conditions. Earlier ch19 seed is only a settings label, not a reasoning step requiring generator-state knowledge.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "ode-integration",
+      "passage_id": "ch:SIMULATION-TOOLS/p27",
+      "role": "teach",
+      "span": [
+        0,
+        150
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Defines operation and suitable model family before contrasting stochastic event/increment requirements.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:SIMULATION-TOOLS/p27",
+      "role": "use",
+      "span": [
+        300,
+        329
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "04b-eye-timing.md derives independent Brownian increments of variance h; p45 below applies 2D h, rather than inventing noise in RHS calls.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connected-components",
+      "passage_id": "ch:SIMULATION-TOOLS/p29",
+      "role": "teach",
+      "span": [
+        26,
+        276
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Input, operation and connectivity-dependent output are concrete; preceding place chapter teaches spatial fields and thresholding.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "spatial-field",
+      "passage_id": "ch:SIMULATION-TOOLS/p29",
+      "role": "use",
+      "span": [
+        6,
+        24
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier place model and ch20 define static maps and nonzero regions; tool acts on that known object.",
+      "need": "required"
+    },
+    {
+      "concept_id": "simulator-equivalence",
+      "passage_id": "ch:SIMULATION-TOOLS/p31",
+      "role": "teach",
+      "span": [
+        208,
+        348
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "The precise conditions for a substitute simulator are stated after its role, not inferred from product name.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "discretization",
+      "passage_id": "ch:SIMULATION-TOOLS/p35",
+      "role": "teach",
+      "span": [
+        120,
+        280
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Names method family, continuous object and discrete representation; possible errors explain the need for refinement.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "discretization",
+      "passage_id": "ch:SIMULATION-TOOLS/p37",
+      "role": "use",
+      "span": [
+        23,
+        100
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p35 defines the approximation; fixed physical settings distinguish resolution refinement from changing the model.",
+      "need": "required"
+    },
+    {
+      "concept_id": "grid-scale",
+      "passage_id": "ch:SIMULATION-TOOLS/p37",
+      "role": "use",
+      "span": [
+        416,
+        454
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "13-simulating-place-fields.md width callout separates physical local covariance length from filter width in grid samples.",
+      "need": "required"
+    },
+    {
+      "concept_id": "convergence-check",
+      "passage_id": "ch:SIMULATION-TOOLS/p39",
+      "role": "teach",
+      "span": [
+        0,
+        185
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Defines reported quantity, refinement operation and acceptance criterion; next sentence bounds tolerance by scientific/repeat uncertainty.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:SIMULATION-TOOLS/p45",
+      "role": "use",
+      "span": [
+        21,
+        43
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier eye-timing derivation gives Brownian increment law and independent disjoint intervals; chosen D and h are explicit here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "variance",
+      "passage_id": "ch:SIMULATION-TOOLS/p45",
+      "role": "use",
+      "span": [
+        146,
+        160
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Variance is assumed; example uses it to preserve physical diffusion rather than reteach its definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "standard-deviation",
+      "passage_id": "ch:SIMULATION-TOOLS/p45",
+      "role": "use",
+      "span": [
+        181,
+        199
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "SD is assumed. Taking the square root is applied to the step law, with angular units.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:SIMULATION-TOOLS/p49",
+      "role": "use",
+      "span": [
+        26,
+        45
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Bounds the immediately preceding calculation to the reduced Brownian model before contrasting discrete spikes.",
+      "need": "required"
+    },
+    {
+      "concept_id": "grid-scale",
+      "passage_id": "ch:SIMULATION-TOOLS/p53",
+      "role": "use",
+      "span": [
+        83,
+        171
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Fixed-physical-length criterion comes from p37 and earlier ch20 width derivation; halved spacing changes conversion to samples.",
+      "need": "required"
+    },
+    {
+      "concept_id": "random-seed",
+      "passage_id": "ch:SIMULATION-TOOLS/p61",
+      "role": "use",
+      "span": [
+        98,
+        123
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p25 explicitly teaches generator initialization/repeatability and version/call-order limits before the record requires those choices.",
+      "need": "required"
+    },
+    {
+      "concept_id": "convergence-check",
+      "passage_id": "ch:SIMULATION-TOOLS/p63",
+      "role": "use",
+      "span": [
+        91,
+        134
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "p39 defines acceptable change in the reported quantity after refinement before this checklist asks that comparison be recorded.",
+      "need": "required"
+    },
+    {
+      "concept_id": "independent-repeat-unit",
+      "passage_id": "ch:SIMULATION-TOOLS/p63",
+      "role": "use",
+      "span": [
+        49,
+        85
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Earlier memory simulation describes trials/SEM; place simulation describes model realizations with the experimental cell count. Basic variance/SD is assumed; p65 further distinguishes windows/maps from independent realizations.",
+      "need": "required"
+    },
+    {
+      "concept_id": "monte-carlo-simulation",
+      "passage_id": "ch:SIMULATION-TOOLS/p65",
+      "role": "teach",
+      "span": [
+        0,
+        147
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Definition gives the method and purpose before the following repetition-unit cautions.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "independent-repeat-unit",
+      "passage_id": "ch:SIMULATION-TOOLS/p65",
+      "role": "teach",
+      "span": [
+        246,
+        506
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Concrete temporal/spatial counterexamples explain which sampling unit counts as a repeat; this is not supplied merely by the Monte Carlo name.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "model-reproduction",
+      "passage_id": "ch:SIMULATION-TOOLS/p69",
+      "role": "use",
+      "span": [
+        98,
+        183
+      ],
+      "status": "reviewed",
+      "review": "eye-stage3-20261030-171509",
+      "evidence": "Prior route, convergence and measurement checks supply the comparison condition before the final robustness question.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_gaussian_field",
+      "passage_id": "ch:SIMULATING-PLACE/p7",
+      "role": "use",
+      "span": [
+        42,
+        69
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier ch:PLACE-FIELDS/sec:PLACE-GP teaches a distribution over functions with jointly Gaussian finite samples; this passage recaps the object, rather than defining it from a name.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_covariance",
+      "passage_id": "ch:SIMULATING-PLACE/p7",
+      "role": "use",
+      "span": [
+        111,
+        178
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-GP gives C(x,y)=E[(h(x)-m(x))(h(y)-m(y))] and states the expectation runs over maps. This recap is enough for the covariance role used here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "rate_threshold",
+      "passage_id": "ch:SIMULATING-PLACE/p13",
+      "role": "use",
+      "span": [
+        12,
+        39
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-GP teaches z, q, a and positive-part firing rule; the local formula and symbol paragraph preserve those meanings and units.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_scale",
+      "passage_id": "ch:SIMULATING-PLACE/p13",
+      "role": "use",
+      "span": [
+        153,
+        178
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-FIELDS derives the local spatial scale from covariance curvature. The guide is not asking the reader to infer it from a bare name here.",
+      "need": "required"
+    },
+    {
+      "concept_id": "normal_distribution",
+      "passage_id": "ch:SIMULATING-PLACE/p17",
+      "role": "use",
+      "span": [
+        17,
+        37
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Elementary probability is declared; earlier jointly Gaussian teaching and the spatial model establish why these random input values belong to the construction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p18",
+      "role": "teach",
+      "span": [
+        28,
+        43
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The repaired sentence defines weighted averaging of nearby values and immediately explains shared inputs as the reason neighboring outputs correlate. Gaussian distance profile is given by the matching glossary and Gaussian-width material. Adequate for this methods summary before p54 uses filter width.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p18",
+      "role": "teach",
+      "span": [
+        194,
+        251
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "This supplies the causal step from the averaging operation to spatial correlation; it is no longer a label plus unexplained consequence.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "rms_normalization",
+      "passage_id": "ch:SIMULATING-PLACE/p19",
+      "role": "teach",
+      "span": [
+        19,
+        95
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The divisor is fully specified for the generated map and the next sentence states the resulting sampled RMS of one. The required averaging and squaring operations belong to the audience baseline.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "rate_threshold",
+      "passage_id": "ch:SIMULATING-PLACE/p20",
+      "role": "use",
+      "span": [
+        0,
+        61
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier threshold rule and current formula establish what the two actions do; the ordered procedure applies them after normalization.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connected_field",
+      "passage_id": "ch:SIMULATING-PLACE/p21",
+      "role": "use",
+      "span": [
+        12,
+        47
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-GP excursion sets and PLACE-TESTS connected components teach the geometry. This is the measurement that turns the array into fields.",
+      "need": "required"
+    },
+    {
+      "concept_id": "parameter_fitting",
+      "passage_id": "ch:SIMULATING-PLACE/p31",
+      "role": "teach",
+      "span": [
+        75,
+        133
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The 200m/6m/2D/3D summaries immediately before this sentence instantiate the definition. The remaining paragraph explains why fitted and additional quantities supply different evidence.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "lognormal_likelihood",
+      "passage_id": "ch:SIMULATING-PLACE/p33",
+      "role": "use",
+      "span": [
+        55,
+        115
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-DATA defines lognormal through log lengths, explains likelihood as assigned probability/density and distinguishes in-sample comparisons. This passage summarizes the same comparison, not a new criterion requiring a tutorial.",
+      "need": "required"
+    },
+    {
+      "concept_id": "high_threshold_limit",
+      "passage_id": "ch:SIMULATING-PLACE/p33",
+      "role": "use",
+      "span": [
+        225,
+        255
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-SIZES motivates the high-peak/parabolic limit and distinguishes exact slope laws; the current sentence states why finite-threshold simulation adds a different comparison.",
+      "need": "required"
+    },
+    {
+      "concept_id": "elementary_probability",
+      "passage_id": "ch:SIMULATING-PLACE/p35",
+      "role": "use",
+      "span": [
+        164,
+        208
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Known variance/spread plus the stated repeat unit are sufficient to interpret sampling variation; no new estimator formula is required by the claim.",
+      "need": "required"
+    },
+    {
+      "concept_id": "bin_measurement",
+      "passage_id": "ch:SIMULATING-PLACE/p43",
+      "role": "teach",
+      "span": [
+        28,
+        111
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Specifies which bins are grouped and the physical output. Earlier source processing identifies spatial grid bins; next sentence makes edge placement explicit.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "volume_measurement",
+      "passage_id": "ch:SIMULATING-PLACE/p44",
+      "role": "teach",
+      "span": [
+        58,
+        97
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The physical volume is reconstructed from resolved components and spatial voxel volume. Undergraduate geometry supplies multiplication of axis lengths; the 10cm resolution is stated two paragraphs later as source-specific context, not a prerequisite for the general operation.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "betti_euler",
+      "passage_id": "ch:SIMULATING-PLACE/p46",
+      "role": "use",
+      "span": [
+        71,
+        141
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-TESTS explicitly teaches components, loops and cavities and their signs in each dimension. This passage identifies the implementing library and recalls the operation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "median_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p48",
+      "role": "use",
+      "span": [
+        63,
+        76
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Earlier PLACE-DATA defines replacement by the middle-ranked neighboring rate and explains effects on small features. The recap need not supply another full definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian_filter",
+      "passage_id": "ch:SIMULATING-PLACE/p54",
+      "role": "use",
+      "span": [
+        152,
+        194
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "The repaired p18 teaches the weighted averaging mechanism before this use; known Gaussian width/standard deviation and the supplied covariance expression support interpreting b.",
+      "need": "required"
+    },
+    {
+      "concept_id": "spatial_scale",
+      "passage_id": "ch:SIMULATING-PLACE/p54",
+      "role": "use",
+      "span": [
+        49,
+        75
+      ],
+      "status": "reviewed",
+      "review": "root-request-place-stage3-20261030",
+      "evidence": "Local correlation scale was taught from derivative variance in PLACE-FIELDS. Here it is applied to a distinct smoothing convention; undergraduate differentiation supplies the shown conversion.",
+      "need": "required"
+    }
+  ],
+  "teaching_sets": []
+}

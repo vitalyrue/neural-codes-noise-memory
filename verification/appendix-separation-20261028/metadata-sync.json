@@ -1,0 +1,92 @@
+[
+  {
+    "file": "02-memory-dynamics.yaml",
+    "section": "sec:MEMORY-SPIKES",
+    "old": "How can brief spikes maintain a state for much longer than the duration of a spike? In this model, each spike leaves a synaptic activation that decays gradually. Incoming activations determine new firing rates; the resulting spikes renew those activations. This feedback can support activity after the external stimulus has ended.",
+    "new": "**Neural mechanism.** How can brief spikes maintain a state for much longer than the duration of a spike? In this model, each spike leaves a synaptic activation that decays gradually. Incoming activations determine new firing rates; the resulting spikes renew those activations. This feedback can support activity after the external stimulus has ended."
+  },
+  {
+    "file": "02-memory-dynamics.yaml",
+    "section": "sec:MEMORY-LINEARIZATION",
+    "old": "A spike perturbs many aspects of a network's state. Most of those changes decay as the state returns to the attractor. To calculate memory loss, we need the one change that survives: the displacement to a different fixed point.",
+    "new": "**Neural mechanism.** A spike perturbs many aspects of a network's state. Most of those changes decay as the state returns to the attractor. To calculate memory loss, we need the one change that survives: the displacement to a different fixed point. We assume a smooth continuous family with one neutral memory direction, while all other local modes decay. The disturbance must be small enough that the first order response describes the return flow."
+  },
+  {
+    "file": "02-memory-dynamics.yaml",
+    "section": "sec:MEMORY-DIFFUSION",
+    "old": "We can now calculate how much random displacement remains after the stable components have relaxed. Multiply the linear stochastic equation by $\\mathbf v^T$. Since $\\mathbf v^TK=0$,",
+    "new": "**Neural mechanism.** We can now calculate how much random displacement remains after the stable components have relaxed. Each cell's random spikes disturb its outgoing synaptic activation; the circuit's return flow determines the lasting shift in memory. This calculation uses the weak noise and conditional independence assumptions, with rates and return flow evaluated near one fixed point."
+  },
+  {
+    "file": "02-memory-dynamics.yaml",
+    "section": "sec:MEMORY-SYMMETRIC",
+    "old": "The general formula requires the left vector of the network dynamics. When $W_{ij}=W_{ji}$, can we express it through the tuning curves and neural transfer function?",
+    "new": "**Neural mechanism.** The general formula requires the left vector of the network dynamics. When $W_{ij}=W_{ji}$, can we express it through the tuning curves and neural transfer function? Symmetric connections make each cell affect another cell's input with the same weight that it receives in return, while their firing responses can still differ. We retain the common synaptic time constant, a stable continuous family, and the weak noise and conditional independence assumptions."
+  },
+  {
+    "file": "02b-memory-long-delays.yaml",
+    "section": "sec:MEMORY-LONG-TIME",
+    "old": "A local diffusion coefficient answers how variance initially grows. It does not by itself say that variance grows at the same rate forever. Boundaries and variation of $D$ can change the long time behavior.",
+    "new": "**Neural mechanism.** Spike fluctuations keep shifting the stored value after the cue has ended. The local diffusion coefficient describes the variance of those shifts after stable disturbances have relaxed. It does not by itself say that variance grows at the same rate forever: boundaries and variation of $D$ can change the long time behavior. We first keep $D$ constant, so the line and circle differ only in how the memory coordinate is bounded."
+  },
+  {
+    "file": "02b-memory-long-delays.yaml",
+    "section": "sec:MEMORY-DRIFT-SCOPE",
+    "old": "Repeated trials can spread apart even if their average stays at the original value. That random spreading differs from a reproducible movement in one direction. Both can occur, and the derivation of $D$ alone does not settle the second question.",
+    "new": "**Neural mechanism.** Repeated trials can spread apart even if their average stays at the original value. That random spreading differs from a reproducible movement in one direction. Both can occur, and the derivation of $D$ alone does not settle the second question."
+  },
+  {
+    "file": "02b-memory-long-delays.yaml",
+    "section": "sec:MEMORY-FIGURES",
+    "old": "[Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439) shows the definition of the memory coordinate. Start at a green point off the attractor and follow the noise free flow to the black point on it. This endpoint defines the instantaneous attractor state. After one noisy interval, repeat that flow. The difference between the two endpoints is the retained memory change. The relevant projection follows the flow, as in the [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization).",
+    "new": "**Neural mechanism in the figures.** [Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439) shows the definition of the memory coordinate. Start at a green point off the attractor and follow the noise free flow to the black point on it. This endpoint defines the instantaneous attractor state. After one noisy interval, repeat that flow. The difference between the two endpoints is the retained memory change. The relevant projection follows the flow, as in the [tilted two variable example](ch-memory-dynamics.html#sec-memory-linearization)."
+  },
+  {
+    "file": "03-memory-information.yaml",
+    "section": "sec:MEMORY-FI",
+    "old": "Suppose two nearby memory values produce almost identical rates. A short spike sample cannot reliably tell them apart. If a small change in memory instead produces a large rate change relative to spike variability, that sample is more useful. We need a quantity that measures this local distinction.",
+    "new": "**Neural mechanism.** Suppose two nearby memory values produce almost identical rates. A short spike sample cannot reliably tell them apart. If a small change in memory instead produces a large rate change relative to spike variability, that sample is more useful. We need a quantity that measures this local distinction."
+  },
+  {
+    "file": "03-memory-information.yaml",
+    "section": "sec:MEMORY-BOUND",
+    "old": "The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. The lower bound on diffusion follows directly by comparing the state sensitivity of the network with the spike information.",
+    "new": "**Neural mechanism.** The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. The lower bound on diffusion follows directly by comparing the state sensitivity of the network with the spike information."
+  },
+  {
+    "file": "03-memory-information.yaml",
+    "section": "sec:MEMORY-COMPARISONS",
+    "old": "The inequality compares diffusion and information for the same network. To compare different networks, we must say what stays fixed. Otherwise an apparent benefit of a parameter change may come from changing another property at the same time.",
+    "new": "**Neural mechanism.** The inequality compares diffusion and information for the same network. To compare different networks, we must say what stays fixed. Otherwise an apparent benefit of a parameter change may come from changing another property at the same time. The comparisons below control how added neurons, altered firing rates, or slower synaptic decay affect the tuning curves and recurrent input."
+  },
+  {
+    "file": "03b-memory-readout.yaml",
+    "section": "sec:MEMORY-READOUT-SETUP",
+    "old": "At time $T$, a recall cue arrives. The observer now wants the original value $\\Theta$, but only has access to future spikes. The network has already diffused during storage. Even perfect knowledge of the state $\\theta(T)$ cannot recover its particular earlier random displacements.",
+    "new": "**Neural question and model.** At time $T$, a recall cue arrives. The observer now wants the original value $\\Theta$, but only has access to future spikes. The network has already diffused during storage. Even perfect knowledge of the state $\\theta(T)$ cannot recover its particular earlier random displacements."
+  },
+  {
+    "file": "03b-memory-readout.yaml",
+    "section": "sec:MEMORY-NAIVE",
+    "old": "A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$.",
+    "new": "**Neural question and model.** A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$."
+  },
+  {
+    "file": "03b-memory-readout.yaml",
+    "section": "sec:MEMORY-IDEAL",
+    "old": "An observer that accounts for diffusion can use later observations without confusing them with direct measurements of $x$. Their value is limited by the motion separating them from $x$. We can derive its error by combining information backward from the end of the observation interval.",
+    "new": "**Neural question and model.** An observer that accounts for diffusion can use later observations without confusing them with direct measurements of $x$. Their value is limited by the motion separating them from $x$. This is an ideal inference rule for an observer; the readout calculation does not demonstrate a neural circuit implementing it. Its error can be derived by combining information backward from the end of the observation interval."
+  },
+  {
+    "file": "03b-memory-readout.yaml",
+    "section": "sec:MEMORY-PARTIAL",
+    "old": "A downstream area may receive only some of the memory network's spikes. That reduces its information without reducing the fluctuations that already move the full memory network.",
+    "new": "**Neural mechanism.** A downstream area may receive only some of the memory network's spikes. That reduces its information without reducing the fluctuations that already move the full memory network."
+  },
+  {
+    "file": "03b-memory-readout.yaml",
+    "section": "sec:MEMORY-EXTENSIONS",
+    "old": "The time constant in the inequality comes from the dynamics that carry an activation fluctuation into a lasting memory change. If both synaptic activation and firing rate adjust gradually, which time constant matters?",
+    "new": "**Neural mechanism.** The time constant in the inequality comes from the dynamics that carry an activation fluctuation into a lasting memory change. If both synaptic activation and firing rate adjust gradually, which time constant matters?"
+  }
+]

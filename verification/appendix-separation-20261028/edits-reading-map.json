@@ -1,0 +1,59 @@
+{
+  "at": "2026-10-28T14:56:32.387958+00:00",
+  "file": "content/chapters/00-reading-guide.md",
+  "old": "## How to interpret the calculations and evidence {#sec:READING-SCOPE}",
+  "new": "## Neural mechanisms and mathematical derivations answer different questions {#sec:READING-MECHANISM-MATH}\n\nChapters 3–6 explain how interacting neurons can retain a value while random spike timing changes it. Their treatment of the Burak and Fiete appendix separates three parts of each substantial topic:\n\n1. **Neural mechanism:** which cells and signals interact, what changes, and which features are assumptions of the model. For readout, this part also states what an observer can measure and which value it must estimate.\n2. **Mathematical derivation:** the general tool, its conditions, and the calculation after neural quantities are assigned to the symbols.\n3. **Interpretation:** what the result predicts about memory or readout, and what its assumptions leave unresolved.\n\nFor example, a spike can disturb several cells' activity. The circuit's interactions remove some changes, while others leave the represented angle displaced. Linear algebra calculates which part survives; probability gives the spread of that displacement. The result then predicts how quickly memory errors accumulate in this model. The mathematical tools also apply to other systems, but this neural prediction depends on the circuit and spike statistics used in the calculation.\n\nThe same distinction matters for readout. A calculation of the best possible estimate sets a benchmark under specified access to neural signals. Establishing that an animal's neurons implement the assumed computation requires separate evidence.\n\nFor a first conceptual pass, read the mechanism, inspect the displayed result and its variables, then read the interpretation. Follow the mathematical derivation when you want to understand why the result holds or calculate with it. Assumptions remain part of both readings.\n\nThe [PNAS appendix](https://www.pnas.org/action/downloadSupplement?doi=10.1073%2Fpnas.1117386109&file=Appendix.pdf) supplies both neural-model choices and mathematical arguments. This map links its seven sections to the guide's explanations. Page links open the local copy; the guide sometimes uses an equivalent teaching derivation and identifies source inconsistencies beside the affected calculation.\n\n{{block:tbl:READING-APPENDIX}}\n\n## How to interpret the calculations and evidence {#sec:READING-SCOPE}",
+  "reason": "Reader path and exact SI-to-guide map for the user-selected mechanism/derivation/interpretation separation.",
+  "before_sha256": "9c26ce3f00fccf630001a69784aeb6a2a06e35c35b1f0d57889d23c9cbcc74fa",
+  "new_block": {
+    "id": "tbl:READING-APPENDIX",
+    "kind": "table",
+    "placement": "sec:READING-MECHANISM-MATH",
+    "headers": [
+      "Appendix section",
+      "Neural question",
+      "Mathematical explanation in the guide"
+    ],
+    "rows": [
+      [
+        "[I: large-network limit, p. 1](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1)",
+        "How can many variable spike inputs produce small fluctuations in total input?",
+        "[Mean and variance scaling; Gaussian approximation](../chapters/ch-memory-dynamics.html#sec-memory-spikes)"
+      ],
+      [
+        "[II: diffusion coefficient, p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3)",
+        "Which changes in neural activity leave the stored value displaced?",
+        "[Linearization and projection](../chapters/ch-memory-dynamics.html#sec-memory-linearization), [diffusion](../chapters/ch-memory-dynamics.html#sec-memory-diffusion), and [systematic drift](../chapters/ch-memory-long-delays.html#sec-memory-drift-scope)"
+      ],
+      [
+        "[III: motion along the attractor, p. 6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6)",
+        "How do memory errors grow over long delays or around an angular range?",
+        "[Probability-density evolution and boundary conditions](../chapters/ch-memory-long-delays.html#sec-memory-long-time)"
+      ],
+      [
+        "[IV: internal Fisher information, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9)",
+        "How well can nearby stored values be distinguished from their spikes?",
+        "[Spike likelihood and information per unit time](../chapters/ch-memory-information.html#sec-memory-fi)"
+      ],
+      [
+        "[V: information–diffusion inequality, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10)",
+        "How does uncertainty in the circuit’s own spikes constrain memory stability?",
+        "[Scalar and matrix bounds, with equality conditions](../chapters/ch-memory-information.html#sec-memory-bound)"
+      ],
+      [
+        "[VI: readout, p. 12](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12)",
+        "How much does longer observation help when the stored value keeps moving?",
+        "[Storage and readout error](../chapters/ch-memory-readout.html#sec-memory-readout-setup), [equal weighting](../chapters/ch-memory-readout.html#sec-memory-naive), [ideal readout](../chapters/ch-memory-readout.html#sec-memory-ideal), and [partial access](../chapters/ch-memory-readout.html#sec-memory-partial)"
+      ],
+      [
+        "[VII: model extensions, p. 17](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=17)",
+        "What changes when firing rates respond gradually or the noise law changes?",
+        "[Two time scales and alternative noise statistics](../chapters/ch-memory-readout.html#sec-memory-extensions)"
+      ]
+    ],
+    "caption": "Reading map for the Burak and Fiete supporting text. Page numbers refer to the appendix PDF.",
+    "first_column_role": "row-labels",
+    "html_fold": "never"
+  },
+  "unchanged_existing_content": true
+}

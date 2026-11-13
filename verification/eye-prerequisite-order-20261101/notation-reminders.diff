@@ -1,0 +1,31 @@
+--- before
++++ after
+@@ -75,7 +75,7 @@
+ \quad E[dM_i dM_j]=\delta_{ij}r_i\,dt.
+ $$
+ 
+-This is still a jump process. [In the paper's [**weak fluctuation approximation**]{.definition-term custom-style="Definition Term"}, many individually small spike contributions produce only small changes in each neuron's total input. Their summed fluctuation can then be represented by Gaussian noise with the same leading mean and covariance:]{.definition-explanation}
++The split into a mean and a fluctuation leaves the individual spike events unchanged. Each spike raises $s_i$ by one, and $s_i$ decays between spikes. [In the paper's [**weak fluctuation approximation**]{.definition-term custom-style="Definition Term"}, many individually small spike contributions produce only small changes in each neuron's total input. Their summed fluctuation can then be represented by Gaussian noise with the same leading mean and covariance:]{.definition-explanation}
+ 
+ $$
+ ds_i=F_i(\mathbf s)dt+\sqrt{r_i}\,dB_i,
+@@ -209,7 +209,9 @@
+ 
+ **Neural mechanism.** We can now calculate how much random displacement remains after the stable components have relaxed. [Each cell's random spikes disturb its outgoing synaptic activation. The circuit's return flow determines the lasting shift in memory.]{.key-statement} This calculation uses the weak noise and conditional independence assumptions, with rates and return flow evaluated near one fixed point.
+ 
+-**Mathematical derivation.** The variance of a linear combination of independent noise increments is the sum of their variances multiplied by squared weights. Here the weights are the components of $\mathbf v$: multiply the linear stochastic equation by $\mathbf v^T$. Since $\mathbf v^TK=0$,
++**Mathematical derivation.** Recall the [vector of weights $\mathbf v$ derived above](#sec-memory-linearization): a small disturbance $\delta\mathbf s$ leaves an angle shift $\delta\theta=\sum_i v_i\delta s_i$ after the other components decay. Thus $v_i$ is the lasting angular effect per unit change in neuron $i$'s synaptic activation, in this local linear model. The weights reflect the whole circuit's response.
++
++The variance of a linear combination of independent noise increments is the sum of their variances multiplied by squared weights. Multiplying the linear stochastic equation by $\mathbf v^T$ removes its deterministic return term because $\mathbf v^TK=0$, leaving
+ 
+ $$
+ d\theta=\mathbf v^T R^{1/2}d\mathbf B
+@@ -252,7 +254,7 @@
+ ## Symmetric weights express diffusion through tuning curves {#sec:MEMORY-SYMMETRIC}
+ 
+ <!-- vale ai-tells.VerbTricolon = NO -->
+-**Neural mechanism.** The general formula requires the left vector of the network dynamics. [When $W_{ij}=W_{ji}$, can we express it through the tuning curves and neural transfer function?]{.key-statement} Symmetric connections make each cell affect another cell's input with the same weight that it receives in return, while their firing responses can still differ. We retain the common synaptic time constant, a stable continuous family, and the weak noise and conditional independence assumptions.
++**Neural mechanism.** The general formula uses the weights $\mathbf v$ derived from the network's dynamics. The matrix $W$ contains the [connection weights](#sec-memory-spikes): $W_{ij}$ describes the effect of neuron $j$'s synaptic activation on neuron $i$'s input. [If each pair has equal connection weights in opposite directions, $W_{ij}=W_{ji}$, can we express $\mathbf v$ through the tuning curves and neural transfer function?]{.key-statement} Equal connection weights do not require equal firing responses. We retain the common synaptic time constant, a stable continuous family, and the weak noise and conditional independence assumptions.
+ <!-- vale ai-tells.VerbTricolon = YES -->
+ 
+ **Mathematical derivation.** The chain rule relates the slope of a response curve to the slope of its input curve. Here let $g_i'=d\bar g_i/d\theta$ and $r_i'=d\bar r_i/d\theta$. Differentiating the fixed point identities gives

@@ -1,0 +1,30 @@
+{
+  "task": "Explain zebrafish calcium-imaging models, sbi, and possible CPU/GPU speed improvements",
+  "started_at_utc": "2026-10-30T20:06:34Z",
+  "checkpoint_at_utc": "2026-10-30T20:18:20Z",
+  "timezone": "Asia/Jerusalem",
+  "status": "completed_research_assessment_see_review_summary",
+  "awake_execution_time": "unverified",
+  "audience": "Neurophysics interest; basic expectation, variance, standard deviation and density are assumed known. Explain model fitting, sbi roles and hardware choices from their purpose.",
+  "scope": "Research explanation only. No canonical guide content, publication records, packages or lab code changed. No full simulation or end-to-end benchmark.",
+  "user_clues": ["Lilach Avitan matches female ELSC professor with CS background and zebrafish work", "Neural activity read using fluorescent proteins", "Only supplied software link is sbi v0.23.2 getting-started tutorial", "User confirms no project paper, model name or repository was supplied"],
+  "confirmed_hardware": {"cpu": "Intel Core i7-13700H", "physical_cores": 14, "logical_processors": 20, "ram_gib": 39.7, "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU", "gpu_memory_mib": 6141, "driver": "596.08"},
+  "sources": [
+    "https://sbi-dev.github.io/sbi/v0.23.2/tutorials/00_getting_started/",
+    "https://sbi-dev.github.io/sbi/v0.23.2/faq/question_04_gpu/",
+    "https://github.com/sbi-dev/sbi/blob/v0.23.2/sbi/utils/simulation_utils.py",
+    "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006421",
+    "https://github.com/marcustriplett/assembly_formation_model/blob/master/assembly_formation_network.m",
+    "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1008330",
+    "https://github.com/GoodhillLab/CILVA/blob/master/cilva/core.py"
+  ],
+  "critical_distinctions": [
+    "Published examples do not identify the current simulation or establish Rachel Cohen's involvement.",
+    "The tutorial is a toy linear-Gaussian simulator and does not establish actual lab use of sbi.",
+    "2018 MATLAB model simulates circuit development; 2020 Python CILVA fits fluorescence and separates shared spontaneous and stimulus-driven activity.",
+    "CILVA latent-factor loadings are not anatomical neuron-to-neuron connectivity.",
+    "GPU inference-network training does not automatically move the biological simulator to GPU.",
+    "Algorithmic improvements and fewer simulations may matter more than GPU acceleration; no lab speedup is measured."
+  ],
+  "next": ["Actual current project remains unidentified; obtain one runnable example before end-to-end timing or GPU port."]
+}

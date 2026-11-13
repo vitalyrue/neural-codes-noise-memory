@@ -1,0 +1,168 @@
+{
+  "review_type": "stage1_truth_and_reasoning",
+  "reviewer": "independent subagent eye_mechanics_sources",
+  "created_utc": "2026-11-01T10:11:41Z",
+  "task_start_utc": "2026-11-01T10:03:05Z",
+  "timing": {
+    "wall_clock_elapsed_seconds": 697,
+    "awake_execution_time": "unverified; Windows sleep/resume logs not inspected",
+    "seconds_since_previous_review_checkpoint": 181
+  },
+  "scope": "Actual newly written opening and eye mechanics section in 01b-persistence.md through first attractor explanation; altered pathway introduction in 04-eye-drift.md lines 1-22; associated new source footnotes. This is not whole-book acceptance.",
+  "source_files": [
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "114351B32905E546965012C7FE0DCA6417E688AA386CE391E65B22BF697F50E1",
+      "reviewed_lines": "1-71,259-265"
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "E244C6CFE129CCBD3C33ED590225B7F8B889056FF5BA9AB18EDE12E17F4BF4A5",
+      "reviewed_lines": "1-22"
+    }
+  ],
+  "decision": "pass_scoped_after_corrections",
+  "strongest_substantive_objection": {
+    "file": "content/chapters/01b-persistence.md",
+    "line": 55,
+    "text": "The integrator is described as converting a changing position into its accumulated value. This confuses integration of a velocity/change command into position with integration of position itself.",
+    "suggestion": "The name refers to accumulating eye-velocity commands over time into a position signal.",
+    "status": "resolved",
+    "resolution": "Actual line55 now correctly says an eye-velocity command is accumulated over time into a position signal."
+  },
+  "findings": [
+    {
+      "id": "EYE-S1-01",
+      "severity": "required",
+      "file": "content/chapters/01b-persistence.md",
+      "line": 55,
+      "issue": "Integrator description implies integrating position rather than velocity/change command.",
+      "required_change": "Say movement or eye-velocity commands are accumulated over time into a position signal.",
+      "evidence": "Major et al. 2004 introduction: tonic firing represents time integral of velocity-encoding saccadic and vestibular inputs.",
+      "status": "resolved",
+      "resolution": "Line55 now reads: The name refers to accumulating an eye-velocity command over time into a position signal. Correct integration variable and resulting quantity.",
+      "rechecked_utc": "2026-11-01T10:14:42Z"
+    },
+    {
+      "id": "EYE-S1-02",
+      "severity": "required",
+      "file": "content/chapters/01b-persistence.md",
+      "line": 265,
+      "issue": "Major 2004 author list omits Brett Mensh.",
+      "required_change": "Insert Mensh, B. between Aksay and Seung.",
+      "evidence_url": "https://pubmed.ncbi.nlm.nih.gov/15136746/",
+      "verified_metadata": "Major G, Baker R, Aksay E, Mensh B, Seung HS, Tank DW. PNAS 101(20):7739-7744; DOI10.1073/pnas.0401970101. Volume, pages, year and DOI in guide are correct.",
+      "status": "resolved",
+      "resolution": "Line265 now includes Mensh, B. between Aksay and Seung. Full six-author order, PNAS101(20):7739-7744 and DOI match the checked PubMed record.",
+      "rechecked_utc": "2026-11-01T10:14:42Z"
+    },
+    {
+      "id": "EYE-S1-03",
+      "severity": "required",
+      "file": "content/chapters/01b-persistence.md",
+      "line": 3,
+      "issue": "Eye position is called one number without restricting to the horizontal coordinate. General eye orientation has multiple coordinates.",
+      "required_change": "Use Horizontal eye position or The horizontal eye angle considered here.",
+      "status": "resolved",
+      "resolution": "Line3 now says: The horizontal eye angle considered here is one number. Correctly restricts the one-dimensional teaching scope.",
+      "rechecked_utc": "2026-11-01T10:14:42Z"
+    }
+  ],
+  "checks": [
+    {
+      "locator": "01b lines11-13",
+      "result": "pass",
+      "detail": "Six eye-rotating extraocular muscles, rectus actions, oblique/vertical contributions and CNIII/IV/VI supply correct. The simplified description does not claim nerve origin and target are always ipsilateral.",
+      "source": "Dragoi Neuroscience Online chapter8 section8.2"
+    },
+    {
+      "locator": "01b line15",
+      "result": "pass_with_source_limit",
+      "detail": "Repeated spikes sustaining tension, tonic versus exactly periodic firing and pulse-and-step concept correct. Major Fig1 shows integrator neuron firing, not motoneuron force; Anderson supports prolonged activation/mechanics. A direct classic motoneuron reference would be more specific for pulse-and-step but is not required to correct the explanation."
+    },
+    {
+      "locator": "01b lines19-23",
+      "result": "pass",
+      "detail": "Elastic restoring torque, viscous damping and no static inertial or purely viscous holding torque are correct. Dominance of elasticity/viscosity in primate plant is supported by Anderson introduction."
+    },
+    {
+      "locator": "01b lines27-51",
+      "result": "pass",
+      "detail": "Linear small-angle approximation clearly labeled. I*phi_ddot+B*phi_dot+K*phi=tau_m has consistent torque units. Static tau_m=K*phi and fixed-torque stiffness comparison correct. Neglecting inertia after torque removal gives phi=phi0*exp(-t*K/B),tau_p=B/K. Model limitations and multiple actual relaxation times acknowledged."
+    },
+    {
+      "locator": "01b line55 experiment",
+      "result": "pass",
+      "detail": "Reversible disruption, horizontal gaze time constant about0.2s compared with intact>20s in darkness match Cannon and Robinson1987 abstract. Time constant means exponential decay rate, not total return time.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/3585473/"
+    },
+    {
+      "locator": "01b line57",
+      "result": "pass",
+      "detail": "Visual/vestibular roles, darkness persistence and longer-timescale plasticity distinct from immediate tissue dynamics correctly separated. Major goldfish training/reversal and timescale supported; cellular mechanism appropriately unresolved.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/15136746/"
+    },
+    {
+      "locator": "01b line65-71",
+      "result": "pass",
+      "detail": "Coherent pattern versus correct stored coordinate and ideal attractor distinction correctly framed as a circuit/model claim, with neutral along-family dynamics."
+    },
+    {
+      "locator": "04 lines14-18",
+      "result": "pass",
+      "detail": "Specific continuous-attractor source remains identified as proposed mechanism. OMN versus internuclear cells, abducens/lateral rectus anatomy and response-based identification match Ben-Shushan2022 Methods and ExtendedDataFig6. Ocular plant definition useful and correct."
+    },
+    {
+      "locator": "New terminology at first use",
+      "result": "pass_with_minor_context",
+      "detail": "Orbit, extraocular muscles, OMNs, torque, tonic firing, saccade, elasticity, viscosity, inertia, integrator, plasticity and abducens nucleus defined sufficiently. Dot notation explained by velocity/acceleration sentence. Source language eye-plant model precedes plant definition in later chapter but is intelligible from context; later wording review can judge."
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html",
+      "locator": "8.2 A/B;8.3; last review07July2026"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19297512/",
+      "locator": "Abstract and Fig1; Anderson etal2009; DOI10.1152/jn.91045.2008"
+    },
+    {
+      "url": "https://sites.pitt.edu/~neg8/rajimages/pdf/JN-91045-2008.pdf",
+      "locator": "Introduction p2907"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/3585473/",
+      "locator": "Abstract; Cannon and Robinson1987"
+    },
+    {
+      "url": "https://pubmed.ncbi.nlm.nih.gov/15136746/",
+      "locator": "Author list,101(20):7739-7744,abstract,Figs1-4"
+    },
+    {
+      "url": "https://www.nature.com/articles/s41467-022-29201-y",
+      "locator": "Methods recordings,ExtendedDataFig6,Fig5 and OMN activity Eqs28-33"
+    }
+  ],
+  "limits": "Only requested changed scope reviewed. No whole-book semantic, visual, release or publication acceptance. Source hashes identify reviewed files; follow-up fixes need a targeted recheck.",
+  "token_stats": "unavailable",
+  "initial_source_files": [
+    {
+      "path": "content/chapters/01b-persistence.md",
+      "sha256": "52E3964D4AC023EDB74A35AF0394E1AF23E7419357645B946343FF6A4FEA9192",
+      "reviewed_lines": "1-71,259-265"
+    },
+    {
+      "path": "content/chapters/04-eye-drift.md",
+      "sha256": "E244C6CFE129CCBD3C33ED590225B7F8B889056FF5BA9AB18EDE12E17F4BF4A5",
+      "reviewed_lines": "1-22"
+    }
+  ],
+  "last_reviewed_utc": "2026-11-01T10:14:42Z",
+  "recheck": {
+    "scope": "Three requested factual corrections in actual source lines3,55,265; unchanged04-eye-drift bridge hash confirmed. No Stage2 review performed.",
+    "result": "All three required corrections resolved. No remaining required Stage1 findings in reviewed scope.",
+    "source_evidence": "Previous current-turn primary-source checks retained; corrected author order checked against PubMed15136746.",
+    "hashes": "01b updated hash recorded;04 unchanged from initial review."
+  }
+}

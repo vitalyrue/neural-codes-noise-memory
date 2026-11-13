@@ -1,0 +1,126 @@
+{
+  "stage": 3,
+  "local_request_id": "memory-illustrations-20261024-stage3",
+  "reviewer": "/root/review_memory_illustrations",
+  "timestamp": "2026-10-24T18:20:09.672919+03:00",
+  "scope": "Connected reading of three new figure placements, new paragraphs/captions/alt and source links; no whole-book or unchanged-math audit.",
+  "source_connected_read_verdict": "pass",
+  "rendered_connected_read_verdict": "repair-required",
+  "source_hashes": {
+    "content\\chapters\\02-memory-dynamics.md": "f75114f4f7d17ebff38c7df34f3048e3f7ad532e088c680b04cf7d15b9b2d810",
+    "content\\chapters\\02-memory-dynamics.yaml": "c511f7aef991b7010b5a36354db3ba63686afff78edca623c7796110bd8b3af0",
+    "site\\chapters\\ch-memory-dynamics.html": "80edbc77066372cb6bc009657991eb516cd58264fe3aaf9956d6ad10de602174"
+  },
+  "answers": [
+    {
+      "unit": "M01",
+      "answer": "The chapter defines the activation and its exact spike-driven equation before introducing chosen spike times. The figure then separates events from activation; the following interpretation explains the difference and prepares the firing-rate/input equations. Tau is already introduced. No prerequisite gap is added."
+    },
+    {
+      "unit": "M02",
+      "answer": "The fixed states, activation coordinate, rate-to-activation relation, projection and valid interior are taught before the chosen numeric parameters and plot. The takeaway points from constant rate sum to constant D in the lower panel and keeps the interior limit. The following section asks about long delays, a useful next step."
+    },
+    {
+      "unit": "M03",
+      "answer": "The chapter introduces the trial density, line Gaussian, wrapping, uniform limit and squared-error convention before the plot. Its introduction fixes D and plotted quantities. The takeaway connects density convergence to bounded angular error and contrasts continuing line growth. The next paragraph changes to state-dependent D, so the constant-D case is complete first. Source flow passes, but the actual figure is absent in rendered HTML."
+    },
+    {
+      "unit": "Source links",
+      "answer": "The opening explains PDF page/near-passage behavior and the lack of numbered original lines. Direct links carry equation, figure or paragraph labels near their supported claim; footnotes retain full references and limitations. No unfamiliar source-link rule is needed to follow the text."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "required",
+      "file": "site/chapters/ch-memory-dynamics.html",
+      "line": 423,
+      "problem": "M03 is not rendered as an image. The opening square bracket in caption interval [-pi, pi) breaks the image Markdown: literal ![With... text appears with a text link, and no M03 img element exists.",
+      "evidence": "Parsed HTML contains M01 and M02 img elements but zero img elements for fig-memory-line-ring; line 423 begins a paragraph with literal image Markdown.",
+      "requested_repair": "Escape the caption bracket at the emitted Markdown boundary or use another narrow rendering fix that preserves the intended visible caption. Rebuild the affected HTML and verify the M03 img, complete caption, alt text and connected takeaway."
+    }
+  ],
+  "final_diagram_review": "pending until rendered M03 repair checked; earlier independent pixel judgments retained",
+  "awake_time": "unverified",
+  "token_stats": "unavailable",
+  "focused_recheck": {
+    "timestamp": "2026-10-24T18:22:34.118120+03:00",
+    "finding": "F1",
+    "verdict": "resolved",
+    "actual_check": "Rebuilt HTML independently parsed: exactly one img for each new figure, complete figcaptions and alt text, and no literal image Markdown. M03 interval is now a proper inline math node in its figure caption. Actual introductions and takeaways checked immediately before/after all three figures.",
+    "canonical_caption_meaning": "unchanged; interval now uses inline math instead of an unprotected bracket",
+    "independently_compiled_book_model_hash": "70a492cbb7e1a31dfd9f8d23b48f051e161d42502d7ca7c2012f254ba2c89b04",
+    "independently_compiled_chapter_hash": "2d7bb988e8684183fa6d82d76fdf430970720845605c3cee8ab2a1717ce03880",
+    "html_sha256": "f339c53482fc90ceb4112f24940a629b801677d9e60055e0a9f295c6b2ca6511",
+    "current_bindings_sha256": "02939965936e85adc8131c0b3d35d9bebf7809b0dae5c2fc3f6d1ebe9acd2b42",
+    "schema_validation": {
+      "fig:MEMORY-SPIKE-TRACE": {
+        "status": "pass",
+        "findings": [],
+        "ledger_asset_sha256_current": true
+      },
+      "fig:MEMORY-INHIBITION-RATES": {
+        "status": "pass",
+        "findings": [],
+        "ledger_asset_sha256_current": true
+      },
+      "fig:MEMORY-LINE-RING": {
+        "status": "pass",
+        "findings": [],
+        "ledger_asset_sha256_current": true
+      }
+    },
+    "source_input_hashes": {
+      "fig:MEMORY-SPIKE-TRACE": {
+        "content/chapters/02-memory-dynamics.md": "f75114f4f7d17ebff38c7df34f3048e3f7ad532e088c680b04cf7d15b9b2d810",
+        "content/chapters/02-memory-dynamics.yaml": "2ebd17f7586dbb998563c47dcb079c9b66ebf59c4cb83f72c78f843c06133dc0",
+        "verification/memory-illustrations-20261024/draw_additions.py": "58a7fa5e78b6aef0a6178f460f70bab5488d416c52a26445701d27f89a179bf1",
+        "verification/memory-illustrations-20261024/M01-brief.yaml": "81e03887ef7dd5b90591e5c423663279e909b4c138d9fcec1cda012dcc82242d",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/memory-illustrations-20261024/source-locators.json": "77b6e32be5dce559080bfc29f5e435e714ac5c18778771729c1a22c30f17b1d7",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024/M01/qa.json": "98a0e08d7e4ca7cc42024419427562adeaa042cf0896bb8d944ead5ecfd30d36"
+      },
+      "fig:MEMORY-INHIBITION-RATES": {
+        "content/chapters/02-memory-dynamics.md": "f75114f4f7d17ebff38c7df34f3048e3f7ad532e088c680b04cf7d15b9b2d810",
+        "content/chapters/02-memory-dynamics.yaml": "2ebd17f7586dbb998563c47dcb079c9b66ebf59c4cb83f72c78f843c06133dc0",
+        "verification/memory-illustrations-20261024/draw_additions.py": "58a7fa5e78b6aef0a6178f460f70bab5488d416c52a26445701d27f89a179bf1",
+        "verification/memory-illustrations-20261024/M02-brief.yaml": "7ffb6c4574b676f62b35fcc842267963aea936571d3aba5e77ec54499c8e8203",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/memory-illustrations-20261024/source-locators.json": "77b6e32be5dce559080bfc29f5e435e714ac5c18778771729c1a22c30f17b1d7",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024/M02/qa.json": "a69c9cbbd5d1370703fb75d3848b522396479dbe2af537823ade6a725b66bf65"
+      },
+      "fig:MEMORY-LINE-RING": {
+        "content/chapters/02-memory-dynamics.md": "f75114f4f7d17ebff38c7df34f3048e3f7ad532e088c680b04cf7d15b9b2d810",
+        "content/chapters/02-memory-dynamics.yaml": "2ebd17f7586dbb998563c47dcb079c9b66ebf59c4cb83f72c78f843c06133dc0",
+        "verification/memory-illustrations-20261024/draw_additions.py": "58a7fa5e78b6aef0a6178f460f70bab5488d416c52a26445701d27f89a179bf1",
+        "verification/memory-illustrations-20261024/M03-brief.yaml": "925deebca73fde0df1a494446923f72ce9c684f67335dc052709283cd7fd0924",
+        "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+        "assets/papers/burak-fiete-2012-persistent-activity.pdf": "6ea4f05bf1d0c8870baf8f042e9fc4392c1806e9100d94d2b0d3ab35f345adea",
+        "assets/papers/burak-fiete-2012-persistent-activity-si.pdf": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+        "verification/memory-illustrations-20261024/source-locators.json": "77b6e32be5dce559080bfc29f5e435e714ac5c18778771729c1a22c30f17b1d7",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+        "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+        "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+        "candidate-content/visuals/candidates/20261024/M03/qa.json": "f1ea78994af2f8263ff4f2cd2c9710810c25cf6c03f3e947cb08011d7dc57235"
+      }
+    }
+  },
+  "final_source_connected_read_verdict": "pass",
+  "final_rendered_connected_read_verdict": "pass",
+  "final_local_scope_verdict": "pass; no unresolved required corrections in the new content",
+  "diagram_review_output": "diagram-review.json",
+  "independently_recompiled_current_inputs": true
+}

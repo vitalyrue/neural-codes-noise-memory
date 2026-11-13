@@ -1,0 +1,144 @@
+--- baseline/02-memory-dynamics.md
++++ proposed/02-memory-dynamics.md
+@@ -1,4 +1,4 @@
+-# How spiking noise moves a stored memory {#ch:MEMORY-DYNAMICS}
++# Spiking noise produces diffusion along the memory attractor {#ch:MEMORY-DYNAMICS}
+ 
+ A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied. The important question is whether the activity pattern stays in the right place, not just whether activity continues. Burak and Fiete study this distinction in a network whose stable activity patterns form a continuous set. This chapter derives how random spikes move the network along that set. The next chapter asks how well another network can read the moving memory.[^p1-model]
+ 
+@@ -6,7 +6,7 @@
+ 
+ The memory coordinate is $\theta$. Its initial value is $\Theta$. A bar denotes a noise free steady state, so $\bar r_i(\theta)$ is neuron $i$'s steady firing rate at memory value $\theta$. The common synaptic time constant is $\tau$. A one dimensional diffusion coefficient $D$ has units of memory coordinate squared per time, with the convention $\operatorname{Var}[\theta(t)-\Theta]=2Dt$ when $D$ is constant and boundaries do not matter.
+ 
+-## From individual spikes to a slowly changing network state {#sec:MEMORY-SPIKES}
++## Recurrent spikes renew decaying synaptic activity {#sec:MEMORY-SPIKES}
+ 
+ How can brief spikes maintain a state for much longer than the duration of a spike? In this model, each spike leaves a synaptic activation that decays gradually. Incoming activations determine new firing rates; the resulting spikes renew those activations. This feedback can support activity after the external stimulus has ended.
+ 
+@@ -84,7 +84,7 @@
+ 
+ The network must be tuned to possess this family. An arbitrary recurrent network will generally have isolated fixed points rather than a whole line or ring of them.
+ 
+-## Which part of a perturbation survives? {#sec:MEMORY-LINEARIZATION}
++## The network's return flow determines the lasting memory change {#sec:MEMORY-LINEARIZATION}
+ 
+ A spike perturbs many aspects of a network's state. Most of those changes decay as the state returns to the attractor. To calculate memory loss, we need the one change that survives: the displacement to a different fixed point.
+ 
+@@ -202,7 +202,7 @@
+ 
+ The [**diffusion tensor**]{.definition-term custom-style="Definition Term"} is the matrix of displacement covariances per twice the elapsed time. Its diagonal entries describe spreading in individual coordinates; its other entries describe how coordinate displacements vary together. Even independently generated spike-count fluctuations can generate coupled motion of the represented coordinates.[^p1-multid]
+ 
+-## Symmetric weights make the projection measurable {#sec:MEMORY-SYMMETRIC}
++## Symmetric weights express diffusion through tuning curves {#sec:MEMORY-SYMMETRIC}
+ 
+ The general formula requires the left vector of the network dynamics. When $W_{ij}=W_{ji}$, can we write it using tuning curves and the input to rate rule?
+ 
+@@ -264,11 +264,46 @@
+ 
+ The dashed rate sum in the upper plot stays fixed, so the lower plot has the same $D$ at every interior value of $\theta$.
+ 
+-## From local spreading to long delay errors {#sec:MEMORY-LONG-TIME}
++## Long delay errors depend on boundaries and local diffusion {#sec:MEMORY-LONG-TIME}
+ 
+ A local diffusion coefficient answers how variance initially grows. It does not by itself say that variance grows at the same rate forever. Boundaries and variation of $D$ can change the long time behavior.
+ 
+-Let $p(\theta,t)$ be the density of the memory coordinate across repeated trials initialized at $\Theta$. The [**Itô convention**]{.definition-term custom-style="Definition Term"} evaluates a state-dependent noise coefficient at the beginning of each increment. To pass from random increments to a density equation, choose any smooth function $F(\theta)$. In a short interval $dt$, the zero-drift Itô increment has conditional mean zero and conditional second moment $2D(\theta)dt$. Taylor expansion at the starting coordinate gives
++Let $p(\theta,t)$ be the density of the memory coordinate across repeated trials initialized at $\Theta$. The [**Itô convention**]{.definition-term custom-style="Definition Term"} evaluates a state-dependent noise coefficient at the beginning of each increment. In the zero-drift diffusion approximation, this density evolves according to the [**Fokker Planck equation**]{.definition-term custom-style="Definition Term"}:
++
++$$
++\frac{\partial p}{\partial t}
++=\frac{\partial^2}{\partial\theta^2}[D(\theta)p],
++\qquad p(\theta,0)=\delta(\theta-\Theta).
++$$
++
++Here the [**Dirac delta**]{.definition-term custom-style="Definition Term"} denotes a point mass: initially all probability is at $\Theta$. It differs from the earlier zero-or-one symbol $\delta_{ij}$. For constant $D$ on an unbounded line, the Gaussian solution is
++
++$$
++p(\theta,t)=\frac{1}{\sqrt{4\pi Dt}}
++\exp\left[-\frac{(\theta-\Theta)^2}{4Dt}\right].
++$$
++
++Its variance is $2Dt$. For an angular coordinate, add the densities at all displacements $\theta-\Theta+2\pi k$, $k\in\mathbb Z$, to wrap the Gaussian around the circle. This teaches the content of [SI Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483) without needing the special function notation used there. At long times the density approaches $1/(2\pi)$. If angular errors are reported in $[-\pi,\pi)$, their limiting mean squared value is
++
++$$
++\frac{1}{2\pi}\int_{-\pi}^{\pi}x^2dx=\frac{\pi^2}{3}.
++$$
++
++The flattening of a ring network's error curve can therefore occur while its local noise mechanism remains unchanged. It reflects the bounded way angular error is reported.[^p1-fp]
++
++For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the plots show how the density and squared error change with delay.
++
++<div class="figure-scroll">
++
++{{block:fig:MEMORY-LINE-RING}}
++
++</div>
++
++As the upper density approaches uniform, the wrapped error below approaches $\pi^2/3$; the line error keeps growing.
++
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: from random increments to the memory density equation"}
++
++To pass from random increments to a density equation, choose any smooth function $F(\theta)$. In a short interval $dt$, the zero-drift Itô increment has conditional mean zero and conditional second moment $2D(\theta)dt$. Taylor expansion at the starting coordinate gives
+ 
+ $$
+ \begin{aligned}
+@@ -286,38 +321,9 @@
+ =\int F''(\theta)D(\theta)p(\theta,t)\,d\theta.
+ $$
+ 
+-Take $F$ to vanish outside an interior region, or use boundaries for which the integration terms vanish. Integrating by parts twice moves both derivatives from $F$ onto the product $Dp$. Because the resulting identity holds for every such smooth $F$, the density obeys the [**Fokker Planck equation**]{.definition-term custom-style="Definition Term"}:
+-
+-$$
+-\frac{\partial p}{\partial t}
+-=\frac{\partial^2}{\partial\theta^2}[D(\theta)p],
+-\qquad p(\theta,0)=\delta(\theta-\Theta).
+-$$
+-
+-Here the [**Dirac delta**]{.definition-term custom-style="Definition Term"} denotes a point mass: initially all probability is at $\Theta$. It differs from the earlier zero-or-one symbol $\delta_{ij}$. For constant $D$ on an unbounded line, the Gaussian solution is
+-
+-$$
+-p(\theta,t)=\frac{1}{\sqrt{4\pi Dt}}
+-\exp\left[-\frac{(\theta-\Theta)^2}{4Dt}\right].
+-$$
+-
+-Its variance is $2Dt$. For an angular coordinate, add the densities at all displacements $\theta-\Theta+2\pi k$, $k\in\mathbb Z$, to wrap the Gaussian around the circle. This teaches the content of [SI Eq. S31, p. 7](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=7&zoom=125,0,483) without needing the special function notation used there. At long times the density approaches $1/(2\pi)$. If angular errors are reported in $[-\pi,\pi)$, their limiting mean squared value is
+-
+-$$
+-\frac{1}{2\pi}\int_{-\pi}^{\pi}x^2dx=\frac{\pi^2}{3}.
+-$$
+-
+-The flattening of a ring network's error curve can therefore occur while its local noise mechanism remains unchanged. It reflects the bounded way angular error is reported.[^p1-fp]
+-
+-For $D=0.5\,\mathrm{rad}^2/\mathrm{s}$, the plots show how the density and squared error change with delay.
+-
+-<div class="figure-scroll">
+-
+-{{block:fig:MEMORY-LINE-RING}}
+-
+-</div>
+-
+-As the upper density approaches uniform, the wrapped error below approaches $\pi^2/3$; the line error keeps growing.
++Take $F$ to vanish outside an interior region, or use boundaries for which the integration terms vanish. Integrating by parts twice moves both derivatives from $F$ onto the product $Dp$. Because the resulting identity holds for every such smooth $F$, it gives the Fokker Planck equation shown above.
++
++:::
+ 
+ When $D$ varies with state, the zero drift stochastic equation is $d\theta=\sqrt{2D(\theta)}\,dB$ with the Itô convention. Under conditions that remove boundary terms, the density equation gives
+ 
+@@ -345,7 +351,7 @@
+ 
+ The implied variance is $\Theta t/(2\tau)$, agreeing with [SI Eq. S41, p. 9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9&zoom=125,0,383) and the slope tested in [Fig. S1, p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10&zoom=125,0,45). SI Eq. S40 instead prints $D=\theta/(2\tau)$. Under the convention used throughout this guide, that displayed value differs by a factor of two from the direct projection and S41. We keep the calculation explicit so the discrepancy does not become a hidden change of convention.[^p1-excitation]
+ 
+-## Random drift, systematic drift, and a mistuned network {#sec:MEMORY-DRIFT-SCOPE}
++## A diffusion calculation does not determine systematic drift {#sec:MEMORY-DRIFT-SCOPE}
+ 
+ Repeated trials can spread apart even if their average stays at the original value. That random spreading differs from a reproducible movement in one direction. Both can occur, and the derivation of $D$ alone does not settle the second question.
+ 
+@@ -357,7 +363,7 @@
+ 
+ The independence assumption also has a precise scope. Newly generated spike-count fluctuations are conditionally independent given the present state. Shared recurrent fluctuations can still correlate the observed spike trains over time. An extra source of correlated fluctuations would change the projection formula to $2D=\mathbf v^TQ\mathbf v$, where $Q\,dt$ is their increment covariance. Calculating the corresponding Fisher information would require the matching joint likelihood. The paper discusses such correlated models as future extensions ([Discussion, p. 5, paragraph beginning “Our spiking model”](../papers/burak-fiete-2012-persistent-activity.pdf#page=5&zoom=125,0,142)); it does not prove that every correlated spiking model obeys its Poisson formulas.[^p1-correlation]
+ 
+-## Reading the first two figures {#sec:MEMORY-FIGURES}
++## Figures distinguish memory motion from readout error and test diffusion {#sec:MEMORY-FIGURES}
+ 
+ [Figure 1A, p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2&zoom=125,0,439) shows the definition of the memory coordinate. Start at a green point off the attractor and follow the noise free flow to the black point on it. This endpoint defines the instantaneous attractor state. After one noisy interval, repeat that flow. The difference between the two endpoints is the retained memory change. The relevant projection follows the flow, as in the tilted two variable example above.
+ 

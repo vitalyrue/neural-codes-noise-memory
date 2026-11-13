@@ -1,0 +1,128 @@
+{
+  "input_hash": "4fe98732e64d1bf1022430e600d6c0c3549921022a3d090813113cffaa877885",
+  "review_contract_hash": "593934f3af51c49175417df3e4263df20a0835575d099bad4f0070163b4a17dc",
+  "inventory_basis": "local extraction from the actual repaired source; shared inventory has not been regenerated",
+  "source_sha256": "9fa3380cadcaf76671f1ca000380f3802cb7eb094d263dec9e6fb911f3a49baf",
+  "paragraphs": [
+    {
+      "line": 63,
+      "end_line": 63,
+      "kind": "prose",
+      "text": "A [**causal filter**]{.definition-term custom-style=\"Definition Term\"} computes its present output from present and past input. For the equation above, its [**impulse response**]{.definition-term custom-style=\"Definition Term\"} $h_0(u)$ is the position response to one instantaneous spike at time zero. To factor the equation, consider a time component $e^{pt}$: differentiation multiplies it by $p$. The algebraic ratio of output to input for that component is",
+      "source_hash": "7f48654e5c8ea2f33c055c5899c633f4f0fe48408a259f6f7406c7737c73172a",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p63",
+      "previous": "p57",
+      "next": "p70",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Introduce causal response and obtain the exponential trial ratio.",
+        "connection": "Connect the forward differential equation to its factored decay times, then to the repaired direct solution.",
+        "decision": "retain",
+        "reason": "The exponential trial method needs differentiation only; the subsequent response derivation no longer relies on an untaught inverse-transform rule."
+      }
+    },
+    {
+      "line": 77,
+      "end_line": 77,
+      "kind": "prose",
+      "text": "These are the paired signs in the paper's Eq. 7, with $\\tau_+>\\tau_-$ when $k,r,m>0$ and $r^2>4km$. In this case both components decay without oscillation. The same factorization gives two useful identities:",
+      "source_hash": "efae1bfe1de1d6e6373840e64544427f7b1283ecf19a2cd03beaa0d935fe4881",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p77",
+      "previous": "p70",
+      "next": "p84",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "State the real-decay domain and identities relating coefficients and time constants.",
+        "connection": "The repaired next paragraph now uses those same two roots to construct the post-spike solution.",
+        "decision": "retain",
+        "reason": "The conditions remain visible and provide exactly the exponents required by the new argument."
+      }
+    },
+    {
+      "line": 84,
+      "end_line": 84,
+      "kind": "prose",
+      "text": "We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as",
+      "source_hash": "4eec0db35e0cd5097e595acded14851f798b0df8940c381d3a89cfa31f16d34f",
+      "priority": "changed",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p84",
+      "previous": "p77",
+      "next": "p90",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Construct the post-spike response as a sum of two homogeneous exponential solutions.",
+        "connection": "Uses the roots already derived at p70–77 and raises the coefficient question answered at p90.",
+        "decision": "retain",
+        "reason": "The input is explicitly zero after the spike, so the reader can verify each exponential by substitution into the same differential equation."
+      }
+    },
+    {
+      "line": 90,
+      "end_line": 90,
+      "kind": "prose",
+      "text": "To find $A$ and $B$, treat the spike as a short pulse of unit area and shrink its duration to zero. The position change during that pulse tends to zero, so $h_0(0^+)=0$. Integrating $m h_0''+r h_0'+k h_0$ across the pulse gives $m h_0'(0^+)=1$: the velocity changes by $1/m$, while position and velocity before the causal response are zero. Therefore",
+      "source_hash": "d5a34ccb8a05bed2a1a5184b92b28398d972bd5b9f8f5e276f2e8d2167d6b11f",
+      "priority": "inserted",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p90",
+      "previous": "p84",
+      "next": "p97",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Derive zero initial displacement and the unit-impulse velocity jump.",
+        "connection": "Supplies the two conditions needed to determine the coefficients introduced at p84.",
+        "decision": "retain",
+        "reason": "A narrowing unit-area pulse explains why position remains continuous while the integrated acceleration term gives m times the velocity jump equal to one."
+      }
+    },
+    {
+      "line": 97,
+      "end_line": 97,
+      "kind": "prose",
+      "text": "Substituting $B=-A$ gives $A(1/\\tau_- -1/\\tau_+)=1/m$, hence $A=\\tau_+\\tau_-/[m(\\tau_+-\\tau_-)]$. Making the response zero before the spike gives",
+      "source_hash": "a6a01a1fbe397969ebaa932d712135d84357ed5e36057e80a5ab752575837184",
+      "priority": "inserted",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p97",
+      "previous": "p90",
+      "next": "p105",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Solve the two coefficient equations and impose zero pre-spike response.",
+        "connection": "Uses B=-A from the preceding display to produce the unchanged causal kernel before the spike-train convolution.",
+        "decision": "retain",
+        "reason": "The coefficient now follows from ordinary algebra and the just-derived jump, so the reader can reconstruct both kernel shape and gain."
+      }
+    },
+    {
+      "line": 105,
+      "end_line": 105,
+      "kind": "prose",
+      "text": "$\\Theta(u)$ is zero for $u<0$ and one for $u>0$; it imposes causality. Restoring the fitted neural lead delays this response: $h(u)=h_0(u-\\Delta t)$. Write the spike train as $\\xi(t)=\\sum_j\\delta(t-t_j)$, where $\\delta$ is an ideal instantaneous impulse of unit area, so integration over one spike counts one event. The prediction is",
+      "source_hash": "17b1baaff251def1ac150a79aebb365830c810003d113f5b384376630eed77b0",
+      "priority": "unchanged",
+      "id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER::p105",
+      "previous": "p97",
+      "next": "p112",
+      "scope": "part_02",
+      "unit_id": "content/chapters/04-eye-drift.md::sec:EYE-INVERSE-FILTER",
+      "source": "content/chapters/04-eye-drift.md",
+      "review": {
+        "purpose": "Define the step function and spike impulses, restore delay and sum the responses.",
+        "connection": "Uses the newly derived kernel from p97–102 to construct the same eye-position predictor.",
+        "decision": "retain",
+        "reason": "The direct solution changes neither the neural-lead delay nor how individual causal spike responses add; the old reasoning remains valid."
+      }
+    }
+  ]
+}

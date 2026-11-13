@@ -1,0 +1,529 @@
+{
+  "audience": {
+    "status": "reviewed",
+    "description": "The Part opening assumes calculus, basic probability and linear algebra. Chapters07/08 teach electronics, weight/state/readout separation, feedback and error types. No unmentioned electronics or machine-learning background is assumed.",
+    "assumed_concepts": []
+  },
+  "concepts": [
+    {
+      "id": "digital-word-state",
+      "aliases": []
+    },
+    {
+      "id": "capacitor-analog-state",
+      "aliases": []
+    },
+    {
+      "id": "conductance-weight",
+      "aliases": []
+    },
+    {
+      "id": "conductance-weighted-computation",
+      "aliases": []
+    },
+    {
+      "id": "weight-state-readout-distinction",
+      "aliases": []
+    },
+    {
+      "id": "host-computer",
+      "aliases": []
+    },
+    {
+      "id": "hardware-calibration",
+      "aliases": []
+    },
+    {
+      "id": "onchip-learning",
+      "aliases": []
+    },
+    {
+      "id": "slow-retained-state",
+      "aliases": []
+    },
+    {
+      "id": "model-wall-time",
+      "aliases": []
+    },
+    {
+      "id": "retention-time-constant",
+      "aliases": []
+    },
+    {
+      "id": "register-storage",
+      "aliases": []
+    }
+  ],
+  "sections": {
+    "ch:NEUROMORPHIC-SYSTEMS/s0": "reviewed",
+    "ch:NEUROMORPHIC-SYSTEMS/s1": "reviewed",
+    "ch:NEUROMORPHIC-SYSTEMS/s2": "reviewed",
+    "ch:NEUROMORPHIC-SYSTEMS/s3": "reviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "digital-word-state",
+      "passage_id": "ch:HARDWARE-MEMORY/p33",
+      "role": "teach",
+      "span": [
+        0,
+        641
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Defines binary storage, powered feedback, encoding neural variables and finite numerical resolution.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "digital-word-state",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p20",
+      "role": "use",
+      "span": [
+        0,
+        392
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The first table rows and their interpretation require distinguishing computed digital variables from physical analog membrane state.",
+      "need": "required"
+    },
+    {
+      "concept_id": "capacitor-analog-state",
+      "passage_id": "ch:HARDWARE-MEMORY/p31",
+      "role": "teach",
+      "span": [
+        0,
+        362
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Charge, capacitance and voltage are related by Q=CV; supplied current changes stored voltage.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "capacitor-analog-state",
+      "passage_id": "ch:HARDWARE-MEMORY/p37",
+      "role": "teach",
+      "span": [
+        0,
+        473
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Maps capacitor voltage to a model quantity and explains leakage, input and feedback; SRAM weights remain distinct.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "capacitor-analog-state",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p3",
+      "role": "use",
+      "span": [
+        0,
+        460
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The opening choice relies on voltage carrying changing neural state, as taught in chapter07.",
+      "need": "required"
+    },
+    {
+      "concept_id": "capacitor-analog-state",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p20",
+      "role": "use",
+      "span": [
+        0,
+        392
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Physical analog dynamics versus calculated digital updates depends on capacitor-state meaning; the actual table is directly reviewed below.",
+      "need": "required"
+    },
+    {
+      "concept_id": "conductance-weight",
+      "passage_id": "ch:HARDWARE-MEMORY/p39",
+      "role": "teach",
+      "span": [
+        0,
+        958
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Material programming, conductance/resistance, weight readout and nonvolatility separate retained weights from neural state.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "conductance-weight",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p3",
+      "role": "use",
+      "span": [
+        0,
+        460
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The opening describes material conductance as a physical weight coefficient.",
+      "need": "required"
+    },
+    {
+      "concept_id": "conductance-weight",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p34",
+      "role": "use",
+      "span": [
+        0,
+        770
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Weight stability from low resistance drift depends on the prior conductance/weight relation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "conductance-weighted-computation",
+      "passage_id": "ch:HARDWARE-MEMORY/p58",
+      "role": "teach",
+      "span": [
+        0,
+        776
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Explicitly maps weight to G and input magnitude to read-pulse duration T, derives Q approximately GVT, explains summation/conversion and signed-value limits.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "conductance-weighted-computation",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p3",
+      "role": "use",
+      "span": [
+        0,
+        460
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The physical multiply choice and later PCM table assume both a stored weight and input encoding; chapter07 now supplies them explicitly.",
+      "need": "required"
+    },
+    {
+      "concept_id": "weight-state-readout-distinction",
+      "passage_id": "ch:HARDWARE-MEMORY/p9",
+      "role": "teach",
+      "span": [
+        0,
+        137
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Identifies weights as coupling settings that can remain fixed through the trial.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "weight-state-readout-distinction",
+      "passage_id": "ch:HARDWARE-MEMORY/p10",
+      "role": "teach",
+      "span": [
+        0,
+        157
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Identifies variables that change during a trial.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "weight-state-readout-distinction",
+      "passage_id": "ch:HARDWARE-MEMORY/p11",
+      "role": "teach",
+      "span": [
+        0,
+        134
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Identifies decoded remembered angle as a property of joint state, not a dedicated cell.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "weight-state-readout-distinction",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p32",
+      "role": "use",
+      "span": [
+        0,
+        545
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The adaptation result must not be mistaken for autonomous retained cue state.",
+      "need": "required"
+    },
+    {
+      "concept_id": "host-computer",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p5",
+      "role": "teach",
+      "span": [
+        417,
+        688
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Defines the separate computer by its experiment control and outside-chip calculation roles before table and Ortner use.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "host-computer",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p32",
+      "role": "use",
+      "span": [
+        0,
+        545
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Locates non-MVM work outside PCM hardware rather than implying a complete autonomous circuit.",
+      "need": "required"
+    },
+    {
+      "concept_id": "hardware-calibration",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p11",
+      "role": "teach",
+      "span": [
+        375,
+        576
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "States which settings are adjusted and that measured responses are brought closer to targets, before the table requires measuring remaining differences.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "onchip-learning",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p22",
+      "role": "teach",
+      "span": [
+        0,
+        174
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Defines chip circuitry computing and applying weight changes before platform examples.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "onchip-learning",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p22",
+      "role": "use",
+      "span": [
+        174,
+        605
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Platform examples and the training/host caveat use the completed same-paragraph definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "slow-retained-state",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p42",
+      "role": "teach",
+      "span": [
+        0,
+        189
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "States loss of early input and how slow summary state sends input back to fast units.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "slow-retained-state",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p50",
+      "role": "teach",
+      "span": [
+        0,
+        383
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Defines retained fraction/input conversion and states input-free alpha-power decay; the displayed recurrence was directly inspected.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "slow-retained-state",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p56",
+      "role": "use",
+      "span": [
+        0,
+        460
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The worked example converts already explained per-step retention into physical memory time.",
+      "need": "required"
+    },
+    {
+      "concept_id": "model-wall-time",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p20",
+      "role": "teach",
+      "span": [
+        153,
+        392
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Explains acceleration relative to biological model time and physical-time measurement/communication delays.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "model-wall-time",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p56",
+      "role": "use",
+      "span": [
+        0,
+        460
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The numerical example depends on separating physical execution spacing from model-time mapping.",
+      "need": "required"
+    },
+    {
+      "concept_id": "model-wall-time",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p60",
+      "role": "use",
+      "span": [
+        0,
+        352
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Communication delay is significant because state continues evolving in accelerated model time.",
+      "need": "required"
+    },
+    {
+      "concept_id": "retention-time-constant",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p56",
+      "role": "teach",
+      "span": [
+        0,
+        125
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The first sentence defines update spacing and derives the equivalent exponential time constant.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "retention-time-constant",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p56",
+      "role": "use",
+      "span": [
+        125,
+        460
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Numerical substitution and execution-speed comparison follow the completed formula explanation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "register-storage",
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p42",
+      "role": "teach",
+      "span": [
+        321,
+        451
+      ],
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Inline definition identifies registers as small fast digital storage at the sole substantive local use.",
+      "adequacy": "adequate"
+    }
+  ],
+  "teaching_sets": [
+    {
+      "concept_id": "capacitor-analog-state",
+      "passage_ids": [
+        "ch:HARDWARE-MEMORY/p31",
+        "ch:HARDWARE-MEMORY/p37"
+      ],
+      "adequacy": "adequate",
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Physical storage equation plus analog-state role, leakage and feedback teach the complete prerequisite."
+    },
+    {
+      "concept_id": "weight-state-readout-distinction",
+      "passage_ids": [
+        "ch:HARDWARE-MEMORY/p9",
+        "ch:HARDWARE-MEMORY/p10",
+        "ch:HARDWARE-MEMORY/p11"
+      ],
+      "adequacy": "adequate",
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "The three adjacent explanations distinguish connection setting, changing state and decoded value."
+    },
+    {
+      "concept_id": "slow-retained-state",
+      "passage_ids": [
+        "ch:NEUROMORPHIC-SYSTEMS/p42",
+        "ch:NEUROMORPHIC-SYSTEMS/p50"
+      ],
+      "adequacy": "adequate",
+      "status": "reviewed",
+      "review": "local-request-/root/part3_review_systems-stage3",
+      "evidence": "Purpose and feedback role precede symbol meanings and input-free recurrence; together sufficient for the worked timing example."
+    }
+  ],
+  "review_metadata": {
+    "review": "local-request-/root/part3_review_systems-stage3",
+    "written_utc": "2026-10-30T14:39:01.309800+00:00",
+    "index_sha256": "001dc27e702de9d78a704c8b6a6d7643a5872be531ff6f8ba900b50c6e1e95be",
+    "source_sha256": {
+      "content/chapters/07-hardware-memory.md": "617d144a2cfdf589d6d5a80a943833aed6319b7717fc2826d9fb58d2e1a677f3",
+      "content/chapters/07-hardware-memory.yaml": "29017969fe10afd3d39380c94e49d9236d08260615dc11f0b2a185102f85d5eb",
+      "content/chapters/08-hardware-dynamics.md": "ff04509fa1f058c6769d5976be91556995a1be1c7327a08dac494b8880175387",
+      "content/chapters/08-hardware-dynamics.yaml": "b2a0c4f3ccc01c2c7f59f941cb785672851f07161fe320d8181088c10e15e359",
+      "content/chapters/09-neuromorphic-systems.md": "716cfbe2fb221b0830870a8d627924276f02c04fca61bc538c3240ac6f7b8019",
+      "content/chapters/09-neuromorphic-systems.yaml": "22da01facca5e643f446d0b7d9315f5a993bb01f4d67beff0445d28e27e2b619",
+      "content/chapters/10-hardware-tests.md": "05e61819726242b2aae3370aa93247cccce117e95b7ff0232d7f51efb6e9f65f",
+      "content/chapters/10-hardware-tests.yaml": "f79bacb741d5ff59631f051ca63f7ff0bb863e9199e1a2a323b2d814aa82b77b"
+    },
+    "scope_limit": "Chapter09 opening plus three sections, with specific required earlier teaching; not whole-book concept acceptance.",
+    "initial_index_sha256": "d95832fe3116e14bfc61ae2ab68f2ff2027cbe11f93c5a8e410988fbc60fe122",
+    "index_file": "verification\\part3-neuromorphic-20261030\\concept-index-final.json",
+    "final_binding_utc": "2026-10-30T14:44:13.774148+00:00",
+    "format_only_reuse": "Final packet includes blank-line-only footnote spacing. All29 reviewed relation spans match the initially read packet exactly; final source hashes independently match current files."
+  },
+  "supplemental_direct_objects": [
+    {
+      "kind": "architecture table",
+      "path": "content\\chapters\\09-neuromorphic-systems.md",
+      "lines": [
+        13,
+        18
+      ],
+      "sha256": "f4fa27318b2adda34ec99813c7e0f34d370ae444fa2e96df2ab60aef82923723",
+      "required_concepts": [
+        "digital-word-state",
+        "capacitor-analog-state",
+        "conductance-weight",
+        "conductance-weighted-computation",
+        "host-computer",
+        "hardware-calibration"
+      ],
+      "judgment": "Directly read. Chapter07 supplies the digital word, capacitor state, conductance weight and GVT input mapping. Chapter09 opening defines host; architecture introduction defines calibration before the table. The index omits table passages, so no table ID was invented."
+    },
+    {
+      "kind": "displayed recurrence",
+      "path": "content\\chapters\\09-neuromorphic-systems.md",
+      "lines": [
+        47,
+        47
+      ],
+      "sha256": "a1d1f909d87a08bb78b80b3cfeba2f90eda51dfbda368034ece59f0e94bd3db5",
+      "judgment": "Read with preceding z/m introduction and following k/alpha/beta meanings. The display itself is absent from the passage packet."
+    }
+  ],
+  "index_limit": "The current packet omits table/display/footnote bodies and includes comment-only passages. Direct stage3 review covers these, but the checker alone cannot approve them."
+}

@@ -1,0 +1,740 @@
+{
+  "files": [
+    {
+      "file": "04-eye-drift.md",
+      "sha256": "a33a3a7fc25b234ae32b961f2404cae223c6120c7cd8aa04e3eb85394388777b",
+      "selections": [
+        {
+          "kind": "definition",
+          "text": "Between brief, rapid movements called [**microsaccades**]{.definition-term custom-style=\"Definition Term\"}, the eye makes a small, smooth, irregular movement called fixational drift.",
+          "section": "ch:EYE-DRIFT",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "Does this movement begin as noise in the muscles, or does the brain send a changing command to them?",
+          "section": "ch:EYE-DRIFT",
+          "reason": "Central source question."
+        },
+        {
+          "kind": "definition",
+          "text": "The [**oculomotor integrator**]{.definition-term custom-style=\"Definition Term\"} is the neural circuit that performs this storage. “Integrator” refers to turning a movement command into a lasting position signal.",
+          "section": "sec:EYE-PATHWAY",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "The signal reaches [**ocular motoneurons (OMNs)**]{.definition-term custom-style=\"Definition Term\"}, neurons whose spikes activate the eye muscles.",
+          "section": "sec:EYE-PATHWAY",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "The recordings came from the [**abducens nucleus**]{.definition-term custom-style=\"Definition Term\"}, a group of brainstem neurons that includes OMNs activating the lateral rectus muscle, which turns the eye outward.",
+          "section": "sec:EYE-PATHWAY",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "Finally, the muscles and the mechanical properties of the eye, together called the [**ocular plant**]{.definition-term custom-style=\"Definition Term\"}, turn neural activity into movement.",
+          "section": "sec:EYE-PATHWAY",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "Private spike fluctuations can partly cancel when many neurons act together. A common command survives this averaging.",
+          "section": "sec:EYE-PATHWAY",
+          "reason": "Explains why shared and private contributions differ."
+        },
+        {
+          "kind": "key",
+          "text": "Each recording paired one OMN with eye movement; there were no simultaneous recordings of multiple OMNs. Thus the analysis cannot directly measure the covariance between two recorded motor neurons.",
+          "section": "sec:EYE-RECORDINGS",
+          "reason": "Measurement limit needed for the upstream inference."
+        },
+        {
+          "kind": "definition",
+          "text": "[**Gain**]{.definition-term custom-style=\"Definition Term\"} is the scale that converts a change in one signal into a change in the other.",
+          "section": "sec:EYE-RECORDINGS",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "Its [**p value**]{.definition-term custom-style=\"Definition Term\"} is the probability, under that reference, of a test statistic at least as large as observed.",
+          "section": "sec:EYE-FORWARD-FIT",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "The paper reverses the fitted relationship: a cell's spike train becomes the input, and its prediction of eye position becomes the output. This operation is an inverse of the movement-to-rate fit, rather than a new fit to small drift residuals.",
+          "section": "sec:EYE-INVERSE-FILTER",
+          "reason": "Central role and limit of the inverse calibration."
+        },
+        {
+          "kind": "definition",
+          "text": "A [**causal filter**]{.definition-term custom-style=\"Definition Term\"} computes its present output from present and past input. For the equation above, its [**impulse response**]{.definition-term custom-style=\"Definition Term\"} $h_0(u)$ is the position response to one instantaneous spike at time zero.",
+          "section": "sec:EYE-INVERSE-FILTER",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "The [**convolution**]{.definition-term custom-style=\"Definition Term\"} integral adds the responses to all past spikes.",
+          "section": "sec:EYE-INVERSE-FILTER",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "where the error is the [**standard error of the mean (SEM)**]{.definition-term custom-style=\"Definition Term\"}. SEM estimates uncertainty in the across-cell mean, rather than the spread of individual cells or uncertainty across animals.",
+          "section": "sec:EYE-INVERSE-FILTER",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "This is the [**coefficient of determination**]{.definition-term custom-style=\"Definition Term\"} for a linear prediction with a fitted gain.",
+          "section": "sec:EYE-SHARED-VARIANCE",
+          "reason": "Names the preceding displayed explained-variance formula; the display remains outside blue."
+        },
+        {
+          "kind": "key",
+          "text": "Thus the estimated mean correlation implies an average explained fraction of at least about 2.9%. For 1,000 independently contributing motor neurons, the bound would be 0.1%; for several thousand it is smaller. The mismatch argues against independent OMN noise as the sole source.",
+          "section": "sec:EYE-SHARED-VARIANCE",
+          "reason": "Main rejection of independent motor noise, with population comparison."
+        },
+        {
+          "kind": "key",
+          "text": "Large private noise in a cell inflates $\\operatorname{Var}(X)$ and makes $R$ small. It need not make the common contribution to the real movement small, because many independent private contributions average down there.",
+          "section": "sec:EYE-CHI",
+          "reason": "Main reason small correlation can coexist with large shared drive."
+        },
+        {
+          "kind": "key",
+          "text": "The reported result was $0.82\\pm0.07$, a weighted mean and weighted error for horizontal displacement over 350 ms. It is neither a fraction of distance traveled nor the fraction that one neuron's spikes accurately predict.",
+          "section": "sec:EYE-CHI",
+          "reason": "Principal estimate with interval, weighting, and interpretation limits."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "microsaccades",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "oculomotor integrator",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "ocular motoneurons (OMNs)",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "abducens nucleus",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "ocular plant",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Gain",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "p value",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "causal filter",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "impulse response",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "convolution",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "standard error of the mean (SEM)",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "coefficient of determination",
+          "status": "term-only",
+          "reason": "Defining clause selected, but mathematical meaning continues in an adjacent display or list that cannot share this paragraph span."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.727479+00:00"
+    },
+    {
+      "file": "04b-eye-timing.md",
+      "sha256": "bdfbec009be758d492904f440d03cd1e9517586bbbcda7a07c69a54845abab7f",
+      "selections": [
+        {
+          "kind": "key",
+          "text": "It leaves open whether the command merely fluctuates around a stable value or keeps accumulating changes. Comparing displacements over different time separations can distinguish these possibilities, but the smallest measured displacements may include a large contribution from recording error.",
+          "section": "ch:EYE-TIMING",
+          "reason": "Motivates comparing time intervals while retaining measurement limit."
+        },
+        {
+          "kind": "key",
+          "text": "This is a correction of an average statistic, not knowledge of each trial's unknown noise.",
+          "section": "sec:EYE-MEASUREMENT-NOISE",
+          "reason": "Key distinction between statistic correction and trajectory recovery."
+        },
+        {
+          "kind": "definition",
+          "text": "Growth faster than linear is called [**superdiffusion**]{.definition-term custom-style=\"Definition Term\"}. Here it describes a finite range of lags; it does not assert a single power law for arbitrarily long times.",
+          "section": "sec:EYE-FILTERED-MSD",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "A [**low pass filter**]{.definition-term custom-style=\"Definition Term\"} suppresses rapid input changes relative to slow ones.",
+          "section": "sec:EYE-FILTERED-MSD",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "[**White noise**]{.definition-term custom-style=\"Definition Term\"} here is an ideal zero mean input whose fluctuations at different times are uncorrelated. In continuous time its strength is defined by an intensity multiplying a delta function, rather than a finite variance at an individual time.",
+          "section": "sec:EYE-FILTERED-MSD",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "A stable, decaying response to this noise produces a [**stationary process**]{.definition-term custom-style=\"Definition Term\"} in the sense needed here: its mean is constant and its covariance depends only on time separation.",
+          "section": "sec:EYE-FILTERED-MSD",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "Thus an intermediate slope can arise from filtering ordinary diffusion, without faster than Brownian accumulation inside the memory circuit.",
+          "section": "sec:EYE-FILTERED-MSD",
+          "reason": "Core filtering explanation."
+        },
+        {
+          "kind": "key",
+          "text": "a decaying low pass filter of stationary white noise saturates, whereas the same filter, with nonzero static gain, retains accumulating displacement from a wandering position. A slow correlated peripheral source is a different hypothesis from the temporally uncorrelated noise rejected by this comparison.",
+          "section": "sec:EYE-FILTERED-MSD",
+          "reason": "Main timing conclusion and remaining peripheral alternative."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "superdiffusion",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "low pass filter",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "White noise",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "stationary process",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.727959+00:00"
+    },
+    {
+      "file": "04c-eye-circuit.md",
+      "sha256": "75ae2098d255171990f67776a65676f7948d4e75b6d0d1f2ac044a208622874b",
+      "selections": [
+        {
+          "kind": "key",
+          "text": "Neither result identifies the circuit that supplies that command. A noisy memory circuit is a proposed explanation whose output must pass through the motor neurons and muscles before it can be compared with eye movement.",
+          "section": "ch:EYE-CIRCUIT",
+          "reason": "Keeps the circuit explanation separate from localization evidence."
+        },
+        {
+          "kind": "key",
+          "text": "An exact continuum of persistent readout values would require $G(z)=z$ over the represented range.",
+          "section": "sec:EYE-CIRCUIT-MODEL",
+          "reason": "Key persistence condition before local stability calculation."
+        },
+        {
+          "kind": "key",
+          "text": "Residual mismatch can produce deterministic drift, so this finite optimized circuit provides approximate persistence rather than an exactly neutral continuum.",
+          "section": "sec:EYE-CIRCUIT-MODEL",
+          "reason": "Limit on persistence in the constructed circuit."
+        },
+        {
+          "kind": "key",
+          "text": "Muscle filtering supplies the short-lag smoothness, and feedback improves the detailed longer-lag fit. These are results of this model comparison, not a hard delay-based cutoff or a claim excluding visual control under other tasks.",
+          "section": "sec:EYE-CIRCUIT-MODEL",
+          "reason": "Central model outcome with model-comparison and feedback limits."
+        },
+        {
+          "kind": "definition",
+          "text": "Such firing is called [**sub-Poisson spiking**]{.definition-term custom-style=\"Definition Term\"} here because its long window count variability is lower than a Poisson process at the same rate, under the interval construction used in the model.",
+          "section": "sec:EYE-SCALING",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "This is a [**renewal process**]{.definition-term custom-style=\"Definition Term\"}, a spike process whose successive intervals are independent and identically distributed.",
+          "section": "sec:EYE-SCALING",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "Increasing rate reduces diffusion when the fractional slope is fixed, because more spikes then also supply a proportionally steeper absolute slope. Increasing rate at fixed absolute slope is a different comparison and increases the scale in the first formula. A rate change alone does not specify which comparison is intended.",
+          "section": "sec:EYE-SCALING",
+          "reason": "Local conclusion explaining the rate versus sensitivity choice."
+        },
+        {
+          "kind": "key",
+          "text": "Noisy inputs to the integrator, or an already diffusive upstream signal, remain possible. The authors make this distinction in the Discussion and explicitly in their peer review response. Several combinations of neuron count, variability, and synaptic time constant can also fit an amplitude, so matching one curve does not uniquely recover those parameters.",
+          "section": "sec:EYE-LIMITS",
+          "reason": "Main localization and parameter-identification limits."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "sub-Poisson spiking",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "renewal process",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.728353+00:00"
+    },
+    {
+      "file": "05-place-fields.md",
+      "sha256": "9fe61648cf5c795cc6d5b052c14029e95de8aa635475f9a426765b91f1f2b9d2",
+      "selections": [
+        {
+          "kind": "key",
+          "text": "On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?",
+          "section": "ch:PLACE-FIELDS",
+          "reason": "Central diversity problem motivating the spatial model."
+        },
+        {
+          "kind": "key",
+          "text": "The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests ask whether fitting field sizes and counts also explains field shapes and holes.",
+          "section": "ch:PLACE-FIELDS",
+          "reason": "Main prediction target, contrasted with field locations."
+        },
+        {
+          "kind": "definition",
+          "text": "an [**upcrossing**]{.definition-term custom-style=\"Definition Term\"}, a point where the input crosses upward through the threshold.",
+          "section": "ch:PLACE-FIELDS",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning.",
+          "section": "ch:PLACE-FIELDS",
+          "reason": "Scope of spatial randomness needed throughout these chapters."
+        },
+        {
+          "kind": "definition",
+          "text": "A [**Gaussian process**]{.definition-term custom-style=\"Definition Term\"} is a probability distribution over functions such that the values at any finite set of positions form a jointly Gaussian random vector.",
+          "section": "sec:PLACE-GP",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "A [**jointly Gaussian vector**]{.definition-term custom-style=\"Definition Term\"} is one for which every linear combination of its entries is Gaussian.",
+          "section": "sec:PLACE-GP",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "[**Stationarity**]{.definition-term custom-style=\"Definition Term\"} means that moving the observation window does not change the map's probability law. Here it gives a constant mean and a covariance $C(x,y)=C(y-x)$ that depends on separation.",
+          "section": "sec:PLACE-GP",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "[**Isotropy**]{.definition-term custom-style=\"Definition Term\"} means that rotating the separation does not change the covariance: in several dimensions, $C(\\Delta x)$ depends only on $\\|\\Delta x\\|$.",
+          "section": "sec:PLACE-GP",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "[**Smoothness**]{.definition-term custom-style=\"Definition Term\"} controls whether the map has well defined spatial derivatives.",
+          "section": "sec:PLACE-GP",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "The [**excursion set**]{.definition-term custom-style=\"Definition Term\"} above $q$ is",
+          "section": "sec:PLACE-GP",
+          "reason": "Definition continues in the following display; blue covers its introducing clause only."
+        },
+        {
+          "kind": "key",
+          "text": "Two nearby peaks belong to one field if an above-threshold path joins them. Counting peaks and counting fields therefore answer different questions.",
+          "section": "sec:PLACE-GP",
+          "reason": "Distinguishes peaks from connected fields."
+        },
+        {
+          "kind": "definition",
+          "text": "Under the usual regularity conditions, averaging this counting identity gives the [**Kac–Rice formula**]{.definition-term custom-style=\"Definition Term\"} for the mean upcrossing density,",
+          "section": "sec:PLACE-KAC-RICE",
+          "reason": "Definition is completed by the following crossing-density display."
+        },
+        {
+          "kind": "key",
+          "text": "This result is exact for the stated smooth stationary Gaussian model. A high threshold is not needed.",
+          "section": "sec:PLACE-KAC-RICE",
+          "reason": "Key exactness condition distinguishing crossings from later asymptotic size laws."
+        },
+        {
+          "kind": "key",
+          "text": "A low field count can result from a high threshold or a slowly varying map. Field lengths help separate those possibilities.",
+          "section": "sec:PLACE-INFERENCE",
+          "reason": "Local inference problem motivating lengths and gaps."
+        },
+        {
+          "kind": "key",
+          "text": "The means do not imply a full gap or count distribution. At high thresholds, distant rare excursions can approach independent events if correlations decay sufficiently with distance. In that regime, field locations approach a Poisson process, counts in a long interval are approximately Poisson, and gaps are approximately exponential. Smoothness and stationarity alone do not ensure this independence.",
+          "section": "sec:PLACE-INFERENCE",
+          "reason": "Conditions needed before stronger count and gap claims."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "upcrossing",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Gaussian process",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "jointly Gaussian vector",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Stationarity",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Isotropy",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Smoothness",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "excursion set",
+          "status": "term-only",
+          "reason": "Defining clause selected, but mathematical meaning continues in an adjacent display or list that cannot share this paragraph span."
+        },
+        {
+          "term": "Kac–Rice formula",
+          "status": "term-only",
+          "reason": "Defining clause selected, but mathematical meaning continues in an adjacent display or list that cannot share this paragraph span."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.728819+00:00"
+    },
+    {
+      "file": "05b-place-sizes.md",
+      "sha256": "22cfcf168c65e15570f97e530918178df51fa3ed1ec9bb1dff91e7db6ebc3b03",
+      "selections": [
+        {
+          "kind": "key",
+          "text": "Knowing the average field length does not tell us how often very small or very large fields occur. Why should the same spatial model give one size distribution on a track, another in an arena, and a third in a room?",
+          "section": "ch:PLACE-SIZES",
+          "reason": "Central distribution problem beyond the mean."
+        },
+        {
+          "kind": "key",
+          "text": "The size laws use a high threshold approximation; the boundary-slope law has a separate exact derivation under the smooth stationary Gaussian assumptions.",
+          "section": "ch:PLACE-SIZES",
+          "reason": "Separates approximate size law from exact boundary result."
+        },
+        {
+          "kind": "definition",
+          "text": "The [**Hessian**]{.definition-term custom-style=\"Definition Term\"} is the matrix $H$ of second spatial derivatives; its eigenvalues describe curvature along the principal directions.",
+          "section": "sec:PLACE-RARE-PEAKS",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "Thus the scaled excess height approaches an exponential variable of mean one.",
+          "section": "sec:PLACE-RARE-PEAKS",
+          "reason": "Core limiting input to the size-law change of variables."
+        },
+        {
+          "kind": "definition",
+          "text": "The length is a scaled square root of an exponential variable, giving a [**Rayleigh distribution**]{.definition-term custom-style=\"Definition Term\"}.",
+          "section": "sec:PLACE-RARE-PEAKS",
+          "reason": "Defines Rayleigh through the existing square-root construction; later displayed laws supply its density."
+        },
+        {
+          "kind": "definition",
+          "text": "The symbol $\\Gamma$ is the [**gamma function**]{.definition-term custom-style=\"Definition Term\"}, defined for $t>0$ by $\\Gamma(t)=\\int_0^\\infty u^{t-1}e^{-u}\\,du$. It extends factorials: $\\Gamma(n+1)=n!$.",
+          "section": "sec:PLACE-SIZE-LAW",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "A [**Weibull distribution**]{.definition-term custom-style=\"Definition Term\"} has survival probability $\\exp[-(s/b)^k]$ for size $s>0$, scale $b>0$, and shape $k>0$.",
+          "section": "sec:PLACE-SIZE-LAW",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "This is why the paper compares data to finite threshold simulations as well as to limiting curves.",
+          "section": "sec:PLACE-SIZE-LAW",
+          "reason": "Practical conclusion from finite-threshold approximation error."
+        },
+        {
+          "kind": "key",
+          "text": "The dashed analytical curves change with the dimension of the measurement, even within one recorded map. The alternative spherical-field model in Figure S2 matches empirical volumes and peak rates by construction but fails these slice distributions and the topology test. Matching volumes alone is therefore insufficient.",
+          "section": "sec:PLACE-SLICES",
+          "reason": "Additional spatial tests beyond fitted volume."
+        },
+        {
+          "kind": "key",
+          "text": "This Rayleigh law is therefore independent of $q$ under the smooth stationary Gaussian model, without a high threshold approximation.",
+          "section": "sec:PLACE-SLOPES",
+          "reason": "Local exact conclusion with model assumptions."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "Hessian",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Rayleigh distribution",
+          "status": "covered",
+          "reason": "Defines Rayleigh through the existing square-root construction; later displayed laws supply its density."
+        },
+        {
+          "term": "gamma function",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Weibull distribution",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.729232+00:00"
+    },
+    {
+      "file": "05c-place-tests.md",
+      "sha256": "f8b0fce794965f1b99fa90fc183becc131b8dd46f25e6876a369c2bf5c431b23",
+      "selections": [
+        {
+          "kind": "key",
+          "text": "Two maps can have the same field sizes and counts while arranging their active regions differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial model account for these differences, and how much would that agreement tell us about the circuit that produced the maps?",
+          "section": "ch:PLACE-TESTS",
+          "reason": "Central geometry and mechanism questions."
+        },
+        {
+          "kind": "definition",
+          "text": "The [**Euler characteristic**]{.definition-term custom-style=\"Definition Term\"}, written $\\chi$, combines these counts differently in each dimension:",
+          "section": "sec:PLACE-TOPOLOGY",
+          "reason": "Definition is distributed across the following dimensional list; only the lead is selected."
+        },
+        {
+          "kind": "definition",
+          "text": "These counts are the first three [**Betti numbers**]{.definition-term custom-style=\"Definition Term\"}: numbers of independent components, loops, and cavities, respectively.",
+          "section": "sec:PLACE-TOPOLOGY",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "for a smooth function on a compact domain whose [**critical point**]{.definition-term custom-style=\"Definition Term\"}s have zero gradient and invertible Hessians, the Euler characteristic of a level set region can be computed as a signed count of critical points, including boundary contributions. This is the relevant conclusion of [**Morse theory**]{.definition-term custom-style=\"Definition Term\"}.",
+          "section": "sec:PLACE-TOPOLOGY",
+          "reason": "Covers both critical-point conditions and the stated conclusion of Morse theory."
+        },
+        {
+          "kind": "key",
+          "text": "The exact EC formula and this approximate component count have different ranges of validity.",
+          "section": "sec:PLACE-TOPOLOGY",
+          "reason": "Separates exact topology from approximate field counting."
+        },
+        {
+          "kind": "definition",
+          "text": "then [**skew**]{.definition-term custom-style=\"Definition Term\"} is $m_3/m_2^{3/2}$ and [**excess kurtosis**]{.definition-term custom-style=\"Definition Term\"} is $m_4/m_2^2-3$. A [**lognormal distribution**]{.definition-term custom-style=\"Definition Term\"} of sizes makes $Y$ Gaussian and both population quantities zero.",
+          "section": "sec:PLACE-DATA",
+          "reason": "One connected clause defines skew, excess kurtosis, and lognormality."
+        },
+        {
+          "kind": "key",
+          "text": "These are in-sample model comparisons. They are not reported held-out forecasts.",
+          "section": "sec:PLACE-DATA",
+          "reason": "Limit of model comparison evidence."
+        },
+        {
+          "kind": "key",
+          "text": "These decisions can remove small components, alter peaks, and change tails. They belong to the definition of the analyzed fields.",
+          "section": "sec:PLACE-DATA",
+          "reason": "Processing choices alter the objects being tested."
+        },
+        {
+          "kind": "definition",
+          "text": "Locally, [**mean curvature**]{.definition-term custom-style=\"Definition Term\"} averages bending in two principal directions and [**Gaussian curvature**]{.definition-term custom-style=\"Definition Term\"} multiplies them: a spherical patch bends the same way in both directions, while a saddle bends in opposite directions.",
+          "section": "sec:PLACE-DATA",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "At a finite list of positions this is a sum of independent random vectors, one per input cell. Under a multivariate central limit condition, with a suitable normalization and no single input dominating, the sum approaches a Gaussian vector as the number of contributing inputs grows. Applying this at every finite list supplies the Gaussian-process description. The theorem needs many contributing inputs at the positions in question; a large anatomical input count alone does not show that this condition holds.",
+          "section": "sec:PLACE-WIRING",
+          "reason": "Gaussian mechanism with its needed central-limit conditions."
+        },
+        {
+          "kind": "key",
+          "text": "The result to carry into the synthesis is therefore specific: thresholding a smooth spatial Gaussian field links field arrangement, shape, and topology through a small set of parameters and gives several successful cross-checks. Turning that statistical agreement into a claim about circuit mechanism requires additional measurements or perturbations.",
+          "section": "sec:PLACE-WIRING",
+          "reason": "Main successful spatial conclusion with mechanism limit."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "Euler characteristic",
+          "status": "term-only",
+          "reason": "Defining clause selected, but mathematical meaning continues in an adjacent display or list that cannot share this paragraph span."
+        },
+        {
+          "term": "Betti numbers",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "critical point",
+          "status": "covered",
+          "reason": "Covers both critical-point conditions and the stated conclusion of Morse theory."
+        },
+        {
+          "term": "Morse theory",
+          "status": "covered",
+          "reason": "Covers both critical-point conditions and the stated conclusion of Morse theory."
+        },
+        {
+          "term": "skew",
+          "status": "covered",
+          "reason": "One connected clause defines skew, excess kurtosis, and lognormality."
+        },
+        {
+          "term": "excess kurtosis",
+          "status": "covered",
+          "reason": "One connected clause defines skew, excess kurtosis, and lognormality."
+        },
+        {
+          "term": "lognormal distribution",
+          "status": "covered",
+          "reason": "One connected clause defines skew, excess kurtosis, and lognormality."
+        },
+        {
+          "term": "mean curvature",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "Gaussian curvature",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.729630+00:00"
+    },
+    {
+      "file": "06-synthesis.md",
+      "sha256": "d5db21f66cb38ea9808e21ae37e89e26f04e7427931192e8108519e3ca58192c",
+      "selections": [
+        {
+          "kind": "key",
+          "text": "A model can explain the shape of a neural code without explaining how that code is maintained. It can also explain fluctuations inside a circuit without uniquely locating the source of a measured behavior. Comparing the three papers requires keeping each claim with the mathematical or experimental test that supports it.",
+          "section": "ch:SYNTHESIS",
+          "reason": "Central synthesis distinction across claims and tests."
+        },
+        {
+          "kind": "key",
+          "text": "Here $f_i$ describes spatial tuning and $x(t)$ describes dynamics. A source of time variation has entered even though $f_i$ is fixed. Actual spike counts add another layer of variability around the expected rate.",
+          "section": "sec:SYNTHESIS-JOINT-CALCULATION",
+          "reason": "Distinguishes fixed map from changing represented position."
+        },
+        {
+          "kind": "key",
+          "text": "The negative covariance here comes from opposite tuning slopes under a common position change. It does not establish an inhibitory connection between the cells.",
+          "section": "sec:SYNTHESIS-COVARIANCE-EXAMPLE",
+          "reason": "Interpretation of opposite tuning responses, retaining inference limit."
+        },
+        {
+          "kind": "key",
+          "text": "Irregular single-cell responses can therefore coexist with population changes along just one direction. To test whether a shared position error causes that pattern, one must measure how the rate changes align with the tuning curves. Field shapes alone do not supply that evidence.",
+          "section": "sec:SYNTHESIS-COVARIANCE-EXAMPLE",
+          "reason": "Core population consequence and required measurement."
+        },
+        {
+          "kind": "definition",
+          "text": "[**path integration**]{.definition-term custom-style=\"Definition Term\"}, updating a position estimate from movement.",
+          "section": "sec:SYNTHESIS-RELATED",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "definition",
+          "text": "[**dendrite**]{.definition-term custom-style=\"Definition Term\"}s, the branching input structures of neurons,",
+          "section": "sec:SYNTHESIS-RELATED",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "kind": "key",
+          "text": "A joint test needs tuning maps and fluctuations from the same population.",
+          "section": "sec:SYNTHESIS-NEXT",
+          "reason": "Central joint experiment requirement."
+        },
+        {
+          "kind": "key",
+          "text": "A static Gaussian-process fit alone cannot supply the diffusion coefficient. A diffusion fit alone cannot establish the distribution of fields.",
+          "section": "sec:SYNTHESIS-NEXT",
+          "reason": "Main boundary between spatial and dynamical evidence."
+        }
+      ],
+      "definitionCoverage": [
+        {
+          "term": "path integration",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        },
+        {
+          "term": "dendrite",
+          "status": "covered",
+          "reason": "Includes the term and its defining meaning."
+        }
+      ],
+      "checkedAt": "2026-10-28T15:33:52.729922+00:00"
+    }
+  ]
+}

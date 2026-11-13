@@ -1,0 +1,183 @@
+                                                                                                 9
+
+
+are excitatory: φ(x) = x/τ , and
+                                                                
+                                                           0 1
+                                              W =               .                          (S38)
+                                                           1 0
+
+To produce a continuous set of attractors, we provide positive bias to one of the neurons and
+opposite negative bias to the other neuron: b = (b0 , −b0 ). The attractor states of the noise-free
+dynamics are then
+                                                              
+                                                 θ + 21 b0
+                                                                 .                         (S39)
+                                                   θ − 21 b0
+
+   In a Poisson-spiking network, the instantaneous attractor state θ undergoes random diffusion
+as described by Eq. (S33), where
+
+                                                             θ
+                                                D(θ) =         .                             (S40)
+                                                            2τ
+
+Note that in contrast to the case of mutual inhibition, D depends on θ. However, the dependence
+of D on θ is linear. Therefore only the first term in Eq. (S37) survives, and the dependence of
+Var(θ) on t is linear even for large t:
+                                          D              E  Θ
+                                              [θ(t) − Θ]2 =    t                             (S41)
+                                                            2τ
+
+In other words, the variance increases linearly with a slope determined by the diffusivity at the
+initial state Θ. Fig. S1 demonstrates this result in a numerical simulation.
+
+
+                          IV.    INTERNAL FISHER INFORMATION
+
+
+   The internal Fisher information (FI) rate J is defined as the Fisher information [6] carried by
+spikes in a short interval δt about the instantaneous attractor state θ, divided by δt. Using the
+standard definition of FI,
+
+                                                   ∂2
+                                                                         
+                                    Jδt = −            log p ({ni } |θ)       ,              (S42)
+                                                   ∂θ2
+
+where ni is the number of spikes produced by neuron i in the interval δt. To leading order in
+1/N , the neurons fire as Poisson processes with rates determined by the attractor state θ in the
+noise-free (N → ∞) limit,
+                                                  Y [r̄i (θ)δt]ni e−r̄i (θ)δt
+                                 p ({ni } |θ) =                                   .          (S43)
+                                                                   ni !
+                                                   i
+                                                                                                                           10
+
+
+           A                                                        B
+               120                                                            2500
+
+
+               100                                                            2000
+
+
+
+
+                                                                     Var(θ)
+                80                                                            1500
+           θ
+
+
+                60                                                            1000
+
+
+                40                                                             500
+
+
+                20                                                               0
+                  0     1000     2000       3000   4000   5000                    0   1000   2000   3000   4000   5000
+                                   Δt [ms]                                                     Δt [ms]
+
+
+FIG. S1. Simulation results from a 2-neuron network with mutual excitation and Poisson noise. In each
+trial we set the initial attractor state θ to Θ = 100. A An example for the dynamics of θ from one trial.
+B Variance of θ(∆t) across 4000 random trials (black trace), compared with the theoretical prediction (red
+trace). Deviations between the analytical curve and the numerics at large ∆t can be attributed to sampling
+effects from a simulation of finite duration.
+
+
+The rest of the derivation of Eq. (3) is identical to the derivation of FI for a population of neurons
+encoding a sensory variable [7, 8].
+   In the multi-dimensional case, activity of the N neurons encode the instantaneous state within
+                                                              →
+an M dimensional attractor parametrized by θ = (θ1 , θ2 , . . . , θM ). The Fisher information matrix
+is then
+                                                                                  h → i ∂ḡ ∂ḡ
+                                                                               02               i  i
+                                               2
+                                                                         N  φ     ḡi ( θ )
+                          →                   ∂                                            ∂θ ∂θ
+                                                                                        h → iα β .
+                                                                         X
+                      Jαβ ( θ ) = −                 log p {ni } |θ~    =                                                 (S44)
+                                            ∂θα ∂θβ                                 φ ḡi ( θ )
+                                                                         i=1
+
+
+
+                            V.     INFORMATION-DIFFUSION INEQUALITY
+
+
+   We next prove that the Fisher information sets a lower bound on the diffusivity of the attractor
+state. We start with the one-dimensional case, then consider the more general case of a mult-
+dimensional attractor. Using Eqs. (S15) and (3),
+
+                                     1 X 2 X u2j               1 X                    vi φi uj
+                           2DJ =      2
+                                             vi φi          = 2      (vi ui )(vj uj )
+                                    τ                    φj   τ                        ui vj φj
+                                         i           j            ij
+                                                                      
+                                    X                      1 xj     xi
+                                  =     (vi ui )(vj uj ) ·       +                                                       (S45)
+                                                           2 xi     xj
+                                        ij
+
+where we used the short-hand notation:
+
+                                                          φi = φ [ḡi (θ)]                                               (S46)
+                                                                                                      11
+
+
+and
+                                                       ui
+                                               xi =         ,                                      (S47)
+                                                      vi φi
+and in the last step in Eq. (S45) we symmetrized the expression inside the sum over i and j with
+respect to the two indices.
+   We note that if xi /xj is positive, (xi /xj + xj /xi )/2 ≥ 1. Furthermore, using the definition of
+xi [Eq. (S47)], and the non-negativity of φ, (vi ui )(vj uj ) is positive as well. On the other hand, if
+xi /xj is negative, (xi /xj + xj /xi )/2 ≤ −1 and (vi ui )(vj uj ) is negative. Thus, term by term,
+                                                           
+                                                  1 xj   xi
+                               (ui vi )(uj vj ) ·      +      ≥ (ui vi )(uj vj )                    (S48)
+                                                  2 xi   xj
+and we conclude that
+                                            1 X                    1
+                                   2DJ ≥     2
+                                                (ui vi )(uj vj ) = 2 .                             (S49)
+                                           τ                      τ
+                                               ij
+
+
+
+                                       Saturation of the inequality
+
+
+   A sufficient and necessary condition for Eq. (S49) to be an equality is that xi /xj must be equal
+to unity for all i and j for which ui and vi do not vanish. In other words, xi must be the same for
+all of these indices.
+   If the weight matrix is symmetric, we have an explicit expression for vi , Eq. (S16). In this case,
+                                                       φ0i
+                                                xi ∝       ,                                       (S50)
+                                                       φi
+where we use the short-hand notation: φ0i = φ0 [ḡi (θ)]. Therefore, φ0 /φ must be constant within the
+full range of conductances present in the stationary solution. Assuming that values of g present in
+all the attractor states span a continuous range of values, this condition is met if and only if the
+neural transfer function is exponential in this range:
+
+                                              φ(x) = φ0 ex .                                       (S51)
+
+Thus, the bound is saturated for any shape of the steady state attractor, if and only if the nonlin-
+earity is exponential.
+
+
+                              Generalization to multi-dimensional attractors
+
+
+   Intuitively, based on the Cramér-Rao inequality in the multi-dimensional case, we expect
+                                                      1 −1
+                                             2D ≥        J ,                                       (S52)
+                                                      τ2
+

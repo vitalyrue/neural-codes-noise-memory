@@ -1,0 +1,43 @@
+chapter_id: ch:HARDWARE-DYNAMICS
+part_id: part:HARDWARE
+title: Discrete restoration and continuous random wandering produce different memory errors
+purpose: 'A circuit can remain active for seconds even when its individual voltages decay in milliseconds.
+  The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity
+  does not by itself identify what is being preserved. This chapter first explains how feedback extends a time
+  scale, then distinguishes a restoring discrete memory from a freely changing continuous one. Measured silicon
+  circuits show why this distinction matters beyond a mathematical model.'
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:HARDWARE-MEMORY
+- ch:MEMORY-DYNAMICS
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:HARDWARE
+section_list:
+- id: sec:HARDWARE-DYNAMICS-FEEDBACK
+  title: Feedback can extend persistence beyond a component's decay time
+  summary: '**Physical mechanism.** An isolated capacitor loses a voltage difference when charge leaks through
+    a resistance. In a recurrent circuit, its output can cause an input current that replaces some of that
+    charge. The competition between loss and replacement sets the decay of the collective state. For a neural
+    population, the same competition occurs between decay of synaptic input and input supplied by recurrent
+    spikes.'
+  level: 2
+- id: sec:HARDWARE-DYNAMICS-ERRORS
+  title: A bit corrects small displacements. A continuous memory preserves some of them
+  summary: '**Physical mechanism.** In a two-state electronic memory, feedback pushes a slightly disturbed
+    state back toward the same stable state. A sufficiently large disturbance can switch it to the other state.
+    In an ideal continuous attractor, disturbances away from the family of memory states decay, but a displacement
+    along that family represents another valid value. The circuit has no restoring signal telling it which
+    earlier value to recover. Seung used this distinction to compare discrete electronic memory with graded
+    eye-position memory.[^dynamics-seung]'
+  level: 2
+- id: sec:HARDWARE-DYNAMICS-EVIDENCE
+  title: Silicon experiments distinguish discrete persistence from graded representation
+  summary: A physical demonstration lets us test whether feedback maintains the intended state despite unequal
+    devices and finite resolution. The following early experiments make different claims and should be read
+    separately.
+  level: 2
+blocks: []
+source_loci: []

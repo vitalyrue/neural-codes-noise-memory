@@ -1,0 +1,132 @@
+{
+  "old_parts_unchanged": true,
+  "new_part": {
+    "id": "part:HARDWARE",
+    "title": "Neural memory in electronic hardware",
+    "purpose": "Electronic circuits can store connection settings, changing neuron states, and values represented by a network. Part III starts with von Neumann's comparison of neural and electronic memory, then asks how these forms of storage differ physically. Chapters 14–15 explain storage and feedback; Chapter 16 examines selected neuromorphic results through 30 October 2026; Chapter 17 develops experiments that separate device errors from the loss of a remembered value.",
+    "guide_locus": "part:HARDWARE",
+    "source_loci": [],
+    "chapters": [
+      {
+        "id": "ch:HARDWARE-MEMORY",
+        "title": "A stored weight and a remembered value are different states",
+        "purpose": "A silicon circuit can keep a connection strength unchanged while losing the angle it was asked to remember. It can also keep that angle while its individual electrical signals change. To compare electronic memory with the neural memory in Part I, we first need to identify which physical quantity carries which information. This chapter separates the connection settings, the changing state of each artificial neuron, and the value represented by their joint activity. That separation will let us ask what feedback actually preserves.",
+        "guide_locus": "ch:HARDWARE-MEMORY",
+        "source_loci": [],
+        "sections": [
+          {
+            "id": "sec:HARDWARE-MEMORY-ROLES",
+            "title": "A connection setting shapes activity; the activity can represent a cue",
+            "summary": "Imagine giving a circuit a brief cue for an angle of $30^\\circ$. After the cue ends, a connected group of artificial neurons remains active. We estimate the remembered angle from which neurons are active and how strongly. Three different objects enter this experiment:",
+            "guide_locus": "sec:HARDWARE-MEMORY-ROLES",
+            "level": 2
+          },
+          {
+            "id": "sec:HARDWARE-MEMORY-STORAGE",
+            "title": "Bits, capacitor voltages, and material conductances store different physical states",
+            "summary": "The neural model still needs a physical implementation. If the model has a variable called membrane voltage, a chip may store it as a binary number or as an actual circuit voltage. Those choices expose the computation to different errors.",
+            "guide_locus": "sec:HARDWARE-MEMORY-STORAGE",
+            "level": 2
+          },
+          {
+            "id": "sec:HARDWARE-MEMORY-UPDATES",
+            "title": "The stored state matters through the update it produces",
+            "summary": "To understand a machine's memory, follow one input through it. On a digital spiking processor, an arriving event identifies connections, their weights contribute to inputs, and a program updates stored neuron variables. Those variables determine whether to send further events. Loihi 2 provides local digital state and weight memory with programmable neuron and learning rules. SpiNNaker2 uses many processor cores whose software updates neural states stored with weights in local SRAM. Their event communication does not make every model variable evolve continuously in physical time.[^hardware-intel][^hardware-spinnaker]",
+            "guide_locus": "sec:HARDWARE-MEMORY-UPDATES",
+            "level": 2
+          }
+        ]
+      },
+      {
+        "id": "ch:HARDWARE-DYNAMICS",
+        "title": "Discrete restoration and continuous drift produce different memory errors",
+        "purpose": "A circuit can remain active for seconds even when its individual voltages decay in milliseconds. The explanation is feedback: activity supplies new input before old input disappears. But long-lived activity does not by itself identify what is being preserved. This chapter first explains how feedback extends a time scale, then distinguishes a restoring discrete memory from a freely changing continuous one. Measured silicon circuits show why this distinction matters beyond a mathematical model.",
+        "guide_locus": "ch:HARDWARE-DYNAMICS",
+        "source_loci": [],
+        "sections": [
+          {
+            "id": "sec:HARDWARE-DYNAMICS-FEEDBACK",
+            "title": "Feedback can extend persistence beyond a component's decay time",
+            "summary": "**Physical mechanism.** An isolated capacitor loses a voltage difference when charge leaks through a resistance. In a recurrent circuit, its output can cause an input current that replaces some of that charge. The competition between loss and replacement sets the decay of the collective state. For a neural population, the same competition occurs between decay of synaptic input and input supplied by recurrent spikes.",
+            "guide_locus": "sec:HARDWARE-DYNAMICS-FEEDBACK",
+            "level": 2
+          },
+          {
+            "id": "sec:HARDWARE-DYNAMICS-ERRORS",
+            "title": "A bit corrects small displacements; a continuous memory preserves some of them",
+            "summary": "**Physical mechanism.** In a two-state electronic memory, feedback pushes a slightly disturbed state back toward the same stable state. A sufficiently large disturbance can switch it to the other state. In an ideal continuous attractor, disturbances away from the family of memory states decay, but a displacement along that family represents another valid value. The circuit has no restoring signal telling it which earlier value to recover. Seung used this distinction to compare discrete electronic memory with graded eye-position memory.[^dynamics-seung]",
+            "guide_locus": "sec:HARDWARE-DYNAMICS-ERRORS",
+            "level": 2
+          },
+          {
+            "id": "sec:HARDWARE-DYNAMICS-EVIDENCE",
+            "title": "Silicon experiments distinguish discrete persistence from graded representation",
+            "summary": "A physical demonstration lets us test whether the feedback survives unequal devices and finite resolution. Two early experiments make different claims and should be read separately.",
+            "guide_locus": "sec:HARDWARE-DYNAMICS-EVIDENCE",
+            "level": 2
+          }
+        ]
+      },
+      {
+        "id": "ch:NEUROMORPHIC-SYSTEMS",
+        "title": "Neuromorphic chips choose where physics performs the calculation",
+        "purpose": "Suppose we want to study how a noisy network retains an angle. One machine can calculate every state update as arithmetic. Another can let capacitor voltages perform part of the dynamics. A third can use material conductances to multiply inputs by stored weights. The scientific choice is which physical effects we want to control, measure, or exploit. This chapter compares these implementations and then examines recent demonstrations of memory and learning.",
+        "guide_locus": "ch:NEUROMORPHIC-SYSTEMS",
+        "source_loci": [],
+        "sections": [
+          {
+            "id": "sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES",
+            "title": "Digital and analog implementations expose different parts of the neural model",
+            "summary": "A useful platform must make the variables of interest accessible. If the question concerns a specific noise law, a digital update may allow precise control of the injected noise. If the question concerns physical circuit variability, analog dynamics expose that variability directly. Neither choice establishes a biological result without a matched model and experiment.",
+            "guide_locus": "sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES",
+            "level": 2
+          },
+          {
+            "id": "sec:NEUROMORPHIC-SYSTEMS-ADVANCES",
+            "title": "Recent results improve temporal computation, adaptation, and device stability",
+            "summary": "The following studies make progress on different parts of the memory problem. For each, ask what information persists and which physical component is responsible.",
+            "guide_locus": "sec:NEUROMORPHIC-SYSTEMS-ADVANCES",
+            "level": 2
+          },
+          {
+            "id": "sec:NEUROMORPHIC-SYSTEMS-LIMITS",
+            "title": "Explicit slow memory is a current design choice, with distinct costs",
+            "summary": "Fast spiking units can lose earlier inputs before a later decision needs them. One solution is to add a slower state that summarizes recent activity and sends input back to the fast units. Sun and colleagues' 2026 dual-memory-pathway design takes this route. Its proposed digital hardware holds successive slow states in registers and other variables in SRAM. The hardware results came from post-layout simulations, which model a circuit after its physical layout has been designed. They were not measurements of a fabricated chip; the networks were trained offline.[^systems-sun]",
+            "guide_locus": "sec:NEUROMORPHIC-SYSTEMS-LIMITS",
+            "level": 2
+          }
+        ]
+      },
+      {
+        "id": "ch:HARDWARE-TESTS",
+        "title": "Memory experiments must separate device error from network dynamics",
+        "purpose": "After a circuit receives an angle cue, its later estimate may be wrong because the state wandered, because unequal connections pull it toward another angle, or because the observer reads it poorly. A single accuracy score combines these causes. This chapter develops a controlled test that separates them, connects physical parameters to memory error, and states how the three neuroscience papers guide the interpretation. The protocol and reduced models below are proposed teaching tools, not results already demonstrated on every platform in the previous chapter.",
+        "guide_locus": "ch:HARDWARE-TESTS",
+        "source_loci": [],
+        "sections": [
+          {
+            "id": "sec:HARDWARE-TESTS-PROTOCOL",
+            "title": "Repeated cue-and-delay trials separate drift from random spreading",
+            "summary": "Begin with a circuit whose joint activity represents an angle. Choose a decoder on separate calibration data, then keep it fixed while testing retention. A [[**decoder**]{.definition-term custom-style=\"Definition Term\"} is a specified rule for estimating the represented quantity from observable circuit signals.]{.definition-explanation} Its access matters: a decoder given every internal state has a different task from a downstream neuron receiving only spikes.",
+            "guide_locus": "sec:HARDWARE-TESTS-PROTOCOL",
+            "level": 2
+          },
+          {
+            "id": "sec:HARDWARE-TESTS-PARAMETERS",
+            "title": "Physical parameters act through decay, bias, and noise projection",
+            "summary": "A changed component affects memory through the circuit's equations. Increasing a leak current can shorten a component time constant. Changing a recurrent weight can alter restoration or introduce a preferred angle. A fluctuating current can perturb many neurons, yet only part of the resulting activity change survives as a change of the remembered angle.",
+            "guide_locus": "sec:HARDWARE-TESTS-PARAMETERS",
+            "level": 2
+          },
+          {
+            "id": "sec:HARDWARE-TESTS-COMPARISON",
+            "title": "Matching time and readout makes the neuroscience comparison meaningful",
+            "summary": "The three source papers supply different constraints on this hardware experiment.",
+            "guide_locus": "sec:HARDWARE-TESTS-COMPARISON",
+            "level": 2
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+schema_version: 1
+changes:
+- date: '2026-11-01'
+  scope: Whole-guide prerequisite-order repair
+  disposition: moved and clarified within existing sections
+  details: verification/prerequisite-order-20261101/change-ledger.json
+  repair_details: verification/prerequisite-order-20261101/stage2-repairs.json
+  retained: All chapter/section IDs and titles, Part/chapter order, sidecars, equations other than equivalent
+    notation explanations, source assets, typography and print rules.
+  reason: Required definitions and results must be available before the main reading path depends on them.
+  review: verification/prerequisite-order-20261101/stage3-memory.json; stage3-observations.json; stage3-hardware-sim.json
+- date: '2026-11-01'
+  scope: Chapter1 network simulation foundation
+  disposition: added requested section; reordered local symbol definitions
+  guide_locus: sec:FOUNDATIONS-SIMULATION; sec:MEMORY-SPIKES
+  reason: Explain the simulated circuit, neuron interdependence and simulation-versus-theory evidence
+    before later derivations. Put model symbols before Eqs.7–9.
+  retained: All prior chapters, sections, equations, figures, typography and print rules; detailed simulation
+    implementation remains in Chapter18.
+  evidence: verification/prerequisite-order-20261101/chapter1-simulation/reader.diff
+  review: verification/prerequisite-order-20261101/chapter1-simulation/stage3.json
+- date: '2026-11-03'
+  scope: Supported Opus review repairs across the guide
+  disposition: clarified explanations and examples, added evidence table and glossary lookup section,
+    clarified one chapter title, reordered references
+  reason: Teach physical roles and state/value/estimate before dependent reasoning; connect models to
+    predictions, simulations and observations.
+  retained: AllprioroutlineIDs, chapter/Partorder, originalfigures, typography/printstyles, mainmathematicalresults
+    and source papercopies.
+  details: verification/opus-repairs-20261103/edits-*.json
+  review: verification/opus-repairs-20261103/stage1-*.json; stage2-*.json; stage3-*.json and focused rechecks.

@@ -1,0 +1,71 @@
+schema_version: 4
+book_id: burak-three-papers
+guide:
+  id: burak-three-papers
+  title: 'Neural Codes, Noise, and Memory: A Guide to Three Papers'
+  language: en
+  contributors: []
+  description: "These three neuroscience papers study how groups of nerve cells represent information used in memory, eye control, and navigation. The guide connects mathematical models of stored values with eye-movement recordings from monkeys and recordings of spatial activity in rodents and bats. Begin with the reading path for the setting, contribution, and limits of each study, followed by the background and step-by-step calculations. Part III connects these neural memory questions to physical electronic storage and selected neuromorphic advances through 30 October 2026. Part IV explains the simulations, methods, and tools behind the original studies. Part introductions identify the source and role of each chapter contribution."
+source:
+  content_root: content/chapters
+  chapter_plan: plan/chapter-plan.yaml
+  source_inventory: source-maps/source-inventory.csv
+  source_coverage: source-maps/source-coverage.csv
+  research_ledger: source-maps/research-ledger.csv
+visuals:
+  ledger: source-maps/visual-ledger.yaml
+  approved_root: assets/approved/visuals
+  candidates_root: candidate-content/visuals/candidates
+candidate_content:
+  root: candidate-content
+  transitions: candidate-content/transitions
+  evidence_selections: candidate-content/evidence-selections
+  extensions: candidate-content/extensions
+dependencies:
+  evidence_packages: dependencies/evidence-packages.yaml
+workflow:
+  checkpoint: CURRENT_STATE.md
+publication:
+  reproducibility:
+    source_date_epoch: 1792685167
+  outputs:
+    html: site
+    docx: dist/burak-three-papers.docx
+    pdf: dist/burak-three-papers.pdf
+  required_outputs:
+  - html
+  build_root: .build
+  renderers:
+    quarto:
+      enabled: true
+      word_finish:
+        enabled: false
+        header_template: '{title}'
+        footer_template: '{author} | {page}'
+        header_alignment: center
+        footer_alignment: center
+        chapter_page_break_exceptions: []
+        page_geometry:
+          width_inches: 8.5
+          height_inches: 11.0
+          top_margin_inches: 1.0
+          bottom_margin_inches: 1.0
+          left_margin_inches: 1.0
+          right_margin_inches: 1.0
+          header_distance_inches: 0.5
+          footer_distance_inches: 0.5
+      html_folding:
+        enabled: true
+    word:
+      enabled: false
+    latex:
+      enabled: false
+verification:
+  semantic_reviews: verification/semantic-review-ledger.yaml
+  audits: verification/audits
+  rendered_pages: verification/rendered-pages
+  migration: verification/migration
+  publication: verification/publication
+  manifests: verification/manifests
+plan:
+  structure_lock: plan/structural-locks/current.yaml

@@ -1,0 +1,219 @@
+schema_version: 1
+equations:
+- equation_id: MD01
+  guide_location: sec:MEMORY-SPIKES; sec:MEMORY-WEAK-NOISE
+  result: Jump/decay dynamics and population scaling
+  source: P1
+  source_locator: Main Eqs.7-11; SI I
+  verification: verification/writers/memory-numeric-results.json
+  limits: Exact dynamics, then leading weak-noise approximation
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MD02
+  guide_location: sec:MEMORY-LINEARIZATION
+  result: Neutral tangent and left-vector projection
+  source: P1
+  source_locator: SI S7-S15
+  verification: verification/writers/memory-numeric-results.json
+  limits: Local linearization; other directions decay
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MD03
+  guide_location: sec:MEMORY-DIFFUSION
+  result: Projected variance gives 2D=sum(v_i^2 r_i)
+  source: P1
+  source_locator: Main Eq.1; SI S15
+  verification: verification/writers/memory-numeric-results.json
+  limits: Conditionally independent Poisson innovations
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MD04
+  guide_location: sec:MEMORY-SYMMETRIC
+  result: Symmetric projection and two-neuron example
+  source: P1
+  source_locator: SI S16-S18; main Fig.2E-G
+  verification: verification/writers/memory-numeric-results.json
+  limits: Main Eq.2 apparent missing square explicitly identified
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MD05
+  guide_location: sec:MEMORY-LONG-TIME
+  result: Increment moments imply density equation and long-time distributions
+  source: P1
+  source_locator: SI S28-S41
+  verification: verification/writers/memory-numeric-results.json
+  limits: Boundary conditions, circular saturation and variable D distinguished
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI01
+  guide_location: sec:MEMORY-FI
+  result: Poisson likelihood, score and information rate
+  source: P1
+  source_locator: Main Eq.3; SI S42-S44
+  verification: verification/writers/memory-numeric-results.json
+  limits: Local regularity and finite-time decoding limits stated
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI02
+  guide_location: sec:MEMORY-BOUND
+  result: Scalar and matrix information-diffusion bounds
+  source: P1
+  source_locator: Main Eq.4; SI S45-S54
+  verification: verification/writers/memory-numeric-results.json
+  limits: Cauchy-Schwarz proof and PSD meaning; J nonsingular for matrix inverse
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI03
+  guide_location: sec:MEMORY-BOUND
+  result: Pointwise equality and linear-family counterexample
+  source: P1
+  source_locator: SI S48-S49; guide counterexample
+  verification: verification/writers/../checks/equality-counterexample.json
+  limits: Exponential transfer is sufficient; source necessity claim qualified
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI04
+  guide_location: sec:MEMORY-COMPARISONS
+  result: Population, rate, time and tuning-width comparisons
+  source: P1
+  source_locator: Main pp.3-5; SI scaling discussion
+  verification: verification/writers/memory-numeric-results.json
+  limits: Held resources are explicit
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI05
+  guide_location: sec:MEMORY-NAIVE
+  result: Naive readout variance and optimum
+  source: P1
+  source_locator: SI S79-S81
+  verification: verification/writers/memory-numeric-results.json
+  limits: Local Gaussian readout and Brownian covariance
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI06
+  guide_location: sec:MEMORY-IDEAL
+  result: Ideal readout by backward Gaussian precision recursion
+  source: P1
+  source_locator: Main Eq.5; SI S55-S78
+  verification: verification/writers/memory-numeric-results.json
+  limits: Equivalent teaching derivation independently compared with finite covariance
+    inversion
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: MI07
+  guide_location: sec:MEMORY-EXTENSIONS
+  result: Partial readout, two time constants and additive Gaussian noise
+  source: P1
+  source_locator: SI S82-S95
+  verification: verification/writers/memory-numeric-results.json
+  limits: Different noise normalizations retained explicitly
+  review_evidence: verification/reviews/memory-stage1-recheck.json
+- equation_id: ED01
+  guide_location: sec:EYE-INVERSE-FILTER
+  result: Forward firing fit and causal inverse kernel
+  source: P2
+  source_locator: Main Eqs.2-7
+  verification: verification/writers/eye-checks.json
+  limits: Quadratic roots, partial fractions, gain and delay checked
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: ED02
+  guide_location: sec:EYE-SHARED-VARIANCE
+  result: Independent variance bound from squared correlation
+  source: P2
+  source_locator: SI S1-S2
+  verification: verification/writers/eye-checks.json
+  limits: Population representation/private independence assumptions retained
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: ED03
+  guide_location: sec:EYE-CHI
+  result: Covariance estimate of shared contribution
+  source: P2
+  source_locator: Main Eqs.11-17
+  verification: verification/writers/eye-checks.json
+  limits: Single-cell readout, approximation and weighted-mean uncertainty distinguished
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: ED04
+  guide_location: sec:EYE-MEASUREMENT-NOISE
+  result: Measurement-noise MSD offset
+  source: P2
+  source_locator: Main Eqs.18-19; SI Fig.2
+  verification: verification/writers/eye-checks.json
+  limits: Positive-lag 2sigma^2; colored noise is separate
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: ED05
+  guide_location: sec:EYE-FILTERED-MSD
+  result: Stationary-noise plateau versus filtered Brownian growth
+  source: P2
+  source_locator: Main Eqs.20-22; guide one-pole reconstruction
+  verification: verification/writers/eye-checks.json
+  limits: Simplified reconstruction is not the full experimental model
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: ED06
+  guide_location: sec:EYE-CIRCUIT-MODEL
+  result: Integrator fixed points, motor/plant/feedback roles
+  source: P2
+  source_locator: Main Eqs.23-31,34
+  verification: verification/writers/eye-checks.json
+  limits: G(z)=z derived; delayed feedback changes ongoing fluctuations at all lags
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: ED07
+  guide_location: sec:EYE-SCALING
+  result: Rate/tuning/noise scaling and renewal regularization
+  source: P2
+  source_locator: Main Eq.1 and Sub-Poisson spike trains; SI S3-S6
+  verification: verification/writers/eye-checks.json
+  limits: Absolute versus fractional slope and long-window conditions explicit
+  review_evidence: verification/reviews/eye-stage1-recheck.json
+- equation_id: PF01
+  guide_location: sec:PLACE-KAC-RICE
+  result: Expected upcrossings from Gaussian value and derivative
+  source: P3
+  source_locator: Main Eq.2; SI Methods S1
+  verification: verification/writers/place-numeric-checks.json
+  limits: Smooth stationary unit-variance Gaussian field
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF02
+  guide_location: sec:PLACE-INFERENCE
+  result: Field lengths, gaps, finite boundaries and count selection
+  source: P3
+  source_locator: Main Eqs.2-4; SI Methods S1
+  verification: verification/writers/place-numeric-checks.json
+  limits: Exact mean identity distinguished from count-distribution approximation
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF03
+  guide_location: sec:PLACE-RARE-PEAKS
+  result: Conditional Hessian, overshoot and rare-peak geometry
+  source: P3
+  source_locator: SI Methods S3; author mathematical notes
+  verification: verification/writers/place-numeric-checks.json
+  limits: High-threshold limit and isolated approximately spherical components
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF04
+  guide_location: sec:PLACE-SIZE-LAW
+  result: Dimensional size density, normalization, moments and units
+  source: P3
+  source_locator: Main Eq.1; SI S16-S18
+  verification: verification/writers/place-numeric-checks.json
+  limits: Rayleigh/exponential/Weibull laws; apparent S18 units issue explained
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF05
+  guide_location: sec:PLACE-SLOPES
+  result: Crossing slope law and full field width
+  source: P3
+  source_locator: SI Methods S4
+  verification: verification/writers/place-numeric-checks.json
+  limits: Crossing-weighted slope exact; width asymptotic; apparent factor issue checked
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF06
+  guide_location: sec:PLACE-TOPOLOGY
+  result: Expected Euler characteristic with boundary terms
+  source: P3
+  source_locator: SI Methods S2; Taylor (2006)
+  verification: verification/writers/place-numeric-checks.json
+  limits: Theorem input disclosed; dimension-specific Gaussian integrals derived
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF07
+  guide_location: sec:PLACE-DATA
+  result: Experimental processing, fits and finite thresholds
+  source: P3
+  source_locator: Main Figs.1-4 and STAR Methods; SI S1-S5
+  verification: verification/writers/place-evidence.md
+  limits: Reported results checked against source; no raw-data reproduction
+  review_evidence: verification/reviews/place-stage1-recheck.json
+- equation_id: PF08
+  guide_location: sec:PLACE-WIRING
+  result: Random-weight input covariance and Gaussian example
+  source: P3
+  source_locator: Main Discussion; SI model; guide reconstruction
+  verification: verification/writers/place-numeric-checks.json
+  limits: Sufficient model mechanism does not identify unique biological wiring
+  review_evidence: verification/reviews/place-stage1-recheck.json

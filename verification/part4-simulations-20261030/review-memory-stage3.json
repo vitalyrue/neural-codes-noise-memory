@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "stage": 3,
+  "status": "pass",
+  "reviewer": "/root/sim_sources_memory",
+  "request_id": "local-parent-stage3-memory-20261030",
+  "started_utc": "2026-10-30T17:12:29.9198139Z",
+  "completed_utc": "2026-10-30T17:16:08.753216+00:00",
+  "root_started_utc": "2026-10-30T16:43:18Z",
+  "wall_elapsed_review_seconds": 219.8,
+  "awake_execution_time": "unverified; no sleep/resume logs read",
+  "scope": "Current Chapter18/11-simulating-memory.md and YAML, Part I attribution, narrow official-correction paragraph, and necessary earlier teaching connections only.",
+  "input_sha256": {
+    "content/chapters/11-simulating-memory.md": "74f22899e8bd826f5270d4e29ece048d7258f76077bc8ce3534ffce89b6cf0ab",
+    "content/chapters/11-simulating-memory.yaml": "abf531b039d70f4bd3a6e7beb0fb375bf5c48ff4c62179e1fad41244403db906",
+    "plan/chapter-plan.yaml": "d0c4c0c6ee34d9e20ae3e2938c532ed582596935a9ef3602da5c7833f128babc",
+    "content/chapters/02-memory-dynamics.md": "82d23e1d86e2c8c0e227b0522191689e114fde55ca600c045f95df16f62b39a7"
+  },
+  "rule_sha256": {
+    "SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "references/math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a"
+  },
+  "concept_packet_sha256": "ea3de4833a0c24f766560218c12c9477be80851f823121eada54a4897f024df3",
+  "packet_binding_note": "Packet p66 predates the narrow seed wording repair. Exact spans use an in-memory copy of current p66; no relation span crosses the changed ending. Root must regenerate the canonical packet to bind current source. No packet file was edited.",
+  "audience": {
+    "status": "reviewed",
+    "description": "Basic calculus, probability and linear algebra; expectation, variance, standard deviation and probability density assumed per task. Earlier neural concepts are treated as learned only at the explicit prior chapter passages cited in relation evidence and the Stage3 prerequisite map. No seed knowledge is assumed: the premature term was removed at p66.",
+    "assumed_concepts": [
+      "neural-spike",
+      "firing-rate",
+      "synaptic-activation",
+      "recurrent-connectivity",
+      "neural-transfer-function",
+      "continuous-attractor",
+      "diffusion-coefficient",
+      "preferred-angle",
+      "internal-information-rate",
+      "information-diffusion-bound",
+      "ideal-memory-estimator",
+      "lag",
+      "rotational-symmetry",
+      "poisson-process",
+      "standard-error-mean",
+      "wrapped-angle-error",
+      "symmetric-weights",
+      "expectation",
+      "variance",
+      "standard-deviation",
+      "probability-density",
+      "calculus",
+      "linear-algebra"
+    ]
+  },
+  "prerequisite_evidence": {
+    "neural-spike": "01-foundations.md:13 defines spikes as brief electrical events.",
+    "firing-rate": "01-foundations.md:13 defines expected spikes per unit time; 02-memory-dynamics.md:39 gives units.",
+    "synaptic-activation": "02-memory-dynamics.md:17-29 explains decaying outgoing-spike effects, unit increments and dimensionless activation.",
+    "recurrent-connectivity": "01-foundations.md:23 defines signals fed back into the same population; 02-memory-dynamics.md:13 and55 traces renewal.",
+    "neural-transfer-function": "02-memory-dynamics.md:50 defines input-to-rate map; :55 explains weight signs and transfer response.",
+    "continuous-attractor": "01b-persistence.md:19 defines stable family/neutral direction; 02-memory-dynamics.md:93-103 derives steady balance.",
+    "diffusion-coefficient": "01b-persistence.md:111-124 explains half the variance growth rate; 02-memory-dynamics.md:9 fixes units and convention.",
+    "preferred-angle": "02-memory-dynamics.md:93 defines tuning-curve peak angle and ring density.",
+    "internal-information-rate": "03-memory-information.md:62 defines information per second about current stored state.",
+    "information-diffusion-bound": "03-memory-information.md:163-240 derives the bound and qualifies exponential sufficient equality.",
+    "ideal-memory-estimator": "03b-memory-readout.md:127-228 explains ideal estimation accounting for diffusion; :70 gives equal weighting.",
+    "lag": "01-foundations.md:172 defines time between measurements.",
+    "rotational-symmetry": "02b-memory-long-delays.md:182 defines unchanged dynamics under rotation.",
+    "poisson-process": "01-foundations.md:49-109 teaches finite counts; 02-memory-dynamics.md:59-75 gives conditional spike counts.",
+    "standard-error-mean": "04-eye-drift.md:243 defines SEM as uncertainty of a mean and distinguishes population spread.",
+    "wrapped-angle-error": "02b-memory-long-delays.md:58-65 builds wrapped density and pi^2/3 error limit.",
+    "symmetric-weights": "02-memory-dynamics.md:255 defines equal weights in both directions.",
+    "expectation": "Explicit task audience baseline.",
+    "variance": "Explicit task audience baseline.",
+    "standard-deviation": "Explicit task audience baseline.",
+    "probability-density": "Explicit task audience baseline.",
+    "calculus": "Explicit task audience baseline.",
+    "linear-algebra": "Explicit task audience baseline."
+  },
+  "paragraph_purpose_decisions": [
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p3",
+      "line": 3,
+      "current_text_sha256": "5d0b95e6c710c8fb38c83ee02c9f31c72ed708025a8cba5fe408321758709529",
+      "purpose": "Establish the testable gap between an analytical prediction and explicit spikes.",
+      "connection_and_deletion_test": "It motivates computation before state, steps or settings; retains analytical versus simulation evidence. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p7",
+      "line": 7,
+      "current_text_sha256": "87e9ad18362e934e16d4fda5eecab4b8d40364376b08ccf3cc806cf5ba81948f",
+      "purpose": "Trace spike activation, decay, rate change and recurrence in plain words.",
+      "connection_and_deletion_test": "This makes the stored-state equation an expression of a cycle already understood. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p9",
+      "line": 9,
+      "current_text_sha256": "fe1302e5faa4bd528ec56486af269f353469b60aa071872a0d73cf5001f0f22a",
+      "purpose": "Identify what the computer stores and derives.",
+      "connection_and_deletion_test": "Connects the physical cycle to the equation, with detailed symbol roles immediately after it. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p15",
+      "line": 15,
+      "current_text_sha256": "af35ae20bc3c9fdb67eb3a80d5cfb03c736865dbf929ee73de92fb471e94a584",
+      "purpose": "Define weights, bias, rate map, units and spike normalization.",
+      "connection_and_deletion_test": "The local definitions and earlier neural mechanism make later update arithmetic interpretable. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p17",
+      "line": 17,
+      "current_text_sha256": "015d7f9553249679cd96c84b5c3e4e8495eab8188786c8dc9fb5544ec9aab4c9",
+      "purpose": "Introduce the ordered simulation cycle.",
+      "connection_and_deletion_test": "The list belongs here after objects are identified and before Euler numerical details. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p19",
+      "line": 19,
+      "current_text_sha256": "1cf5cb2051f8474a22761324bed76ff533c03e7a71831ddf9174be08eea1ea64",
+      "purpose": "Calculate rates from the current state.",
+      "connection_and_deletion_test": "Needed input for random event generation. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p20",
+      "line": 20,
+      "current_text_sha256": "1dc6c17845ecd12ecbc030bab69e0622ef23988976c67d410d9fc07c86ecbb8b",
+      "purpose": "Generate events over a chosen interval.",
+      "connection_and_deletion_test": "Needed input for updating synaptic state. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p21",
+      "line": 21,
+      "current_text_sha256": "838be1b75e521cb7eaee47b435ff8c033c0f39ac42540fb9b4e6b6ce8de7c54f",
+      "purpose": "Apply decay and spike increments.",
+      "connection_and_deletion_test": "Completes the state transformation from the preceding events. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p22",
+      "line": 22,
+      "current_text_sha256": "ca91b365d39065697bac21a1c3dbe66ac858706a266f51baba3c693dcc0e55dd",
+      "purpose": "Decode and repeat input-free activity.",
+      "connection_and_deletion_test": "Explains where the measured memory trace comes from. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p24",
+      "line": 24,
+      "current_text_sha256": "92349f91336c109071dbfa51d50841cbf86e572df2142b88d386c24e15ac7a4a",
+      "purpose": "Teach Euler update and apply it to decay.",
+      "connection_and_deletion_test": "Current derivative action precedes its symbolic example; calculus is assumed. No full simulator listing is promised. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p26",
+      "line": 26,
+      "current_text_sha256": "7bc5c4d6e40329b792195e0355aa16e5972c100b09a2cc083760fb23a5bdde9c",
+      "purpose": "Explain why generated spikes affect later spikes.",
+      "connection_and_deletion_test": "Connects the explicit cycle to the theory of diffusion before an actual network comparison. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p30",
+      "line": 30,
+      "current_text_sha256": "fc15caf46c2dd19f81ba8b1af02e2cf72c0dd77082899275b96aca763e43a988",
+      "purpose": "Define the ring setup and what its two transfer rules test.",
+      "connection_and_deletion_test": "Preferred angle, tuning curve, sigmoid and equality are taught earlier. Ring geometry makes an angular measurement natural. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p32",
+      "line": 32,
+      "current_text_sha256": "cff8830899eacd5de5f08667383331d3aaa8c95e1de01f25c6bcd25b9ebfcac1",
+      "purpose": "Separate steady-state prediction from stochastic measurement and explain the decoder.",
+      "connection_and_deletion_test": "Reader can identify the independent theoretical prediction and the measured output before the error statistic. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p34",
+      "line": 34,
+      "current_text_sha256": "b9c3559c7d550cba4cd3e771dfccef799782cf8ea0965247eb055beedd4bf3c8",
+      "purpose": "Relate local variance to D and explain long-lag angular reporting.",
+      "connection_and_deletion_test": "Earlier wrapped-density derivation supplies boundaries. The no-recovery warning answers a plausible misreading of saturation. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p38",
+      "line": 38,
+      "current_text_sha256": "8d258e4fe8bc1951d93c2b13f6e6c3c81cda1490fcf708e7b30b69914aba771a",
+      "purpose": "Supply timing, trial and event settings with validity/error-bar conditions.",
+      "connection_and_deletion_test": "Folded parameters follow the causal setup, so they serve reconstruction rather than opening the section as an unexplained list. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p40",
+      "line": 40,
+      "current_text_sha256": "7be57c9479d670355e62ededa616e3f70a4228abd7c5fde4013be4cb9ce6290d",
+      "purpose": "Define the angular separation for the exact weights.",
+      "connection_and_deletion_test": "Supplies the symbol before the displayed finite-network rule. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p46",
+      "line": 46,
+      "current_text_sha256": "4d3ea7f0151453d4ee059bce556b53f0e44ef968c8573bc0e11d126d5b8624ab",
+      "purpose": "Give transfer functions, initialization and the finite-versus-large-N distinction.",
+      "connection_and_deletion_test": "Parameters attach to already established objects. The explicit N factor prevents changing the reported network. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p48",
+      "line": 48,
+      "current_text_sha256": "8fe13adffbf0227085dd3495473b72c1827a731526a804a1d24719eeca28d03f",
+      "purpose": "Identify the official missing-square correction at the point it affects prediction.",
+      "connection_and_deletion_test": "Connects numerical comparison to the correct formula without claiming a different simulation protocol. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p54",
+      "line": 54,
+      "current_text_sha256": "f1c28cd99a93186c52124d2e73b033a2a3cf0cb65bb108784e602d3c50bb78e1",
+      "purpose": "Test whether the result depends on ring rotation.",
+      "connection_and_deletion_test": "Adds another architecture after the ring, preserving the shared stable-family premise. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p56",
+      "line": 56,
+      "current_text_sha256": "f386f204e54c3a2f8fa5389a2288ff45388064b3d5fcbb1801cee1def34ac9c5",
+      "purpose": "Supply the second architecture parameters and population interpretation.",
+      "connection_and_deletion_test": "Prepares the coordinate conversion and multiple-event warning; avoids implausible biological cell-rate inference. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p58",
+      "line": 58,
+      "current_text_sha256": "aab2a85a6e6b322c40aa00cd3efc1bbf80fbcbd2dcfeb1c332e6ba15ab83f864",
+      "purpose": "Derive coordinate units and explain why event generation differs for populations.",
+      "connection_and_deletion_test": "Steady-family balance and algebra precede the conversion warning. One-event rule was taught in p38; the starting-state gap is explicit. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p60",
+      "line": 60,
+      "current_text_sha256": "38ffa72190d275a11c92bd7af1b4655a62d09ba7aa6ea9622d9273bf8fbadcd9",
+      "purpose": "Add state-dependent diffusion and its linear-variance example.",
+      "connection_and_deletion_test": "Earlier long-delay derivation is linked; the source discrepancy remains separate from the official correction. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p64",
+      "line": 64,
+      "current_text_sha256": "b5a7900a9169f8cf4570444715627d800c3eaeede24fad46c7d41beb621281e3",
+      "purpose": "Distinguish plotted estimator formulas from new network or biological evidence.",
+      "connection_and_deletion_test": "Uses prior readout chapter roles and closes the figure inventory without treating all plots as simulations. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p66",
+      "line": 66,
+      "current_text_sha256": "5cb2a6025fc7d2e7e53c1953106aea9ecb22d2e29c572d61dab62e66072e715d",
+      "purpose": "State actual software-source uncertainty and missing implementation choices.",
+      "connection_and_deletion_test": "The repaired ending now names generating random numbers and events, leaving the seed mechanism to Chapter21. Dated search uncertainty remains. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:SIMULATING-MEMORY/p68",
+      "line": 68,
+      "current_text_sha256": "fc3f3f3148a75c408897a3b52814eca6cafe440535bd0c93aed5dda6bff766ec",
+      "purpose": "Explain why behavior needs a measurement pathway and introduce the eye study.",
+      "connection_and_deletion_test": "This is a useful forward connection to Chapter19 rather than a generic chapter recap. Removing it would lose this step, condition or distinction.",
+      "decision": "retain"
+    }
+  ],
+  "additional_reader_facing_objects": {
+    "equations": "Input/rate equation at lines11-13 follows stored-variable sentence and is interpreted by line15. Finite weight equation at42-44 follows alpha definition and finite-network context. Both are necessary exact source settings.",
+    "titles_and_note": "Chapter title states the scientific test; four section headings follow state update, ring comparison, alternative networks, output/source limits. Fold title identifies published ring settings. IDs and delimiters are structural, not teaching claims.",
+    "footnotes": "Four footnotes keep source pages/figures and official correction inspectable; self-contained reference entries need no invented narrative transition.",
+    "yaml": "Purpose and section summaries mirror the current paragraphs read. Prerequisite list supplies neural dynamics and long-delay behavior; the actual sequential reading path also supplies information/readout/SEM teaching."
+  },
+  "ordering_answer": "Retain present order. One cycle must precede numerical integration; ring prediction/measurement must precede the non-ring control and aggregate-event caution. A plausible alternative would put all parameter notes at the end, but that would separate each reconstruction warning from its model. The folded settings preserve a short main reading path. No chapter reorder is justified.",
+  "part_i_answer": "The opening motivates persistent activity with changing remembered angle, then gives the progression from neural background through diffusion/information and long-delay/readout. Chapter role labels identify central, supporting, background and guide work with author-year sources. The repeated four-label legend is useful as a local reading key. Each Chapter1-6 entry adds a different contribution and keeps guide examples separate from paper findings. No full old chapter is approved.",
+  "narrow_correction_answer": "The changed interpretation sits immediately after the symmetric formula, explains the missing square and its official correction, and retains the local assumptions. It does not move a prerequisite or claim other source discrepancies were author corrected.",
+  "resolved_findings": [
+    {
+      "id": "MEM-S3-001",
+      "original_location": "11-simulating-memory.md:66",
+      "issue": "Seeds was required before its first teaching in Chapter21:25.",
+      "repair_verified": "The current ending says including how it generates random numbers and events for aggregate populations.",
+      "verdict": "resolved",
+      "effect": "Retains implementation uncertainty without assuming a new technical term. No false promise of full reproducibility added."
+    }
+  ],
+  "open_findings": [],
+  "connected_final_read": "Completed after verifying the p66 repair. Can explain the purpose, updated state, event cycle, Euler approximation, predicted-versus-measured displacement, role of alternative architectures, and evidence limits from the actual reading path. No further omission or move found within scope.",
+  "limitations": [
+    "No whole older-chapter acceptance.",
+    "No HTML or artwork review.",
+    "Concept extraction alone was not used as order acceptance."
+  ],
+  "token_stats": "unavailable"
+}

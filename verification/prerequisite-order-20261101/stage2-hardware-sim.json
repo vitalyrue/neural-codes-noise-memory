@@ -1,0 +1,80 @@
+{
+  "review_id": "stage2-hardware-sim-seed-relocation",
+  "reviewer": "/root/prereq_hardware_sim",
+  "stage": "2 necessity and terminology",
+  "status": "one narrow terminology repair required",
+  "completed_utc": "2026-11-01T13:49:37.649610+00:00",
+  "task_start_utc": "2026-11-01T13:32:42Z",
+  "wall_elapsed_seconds": 1015.64961,
+  "awake_execution_time": "unverified",
+  "source_sha256": {
+    "content/chapters/12-simulating-eye-drift.md": "e396e3d9cfc0221b76ac544b814fb9156384063e7992cf1fcd7419532ccab604",
+    "content/chapters/14-simulation-tools.md": "9eadfaa635cdc9ffa4fd58e19d57769e8445ba86cefffbe9cc8bfbf964ea8629"
+  },
+  "rule_sha256": {
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a"
+  },
+  "passages": [
+    {
+      "file": "content/chapters/12-simulating-eye-drift.md",
+      "lines": [
+        24,
+        36
+      ],
+      "sha256_utf8_lf": "b523b1950ca90f790377d640b8f1a1c66060df5925e9337d0a536c54d19f810b",
+      "evidence": "The circuit structure is adapted from Aksay et al. (2007), with tuning and noise assumptions adjusted to primate evidence. Its weights are fitted so that a range of commands can persist in the mean-rate model. This is different from fitting an eye-drift trace.\n\nThe spikes are more regular than a Poisson process. The model generates candidate events at $M$ times the desired rate and retains every $M$th event. At constant rate, each retained interval sums $M$ exponential waiting times, giving interval coefficient of variation $1/\\sqrt M$. This preserves the mean firing rate while reducing interval variability. The published simulations use integrator variability around 0.22 and motor-neuron variability around 0.07.\n\nSimulating the random events requires a rule for generating repeatable sample sequences. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} fixes the starting state of a pseudorandom generator so that a specified implementation can repeat its sample sequence.]{.definition-explanation} The seed controls which sequence is drawn; it does not set the intended firing-rate distribution. The code uses a trajectory index to choose that starting state.\n\n::: {.publisher-clarification-note .publisher-fold-always title=\"Published parameters and public-code settings have different sources\"}\n\nThe final main Methods report an integrator size $N=30{,}000$, 1,000 motor neurons, synaptic time constant 20 ms, and feedback strength $A=0.015$. The feedback delay is about 70 ms. These are the main model settings, not values to combine with the different comparison runs in the supplement.\n\nThe inspected MATLAB code sets its internal update interval to $10^{-5}$ s and saves every 100 steps, giving 1 ms output samples. It uses a 10 ms motor-neuron synaptic time constant, initializes central gaze, and sets the random seed from the trajectory index. Synaptic decay is updated by first-order Euler steps. The mechanical calculation updates velocity and then position.\n\nThe code's `N` creates a vector in each of the paired populations, whereas the paper describes $N$ as the network's neuron number. That convention must be resolved before claiming a function call reproduces the published size. The code also uses a different motor-neuron variability regression from the final printed Eq. 35.[^simeye-code]"
+    },
+    {
+      "file": "content/chapters/14-simulation-tools.md",
+      "lines": [
+        25,
+        27
+      ],
+      "sha256_utf8_lf": "28b6bab4978b9be62f8f192b5d3d23efbcf87378a5d2816dc227c45d126f5ec3",
+      "evidence": "NumPy's `Generator` supplies random samples for a Python implementation. To repeat a sequence using a [random seed](ch-simulating-eye.html#sec-simulating-eye-path), record the generator, software versions, and order of calls as well as the seed. A seed alone does not guarantee identical results after changing the program or library version.[^simtools-numpy]\n\nSciPy's `solve_ivp` integrates ordinary differential equations from an initial state. It can handle deterministic decay or a deterministic rate model. A stochastic spiking model also needs rules for generating events and applying their jumps. A Brownian-noise model needs a numerical method with the appropriate random increments. Passing freshly drawn noise into an adaptive deterministic solver does not, by itself, specify either model.[^simtools-ode]"
+    }
+  ],
+  "answers": [
+    {
+      "location": "12-simulating-eye-drift.md:28 random-seed definition",
+      "decision": "retain needed seed meaning; revise one embedded specialist term",
+      "evidence": "The definition supplies the missing relationship between seed, generator state and repeatable sequence. Removing that relationship would restore HS-01. However, pseudorandom generator is introduced inside it without saying that this is a computer algorithm producing random-looking samples through repeatable rules. That meaning is not part of the recorded mathematics baseline."
+    },
+    {
+      "location": "12-simulating-eye-drift.md:28 opening sentence",
+      "decision": "simplify or remove as part of the same narrow repair",
+      "evidence": "The sentence announces a rule for repeatable sequences. The next sentence already explains that rule and its purpose. Its deletion loses no mechanism or condition if the definition supplies the generator role plainly. This is a deletion-test recommendation, not a separate correctness failure."
+    },
+    {
+      "location": "12-simulating-eye-drift.md:28 sequence versus intended distribution",
+      "decision": "retain",
+      "evidence": "This distinction prevents reading the seed as a firing-rate or variability parameter. The exact seed/sequence words identify the objects and avoid an ambiguous pronoun."
+    },
+    {
+      "location": "12-simulating-eye-drift.md:28,34 trajectory-index repetition",
+      "decision": "acceptable, consolidation optional",
+      "evidence": "The main-text sentence grounds the explanation in this model; the folded settings paragraph repeats the actual code choice beside numerical settings. Because the fold may be closed, this is functional repetition. Consolidating it is optional, not a required repair."
+    },
+    {
+      "location": "14-simulation-tools.md:25",
+      "decision": "retain",
+      "evidence": "The three sentences respectively identify the NumPy object role, give the reproducibility record, and limit what a seed guarantees. The seed word repeats to identify the same control; it is not filler. The backward link replaces the duplicate first definition."
+    }
+  ],
+  "required_repairs": [
+    {
+      "id": "HS-S2-01",
+      "priority": "P3",
+      "location": "12-simulating-eye-drift.md:28",
+      "issue": "Pseudorandom generator is a new specialist phrase inside a prerequisite definition.",
+      "minimal_change": "Explain that it is the computer algorithm producing a repeatable sequence of random-looking samples while defining the seed. Keep the distribution distinction and the existing version/program cautions. The announcement sentence can be removed or combined with this explanation. No exact replacement wording proposed.",
+      "needs_truth_recheck": "Check the clarified algorithm/sequence explanation in a focused Stage1 recheck, then repeat Stage2 on that paragraph."
+    }
+  ],
+  "limits": [
+    "Only Stage2 performed here; no flow acceptance.",
+    "No manuscript changes made.",
+    "Current whole-file and passage hashes recorded; later edits invalidate the affected answer."
+  ],
+  "token_stats": "unavailable"
+}

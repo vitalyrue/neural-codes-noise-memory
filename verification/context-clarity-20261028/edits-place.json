@@ -1,0 +1,56 @@
+{
+  "request_id": "context-place-opening-repairs-20261028",
+  "editor": "/root/context_place",
+  "recorded_before_application": "2026-10-28T15:38:16.685429+02:00",
+  "scope": "05-place-fields.md opening only; YAML/index/plan excluded",
+  "source_before_sha256": "1E5D2DAEB91A91CC8E9BB31EB35A11A4900D2A555500A39206C6C413856A240F",
+  "target": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\05-place-fields.md",
+  "edits": [
+    {
+      "id": "P1",
+      "old": "A cell recorded on a short track may have one smooth firing hill. On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?",
+      "new": "The recordings include bats flying through tunnels, rats moving over an arena floor, and bats flying through a room. For tunnel flights, the analysis uses distance along an approximately one-dimensional route, although the tunnel itself has width and height. The floor map uses two position coordinates, and the room map uses three.\n\nA cell recorded on a short track may have one smooth firing hill. On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?",
+      "reason": "Pair animal movement with measured position coordinates before comparing field lengths, areas and volumes; distinguish the route coordinate from the physical tunnel.",
+      "evidence": [
+        "mainali-2025-full-text-layout.txt:153-157,198-200,362,429,543-544"
+      ]
+    },
+    {
+      "id": "P2",
+      "old": "Mainali, Azeredo da Silveira, and Burak propose that a cell's spatial input is a smooth random function. The cell fires where this function exceeds a threshold. The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests ask whether fitting field sizes and counts also explains field shapes and holes.[^p3-question]",
+      "new": "Mainali, Azeredo da Silveira, and Burak propose that a cell's spatial input is a smooth random function. This function can be interpreted as the average combined input arriving through the cell's synapses at each animal position. The model cell has positive firing rate where this input exceeds a threshold. The recordings estimate firing rates rather than measuring this input directly.[^p3-model] The model predicts distributions of field lengths, areas, and volumes, rather than the location of a particular cell's next field. Its strongest tests ask whether fitting field sizes and counts also explains field shapes and holes.[^p3-question]",
+      "reason": "Explain what the new spatial-input function may represent biologically and distinguish it from measured firing rates, without claiming the input or random wiring was measured.",
+      "evidence": [
+        "place-supplement.txt:460-468",
+        "mainali-2025-full-text-layout.txt:161-163,271-272"
+      ]
+    }
+  ],
+  "evidence_sha256": [
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\research\\mainali-2025-full-text-layout.txt",
+      "sha256": "C5EA5963F2243B1B1E8FD409069973861492E9D2D83F0A574111724E4049AC86"
+    },
+    {
+      "path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\writers\\place-supplement.txt",
+      "sha256": "FC8484E4094AD26BD34089322120B1E44619B2AD3541A6034D1272F7711887C4"
+    },
+    {
+      "path": "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\SKILL.md",
+      "sha256": "B78068E9874E6D1D97B2017BF8F940492F9B08FC11B74F20FD75019FF388984A"
+    },
+    {
+      "path": "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md",
+      "sha256": "F4C1EB544CF640B708E1970D9572FDC758FCC6AEA806675D01A0256658DF847A"
+    }
+  ],
+  "applied_at": "2026-10-28T15:38:49.2938469+02:00",
+  "source_after_sha256": "5241516BAA09B0B96E5969AD688D0D8D486EC682601AA3FBC49D6F8F0A74C1FB",
+  "writer_recheck": {
+    "time": "2026-10-28T15:38:49.3139209+02:00",
+    "exact_replacements_present": true,
+    "reversing_logged_changes_reproduces_before_sha256": true,
+    "checks": "Connected opening and PLACE-GP through threshold/excursion definitions reread. Source S1 supports possible mean synaptic-input interpretation; main Figures 1B,2A/F and 4A support animal/geometry setup. Equations and later text untouched. No rendering or broad tests run for this prose-only change.",
+    "independent_review": "Pending separate reviewer stage from coordinator."
+  }
+}

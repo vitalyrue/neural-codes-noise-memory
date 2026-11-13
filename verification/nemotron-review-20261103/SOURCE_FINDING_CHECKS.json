@@ -1,0 +1,66 @@
+{
+  "started_utc": "2026-11-03T15:53:38Z",
+  "completed_utc": "2026-11-03T15:55:29Z",
+  "wall_clock_seconds": 111,
+  "awake_execution_time": "unverified",
+  "reviewer": "gpt-6.1-sol high; independent supporting source check, not Nemotron",
+  "scope": "Five Stage 1 findings; two complete PDF pages inspected; no guide edits, builds, simulations, guide figure audit, or additional hardware paper reviews",
+  "findings": [
+    {
+      "id": "F-01",
+      "result": "support",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/3585473/",
+      "locator": "Cannon and Robinson 1987, J Neurophysiol 57(5), 1383-1409, abstract paragraphs 3-5; DOI 10.1152/jn.1987.57.5.1383",
+      "inspected": "Original abstract: reversible brainstem disruption; intact time constant above 20 s in darkness; post-injection minimum horizontal time constant 200 ms",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "reviewer source-access limit resolved"
+    },
+    {
+      "id": "F-02",
+      "result": "support",
+      "source": "https://pubmed.ncbi.nlm.nih.gov/15136746/",
+      "locator": "Major et al. 2004, PNAS 101(20), 7739-7744, abstract and Fig. 4 caption; DOI 10.1073/pnas.0401970101",
+      "inspected": "Original abstract gives tens of minutes to hours and retuning under normal feedback; Fig. 4 caption confirms stationary-surround retuning and 80-minute training intervals",
+      "access_notes": "PMC returned browser check; publisher HTTP 403; original PubMed abstract and figure caption sufficient for the specific claim",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "reviewer source-access limit resolved"
+    },
+    {
+      "id": "F-03",
+      "result": "support",
+      "source": "inputs/papers/mainali-2025-supplement.pdf",
+      "source_sha256": "05af1fdf3079906871da12fdafa1f28895380f594a8c6bda3cafc5b503f07c31",
+      "locator": "PDF page 13, printed page 12, Methods S3 Eq. S18 and preceding moment relation; DOI 10.1016/j.neuron.2025.01.017",
+      "inspected": "Complete fresh PDF rendering: S18 prints beta = [Gamma(D/2+1) times mean(s)]^(2/D); preceding mean(s) = Gamma(D/2+1) beta^(-D/2) requires division",
+      "image_record": "source-check-images/mainali-2025-supplement-p13.png",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "guide printed-error flag supported; reviewer extraction ambiguity resolved"
+    },
+    {
+      "id": "F-04",
+      "result": "support",
+      "source": "inputs/papers/burak-fiete-2012-persistent-activity-si.pdf",
+      "source_sha256": "9bbff1fb83db4aa4b76364a92de7c481de1f27ccdd6735dce78ae1d7b8496efb",
+      "locator": "PDF and printed page 17, Section VII Eqs. S84-S86; DOI 10.1073/pnas.1117386109",
+      "inspected": "Complete fresh PDF rendering: S85 lower-right block is positive tau_m^(-1) delta_ij; S84 implies negative rate-decay block",
+      "image_record": "source-check-images/burak-fiete-2012-persistent-activity-si-p17.png",
+      "confidence": "high",
+      "guide_error": false,
+      "classification": "guide printed-sign flag supported; reviewer extraction ambiguity resolved"
+    },
+    {
+      "id": "F-05",
+      "result": "access_limit",
+      "source": "SOURCE_ACCESS.json",
+      "locator": "hardware entries HW-Pehle2022, HW-Scholze2026, HW-LeGallo2023, HW-Massoud2011, HW-Giulioni2012, HW-Ortner2025, HW-Wang2026, HW-Ilmberger2025",
+      "inspected": "All eight entries have empty local_original_evidence and source_body_available_locally=false; their bodies were not read here",
+      "confidence": "high about unread-source category; truth unassessed",
+      "guide_error": null,
+      "classification": "reviewer source-access limit retained; no hardware claim verdict"
+    }
+  ],
+  "token_statistics": "unavailable"
+}

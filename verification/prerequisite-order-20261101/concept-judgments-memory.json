@@ -1,0 +1,502 @@
+{
+  "concepts": [
+    {
+      "id": "brownian-motion",
+      "aliases": []
+    },
+    {
+      "id": "brownian-increments",
+      "aliases": []
+    },
+    {
+      "id": "centered-spike-count",
+      "aliases": []
+    },
+    {
+      "id": "mean-activation-drift",
+      "aliases": []
+    },
+    {
+      "id": "linear-response-matrix",
+      "aliases": []
+    },
+    {
+      "id": "local-spike-covariance",
+      "aliases": []
+    },
+    {
+      "id": "memory-projection-vector",
+      "aliases": []
+    },
+    {
+      "id": "likelihood",
+      "aliases": []
+    },
+    {
+      "id": "gaussian-observation-bin",
+      "aliases": []
+    },
+    {
+      "id": "coth-readout-factor",
+      "aliases": []
+    },
+    {
+      "id": "white-noise",
+      "aliases": []
+    },
+    {
+      "id": "readout-time-normalization",
+      "aliases": []
+    }
+  ],
+  "sections": {
+    "ch:READING-GUIDE/s0": "reviewed",
+    "ch:READING-GUIDE/s1": "reviewed",
+    "ch:READING-GUIDE/s2": "reviewed",
+    "ch:READING-GUIDE/s3": "reviewed",
+    "ch:READING-GUIDE/s4": "reviewed",
+    "ch:READING-GUIDE/s5": "reviewed",
+    "ch:READING-GUIDE/s6": "reviewed",
+    "ch:READING-GUIDE/s7": "reviewed",
+    "ch:READING-GUIDE/s8": "reviewed",
+    "ch:READING-GUIDE/s9": "reviewed",
+    "ch:READING-GUIDE/s10": "reviewed",
+    "ch:FOUNDATIONS/s0": "reviewed",
+    "ch:FOUNDATIONS/s1": "reviewed",
+    "ch:FOUNDATIONS/s2": "reviewed",
+    "ch:FOUNDATIONS/s3": "reviewed",
+    "ch:FOUNDATIONS/s4": "reviewed",
+    "ch:FOUNDATIONS/s5": "reviewed",
+    "ch:PERSISTENCE/s0": "reviewed",
+    "ch:PERSISTENCE/s1": "reviewed",
+    "ch:PERSISTENCE/s2": "reviewed",
+    "ch:PERSISTENCE/s3": "reviewed",
+    "ch:PERSISTENCE/s4": "reviewed",
+    "ch:MEMORY-DYNAMICS/s0": "reviewed",
+    "ch:MEMORY-DYNAMICS/s1": "reviewed",
+    "ch:MEMORY-DYNAMICS/s2": "reviewed",
+    "ch:MEMORY-DYNAMICS/s3": "reviewed",
+    "ch:MEMORY-DYNAMICS/s4": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s0": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s1": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s2": "reviewed",
+    "ch:MEMORY-LONG-DELAYS/s3": "reviewed",
+    "ch:MEMORY-INFORMATION/s0": "reviewed",
+    "ch:MEMORY-INFORMATION/s1": "reviewed",
+    "ch:MEMORY-INFORMATION/s2": "reviewed",
+    "ch:MEMORY-INFORMATION/s3": "reviewed",
+    "ch:MEMORY-READOUT/s0": "reviewed",
+    "ch:MEMORY-READOUT/s1": "reviewed",
+    "ch:MEMORY-READOUT/s2": "reviewed",
+    "ch:MEMORY-READOUT/s3": "reviewed",
+    "ch:MEMORY-READOUT/s4": "reviewed",
+    "ch:MEMORY-READOUT/s5": "reviewed",
+    "ch:MEMORY-READOUT/s6": "reviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "brownian-motion",
+      "passage_id": "ch:PERSISTENCE/p124",
+      "role": "teach",
+      "span": [
+        0,
+        319
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Defines path, start, Gaussian independent increments, mean and variance; now on main path.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-motion",
+      "passage_id": "ch:MEMORY-DYNAMICS/p39",
+      "role": "use",
+      "span": [
+        76,
+        176
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Independent Brownian processes used as model noise; prior main-path definition supplies meaning.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-motion",
+      "passage_id": "ch:MEMORY-READOUT/p74",
+      "role": "use",
+      "span": [
+        29,
+        94
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Brownian memory path introduced for readout covariance; earlier definition and local covariance explanation provide required process.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:MEMORY-DYNAMICS/p39",
+      "role": "teach",
+      "span": [
+        177,
+        247
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Explicit dB=B(t+dt)-B(t), zero mean and variance dt before noise scaling.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:MEMORY-DYNAMICS/p39",
+      "role": "use",
+      "span": [
+        248,
+        376
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Variance matching requires increment scale defined earlier within the same paragraph.",
+      "need": "required"
+    },
+    {
+      "concept_id": "brownian-increments",
+      "passage_id": "ch:MEMORY-DYNAMICS/p182",
+      "role": "use",
+      "span": [
+        0,
+        84
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Uses increment covariance to calculate projected diffusion; direct display equations also inspected.",
+      "need": "required"
+    },
+    {
+      "concept_id": "centered-spike-count",
+      "passage_id": "ch:MEMORY-DYNAMICS/p28",
+      "role": "teach",
+      "span": [
+        0,
+        124
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Defines dM as count minus conditional mean and surplus/deficit.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "centered-spike-count",
+      "passage_id": "ch:MEMORY-DYNAMICS/p28",
+      "role": "use",
+      "span": [
+        125,
+        185
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Mean/noise decomposition follows explicit count definition; next display checked directly.",
+      "need": "required"
+    },
+    {
+      "concept_id": "centered-spike-count",
+      "passage_id": "ch:MEMORY-DYNAMICS/p39",
+      "role": "use",
+      "span": [
+        248,
+        376
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Comparison with centered spike count uses earlier explicit dM definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "mean-activation-drift",
+      "passage_id": "ch:MEMORY-DYNAMICS/p39",
+      "role": "teach",
+      "span": [
+        0,
+        75
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "F role established before its displayed equation; equation checked directly.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "mean-activation-drift",
+      "passage_id": "ch:MEMORY-DYNAMICS/p99",
+      "role": "use",
+      "span": [
+        0,
+        99
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Fixed point derivative uses F defined earlier in same chapter.",
+      "need": "required"
+    },
+    {
+      "concept_id": "linear-response-matrix",
+      "passage_id": "ch:MEMORY-DYNAMICS/p77",
+      "role": "teach",
+      "span": [
+        116,
+        231
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "K maps disturbance to its first-order mean rate of change; algebra follows and is directly checked.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "linear-response-matrix",
+      "passage_id": "ch:MEMORY-DYNAMICS/p88",
+      "role": "use",
+      "span": [
+        88,
+        150
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Units interpretation follows role and algebra.",
+      "need": "required"
+    },
+    {
+      "concept_id": "local-spike-covariance",
+      "passage_id": "ch:MEMORY-DYNAMICS/p77",
+      "role": "teach",
+      "span": [
+        232,
+        324
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "R is diagonal spike count variance rates at fixed point; R=diag(rbar) equation checked directly.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "local-spike-covariance",
+      "passage_id": "ch:MEMORY-DYNAMICS/p88",
+      "role": "use",
+      "span": [
+        0,
+        87
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Interprets evaluation of noise strengths immediately after R definition.",
+      "need": "required"
+    },
+    {
+      "concept_id": "memory-projection-vector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p173",
+      "role": "teach",
+      "span": [
+        29,
+        415
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Inline delta theta=sum v_i delta s_i and lasting angular effect per activation make projection meaning explicit; prior full v equations inspected directly.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "memory-projection-vector",
+      "passage_id": "ch:MEMORY-DYNAMICS/p175",
+      "role": "use",
+      "span": [
+        130,
+        261
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Projection removes deterministic term using already-derived normalized left vector.",
+      "need": "required"
+    },
+    {
+      "concept_id": "likelihood",
+      "passage_id": "ch:MEMORY-INFORMATION/p80",
+      "role": "teach",
+      "span": [
+        0,
+        356
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Observed counts held fixed while proposed theta varies; probability over parameter explicitly distinguished.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "likelihood",
+      "passage_id": "ch:MEMORY-READOUT/p19",
+      "role": "use",
+      "span": [
+        0,
+        165
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Gaussian likelihood approximation now has preceding main-path meaning.",
+      "need": "required"
+    },
+    {
+      "concept_id": "likelihood",
+      "passage_id": "ch:MEMORY-READOUT/p133",
+      "role": "use",
+      "span": [
+        253,
+        408
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Multiplication of likelihoods uses earlier meaning and local explicit Gaussian expressions.",
+      "need": "required"
+    },
+    {
+      "concept_id": "gaussian-observation-bin",
+      "passage_id": "ch:MEMORY-READOUT/p19",
+      "role": "teach",
+      "span": [
+        166,
+        547
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "State at cue, bin index, eta transition, y estimate and epsilon error plus independent zero-mean Gaussian assumptions all established; display variances inspected directly.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "gaussian-observation-bin",
+      "passage_id": "ch:MEMORY-READOUT/p86",
+      "role": "use",
+      "span": [
+        0,
+        146
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Count-noise averaging uses defined bin observation variance 1/(Jh).",
+      "need": "required"
+    },
+    {
+      "concept_id": "coth-readout-factor",
+      "passage_id": "ch:MEMORY-READOUT/p173",
+      "role": "teach",
+      "span": [
+        0,
+        142
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Explicit exponential expression defines coth factor; adjacent display169-170 supplies full finite readout formula and is checked directly.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "coth-readout-factor",
+      "passage_id": "ch:MEMORY-READOUT/p220",
+      "role": "use",
+      "span": [
+        0,
+        19
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Ratio at one characteristic time is coth(1); finite formula and L* display checked directly.",
+      "need": "required"
+    },
+    {
+      "concept_id": "coth-readout-factor",
+      "passage_id": "ch:MEMORY-READOUT/p221",
+      "role": "use",
+      "span": [
+        0,
+        18
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Ratio at two characteristic times uses same earlier result.",
+      "need": "required"
+    },
+    {
+      "concept_id": "coth-readout-factor",
+      "passage_id": "ch:MEMORY-READOUT/p222",
+      "role": "use",
+      "span": [
+        0,
+        18
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Ratio at three characteristic times uses same earlier result.",
+      "need": "required"
+    },
+    {
+      "concept_id": "white-noise",
+      "passage_id": "ch:MEMORY-READOUT/p278",
+      "role": "teach",
+      "span": [
+        0,
+        650
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Noise drive, ideal unequal-time decorrelation, no finite point variance, xi dt=sqrt(r)dB and conditional integrated variance supplied before equations.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "white-noise",
+      "passage_id": "ch:MEMORY-READOUT/p278",
+      "role": "use",
+      "span": [
+        651,
+        682
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Leads immediately to directly inspected xi-driven equations; indexed prose is a location marker, not replacement for equation review.",
+      "need": "required"
+    },
+    {
+      "concept_id": "white-noise",
+      "passage_id": "ch:EYE-TIMING/p89",
+      "role": "use",
+      "span": [
+        345,
+        482
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Ch8 filtering model refers to earlier main-path white-noise definition and repeats required unequal-time decorrelation.",
+      "need": "required"
+    },
+    {
+      "concept_id": "readout-time-normalization",
+      "passage_id": "ch:MEMORY-READOUT/p336",
+      "role": "teach",
+      "span": [
+        98,
+        172
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Explicit dimensionless time z=L/L*=sqrt(2DJ)L before formulas.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "readout-time-normalization",
+      "passage_id": "ch:MEMORY-READOUT/p336",
+      "role": "use",
+      "span": [
+        173,
+        356
+      ],
+      "status": "reviewed",
+      "review": "stage3-memory",
+      "evidence": "Both normalized curve expressions follow their axis definition within paragraph.",
+      "need": "required"
+    }
+  ],
+  "teaching_sets": []
+}

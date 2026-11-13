@@ -1,0 +1,347 @@
+{
+  "created_at": "2026-10-24T21:36:47.845838+03:00",
+  "group": "information-eye",
+  "model": "GPT-6.1-sol/high",
+  "task_wall_start": "2026-10-24T21:32:54.8366363+03:00",
+  "awake_execution": "unverified",
+  "reconstruction": "Decode original UTF-8 baseline, normalize CRLF to LF, apply each exact before/after once in edit_order, restore recorded newline; no other changes.",
+  "new_glossary_candidates": [
+    {
+      "term": "translation invariance",
+      "meaning": "In this readout model, the readout variance is the same at every cue state x.",
+      "location": "03b-memory-readout.md, sec:MEMORY-READOUT-SETUP",
+      "note": "Existing explanation newly emphasized; keep distinct from spatial stationarity."
+    },
+    {
+      "term": "hyperbolic tangent, inverse hyperbolic tangent, hyperbolic cotangent",
+      "meaning": "Definitions by the displayed exponential, logarithmic and reciprocal formulas in the ideal readout derivation.",
+      "location": "03b-memory-readout.md, sec:MEMORY-IDEAL",
+      "note": "Existing formulas newly emphasized; these function names can share one short lookup entry."
+    }
+  ],
+  "files": [
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03-memory-information.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\03-memory-information.md",
+      "baseline_sha256": "258c636f81fb2daf7741e1f6a0a955693439761c213fd32b4959291bbccb2946",
+      "proposed_sha256": "7a6b6f94727c8e8965fc03f2320670563faa0a84ef8414c7f62eda4d1e7c0a82",
+      "newline": "'\\n'",
+      "edits": [
+        {
+          "section": "Improving persistence depends on what a comparison holds fixed {#sec:MEMORY-COMPARISONS}",
+          "paragraph_prefix": "The volume element contributes",
+          "before": "The volume element contributes $w^d$ because broader fields recruit more neurons. The squared slope contributes $w^{-2}$ because broader curves change more slowly. Under these assumptions $J\\propto w^{d-2}$. In an equality achieving isotropic exponential network, diffusion in each coordinate consequently scales as $D\\propto w^{2-d}$. Narrower curves help in $d=1$, width has no leading effect in $d=2$, and broader curves help in $d=3$.",
+          "after": "Two factors determine how information changes with tuning width:\n\n- The volume element contributes $w^d$ because broader fields recruit more neurons.\n- The squared slope contributes $w^{-2}$ because broader curves change more slowly.\n\nUnder these assumptions $J\\propto w^{d-2}$. In an equality achieving isotropic exponential network, diffusion in each coordinate consequently scales as $D\\propto w^{2-d}$. The resulting comparisons are:\n\n- Narrower curves help in $d=1$.\n- Width has no leading effect in $d=2$.\n- Broader curves help in $d=3$.",
+          "kind": "list",
+          "rationale": "Expose the two parallel factors in the scaling and the three dimensional outcomes, keeping the calculation and conditions before its interpretation.",
+          "preserved_premise_or_limit": "Fixed peak rate, density and shape remain in the preceding setup; equality achieving, isotropic and exponential conditions remain beside the diffusion claim.",
+          "source_or_meaning_question": null,
+          "edit_order": 1,
+          "baseline_line": 227
+        },
+        {
+          "section": "Improving persistence depends on what a comparison holds fixed {#sec:MEMORY-COMPARISONS}",
+          "paragraph_prefix": "These conclusions change under another resource constraint.",
+          "before": "These conclusions change under another resource constraint. Fixing the total population spike rate instead of peak rate makes $a\\propto w^{-d}$, giving $J\\propto w^{-2}$ in every dimension. Sparse coverage, a large baseline rate, finite boundaries, correlated noise, or a width too small for the population integral can also change the comparison. Saturating the inequality identifies efficient self tracking for a given information rate; minimizing diffusion still requires deciding how much information the allowed architecture and firing budget can supply.",
+          "after": "These conclusions change under another resource constraint. Fixing the total population spike rate instead of peak rate makes $a\\propto w^{-d}$, giving $J\\propto w^{-2}$ in every dimension. Sparse coverage, a large baseline rate, finite boundaries, correlated noise, or a width too small for the population integral can also change the comparison. Attaining equality identifies a network that tracks its own state efficiently for a given information rate. Minimizing diffusion still requires deciding how much information the allowed architecture and firing budget can supply.",
+          "kind": "wording",
+          "rationale": "Explain what self tracking describes and replace the compressed semicolon with the two separate conclusions.",
+          "preserved_premise_or_limit": "All alternative resource constraints and failure conditions remain; efficient tracking still differs from minimizing diffusion across architectures.",
+          "source_or_meaning_question": null,
+          "edit_order": 2,
+          "baseline_line": 229
+        },
+        {
+          "section": "Spike information sets a lower bound on memory diffusion {#sec:MEMORY-BOUND}",
+          "paragraph_prefix": "The matrix statement",
+          "before": "The matrix statement $2D\\succeq\\tau^{-2}J^{-1}$ means that every linear combination of coordinate displacements obeys the corresponding variance lower bound. Here $A\\succeq B$ means $\\mathbf z^T(A-B)\\mathbf z\\ge0$ for every real vector $\\mathbf z$. To derive it, form $N\\times m$ matrices $U_{i\\alpha}=u_i^\\alpha/\\sqrt{\\bar r_i}$ and $V_{i\\alpha}=v_i^\\alpha\\sqrt{\\bar r_i}$. Then",
+          "after": "The matrix bound $2D\\succeq\\tau^{-2}J^{-1}$ means that every linear combination of coordinate displacements obeys the corresponding variance lower bound. Here $A\\succeq B$ means $\\mathbf z^T(A-B)\\mathbf z\\ge0$ for every real vector $\\mathbf z$. To derive it, form $N\\times m$ matrices $U_{i\\alpha}=u_i^\\alpha/\\sqrt{\\bar r_i}$ and $V_{i\\alpha}=v_i^\\alpha\\sqrt{\\bar r_i}$. Then",
+          "kind": "wording",
+          "rationale": "Use the direct mathematical name for the inequality.",
+          "preserved_premise_or_limit": "The order definition, all coordinate directions and matrix construction are unchanged.",
+          "source_or_meaning_question": null,
+          "edit_order": 3,
+          "baseline_line": 179
+        },
+        {
+          "section": "Improving persistence depends on what a comparison holds fixed {#sec:MEMORY-COMPARISONS}",
+          "paragraph_prefix": "If an external stimulus produces",
+          "before": "If an external stimulus produces the same tuning curves as the network's input free memory states, the sensory and internal Fisher information are equal. In a symmetric exponential network, maximizing this information then improves sensory estimation and minimizes memory diffusion together. This is the paper's reason for suggesting that one circuit could serve both functions. The mathematical compatibility does not establish where a particular animal stores a memory, and the equality of tuning curves must be checked rather than inferred from the shared formula.[^p1-colocation]",
+          "after": "If an external stimulus produces the same tuning curves as the network's input free memory states, the sensory and internal Fisher information are equal. In a symmetric exponential network, maximizing this information then improves sensory estimation and minimizes memory diffusion together. This is why the paper suggests that one circuit could support both sensory estimation and memory storage. The mathematical compatibility does not establish where a particular animal stores a memory, and the equality of tuning curves must be checked rather than inferred from the shared formula.[^p1-colocation]",
+          "kind": "wording",
+          "rationale": "State which two functions are connected so the conclusion can be read without recovering them from the previous sentence.",
+          "preserved_premise_or_limit": "Same sensory and internal tuning, symmetric exponential model and the biological limit remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 4,
+          "baseline_line": 231
+        }
+      ],
+      "full_chapter_assessment": "Retained the likelihood-to-score derivation, Cramer Rao argument, projection inequality, equality qualification, numerical examples and all folds. Lists clarify two scaling factors and three dimensional outcomes; population, firing-rate and time-constant comparisons remain separate causal paragraphs.",
+      "possible_but_rejected_edits": [
+        "Do not bullet the Cramer Rao proof or equality derivation: each sentence supplies the premise needed by the next calculation.",
+        "Do not remove the folded linear-family counterexample: it preserves a necessary limit on the source converse."
+      ]
+    },
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\03b-memory-readout.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\03b-memory-readout.md",
+      "baseline_sha256": "8b68f20cac79489a54e89b62818f79eeb861eead66f9dbecefde6af9178e3d69",
+      "proposed_sha256": "20882bc1647ef9b7f1e8cb2b309336f89e3f279295663ab5f7b38a6c395b6497",
+      "newline": "'\\n'",
+      "edits": [
+        {
+          "section": "Storage loss and readout error add under specific assumptions {#sec:MEMORY-READOUT-SETUP}",
+          "paragraph_prefix": "The first term comes from storage.",
+          "before": "The first term comes from storage. The second concerns estimation of $\\theta(T)$ from spikes after $T$. The supplement derives this decomposition for a locally translation invariant diffusion and readout model; state dependence, boundaries, informative priors, or uncertain initial encoding require corresponding changes.[^p1-read-setup]",
+          "after": "The two terms describe different sources of error:\n\n- $2DT$ comes from storage.\n- $V_{\\mathrm{read}}(L)$ concerns estimation of $\\theta(T)$ from spikes after $T$.\n\nThe supplement derives this decomposition for a locally translation invariant diffusion and readout model; state dependence, boundaries, informative priors, or uncertain initial encoding require corresponding changes.[^p1-read-setup]",
+          "kind": "list",
+          "rationale": "Make the two parallel error sources easy to compare after the decomposition, with its conditions kept visible.",
+          "preserved_premise_or_limit": "All four limits and the supplement attribution remain after the list.",
+          "source_or_meaning_question": null,
+          "edit_order": 1,
+          "baseline_line": 27
+        },
+        {
+          "section": "Storage loss and readout error add under specific assumptions {#sec:MEMORY-READOUT-SETUP}",
+          "paragraph_prefix": "Assume the readout is locally unbiased",
+          "before": "Assume the readout is locally unbiased at every possible $x$ and the future noise is independent of the storage history. Conditional on that history, the readout error then has mean zero. Since $s$ is fixed by the history, $\\mathbb E[se]=\\mathbb E[s\\,\\mathbb E(e\\mid\\text{storage history})]=0$. Both errors have zero mean, so their covariance vanishes. Translation invariance makes the readout variance the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$. Using $\\operatorname{Var}(s)=2DT$ gives",
+          "after": "Assume the readout is locally unbiased at every possible $x$ and the future noise is independent of the storage history. Conditional on that history, the readout error then has mean zero. Since $s$ is fixed by the history, $\\mathbb E[se]=\\mathbb E[s\\,\\mathbb E(e\\mid\\text{storage history})]=0$. Both errors have zero mean, so their covariance vanishes. [**Translation invariance**]{.definition-term custom-style=\"Definition Term\"} makes the readout variance the same at every $x$; denote it by $V_{\\mathrm{read}}(L)$. Using $\\operatorname{Var}(s)=2DT$ gives",
+          "kind": "definition",
+          "rationale": "Mark the existing first explanation of the invariance used in this readout model.",
+          "preserved_premise_or_limit": "The independence, local unbiasedness, zero covariance and constant-variance assumptions remain intact.",
+          "source_or_meaning_question": null,
+          "edit_order": 2,
+          "baseline_line": 21
+        },
+        {
+          "section": "Accounting for diffusion makes readout improve toward a limit {#sec:MEMORY-IDEAL}",
+          "paragraph_prefix": "The hyperbolic tangent is",
+          "before": "The hyperbolic tangent is $\\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$. Its inverse on $(-1,1)$ is $\\operatorname{artanh}z=\\tfrac12\\log[(1+z)/(1-z)]$, whose derivative is $1/(1-z^2)$. Initially no observation means zero precision. The term $J$ adds new information; the term $2DP^2$ accounts for uncertainty when carrying that information backward through diffusion. Set $a=\\sqrt{J/(2D)}$ and $k=\\sqrt{2DJ}$. Separating variables gives",
+          "after": "The [**hyperbolic tangent**]{.definition-term custom-style=\"Definition Term\"} is $\\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$. Its [**inverse hyperbolic tangent**]{.definition-term custom-style=\"Definition Term\"} on $(-1,1)$ is $\\operatorname{artanh}z=\\tfrac12\\log[(1+z)/(1-z)]$, whose derivative is $1/(1-z^2)$. Initially no observation means zero precision. The term $J$ adds new information; the term $2DP^2$ accounts for uncertainty when carrying that information backward through diffusion. Set $a=\\sqrt{J/(2D)}$ and $k=\\sqrt{2DJ}$. Separating variables gives",
+          "kind": "definition",
+          "rationale": "Mark the formulas that first explain the functions needed to solve the precision equation.",
+          "preserved_premise_or_limit": "Domain, derivative, initial condition and both competing terms of the precision dynamics are retained.",
+          "source_or_meaning_question": null,
+          "edit_order": 3,
+          "baseline_line": 137
+        },
+        {
+          "section": "Accounting for diffusion makes readout improve toward a limit {#sec:MEMORY-IDEAL}",
+          "paragraph_prefix": "Here $\\coth z=1/\\tanh z$.",
+          "before": "Here $\\coth z=1/\\tanh z$. This backward precision derivation is a teaching reconstruction equivalent to the Gaussian covariance calculation in SI Eqs. S58–S75. It makes explicit how diffusion limits the value of later observations.[^p1-ideal]",
+          "after": "The [**hyperbolic cotangent**]{.definition-term custom-style=\"Definition Term\"} is $\\coth z=1/\\tanh z$. This backward precision derivation is a teaching reconstruction equivalent to the Gaussian covariance calculation in SI Eqs. S58–S75. It makes explicit how diffusion limits the value of later observations.[^p1-ideal]",
+          "kind": "definition",
+          "rationale": "Give the function its name at the existing first explanation.",
+          "preserved_premise_or_limit": "The reciprocal identity, teaching reconstruction and equivalence to the supplement remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 4,
+          "baseline_line": 156
+        },
+        {
+          "section": "Accounting for diffusion makes readout improve toward a limit {#sec:MEMORY-IDEAL}",
+          "paragraph_prefix": "The ideal observer keeps improving,",
+          "before": "The ideal observer keeps improving, but the improvement becomes small. At $L=L^*$ its variance is $1.313$ times the limit; at $2L^*$ it is $1.037$ times the limit; at $3L^*$ it is $1.005$ times the limit. These are variances, so their ratios are not ratios of standard deviations.",
+          "after": "The ideal observer keeps improving, but the improvement becomes small. Its variance relative to the limiting variance is:\n\n- $1.313$ at $L=L^*$.\n- $1.037$ at $2L^*$.\n- $1.005$ at $3L^*$.\n\nThese are variances, so their ratios are not ratios of standard deviations.",
+          "kind": "list",
+          "rationale": "Expose three parallel quantitative comparisons without presenting them as method steps.",
+          "preserved_premise_or_limit": "Every duration and ratio remains; variance is still distinguished from standard deviation.",
+          "source_or_meaning_question": null,
+          "edit_order": 5,
+          "baseline_line": 171
+        },
+        {
+          "section": "Readout saturates, and one printed error bound needs qualification {#sec:MEMORY-FIG3-AND-CAUTION}",
+          "paragraph_prefix": "Figure 3 isolates readout uncertainty,",
+          "before": "Figure 3 isolates readout uncertainty, rescaling variance by $\\sqrt{2D/J}$ and duration by $L^*$. In these axes the ideal curve is $\\coth z$ and the naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations because too few spikes are available. The ideal solid curve approaches one. The naive dashed curve reaches $2/\\sqrt3$ at $z=\\sqrt3$, then rises because its equal weighting gives increasing importance to displaced states. The dotted vertical line marks that naive optimum. The storage delay contribution $2DT$ is not part of these rescaled curves. Figure S2 repeats the comparison for partial access, showing the rightward and upward shifts when $\\alpha=0.1$.[^p1-fig3]",
+          "after": "Figure 3 isolates readout uncertainty, rescaling variance by $\\sqrt{2D/J}$ and duration by $L^*$. In these axes the ideal curve is $\\coth z$ and the naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations because too few spikes are available. The plotted features are:\n\n- The ideal solid curve approaches one.\n- The naive dashed curve reaches $2/\\sqrt3$ at $z=\\sqrt3$, then rises because its equal weighting gives increasing importance to displaced states.\n- The dotted vertical line marks that naive optimum.\n\nThe storage delay contribution $2DT$ is not part of these rescaled curves. Figure S2 repeats the comparison for partial access, showing the rightward and upward shifts when $\\alpha=0.1$.[^p1-fig3]",
+          "kind": "list",
+          "rationale": "Separate the parallel figure features while leaving the scaling and common short-duration behavior in prose.",
+          "preserved_premise_or_limit": "Exact formulas, optimum, physical cause, omitted storage term and partial-access comparison remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 6,
+          "baseline_line": 257
+        },
+        {
+          "section": "Readout saturates, and one printed error bound needs qualification {#sec:MEMORY-FIG3-AND-CAUTION}",
+          "paragraph_prefix": "Finally, the short readout interval",
+          "before": "Finally, the short readout interval is not a short lifetime of the underlying integrator. A tuned integrator can continue to represent the mean of accumulated inputs while its variance grows. A leak would instead pull its mean toward a particular value. Diffusion limits the accuracy of the integral and the usefulness of long observation; it does not by itself introduce that restoring pull. Applying these predictions to an animal also requires checking its spike statistics, tuning, drift, access to spikes, and other sources of movement noise.[^p1-integrator]",
+          "after": "The short readout interval is not a short lifetime of the underlying integrator. A tuned integrator can continue to represent the mean of accumulated inputs while its variance grows. A leak would instead pull its mean toward a particular value. Diffusion limits the accuracy of the integral and the usefulness of long observation; it does not by itself introduce that restoring pull. Applying these predictions to an animal also requires checking its spike statistics, tuning, drift, access to spikes, and other sources of movement noise.[^p1-integrator]",
+          "kind": "wording",
+          "rationale": "Remove a sequence marker that adds no reason for the important distinction between observation duration and integrator lifetime.",
+          "preserved_premise_or_limit": "Mean retention, growing variance, leak distinction and all requirements for animal comparisons remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 7,
+          "baseline_line": 290
+        }
+      ],
+      "full_chapter_assessment": "Retained the storage/readout covariance argument, Gaussian approximation limits, equal-weight double integral, backward precision recursion, partial-access calculation, two-time-constant matrix and printed-bound caution. Lists expose parallel error terms, saturation values and figure features; derivations stay connected.",
+      "possible_but_rejected_edits": [
+        "Do not turn the backward precision recursion into an isolated numbered recipe: its equations and surrounding reasoning teach why each step works.",
+        "Do not shorten the printed-bound caution: direction of the inequality and saturation condition are essential."
+      ]
+    },
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\04-eye-drift.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\04-eye-drift.md",
+      "baseline_sha256": "15c1a3b9157572762ed2c4c0dbc03b4602b25537530ed86fac3f3f3e172628f0",
+      "proposed_sha256": "20b3956d499e25dbc3a897d9167cf832b2e29f66e592882f93f56a02d3523bfc",
+      "newline": "'\\n'",
+      "edits": [
+        {
+          "section": "From stored eye position to muscle action {#sec:EYE-PATHWAY}",
+          "paragraph_prefix": "There are three possible contributions",
+          "before": "There are three possible contributions to an observed drift: a changing shared command sent to many OMNs, private spike variability in individual OMNs, and variability after those neurons, including muscle and measurement noise. Private spike fluctuations can partly cancel when many neurons act together. A common command survives this averaging. This is why the noisy activity of one neuron can reveal a source that dominates the much smoother eye movement.",
+          "after": "There are three possible contributions to an observed drift:\n\n- A changing shared command sent to many OMNs.\n- Private spike variability in individual OMNs.\n- Variability after those neurons, including muscle and measurement noise.\n\nPrivate spike fluctuations can partly cancel when many neurons act together. A common command survives this averaging. This is why the noisy activity of one neuron can reveal a source that dominates the much smoother eye movement.",
+          "kind": "list",
+          "rationale": "Show the three candidate sources as parallel alternatives before explaining why averaging affects them differently.",
+          "preserved_premise_or_limit": "Possible contributions remain possible; partial cancellation and shared survival retain their original strength.",
+          "source_or_meaning_question": null,
+          "edit_order": 1,
+          "baseline_line": 15
+        },
+        {
+          "section": "The recordings pair one motor neuron with movement at a time {#sec:EYE-RECORDINGS}",
+          "paragraph_prefix": "The large movements have a useful role",
+          "before": "The large movements have a useful role even though the scientific question concerns tiny drifts. They produce enough rate change to estimate how each cell's activity depends on eye movement. The fitted relationship is then applied during fixation. This transfer is an assumption to examine, because an incorrect [**gain**]{.definition-term custom-style=\"Definition Term\"} during drift would change the inferred common variance. Gain is the scale that converts a change in one signal into a change in the other.",
+          "after": "The large movements have a useful role even though the scientific question concerns tiny drifts. They produce enough rate change to estimate how each cell's activity depends on eye movement. The fitted relationship is then applied during fixation. This transfer is an assumption to examine, because an incorrect gain during drift would change the inferred common variance. [**Gain**]{.definition-term custom-style=\"Definition Term\"} is the scale that converts a change in one signal into a change in the other.",
+          "kind": "definition",
+          "rationale": "Put blue emphasis on the sentence that explains gain, keeping its earlier mention within the same paragraph.",
+          "preserved_premise_or_limit": "Calibration transfer remains an assumption; the dependence of inferred common variance on gain remains.",
+          "source_or_meaning_question": null,
+          "edit_order": 2,
+          "baseline_line": 23
+        },
+        {
+          "section": "Calibrated covariance estimates the common share of movement variance {#sec:EYE-CHI}",
+          "paragraph_prefix": "where $C=\\delta E_C$",
+          "before": "where $C=\\delta E_C$ is the common upstream contribution, $\\eta$ combines motor neuron, muscle, and measurement contributions to measured displacement, and $\\epsilon$ is the prediction error from the individual cell. All are displacement variables in degrees. The assumptions are that the common contribution enters both signals with unit gain, meaning the same one-for-one displacement scale, and that $C,\\eta,\\epsilon$ are pairwise uncorrelated to the required accuracy.",
+          "after": "where $C=\\delta E_C$ is the common upstream contribution, $\\eta$ combines motor neuron, muscle, and measurement contributions to measured displacement, and $\\epsilon$ is the prediction error from the individual cell. All are displacement variables in degrees. The calculation assumes:\n\n- The common contribution enters both signals with unit gain, meaning the same one-for-one displacement scale.\n- $C,\\eta,\\epsilon$ are pairwise uncorrelated to the required accuracy.",
+          "kind": "list",
+          "rationale": "Expose the two distinct assumptions behind the covariance estimate, after defining every variable.",
+          "preserved_premise_or_limit": "Unit gain, pairwise uncorrelated contributions and required-accuracy qualification are unchanged.",
+          "source_or_meaning_question": null,
+          "edit_order": 3,
+          "baseline_line": 202
+        },
+        {
+          "section": "Calibrated covariance estimates the common share of movement variance {#sec:EYE-CHI}",
+          "paragraph_prefix": "Expanding the covariance shows exactly",
+          "before": "Expanding the covariance shows exactly what those assumptions buy:",
+          "after": "Expanding the covariance shows why those assumptions matter:",
+          "kind": "wording",
+          "rationale": "Replace a trading metaphor with a direct link from the assumptions to the expansion.",
+          "preserved_premise_or_limit": "The covariance expansion and approximate equality are untouched.",
+          "source_or_meaning_question": null,
+          "edit_order": 4,
+          "baseline_line": 204
+        }
+      ],
+      "full_chapter_assessment": "Retained the physical pathway, recording design, calibration and inverse-filter derivation, independent-noise bound and common-fraction estimate. Lists identify candidate sources and necessary covariance assumptions; gain emphasis moves to its actual explanation.",
+      "possible_but_rejected_edits": [
+        "Do not shorten the one-neuron-at-a-time limitation: it limits every later shared-source inference.",
+        "Do not list every chronological sample-processing detail: the existing connected paragraph explains one data-selection process and retains all numbers."
+      ]
+    },
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\04b-eye-timing.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\04b-eye-timing.md",
+      "baseline_sha256": "557592b7f4e2c936390bd22f5c4cc6def23b1f8f24d365edbda162768e581977",
+      "proposed_sha256": "b896b155391e6555e16921b845a3119ddfe0dc78811132d8c5a90c67d5772159",
+      "newline": "'\\n'",
+      "edits": [
+        {
+          "section": "Chapter opening",
+          "paragraph_prefix": "The mean squared displacement measures",
+          "before": "The mean squared displacement measures the average squared position change over a chosen interval. Separating the recording error from that quantity is necessary before interpreting its growth. The next comparison follows two possible inputs through a decaying muscle response: fluctuations that do not accumulate and a position that wanders by diffusion. Their different long interval behavior explains how a smooth eye movement can still reflect a wandering stored value.",
+          "after": "The mean squared displacement measures the average squared position change over a chosen interval. Separating the recording error from that quantity is necessary before interpreting its growth. To test whether the command accumulates changes, we compare two possible inputs after a decaying muscle response: fluctuations that do not accumulate and a position that wanders by diffusion. Their different long interval behavior explains how a smooth eye movement can still reflect a wandering stored value.",
+          "kind": "transition",
+          "rationale": "Tie the comparison directly to the unresolved question about accumulation, rather than announcing the next topic.",
+          "preserved_premise_or_limit": "Measurement-error removal still precedes interpretation; both candidate inputs and the common filter remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 1,
+          "baseline_line": 5
+        },
+        {
+          "section": "Independent measurement error adds a constant offset to the MSD {#sec:EYE-MEASUREMENT-NOISE}",
+          "paragraph_prefix": "At short lags, the displacement can",
+          "before": "At short lags, the displacement can be smaller than the search coil's measurement error. Suppose its reading is $E_{\\rm obs}(t)=E(t)+\\nu(t)$, where the measurement error has zero mean, variance $\\sigma_m^2$, is independent of true movement, and is uncorrelated between distinct sampled times. For a positive lag,",
+          "after": "At short lags, the displacement can be smaller than the search coil's measurement error. Suppose its reading is $E_{\\rm obs}(t)=E(t)+\\nu(t)$. The measurement error is assumed to have:\n\n- Zero mean and variance $\\sigma_m^2$.\n- Independence from true movement.\n- No correlation between distinct sampled times.\n\nFor a positive lag,",
+          "kind": "list",
+          "rationale": "Expose the separate error assumptions needed to remove the mixed term and cross-time covariance.",
+          "preserved_premise_or_limit": "Zero mean, finite variance, independence, distinct sampled times and positive-lag restriction are preserved.",
+          "source_or_meaning_question": null,
+          "edit_order": 2,
+          "baseline_line": 17
+        },
+        {
+          "section": "The MSD plateaus for filtered white noise but grows for filtered diffusion {#sec:EYE-FILTERED-MSD}",
+          "paragraph_prefix": "Now suppose the input is a stored position",
+          "before": "Now suppose the input is a stored position $B(t)$ undergoing Brownian motion with $\\mathbb E[(B(t+\\ell)-B(t))^2]=2D\\ell$. Its position variance accumulates. A low pass filter with nonzero static gain smooths the path while retaining that accumulating long time displacement variance. The following one exponential example is a teaching reconstruction, not the paper's full muscle model. It derives how smooth movement can have a slope between one and two even though the stored position undergoes ordinary diffusion.",
+          "after": "Filtered white noise cannot explain continued long-lag growth. Suppose instead the input is a stored position $B(t)$ undergoing Brownian motion with $\\mathbb E[(B(t+\\ell)-B(t))^2]=2D\\ell$. Its position variance accumulates. A low pass filter with nonzero static gain smooths the path while retaining that accumulating long time displacement variance. The following one exponential example is a teaching reconstruction, not the paper's full muscle model. It derives how smooth movement can have a slope between one and two even though the stored position undergoes ordinary diffusion.",
+          "kind": "transition",
+          "rationale": "Use the plateau result to motivate the alternative accumulating input.",
+          "preserved_premise_or_limit": "The claim concerns the stable decaying filter just derived; nonzero static gain and the teaching-example limit remain in the paragraph.",
+          "source_or_meaning_question": null,
+          "edit_order": 3,
+          "baseline_line": 86
+        }
+      ],
+      "full_chapter_assessment": "Retained the measurement-noise subtraction, white-input covariance argument and full filtered Brownian derivation. The assumptions become visible before the calculation, and the plateau result motivates the accumulating-input alternative.",
+      "possible_but_rejected_edits": [
+        "Do not replace technical stationary process or white noise with approximate everyday synonyms: the precise assumptions explain the plateau.",
+        "Do not move nonzero static gain to a fold: it is needed for continued displacement growth."
+      ]
+    },
+    {
+      "source_path": "C:\\dev\\clsc\\burak-papers\\guide\\content\\chapters\\04c-eye-circuit.md",
+      "baseline_path": "C:\\dev\\clsc\\burak-papers\\guide\\verification\\prose-structure-20261024\\baseline\\content\\chapters\\04c-eye-circuit.md",
+      "baseline_sha256": "44e0e3b1811f66925288d21e7f586c1005be39aab146ab7d92dc9791bfd11127",
+      "proposed_sha256": "ac42cc49f56a95c2d0368f71e5c9a8c2724a6dafe6864ab1d82d902e3af1783e",
+      "newline": "'\\n'",
+      "edits": [
+        {
+          "section": "Spike regularity and circuit parameters set the model's drift scale {#sec:EYE-SCALING}",
+          "paragraph_prefix": "Doubling $N$ halves this diffusion scale;",
+          "before": "Doubling $N$ halves this diffusion scale; doubling CV multiplies it by four; doubling $\\tau_s$ divides it by four. Doubling the absolute slope at fixed rate also divides it by four. Increasing rate reduces diffusion when the fractional slope is fixed, because more spikes then also supply a proportionally steeper absolute slope. Increasing rate at fixed absolute slope is a different comparison and increases the scale in the first formula. A rate change alone does not specify which comparison is intended.",
+          "after": "At fixed network geometry and under the noise assumptions above, the scale changes as follows:\n\n- Doubling $N$ halves it.\n- Doubling CV multiplies it by four.\n- Doubling $\\tau_s$ divides it by four.\n- Doubling the absolute slope at fixed rate also divides it by four.\n\nIncreasing rate reduces diffusion when the fractional slope is fixed, because more spikes then also supply a proportionally steeper absolute slope. Increasing rate at fixed absolute slope is a different comparison and increases the scale in the first formula. A rate change alone does not specify which comparison is intended.",
+          "kind": "list",
+          "rationale": "Make the four parallel parameter comparisons visible while retaining the different rate constraints in connected prose.",
+          "preserved_premise_or_limit": "The controlled geometry and noise assumptions are repeated locally; fixed-rate slope and fixed-fractional-slope rate comparisons remain distinct.",
+          "source_or_meaning_question": null,
+          "edit_order": 1,
+          "baseline_line": 126
+        },
+        {
+          "section": "The evidence places shared drive upstream without identifying one circuit {#sec:EYE-LIMITS}",
+          "paragraph_prefix": "The data and model answer different localization questions.",
+          "before": "The data and model answer different localization questions. The common variance estimate supports a drive upstream of OMNs, given the calibration and noise assumptions. The MSD comparison supports a command that accumulates variation over the measured interval, rather than stationary white noise passed through a decaying muscle filter. The circuit model shows that integrator noise with plausible parameters can generate such a command and explain its filtered amplitude and timing.",
+          "after": "The data and model answer different questions about where the drive originates:\n\n- The common variance estimate supports a drive upstream of OMNs, given the calibration and noise assumptions.\n- The MSD comparison supports a command that accumulates variation over the measured interval, rather than stationary white noise passed through a decaying muscle filter.\n- The circuit model shows that integrator noise with plausible parameters can generate such a command and explain its filtered amplitude and timing.",
+          "kind": "list",
+          "rationale": "Separate the three kinds of evidence so the model demonstration cannot be mistaken for direct recording-based localization.",
+          "preserved_premise_or_limit": "Calibration and noise assumptions, measured interval, white-noise comparator, and possible model explanation all remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 2,
+          "baseline_line": 160
+        },
+        {
+          "section": "The evidence places shared drive upstream without identifying one circuit {#sec:EYE-LIMITS}",
+          "paragraph_prefix": "Those results do not uniquely locate",
+          "before": "Those results do not uniquely locate the noise inside integrator neurons. No integrator neurons were recorded in this study. No selective change of that circuit tested whether it was necessary for drift. Noisy inputs to the integrator, or an already diffusive upstream signal, remain possible. The authors make this distinction in the Discussion and explicitly in their peer review response. Several combinations of neuron count, variability, and synaptic time constant can also fit an amplitude, so matching one curve does not uniquely recover those parameters.[^p2-localization]",
+          "after": "Those results do not uniquely locate the noise inside integrator neurons. Two missing tests limit that conclusion:\n\n- No integrator neurons were recorded in this study.\n- No selective change of that circuit tested whether it was necessary for drift.\n\nNoisy inputs to the integrator, or an already diffusive upstream signal, remain possible. The authors make this distinction in the Discussion and explicitly in their peer review response. Several combinations of neuron count, variability, and synaptic time constant can also fit an amplitude, so matching one curve does not uniquely recover those parameters.[^p2-localization]",
+          "kind": "list",
+          "rationale": "Expose the two separate gaps in direct circuit evidence, then retain alternative sources and parameter uncertainty as their consequences.",
+          "preserved_premise_or_limit": "Neither lack of recordings nor lack of intervention is treated as disproof; both upstream alternatives and all parameter ambiguity remain.",
+          "source_or_meaning_question": null,
+          "edit_order": 3,
+          "baseline_line": 162
+        }
+      ],
+      "full_chapter_assessment": "Retained all circuit, plant and feedback equations, recurrence and near-neutrality conditions, CV construction, dimensional scaling caution and measured-CV check. Lists compare parameters and distinguish inference, model demonstration and missing direct evidence.",
+      "possible_but_rejected_edits": [
+        "Do not list the circuit equations as independent components without their causal links: recurrence and muscle filtering depend on their sequence.",
+        "Do not combine absolute and fractional slope comparisons: their rate dependence differs."
+      ]
+    }
+  ],
+  "token_stats": "unavailable"
+}

@@ -1,0 +1,21 @@
+{
+  "at_utc": "2026-11-01T13:50:06.515739+00:00",
+  "changes": [
+    {
+      "file": "content/chapters/03b-memory-readout.md",
+      "old": "This function describes how the extra error from limited observation decreases toward the diffusion-limited value.",
+      "new": "This function describes how the readout variance decreases toward its limit as observation continues.",
+      "reason": "Stage2: distinguish total variance tending to its positive limit from excess tending to zero.",
+      "before": "dca9f79953953780d38fbd8ab9ea6ba21458cd4b69cd28644315dbac6a39b863",
+      "after": "9ebe00e5eb4e62a81fc4b70f01fceab59e938ba08e48366d40a91fecdc0daf3e"
+    },
+    {
+      "file": "content/chapters/12-simulating-eye-drift.md",
+      "old": "Simulating the random events requires a rule for generating repeatable sample sequences. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} fixes the starting state of a pseudorandom generator so that a specified implementation can repeat its sample sequence.]{.definition-explanation} The seed controls which sequence is drawn; it does not set the intended firing-rate distribution. The code uses a trajectory index to choose that starting state.",
+      "new": "Simulated spike times are drawn by a program that generates a repeatable sequence of random-looking numbers. A [[**random seed**]{.definition-term custom-style=\"Definition Term\"} sets its starting state, allowing the same implementation and sequence of calls to reproduce those samples.]{.definition-explanation} The spike-generation rule specifies the intended distribution; the seed chooses the sample sequence.",
+      "reason": "Stage2: explain the generator role in ordinary words and keep the rate-model versus sample-sequence distinction.",
+      "before": "e396e3d9cfc0221b76ac544b814fb9156384063e7992cf1fcd7419532ccab604",
+      "after": "8bcc9a97ce8ce089a53e1227919f5ee864efb5fa466801256195afbbca72e079"
+    }
+  ]
+}

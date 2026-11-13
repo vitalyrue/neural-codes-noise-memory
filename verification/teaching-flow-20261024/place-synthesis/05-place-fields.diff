@@ -1,0 +1,162 @@
+--- baseline/05-place-fields.md
++++ proposed/05-place-fields.md
+@@ -1,4 +1,4 @@
+-# Why place fields have different sizes and shapes {#ch:PLACE-FIELDS}
++# A thresholded Gaussian map predicts field sizes and shapes {#ch:PLACE-FIELDS}
+ 
+ A cell recorded on a short track may have one smooth firing hill. On a long track, the same kind of cell may have several separated fields, each with a different width and height. In a room, its active regions can bend, split, and surround inactive holes. How could one model produce this variety and still make useful predictions?
+ 
+@@ -6,7 +6,7 @@
+ 
+ This chapter develops the calculations behind that claim. Spatial randomness here describes different possible rate maps. Once a map is drawn, it is fixed while the animal moves through it. The spatial coordinate is not time, and the model does not by itself describe memory drift, spike timing, or learning.
+ 
+-## From a rate map to a random function {#sec:PLACE-GP}
++## Thresholding a smooth Gaussian input produces place fields {#sec:PLACE-GP}
+ 
+ To predict a field's width, we need to relate activity at nearby positions. A histogram of firing rates alone loses that information: rearranging its values could turn one broad field into many tiny fields without changing the histogram.
+ 
+@@ -65,7 +65,7 @@
+ 
+ Thresholding changes the distribution of values and can separate one smooth input curve into several fields. Both panels describe the same fixed map over space, so neither curve is a trajectory over time. See [Gaussian input and firing rate, STAR Methods Eqs. 2–3, p. e1](../papers/mainali-2025-universal-statistics.pdf#page=13).
+ 
+-## Count fields by counting crossings {#sec:PLACE-KAC-RICE}
++## Upcrossings count fields, with an endpoint correction {#sec:PLACE-KAC-RICE}
+ 
+ Finding every root of a random curve is difficult. Counting how often the curve passes a level is easier because a small interval around a crossing has a width determined by its slope.
+ 
+@@ -125,7 +125,7 @@
+ 
+ where $Q(q)=1-\Phi(q)$ and $\Phi$ is the standard normal cumulative distribution function. The last term is the endpoint correction. Removing incomplete boundary fields changes the counting convention, so the same correction cannot then be used unchanged. This identity also gives the paper's exact one dimensional mean Euler characteristic, Equation 8.[^p3-ec-source]
+ 
+-## Infer a threshold and a spatial scale {#sec:PLACE-INFERENCE}
++## Mean field and gap lengths separate threshold from scale {#sec:PLACE-INFERENCE}
+ 
+ A low field count can result from a high threshold or a slowly varying map. Field lengths help separate those possibilities.
+ 
+@@ -233,7 +233,7 @@
+ 
+ At moderate thresholds the omitted shape fluctuations matter. Figure 3C reports a rate versus length exponent of $1.42$ in the 200 m bat data and $1.46$ in finite threshold model simulations. Figure 3D reports $1.75$ versus $1.71$ using cube root of volume in 3D. These are compatible with a model that approaches exponent two only as the threshold becomes large; they are not measurements of the limiting exponent. Figure 5A–C illustrates the progression toward simpler, usually single peak fields as $q$ increases. Figure 4C tests this trend in the shorter bat tunnel.[^p3-shapes]
+ 
+-## Derive the size law in each dimension {#sec:PLACE-SIZE-LAW}
++## Geometry gives different size laws in each dimension {#sec:PLACE-SIZE-LAW}
+ 
+ A round region's radius and its volume have different units and different distributions. This geometric conversion explains why the model predicts different histograms in a track, an arena, and a room.
+ 
+@@ -269,6 +269,17 @@
+ 
+ This is the paper's Equation 1. The expression for $\beta$ above is its leading high threshold geometric scale, not an exact finite threshold identity. A finite threshold simulation can share the approximate shape while having a different fitted scale.[^p3-size-source]
+ 
++
++
++The mean and its corresponding scale are
++
++$$
++\mu_s=\Gamma(1+d/2)\beta^{-d/2},\qquad
++\beta=\left[\frac{\Gamma(1+d/2)}{\mu_s}\right]^{2/d}.
++$$
++
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: normalization and higher size moments"}
++
+ Normalization needs no special integral: $\int_0^\infty p_d(s)\,ds=\int_0^\infty e^{-u}\,du=1$. The same substitution supplies every positive moment,
+ 
+ $$
+@@ -277,12 +288,7 @@
+ =\beta^{-kd/2}\Gamma(1+kd/2).
+ $$
+ 
+-In particular,
+-
+-$$
+-\mu_s=\Gamma(1+d/2)\beta^{-d/2},\qquad
+-\beta=\left[\frac{\Gamma(1+d/2)}{\mu_s}\right]^{2/d}.
+-$$
++:::
+ 
+ Size has units of distance to the power $d$, while $\beta$ has units of inverse distance squared in every dimension. This makes $\beta s^{2/d}$ dimensionless, and makes $p_d(s)$ a density per unit size. These checks catch mistakes in changing variables.
+ 
+@@ -308,9 +314,13 @@
+ 
+ This approximation has a measurable error even for a smooth Gaussian process. At $q=1.1,\sigma=2.4$ m, its 1D mean is $5.469$ m, compared with the exact stationary crossing result $3.746$ m, an overestimate of $46.0\%$. At $q=5$ the error is $3.73\%$. This is why the paper compares data to finite threshold simulations as well as to limiting curves.
+ 
++::: {.publisher-clarification-note .publisher-fold-always title="Source check: three printed steps in the supplement"}
++
+ **Reading the supplement carefully.** The printed supplement appears to contain algebraic errors in this calculation. Its Equation S18 prints multiplication by mean size where the preceding moment formula requires division. Its Equation S23 omits a factor $\sqrt2$ when solving the parabola in S22 for full width. In S25 the finite-height quadratic exponent should be negative. The derivation above retains the main paper's distributional form and obtains the constants from the displayed parabola, the moment integral, and the independent crossing calculation. These corrections concern the printed derivation; they do not establish that the simulation code or empirical fits used the same mistakes.[^p3-corrections]
+ 
+-## Why slices are a separate test {#sec:PLACE-SLICES}
++:::
++
++## Slices test spatial structure beyond field volume {#sec:PLACE-SLICES}
+ 
+ A model can fit field volumes and still place activity incorrectly within those volumes. Slicing the map tests that internal spatial structure.
+ 
+@@ -336,6 +346,8 @@
+ 
+ The height density cancels because height and slope are independent. This Rayleigh law is therefore independent of $q$ under the smooth stationary Gaussian model, without a high threshold approximation. Absolute slopes at downward boundaries have the same law. The rate slope is $av$, so its scale also depends on the firing rate gain. This selection effect explains why a half Gaussian law for a positive derivative sampled uniformly in space would be wrong at crossings.[^p3-slope-source]
+ 
++::: {.publisher-clarification-note .publisher-fold-always title="Independent check: recover field width from its boundary slope"}
++
+ There is also an independent check on the high threshold width constant. Starting at an upcrossing with slope $v$, the local excursion is approximately
+ 
+ $$
+@@ -344,9 +356,11 @@
+ 
+ Its second root is $s=2\sigma^2v/q$. Changing variables in the exact crossing slope law gives $p(s)=2\beta s e^{-\beta s^2}$ with $\beta=q^2/(8\sigma^2)$, the same constant as the peak calculation for $v_1=2$.
+ 
++:::
++
+ Figure 3A identifies which width, peak, and slopes are measured. B compares local peak counts, C–D compare rate and size, and E compares boundary slopes. The paper measures boundary slopes by a finite difference between samples 0.1 m apart. This approximates a derivative and has its own spatial resolution. It is not a direct observation of the underlying synaptic input.
+ 
+-## Count holes as well as connected fields {#sec:PLACE-TOPOLOGY}
++## Holes distinguish maps with the same field count {#sec:PLACE-TOPOLOGY}
+ 
+ Two maps can have the same field count and total active area but different holes. To test this part of the geometry, raise the activity threshold and watch how regions split, join, appear, and disappear.
+ 
+@@ -373,6 +387,20 @@
+ $$
+ 
+ where $\phi(b)=e^{-b^2/2}/\sqrt{2\pi}$. The gradient's $j$ components are independent Gaussians of variance $\lambda$, so $p_{\nabla z}(0)=(2\pi\lambda)^{-j/2}$. The determinant measures how spatial volume near a gradient zero converts to gradient volume, just as the slope did for a scalar crossing.
++
++
++
++The resulting signed densities are
++
++$$
++\eta_1=\frac{e^{-q^2/2}}{2\pi\sigma},\qquad
++\eta_2=\frac{q e^{-q^2/2}}{(2\pi)^{3/2}\sigma^2},\qquad
++\eta_3=\frac{(q^2-1)e^{-q^2/2}}{(2\pi)^2\sigma^3}.
++$$
++
++These are signed densities per length, area, and volume, not three formulas for positive field counts.
++
++::: {.publisher-clarification-note .publisher-fold-always title="Derivation: the Gaussian determinant average and its integrals"}
+ 
+ Here are the Gaussian algebra steps behind the determinant average. Write the conditional Hessian as $H=-b\lambda I+G$, where $G$ has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices $i,k$,
+ 
+@@ -400,15 +428,9 @@
+ \end{aligned}
+ $$
+ 
+-For example, differentiate $-q\phi(q)$ to get $(q^2-1)\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral yields
+-
+-$$
+-\eta_1=\frac{e^{-q^2/2}}{2\pi\sigma},\qquad
+-\eta_2=\frac{q e^{-q^2/2}}{(2\pi)^{3/2}\sigma^2},\qquad
+-\eta_3=\frac{(q^2-1)e^{-q^2/2}}{(2\pi)^2\sigma^3}.
+-$$
+-
+-These are signed densities per length, area, and volume, not three formulas for positive field counts.
++For example, differentiate $-q\phi(q)$ to get $(q^2-1)\phi(q)$, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above.
++
++:::
+ 
+ Now include the boundary of an ordinary closed square or cube of side $L$, whose opposite faces are not joined and with every intersecting component retained. On a $j$ dimensional face, derivatives along the face give the same calculation as above. Each of its $d-j$ gradient components perpendicular to the face and directed out of the box must have the appropriate sign to contribute to the boundary Morse count. Symmetry and independence give a factor $2^{-(d-j)}$. There are $2^{d-j}\binom dj$ such faces, each of size $L^j$. Their combined coefficient is therefore $\binom djL^j$. Corners supply $Q(q)$ in total. With $r=L/\sigma$, the formulas become
+ 
+@@ -465,7 +487,7 @@
+ 
+ The model also allows differences between cells. Figure S4 draws a positive threshold separately for each cell and keeps that threshold for two otherwise independent maps representing opposite flight directions. Low-threshold cells tend to have more and larger fields in both maps; this shared cell property creates correlations between flight directions even when field locations differ between directions. Two distribution parameters were chosen to match the two empirical correlations, so those correlations are fitted features of this extension. Its continued agreement with length and gap distributions is the additional comparison. This extension should not be described as a two-parameter model shared by all cells.[^p3-threshold-variation]
+ 
+-## What Gaussian maps imply about synaptic input {#sec:PLACE-WIRING}
++## Random input weights can generate Gaussian maps {#sec:PLACE-WIRING}
+ 
+ The statistical model becomes biologically useful if it suggests how a circuit could make the maps. A random weighted sum of many inputs is one possible mechanism, and the supplement makes its assumptions explicit.
+ 

@@ -1,0 +1,65 @@
+[
+  {
+    "chapter": "03-memory-information",
+    "original_lines": [
+      129,
+      137
+    ],
+    "hidden_text": "The mutual-excitation example in Chapter 2 supplies a counterexample to the unrestricted converse. Set its bias $b_0=0$ and use the linear rule $\\phi(g)=g/\\tau$ on positive inputs. Its fixed states are $s_1=s_2=\\theta>0$, with $\\mathbf u=(1,1)^T$ and $\\mathbf v=(1/2,1/2)^T$. Both rates are $\\theta/\\tau$, and both rate derivatives are $1/\\tau$. Therefore\n\n$$\n2D=\\frac{\\theta}{2\\tau},\\qquad\nJ=\\frac{2}{\\tau\\theta},\\qquad\n2DJ=\\frac{1}{\\tau^2}.\n$$\n\nEquality holds throughout this family even though its transfer rule is linear. At each state both cells receive the same input, and the ratio $\\phi'/\\phi=1/\\theta$ changes between states. A converse that forces an exponential rule needs additional restrictions linking the participating input values across cells and states. Continuous variation of the represented value alone does not supply them. This qualification concerns the source's claimed converse, while leaving the information–diffusion inequality intact.",
+    "hidden_sha256": "177a42b5e2b0a069223bf00a5608328eb200e2ba71bc57e21ef900dd9629c346",
+    "title": "Check: equality can also hold with a linear transfer rule",
+    "start": 129,
+    "end": 137,
+    "visible": "Scalar inequality and pointwise proportionality condition at original lines 106-127, including the explicit sufficient-not-necessary qualification.",
+    "dependent": "The visible strictness example uses mutual inhibition, not this optional mutual-excitation counterexample. The Gaussian-noise extension refers to the counterexample, but also states the general pointwise condition visibly and does not use its numbers.",
+    "reason": "The closed path preserves the limit on the exponential claim and a separate short strictness example; this check supplies the deeper counterexample in full."
+  },
+  {
+    "chapter": "03-memory-information",
+    "original_lines": [
+      179,
+      184
+    ],
+    "hidden_text": "Set $Q=V-U(U^TU)^{-1}$. Expanding $Q^TQ$ and using $U^TV=I$ gives\n\n$$\nQ^TQ=V^TV-(U^TU)^{-1}\n=2D-\\tau^{-2}J^{-1}\\succeq0.\n$$",
+    "hidden_sha256": "c584bc86571d1c30d17d4783165f69b2d8997f2def772b004958e8144af134e3",
+    "title": "Check: the residual matrix proves the lower bound",
+    "start": 179,
+    "end": 184,
+    "move_after": 186,
+    "visible": "Matrix information, the meaning of positive semidefinite order, the matrix bound and U/V identities at original lines 165-177. Invertibility and coupled-direction interpretation remain at line 186.",
+    "dependent": "Later scalar width and eye-drift calculations do not use Q or this residual expansion. Q exists only in the hidden algebra.",
+    "reason": "Readers can retain the multidimensional result, its meaning and conditions while opening the exact nonnegative-residual calculation if wanted."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "original_lines": [
+      94,
+      107
+    ],
+    "hidden_text": "We can obtain the response to a spike directly from the differential equation. After the spike, the input is zero, and each of the two exponentials solves the remaining homogeneous equation. Write their combination as\n\n$$\nh_0(u)=A e^{-u/\\tau_+}+B e^{-u/\\tau_-},\\qquad u>0.\n$$\n\nTo find $A$ and $B$, treat the spike as a short pulse of unit area and shrink its duration to zero. The position change during that pulse tends to zero, so $h_0(0^+)=0$. Integrating $m h_0''+r h_0'+k h_0$ across the pulse gives $m h_0'(0^+)=1$: the velocity changes by $1/m$, while position and velocity before the causal response are zero. Therefore\n\n$$\nA+B=0,\\qquad\n-\\frac{A}{\\tau_+}-\\frac{B}{\\tau_-}=\\frac1m.\n$$\n\nSubstituting $B=-A$ gives $A(1/\\tau_- -1/\\tau_+)=1/m$, hence $A=\\tau_+\\tau_-/[m(\\tau_+-\\tau_-)]$. Making the response zero before the spike gives",
+    "hidden_sha256": "63ec742a800f57df65d6099d6159533b25af6e901ba19b2f985a2327858063ba",
+    "title": "Derivation: the weights of the two decaying responses",
+    "start": 94,
+    "end": 107,
+    "move_after": 122,
+    "visible": "Causal filter and impulse-response definitions, differential relation, decay times and their conditions at original lines 65-91. The complete response formula remains visible at 109-113, followed by causality, delay, convolution and units.",
+    "dependent": "The common variance and circuit arguments require the calibrated filter and its gain, all visible. The temporary coefficients A and B occur only inside this calculation.",
+    "reason": "The closed path still teaches the filter and gives its full normalized formula; only the initial-condition calculation of its coefficients is optional."
+  },
+  {
+    "chapter": "04-eye-drift",
+    "original_lines": [
+      124,
+      132
+    ],
+    "hidden_text": "The kernel's area checks its normalization:\n\n$$\n\\int_0^\\infty h_0(u)\\,du\n=\\frac{\\tau_+\\tau_-}{m(\\tau_+-\\tau_-)}(\\tau_+-\\tau_-)\n=\\frac1k.\n$$\n\nThus a constant input rate $f_0$ predicts $E_T+f_0/k$, exactly the static forward relation. A kernel with unit area would give the wrong conversion unless $k$ had already been absorbed into the input. When the two decay times coincide, $r^2=4km$, the limit is $h_0(u)=\\Theta(u)u e^{-u/\\tau}/m$. The distinct exponential formula is used for the fitted responses in the paper.",
+    "hidden_sha256": "303c3d27836bb2c6ffbf33b8f85c355d2e7d15354eabebd41be60f8a040d3c6d",
+    "title": "Check: static gain and coincident decay times",
+    "start": 124,
+    "end": 132,
+    "move_after": 141,
+    "visible": "The normalized kernel, delay and units remain at original lines 109-122; the numerical example at 134-141 visibly checks area 1/k and steady-rate gain.",
+    "dependent": "No later passage needs the repeated-pole limit. The 82 percent inference needs calibrated gain, which the visible numerical example and kernel still explain.",
+    "reason": "The closed path retains the shortest concrete gain check; this fold keeps the symbolic area calculation and special equal-time-constant case available."
+  }
+]

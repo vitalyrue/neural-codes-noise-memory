@@ -1,0 +1,655 @@
+{
+  "review_id": "part3-systems-stage3-20261030",
+  "request_id": "local-request-/root/part3_review_systems-stage3",
+  "request_id_kind": "local request identity, not a platform call ID",
+  "reviewer": "/root/part3_review_systems; assigned gpt-6.1-sol high",
+  "stage": 3,
+  "stage_name": "reader understanding and flow, with focused repair truth rechecks",
+  "scope": [
+    "current09 chapter opening/three sections, table, equation, worked example, footnotes and YAML",
+    "References18-30 and preceding PartIII note",
+    "necessary chapter07/08 teaching, not acceptance of those chapters"
+  ],
+  "timestamps": {
+    "started_utc": "2026-10-30T14:33:53+00:00",
+    "checkpoints_utc": [
+      "2026-10-30T14:36:20+00:00",
+      "2026-10-30T14:38:07+00:00"
+    ],
+    "finished_utc": "2026-10-30T14:41:32.091544+00:00",
+    "awake_execution_time": "unverified; Windows sleep/resume logs not inspected",
+    "system_clock_change": "none observed",
+    "duration_note": "Late source changes and concept-index refresh were incorporated before final hashing.",
+    "closed_utc": "2026-10-30T14:45:06.448518+00:00"
+  },
+  "source_sha256": {
+    "content/chapters/09-neuromorphic-systems.md": "716cfbe2fb221b0830870a8d627924276f02c04fca61bc538c3240ac6f7b8019",
+    "content/chapters/09-neuromorphic-systems.yaml": "22da01facca5e643f446d0b7d9315f5a993bb01f4d67beff0445d28e27e2b619",
+    "content/chapters/07-hardware-memory.md": "617d144a2cfdf589d6d5a80a943833aed6319b7717fc2826d9fb58d2e1a677f3",
+    "content/chapters/08-hardware-dynamics.md": "ff04509fa1f058c6769d5976be91556995a1be1c7327a08dac494b8880175387",
+    "content/chapters/references.md": "f30a13d5bcaab818a7cc57d1afde0b5b520d7e31ef901917eff9b76d592a75c5",
+    "content/chapters/references.yaml": "bd3438c9ca97a07924f2d7591abcea7052424ca162a73de91ef651a3f68a71c6",
+    "source-maps/source-coverage.csv": "10e3ada2ae91ba56484332cc581c2df263271698f4538a73a8a5acd731ae3547",
+    "source-maps/research-ledger.csv": "8f036b2afa42a75ecf8db53ce0b44217e96530aa08524e3e3dba175089839681",
+    "verification/part3-neuromorphic-20261030/concept-index.json": "d95832fe3116e14bfc61ae2ab68f2ff2027cbe11f93c5a8e410988fbc60fe122",
+    "verification/part3-neuromorphic-20261030/concept-judgments-systems.json": "45a52f771b546a3d68b731644d69132327531fcd0cb519e699b416ed78ef2dff",
+    "verification/part3-neuromorphic-20261030/research/kleyko-review.xml": "ffd51a59bc442020e0a50920ce69fbaf5111c4c2fb7550b51aed6bbd6dd3ef29",
+    "verification/part3-neuromorphic-20261030/research/sun-review.xml": "d6f4c38808bce771fd88790889e17266fc9bc5fcc25ed047a3134061de66898b",
+    "verification/part3-neuromorphic-20261030/concept-index-final.json": "001dc27e702de9d78a704c8b6a6d7643a5872be531ff6f8ba900b50c6e1e95be",
+    "verification/part3-neuromorphic-20261030/footnote-spacing-reuse.json": "47f5c1469f1f90482fd67469ffddbeaeb38fb57355ce2d23d729081567f3c093",
+    "verification/part3-neuromorphic-20261030/concept-check.json": "a54b346d921ef4594aca070910f706b6e4379dbed698877bf02bb91a471dbdef"
+  },
+  "rule_sha256": {
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/concept-prerequisites.md": "4c8d4af325fb63af8dbe41d447d4bac7197df550b0ddb9f4cdb0dea3b1fe9f9a",
+    "C:/Users/vital/.codex/skills/course-study-guide-builder/references/reference-citation-contract.md": "5c3a40b775395c981150b9796680b023108a27879cf517fa313a3f3b063cde9a"
+  },
+  "verdict": "pass for this local source teaching scope",
+  "remaining_findings": [],
+  "repair_rechecks": [
+    {
+      "old_finding": "SYS-S2-01",
+      "location": "09 architecture introduction and BrainScaleS-2 table row",
+      "result": "pass",
+      "answer": "Calibration now adjusts circuit settings toward target measured responses; the table requests measurement of remaining response differences after calibration. This gives an action and observable rather than asking the reader to measure the process itself.",
+      "primary_check": "Independently reopened Pehle2022 section3.1, especially target-matching calibration and Fig.2.",
+      "source": "https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.795876/full"
+    },
+    {
+      "old_finding": "SYS-S2-01",
+      "location": "09 Kleyko paragraph",
+      "result": "pass",
+      "answer": "Stored recent input history and functions including products accurately describe the buffer plus Sigma-Pi/second-order-feature implementation. Output prediction supplies readout purpose; the retained-state and HalaPoint limits remain.",
+      "primary_check": "Reread published hardware-experiment paragraph from independently retrieved KleykoXML, including quadratic prediction of two recent input states and first/second-order feature comparisons.",
+      "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11733134/fullTextXML"
+    },
+    {
+      "old_finding": "SYS-S2-01",
+      "location": "09 host/learning/PCM/Sun paragraphs",
+      "result": "pass",
+      "answer": "Host is defined before use. Training beforehand distinguishes timing from learning location; processors update weights states the former plasticity role. Programmed resistance levels, repeated-cycle meaning and inline registers definition remove the remaining extra terminology without changing the evidence."
+    },
+    {
+      "old_finding": "focused-stage3-endurance-clarification",
+      "location": "09 Wang paragraph",
+      "result": "pass after correction",
+      "answer": "My stage2 many-programming-cycles suggestion was too broad because the source already reports cycling tests. The final wording now says beyond a million programming cycles, preserving the source condition.",
+      "source": "https://www.nature.com/articles/s41563-025-02361-0.pdf?error=cookies_not_supported",
+      "locator": "printedp.461 discussion and ExtendedDataFig.3; independently inspected in stage1"
+    },
+    {
+      "old_finding": "SYS-S2-02",
+      "location": "09 prose and new References introduction/footnotes",
+      "result": "pass",
+      "answer": "Empty intensity and narrative semicolons were removed; the repeated transition was combined. Remaining contrasts mark actual evidence limits; en dashes, exact titles, initials and multi-source citation separators retain their approved narrow use."
+    },
+    {
+      "old_finding": "SYS-S1-01",
+      "location": "current source-map and ledger rows",
+      "result": "retained pass",
+      "answer": "The chapter wording changes do not move the source teaching locations already corrected and checked in stage2."
+    }
+  ],
+  "reader_tasks": [
+    {
+      "task": "Choose a platform for a particular memory question",
+      "answer_from_text": "Identify which changing state carries the value, where weights reside, which update/noise law is controllable and whether the required model time is met. The introduction states these criteria before the common comparison table.",
+      "verdict": "sufficient"
+    },
+    {
+      "task": "Explain what the recent studies establish",
+      "answer_from_text": "Loihi provides useful input history; SpiNNaker2 maintains measured recurrent state for the observed gap; PCM adaptation changes weights using host-assisted work; CrTe3 stabilizes programmed resistance. The separate evidence objects and limits are explicit.",
+      "verdict": "sufficient"
+    },
+    {
+      "task": "Explain the slow-state calculation",
+      "answer_from_text": "m retains an alpha fraction and receives beta-scaled input. After input ends, repeated retention gives alpha^n. Matching that decay to an exponential ties memory time to physical update spacing. The numeric clock comparison answers why slow is relative.",
+      "verdict": "sufficient"
+    },
+    {
+      "task": "Set conditions for a later fair experiment",
+      "answer_from_text": "Specify task, readout error, delay and included hardware/host work. Communication continues taking wall time while accelerated state changes. Matrix-only energy is insufficient when other necessary work is outside its measured boundary.",
+      "verdict": "sufficient"
+    }
+  ],
+  "section_judgments": [
+    {
+      "section_id": "ch:NEUROMORPHIC-SYSTEMS/s0",
+      "sha256": "7058379fb6be3937feaf8c24be7048da3b6fdbf6d6f7410348b763542a5b539f",
+      "decision": "retain",
+      "reason": "Starts from the angle task and defines evidence/host boundary."
+    },
+    {
+      "section_id": "ch:NEUROMORPHIC-SYSTEMS/s1",
+      "sha256": "2f47853a1af93b8f6df638ff52525ba87de61a9ebfd9544de4a4282cd904bb84",
+      "decision": "retain",
+      "reason": "Criteria and calibration precede common platform table, followed by clock interpretation and learning capability limits."
+    },
+    {
+      "section_id": "ch:NEUROMORPHIC-SYSTEMS/s2",
+      "sha256": "a1d1b960c274a0442703bf05e62d100264eea35649ff0e72337083cda589592f",
+      "decision": "retain",
+      "reason": "One reading question links four distinct advances; closing paragraph returns them to decoded memory."
+    },
+    {
+      "section_id": "ch:NEUROMORPHIC-SYSTEMS/s3",
+      "sha256": "c4d8fd4d37815bd0a128ed9c446f62d375cf6c5c656ad7e033ae80941b75cfa3",
+      "decision": "retain",
+      "reason": "A concrete memory loss motivates slow state, recurrence, timing example and communication/system boundaries.",
+      "before_spacing_sha256": "a8b43653824946557b0354f3748fe3c12138d0ad0a78b3197b158eb3ce07cdb0"
+    }
+  ],
+  "paragraph_records": [
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p3",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        3,
+        3
+      ],
+      "sha256": "48319fa654b764751e655863e4a2583af8fe34f87d8e4b30701c6dbc1097f0f7",
+      "point": "Establishes a concrete angle-retention problem and a choice of physical update mechanisms.",
+      "connection": "Follows chapter08 distinction between digital/analog dynamics and represented memory; gives a reason to compare platforms.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p5",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        5,
+        7
+      ],
+      "sha256": "ed3b7278260222ba42e86396a870e2fa87f3adf162e7d90eb9e586966d5a046b",
+      "point": "Limits the research comparison and defines host computer.",
+      "connection": "Prepares hardware evidence categories and later host boundary before the architecture table.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p11",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        11,
+        11
+      ],
+      "sha256": "0e84b25712313ce8dfa0b6572c1772147aaa64583d672c6b8595c09aa1a55e30",
+      "point": "Explains why accessible variables/noise laws matter and defines calibration as adjusting measured responses toward targets.",
+      "connection": "The criteria precede the table; device differences connect to mismatch already taught in07.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p20",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        20,
+        20
+      ],
+      "sha256": "bc4e46c781c1fb0f55306bb9d36b468365d2ec02a489cd60ec9b3d9a7fa48483",
+      "point": "Interprets digital versus physical analog dynamics and explains accelerated model time.",
+      "connection": "Uses the table rather than leaving the reader to infer its main physical distinction; prepares later clock example and communication limit.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p22",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        22,
+        22
+      ],
+      "sha256": "ecc0db8ba91e14f7e9339aceff42699c47b7f1d6e49415cfc89e2535df75a349",
+      "point": "Defines chip weight updates and distinguishes platform capabilities from the learning method in a particular experiment.",
+      "connection": "Connects physical architecture to the following measured advances without inferring all demonstrations learn autonomously.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p26",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        26,
+        26
+      ],
+      "sha256": "0b1a26645a8877fab06264e0c2045ce598f91060528ff81b05045a9642b032ae",
+      "point": "Gives the common question for reading the four recent results: what information persists and where.",
+      "connection": "Turns platform capabilities into a consistent comparison of specific experiments.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p28",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        28,
+        28
+      ],
+      "sha256": "267f49c9b2185e928df2f2215e62ce4090bdd301f8764a0f9c7e15d9e83a9c23",
+      "point": "Explains stored recent inputs, products/functions and output readout on Loihi, with the limited retention and resource-scale conclusions.",
+      "connection": "The earlier07 decoder definition and clear local function/readout description support the summary; no full reservoir-computing course is required.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p30",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        30,
+        30
+      ],
+      "sha256": "37b0303cb2169aa1978e7792e3106f2520876ad6eb5bce606b904b6b721c7808",
+      "point": "Reports measured persistent state, observed motion, and the8-second observation limit; separates simulated guidance and estimated power.",
+      "connection": "Provides the most direct retained-state result after the recent-input-history example; observed lifetime and physical component limits remain visible.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p32",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        32,
+        32
+      ],
+      "sha256": "8100da1ffd6c68182316111493ff8e8ab51c51dfeaa8eaf0f09c54f7f80d757d",
+      "point": "Distinguishes fast task adaptation of PCM weights from autonomous activity-state retention.",
+      "connection": "Uses host and weight/state meanings already taught, adding a different advance without presenting it as the same memory result.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p34",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        34,
+        36
+      ],
+      "sha256": "79a11c229beada7fb7e0f45179f90977d5b93bf8aee3e8ecdc9488041e3ccabb",
+      "point": "Explains how low resistance drift stabilizes weights and identifies programming/readout and remaining scale/cycle/variability tests.",
+      "connection": "Moves from algorithms and platform experiments to material stability, preserving what kind of object improved. The final beyond-million-cycle condition matches the source.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p38",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        38,
+        38
+      ],
+      "sha256": "295c67ba25201e1f7ad3ddb700e8f1ace8761435a777dc97732ab6e13af20713",
+      "point": "States what the four advances do not jointly establish and returns to decoded value during delay.",
+      "connection": "This is the bridge from a list of different results to the slow-state memory question; it gives the reader a usable comparison criterion.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p42",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        42,
+        42
+      ],
+      "sha256": "7507be3c28404374248513ce71a368e57c539508a7a6288eb9d251bf99105912",
+      "point": "Starts with loss of early information and explains slow summary state returning input to fast units; defines registers and limits the hardware evidence.",
+      "connection": "A concrete reason precedes architecture terms and the teaching recurrence. Post-layout simulation and pre-task training are explicit.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p44",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        44,
+        44
+      ],
+      "sha256": "85393ff4d3433964a19d3226072cfe58ca6af3419790521d5c848624d2690436",
+      "point": "Introduces z as input and m as stored quantity.",
+      "connection": "Supplies object roles before the recurrence rather than asking the reader to infer the symbols.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p50",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        50,
+        50
+      ],
+      "sha256": "a8188cc6362fdc4a9541c4f3e7523511b31d709856b313e29448e46c21676691",
+      "point": "Defines index, retained fraction and input conversion, then explains alpha-power input-free decay and the model limit.",
+      "connection": "Interprets the recurrence and supplies the meaning required by the timing example.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p54",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        54,
+        54
+      ],
+      "sha256": "16b588cf43b8193fe5f0b8a575e21629b7b03ba54f38457231405b9639785bfe",
+      "point": "Names the question the calculation answers.",
+      "connection": "Connects per-update decay to the physical time relevant to the experiment.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p56",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        56,
+        56
+      ],
+      "sha256": "c36e9f57b324edb904fec76d82f3babec490c59257b97b2d8b9cdfc62f783089",
+      "point": "Derives an equivalent decay time and shows that faster updates shorten wall-time retention for the same retained fraction.",
+      "connection": "Numbers expose a real model-time/wall-time distinction; assumptions and units are explicit and previously checked arithmetic remains unchanged.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p60",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        60,
+        60
+      ],
+      "sha256": "137a231c47748b02d9d6649e10f7f84c83580d853a75ec447b8db2a69fa71f0b",
+      "point": "Explains measured four-chip communication and why delay matters while state continues changing.",
+      "connection": "Builds on accelerated time rather than introducing an unrelated platform benchmark.",
+      "decision": "retain"
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p62",
+      "path": "content/chapters/09-neuromorphic-systems.md",
+      "lines": [
+        62,
+        62
+      ],
+      "sha256": "b1e4121232efbe31f541750ea3392c1d2aea91bcd792654045dd93c05656e116",
+      "point": "Collects the task/error/delay and measured-system conditions and gives an energy-boundary example.",
+      "connection": "Prepares the next chapter experiment; the reader is told what has to be matched before comparing memory performance.",
+      "decision": "retain"
+    }
+  ],
+  "direct_object_records": [
+    {
+      "kind": "architecture table",
+      "lines": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "sha256": "f4fa27318b2adda34ec99813c7e0f34d370ae444fa2e96df2ab60aef82923723",
+      "decision": "retain",
+      "reason": "All four rows share state location, update and experiment consequence. Chapter07 has taught bits, capacitor state and conductance/input weighting. Host and calibration are now defined before this table. Digital precision is distinct from bit reliability; analog state is distinct from SRAM weights; generic PCM state placement is deliberately not assumed."
+    },
+    {
+      "kind": "displayed recurrence",
+      "lines": [
+        47
+      ],
+      "sha256": "a1d1f909d87a08bb78b80b3cfeba2f90eda51dfbda368034ece59f0e94bd3db5",
+      "decision": "retain",
+      "reason": "Directly inspected m_next=alpha*m+beta*z and0<alpha<1. z/m are introduced before it; following paragraph gives k/alpha/beta roles and alpha-power decay. The illustration claims gradual forgetting, not infinite exact retention."
+    },
+    {
+      "kind": "footnotes",
+      "lines": [
+        66,
+        71,
+        74,
+        76,
+        79,
+        83,
+        87,
+        91
+      ],
+      "sha256": "6a921359f5d9a9566409800477f7a8a6d6071561987f006408fb86c7a9716fb8",
+      "decision": "retain",
+      "reason": "Read each source footnote and its attached claim. Each gives the relevant original source and locator; combined source lists correspond to the platform rows. Reference titles, author initials, preprint versions, online/issue dates and ranges remain accurate. Short source entries need no artificial paragraph transition."
+    }
+  ],
+  "excluded_markup": [
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p52",
+      "lines": [
+        52,
+        52
+      ],
+      "sha256": "8e19185c156210567a045f638d7d3d1269765f40e35d9cff42cebc457898c408",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p58",
+      "lines": [
+        58,
+        58
+      ],
+      "sha256": "aac32651b10f567c461b9b4f255d6fb1fa6859b5368d8bd9a51af920ab21cf23",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p64",
+      "lines": [
+        64,
+        65
+      ],
+      "sha256": "72fb9debbff6b02f5de0f17c603a3aa9b077a0b677b3227f9256736ccfda428a",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p67",
+      "lines": [
+        67,
+        68
+      ],
+      "sha256": "bf506d6f58cf686fa691df4ec9911b976f18e4d4c4e2ebf1dade6fe5b93b6120",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p70",
+      "lines": [
+        70,
+        70
+      ],
+      "sha256": "32df4c69c44966c233b4d619528443ae7797e698df7e7e440056f54257e4b7ea",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p72",
+      "lines": [
+        72,
+        72
+      ],
+      "sha256": "049e470ec3e8acf0fceec7bba3fe99b23be506db98773ad54891225155a1d151",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p78",
+      "lines": [
+        78,
+        78
+      ],
+      "sha256": "c434e91454241a31e310a239ac3a093d91ab1fcd15b7ac3b333458ba63f49376",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p80",
+      "lines": [
+        80,
+        80
+      ],
+      "sha256": "6e36e79bce1447ac7eddc2fb19787ace984308e97fbb90fe3fbe309f14b460ff",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p82",
+      "lines": [
+        82,
+        82
+      ],
+      "sha256": "c434e91454241a31e310a239ac3a093d91ab1fcd15b7ac3b333458ba63f49376",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p84",
+      "lines": [
+        84,
+        84
+      ],
+      "sha256": "6e36e79bce1447ac7eddc2fb19787ace984308e97fbb90fe3fbe309f14b460ff",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p86",
+      "lines": [
+        86,
+        86
+      ],
+      "sha256": "c434e91454241a31e310a239ac3a093d91ab1fcd15b7ac3b333458ba63f49376",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p88",
+      "lines": [
+        88,
+        88
+      ],
+      "sha256": "6e36e79bce1447ac7eddc2fb19787ace984308e97fbb90fe3fbe309f14b460ff",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p90",
+      "lines": [
+        90,
+        90
+      ],
+      "sha256": "c434e91454241a31e310a239ac3a093d91ab1fcd15b7ac3b333458ba63f49376",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    },
+    {
+      "passage_id": "ch:NEUROMORPHIC-SYSTEMS/p92",
+      "lines": [
+        92,
+        92
+      ],
+      "sha256": "6e36e79bce1447ac7eddc2fb19787ace984308e97fbb90fe3fbe309f14b460ff",
+      "reason": "Pure comment or container markup; no reader-visible claim. Mixed comment/prose records are reviewed in paragraph records."
+    }
+  ],
+  "reference_records": [
+    {
+      "number": 18,
+      "line": 72,
+      "sha256": "ab816fb08faa166772549681263caa21764b2c1faa52ba83a6f38d5c414d37b5",
+      "decision": "retain",
+      "reason": "Historical framing and exact quoted-page access. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 19,
+      "line": 74,
+      "sha256": "ed11eb80e3187959e380c98404c26025ef6f046b9f29007eaede0aac107527c5",
+      "decision": "retain",
+      "reason": "Physical analog state, digital weights and hybrid learning architecture. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 20,
+      "line": 76,
+      "sha256": "045db95615d15393194f63efa37c3a0b8068b458738be9358077c6721a00f0f0",
+      "decision": "retain",
+      "reason": "Loihi digital architecture and programmable learning. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 21,
+      "line": 80,
+      "sha256": "c919f7149413726b4bb7a32293af9f52a533d9e2e912a85627e77ddb6a95b29e",
+      "decision": "retain",
+      "reason": "Versioned SpiNNaker2 memory/update/learning capabilities. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 22,
+      "line": 85,
+      "sha256": "e7df5d3ba9c9a8674b80e9cdd3df193231ef7bffa1a5e5526fdfb5191e609645",
+      "decision": "retain",
+      "reason": "PCM inference hardware, with author-version boundary explicit. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 23,
+      "line": 90,
+      "sha256": "2d110a31972100869ea73ec39dfb4ca427c14d770296ac1a21cae48f298d9f57",
+      "decision": "retain",
+      "reason": "Early measured orientation circuit, distinct from exact continuous retention. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 24,
+      "line": 94,
+      "sha256": "c41b8d26fd44244829107db822dbe4c55b65844d0dc1115ef6bae14690329eeb",
+      "decision": "retain",
+      "reason": "Measured bistable working memory, with publication-year/volume note. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 25,
+      "line": 96,
+      "sha256": "88afe66dfd2d139f6317c7837c3a4b80abe63c5c30cf18593700653ae10618d2",
+      "decision": "retain",
+      "reason": "Measured recent-input-history computation. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 26,
+      "line": 98,
+      "sha256": "1a1f596db909b5a7c8d263e681933d70fca097884e60588903408ef88c31b837",
+      "decision": "retain",
+      "reason": "Measured persistent chip state, with bounded experiment claims in chapter. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 27,
+      "line": 100,
+      "sha256": "7321f8aafe1f1e5300783cd651d00c12b78feb35b3327c251d4479ac97bf54cb",
+      "decision": "retain",
+      "reason": "Rapid PCM task adaptation and explicit host boundary. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 28,
+      "line": 104,
+      "sha256": "2a63c58d0c13b7c6c6a98e1a81722387a2a99238cf9f0c124297b64de9fc532c",
+      "decision": "retain",
+      "reason": "Low-drift material with separate online and issue dates. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 29,
+      "line": 109,
+      "sha256": "5e483fbd5ec444bad1f0e302ca663d389c9748970915f04f3a6418bf9924ec20",
+      "decision": "retain",
+      "reason": "Slow memory pathway and post-layout hardware evidence. Standalone reference item; no narrative transition is needed."
+    },
+    {
+      "number": 30,
+      "line": 112,
+      "sha256": "869c0c9201508f1ecfe8949ff030cd73e46df425e19298b2f9691db18e52dba2",
+      "decision": "retain",
+      "reason": "Four-chip communication measurements in identified preprint. Standalone reference item; no narrative transition is needed."
+    }
+  ],
+  "sidecar_check": "CurrentYAML title/purpose/three section summaries match the current manuscript and the repaired paragraph boundaries. Definition markup remains within the matching summary; no extra prose claim appears in the sidecar.",
+  "connected_read": "Read opening, all section handoffs and intervening paragraphs after the final term/calibration/endurance/input-mapping repairs. Each advance remains tied to its physical object and observed limit; the slow-state example and final boundaries follow from that comparison. No further move or missing explanation is required within this local path.",
+  "concept_judgments": "concept-judgments-systems.json has12 concepts,29 actual passage/span relations,3 teaching sets and four reviewed chapter09 sections. Supplementary direct table/equation records cover content omitted by the extractor. This is independent passage judgment, not keyword approval.",
+  "limits": [
+    "No whole-book acceptance",
+    "No rendered citation/footnote/definition styling check",
+    "No figure checks or full builds",
+    "No new full-source audit of unchanged primary papers",
+    "Concept index excludes table/equation/footnote bodies; the direct reading records cover this local review but the checker alone cannot establish them"
+  ],
+  "token_stats": "unavailable",
+  "final_evidence_binding": {
+    "at": "2026-10-30T14:44:13.774148+00:00",
+    "index_file": "verification\\part3-neuromorphic-20261030\\concept-index-final.json",
+    "all29_relation_spans_unchanged": true,
+    "current_index_source_hashes_match": true,
+    "format_only_change": "Footnote blank lines only. Primary claims and body reading unchanged; reviewed direct footnotes match the current source.",
+    "concept_check": "Root merged all three reviewers and the local concept check passes; this tool result supplements, rather than replaces, the independent passage judgments."
+  },
+  "post_review_metadata_binding": [
+    {
+      "file": "source-maps/source-coverage.csv",
+      "before_sha256": "ba3e1d073e99efc9e1ae40b0ec1ca1693a76c1330db263df57f3b39bf4beb029",
+      "after_sha256": "10e3ada2ae91ba56484332cc581c2df263271698f4538a73a8a5acd731ae3547",
+      "reason": "Root updated acceptance metadata after review. Rechecked that every repaired new teaching location remains exactly the accepted repair value."
+    },
+    {
+      "file": "source-maps/research-ledger.csv",
+      "before_sha256": "e746b18ace2c81c10583fdbbc57462ca2f6def7ae7c84ce5c4192badd89b0ca0",
+      "after_sha256": "8f036b2afa42a75ecf8db53ce0b44217e96530aa08524e3e3dba175089839681",
+      "reason": "Root updated acceptance metadata after review. Rechecked that every repaired new teaching location remains exactly the accepted repair value."
+    }
+  ]
+}

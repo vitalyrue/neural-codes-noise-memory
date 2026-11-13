@@ -1,0 +1,1031 @@
+Neuron, Volume 113
+Supplemental information
+Universal statistics of hippocampal place ﬁelds
+across species and dimensionalities
+Nischal Mainali, Rava Azeredo da Silveira, and Yoram Burak
+Supplementary materials
+−2 −1 0 1
+log Receptive Field Size (m)
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Density
+A
+Data
+Model
+−1 0 1 2 3
+Skew of Log field size distribution
+0
+1
+2
+3
+4
+5
+Density
+B
+Model Data Exponential
+−2 0 2 4 6
+Kurtosis of Log field size distribution
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+Density
+C
+Figure S1. Field arrangements from rats in 1D environments are explained by the model.
+Related to Figure 1.
+(A) Distribution of (log) field sizes measured in rats navigating a 48 m-long 1d maze S1
+along with
+distribution arising from the model (σ = 0.34, θ = 1.8), fitted to match mean field size and count
+observed in the data. Fields in data larger than three times the standard deviation were removed
+as outliers. The empirical distribution matches the model better than the heuristic exponential
+distribution proposed in S2
+(likelihood test: ∆ log Likelihood = −83.1 < 0).
+(B-C) Skew/Kurtosis distribution of log field size obtained from multiple simulations of the model
+(orange) and the heuristic exponential distribution (gray) compared against that extracted from
+the experimental data (vertical green dashed line). The empirical fields were required to be
+larger than 15 cm in S1
+. We applied the same cutoff on the fields from to the model to match the
+distribution obtained from the data. Note that this affects the distribution of skew and kurtosis.
+1
+0 10 20 30
+s: Receptive Field Area (m2
+)
+10−5
+10−4
+10−3
+10−2
+10−1
+P(s)A
+0 1 2 3 4 5 6 7
+s: Receptive Field Size (m)
+10−2
+10−1
+100
+P(s)
+B
+Data
+Null model
+Half Normal
+1 2 3 4 5
+Progressive threshold (θ)
+0
+1
+2
+Euler
+Characteristic
+(χ)
+C
+Null EC
+Model EC
+0 50 100 150 200
+Mean Curvature
+10−7
+10−5
+10−3
+10−1
+Density:
+log
+plot
+D
+0.00 0.25 0.50 0.75 1.00
+Gaussian Curvature ×105
+10−11
+10−9
+10−7
+10−5
+10−3
+Density:
+log
+plot
+E
+Data
+Model
+Figure S2. Further analysis of 3d place fields: comparison to alternative model with
+spherical fields and curvature of field iso-surfaces. Related to Figure 2 and Figure 3.
+(A/B/C) Alternative model for comparison against the thresholded Gaussian process model in
+3d. Firing fields in the alternative model are spherical, while the joint distribution of field vol-
+umes and maximum-firing rates exactly matches the empirical distribution. More precisely, for
+each field in the data, we created a corresponding field in the model with spherical support and
+matching volume. These fields are not allowed to overlap but are otherwise randomly placed
+since the measurement of field sizes in the slices and the expected Euler characteristics are
+independent of the field placements. The firing rate profile for each of these fields was modeled
+as a quadratic function with amplitude exactly matching that of the field in data.
+(A) Discrepancy between areas of 2d slices through 3d fields in data and in the alternative model
+(logarithmic vertical scale).
+(B) Discrepancy between length of 1d slices through 3d fields in data and in the alternative model
+(logarithmic vertical scale). In the null model, the radius of each spherical field is distributed as
+Rayleigh distribution, which implies that the length of active portions of 1d slices follows a half-
+normal distribution.
+(C) Comparison between Euler characteristics of the thresholded Gaussian process model (match-
+ing the empirical data, Fig 3G), and Euler characteristics arising from the alternative model.
+(D) Distribution of mean curvature and (E) Gaussian curvature of 3d place field boundaries in
+data and model (logarthmic vertical scale). The boundary surface for each field was first identi-
+fied and represented as a two-dimensional array Z, where each point (x, y, z) of the surface was
+mapped to position (x, y) in the array containing the z-value of the surface points. The mean and
+Gaussian curvatures of the isosurface representing the boundaries of the 3D fields were then
+2
+calculatedS3
+using the following operators. Gaussian curvature (K) is defined as:
+K =
+∂xx∂yy − ∂2
+xy
+(1 + ∂2
+x + ∂2
+y )2
+and mean curvature (H) is defined as:
+H =
+(1 + ∂2
+x)∂yy + (1 + ∂2
+y )∂xx − 2∂x∂y∂xy
+2(1 + ∂2
+x + ∂2
+y )3/2
+where ∂x, ∂y, ∂xx, ∂yy, and ∂xy are the first and second-order partial derivatives of the surface
+represented by array Z with respect to x and y. The partial derivatives were computed using the
+numpy.gradient function, which calculates the numerical gradients of the input array.
+3
+−2 0 2 4 6
+log Environment Size
+−2
+−1
+0
+1
+2
+log
+field
+size
+A
+γ = 0.38
+γ = 0.77
+−2 0 2 4 6
+log Environment volume
+−2
+−1
+0
+1
+2
+log
+field
+counts
+B
+γ = 0.86
+γ = 0.82
+Figure S3. Trends in field statistics as a function of environment size. Related to Figure
+4.
+(A) Linear scaling of logarithm of linear field sizes (in m) with the logarithm of the linear environ-
+ment size (in m) in 1d (bats) S4
+and 2d (rats) S5
+. In both panels, γ is the slope of the best linear
+fit to the data, in logarithmic scales.
+(B) Linear scaling of logarithm of field counts with the logarithm of the linear environment volume
+(length in 1d and area in 2d) in 1d (bats) S4
+and 2d (rats) S5
+. The average propensity, defined
+as the average field count divided by the size of the environment (length in 1d and area in 2d)
+decreases weakly with environment size, exhibiting an approximate power-law dependence on
+the size of the environment, with an exponent γ − 1, equal approximately to −0.14 in 1d and to
+−0.18 in 2d.
+4
+0 5 10 15 20
+Forward median field count
+0
+5
+10
+15
+20
+Backward
+median
+field
+count
+B
+Correlation in model = 0.70
+Data = 0.71
+0 5 10 15
+Forward median field size
+0
+5
+10
+15
+Backward
+median
+field
+size
+C
+Correlation in model = 0.37
+Data = 0.41
+0.0 0.5 1.0 1.5 2.0
+Threshold range (θ)
+0.00
+0.25
+0.50
+0.75
+1.00
+Density
+D
+Mean θ
+0 10 20 30
+s: Receptive Field Size (m)
+0.0
+0.5
+1.0
+1.5
+P(s)
+×10
+−1
+E
+0 50 100 150 200
+s̄: Consecutive fields gap (m)
+10−6
+10−5
+10−4
+10−3
+10−2
+10−1
+P(s̄):
+log
+scale
+F
+Data
+Variable θ model
+A
+Figure S4. Threshold noise explains correlation in field statistics between flight directions
+of bats in a 1d environment. Related to Figure 1 and Figure 5.
+(A) Illustration of how variability in the normalized threshold across cells leads to correlated field
+counts and field sizes in the two flight directions along the 1d tunnel. Neurons with lower thresh-
+old will have more place fields on average, when the bat flies along both directions of the tunnel.
+Likewise, neurons with lower threshold will have larger field size on average, when the bat flies
+along both directions of the tunnel.
+(B) Scatter plot (blue) and correlation of field counts obtained from the model in two different sam-
+ples (representing forward and backwards directions) of fields with fixed noisy threshold. With
+a distribution of thresholds, the model matches the empirical correlation between field counts in
+bats flying in the forward and backward directions (parameters chosen as explained in D).
+(C) Scatter plot (blue) and correlation of median field size per cell in two different samples of
+fields with fixed noisy threshold. With a distribution of thresholds, the model matches the empiri-
+cal correlation between field sizes in the two flying directions, while simultaneously matching the
+correlation in field counts (parameters chosen as explained in D).
+(D) The distribution of θ in the extended model with variability in the threshold across cells. θ
+is sampled from a skew-normal distribution conditioned to be positive, with mean matching the
+single inferred θ in case of bats in 1d tunnel. The skew normal distribution has two remaining
+parameters after fixing the mean, which were set to match the correlation between median field
+count and median field size as reported in S4
+.
+(E) Field size distribution under the variable threshold model matches the distribution of field
+sizes in the data.
+(F) Field gap distribution in the model matches that of the data and further explains (without
+additional fitting) the slightly heavier tail in the empirical distribution in comparison with the fit to
+an exponential distribution (compare with Fig. 1D).
+5
+10 4
+−1.0 −0.5 0.0
+0
+2
+4
+6
+8
+Density
+0 1 2
+0
+1
+2
+3
+−1.0 −0.5 0.0
+0
+2
+4
+6
+8
+10
+Density
+0 1 2
+0
+1
+2
+3
+4
+−1.0 −0.5 0.0
+0
+2
+4
+6
+8
+10
+Density
+0 1 2
+0
+1
+2
+3
+4
+−1.0 −0.5 0.0
+0
+2
+4
+6
+8
+10
+Density
+0 1 2
+0
+1
+2
+3
+4
+−1.0 −0.5 0.0
+0
+2
+4
+6
+8
+10
+Density
+0 1 2
+0
+1
+2
+3
+4
+−1.0 −0.5 0.0
+0
+2
+4
+6
+8
+10
+Density
+0 1 2
+0
+1
+2
+3
+4
+Skew of Log field size distribution Kurtosis of Log field size distribution
+Model Data Log-normal
+0
+0.2
+0.4
+0.6
+0.8
+1
+Threshold
+0 1 2 3 4 5
+Thresholding range (hz)
+0.25
+0.50
+0.75
+1.00
+1.25
+1.50
+Inferred
+slopes
+Slope*=1.42
+A B
+6
+Figure S5. Evolution of field size distribution higher moments and inferred field size-
+amplitude slope across thresholds. Related to STAR Methods.
+(A) The Higher moment test of skew (left column) and kurtosis (right column) between the model
+and log-normal is highly sensitive and changes across choices of a range of small (between 0−1
+hz) thresholds applied to the data for denoising. The choice of denoising threshold for the main
+figures was 0.5, and the figure shows the tests for 6 other choices.
+(B) Slope of the linear fit between log field size and log maximum firing rate, evaluated for the
+data from bats flying in the 200 m tunnel using a range of rectification parameters. For rectifica-
+tion parameters above 1 Hz the slope rapidly stabilizes on a consistent value.
+7
+Methods S1
+Introduction to Gaussian process. Related to Figure 1.
+In this section we provide a basic introduction to Gaussian Process, and discuss the mapping
+between the thresholded Gaussian process and a simplified picture of neural dynamics.
+Gaussian processes can be viewed as a generalization of a multivariate Gaussian variable,
+having a probability density function of the form
+ϕ(f) =
+1
+(2π)L/2|C|1/2
+exp
+
+−
+1
+2
+(f − m)⊤
+C−1
+(f − m)
+
+, (S1)
+where f is a multidimensional random variable of dimension L, m is its mean, C is the covariance
+matrix and |C| = det C is the determinant of the matrix C. Multivariate Gaussian variables have
+the property that for every α = (α1, . . . , αL) ∈ RL
+, the real valued variable α · f =
+PL
+i=1 αifi is
+distributed as a univariate Gaussian variable. This property is sufficient and necessary for a
+multivariate variable to have the form of Eq. S10, and can therefore be used as a definition of a
+multivariate Gaussian distribution, instead of Eq. S10.
+It is possible to generalize the concept of a Gaussian distribution over vectors to a Gaussian
+distribution over functions of a continuous variable x ∈ [0, L]: the variable x can be thought of as
+a continuous analogue of the discrete index that labels the elements of a random vector. More
+formally a random distribution over functions f(x) is a Gaussian process if for every discrete set
+of k points, the values of the function (f(x1), · · · , f(xK)) are jointly distributed as a multivariate
+Gaussian. Similarly to the discrete case, where the vector m and the covariance matrix C
+uniquely determine the distribution of a multivariate Gaussian variable, a Gaussian process is
+uniquely determined by its mean function
+m(x) = ⟨f(x)⟩,
+and its (two-variable) covariance function
+r(x, y) = ⟨[f(x) − m(x)] [f(y) − m(y)]⟩ .
+In this work we consider stationary Gaussian processes, having the property that r(x, y) is func-
+tion of x − y and can thus be written as r(x − y). In addition, the mean m(x) of a stationary
+Gaussian process is independent of x, and is assumed in this work to vanish. Note, specifically,
+that the variance of the process is constant throughout the space and is given by r(0).
+In our model, the underlying index x ∈ [0, L] represents the location of the animal in its
+environment, and the turning curve of a neuron is obtained by applying a threshold nonlinearity
+to its associated instance of the Gaussian process. A simple biological interpretation of the
+model is that the Gaussian process represents the mean synaptic input that the neuron receives
+from its presynpatic partners, whose activities are themselves spatially tuned. The threshold-
+linear transfer function, which relates the total synaptic input to the cell’s firing rate arises from
+the interplay of the synaptic input, the intrinsic dynamics of the neuron, and noise S6
+. Technically,
+in the theory of Gaussian processes, the regions in which the process exceeds a threshold are
+called excursion sets, and these are mapped to place fields in our model.
+According to the model, at any fixed position of the animal the synaptic activation is distributed
+as a Gaussian variable across the neural population, and so is the synaptic activation of a single
+neuron across positions. This gives rise to a thresholded Gaussian distribution of firing rates.
+Interestingly, it was noted long ago in another brain area (IT cortex) that the distribution of firing
+rates is well approximated by a truncated Gaussian distribution S7
+.
+8
+Methods S2
+Derivation of Gaussian process input to CA1 cells. Related to Figure 1.
+Here we illustrate how random summation of presynaptic inputs into CA1 cells leads to Gaussian
+statistics of the total synaptic input, and elucidate how the spatial correlation function of the
+Gaussian process is determined by the input statistics. We assume, for simplicity, completely
+independent weights, yet Gaussian statistics can arise also under broader conditions, in which
+there is partial correlation between groups of summed variables that decays sufficiently rapidly
+across a functional axis within the input population S8
+.
+Consider a population i = 1 . . . N of spatially selective neurons presynpatic to a CA1 place
+cell with bounded spatial response function ui(x) for x ∈ RD
+in D dimensions. For simplicity we
+consider these response functions to have zero mean, whereas in a more realistic setting ui can
+stand for the deviation of the firing rate from its mean, and approximate balancing of the mean
+(which is interchangeable also with the choice of threshold in our model) may be obtained by
+other mechanisms, such as mutual lateral inhibition or homeostatic regulation of excitatory and
+inhibitory inputs.
+We consider first, for simplicity, a scenario in which all input neurons have the same tuning
+curve up to translation, with preferred firing locations xi that uniformly and densely tile the space:
+ui(x) = u0(x − xi). (S2)
+The input to the CA1 cell, h(x) is a weighted linear sum of the activity of the presynpatic cell
+outputs
+h(x) =
+N
+X
+i=1
+Wiui(x), (S3)
+where we assume that the weights Wi are drawn independently from a random distribution p(W)
+with zero mean, and a finite second moment. Using the central limit theorem for multidimensional
+stimuli S9,10
+, it is straightforward to see that for any discrete set of locations xα, h(xi) are jointly
+distributed as multivariate normal in the large N limit. Hence, h(x) is a Gaussian process in this
+limit.
+The covariance function of the Gaussian process (which uniquely determines all of its prop-
+erties) must be translationally invariant, due to our assumption of uniform tiling of inputs in the
+input layer. Indeed,
+⟨h(x)h(x′
+)⟩ =
+N
+X
+i,j=1
+⟨WiWj⟩ ui(x)ui(x′
+) = var (w)
+X
+i=1
+ui(x)ui(x′
+)
+= var (w) · r(x′
+− x), (S4)
+where the angular brackets represent an average over realizations of the random synaptic weights,
+and r is the spatial covariance of the neural population response. Here, r is proportional to the
+auto-correlation of the single neuron tuning curve
+r(∆x) = ρ
+Z
+dx u0 (x) u0 (x + ∆x) , (S5)
+where ρ is the spatial density of receptive field centers. Specifically, if individual tuning curves
+are shaped as Gaussian firing fields, r(∆x) is a Gaussian with a width equal to twice the width
+of the individual firing fields.
+9
+Heterogeneous tuning curves
+Similar results hold for heterogeneous tuning curves. We assume that the tuning curves of indi-
+vidual neurons are sampled from a distribution of shapes, parameterized by a random variable
+α which is independently chosen for each neuron (α can be scalar or multidimensional, discrete
+or continuous). For each neuron i,
+ui(x) = u0(x − xi; αi), (S6)
+where xi is drawn from a a uniform distribution in space and αi is the shape parameter of neuron
+i. Under these assumptions, h(x) is a sum over many independent random functions, which
+becomes distributed in the large N limit as a Gaussian process due to the central limit theory. A
+similar derivation as above yields
+⟨h(x)h(x′
+)⟩ = var (w) · r(x′
+− x), (S7)
+where r(∆x) is proportional to the auto-correlation of the tuning curve, averaged over the distri-
+bution of receptive field shapes
+r(∆x) = ρ
+Z
+dx u0 (x; α) u0 (x + ∆x; α)
+
+α
+, (S8)
+where ⟨ ⟩α represents an average over realizations of the shape parameter α. Qualitatively, in
+both scenarios discussed above, the central limit theory becomes valid when each CA1 neuron
+receives, within its place fields, active presynaptic inputs from many spatially selective cells.
+Methods S3
+Field statistics. Related to Figures 1 and 2.
+An extensive body of mathematical results exist for the statistics of excursion sets of Gaussian
+processes. In this section we explain how a small subset of the results are obtained. Full
+derivations of all the results are found in AdlerS11
+.
+Field statistics in 1D
+Field counts in 1d can be exactly derived using the Kac-Rice formula S12
+:
+⟨N⟩ =
+1
+2
+Z
+L
+D
+|f′
+(x)| f(x) = θ
+p
+r(0)
+E
+dx, (S9)
+where f(x) is a random process with a well defined derivative. Specifically, in our model f(x) is
+a 0 mean, stationary Gaussian process, and consequently f′
+(x) is a 0 mean stationary Gaussian
+process as well. To calculate the integrand, we first compute the covariance matrix associated
+with the joint distribution of f(x) and f′
+(x):
+Cx =
+
+⟨f(x)2
+⟩ ⟨f(x)f′
+(x)⟩
+⟨f′
+(x)f(x)⟩ ⟨f′
+(x)2
+⟩
+
+. (S10)
+Using stationarity, we have:
+(i) f(x)2
+= r(0)
+(ii) ⟨f(x)f′
+(x)⟩ =
+1
+2
+∂2
+∂x2
+f(x)2
+=
+1
+2
+∂2
+∂x2
+r(0) = 0
+(iii) f′
+(x)2
+=
+∂2
+∂x1∂x2
+r(x1 − x2) x1=x2
+= −r′′
+(0).
+10
+Thus:
+Cx =
+
+r(0) 0
+0 −r′′
+(0)
+
+. (S11)
+Using Eq. S20, we can calculate the expectation inside the integral
+D
+|f′
+(x)| f(x) = θ
+p
+r(0)
+E
+=
+1
+2π
+p
+−r(0)r′′(0)
+Z ∞
+−∞
+|f′
+(x)| exp −
+−r′′
+(0)f(x)2
++ r(0)f′
+(x)2
+−2r′′(0)r(0)
+!
+δ f(x) = θ
+p
+r(0)
+
+df df′
+=
+e−θ2/2
+p
+2πr(0)
+·
+1
+p
+2πr′′(0)
+Z ∞
+−∞
+|f′
+(x)| exp −
+1
+−2r′′(0)
+f′
+(x)2
+!
+df′
+=
+e−θ2/2
+p
+2πr(0)
+·
+r
+−2r′′(0)
+π
+=
+e−θ2/2
+π
+s
+−r′′(0)
+r(0)
+.
+Therefore, the final result for ⟨N⟩ is
+⟨N⟩ =
+1
+2π
+Z
+L
+s
+−r′′(0)
+r(0)
+e−θ2/2
+dx =
+Le−θ2/2
+2πσ
+. (S12)
+We can directly relate this to the measure of propensity (number of place fields per unit length):
+⟨Propensity⟩ =
+e−θ2/2
+2πσ
+. (S13)
+Thus, the average propensity is suppressed by both the correlation length σ (algebraically) and
+the normalized threshold θ (exponentially)
+Next, assuming that the environment is large compared to the correlation length, the portion
+of the environment in which a cell is active is L (1 − ϕ(θ)). This, together with the mean field
+count can be used to calculate the mean field size s and the mean gap between the fields s̄ as
+⟨s⟩ = 2πσ (1 − ϕ(θ)) e
+θ2
+2 , (S14)
+⟨s̄⟩ = 2πσϕ(θ)e
+θ2
+2 . (S15)
+Simulations were in excellent agreement with all these expressions.
+Field statistics in higher dimensions
+In higher dimensions, precise analytical expressions are not available for the mean field count
+and size. We relied on simulations to determine the parameters σ and θ that match the mean
+size and the mean field count, as described in Methods. A qualitative understanding of these
+relationships can be obtained using an approximation which is valid for high thresholds, obtained
+11
+by retaining the leading order term in the expression for the Euler characteristics (see S11
+for more
+details on this approximation):
+⟨N⟩ =
+(L/σ)D
+(2π)
+D+1
+2
+θD−1
+exp
+
+−
+θ2
+2
+
+, (S16)
+where LD
+is the volume of the environment.
+The mean field size is then approximated by
+⟨s⟩ =
+√
+2π 2πσ2
+D
+2
+θ1−D
+(1 − ϕ(θ)) e
+θ2
+2 . (S17)
+Distributions in the high threshold regime
+As described in the main text, distributions related to the field arrangements acquire a universal
+form in the high threshold regime. The field count is Poisson, in all dimensions, with a mean given
+by Eq. S23. This is equivalent to the fact that the field gaps in 1d are exponentially distributed.
+Similarly we can approximate the full field-size distribution as in the main text (Eq. 1) by:
+P(s) =
+2β
+D
+s( 2
+D
+−1) exp
+
+−βs
+2
+D
+
+.
+Furthermore, we can relate β to the parameters σ and θ of the model through the analytic forms
+for the mean field size (Eqs. S22 and S24). To that end, first, observe that s2/D
+is exponentially
+distributed with an expectation s2/D
+= 1/β, implying that ⟨s⟩ = Γ(D/2 + 1)β−D/2
+using the
+moment generating function of the exponential distribution. Therefore:
+β =
+
+Γ
+
+D
+2
++ 1
+
+⟨s⟩
+ 2
+D
+. (S18)
+Methods S4
+Convergence to Rayleigh distribution. Related to Figures 1, 2 and 5.
+The field size distribution in our model has a stereotypical skewed form that converges to a
+Rayleigh distribution in the high threshold limit. To understand this behavior on very qualitative
+terms, we note that for high threshold crossings the fields are small compared to the correlation
+length of the Gaussian process, and the consecutive threshold crossings demarcating the fields
+are correlated (contrast this with field gaps, which in the high threshold limit are large compared
+to the correlation length of the process. The consecutive threshold crossings demarcating gaps
+are therefore uncorrelated in the high threshold limit, thereby leading to the observed exponential
+distribution).
+A full mathematical characterization of the threshold crossing’s joint distribution – when the
+crossings are nearby as in the case of the place fields, is still an open problem for general
+Gaussian processes, yet some results are available. Under broad regularity conditions, it has
+been mathematically established that, when the threshold crossings are nearby, the threshold
+crossings tend to repel each other S13
+. Moreover, it is established that the probability of small
+distance δx between the consecutive nearby threshold crossing p(δx) behaves, for small δx as
+p(δx) ∝ δx. (S19)
+Effectively this implies that the probability of small field size approaches 0 when δx → 0. The
+repulsion between consecutive crossings can be understood intuitively from the observation that
+12
+for there to be another threshold crossing after a threshold crossing, the derivative of the process
+must change sign. Since we assume a smooth process, the sign change of the derivative will only
+occur after some distance from the first threshold crossing, effectively suppressing the probability
+of having very small excursion sets.
+It is also straightforward to evaluate how the probability density function for the gap size x
+decays to zero for large x. Suppose that a stationary Gaussian process f(x) with unit variance
+crossed the threshold θ at the origin i.e, f(0) = θ. We will calculate the probability that the
+process is still above the threshold at x, i.e, P{f(x) > θ | f(0) = θ}. To that end, we start by
+noting that f(0) and f(x) are jointly Gaussian with covariance r(x), and by Gaussian conditioning
+we get:
+(f(x) | f(0) = θ) ∼ N θr(x), 1 − r(x)2
+
+. (S20)
+We can then express the probability of f(x) being above threshold by
+P{f(x) > θ | f(0) = θ} = 1 − Φ
+θ − θr(x)
+p
+1 − r(x)2
+!
+≤ O exp
+"
+−
+1
+2
+θ2
+(1 − r(x))2
+1 − r(x)2
+#!
+= O
+
+exp
+
+−
+θ2
+2
+1 − r(x)
+1 + r(x)
+
+≈ O
+
+exp
+
+−
+θ2
+4
+x
+σ
+2
+
+=⇒ P{f(x) > θ | f(0) = θ} ≤ O exp
+"
+−
+
+θx
+2σ
+2
+#!
+, (S21)
+where we have used the Taylor expansion of the correlation function r(x) ≈ 1 − 1
+2
+x
+σ
+2
+which
+holds in the high threshold regime. We can conclude from this derivation that the tail of the field
+size distribution decays as a function of x at least as fast as exp
+h
+− θx
+2σ
+2
+i
+.
+Together, these results on the dependence of the probability density function on x – for small
+x (linear dependence on x) and for large x (decay as a squared exponential function of x) explain
+the key features of the Rayleigh distribution. Next, we will sketch a more formal derivation of the
+field size distribution in the high threshold limit.
+We start with a theorem concerning the behavior of a Guassian process near a maximum
+that occurs above a high threshold S11
+. Consider a centered stationary Gaussian process f(x)
+with unit variance. Assume that f(x) has a local maximum at x = 0 that exceeds a threshold θ
+by a height h, such that f(0) = θ + h. When θ approaches infinity and for small values of |x|, the
+process can be approximated as
+f(x) ≈ f(0) + f(0)
+r′′
+(0)
+2
+x2
+. (S22)
+This theorem simply states that at the limit of a high threshold crossing, in the neighborhood of
+the maxima of the firing rate, the fields are well approximated by a parabola with curvature that
+concentrates at r′′
+(0). This allows us to think of the field as parabolic and express the relationship
+between the size of the excursion s and the field height h:
+lim
+θ→∞
+s = 2σ
+r
+h
+θ
+. (S23)
+13
+(Note that this results implies a power law relating the field size and amplitude with exponent 2, in
+agreement with the trends seen in Fig. 5. Note also that field shapes can be well approximated
+by a parabola for θ = 2.4.)
+Equipped with Eq. (S32), if we now find the distribution for the height of the fields h, we can
+then approximate the distribution of the field sizes. To that end, we define the height variable
+Hθ = f(0) − θ and observe that
+P{Hθ ≥ h | Oθ ≥ 0} =
+⟨M(θ + h)⟩
+⟨M(θ)⟩
+, (S24)
+where ⟨M(θ)⟩ represents mean number of maxima of a Gaussian process above the threshold θ.
+Intuitively, the expression relates the tail of the height distribution to the ratio between the mean
+number of maxima above θ + h and the mean number of maxima above θ.
+In the high threshold regime, each field has a single maximum, and we can replace the mean
+number of maxima M(θ) with the field count N(θ), which we know from the Kac-Rice formula,
+Eq. (S21). We thus obtain:
+P{Hθ ≥ h | Oθ ≥ 0} =
+exp (−(θ + h)2
+/2)
+exp (−θ2/2)
+,
+and in the high threshold limit,
+P{Hθ ≥ h | Oθ ≥ 0} =
+exp (−(θ + h)2
+/2)
+exp(−θ2/2)
+=
+exp (−(θ2
++ 2hθ + h2
+)/2)
+exp(−θ2/2)
+=
+exp(−θ2
+/2) · exp(−(2h + h2
+/θ2
+)/2)
+exp(−θ2/2)
+= exp(−hθ + h2
+/2).
+Viewed as a function of ĥ = θh, the distribution approaches a non-trivial stationary limit when
+θ → ∞,
+lim
+θ→∞
+P{Hθ ≥ ĥ/θ | Oθ ≥ 0} = lim
+θ→∞
+exp(−ĥ + ĥ2
+/2θ2
+) = exp(−ĥ). (S25)
+We conclude that the height is distributed as an exponential random variable with mean 1/θ,
+and since the field size is related to the height, we can show using a change of variables to show
+that the field size is distributed as a Rayleigh distribution. First recall that
+lim
+θ→∞
+s = 2σ
+r
+h
+θ
+=
+2σ
+θ
+p
+ĥ =⇒ ĥ =
+θ2
+s2
+4σ2
+,
+where
+p
+ĥ ∼ exp(1). Then:
+Pĥ(ĥ) = e−ĥ
+;
+dĥ
+ds
+=
+θ2
+s
+2σ2
+=⇒ Ps(s) = Pĥ(ĥ(s))
+dĥ
+ds
+= exp
+
+−
+θ2
+s2
+4σ2
+
+·
+θ2
+s
+2σ2
+,
+which is a Rayleigh distribution.
+14
+References
+S1. Rich, P.D., Liaw, H.P., and Lee, A.K. (2014). Large environments reveal the statistical struc-
+ture governing hippocampal representations. Science 345, 814–817. URL: https://www.
+science.org/doi/full/10.1126/science.1255635. doi: 10.1126/science.1255635.
+S2. Zhang, H., Rich, P.D., Lee, A.K., and Sharpee, T.O. (2023). Hippocampal spatial rep-
+resentations exhibit a hyperbolic geometry that expands with experience. Nature Neu-
+roscience 26, 131–139. URL: https://www.nature.com/articles/s41593-022-01212-4.
+doi: 10.1038/s41593-022-01212-4.
+S3. Kurita’, T. (). Computation of Surface Curvature from Range Images Using Geometrically
+Intrinsic Weights.
+S4. Eliav, T., Maimon, S.R., Aljadeff, J., Tsodyks, M., Ginosar, G., Las, L., and Ulanovsky, N.
+(2021). Multiscale representation of very large environments in the hippocampus of flying
+bats. Science (New York, N.Y.) 372, eabg4020. doi: 10.1126/science.abg4020.
+S5. Harland, B., Contreras, M., Souder, M., and Fellous, J.M. (2021). Dorsal CA1 hip-
+pocampal place cells form a multi-scale representation of megaspace. Current Biol-
+ogy 31, 2178–2190.e6. URL: https://www.sciencedirect.com/science/article/pii/
+S0960982221003420. doi: 10.1016/j.cub.2021.03.003.
+S6. Anderson, J.S., Lampl, I., Gillespie, D.C., and Ferster, D. (2000). The Contribution of
+Noise to Contrast Invariance of Orientation Tuning in Cat Visual Cortex. Science 290,
+1968–1972. URL: https://www.science.org/doi/10.1126/science.290.5498.1968. doi:
+10.1126/science.290.5498.1968. Publisher: American Association for the Advancement
+of Science.
+S7. Treves, A., Panzeri, S., Rolls, E.T., Booth, M., and Wakeman, E.A. (1999). Firing Rate Dis-
+tributions and Efficiency of Information Transmission of Inferior Temporal Cortex Neurons
+to Natural Visual Stimuli. Neural Computation 11, 601–631. URL: https://doi.org/10.
+1162/089976699300016593. doi: 10.1162/089976699300016593.
+S8. Ibragimov, I.A., and Linnik, J.V. (1971). Independent and stationary sequences of random
+variables. .
+S9. Lehmann, E.L., and Casella, G. (1998). Theory of point estimation. Springer texts in statis-
+tics 2nd ed ed.. New York: Springer. ISBN 978-0-387-98502-2.
+S10. Vaart, A.W.v.d. (1998). Asymptotic Statistics. Cambridge Series in Statistical and Proba-
+bilistic Mathematics. Cambridge: Cambridge University Press. ISBN 978-0-521-78450-4.
+URL: https://www.cambridge.org/core/books/asymptotic-statistics. doi: 10.1017/
+CBO9780511802256.
+S11. Adler, R.J. (1981). The Geometry of Random Fields. SIAM. ISBN 978-0-89871-898-0.
+S12. Kac, M., and Slepian, D. (1959). Large Excursions of Gaussian Processes. The Annals of
+Mathematical Statistics 30, 1215–1228. URL: https://www.jstor.org/stable/2237465.
+S13. Hough, J.B., Krishnapur, M., Peres, Y., and Virag, B. (2009). Zeros of Gaussian Analytic
+Functions and Determinantal Point Processes. American Mathematical Soc. ISBN 978-0-
+8218-4373-4.
+15
+

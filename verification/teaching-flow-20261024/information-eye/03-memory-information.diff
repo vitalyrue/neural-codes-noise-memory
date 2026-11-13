@@ -1,0 +1,111 @@
+--- canonical/03-memory-information.md
++++ proposed/03-memory-information.md
+@@ -1,10 +1,10 @@
+-# Information, memory loss, and the time needed for recall {#ch:MEMORY-INFORMATION}
++# How spike information limits memory stability and recall {#ch:MEMORY-INFORMATION}
+ 
+ A downstream neuron reads a memory through spikes. Collecting more spikes helps distinguish nearby activity patterns, but during collection the pattern itself keeps moving. The same variability that limits readout also perturbs the recurrent network. Burak and Fiete connect these two effects by deriving a lower bound on memory diffusion from the information in the spikes.[^p1-info-main]
+ 
+ We retain the memory coordinate $\theta$, initial value $\Theta$, firing rate $\bar r_i(\theta)$, synaptic time constant $\tau$, and diffusion convention $\operatorname{Var}(\Delta\theta)=2D\Delta t$. Here $T$ is the delay before a recall cue and $L$ is the observation interval after that cue. They answer different questions: $T$ determines how much memory has already been lost; $L$ determines how well the surviving state can be read.
+ 
+-## Deriving information from the spike count likelihood {#sec:MEMORY-FI}
++## Rate slopes and spike variability determine local information {#sec:MEMORY-FI}
+ 
+ Suppose two nearby memory values produce almost identical rates. A short spike sample cannot reliably tell them apart. If a small change in memory instead produces a large rate change relative to spike variability, that sample is more useful. We need a quantity that measures this local distinction.
+ 
+@@ -73,7 +73,7 @@
+ 
+ This is the [**Cramér Rao bound**]{.definition-term custom-style="Definition Term"}. It is a local bound for regular unbiased estimation. It does not guarantee that every finite spike sample admits an estimator attaining it. The paper works in a weak noise, informative sample regime where local likelihoods can be approximated as Gaussian and efficient estimation can approach the bound. A [**prior distribution**]{.definition-term custom-style="Definition Term"} represents knowledge about likely parameter values before observing the spikes. A strong prior, bias, boundaries, or globally ambiguous tuning changes the estimation problem.[^p1-cr]
+ 
+-## The information diffusion inequality, step by step {#sec:MEMORY-BOUND}
++## Spike information sets a lower bound on memory diffusion {#sec:MEMORY-BOUND}
+ 
+ The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. The lower bound on diffusion follows directly by comparing the state sensitivity of the network with the spike information.
+ 
+@@ -126,6 +126,8 @@
+ 
+ gives $\phi(g)=A e^{kg}$. This exponential family attains equality for symmetric weights with Poisson noise, under the other model assumptions. It is a sufficient condition, rather than a general necessity: the common ratio may depend on the current memory state.[^p1-equality]
+ 
++::: {.publisher-clarification-note .publisher-fold-always title="Check: equality can also hold with a linear transfer rule"}
++
+ The mutual-excitation example in Chapter 2 supplies a counterexample to the unrestricted converse. Set its bias $b_0=0$ and use the linear rule $\phi(g)=g/\tau$ on positive inputs. Its fixed states are $s_1=s_2=\theta>0$, with $\mathbf u=(1,1)^T$ and $\mathbf v=(1/2,1/2)^T$. Both rates are $\theta/\tau$, and both rate derivatives are $1/\tau$. Therefore
+ 
+ $$
+@@ -136,6 +138,8 @@
+ 
+ Equality holds throughout this family even though its transfer rule is linear. At each state both cells receive the same input, and the ratio $\phi'/\phi=1/\theta$ changes between states. A converse that forces an exponential rule needs additional restrictions linking the participating input values across cells and states. Continuous variation of the represented value alone does not supply them. This qualification concerns the source's claimed converse, while leaving the information–diffusion inequality intact.
+ 
++:::
++
+ **Example: the same diffusion with a looser information bound.** In the two cell mutual inhibition model, use $b=200$ activation units and $\tau=0.1\,\mathrm{s}$. The memory coordinate is an activation difference, not an angle. At $\theta=0$ both rates are $1000\,\mathrm{s}^{-1}$ and their slopes are $\pm5\,\mathrm{s}^{-1}$ per activation unit. Thus
+ 
+ $$
+@@ -176,6 +180,10 @@
+ U^TV=I,\qquad U^TU=\tau^2J,\qquad V^TV=2D.
+ $$
+ 
++The matrix inequality applies when every independent small coordinate change can be distinguished through a change in rates, so $J$ is invertible. It also explains why a scalar bound in each coordinate separately would miss coupled directions.[^p1-matrix]
++
++::: {.publisher-clarification-note .publisher-fold-always title="Check: the residual matrix proves the lower bound"}
++
+ Set $Q=V-U(U^TU)^{-1}$. Expanding $Q^TQ$ and using $U^TV=I$ gives
+ 
+ $$
+@@ -183,9 +191,9 @@
+ =2D-\tau^{-2}J^{-1}\succeq0.
+ $$
+ 
+-This proves the matrix inequality when every independent small coordinate change can be distinguished through a change in rates, so $J$ is invertible. It also explains why a scalar bound in each coordinate separately would miss coupled directions.[^p1-matrix]
+-
+-## What changes actually improve persistence? {#sec:MEMORY-COMPARISONS}
++:::
++
++## Improving persistence depends on what a comparison holds fixed {#sec:MEMORY-COMPARISONS}
+ 
+ The inequality compares diffusion and information for the same network. To compare different networks, we must say what stays fixed. Otherwise an apparent benefit of a parameter change may come from changing another property at the same time.
+ 
+@@ -220,7 +228,7 @@
+ 
+ If an external stimulus produces the same tuning curves as the network's input free memory states, the sensory and internal Fisher information are equal. In a symmetric exponential network, maximizing this information then improves sensory estimation and minimizes memory diffusion together. This is the paper's reason for suggesting that one circuit could serve both functions. The mathematical compatibility does not establish where a particular animal stores a memory, and the equality of tuning curves must be checked rather than inferred from the shared formula.[^p1-colocation]
+ 
+-## Readout trades count noise against motion during observation {#sec:MEMORY-READOUT-SETUP}
++## Storage loss and readout error add under specific assumptions {#sec:MEMORY-READOUT-SETUP}
+ 
+ At time $T$, a recall cue arrives. The observer now wants the original value $\Theta$, but only has access to future spikes. The network has already diffused during storage. Even perfect knowledge of the state $\theta(T)$ cannot recover its particular earlier random displacements.
+ 
+@@ -264,7 +272,7 @@
+ 
+ The Gaussian increments and observation errors are independent in this approximation. The value $y_k$ summarizes information about the state from that bin's population spikes; it is not an additional directly measured physical coordinate. The continuous limit is a convenient mathematical description of the many spike, weak fluctuation regime. It does not assert that an arbitrarily short physical bin already contains enough spikes for a Gaussian fit. The derivations below are exact within this local Gaussian readout model.[^p1-read-gaussian]
+ 
+-## Why averaging for too long becomes harmful {#sec:MEMORY-NAIVE}
++## Equal weighting becomes harmful when observation lasts too long {#sec:MEMORY-NAIVE}
+ 
+ A decoder designed for a stationary state averages its observations with equal weight. That reduces independent observation noise, but late observations reflect a state that has moved further from $x$.
+ 
+@@ -317,7 +325,7 @@
+ 
+ Waiting longer eventually increases error, even with more spikes available. The problem is their equal weighting for a moving state.[^p1-naive]
+ 
+-## Deriving the ideal observer's readout curve {#sec:MEMORY-IDEAL}
++## Accounting for diffusion makes readout improve toward a limit {#sec:MEMORY-IDEAL}
+ 
+ An observer that accounts for diffusion can use later observations without confusing them with direct measurements of $x$. Their value is limited by the motion separating them from $x$. We can derive its error by combining information backward from the end of the observation interval.
+ 
+@@ -418,7 +426,7 @@
+ 
+ If $\alpha=0.1$, then $J_{\mathrm{obs}}=1000\,\mathrm{rad}^{-2}\mathrm{s}^{-1}$. The ideal characteristic interval becomes $0.3162\,\mathrm{s}$ and its limiting variance becomes $0.003162\,\mathrm{rad}^2$. The naive optimum becomes $0.5477\,\mathrm{s}$. A two second storage delay contributes $2DT=0.020\,\mathrm{rad}^2$ in both cases, giving total ideal asymptotic variances $0.021$ and $0.023162\,\mathrm{rad}^2$. Longer observation can reduce the readout cost; it cannot undo the random displacement during the delay.
+ 
+-## Two cellular time scales and a different noise law {#sec:MEMORY-EXTENSIONS}
++## Time scales and noise laws change the bound and its equality condition {#sec:MEMORY-EXTENSIONS}
+ 
+ The time constant in the inequality comes from the dynamics that carry an activation fluctuation into a lasting memory change. If those dynamics contain both synaptic and rate relaxation, which time constant matters?
+ 
+@@ -466,7 +474,7 @@
+ 
+ This explicit $q$ formulation is a teaching reconstruction that keeps dimensions and the noise normalization visible. The supplement's Gaussian subsection establishes the change in equality condition. Here the matched noise and likelihood derivation supplies all factors of $q$ and $\tau$ without requiring the reader to infer a normalization from SI Eqs. S94–S95.
+ 
+-## Reading the readout curves and the printed error bound {#sec:MEMORY-FIG3-AND-CAUTION}
++## Readout saturates, and one printed error bound needs qualification {#sec:MEMORY-FIG3-AND-CAUTION}
+ 
+ Figure 3 isolates readout uncertainty, rescaling variance by $\sqrt{2D/J}$ and duration by $L^*$. In these axes the ideal curve is $\coth z$ and the naive curve is $z/3+1/z$. Both diverge like $1/z$ at short durations because too few spikes are available. The ideal solid curve approaches one. The naive dashed curve reaches $2/\sqrt3$ at $z=\sqrt3$, then rises because its equal weighting gives increasing importance to displaced states. The dotted vertical line marks that naive optimum. The storage delay contribution $2DT$ is not part of these rescaled curves. Figure S2 repeats the comparison for partial access, showing the rightward and upward shifts when $\alpha=0.1$.[^p1-fig3]
+ 

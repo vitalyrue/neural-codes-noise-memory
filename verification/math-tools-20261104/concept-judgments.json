@@ -1,0 +1,557 @@
+{
+  "audience": {
+    "status": "reviewed",
+    "description": "User baseline: physics and computer science; calculus, linear algebra, basic probability, expected value, variance, standard deviation and probability density assumed. Neural meanings and Fisher information require teaching. Checked against mathematical-tools p5 and reading-guide p85.",
+    "assumed_concepts": [
+      "calculus",
+      "linear algebra",
+      "basic probability",
+      "expected value",
+      "variance",
+      "standard deviation",
+      "probability density"
+    ]
+  },
+  "concepts": [
+    {
+      "id": "connection-matrix",
+      "aliases": [
+        "connection matrix",
+        "connection weights"
+      ]
+    },
+    {
+      "id": "fisher-information",
+      "aliases": [
+        "Fisher information",
+        "FI"
+      ]
+    },
+    {
+      "id": "internal-fi-rate",
+      "aliases": [
+        "internal Fisher information rate"
+      ]
+    },
+    {
+      "id": "spike",
+      "aliases": [
+        "spike"
+      ]
+    },
+    {
+      "id": "firing-rate",
+      "aliases": [
+        "firing rate"
+      ]
+    },
+    {
+      "id": "synaptic-activation",
+      "aliases": [
+        "synaptic activation"
+      ]
+    },
+    {
+      "id": "tuning-curve",
+      "aliases": [
+        "tuning curve"
+      ]
+    },
+    {
+      "id": "cramer-rao-bound",
+      "aliases": [
+        "Cramér Rao bound"
+      ]
+    },
+    {
+      "id": "information-diffusion-bound",
+      "aliases": [
+        "information bound"
+      ]
+    }
+  ],
+  "sections": {
+    "ch:READING-GUIDE/s0": "unreviewed",
+    "ch:READING-GUIDE/s1": "unreviewed",
+    "ch:READING-GUIDE/s2": "unreviewed",
+    "ch:READING-GUIDE/s3": "unreviewed",
+    "ch:READING-GUIDE/s4": "unreviewed",
+    "ch:READING-GUIDE/s5": "unreviewed",
+    "ch:READING-GUIDE/s6": "unreviewed",
+    "ch:READING-GUIDE/s7": "reviewed",
+    "ch:READING-GUIDE/s8": "unreviewed",
+    "ch:READING-GUIDE/s9": "reviewed",
+    "ch:READING-GUIDE/s10": "unreviewed",
+    "ch:MATHEMATICAL-TOOLS/s0": "reviewed",
+    "ch:MATHEMATICAL-TOOLS/s1": "reviewed",
+    "ch:MATHEMATICAL-TOOLS/s2": "reviewed",
+    "ch:MATHEMATICAL-TOOLS/s3": "reviewed",
+    "ch:FOUNDATIONS/s0": "unreviewed",
+    "ch:FOUNDATIONS/s1": "unreviewed",
+    "ch:FOUNDATIONS/s2": "reviewed",
+    "ch:FOUNDATIONS/s3": "unreviewed",
+    "ch:FOUNDATIONS/s4": "unreviewed",
+    "ch:FOUNDATIONS/s5": "unreviewed",
+    "ch:FOUNDATIONS/s6": "unreviewed",
+    "ch:MEMORY-DYNAMICS/s0": "unreviewed",
+    "ch:MEMORY-DYNAMICS/s1": "reviewed",
+    "ch:MEMORY-DYNAMICS/s2": "reviewed",
+    "ch:MEMORY-DYNAMICS/s3": "unreviewed",
+    "ch:MEMORY-DYNAMICS/s4": "unreviewed",
+    "ch:MEMORY-LONG-DELAYS/s0": "unreviewed",
+    "ch:MEMORY-LONG-DELAYS/s1": "unreviewed",
+    "ch:MEMORY-LONG-DELAYS/s2": "unreviewed",
+    "ch:MEMORY-LONG-DELAYS/s3": "reviewed",
+    "ch:MEMORY-INFORMATION/s0": "unreviewed",
+    "ch:MEMORY-INFORMATION/s1": "reviewed",
+    "ch:MEMORY-INFORMATION/s2": "unreviewed",
+    "ch:MEMORY-INFORMATION/s3": "unreviewed"
+  },
+  "relations": [
+    {
+      "concept_id": "spike",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p9",
+      "role": "teach",
+      "span": [
+        0,
+        472
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Defines the neural event and expected events per unit time; distinguishes a rate from periodic events.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "firing-rate",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p9",
+      "role": "teach",
+      "span": [
+        0,
+        472
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Defines the neural event and expected events per unit time; distinguishes a rate from periodic events.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "synaptic-activation",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p11",
+      "role": "teach",
+      "span": [
+        0,
+        467
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Defines outgoing spike trace, unit jump and exponential decay time, establishing what W acts on.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "spike",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p11",
+      "role": "use",
+      "span": [
+        37,
+        42
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Spike meaning was completed in p9.",
+      "need": "required"
+    },
+    {
+      "concept_id": "synaptic-activation",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p13",
+      "role": "use",
+      "span": [
+        235,
+        245
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "W acts on the activation already explained in p11.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p13",
+      "role": "teach",
+      "span": [
+        0,
+        477
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Defines matrix entries, receiving rows and sending columns, N by N size and summation role before the displayed input equation.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p20",
+      "role": "teach",
+      "span": [
+        0,
+        509
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Adds input units, bias, transfer function, signs and the increasing-transfer condition; enough to interpret the weighted sum.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p25",
+      "role": "use",
+      "span": [
+        41,
+        47
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Applies previously defined W entry to one spike-induced input change.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p49",
+      "role": "teach",
+      "span": [
+        0,
+        684
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Explains why feedback connections are needed using W=0; distinguishes fixed weights from the changing stored activity.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:FOUNDATIONS/p80",
+      "role": "use",
+      "span": [
+        338,
+        355
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "First later Eq.8 explanation requires sender/receiver and weight meaning; tools p13 and p20 already teach it, p49 teaches why it is needed.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:FOUNDATIONS/p100",
+      "role": "use",
+      "span": [
+        136,
+        142
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Tracks a spike through its input and rate consequences after tools chapter.",
+      "need": "required"
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MEMORY-DYNAMICS/p17",
+      "role": "reference",
+      "span": [
+        145,
+        174
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Backward link reminds readers of the established feedback role."
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MEMORY-DYNAMICS/p94",
+      "role": "use",
+      "span": [
+        106,
+        112
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Linearization uses each weight to convert sending-cell activation change into receiving-cell input change.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p55",
+      "role": "teach",
+      "span": [
+        0,
+        485
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Explains local probability sensitivity and limits: distant ambiguity and no bit count. This is an adequate first conceptual meaning for later neural precision calculations.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "tuning-curve",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p57",
+      "role": "teach",
+      "span": [
+        0,
+        438
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Defines expected rate as a function of represented value, steady-rate bar, and derivative meaning before the Poisson count calculation.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "tuning-curve",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p59",
+      "role": "use",
+      "span": [
+        264,
+        282
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Count change uses the tuning slope already defined in p57.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p66",
+      "role": "use",
+      "span": [
+        60,
+        78
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "The count sensitivity-to-noise expression is identified with FI after its local meaning in p55.",
+      "need": "required"
+    },
+    {
+      "concept_id": "internal-fi-rate",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p73",
+      "role": "teach",
+      "span": [
+        0,
+        513
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Defines J as information per observation time about the current maintained value, states units, and distinguishes internally maintained state from external stimulus.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p73",
+      "role": "use",
+      "span": [
+        17,
+        35
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Internal rate requires the previously explained Fisher quantity.",
+      "need": "required"
+    },
+    {
+      "concept_id": "cramer-rao-bound",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p96",
+      "role": "teach",
+      "span": [
+        0,
+        334
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Names the variance benchmark, estimate and locally unbiased condition; the displayed bound is directly checked in Markdown. The condition is completed in p103.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "cramer-rao-bound",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p103",
+      "role": "teach",
+      "span": [
+        0,
+        305
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Explains locally unbiased to first order and that finite-sample equality need not be attainable.",
+      "adequacy": "partial"
+    },
+    {
+      "concept_id": "information-diffusion-bound",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p111",
+      "role": "teach",
+      "span": [
+        0,
+        373
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Direct source reading of p105 and displayed D >= 1/(2 tau^2 J), followed by p111, teaches the model-specific lower limit, units, and the difference between allowing stability and attaining it.",
+      "adequacy": "adequate"
+    },
+    {
+      "concept_id": "internal-fi-rate",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p111",
+      "role": "use",
+      "span": [
+        266,
+        269
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Bound units and interpretation require J already defined in p73.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p189",
+      "role": "use",
+      "span": [
+        350,
+        367
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Fig.2 dashed information-bound explanation relies on FI; local meaning and Poisson neural meaning were completed before Part I.",
+      "need": "required"
+    },
+    {
+      "concept_id": "information-diffusion-bound",
+      "passage_id": "ch:MEMORY-LONG-DELAYS/p189",
+      "role": "use",
+      "span": [
+        350,
+        367
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "The bound is correctly called a lower limit, with a backward link to tools bound teaching; being above it can coexist with matching the actual diffusion prediction.",
+      "need": "required"
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:MEMORY-INFORMATION/p23",
+      "role": "reference",
+      "span": [
+        156,
+        174
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Chapter 5 gives an explicit backward link and repeats the prior meaning before the detailed derivation."
+    },
+    {
+      "concept_id": "internal-fi-rate",
+      "passage_id": "ch:MEMORY-INFORMATION/p62",
+      "role": "reference",
+      "span": [
+        4,
+        36
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Repeats the already defined rate and changes angular units explicitly; this is no longer first teaching."
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:READING-GUIDE/p85",
+      "role": "preview",
+      "span": [
+        328,
+        338
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Overview announces the later topic and requires no calculation or use of its formal meaning."
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:READING-GUIDE/p85",
+      "role": "preview",
+      "span": [
+        354,
+        372
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Overview announces the later topic and requires no calculation or use of its formal meaning."
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:READING-GUIDE/p90",
+      "role": "preview",
+      "span": [
+        25,
+        35
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Overview announces the later topic and requires no calculation or use of its formal meaning."
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:READING-GUIDE/p90",
+      "role": "preview",
+      "span": [
+        41,
+        59
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Overview announces the later topic and requires no calculation or use of its formal meaning."
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p3",
+      "role": "preview",
+      "span": [
+        144,
+        154
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Overview announces the later topic and requires no calculation or use of its formal meaning."
+    },
+    {
+      "concept_id": "fisher-information",
+      "passage_id": "ch:MATHEMATICAL-TOOLS/p3",
+      "role": "preview",
+      "span": [
+        377,
+        395
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Overview announces the later topic and requires no calculation or use of its formal meaning."
+    },
+    {
+      "concept_id": "connection-matrix",
+      "passage_id": "ch:READING-GUIDE/p169",
+      "role": "preview",
+      "span": [
+        0,
+        3014
+      ],
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Evidence-table verbal overview links to the tools chapter; the W equation has been removed from this earlier preview."
+    }
+  ],
+  "teaching_sets": [
+    {
+      "concept_id": "cramer-rao-bound",
+      "passage_ids": [
+        "ch:MATHEMATICAL-TOOLS/p96",
+        "ch:MATHEMATICAL-TOOLS/p103"
+      ],
+      "adequacy": "adequate",
+      "status": "reviewed",
+      "review": "independent-agent-/root/math_tools_order-20261104T133020Z",
+      "evidence": "Together with the directly read displayed variance inequality, these passages state the benchmark, its local condition and its limit. No full estimation proof is claimed."
+    }
+  ]
+}

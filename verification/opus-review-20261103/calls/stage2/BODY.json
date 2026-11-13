@@ -1,0 +1,693 @@
+{
+  "summary": "Stage 2 reviews necessity, terminology and missing explanatory steps on the unchanged frozen guide. Stage 1 findings are carried forward unrepaired. Overall, the main paths are well motivated. Most chapters open with a physical question, name the actors (cells, synapses, motor neurons, muscles, search coil, input cells, chips) and introduce symbols before use, and the folded derivations are placed sensibly. The most important problems are book-level vocabulary problems rather than missing mathematics:\n(1) Several words name different objects in different chapters: state, stored value, memory coordinate and represented value; and drift, which means both random fixational motion and systematic mean velocity.\n(2) The theory's key object, the instantaneous attractor coordinate, is defined only in Chapter 4, after Chapter 3 already needs it.\n(3) The information–diffusion bound is derived only algebraically. The physical intuition that makes it a neurophysics result is absent.\n(4) Several symbols are reused for different quantities. Two collisions matter: within Chapter 6, q is both a transition variance and a noise strength; across papers, χ is both the common variance fraction and the Euler characteristic.\n(5) Six terms carry a first-definition span twice, against the guide's own rule.\nParts III and IV are useful requested extensions. Part III connects to Part I through the noise-projection formula and a feedback-time-constant model, and its burden is reasonable. Part IV largely retells Figure 2 and the eye model, already told in Chapters 1, 4 and 9. Each Part IV chapter should lead with what it adds: settings, numerical cautions, code and data access. Repeated passages can then be cut to make room for the few essential additions. Proposed essential additions total about 10–15 sentences. Suggested omissions (duplicated figure interpretations, a repeated label paragraph, some main-path derivation detail) more than offset them.",
+  "coverage": [
+    {
+      "chapter_id": "ch:READING-GUIDE",
+      "main_teaching_path": "Why variable signals must support behaviour → three paper questions and results → hardware/simulation extensions → reading paths → mechanism/derivation/interpretation split → scope → symbols → papers.",
+      "terms_or_steps_checked": [
+        "neuron, fixational drift, retina, place cell/field, hippocampus definitions",
+        "D and MSD defined early",
+        "recurring-symbol list",
+        "contribution labels",
+        "SI naming"
+      ],
+      "verdict": "Sufficient orientation. The symbol list is too short for the reuse that follows (S2-03/04); the label paragraph is repeated in every Part intro (S2-11); D/MSD definitions are duplicated in ch. 2 (S2-06).",
+      "limits": "Rendered navigation not checked."
+    },
+    {
+      "chapter_id": "ch:FOUNDATIONS",
+      "main_teaching_path": "Why the eye needs sustained force → spikes, muscles, OMNs → Eq. 7–9 feedback cycle → tuning and population code → Poisson count variability → 2012 network simulation → covariance vs bias in eye motion.",
+      "terms_or_steps_checked": [
+        "spike, firing rate, torque, tonic firing, saccade",
+        "s_i, g_i, b_i, φ, W_ij units",
+        "Dirac delta",
+        "rate map, grid cell",
+        "Poisson/CV/Fano",
+        "preferred angle, activity bump, Euler update",
+        "covariance, correlation, gain, displacement, MSD"
+      ],
+      "verdict": "Strong physical grounding. The simulation section relies on 'predicted spreading' and 'mean squared change' before diffusion is taught, and is retold in ch. 4 and 18 (S2-08/09). Several first definitions are later re-marked (S2-06).",
+      "limits": "Figures judged by caption only."
+    },
+    {
+      "chapter_id": "ch:PERSISTENCE",
+      "main_teaching_path": "Holding needs continuing command → mechanics fold → integrator evidence (lesion, plasticity) → pattern stable but value vulnerable (two-cell) → independent increments → 2Dt → map vs wandering value.",
+      "terms_or_steps_checked": [
+        "oculomotor integrator, plasticity",
+        "state, fixed point, continuous attractor, manifold, neutral",
+        "Brownian motion, diffusion coefficient, RMS displacement, systematic drift"
+      ],
+      "verdict": "Sufficient and well ordered. 'Systematic drift' is defined here, but nothing reconciles it with 'fixational drift' (S2-02). θ here is a formula valid for every state of a linear model; the general definition comes later (S2-01). τ_m and K are reused later with other meanings (S2-04).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:MEMORY-DYNAMICS",
+      "main_teaching_path": "Weak-noise Gaussian approximation → linearize → left and right zero vectors extract the lasting shift → project noise → 2D = Σ v²r → symmetric formula via tuning curves → two-cell example.",
+      "terms_or_steps_checked": [
+        "dM, dB, R^{1/2}",
+        "K, u, v",
+        "θ(t) meaning off-manifold",
+        "activation vs rate as state variable",
+        "ḡ = φ⁻¹(r̄)",
+        "diffusion tensor",
+        "translation symmetry"
+      ],
+      "verdict": "Mechanism and algebra are complete. Two essential reminders are missing: what θ(t) means when noise keeps the network off the attractor (S2-01), and which variables are the state (S2-13). The step to measurable quantities is thin (S2-10).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:MEMORY-LONG-DELAYS",
+      "main_teaching_path": "Local D is not long-delay error → Fokker–Planck (fold) → line vs ring, π²/3 → state-dependent D (mutual excitation) → systematic drift and Itô/Stratonovich → correlated-noise scope → reading Figs. 1–2.",
+      "terms_or_steps_checked": [
+        "Itô, Stratonovich, Fokker–Planck, Dirac delta (point mass)",
+        "instantaneous attractor coordinate (Fig. 1A)",
+        "activity bump re-defined",
+        "S40 discrepancy on main path"
+      ],
+      "verdict": "Sufficient. The flow-projection definition arrives here although ch. 3 needed it (S2-01). Activity bump and Dirac delta are double-marked (S2-06). The S40 note could move to a footnote (optional).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:MEMORY-INFORMATION",
+      "main_teaching_path": "Downstream reader sees spikes → Fisher information (example first) → J → Cramér–Rao → Cauchy–Schwarz bound D ≥ 1/(2τ²J) → equality and counterexample → matrix bound → controlled comparisons (N, rate, τ, width).",
+      "terms_or_steps_checked": [
+        "Fisher information, likelihood, score, estimator, unbiased, prior",
+        "internal vs sensory information",
+        "units of J",
+        "physical reason for τ² and for the bound"
+      ],
+      "verdict": "Definitions are well placed and examples precede formulas. The physical interpretation of the bound is missing; the visible reason is algebra plus a units check (S2-05, essential).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:MEMORY-READOUT",
+      "main_teaching_path": "Cue after storage → storage + readout split → equal weighting fails → ideal precision recursion → coth limit and τ → partial access → time-scale and noise-law extensions → Fig. 3 and Eq. 6 caution.",
+      "terms_or_steps_checked": [
+        "T vs L, x, y_k, ε_k, η_k",
+        "precision, translation invariance, coth/tanh",
+        "white noise defined inside the extension",
+        "q used twice",
+        "τ_m"
+      ],
+      "verdict": "The path is clear. The q collision is essential to fix (S2-03). White noise is a basic concept placed inside an advanced extension, and ch. 8 relies on it (S2-07). Stage 1 F01 still applies: the setup does not state the physical meaning of the independence assumption.",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:EYE-DRIFT",
+      "main_teaching_path": "Is drift muscle noise or central command → pathway (integrator, OMN, plant) → single-cell recordings → forward fit → inverse filter in degrees → independent-noise bound → χ estimate.",
+      "terms_or_steps_checked": [
+        "microsaccades, abducens nucleus, ocular plant",
+        "k, r, m, Δt, E_T units",
+        "causal filter, impulse response, convolution",
+        "one-sided t test, p value, SEM",
+        "coefficient of determination",
+        "R vs ρ",
+        "names for the shared signal",
+        "χ symbol"
+      ],
+      "verdict": "Physically and statistically thorough. The shared signal has several near-synonymous names (S2-14). 'Pearson' and the switch from ρ to R are unexplained (S2-15). 'Fixational drift' needs the terminology bridge (S2-02).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:EYE-TIMING",
+      "main_teaching_path": "MSD needs measurement-noise correction → 2σm² offset → log slope α → white noise through a filter plateaus → filtered Brownian keeps growing → slope between 1 and 2 without superdiffusion inside the circuit.",
+      "terms_or_steps_checked": [
+        "lag, superdiffusion, low-pass filter, stationary process",
+        "white noise (linked back to ch. 6 extension)",
+        "filter τ distinguished from synaptic τ"
+      ],
+      "verdict": "Sufficient, with good explicit warnings. The one-pole τ is not connected to the measured muscle time scales, so the reader cannot place the transition lag on the data axis (useful addition A6).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:EYE-CIRCUIT",
+      "main_teaching_path": "Recordings place drive upstream → integrator model equations → neutral condition G'(z) = 1 → motor and plant → delayed feedback → regularity and scaling → figure roles → limits.",
+      "terms_or_steps_checked": [
+        "ζ, λ0, λt, X, S, η_i, E_OI, F, A, τd, k_i, E_Ti, s^M, τ_MN",
+        "sub-Poisson, renewal process",
+        "Spearman",
+        "absolute vs fractional slope"
+      ],
+      "verdict": "Correct and complete, but heavy on the main path. Equations 23–31 could be partly folded (S2-18). η is reused for readout weights (S2-04). The figure table is a helpful retained choice.",
+      "limits": "Stage 1 F02 still applies."
+    },
+    {
+      "chapter_id": "ch:PLACE-FIELDS",
+      "main_teaching_path": "Why multiple irregular fields → smooth random input plus threshold → Gaussian process and stationarity/isotropy/smoothness → excursion set and fields → Kac–Rice field counts → mean length/gap → inferring q and σ → selection correction.",
+      "terms_or_steps_checked": [
+        "Gaussian process, jointly Gaussian",
+        "q vs paper θ",
+        "σ definition",
+        "upcrossing, Kac–Rice",
+        "Euler characteristic used before definition"
+      ],
+      "verdict": "Sufficient, with clear biological meaning for the threshold. A small forward use of 'Euler characteristic' needs a pointer (S2-16).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:PLACE-SIZES",
+      "main_teaching_path": "Mean ≠ distribution → parabola near a high peak → exponential excess → radius to size per dimension → Weibull/Rayleigh laws → finite-threshold error → slices → Rayleigh boundary slopes.",
+      "terms_or_steps_checked": [
+        "Hessian, gamma function, Rayleigh, Weibull, survival probability",
+        "slice sampling bias"
+      ],
+      "verdict": "Sufficient. 'Survival probability' should be defined inline (S2-17).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:PLACE-TESTS",
+      "main_teaching_path": "Same sizes, different holes → Euler characteristic and Betti numbers → Morse/Kac–Rice signed densities → box boundary terms → what was fitted vs tested and processing → random weights give a Gaussian input.",
+      "terms_or_steps_checked": [
+        "critical point, Morse theory",
+        "χ reused",
+        "skew, excess kurtosis, lognormal, median filter, mean/Gaussian curvature",
+        "λ = σ⁻²"
+      ],
+      "verdict": "Thorough. The face-factor derivation on the main path is dense and could be folded (S2-19). χ needs disambiguation from ch. 7 (S2-03).",
+      "limits": "Stage 1 F08 still applies."
+    },
+    {
+      "chapter_id": "ch:SYNTHESIS",
+      "main_teaching_path": "Map vs dynamics vs movement → shared position error gives slope-aligned covariance (example) → matched tests per paper → related work → joint experiment.",
+      "terms_or_steps_checked": [
+        "different meanings of 'position'",
+        "path integration, dendrite",
+        "covariance example units"
+      ],
+      "verdict": "Sufficient. It makes the different 'position' objects explicit. A similar consolidation for 'drift' and 'state' belongs earlier (S2-01/02).",
+      "limits": "Stage 1 F06 still applies."
+    },
+    {
+      "chapter_id": "ch:HARDWARE-MEMORY",
+      "main_teaching_path": "Part III intro (von Neumann) → weights vs changing state vs represented angle → bits, capacitor voltages, conductances → what an update does on each platform.",
+      "terms_or_steps_checked": [
+        "neuromorphic, working memory, current, voltage, capacitor, digital storage, SRAM, analog state, PCM, conductance, nonvolatile, device mismatch, mixed-signal, in-memory computing"
+      ],
+      "verdict": "Good bridge: electronics terms are taught at first need. The three-object distinction mirrors S2-01 and could be cross-referenced to it.",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:HARDWARE-DYNAMICS",
+      "main_teaching_path": "Feedback extends a decay time (τ_eff) → restoring vs neutral (OU vs 2Dt) → pinning → silicon examples.",
+      "terms_or_steps_checked": [
+        "τ_eff, g, κ",
+        "pinning, bistability",
+        "'continuous drift' in the title"
+      ],
+      "verdict": "Sufficient. The title's 'drift' means random wandering, which conflicts with ch. 4 and 17 (S2-02). Where the noise comes from physically is unstated (A5).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:NEUROMORPHIC-SYSTEMS",
+      "main_teaching_path": "Which physics performs the update → architecture table → recent results by memory type → explicit slow state and its time scale → scaling costs.",
+      "terms_or_steps_checked": [
+        "hardware calibration, on-chip learning, host computer, registers, post-layout",
+        "α reused for retained fraction"
+      ],
+      "verdict": "Adequate. The table carries the comparison well. Stage 1 F04/F05 qualifications still apply.",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:HARDWARE-TESTS",
+      "main_teaching_path": "One error score mixes causes → cue–delay protocol → drift/diffusion estimators → readout-noise offset → projection D = ½ℓᵀBBᵀℓ → parameter table → matched comparisons and time conversion.",
+      "terms_or_steps_checked": [
+        "decoder, unwrapping",
+        "b(θ) vs bias b_i (ch. 1)",
+        "B noise matrix vs B viscosity/Brownian",
+        "ℓ vs v left vector"
+      ],
+      "verdict": "This is the strongest Part I–III bridge. It renames the left vector from v to ℓ without saying they are the same object (S2-04).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:SIMULATING-MEMORY",
+      "main_teaching_path": "Part IV intro → what the computer stores and updates → ring test and settings (fold) → other designs → analytic curves vs simulations, code availability.",
+      "terms_or_steps_checked": [
+        "Euler update re-defined",
+        "activation vs rate units",
+        "count rule for populations"
+      ],
+      "verdict": "Its unique contributions (settings, one-spike vs count rule, activation/rate conversion, absence of code) are valuable. Most of the other prose repeats ch. 1 and ch. 4 (S2-08).",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:SIMULATING-EYE",
+      "main_teaching_path": "Data constrain the question → four-stage generated pathway → sub-Poisson spikes, random seed → controls → code and data roles.",
+      "terms_or_steps_checked": [
+        "random seed",
+        "N convention",
+        "stage names vs ch. 9 symbols"
+      ],
+      "verdict": "The code and data distinctions are unique and useful. The four-stage description and the controls largely repeat ch. 9 (S2-08).",
+      "limits": "Code not inspected (Stage 1)."
+    },
+    {
+      "chapter_id": "ch:SIMULATING-PLACE",
+      "main_teaching_path": "Static map generation → fitted vs additional statistics → detection and preprocessing → tools and access; width convention fold.",
+      "terms_or_steps_checked": [
+        "Gaussian filter, fitted statistic",
+        "filter width b vs σ = √2·b"
+      ],
+      "verdict": "Sufficient. The width-convention fold is a valuable practical step.",
+      "limits": "Code not inspected."
+    },
+    {
+      "chapter_id": "ch:SIMULATION-TOOLS",
+      "main_teaching_path": "Matching choices before comparing curves → original vs reconstruction → tool roles → resolution and convergence → reproduction record.",
+      "terms_or_steps_checked": [
+        "discretization, convergence check, Monte Carlo",
+        "2Dh step example"
+      ],
+      "verdict": "Sufficient and appropriately short.",
+      "limits": "—"
+    },
+    {
+      "chapter_id": "ch:GLOSSARY",
+      "main_teaching_path": "Lookup list, then a hardware subsection, then unlabelled Part IV terms.",
+      "terms_or_steps_checked": [
+        "coverage of marked terms",
+        "line attractor, lag",
+        "translation invariance vs symmetry",
+        "capitalization"
+      ],
+      "verdict": "Mostly complete. Gaps and organization noted in S2-23.",
+      "limits": "Spelling match with every marked term not checked exhaustively."
+    },
+    {
+      "chapter_id": "ch:REFERENCES",
+      "main_teaching_path": "Numbered list by first use; Part III and Part IV groups.",
+      "terms_or_steps_checked": [
+        "consistency with footnotes"
+      ],
+      "verdict": "Adequate. Stage 1 F11 still applies.",
+      "limits": "—"
+    }
+  ],
+  "findings": [
+    {
+      "id": "S2-01",
+      "kind": "missing_step (book-level terminology)",
+      "severity": "medium",
+      "guide_location": "ch:MEMORY-DYNAMICS sec:MEMORY-WEAK-NOISE opening and sec:MEMORY-LINEARIZATION first paragraph; definition currently in ch:MEMORY-LONG-DELAYS sec:MEMORY-FIGURES",
+      "file": "guide/02-memory-dynamics.md; guide/02b-memory-long-delays.md",
+      "line_or_section": "02 L0009, L0068; 02b L0162",
+      "short_excerpt": "The memory coordinate is θ ... we need the lasting change: the displacement to a different fixed point.",
+      "missing_or_unclear_meaning": "The theory tracks θ(t) while noise keeps the network slightly off the attractor. Which θ does a noisy, off-manifold state have? The answer is the flow projection, called the 'instantaneous attractor state' in the paper. It is defined only in ch. 4's reading of Fig. 1A. The book uses five names for this one object: stored value, represented value, memory coordinate, angle, attractor state. It also never separates three objects: the N-dimensional state s, the coordinate θ, and an observer's estimate θ̂.",
+      "earlier_teaching_checked": "ch. 2 defines θ = (r1 − r2)/2k, valid for every state of the linear two-cell model; ch. 2 defines state; ch. 3 says 'lasting change … different fixed point'.",
+      "reader_consequence": "The reader cannot say what is diffusing, or why θ is well defined between spikes, until ch. 4. The later readout chapter's distinction between θ(T) and θ̂ rests on an unstated difference.",
+      "suggested_action": "At the start of sec:MEMORY-LINEARIZATION, add two sentences: 'For any nearby state, θ is defined as the fixed point the noise-free dynamics would reach from it (Fig. 1A); this is the paper's instantaneous attractor state. The network state s has N components; θ is one coordinate; an observer's estimate θ̂ is a third, different quantity.' Then say once that stored value, represented value and memory coordinate are synonyms for θ.",
+      "essential_or_optional": "essential",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-02",
+      "kind": "terminology_conflict (book-level)",
+      "severity": "medium",
+      "guide_location": "reading guide sec:READING-EYE; ch:PERSISTENCE example (systematic drift defined); ch:MEMORY-LONG-DELAYS sec:MEMORY-DRIFT-SCOPE; ch:EYE-DRIFT/EYE-TIMING/EYE-CIRCUIT titles; ch:HARDWARE-DYNAMICS title; ch:HARDWARE-TESTS",
+      "file": "guide/00-reading-guide.md; 01b-persistence.md; 04-eye-drift.md; 08-hardware-dynamics.md; 10-hardware-tests.md",
+      "line_or_section": "00 L0033; 01b L0184; 08 title L0001; 10 L0004/L0029",
+      "short_excerpt": "A theory of random diffusion must account separately for systematic drift, a nonzero mean velocity. / Discrete restoration and continuous drift produce different memory errors",
+      "missing_or_unclear_meaning": "'Drift' has three uses. 'Fixational drift' is a conventional name for random, mostly diffusive eye motion. 'Systematic drift' is a nonzero mean velocity. Ch. 15's 'continuous drift' means random wandering, yet ch. 17 uses 'drift' for systematic motion and 'spreading' for random motion. The paper's 'random drift' and Aitsam's 'drift' add further senses.",
+      "earlier_teaching_checked": "ch. 1 sec:FOUNDATIONS-COVARIANCE contrasts random wandering with directional bias, but never mentions the word clash.",
+      "reader_consequence": "After ch. 2 and ch. 4, a reader may read 'fixational drift is driven by diffusive dynamics' as contradictory, or read ch. 15's title as being about bias.",
+      "suggested_action": "Where systematic drift is defined (ch. 2), add one sentence: '“Fixational drift” in Chapters 7–9 is the name of the eye's slow motion and is mostly random; in this guide “systematic drift” always means mean velocity.' Repeat a short reminder at the start of ch. 7. Change 'continuous drift' in ch. 15's title and opening to 'continuous wandering' or 'random spreading'.",
+      "essential_or_optional": "essential",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-03",
+      "kind": "symbol_collision (harmful)",
+      "severity": "medium",
+      "guide_location": "ch:MEMORY-READOUT sec:MEMORY-IDEAL and sec:MEMORY-EXTENSIONS; ch:PLACE-TESTS sec:PLACE-TOPOLOGY vs ch:EYE-DRIFT sec:EYE-CHI",
+      "file": "guide/03b-memory-readout.md; guide/05c-place-tests.md; guide/04-eye-drift.md",
+      "line_or_section": "03b L0136 vs L0318–L0324; 05c L0017 vs 04 L0331",
+      "short_excerpt": "adds transition variance q=2Dh ... / replace Poisson ... with independent additive Gaussian noise of constant strength q>0",
+      "missing_or_unclear_meaning": "Within one chapter, q is first a per-bin transition variance and then a per-neuron noise strength. Ch. 10–12 then use q as the threshold. χ is the common variance fraction in ch. 7 and the Euler characteristic in ch. 12. η means a readout increment (ch. 6), motor and measurement noise (ch. 7) and readout weights (ch. 9).",
+      "earlier_teaching_checked": "The reading-guide symbol list (L0166–L0171) covers only D, d, θ, q and C.",
+      "reader_consequence": "The ch. 6 collision can mislead within a single derivation. The χ collision confuses anyone comparing the two papers in ch. 13 or the glossary.",
+      "suggested_action": "In ch. 6 write 2Dh directly in the recursion, or rename the noise strength to σ_ξ². In ch. 12 add '(unrelated to χ in Chapter 7)'. Add χ and η to the reading-guide symbol list with their per-Part meanings.",
+      "essential_or_optional": "essential (ch. 6 q); optional (others)",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-04",
+      "kind": "symbol_collision (minor) / local reminder",
+      "severity": "low",
+      "guide_location": "ch:PERSISTENCE mechanics fold; ch:MEMORY-DYNAMICS; ch:MEMORY-READOUT extensions; ch:NEUROMORPHIC-SYSTEMS; ch:HARDWARE-TESTS; ch:EYE-DRIFT/EYE-TIMING",
+      "file": "multiple",
+      "line_or_section": "01b L0015 (τ_m torque, K stiffness, B viscosity); 02 L0078 (K matrix); 03b L0276 (τ_m); 09 L0055 (τ_m memory time); 10 L0043 (ℓ left vector, B noise matrix); 02/02b/03 use E[·] for expectation while 04/04b/04c use E for eye position and 𝔼 for expectation",
+      "short_excerpt": "τ_m(t) the net active muscle torque ... / τ_m\\dot r_i = −r_i + φ(g_i)",
+      "missing_or_unclear_meaning": "These reuses are mostly redefined locally. The ones a reader may carry across chapters: τ_m (torque, then membrane time constant, then memory time); the left zero vector called v in Part I and ℓ in ch. 17 without saying they are the same; and E used both as plain expectation and as eye position.",
+      "earlier_teaching_checked": "Local definitions exist at each use.",
+      "reader_consequence": "A small extra decoding cost. The real risk is missing that ch. 17's ℓ is ch. 3's v.",
+      "suggested_action": "Rename the ch. 2 torque (e.g. M_m) or call it 'muscle torque Γ'. In ch. 17 write 'ℓ (the left vector v of Chapter 3)'. Use 𝔼 for expectation in chapters 3–6.",
+      "essential_or_optional": "optional (the ℓ = v reminder is the most useful)",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-05",
+      "kind": "missing_step (physical interpretation)",
+      "severity": "medium",
+      "guide_location": "ch:MEMORY-INFORMATION sec:MEMORY-BOUND, first 'Neural mechanism' paragraph and interpretation after the boxed bound",
+      "file": "guide/03-memory-information.md",
+      "line_or_section": "L0167, L0201–L0204",
+      "short_excerpt": "The lower bound on diffusion follows directly by comparing the state sensitivity of the network with the spike information. ... The units agree: τ²J has units ...",
+      "missing_or_unclear_meaning": "The reader gets the Cauchy–Schwarz algebra and a units check, but no physical reason why spike information limits stability, or why τ² appears. The paper gives one: the network effectively re-estimates its own state from about τ worth of its spikes. That estimate has variance at least 1/(Jτ), and the resulting wander over τ, 2Dτ, cannot be smaller.",
+      "earlier_teaching_checked": "ch. 5 sec:MEMORY-FI (Cramér–Rao); main-paper p.3 interpretation paragraph.",
+      "reader_consequence": "The central result reads as an algebraic coincidence. The reader cannot explain it as a statement about a circuit that is its own noisy observer, which is the neurophysics point.",
+      "suggested_action": "After L0167 add 2–3 sentences: 'Heuristically, the circuit keeps its state by re-reading roughly the last τ of its own spikes. By the Cramér–Rao bound that reading has variance ≥ 1/(Jτ), so the state must wander at least that much per τ: 2Dτ ≥ 1/(Jτ), i.e. D ≥ 1/(2τ²J). The proof below makes this exact without the heuristic.' Label it as the paper's interpretation.",
+      "essential_or_optional": "essential",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-06",
+      "kind": "duplicate first-definition marking (house rule)",
+      "severity": "low",
+      "guide_location": "multiple",
+      "file": "00, 01, 01b, 02, 02b, 11",
+      "line_or_section": "activity bump: 01 L0272 and 02b L0165; preferred angle: 01 L0272 and 02 L0052; Euler update: 01 L0286 and 11 L0024; Dirac delta: 01 L0048 and 02b L0051; diffusion coefficient: 00 L0164 (span) and 01b L0156 (bold inside definition); MSD: 00 L0164, 01 L0349, 01b L0166",
+      "short_excerpt": "[In Fig. 1B, an [**activity bump**]{.definition-term ...} is a localized peak ...]",
+      "missing_or_unclear_meaning": "These are not missing meanings: the guide's rule is one blue first definition per book. Re-marking makes 'newly introduced' signals unreliable. The second Dirac-delta passage introduces a genuinely new use (a point-mass initial condition) and should read as a reminder of the extension, not a new term.",
+      "earlier_teaching_checked": "First occurrences located as listed.",
+      "reader_consequence": "A reader scanning blue terms finds repeats and may think a second meaning is being introduced.",
+      "suggested_action": "Keep the first span and turn the later ones into plain reminders, e.g. 'The activity bump (Chapter 1) ...'. For D and MSD, the reading guide can define them and ch. 2 can say 'as defined in the reading guide' while giving the derivation.",
+      "essential_or_optional": "essential under the guide's own presentation rule; low teaching impact",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-07",
+      "kind": "definition_placement",
+      "severity": "low",
+      "guide_location": "ch:MEMORY-READOUT sec:MEMORY-EXTENSIONS (definition); used in ch:EYE-TIMING sec:EYE-FILTERED-MSD",
+      "file": "guide/03b-memory-readout.md; guide/04b-eye-timing.md",
+      "line_or_section": "03b L0278; 04b L0091",
+      "short_excerpt": "The input is idealized as [white noise](ch-memory-readout.html#sec-memory-extensions)",
+      "missing_or_unclear_meaning": "White noise is a basic idealization behind Brownian increments and the paper's ξ notation. It is defined inside an optional-looking extension about two time scales. The eye chapter must link back into that extension.",
+      "earlier_teaching_checked": "ch. 2 Brownian motion; ch. 3 Brownian increments; a ch. 3 footnote mentions the paper's white-noise notation.",
+      "reader_consequence": "A reader following the eye path, or skipping extensions, must open an advanced section to learn a basic term.",
+      "suggested_action": "Move the white-noise definition (two sentences) to ch. 3 sec:MEMORY-WEAK-NOISE, next to dB: 'Its formal derivative is white noise...'. Keep a reminder in ch. 6 and point ch. 8 there.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-08",
+      "kind": "unnecessary_repetition (Part IV and Part I overlap)",
+      "severity": "medium",
+      "guide_location": "ch:FOUNDATIONS sec:FOUNDATIONS-SIMULATION; ch:MEMORY-LONG-DELAYS sec:MEMORY-FIGURES; ch:SIMULATING-MEMORY sec:RING/CONTROLS; ch:EYE-CIRCUIT vs ch:SIMULATING-EYE sec:PATH/CONTROLS",
+      "file": "01-foundations.md; 02b-memory-long-delays.md; 11-simulating-memory.md; 04c-eye-circuit.md; 12-simulating-eye-drift.md",
+      "line_or_section": "01 L0266–L0292; 02b L0182–L0192; 11 L0028–L0034, L0052–L0054; 12 L0013–L0026, L0040–L0051",
+      "short_excerpt": "Over long intervals, wrapping angle differences into a single turn limits the plotted error. That flattening does not mean the original angle has been recovered.",
+      "missing_or_unclear_meaning": "Several passages are repeated: the Fig. 2 ring and mutual-inhibition interpretation (three times), the point that flattening does not mean recovery (four times), the four-stage eye pathway and its controls (twice), and the sub-Poisson thinning derivation (twice). Part IV's unique value is hard to find among the retelling.",
+      "earlier_teaching_checked": "All listed passages read.",
+      "reader_consequence": "Extra reading burden. It is also unclear what a Part IV chapter adds beyond the earlier teaching.",
+      "suggested_action": "Open each Part IV chapter with one sentence naming what it adds beyond ch. X (settings, numerical rules, data and code access, reproduction cautions). Cut the restated interpretations to links. In ch. 1, keep the algorithm (what is stored, the update cycle, the conditional independence point) and replace the Fig. 2 interpretation with a pointer to ch. 4.",
+      "essential_or_optional": "optional (recommended trim to make room for S2-01/02/05)",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-09",
+      "kind": "dependency_before_teaching (local)",
+      "severity": "low",
+      "guide_location": "ch:FOUNDATIONS sec:FOUNDATIONS-SIMULATION 'What is measured and compared'",
+      "file": "guide/01-foundations.md",
+      "line_or_section": "L0288",
+      "short_excerpt": "They independently calculate the predicted spreading from the same network's steady activity ... without fitting a free diffusion parameter.",
+      "missing_or_unclear_meaning": "'Predicted spreading', 'diffusion parameter' and 'theoretical curves' are used before ch. 2 teaches diffusion and before ch. 3 shows how steady activity gives D.",
+      "earlier_teaching_checked": "Reading guide L0164 defines D and MSD briefly.",
+      "reader_consequence": "The reader must take 'no free parameter' on trust at this point.",
+      "suggested_action": "Either keep one sentence ('the theory of Chapters 3–4 predicts this spreading from the noise-free tuning curves alone; Chapter 4 reads the comparison') or apply the S2-08 trim.",
+      "essential_or_optional": "optional",
+      "confidence": "medium"
+    },
+    {
+      "id": "S2-10",
+      "kind": "missing_link_to_measurables",
+      "severity": "low",
+      "guide_location": "ch:MEMORY-DYNAMICS sec:MEMORY-SYMMETRIC interpretation",
+      "file": "guide/02-memory-dynamics.md",
+      "line_or_section": "L0255",
+      "short_excerpt": "the diffusion coefficient can be calculated from the tuning curves and transfer function",
+      "missing_or_unclear_meaning": "The text does not say which ingredients are experimentally measurable and which are model assumptions. Tuning curves r̄_i(θ) can be recorded. ḡ_i requires knowing or assuming φ. Poisson statistics must hold (ch. 1 notes this fails for eye-position neurons). D itself is measured as the slope of the decoded MSD.",
+      "earlier_teaching_checked": "ch. 1 L0292 (sub-Poisson eye neurons); ch. 13 sec:SYNTHESIS-EVIDENCE.",
+      "reader_consequence": "The reader cannot say what an experiment would need in order to test the formula until ch. 13.",
+      "suggested_action": "Add one sentence: 'Recorded tuning curves give r̄_i; ḡ_i additionally needs the transfer function; D can be measured as half the slope of the decoded MSD (Ch. 4).'",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-11",
+      "kind": "repetition (front matter and Parts)",
+      "severity": "low",
+      "guide_location": "reading guide L0081; each Part intro",
+      "file": "guide/00-reading-guide.md; Part intros",
+      "line_or_section": "00 L0081; Part I–IV 'The contribution labels describe...'",
+      "short_excerpt": "The contribution labels describe the role of each result here. **Central** is ...",
+      "missing_or_unclear_meaning": "The same four-label explanation appears five times.",
+      "earlier_teaching_checked": "—",
+      "reader_consequence": "Minor reading cost.",
+      "suggested_action": "Keep the reading-guide definition. In each Part, use a one-line reminder with a link.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-12",
+      "kind": "terminology_inconsistency",
+      "severity": "low",
+      "guide_location": "reading guide sec:READING-MECHANISM-MATH and chapters 3–6",
+      "file": "guide/00-reading-guide.md; 02*, 03*",
+      "line_or_section": "00 L0123, L0149, L0187; 02 L0007",
+      "short_excerpt": "PNAS appendix ... Supporting Information (SI) ... Supporting Text ... supplement",
+      "missing_or_unclear_meaning": "One document has four names: appendix, SI, Supporting Text and supplement.",
+      "earlier_teaching_checked": "—",
+      "reader_consequence": "A reader may think these are different documents.",
+      "suggested_action": "Name it once ('Burak–Fiete Supporting Information, SI') and use SI throughout.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-13",
+      "kind": "local_reminder (state variables)",
+      "severity": "low",
+      "guide_location": "ch:MEMORY-DYNAMICS opening notation paragraph",
+      "file": "guide/02-memory-dynamics.md",
+      "line_or_section": "L0009–L0013",
+      "short_excerpt": "A bar denotes a noise free steady state, so \\bar r_i(θ) is neuron i's steady firing rate",
+      "missing_or_unclear_meaning": "Ch. 2's example uses rates as the dynamical state. Ch. 3's state variables are the activations s_i, with rates computed from them. The mutual-inhibition θ is an activation difference, while the paper's Fig. 2G plots a rate difference.",
+      "earlier_teaching_checked": "ch. 1 Eq. 7–9; ch. 3 footnote p1-two.",
+      "reader_consequence": "Possible confusion about what is perturbed and what u and v act on.",
+      "suggested_action": "Add one sentence: 'Here the state is the activation vector s; rates follow from it, and at a fixed point s̄ = τr̄.'",
+      "essential_or_optional": "optional (strongly recommended)",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-14",
+      "kind": "synonym_proliferation",
+      "severity": "low",
+      "guide_location": "ch:EYE-DRIFT throughout; Part II intro",
+      "file": "guide/04-eye-drift.md",
+      "line_or_section": "L0004, L0032, L0039, L0310; 04c L0004",
+      "short_excerpt": "large shared drive upstream ... changing shared command ... common command ... common upstream contribution ... central source",
+      "missing_or_unclear_meaning": "Several names refer to one quantity, C.",
+      "earlier_teaching_checked": "ch. 1 covariance section ('shared command').",
+      "reader_consequence": "The reader may wonder whether 'command', 'drive' and 'source' are distinct objects.",
+      "suggested_action": "Define once: 'the shared upstream drive (the paper's central source), whose contribution to displacement is C'. Then use one term.",
+      "essential_or_optional": "optional",
+      "confidence": "medium"
+    },
+    {
+      "id": "S2-15",
+      "kind": "unexplained_label",
+      "severity": "low",
+      "guide_location": "ch:EYE-DRIFT sec:EYE-INVERSE-FILTER",
+      "file": "guide/04-eye-drift.md",
+      "line_or_section": "L0243",
+      "short_excerpt": "the mean Pearson correlation was ⟨R⟩=0.17±0.02",
+      "missing_or_unclear_meaning": "'Pearson' is introduced without explanation, and the symbol changes from ρ (ch. 1) to R.",
+      "earlier_teaching_checked": "ch. 1 defines the correlation coefficient as ρ.",
+      "reader_consequence": "A small doubt about whether R is a different statistic.",
+      "suggested_action": "Write 'the ordinary (Pearson) correlation coefficient of Chapter 1, written R here as in the paper'.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-16",
+      "kind": "forward_use",
+      "severity": "low",
+      "guide_location": "ch:PLACE-FIELDS sec:PLACE-KAC-RICE",
+      "file": "guide/05-place-fields.md",
+      "line_or_section": "L0187",
+      "short_excerpt": "This identity also gives the paper's exact one dimensional mean Euler characteristic, Equation 8.",
+      "missing_or_unclear_meaning": "The Euler characteristic is used before its ch. 12 definition.",
+      "earlier_teaching_checked": "None earlier.",
+      "reader_consequence": "A minor puzzle.",
+      "suggested_action": "Add '(a topological count defined in Chapter 12; in 1D it is the number of fields)'.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-17",
+      "kind": "undefined_term_in_definition",
+      "severity": "low",
+      "guide_location": "ch:PLACE-SIZES sec:PLACE-SIZE-LAW",
+      "file": "guide/05b-place-sizes.md",
+      "line_or_section": "L0185",
+      "short_excerpt": "A Weibull distribution has survival probability exp[−(s/b)^k]",
+      "missing_or_unclear_meaning": "'Survival probability' is defined only in a figure caption.",
+      "earlier_teaching_checked": "ch. 11 L0069 uses Pr(U>u) without naming it.",
+      "reader_consequence": "A small definitional gap.",
+      "suggested_action": "Write 'survival probability Pr(size > s)'.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    },
+    {
+      "id": "S2-18",
+      "kind": "main_path_burden",
+      "severity": "low",
+      "guide_location": "ch:EYE-CIRCUIT sec:EYE-CIRCUIT-MODEL",
+      "file": "guide/04c-eye-circuit.md",
+      "line_or_section": "L0013–L0095",
+      "short_excerpt": "λ_i^R(t)=[ζ_i^R E_OI(t)+λ_i^0+ζ_i^R F(t)]_+ ...",
+      "missing_or_unclear_meaning": "Nothing is missing. About 15 new symbols appear on the main path before the physical conclusions. The question (can integrator noise give the observed amplitude and timing?) needs the chain, the neutrality condition G'(z) = 1, saturation, averaging over OMNs, and the feedback sign.",
+      "earlier_teaching_checked": "ch. 3 attractor tuning; ch. 7 forward model.",
+      "reader_consequence": "High load for the readers most interested in the mechanism.",
+      "suggested_action": "Keep the verbal chain, the G(z) = z condition, the parameter values and the feedback sign on the main path. Fold Eqs. 23–31 with their units. ch. 19 can then point to the fold rather than restating it.",
+      "essential_or_optional": "optional",
+      "confidence": "medium"
+    },
+    {
+      "id": "S2-19",
+      "kind": "main_path_burden",
+      "severity": "low",
+      "guide_location": "ch:PLACE-TESTS sec:PLACE-TOPOLOGY boundary paragraph",
+      "file": "guide/05c-place-tests.md",
+      "line_or_section": "L0104–L0119",
+      "short_excerpt": "Each of its d−j gradient components perpendicular to the face ... factor 2^{−(d−j)}",
+      "missing_or_unclear_meaning": "The face-counting derivation is visible on the main path, while the reader mainly needs the result: boundary terms depend on the environment's geometry and matter for small rooms.",
+      "earlier_teaching_checked": "The Gaussian determinant fold is already folded.",
+      "reader_consequence": "Extra density before the data comparison.",
+      "suggested_action": "Fold the face-factor argument. Keep Eqs. 8–10, the rectangle rule and the limiting checks visible.",
+      "essential_or_optional": "optional",
+      "confidence": "medium"
+    },
+    {
+      "id": "S2-20",
+      "kind": "glossary_gaps_and_organization",
+      "severity": "low",
+      "guide_location": "ch:GLOSSARY",
+      "file": "guide/glossary.md",
+      "line_or_section": "L0001–L0162",
+      "short_excerpt": "- [[**Euler update:**]...] ... (after the hardware list, no heading)",
+      "missing_or_unclear_meaning": "There are no entries for 'line attractor' (used in ch. 2), 'lag', or 'instantaneous attractor state' (if S2-01 is adopted). Part IV terms are appended under the hardware heading. Capitalization is inconsistent (Isotropy, Smoothness). The two 'translation' entries do not say how they differ.",
+      "earlier_teaching_checked": "—",
+      "reader_consequence": "Lookup friction.",
+      "suggested_action": "Add the three entries and a 'Simulation and methods' heading. Add 'contrast: translation symmetry concerns the network; translation invariance concerns readout statistics'.",
+      "essential_or_optional": "optional",
+      "confidence": "high"
+    }
+  ],
+  "useful_additions": [
+    {
+      "id": "A1",
+      "topic": "Physical intuition for the information–diffusion bound",
+      "placement": "ch:MEMORY-INFORMATION sec:MEMORY-BOUND, before the Cauchy–Schwarz proof",
+      "reader_question": "Why should information in spikes limit how stable a memory can be, and why τ²?",
+      "why_it_helps": "It turns the central result into a statement about a circuit that observes itself.",
+      "minimum_sufficient_treatment": "2–3 sentences, as in S2-05.",
+      "source_support_needed": "Burak & Fiete main p.3 interpretation paragraph",
+      "priority": "high"
+    },
+    {
+      "id": "A2",
+      "topic": "Three objects: network state s, memory coordinate θ (flow projection), estimate θ̂",
+      "placement": "ch:MEMORY-DYNAMICS start of sec:MEMORY-LINEARIZATION; echoed briefly in ch. 14 roles",
+      "reader_question": "What exactly diffuses when the network never sits exactly on the attractor?",
+      "why_it_helps": "It removes ambiguity across chapters 3–6, 9 and 14–17.",
+      "minimum_sufficient_treatment": "2 sentences, as in S2-01.",
+      "source_support_needed": "Burak main p.2 and Fig. 1A",
+      "priority": "high"
+    },
+    {
+      "id": "A3",
+      "topic": "Reconciling 'fixational drift' with 'systematic drift'",
+      "placement": "ch:PERSISTENCE at the systematic-drift definition; reminder at ch:EYE-DRIFT opening",
+      "reader_question": "Is fixational drift a bias or random wandering?",
+      "why_it_helps": "It prevents a direct contradiction with the 2022 paper's title.",
+      "minimum_sufficient_treatment": "1 sentence each place, plus a ch. 15 title change.",
+      "source_support_needed": "Ben-Shushan abstract (diffusive statistics)",
+      "priority": "high"
+    },
+    {
+      "id": "A4",
+      "topic": "What must be measured to apply D and J to a real circuit",
+      "placement": "ch:MEMORY-DYNAMICS symmetric interpretation, or end of ch:MEMORY-INFORMATION",
+      "reader_question": "Could I compute D from recordings?",
+      "why_it_helps": "It connects the formulas to observable quantities before the synthesis chapter.",
+      "minimum_sufficient_treatment": "1 sentence, as in S2-10.",
+      "source_support_needed": "Burak main p.2 (Eq. 2 applicable to data), p.5 (sub-Poisson caveat)",
+      "priority": "medium"
+    },
+    {
+      "id": "A5",
+      "topic": "Where noise comes from in hardware versus spike-count noise",
+      "placement": "ch:HARDWARE-DYNAMICS errors section or ch:HARDWARE-TESTS parameters",
+      "reader_question": "What plays the role of Poisson spike noise on a chip?",
+      "why_it_helps": "It makes the D = ½ℓᵀBBᵀℓ transfer concrete: digital chips have no intrinsic noise unless it is injected (pseudo-random), while analog chips have device and thermal fluctuations and fixed mismatch acting as bias.",
+      "minimum_sufficient_treatment": "2 sentences.",
+      "source_support_needed": "General electronics; ch. 16 already notes injected noise. A cited device-noise source would be needed for specifics.",
+      "priority": "medium"
+    },
+    {
+      "id": "A6",
+      "topic": "Placing the filtered-Brownian transition on the data axis",
+      "placement": "ch:EYE-TIMING after the α(ℓ) values",
+      "reader_question": "At what lag should the slope cross from about 2 toward 1 for real muscles?",
+      "why_it_helps": "It links the one-pole model to measured scales (fitted τ about 5 and 120 ms; the paper's muscle response about 180 ms) and to the observed slope of 1–2 over 0.01–1 s.",
+      "minimum_sufficient_treatment": "1 sentence, with a caveat that the real plant has two time constants plus feedback.",
+      "source_support_needed": "Ben-Shushan Fig. 2b; main p.5 (~180 ms)",
+      "priority": "low"
+    },
+    {
+      "id": "A7",
+      "topic": "Part IV chapter leads stating what is new",
+      "placement": "First paragraph of ch. 18–20",
+      "reader_question": "Why read this after ch. 4/9/12?",
+      "why_it_helps": "It reduces apparent repetition and guides selective reading.",
+      "minimum_sufficient_treatment": "1 sentence per chapter.",
+      "source_support_needed": "none",
+      "priority": "medium"
+    },
+    {
+      "id": "A8",
+      "topic": "Expanded symbol list with cross-paper reuse",
+      "placement": "reading guide sec:READING-SCOPE",
+      "reader_question": "Does χ (or q, η, τ_m) mean the same thing everywhere?",
+      "why_it_helps": "It flags the few dangerous collisions without renaming the papers' notation.",
+      "minimum_sufficient_treatment": "Add χ, η, τ_m, α and K lines, each with per-Part meanings.",
+      "source_support_needed": "none",
+      "priority": "low"
+    }
+  ],
+  "retained_choices": [
+    "The mechanism / derivation / interpretation triplet in ch. 3–5 makes neural versus mathematical assumptions visible; keep it.",
+    "The ch. 1 eye-mechanics opening (elasticity holds, viscosity damps, inertia does not hold) gives a physical reason for persistent commands before any memory theory.",
+    "The ch. 2 two-cell example and the ch. 3 tilted-decay example teach the projection geometry in two dimensions before the network formula; both are necessary.",
+    "Fisher information is taught from a numerical example (background spikes lower information) before the formula, and the units note ('not bits') prevents a common misreading.",
+    "The ch. 7 constructed χ = 0.82 versus R = 0.17 example is essential and correctly placed on the main path.",
+    "The ch. 8 warning that the filter τ is not the synaptic τ, and ch. 10's statement that the spatial coordinate is not time, are precise disambiguations that should stay.",
+    "Ch. 13's explicit list of what 'position' means in each paper is the model for the proposed state and drift reconciliations.",
+    "Part III teaches electronics terms (current, voltage, capacitor, conductance, SRAM, PCM) just in time and keeps weight, state and value distinct. The burden is proportionate and the ch. 17 projection formula is a genuine bridge to Part I.",
+    "Folds for the Poisson limit, Fokker–Planck, Stratonovich, Cramér–Rao, the coth solution, the impulse-response weights and the Gaussian determinant hold optional proof detail while the main text keeps the results usable.",
+    "The ch. 20 width-convention fold (σ = √2·b) and the ch. 21 step-size example are concise practical teaching that only Part IV supplies."
+  ],
+  "scientific_followups": [
+    "Carried from Stage 1, unrepaired: F01, the readout independence assumption (ch. 6 setup should state its physical meaning). F02 to F12 are also open.",
+    "No new confirmed scientific errors arose in Stage 2. The proposed A1 heuristic must be labelled as the paper's interpretation, not a proof.",
+    "If S2-01 is adopted, check that the ch. 6 readout text then distinguishes θ(T), the flow-defined coordinate, from the quantity whose rates generate spikes. This interacts with F01."
+  ],
+  "remaining_checks": [
+    "Paragraph-by-paragraph acceptance was not performed. Findings cover the main paths, terms and symbols checked above.",
+    "Not every one of the roughly 250 first-definition spans was compared with the glossary for exact spelling.",
+    "Figure labels, alt text and rendered fold visibility were not checked for terminology consistency.",
+    "Chapter order, Part transitions and global flow are deferred to Stage 3, apart from the repetition notes in S2-08/09."
+  ]
+}

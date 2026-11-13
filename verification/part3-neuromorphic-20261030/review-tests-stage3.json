@@ -1,0 +1,421 @@
+{
+  "review_id": "part3-tests-stage3-20261030",
+  "request_id_kind": "Local request identifier; platform call ID not exposed",
+  "reviewer": "/root/part3_review_tests",
+  "model_assignment": "gpt-6.1-sol high, assigned by coordinator; runtime identity not independently exposed",
+  "stage": 3,
+  "stage_name": "Reader understanding and flow, with focused truth rechecks of repairs",
+  "started_utc": "2026-10-30T14:34:00Z",
+  "completed_utc": "2026-10-30T14:39:34Z",
+  "awake_execution_time": "Unverified; UTC wall-clock checkpoints used. Sleep/resume events were not checked.",
+  "checkpoints": [
+    {
+      "utc": "2026-10-30T14:34:00Z",
+      "event": "Began final connected reading and concept-packet review",
+      "wall_elapsed_seconds": 0
+    },
+    {
+      "utc": "2026-10-30T14:35:19Z",
+      "event": "Read all four chapter sections and new glossary teaching links; found reading-sidecar heading leak",
+      "wall_elapsed_seconds": 79,
+      "since_previous_checkpoint_seconds": 79
+    },
+    {
+      "utc": "2026-10-30T14:35:41Z",
+      "event": "Directly rechecked repaired reading-sidecar summary; it now matches its paragraph",
+      "wall_elapsed_seconds": 101,
+      "since_previous_checkpoint_seconds": 22
+    },
+    {
+      "utc": "2026-10-30T14:39:34Z",
+      "event": "Rechecked visible noise reminder and repaired metadata, bound concept judgments to regenerated current packet, saved final local PASS",
+      "wall_elapsed_seconds": 334,
+      "since_previous_checkpoint_seconds": 233
+    }
+  ],
+  "verdict": "PASS for the final assigned local reader path. No unresolved required findings.",
+  "findings": [
+    {
+      "id": "TESTS-S3-01",
+      "location": "00-reading-guide.yaml sec:READING-HARDWARE summary",
+      "original_problem": "The summary included the following Starting knowledge and reading paths heading.",
+      "status": "Resolved by coordinator; directly rechecked at 14:35:41 UTC.",
+      "repair": "Summary now ends with the original-paper foundation sentence and has no following heading."
+    },
+    {
+      "id": "TESTS-S3-02",
+      "location": "10-hardware-tests.md, immediately before the folded measurement check",
+      "problem": "The essential warning that readout noise adds a lag-independent variance contribution appears only in the always-folded check. The visible protocol promises to separate readout error from state motion.",
+      "prerequisites_checked": "Earlier eye-timing chapter teaches the two-error offset, but the local protocol should state the required check where it asks the reader to fit short-lag growth.",
+      "proposed_repair": "Add a visible reminder to estimate readout noise before interpreting short-lag variance as state motion. State that independent readout errors with constant variance add a constant offset. Keep the detailed formula and caveats in the fold.",
+      "status": "Resolved by coordinator; current visible paragraph directly rechecked. It states the readout-noise check and independent constant-variance condition before the fold."
+    }
+  ],
+  "scope": "Local new Part III Chapter 10 and assigned index, project description, reading-guide and glossary additions. No old-figure or full-guide acceptance.",
+  "audience": "Undergraduate calculus, basic probability and linear algebra; expectation, variance, standard deviation and density known. Earlier Part I teaches the needed stochastic and projection concepts.",
+  "limits": [
+    "No manuscript edits, builds or full audits.",
+    "Fold review is from source placement and classes, not browser output.",
+    "Local source link and anchor checks do not establish live deployed routes.",
+    "Token stats unavailable."
+  ],
+  "truth_rechecks": [
+    {
+      "passage": "10-hardware-tests.md:15",
+      "answer": "Unwrapping now describes adding/subtracting full turns and requires sampling that resolves crossings. No claim of reconstructing hidden turns from sparse endpoints remains."
+    },
+    {
+      "passage": "10-hardware-tests.md:19,29,31,35",
+      "answer": "Immediate decoded baseline and trial uncertainty remain in the visible protocol. Long-delay error reporting respects a full-turn-equivalent angle. The new visible noise reminder matches the conditional two-read variance calculation; the fold retains zero-mean, state-independence and correlation caveats."
+    },
+    {
+      "passage": "10-hardware-tests.md:57-65",
+      "answer": "The table remains conditional on model assumptions. Mapping to available numerical levels preserves the meaning of quantization without an unexplained term. Pinning and stalled updates remain possible outcomes, not universal effects."
+    },
+    {
+      "passage": "glossary.md:138-144 and linked teaching",
+      "answer": "Current, voltage, capacitor and conductance match Chapter 07 physical definitions and units; host matches Chapter 09 opening; register matches its slow-memory section; unwrapping matches Chapter 10 operation and sampling condition. These are lookup reminders after actual teaching, not substitutes for it."
+    }
+  ],
+  "paragraph_flow": [
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p3",
+      "line": 3,
+      "end_line": 5,
+      "sha256": "60eae6f5ea5b97f297c2692b396a75f8509d4be23a82015f3be54479134cab4b",
+      "decision": "retain",
+      "reason": "The opening states three concrete error causes and why they require controlled tests; it places the work as proposed before giving a protocol."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p9",
+      "line": 9,
+      "end_line": 9,
+      "sha256": "e9fe53cae73782cfde9b63e4ee9274f7ebbeebc52925a3ada17137dfe085a6ea",
+      "decision": "retain",
+      "reason": "The setup fixes what is observed and the decoder before measuring retention. The defined decoder and different access levels connect earlier readout theory to the experiment."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p11",
+      "line": 11,
+      "end_line": 11,
+      "sha256": "f2ea132e6cec7b796ca9a282125b4ba5c1671be34c4933de19f07853fe82b01e",
+      "decision": "retain",
+      "reason": "A brief lead-in makes the following numbered sequence a procedure rather than an unexplained list."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p13",
+      "line": 13,
+      "end_line": 13,
+      "sha256": "342ad2cfb0cc6d28dbf99cb28047e316c7e79c7ef6378c27f7dcc98faf498022",
+      "decision": "retain",
+      "reason": "The cue and its removal define writing and retention; testing between preferred positions prepares the later pinning diagnosis."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p14",
+      "line": 14,
+      "end_line": 14,
+      "sha256": "05c7f451e91c50d385813413003424dd5bb685ec6e92e7411d4cff3b4ac6de87",
+      "decision": "retain",
+      "reason": "Fixed weights and recorded settings identify controlled conditions before outcomes are compared."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p15",
+      "line": 15,
+      "end_line": 15,
+      "sha256": "67e1f7698cf54f41a6d3f000d5f09a102ea13aa7519177b68cb7a0d7bdaef8e9",
+      "decision": "retain",
+      "reason": "Delayed decoding specifies the observation; the unwrapping definition and sampling condition make angular handling actionable before the later full-turn limit."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p16",
+      "line": 16,
+      "end_line": 16,
+      "sha256": "e55f8049e68c014f8cd6e99074c415157dfe0bf30732320f2746760aba4ab944",
+      "decision": "retain",
+      "reason": "Separate mean, variance and pattern failures expose different outcomes instead of averaging them into one accuracy score."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p17",
+      "line": 17,
+      "end_line": 17,
+      "sha256": "dcf7ba16937c9fcfafc2a55c2c4874b055edf572c52202ad72263f786d82d9cb",
+      "decision": "retain",
+      "reason": "One-factor interventions and the same-model numerical reference turn a correlation between hardware and error into a controlled comparison."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p19",
+      "line": 19,
+      "end_line": 19,
+      "sha256": "61a5f6ee9f63e104af2406e00fce9450cd32d06687073e5cf5cd0da7508d16f8",
+      "decision": "retain",
+      "reason": "The immediate baseline separates writing from later change; trial counts and coefficient uncertainty limit what fitted values establish."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p21",
+      "line": 21,
+      "end_line": 21,
+      "sha256": "40780a044d9c3c25151ea0e0d922d8a7e9a7247519807323ebe5eb65e21241fa",
+      "decision": "retain",
+      "reason": "The success criterion returns the procedure to cue discrimination. The cancellation warning explains why both earlier statistics are necessary."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p23",
+      "line": 23,
+      "end_line": 23,
+      "sha256": "ebdf2bc4e87a5d48f2611ecfa253c6f0ae874d299adebcb1db343dc539f22f37",
+      "decision": "retain",
+      "reason": "The model lead-in restricts the forthcoming SDE to short intervals; the adjacent displayed equation was inspected directly."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p29",
+      "line": 29,
+      "end_line": 29,
+      "sha256": "d1026b5dbd50074413539d8b0dba5824b622f2c0b0f5b5fe77370f29ebb65b5b",
+      "decision": "retain",
+      "reason": "Definitions connect local increments to measured drift and diffusion, then state correlations, boundaries and long-delay angular limits before the fit is used."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p31",
+      "line": 31,
+      "end_line": 31,
+      "sha256": "75975e4fa651c5984a1947c1dd302c1a06cc7472b863b1601425dd698cd43b84",
+      "decision": "retain",
+      "reason": "The new visible readout-noise instruction places the essential measurement condition on the first reading path. The constant-variance independence condition supports the constant offset."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p35",
+      "line": 35,
+      "end_line": 35,
+      "sha256": "0076bd032147eaf5f7c072d835fac3912ca7548ffdd5214f2aa7963fc66295cf",
+      "decision": "retain",
+      "reason": "The folded check supplies the two-reading calculation and failure conditions after the visible main conclusion; the reader can expand it for the exact intercept model."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p41",
+      "line": 41,
+      "end_line": 41,
+      "sha256": "bde8dab08e02912a1fc2c3126700c2d7da33cee5efb0f6bc261abf6dbfb21d6b",
+      "decision": "retain",
+      "reason": "Physical changes in leak, feedback and fluctuating currents motivate why the next mathematical projection is needed."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p43",
+      "line": 43,
+      "end_line": 43,
+      "sha256": "f65eb6c1a0879ca633e3c6993401f6e9a1294c1e5a713475b5f9dca05244b175",
+      "decision": "retain",
+      "reason": "Local dynamics, noise mapping and normalization introduce the displayed projection coefficient; earlier Part I teaching was actually read, so the link is a route back to a supplied prerequisite."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p49",
+      "line": 49,
+      "end_line": 49,
+      "sha256": "392afc9787b2af2cfe4f88524119ad33f09a8a98c9afc794b352f49176a1535d",
+      "decision": "retain",
+      "reason": "The interpretation turns the covariance equation into corrected-versus-surviving directions and limits its drift claims. It supplies the main result before the folded derivation."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p53",
+      "line": 53,
+      "end_line": 53,
+      "sha256": "d0dc7fb920d5f915e9249102dbed82876fb84ebd3bb3abcf8ff28059596289d6",
+      "decision": "retain",
+      "reason": "The folded derivation traces the projected stochastic increment into variance. It adds mathematical detail without hiding the only statement of the physical conclusion."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p57",
+      "line": 57,
+      "end_line": 57,
+      "sha256": "759eda4bd40d6ed986fe07dbb28db656c35ca2e54ed7c509687680aa7127ae1d",
+      "decision": "retain",
+      "reason": "The table introduction retains model assumptions before interventions are listed. Every table row was read directly because the packet omits it."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p69",
+      "line": 69,
+      "end_line": 69,
+      "sha256": "72f159ba3d9df0b5d381242621df22ce9eae05097cbf74e1f10d7be02cf9dd3a",
+      "decision": "retain",
+      "reason": "The folded example title signals its specific question: why tighter spread need not mean better memory."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p71",
+      "line": 71,
+      "end_line": 71,
+      "sha256": "f88fd0a02c4149db32269f96f36b0bc105608a2446a6fff7a4371f9ef3f55326",
+      "decision": "retain",
+      "reason": "The example computes both MSEs and interprets pinning. Its main bias-versus-spread conclusion is already visible in Chapter 08 and in the protocol, so this calculation can remain folded."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p77",
+      "line": 77,
+      "end_line": 77,
+      "sha256": "cb0007a789938c4b76300c90c2e4693a64a0acb5efa26b4c1d541ebb90eef374",
+      "decision": "retain",
+      "reason": "The comparison lead-in marks a shift from device parameters to what each original paper can and cannot establish."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p79",
+      "line": 79,
+      "end_line": 79,
+      "sha256": "096a43ef18dbb7ade03b224b6fb395cc0061702f36b7219ef8887f7a4243fa51",
+      "decision": "retain",
+      "reason": "The 2012 bullet connects information and diffusion only under matched noise, dynamics and access. Directly exposing a stored internal angle changes that comparison."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p80",
+      "line": 80,
+      "end_line": 80,
+      "sha256": "dfed8359e3f07110fb713399a413dcea56aae9b14b9617ddb1bf4d48fba5f65e",
+      "decision": "retain",
+      "reason": "The 2022 bullet puts filtering between internal command and observed motion, giving concrete hardware examples and the resulting calibration requirement."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p82",
+      "line": 82,
+      "end_line": 82,
+      "sha256": "021860909c58aa6deb0d0b4981b349bdd7c5f434783686f64e9df1dbdb1b4cc8",
+      "decision": "retain",
+      "reason": "The 2025 bullet distinguishes spatial response statistics from input-free temporal retention, preventing the common but unsupported inference between them."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p85",
+      "line": 85,
+      "end_line": 85,
+      "sha256": "c72fc7a1179f79307c8bc1aa595752a79bbaa0ad26e9042ad5b41394f04a401c",
+      "decision": "retain",
+      "reason": "The synthesis link and biological limit join the three bullets without promising that a chip reproduces an animal system."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p87",
+      "line": 87,
+      "end_line": 87,
+      "sha256": "27af71d82b844bd3d48753fdc6b44365af518e7707a6da3b24da9cddaa65b1e9",
+      "decision": "retain",
+      "reason": "The time-mapping paragraph derives the acceleration factor in physical diffusion units, then distinguishes ideal rescaling from actual communication and readout limits."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p89",
+      "line": 89,
+      "end_line": 89,
+      "sha256": "279a6398f5582ca0cb206632a303aa4cfda78b61e18a398b80474c5e6e468867",
+      "decision": "retain",
+      "reason": "The energy paragraph uses the same task, delay and error requirements as the accuracy protocol and includes required host/interface work."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p91",
+      "line": 91,
+      "end_line": 91,
+      "sha256": "3ae0ddfb44065ccfdae13e00cc1eec4be4f2007364966c7275c21873b0f530b8",
+      "decision": "retain",
+      "reason": "The closing research question names the changed physical component, the measured improvement and the fixed comparison conditions. It concludes with an experiment to perform, not a result already obtained."
+    }
+  ],
+  "nonreader_packet_units": [
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p67",
+      "decision": "Markup only; read in source but no invented reader-purpose judgment."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p73",
+      "decision": "Markup only; read in source but no invented reader-purpose judgment."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p81",
+      "decision": "Markup only; read in source but no invented reader-purpose judgment."
+    },
+    {
+      "passage_id": "ch:HARDWARE-TESTS/p83",
+      "decision": "Markup only; read in source but no invented reader-purpose judgment."
+    }
+  ],
+  "section_flow": [
+    {
+      "section_id": "ch:HARDWARE-TESTS/s0",
+      "sha256": "344d2966f809cf93f72e186601a11881d60a594e13efddafd1754bfbcc2288af",
+      "decision": "retain",
+      "reason": "Concrete error causes motivate the procedure."
+    },
+    {
+      "section_id": "ch:HARDWARE-TESTS/s1",
+      "sha256": "a9bbac5dc818eb975453b53d6e5fb1064a2f0a15bfafff993205b639940d5590",
+      "decision": "retain",
+      "reason": "Setup, controlled procedure, fitted quantities and observation-noise condition form one complete measurement path."
+    },
+    {
+      "section_id": "ch:HARDWARE-TESTS/s2",
+      "sha256": "00685146602372f4542122f79156a7e0cd8f99e702847bf29fae24bf8972a8e5",
+      "decision": "retain",
+      "reason": "Physical interventions lead through a projection mechanism to predicted measurements and the bias example."
+    },
+    {
+      "section_id": "ch:HARDWARE-TESTS/s3",
+      "sha256": "1f21735032a0791b230d20d7aa036ecba9cff84a834f3df48762310c9b85c03a",
+      "decision": "retain",
+      "reason": "The three source limits lead into time conversion and energy comparison under matched task/readout."
+    }
+  ],
+  "fold_placement": {
+    "visible": "Protocol, uncertainty, short-lag fitting, angular limit, readout-noise reminder, projection result/interpretation, interventions, source comparisons, time conversion and energy boundary.",
+    "folded": "Exact measurement-noise formula and caveats, projection derivation, numerical pinning example.",
+    "judgment": "The important main conclusions are visible. Folded material adds computation or detailed assumptions and is appropriately signposted. This was checked in Markdown source; rendered behavior remains outside this review."
+  },
+  "front_and_lookup_path": [
+    {
+      "location": "content/index.md:7 and guide-project.yaml description",
+      "answer": "The additions orient readers to the new Part and research date while retaining the three-paper subject. They promise proposed tests rather than validated hardware results."
+    },
+    {
+      "location": "00-reading-guide.md sec:READING-HARDWARE and sidecar",
+      "answer": "The reader gets the electronic setting, defined neuromorphic purpose, weights/state distinction and proposed experiment. Its Part link matches part:HARDWARE in the plan. The repaired summary now contains only the actual paragraph."
+    },
+    {
+      "location": "glossary.md sec:GLOSSARY-HARDWARE",
+      "answer": "Every lookup entry points to an existing source chapter/section. Host computer uses a chapter-start link because its actual definition is in the opening. New current, voltage, capacitor, conductance, register and unwrapping definitions match their teaching passages."
+    }
+  ],
+  "link_checks": {
+    "source_level": "Verified plan contains part:HARDWARE; chapter and section source targets exist for all new glossary Explanation links, the Part I projection link and synthesis evidence link. No live browser/deployment check was performed.",
+    "targets": [
+      "sec:HARDWARE-MEMORY-STORAGE",
+      "sec:HARDWARE-MEMORY-UPDATES",
+      "sec:HARDWARE-MEMORY-ROLES",
+      "sec:HARDWARE-DYNAMICS-EVIDENCE",
+      "sec:HARDWARE-DYNAMICS-ERRORS",
+      "sec:NEUROMORPHIC-SYSTEMS-ARCHITECTURES",
+      "sec:NEUROMORPHIC-SYSTEMS-LIMITS",
+      "sec:HARDWARE-TESTS-PROTOCOL",
+      "sec:MEMORY-LINEARIZATION",
+      "sec:SYNTHESIS-EVIDENCE"
+    ]
+  },
+  "reviewed_sha256": {
+    "content/index.md": "ed3f11911bb0ef45c974b649bc0c3825a10e34dd84f47d0cc61fd4e081a865e7",
+    "guide-project.yaml": "2d3de064294e00601fad7c6e2e65fd35e2c01a37bb8dbecffebca9b82910a36f",
+    "plan/chapter-plan.yaml": "6c40c4aac412fe8bf70fea4f5f589ea4aacda3de70dfd531850d4ae8e54ad801",
+    "content/chapters/00-reading-guide.md": "91eae8b8b36c5eed43508258bd45e54cefdbf907a6cfbd1049af03afa2416058",
+    "content/chapters/00-reading-guide.yaml": "ee9017dc31904225cc9d7f97f0a34a1232f4f1220762895d7d5dae83a2a34baf",
+    "content/chapters/glossary.md": "18842e33d325805d720a27bdcbb6aa8bbdc943c54277616b793a462fe7ada2c7",
+    "content/chapters/glossary.yaml": "f2dbcc0984e77d4727fd362d57aa8011cff26a7d1ef3237aadc8fd82e4ef2f93",
+    "content/chapters/07-hardware-memory.md": "39c5cbf9c5b8023d2d851d6116d63a87018712590a42359a7c15995e32c8dce5",
+    "content/chapters/08-hardware-dynamics.md": "29f4abde4d28f1936a75c2926dcefc54962b5c010a0c75773c2571b0045018c9",
+    "content/chapters/09-neuromorphic-systems.md": "ef7ec52d8829a019369cbd9847a75a7f04563a9529288f7a7bd4666a78fa92b1",
+    "content/chapters/10-hardware-tests.md": "05e61819726242b2aae3370aa93247cccce117e95b7ff0232d7f51efb6e9f65f",
+    "content/chapters/10-hardware-tests.yaml": "f79bacb741d5ff59631f051ca63f7ff0bb863e9199e1a2a323b2d814aa82b77b",
+    "content/chapters/02-memory-dynamics.md": "622a08b479a8586b17ff7a8f7d847253123393ef6a64ee9a91fb52aab69e577f",
+    "content/chapters/02b-memory-long-delays.md": "a088bae67645f1ceaa3389c8ed71700ecd24c9fcd010b8997f6adee0ced978a7",
+    "content/chapters/04b-eye-timing.md": "4d7395f284ca8a2e09b2d301c97cef98070c0528b756ceb06ca75570badac3bc",
+    "content/chapters/06-synthesis.md": "cf048eb1334d4538e6d23a8edb59e8e5f9ae68751263c6df9810f285f68d2122",
+    "verification/part3-neuromorphic-20261030/concept-index.json": "d95832fe3116e14bfc61ae2ab68f2ff2027cbe11f93c5a8e410988fbc60fe122",
+    "verification/part3-neuromorphic-20261030/concept-judgments-tests.json": "f5302c79a7500aa3e0baca212f176e7cd6e58c5ffc7c671a94438a96b373256c",
+    "verification/part3-neuromorphic-20261030/metadata-repair-check.json": "845bcacb7624d8f732f6b5223fdec6b942e2252a8d114ef0dc422ff44fbca7f2"
+  },
+  "rule_sha256": {
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\SKILL.md": "b78068e9874e6d1d97b2017bf8f940492f9b08fc11b74f20fd75019ff388984a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\pedagogy-language-contract.md": "f4c1eb544cf640b708e1970d9572fdc758fcc6aea806675d01a0256658df847a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\math-code-case-contract.md": "ce2313f897b63e74ba59a3afe1bbc4046d3aa84584072cda7e76470a7e3cef9a",
+    "C:\\Users\\vital\\.codex\\skills\\course-study-guide-builder\\references\\concept-prerequisites.md": "4c8d4af325fb63af8dbe41d447d4bac7197df550b0ddb9f4cdb0dea3b1fe9f9a"
+  },
+  "concept_judgments": "concept-judgments-tests.json: four reviewed sections, five selected concepts, sixteen reviewed relations with actual packet IDs and zero-based spans. Packet source hashes were checked against current files.",
+  "wall_elapsed_seconds": 334
+}

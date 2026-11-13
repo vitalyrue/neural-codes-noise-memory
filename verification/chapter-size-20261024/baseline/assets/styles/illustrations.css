@@ -1,0 +1,16 @@
+/* Book-local scientific figures: keep labels readable while captions wrap. */
+main.content .figure-scroll { max-width: 100%; margin-block: 1rem; }
+main.content .figure-scroll figure { max-width: 100%; }
+main.content .figure-scroll figure > div[aria-describedby] {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+}
+main.content .figure-scroll img.figure-img {
+  display: block;
+  width: 700px !important;
+  min-width: 700px;
+  max-width: none;
+  height: auto;
+}
+main.content .figure-scroll figcaption { max-width: 100%; }

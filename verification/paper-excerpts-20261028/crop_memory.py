@@ -1,0 +1,17 @@
+from pathlib import Path
+import fitz,json,hashlib,datetime
+O=Path(__file__).resolve().parent;R=O.parents[1];A=R/'assets/approved/visuals/paper-excerpts';A.mkdir(exist_ok=True)
+spec=[
+('1',False,2,[96,463,230,582],'02b-memory-long-delays.md','The [information calculation](ch-memory-information.html#sec-memory-fi) measures this second uncertainty', 'Noise-free return flow defines the memory coordinate; the second panel separates movement of that coordinate from uncertainty when reading it.', 'Panel A shows perturbed states returning along arrows to an attractor. Panel B shows a population activity bump, a changed angular position and the uncertainty in estimating its current position.',3.6),
+('2',False,3,[37,16,286,226],'02b-memory-long-delays.md','Panels E to G use mutual inhibition rather than a ring.', 'The ring and mutual-inhibition simulations compare measured displacement statistics with the predicted diffusion.', 'Seven panels show a ring circuit, rate profiles and spikes, a wandering angle, displacement variance curves, and a two-population mutual-inhibition circuit with opposing rate traces.',6.5),
+('3',False,4,[340,16,500,159],'03b-memory-readout.md','The storage delay contribution $2DT$ is not part of these rescaled curves.', 'The ideal readout error approaches a limit, while the error of equal weighting rises after its minimum.', 'Rescaled variance versus observation duration. A solid curve falls toward one; a dashed curve falls then rises; a vertical dotted line marks the dashed curve minimum.',4.8),
+('S1',True,10,[112,69,494,233],'02b-memory-long-delays.md','**Interpretation.** A state dependent $D$ need not produce a curved variance versus time graph.', 'Mutual excitation produces a wandering state and approximately linear variance growth in the plotted simulation.', 'Panel A shows one irregular state trajectory; panel B compares its trial-to-trial variance with a straight theoretical prediction.',6.5),
+('S2',True,16,[202,69,401,228],'03b-memory-readout.md','The storage delay contribution $2DT$ is not part of these rescaled curves.', 'Access to a tenth of the spikes shifts the useful observation time and the readout error upward.', 'Rescaled error curves compare full access and a spike fraction of one tenth for ideal and naive estimators. Dotted partial-access curves have a higher error scale and longer useful time.',5.1)]
+items=[]
+for num,si,page,rect,chapter,anchor,caption,alt,width in spec:
+ name='burak-fiete-2012-persistent-activity'+('-si' if si else '')+'.pdf';source=R/'assets/papers'/name
+ doc=fitz.open(source);out=A/f'memory-fig-{num}.png';doc[page-1].get_pixmap(matrix=fitz.Matrix(3,3),clip=fitz.Rect(rect),alpha=False).save(out)
+ text=(R/'content/chapters'/chapter).read_text(encoding='utf-8');assert text.count(anchor)==1
+ items.append(dict(figure=num,source_pdf=str(source.relative_to(R)).replace('\\','/'),source_sha256=hashlib.sha256(source.read_bytes()).hexdigest(),pdf_page=page,crop_rect=rect,asset=str(out.relative_to(R)).replace('\\','/'),sha256=hashlib.sha256(out.read_bytes()).hexdigest(),chapter=chapter,insert_after_paragraph_start=anchor,caption=caption,alt=alt,width_inches=width,source_label='Burak and Fiete (2012)',doi='https://doi.org/10.1073/pnas.1117386109'))
+(O/'memory.json').write_text(json.dumps(dict(at=datetime.datetime.now().astimezone().isoformat(),figures=items),indent=2,ensure_ascii=False),encoding='utf-8')
+print('Five exact memory figure excerpts rendered.')

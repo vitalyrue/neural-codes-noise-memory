@@ -1,0 +1,411 @@
+{
+  "fig:EYE-PHYSICAL-AND-RECORDED": {
+    "schema_version": 1,
+    "status": "approved",
+    "reviewer": "/root/draw_memory_figures",
+    "reviewed_at": "2026-10-23T22:21:06.881712+03:00",
+    "reviewed_sha256": "8bee428b9e097dbe2411116b794dc40906a2089eca4a5c76479d65e908842988",
+    "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+    "context_sha256": "d2d0a7ec352b90e152dbdedfc54d279bbc99093530ed2352070a026968f61a24",
+    "input_sha256": {
+      "content/chapters/04-eye-drift.md": "f22d19c9de4313037c6081a443f3b305b568f24720f01796178b83604b00b502",
+      "content/chapters/04-eye-drift.yaml": "068311ac42d787bad2ea1fb82d86ee09141c82865d0ae506b86ee59b6d41c2cb",
+      "plan/illustrations/PLAN.md": "1e2c217f716b4778ad7217559d608e8b444b6bed0c0a76083627fb2b42b8f646",
+      "verification/illustrations/draw_eye.py": "b98c46aac782ad7e9853f4c5fb448952f41647324f816e84da8bd34028656332",
+      "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+      "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+      "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+      "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+      "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+      "candidate-content/visuals/candidates/20261023/V04/qa.json": "7b1a62eff56a63f0f24ea3f75e70edba844e47685871c38d8425f2b67a78390c"
+    },
+    "source_scope_sha256": {
+      "ch:EYE-DRIFT": "0a7f562b3686418f71cd149641180c32a18a0224ef0e3814ad521feabd07a7d6"
+    },
+    "strongest_objection": "A physical circuit diagram could present an attractor origin or private-noise independence as directly established by the recordings.",
+    "objection_resolution": "The source is explicitly marked proposed, and the recorded data are one cell plus eye movement. No integrator recording or direct motor-neuron pair covariance is shown. Chapter 4 supplies the independence premise and localization limits.",
+    "claim_review": [
+      {
+        "items": [
+          "Physical pathway",
+          "Attractor storage",
+          "proposed source",
+          "Stored eye position",
+          "dashed storage ellipse and coordinate marker"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-PATHWAY; sec:EYE-LIMITS; main pp. 5-8, Figs. 4-5",
+        "reasoning": "The attractor is visibly proposed, in agreement with the model-versus-recording distinction. A stored coordinate is appropriate without claiming recorded integrator cells."
+      },
+      {
+        "items": [
+          "Shared drive",
+          "fan-out arrows to three cells",
+          "Motor neuron population",
+          "cell outputs collected before muscles"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-PATHWAY; main p. 10, Model of fixational drift",
+        "reasoning": "A shared input is distributed to multiple OMNs and their population output affects eye movement. Three circles are illustrative; no count is inferred."
+      },
+      {
+        "items": [
+          "Private spike variability",
+          "orange irregular input and arrow into upper example neuron"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-PATHWAY; sec:EYE-SHARED-VARIANCE",
+        "reasoning": "Private noise enters an individual cell, not the common source. The one example input illustrates a role present across cells, not a claimed measured covariance."
+      },
+      {
+        "items": [
+          "Muscles and eye mechanics",
+          "physical arrow from motor output",
+          "schematic muscle strokes and eye",
+          "Physical eye position",
+          "physical arrow to coordinate marker"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-PATHWAY; main p. 10 Model of fixational drift",
+        "reasoning": "OMNs drive the ocular plant. The coordinate marker denotes position, not another anatomical circuit."
+      },
+      {
+        "items": [
+          "Downstream physical variability",
+          "orange arrow into muscle stage"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-PATHWAY; sec:EYE-CHI",
+        "reasoning": "Physical downstream noise enters the movement-producing stage. Measurement noise is drawn separately."
+      },
+      {
+        "items": [
+          "Paired recordings",
+          "one highlighted lower neuron",
+          "gray record link to spike ticks",
+          "One neuron at a time",
+          "Recorded spikes"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-RECORDINGS; original main p. 9 recording Methods; peer-review text lines 727-733",
+        "reasoning": "Only one neuron is linked to one spike record. This explicitly avoids implying simultaneously recorded OMNs."
+      },
+      {
+        "items": [
+          "gray link from physical position to recorded trace",
+          "Measurement noise",
+          "orange arrow into recorded trace",
+          "Recorded eye position"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-RECORDINGS; sec:EYE-MSD; original main p. 10 Removal of measurement noise",
+        "reasoning": "The record is derived from physical position and contains acquisition noise. The noise arrow does not enter the physical eye marker."
+      },
+      {
+        "items": [
+          "pairing bracket",
+          "One cell and eye movement recorded together"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-RECORDINGS",
+        "reasoning": "This pairs two kinds of observation from a session; it creates no neuron-pair covariance claim."
+      },
+      {
+        "items": [
+          "Analysis",
+          "orange dashed line from Recorded spikes",
+          "Calibrated filter",
+          "orange dashed arrow to predicted trace",
+          "Predicted eye position",
+          "calculated from one cell"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-INVERSE-FILTER; original main p. 9 Model inversion Eqs. 4-7",
+        "reasoning": "This is the inverse-filter calculation from a single cell. It does not send a biological signal backward. The displayed difference-of-exponentials response is appropriate as an illustrative kernel shape."
+      },
+      {
+        "items": [
+          "physical flow key with solid teal arrow",
+          "calculation key with dashed orange arrow"
+        ],
+        "verdict": "correct",
+        "evidence": "all V04 arrows and integration intro",
+        "reasoning": "The keys agree with the actual upper causal path and lower analysis path. Gray short-dashed connectors link physical objects to their recorded versions."
+      },
+      {
+        "items": [
+          "intro: physical pathway separated from paired recordings and calculation",
+          "caption: private at cells, physical downstream noise, measurement noise in record",
+          "caption: proposed source and dashed single-cell calculation",
+          "caption: original guide schematic and illustrative signal symbols"
+        ],
+        "verdict": "correct",
+        "evidence": "eye-integration.json V04; connected Chapter 4 passages above",
+        "reasoning": "These phrases accurately describe visible objects and source status; the smooth trace symbols do not claim measured values."
+      },
+      {
+        "items": [
+          "alt: proposed attractor to shared motor population and ocular plant",
+          "alt: only highlighted neuron recorded",
+          "alt: record-only measurement noise and separate calculated prediction",
+          "interpretation: no simultaneously recorded neuron covariance and no reverse physical signal"
+        ],
+        "verdict": "correct",
+        "evidence": "eye-integration.json V04; sec:EYE-RECORDINGS and sec:EYE-INVERSE-FILTER",
+        "reasoning": "The complete alt and interpretation match the picture and preserve the most important limits."
+      }
+    ],
+    "review_evidence_files": [
+      "verification/illustrations/review-eye-stage1.json",
+      "verification/illustrations/review-eye-stage2.json",
+      "verification/illustrations/review-eye-stage2-recheck.json",
+      "verification/illustrations/review-eye-stage3.json"
+    ],
+    "checks": {
+      "technical_accuracy": {
+        "verdict": "pass",
+        "evidence": [
+          "Every physical, record and calculation connector was checked against the visible pixels and Chapter 4. Targeted original Methods and peer-review response support the crucial distinctions.",
+          "Explicit per-claim label, arrow, caption and alt checks retained in claim_review; source and original-method locators retained in Stage 1.",
+          "Final connected read confirms the current added passages preserve those scientific distinctions after the two Stage 2 repairs."
+        ]
+      },
+      "visual_explanation": {
+        "verdict": "pass",
+        "evidence": [
+          "Actual scientific objects and relationships, not text cards; all declared scenes inspected at full size and 700 px in Stage 1. Same image hash verified again."
+        ],
+        "reference_comparison": null,
+        "scenes": [
+          {
+            "id": "physical-path",
+            "depiction": "mechanism",
+            "visible_objects": [
+              "A stored-coordinate line with a position dot inside a dashed ellipse; a fan to three motor-neuron circles; muscle strokes, an eye and a physical-position marker."
+            ],
+            "relationship": "Shared drive reaches all population cells; private variability enters one example cell; physical variability enters the muscle/eye stage.",
+            "teaching_contribution": "The fan and collection of outputs show why shared and individual contributions have different routes into movement, while the proposed-source label limits the attractor claim."
+          },
+          {
+            "id": "recordings-and-analysis",
+            "depiction": "mechanism",
+            "visible_objects": [
+              "One highlighted lower neuron, one spike-tick record, one recorded-position trace, a pairing bracket, a filter response and a predicted trace."
+            ],
+            "relationship": "Only the highlighted cell is linked to the spikes. The paired record receives measurement noise. A separate orange dashed calculation takes that one cell through its calibrated filter to predicted eye position.",
+            "teaching_contribution": "The reader can distinguish what exists physically, what was recorded together, and what was calculated, without mistaking the population drawing for simultaneous neural recording."
+          }
+        ]
+      },
+      "readability": {
+        "verdict": "pass",
+        "evidence": [
+          "Viewed figure.png through image viewer. All labels and arrowheads readable, no clipped text or label crossings.",
+          "Viewed book-width.png. The smallest connector key and one-cell qualification are readable; central proposed-source, single-cell and measurement-noise distinctions remain explicit. The three section labels support the tall layout.",
+          "Full-size and 700 px inspections were performed in Stage 1; actual image hash is unchanged."
+        ],
+        "full_size_inspected": true,
+        "reviewed_width_px": 700
+      },
+      "palette": {
+        "verdict": "pass",
+        "evidence": [
+          "Visible warm paper background, navy labels, teal physical structures, orange variable-noise markers and calculation path, gray recording transfers. Exact SVG colors rechecked below; no undeclared colors. The path legend gives solid physical versus dashed calculation meaning; orange is not interpreted as a trust verdict.",
+          "Actual SVG token membership was independently checked against house-graphic-v1 in Stage 1. Current QA/profile/spec/image hashes were independently verified in this final read."
+        ],
+        "warning_disposition": "Current vector QA has no warnings; this is token membership and visible color-role review, not a raster pixel-deviation measurement."
+      },
+      "coverage": {
+        "verdict": "not-applicable",
+        "evidence": [
+          "Local mechanism figure, not an opening map.",
+          "The image is placed inside the relevant section and makes no opening-map or whole-chapter coverage claim."
+        ],
+        "covered_ids": [],
+        "visible_evidence": {}
+      }
+    }
+  },
+  "fig:EYE-FILTERED-NOISE-MSD": {
+    "schema_version": 1,
+    "status": "approved",
+    "reviewer": "/root/draw_memory_figures",
+    "reviewed_at": "2026-10-23T22:21:06.881712+03:00",
+    "reviewed_sha256": "04b19d849fe507f1b3896af426e05f95500e864f51315cd8508444640de0c5b1",
+    "policy_sha256": "705399412fb25d37430e9c4a526bf3edb0854ef044a3caaa3a4ef97f396e092d",
+    "context_sha256": "1a239bc95e9bfa5968b3b6c59ce1b04361dc5d7dcd405097ca2efb5e260c60b4",
+    "input_sha256": {
+      "content/chapters/04-eye-drift.md": "f22d19c9de4313037c6081a443f3b305b568f24720f01796178b83604b00b502",
+      "content/chapters/04-eye-drift.yaml": "068311ac42d787bad2ea1fb82d86ee09141c82865d0ae506b86ee59b6d41c2cb",
+      "plan/illustrations/PLAN.md": "1e2c217f716b4778ad7217559d608e8b444b6bed0c0a76083627fb2b42b8f646",
+      "verification/illustrations/draw_eye.py": "b98c46aac782ad7e9853f4c5fb448952f41647324f816e84da8bd34028656332",
+      "verification/illustrations/figure_style.py": "624e26d8cf1cbb1a927e0ac89d56881478f7e22a92d10f944f3547618d7b782f",
+      "C:/Users/vital/.codex/skills/course-diagram-builder/references/visual-qa.md": "f665e8a654b413f56cea86b5ad269700368fa3099914d85f23f912da04d79e5b",
+      "C:/Users/vital/.codex/skills/course-diagram-builder/references/review-acceptance.md": "b25d171e5954ded103b2c6225280ff9aaed8da1cdb326b0a7e0ad9b5bb0a99a1",
+      "source-maps/book-style-lock.yaml": "7692335832746cf9c0f506e0a609963d86c4289280dc024f7d7df97f2f090676",
+      "C:/Users/vital/.codex/skills/course-diagram-builder/references/house-graphic-v1.yaml": "4db9cdb55bb0cff2d8c109874acb1163aac273a7c2df88bae260d64f1b1f86a4",
+      "candidate-content/visuals/candidates/20261023/V05/qa.json": "325304795400e94a1de296541bdf04e018a2f8e078834d6146171ff9cdeef249"
+    },
+    "source_scope_sha256": {
+      "ch:EYE-DRIFT": "0a7f562b3686418f71cd149641180c32a18a0224ef0e3814ad521feabd07a7d6"
+    },
+    "strongest_objection": "The white-input initial slope could be mistaken for the paper muscle response, or the two own-scale plots could be taken as equal physical amplitudes.",
+    "objection_resolution": "Both filters are explicitly one-pole; the caption identifies a guide calculation and the interpretation limits the short-lag slope. Each y-axis has its own normalization and the image explicitly says amplitudes are not matched. Chapter text also states the stationary-velocity-transient assumption for the Brownian formula.",
+    "claim_review": [
+      {
+        "items": [
+          "Stationary white input",
+          "Brownian stored position",
+          "Input and Position labels in both strips",
+          "two identical exponential response drawings",
+          "Same one-pole filter in both strips",
+          "input-to-filter-to-position arrows"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-FILTERED-MSD one-exponential examples",
+        "reasoning": "The two alternatives occur at the filter input. There is no drawn ordinary finite-variance white-noise function and no white-velocity versus Brownian-velocity claim."
+      },
+      {
+        "items": [
+          "left formula 1-exp(-x)",
+          "left y-axis M_white/(A/tau)",
+          "left log y ticks 0.01, 0.1, 1"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-FILTERED-MSD white covariance and MSD; original main p. 10 Eqs. 20-22",
+        "reasoning": "For unit-gain causal h=exp(-u/tau)/tau, covariance is A exp(-ell/tau)/(2 tau), hence normalized MSD is exactly the displayed function."
+      },
+      {
+        "items": [
+          "left orange curve",
+          "plateaus label and leader",
+          "Short-lag slope 1"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-FILTERED-MSD white one-pole paragraph",
+        "reasoning": "Taylor expansion gives x at short lags and limit one at long lags. This is the one-pole result, not the smoother double-exponential kernel used in the paper."
+      },
+      {
+        "items": [
+          "right formula x-1+exp(-x)",
+          "right y-axis M_Brownian/(2D tau)",
+          "right log y ticks 0.0001, 0.01, 1, 10"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-FILTERED-MSD Brownian velocity-covariance calculation",
+        "reasoning": "Integrating Cv(s)=D exp(-s/tau)/tau gives 2D tau[x-1+exp(-x)] after the stated velocity transient; normalization is correct."
+      },
+      {
+        "items": [
+          "right teal curve",
+          "continues growing label and leader",
+          "Short-lag slope 2"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-FILTERED-MSD short/long-lag limits",
+        "reasoning": "The function is x squared over two initially and x-1 at long lag, so log slope tends to two then one; no plateau is present."
+      },
+      {
+        "items": [
+          "both Dimensionless lag x=ell/tau labels",
+          "matching log x ticks 0.01, 0.1, 1, 10",
+          "gray dotted x=1 line in each panel"
+        ],
+        "verdict": "correct",
+        "evidence": "sec:EYE-FILTERED-MSD tau scaling",
+        "reasoning": "Both panels use the same lag variable and axis range; the dotted reference is at one filter time constant."
+      },
+      {
+        "items": [
+          "Each panel uses its own scale; physical amplitudes are not matched"
+        ],
+        "verdict": "correct",
+        "evidence": "two printed y-axis normalizations; independent covariance calculation",
+        "reasoning": "The two scales are A/tau and 2D tau, which are different physical quantities. The plots compare shapes without equating input strengths."
+      },
+      {
+        "items": [
+          "intro: same filter separates alternatives",
+          "caption: plateau versus long-lag growth",
+          "caption: exact independent normalizations",
+          "caption: guide calculation, not measured or fitted paper curves"
+        ],
+        "verdict": "correct",
+        "evidence": "eye-integration.json V05; sec:EYE-FILTERED-MSD",
+        "reasoning": "All caption claims match the actual plots and delimit the reconstruction appropriately. The source Fig. 3 and Eqs. 20-22 support the stationary-noise contrast, while the Brownian derivation is explicitly the guide calculation."
+      },
+      {
+        "items": [
+          "alt: matched logarithmic lag axes and exact functions",
+          "alt: short-lag slopes one/two and long-lag slope one",
+          "alt: separate vertical scales",
+          "interpretation: white slope one limited to one-pole model; fuller paper model adds smoother response, motor filtering and feedback"
+        ],
+        "verdict": "correct",
+        "evidence": "eye-integration.json V05; sec:EYE-FILTERED-MSD final paragraph",
+        "reasoning": "The alt describes the plotted functions correctly. The interpretation prevents transfer of the one-pole initial slope to the paper model."
+      }
+    ],
+    "review_evidence_files": [
+      "verification/illustrations/review-eye-stage1.json",
+      "verification/illustrations/review-eye-stage2.json",
+      "verification/illustrations/review-eye-stage2-recheck.json",
+      "verification/illustrations/review-eye-stage3.json"
+    ],
+    "checks": {
+      "technical_accuracy": {
+        "verdict": "pass",
+        "evidence": [
+          "The displayed functions, two vertical normalizations, log axes and short-lag slopes match the one-pole derivation. Independent covariance integrals at five lags reproduce both curves. No fitted paper curve is claimed.",
+          "Explicit per-claim label, arrow, caption and alt checks retained in claim_review; source and original-method locators retained in Stage 1.",
+          "Final connected read confirms the current added passages preserve those scientific distinctions after the two Stage 2 repairs."
+        ]
+      },
+      "visual_explanation": {
+        "verdict": "pass",
+        "evidence": [
+          "Actual scientific objects and relationships, not text cards; all declared scenes inspected at full size and 700 px in Stage 1. Same image hash verified again."
+        ],
+        "reference_comparison": null,
+        "scenes": [
+          {
+            "id": "filter-comparison",
+            "depiction": "comparison",
+            "visible_objects": [
+              "Two same-shape exponential impulse-response filters, alternative input labels, and matched log-lag plots of exact functions."
+            ],
+            "relationship": "The white-input curve approaches a plateau; the Brownian-position curve keeps growing after passing through the same filter. Separate vertical-axis formulas and a scale note prevent an equal-amplitude reading.",
+            "teaching_contribution": "The actual plotted shapes show that smoothing alone cannot turn stationary white input into continuing displacement accumulation, while a wandering stored position retains it."
+          }
+        ]
+      },
+      "readability": {
+        "verdict": "pass",
+        "evidence": [
+          "Viewed figure.png. Functions, axis normalizations, curves and leaders are clear; no clipped labels or crossings.",
+          "Viewed book-width.png. Axis expressions, short-lag labels, both arrow-strip inputs and the own-scale note remain readable. At this size the different y-axis normalizations are short enough to inspect.",
+          "Full-size and 700 px inspections were performed in Stage 1; actual image hash is unchanged."
+        ],
+        "full_size_inspected": true,
+        "reviewed_width_px": 700
+      },
+      "palette": {
+        "verdict": "pass",
+        "evidence": [
+          "Same warm background, navy filter response, orange white-input curve and teal Brownian curve. Color is reinforced by panel labels, different formulas and independent vertical scales. Exact SVG token check below has no unexpected token.",
+          "Actual SVG token membership was independently checked against house-graphic-v1 in Stage 1. Current QA/profile/spec/image hashes were independently verified in this final read."
+        ],
+        "warning_disposition": "Current vector QA has no warnings; this is token membership and visible color-role review, not a raster pixel-deviation measurement."
+      },
+      "coverage": {
+        "verdict": "not-applicable",
+        "evidence": [
+          "Local calculation/comparison figure, not an opening map.",
+          "The image is placed inside the relevant section and makes no opening-map or whole-chapter coverage claim."
+        ],
+        "covered_ids": [],
+        "visible_evidence": {}
+      }
+    }
+  }
+}

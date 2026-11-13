@@ -1,0 +1,234 @@
+brief:
+  asset_id: fig:MAP-CH06
+  scope: chapter
+  book: burak-three-papers
+  part: I
+  chapter: '6: Readout accuracy depends on how a moving memory is observed'
+  purpose: Explain the mechanism and key conditions in readout accuracy depends on how a moving memory is observed.
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-for-editor-review
+  source_scope: content/chapters/03b-memory-readout.md
+  reading_width: 6.35 inches; confirm actual HTML width before acceptance
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Distinct physical states and changes reveal mechanisms beyond labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Use separate scenes for distinct mechanisms and connect only relationships specified in the source.
+  scenes:
+  - source_item_ids:
+    - P01
+    - P02
+    - P03
+    visible_objects:
+    - Storage then observation
+    depicted_relationship_or_change: A cue initializes memory, a storage interval accumulates state error, and later
+      spikes observe a state that continues to move.
+    teaching_contribution_beyond_labels: A cue initializes memory, a storage interval accumulates state error, and
+      later spikes observe a state that continues to move.
+  - source_item_ids:
+    - P04
+    - P05
+    - P06
+    - P07
+    - P08
+    - P11
+    visible_objects:
+    - Compare readout rules
+    depicted_relationship_or_change: Contrasting ideal and equal-weight curves show ideal diminishing returns and
+      a finite equal-weight optimum; axes indicate readout error and observation time.
+    teaching_contribution_beyond_labels: Contrasting ideal and equal-weight curves show ideal diminishing returns
+      and a finite equal-weight optimum; axes indicate readout error and observation time.
+  - source_item_ids:
+    - P09
+    - P10
+    - P12
+    - P13
+    visible_objects:
+    - Limited access and assumptions
+    depicted_relationship_or_change: A partial output pathway receives fewer informative spikes without reducing
+      full-network diffusion; label the guide’s bound qualification and no-leak interpretation.
+    teaching_contribution_beyond_labels: A partial output pathway receives fewer informative spikes without reducing
+      full-network diffusion; label the guide’s bound qualification and no-leak interpretation.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content\chapters\03b-memory-readout.md:26 (sec:MEMORY-READOUT-SETUP)
+  - content\chapters\03b-memory-readout.md:87 (sec:MEMORY-IDEAL)
+  - content\chapters\03b-memory-readout.md:207 (sec:MEMORY-NAIVE)
+  - content\chapters\03b-memory-readout.md:277 (sec:MEMORY-PARTIAL)
+  - content\chapters\03b-memory-readout.md:312 (sec:MEMORY-FIG3-AND-CAUTION)
+  - content\chapters\03b-memory-readout.md:350 (sec:MEMORY-MINIMUM-VARIANCE)
+  chapter_source_sha256: 722b56a7778e0fb42e795282726113e6ec5690eca29eb71d52addc8730b5ded6
+  teaching_points:
+  - id: P01
+    source_locus: content/chapters/03b-memory-readout.md:26 (sec:MEMORY-READOUT-SETUP)
+    point: The represented memory diffuses during storage and continues moving while spikes are observed after the
+      recall cue.
+  - id: P02
+    source_locus: content/chapters/03b-memory-readout.md:26 (sec:MEMORY-READOUT-SETUP)
+    point: In the local Gaussian model total original-cue variance separates storage variance 2DT from readout variance
+      under explicit independence conditions.
+  - id: P03
+    source_locus: content/chapters/03b-memory-readout.md:26 (sec:MEMORY-READOUT-SETUP)
+    point: Short spike samples are approximated as noisy observations of current state in an informative weak-noise
+      regime.
+  - id: P04
+    source_locus: content/chapters/03b-memory-readout.md:87 (sec:MEMORY-IDEAL)
+    point: Ideal inference accounts for motion between later observations and estimates the state at the recall
+      cue.
+  - id: P05
+    source_locus: content/chapters/03b-memory-readout.md:87 (sec:MEMORY-IDEAL)
+    point: Ideal variance declines with observation duration toward a finite limit; characteristic time is at most
+      tau under full-access model assumptions.
+  - id: P06
+    source_locus: content/chapters/03b-memory-readout.md:87 (sec:MEMORY-IDEAL)
+    point: The characteristic time describes an approach to saturation, not an abrupt end to useful observation.
+  - id: P07
+    source_locus: content/chapters/03b-memory-readout.md:207 (sec:MEMORY-NAIVE)
+    point: Equal-weight averaging reduces observation noise at first but eventually incorporates too much later
+      state diffusion.
+  - id: P08
+    source_locus: content/chapters/03b-memory-readout.md:207 (sec:MEMORY-NAIVE)
+    point: The naive observer has a finite optimal duration and its best variance exceeds the ideal asymptotic variance.
+  - id: P09
+    source_locus: content/chapters/03b-memory-readout.md:277 (sec:MEMORY-PARTIAL)
+    point: A downstream observer with a fraction of information receives less data while the full network diffusion
+      remains.
+  - id: P10
+    source_locus: content/chapters/03b-memory-readout.md:277 (sec:MEMORY-PARTIAL)
+    point: Reducing accessible information increases characteristic time and limiting readout variance in the specified
+      model.
+  - id: P11
+    source_locus: content/chapters/03b-memory-readout.md:312 (sec:MEMORY-FIG3-AND-CAUTION)
+    point: Dimensionless ideal and equal-weight readout curves have distinct saturation versus rise at long observation.
+  - id: P12
+    source_locus: content/chapters/03b-memory-readout.md:350 (sec:MEMORY-MINIMUM-VARIANCE)
+    point: The guide flags an apparent inconsistency in the printed total-error bound and distinguishes its check
+      from author correction.
+  - id: P13
+    source_locus: content/chapters/03b-memory-readout.md:350 (sec:MEMORY-MINIMUM-VARIANCE)
+    point: Diffusion reduces the accuracy of a continuously accumulated signal without by itself producing a restoring
+      leak.
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  - P09
+  - P10
+  - P11
+  - P12
+  - P13
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 13
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  connected_source_sha256:
+    content/chapters/03b-memory-readout.yaml: 71f4b1dea4bc056a9800f0cf1367e99092c080417d4b46bdec558ba75d6ef9ba
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content\chapters\03b-memory-readout.md
+  approved_terms:
+  - Storage then observation
+  - Compare readout rules
+  - Limited access and assumptions
+  required_plain_explanations:
+  - A map is a guide construction; it does not establish experimental proof.
+  caption: 'Readout accuracy depends on how a moving memory is observed: the scenes connect the chapter’s mechanisms,
+    predictions and limits.'
+  alt_text: Separate scenes show A cue initializes memory, a storage interval accumulates state error, and later
+    spikes observe a state that continues to move.; Contrasting ideal and equal-weight curves show ideal diminishing
+    returns and a finite equal-weight optimum; axes indicate readout error and observation time.; A partial output
+    pathway receives fewer informative spikes without reducing full-network diffusion; label the guide’s bound qualification
+    and no-leak interpretation..
+required_items:
+- id: A
+  exact_label: Storage then observation
+  teaching_point: A cue initializes memory, a storage interval accumulates state error, and later spikes observe
+    a state that continues to move.
+  visual_role: physical mechanism or comparison
+- id: B
+  exact_label: Compare readout rules
+  teaching_point: Contrasting ideal and equal-weight curves show ideal diminishing returns and a finite equal-weight
+    optimum; axes indicate readout error and observation time.
+  visual_role: physical mechanism or comparison
+- id: C
+  exact_label: Limited access and assumptions
+  teaching_point: A partial output pathway receives fewer informative spikes without reducing full-network diffusion;
+    label the guide’s bound qualification and no-leak interpretation.
+  visual_role: physical mechanism or comparison
+communication_plan:
+  layout: Landscape; distinct related scenes with readable labels; verify at actual reading width.
+  keep_in_text:
+  - Full derivations, detailed numerical examples and source qualifications.
+  required_visible_conditions:
+  - Differentiate observations, model predictions and guide constructions.
+normal_flow:
+- 'Storage then observation: A cue initializes memory, a storage interval accumulates state error, and later spikes
+  observe a state that continues to move.'
+- 'Compare readout rules: Contrasting ideal and equal-weight curves show ideal diminishing returns and a finite
+  equal-weight optimum; axes indicate readout error and observation time.'
+- 'Limited access and assumptions: A partial output pathway receives fewer informative spikes without reducing full-network
+  diffusion; label the guide’s bound qualification and no-leak interpretation.'
+secondary_relationships: []
+exact_text:
+  required:
+  - Storage then observation
+  - Compare readout rules
+  - Limited access and assumptions
+  prohibited:
+  - title banner
+  - proven universal mechanism
+constraints:
+- Preserve model assumptions and distinguish exact from approximate predictions.
+- Do not claim actual coverage before inspecting the final image at full size and intended width.
+- More than 60 percent of the complete teaching-point inventory must be visible for acceptance; redesign if not.
+dispositions: []

@@ -1,0 +1,44 @@
+chapter_id: ch:SIMULATING-EYE
+part_id: part:SIMULATIONS
+title: Eye simulations connect a noisy neural command to measured motion
+purpose: Ben-Shushan et al. (2022) ask whether fluctuations in a neural memory circuit can explain the small eye
+  movements that continue during fixation. Their simulation must turn a changing neural command into muscle action
+  and eye position. It must also produce signals that can be analyzed like the recordings. The paper's central
+  evidence combines a shared-source inference from data with a model showing that a noisy integrator can account
+  for the observed motion.
+role: chapter
+page_break_before: true
+pedagogical_prerequisites:
+- ch:SIMULATING-MEMORY
+- ch:EYE-CIRCUIT
+explicit_render_dependencies: []
+discovered_references: []
+navigation_dependencies:
+- part:SIMULATIONS
+section_list:
+- id: sec:SIMULATING-EYE-DATA
+  title: Recorded data constrain the question before the model generates a trajectory
+  summary: The empirical analysis uses earlier recordings of 57 ocular motor neurons from two macaques, paired
+    with eye-position measurements. These are separate single-cell recordings, not a simultaneous recording of
+    all 57 neurons. The authors fit each cell's relation to eye position, velocity, and acceleration, then use
+    it to reconstruct movement from that cell's spikes. A trial held out of the fit tests prediction on data that
+    did not determine the fitted parameters.[^simeye-data]
+  level: 2
+- id: sec:SIMULATING-EYE-PATH
+  title: The generated command acts through spikes, muscle response, and delayed feedback
+  summary: 'The model has four connected stages. Each stage changes a different physical or represented quantity:'
+  level: 2
+- id: sec:SIMULATING-EYE-CONTROLS
+  title: Controls test which stage can explain the observed fluctuations
+  summary: 'One matching trajectory is weak evidence because many mechanisms can look irregular. The paper compares
+    outputs after changing sources of variability or feedback:'
+  level: 2
+- id: sec:SIMULATING-EYE-TOOLS
+  title: Public MATLAB code and recordings support different reproduction tasks
+  summary: The authors release MATLAB `.m` functions and `.mat` parameter files. `Run_model.m` starts trajectories
+    and their mean-squared-displacement analysis. `Full_model_simulation.m` updates the integrator, motor neurons,
+    and eye. `Fit_OI_circuit.m` fits a persistent mean-rate circuit, while the analysis routines compare generated
+    trajectories with an already processed empirical MSD file.[^simeye-code]
+  level: 2
+blocks: []
+source_loci: []

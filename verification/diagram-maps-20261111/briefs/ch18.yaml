@@ -1,0 +1,253 @@
+brief:
+  asset_id: fig:MAP-CH18
+  scope: chapter
+  book: burak-three-papers
+  part: part:HARDWARE
+  chapter: ch:HARDWARE-TESTS
+  purpose: Memory experiments must separate device error from network dynamics
+  target_use: chapter-opening
+  generation_authorized: true
+  insertion_authorized: false
+  status: draft-requires-source-and-coverage-review
+  reading_width: 6.35 inches; verify actual book width
+visual_explanation:
+  applicable: true
+  figure_role: illustrated-opener
+  role_reason: Physical objects, changing states, signals, and separate comparisons explain the chapter mechanisms
+    beyond topic labels.
+  example_id: m1-retrieval-scenes
+  example_image_path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.png
+  example_image_sha256: 755642fb6cae66a4ed7b8fc43cbb0144d505cf074addb23bfcc018ce4840cd49
+  example_prompt_records_read:
+  - C:/Users/vital/.codex/skills/course-diagram-builder/assets/visual-language-examples-v1/m1-retrieval-scenes.base-brief.md
+  properties_to_reuse:
+  - Distinct miniature scenes with actual transformations and separate lanes for distinct mechanisms
+  properties_not_to_transfer:
+  - Retrieval facts, labels, subject-specific arrows, old section numbers, colors and potentially unreadable density
+  composition: Arrange related scenes according to their true dependence; show independent comparisons separately.
+    Do not draw a single implied causal chain across unrelated examples.
+  scenes: &id001
+  - source_item_ids:
+    - P01
+    visible_objects_and_relation: Repeated cue-off-delay-readout timelines and fixed decoder
+    teaching_contribution_beyond_labels: Calibrate a decoder separately; present a cue, remove it, retain fixed
+      weights and decode after multiple delays over repeated trials.
+  - source_item_ids:
+    - P02
+    visible_objects_and_relation: Starting offsets and subsequent mean and spread plots
+    teaching_contribution_beyond_labels: Separate initial writing error, mean displacement and trial-to-trial spread;
+      test multiple cue angles.
+  - source_item_ids:
+    - P03
+    visible_objects_and_relation: A trace crossing zero degrees beside circular endpoints
+    teaching_contribution_beyond_labels: A circular angle requires suitable unwrapping, and local variance cannot
+      be extended indefinitely around the circle.
+  - source_item_ids:
+    - P04
+    visible_objects_and_relation: Noisy readout and low-pass filter separated from state dynamics
+    teaching_contribution_beyond_labels: Readout noise adds displacement variance and observation filtering changes
+      temporal shape, so calibrate both.
+  - source_item_ids:
+    - P05
+    visible_objects_and_relation: Leak, weight bias and projected-noise arrows on network state
+    teaching_contribution_beyond_labels: Leak and recurrent-weight changes alter decay or pinning; only projected
+      neural disturbances shift a remembered value.
+  - source_item_ids:
+    - P06
+    visible_objects_and_relation: Aligned common noise versus independent fluctuations across cells
+    teaching_contribution_beyond_labels: 'Noise correlation matters: shared fluctuations need not average away like
+      independent fluctuations.'
+  - source_item_ids:
+    - P07
+    visible_objects_and_relation: Matched signal-and-time windows feeding two decoders
+    teaching_contribution_beyond_labels: A valid information comparison matches observed signals, noise, dynamics,
+      observation time and decoder.
+  - source_item_ids:
+    - P08
+    visible_objects_and_relation: Separate internal trajectory, filtered output and static spatial map
+    teaching_contribution_beyond_labels: Output filtering and spatial field statistics do not by themselves prove
+      internal memory stability.
+  actual_review:
+    asset_sha256: null
+    reviewer: null
+    visible_evidence: []
+    strongest_objection_and_resolution: null
+    verdict: pending
+chapter_map_coverage:
+  applicable: true
+  contract: references/chapter-map-coverage.md
+  chapter_source_loci:
+  - content/chapters/10-hardware-tests.md
+  - content/chapters/10-hardware-tests.yaml
+  chapter_source_sha256: 22e32a1ba43d04c4ca57ff2266dcfded6bc8992c75b4d945b7a49d48219bfb50
+  teaching_points:
+  - id: P01
+    point: Calibrate a decoder separately; present a cue, remove it, retain fixed weights and decode after multiple
+      delays over repeated trials.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P02
+    point: Separate initial writing error, mean displacement and trial-to-trial spread; test multiple cue angles.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P03
+    point: A circular angle requires suitable unwrapping, and local variance cannot be extended indefinitely around
+      the circle.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P04
+    point: Readout noise adds displacement variance and observation filtering changes temporal shape, so calibrate
+      both.
+    source_locus: content/chapters/10-hardware-tests.md:7-42 (#sec:HARDWARE-TESTS-PROTOCOL)
+  - id: P05
+    point: Leak and recurrent-weight changes alter decay or pinning; only projected neural disturbances shift a
+      remembered value.
+    source_locus: content/chapters/10-hardware-tests.md:43-78 (#sec:HARDWARE-TESTS-PARAMETERS)
+  - id: P06
+    point: 'Noise correlation matters: shared fluctuations need not average away like independent fluctuations.'
+    source_locus: content/chapters/10-hardware-tests.md:43-78 (#sec:HARDWARE-TESTS-PARAMETERS)
+  - id: P07
+    point: A valid information comparison matches observed signals, noise, dynamics, observation time and decoder.
+    source_locus: content/chapters/10-hardware-tests.md:79-97 (#sec:HARDWARE-TESTS-COMPARISON)
+  - id: P08
+    point: Output filtering and spatial field statistics do not by themselves prove internal memory stability.
+    source_locus: content/chapters/10-hardware-tests.md:79-97 (#sec:HARDWARE-TESTS-COMPARISON)
+  - id: P09
+    point: Compare physical and model time explicitly in accelerated hardware, and include writing, waiting, reading,
+      communication and host work in an energy comparison.
+    source_locus: content/chapters/10-hardware-tests.md:91-95
+  - id: P10
+    point: 'Controlled hardware tests relate feedback, noise, calibration, numerical precision and PCM aging to
+      different outcomes: persistence, variance, drift, quantization or changes in connection strengths.'
+    source_locus: content/chapters/10-hardware-tests.yaml:41-66 (tbl:HARDWARE-TEST-PARAMETERS)
+  planned_point_ids:
+  - P01
+  - P02
+  - P03
+  - P04
+  - P05
+  - P06
+  - P07
+  - P08
+  actual_review:
+    asset_sha256: null
+    covered_points: []
+    absent_point_ids: []
+    inventory_count: 10
+    covered_count: null
+    covered_fraction: null
+    verdict: pending
+  not_planned_and_reason:
+    P09: Newly identified source point; retain in inventory and decide whether it can be clearly shown during scene
+      design.
+    P10: Sidecar table point added after review; assess legible inclusion in the final scene design.
+  connected_source_sha256:
+    content/chapters/10-hardware-tests.yaml: fadeeb46c9b8fc055f1610028248b0dd2c0865cd4d2247d654ab8daa0f3ce998
+style_contract:
+  book_style_lock_path: source-maps/book-style-lock.yaml
+  palette_family_id: technical-editorial-blueprint
+  palette_family_version: 1.0.0
+  route: raster
+  profile_id: technical-editorial-blueprint-v1
+  profile_version: 1.1.0
+  profile_path: C:/Users/vital/.codex/skills/course-diagram-builder/references/technical-editorial-blueprint-v1.yaml
+  style_reference:
+    path: C:/Users/vital/.codex/skills/course-diagram-builder/assets/technical-editorial-blueprint-v1/style-master.png
+    role: style-only
+    sha256: 845617e8988283a2bd0d302bd7997083629359bfc65a60ca3573010b948389fd
+  palette:
+    colors_and_roles:
+    - '#092E5B navy ink and text'
+    - '#16A6BF cyan flow'
+    - '#159C9A teal emphasis'
+    - '#EB731B orange control'
+    - '#E8F3F5 pale blue fill'
+    - '#F7F2E6 paper background'
+    color_distance: 82
+    maximum_deviation_fraction: 0.15
+    allowed_special_purpose_colors: []
+language_contract:
+  book_loci:
+  - content/chapters/10-hardware-tests.md
+  approved_terms: &id002
+  - Cue and delay
+  - Decoded angle
+  - Mean error
+  - Trial spread
+  - Readout noise
+  - Matched observation
+  caption: The scene relates the physical states, measurements, and assumptions described in Memory experiments
+    must separate device error from network dynamics.
+  alt_text: Repeated cue-off-delay-readout timelines and fixed decoder; Starting offsets and subsequent mean and
+    spread plots; A trace crossing zero degrees beside circular endpoints; Noisy readout and low-pass filter separated
+    from state dynamics; Leak, weight bias and projected-noise arrows on network state; Aligned common noise versus
+    independent fluctuations across cells; Matched signal-and-time windows feeding two decoders; Separate internal
+    trajectory, filtered output and static spatial map.
+  prohibited_viewer_commands:
+  - read left to right
+  - follow the arrow
+  - teaching order
+required_items:
+- id: S01
+  teaching_point: Calibrate a decoder separately; present a cue, remove it, retain fixed weights and decode after
+    multiple delays over repeated trials.
+  visual_role: Repeated cue-off-delay-readout timelines and fixed decoder
+- id: S02
+  teaching_point: Separate initial writing error, mean displacement and trial-to-trial spread; test multiple cue
+    angles.
+  visual_role: Starting offsets and subsequent mean and spread plots
+- id: S03
+  teaching_point: A circular angle requires suitable unwrapping, and local variance cannot be extended indefinitely
+    around the circle.
+  visual_role: A trace crossing zero degrees beside circular endpoints
+- id: S04
+  teaching_point: Readout noise adds displacement variance and observation filtering changes temporal shape, so
+    calibrate both.
+  visual_role: Noisy readout and low-pass filter separated from state dynamics
+- id: S05
+  teaching_point: Leak and recurrent-weight changes alter decay or pinning; only projected neural disturbances shift
+    a remembered value.
+  visual_role: Leak, weight bias and projected-noise arrows on network state
+- id: S06
+  teaching_point: 'Noise correlation matters: shared fluctuations need not average away like independent fluctuations.'
+  visual_role: Aligned common noise versus independent fluctuations across cells
+- id: S07
+  teaching_point: A valid information comparison matches observed signals, noise, dynamics, observation time and
+    decoder.
+  visual_role: Matched signal-and-time windows feeding two decoders
+- id: S08
+  teaching_point: Output filtering and spatial field statistics do not by themselves prove internal memory stability.
+  visual_role: Separate internal trajectory, filtered output and static spatial map
+communication_plan:
+  segments: *id001
+  layout: Use subject-driven scenes with readable short labels; separate independent examples and preserve their
+    conditions.
+  keep_in_text:
+  - Detailed formulas and numerical calculations
+  - Full discussion and citations
+  required_visible_conditions:
+  - Distinguish measured demonstrations, numerical simulations, and proposed tests where applicable
+  independent_example_groups:
+  - Independent study or architecture examples unless the source establishes an action between them
+  sidecar_scene_impacts:
+  - source_locus: content/chapters/10-hardware-tests.yaml:41-66 (tbl:HARDWARE-TEST-PARAMETERS)
+    impact: Make measurement targets distinct for each controlled intervention; do not equate fixed mismatch or
+      PCM aging with ongoing trial noise.
+    planned_scene_status: pending redesign
+  readability_risk: This draft lists 8 separate scenes. At the intended reading width this may be too dense; group
+    related mechanisms or split across existing chapter figures. Do not claim coverage until inspected.
+normal_flow:
+- Connect events only where source text gives an actual causal, computational or measurement relationship.
+secondary_relationships:
+- Show comparisons side by side without a causal arrow; use explicitly labeled feedback only where it exists.
+exact_text:
+  required: *id002
+  prohibited:
+  - paper title banner
+  - unsupported universal claims
+  - visual-review notes or caption inside image
+constraints:
+- Match the book palette and style lock.
+- Do not treat planned teaching points as established visual coverage.
+- Do not imply that different experiments are one continuous causal experiment.
+- Keep caption and alt text outside the artwork.
+- Do not shrink labels to hide excessive density.
+- If a point cannot be shown with its important condition, leave its coverage pending.
+dispositions: []

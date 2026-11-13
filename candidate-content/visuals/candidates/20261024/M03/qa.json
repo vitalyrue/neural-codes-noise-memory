@@ -1,0 +1,103 @@
+{
+  "asset_id": "M03",
+  "route": "deterministic-scientific-vector",
+  "status": "pass",
+  "checks": {
+    "densities_normalized": true,
+    "densities_nonnegative": true,
+    "MSD_matches_density_integral": true,
+    "long_time_density_uniform": true,
+    "long_time_MSD_pi_squared_over_3": true,
+    "short_time_MSD_2Dt": true,
+    "same_constant_D": true,
+    "svg_color_tokens_in_profile": true
+  },
+  "text_outside_canvas": [],
+  "visible_labels": [
+    "Angular error (rad), reported in $[-\\pi,\\pi)$",
+    "\u2212\u03c0",
+    "0",
+    "\u03c0",
+    "Probability density (rad$^{-1}$)",
+    "0.0",
+    "0.3",
+    "0.6",
+    "0.9",
+    "0.2 s",
+    "1 s",
+    "5 s",
+    "Uniform",
+    "Time (s)",
+    "0",
+    "2",
+    "4",
+    "6",
+    "8",
+    "10",
+    "Mean squared error (rad$^2$)",
+    "0",
+    "\u03c0\u00b2/3",
+    "6",
+    "10",
+    "Line: $2Dt$",
+    "Wrapped angle",
+    "$\\pi^2/3$"
+  ],
+  "insertion_width_px": 700,
+  "svg_sha256": "8322a99604c34ee7f48c8e05cce980b18b764f5ec1dc4ac1a1637099b51bf917",
+  "png_sha256": "9448a16b772b17fadef6849413180ef84e457aeec80a66a13f4687574cd54554",
+  "spec_sha256": "58a7fa5e78b6aef0a6178f460f70bab5488d416c52a26445701d27f89a179bf1",
+  "profile": "house-graphic-v1",
+  "profile_version": "0.1.0",
+  "automatic_gates": "pass",
+  "issues": [],
+  "warnings": [],
+  "palette_token_check": {
+    "used": [
+      "#0f6b78",
+      "#17365d",
+      "#19202c",
+      "#5d6876",
+      "#9aa7b5",
+      "#fffdf7",
+      "#ffffff"
+    ],
+    "outside_profile": []
+  },
+  "palette_family": "technical-editorial-blueprint",
+  "palette_profile": "house-graphic-v1",
+  "limits": "Computed checks and canvas bounds only; independent image/meaning/readability review required.",
+  "details": {
+    "parameters": {
+      "D_rad_squared_per_s": 0.5,
+      "initial_angle_rad": 0,
+      "density_times_s": [
+        0.2,
+        1,
+        5
+      ],
+      "density_method": "Gaussian image sum k=-12..12",
+      "MSD_method": "integral of x^2 times exact wrapped density; Fourier series for curve",
+      "angular_error_interval": "[-pi,pi)",
+      "uniform_density": "1/(2*pi)",
+      "limiting_angular_MSD": "pi^2/3"
+    },
+    "density_integrals": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "MSD_density_integral": [
+      0.1999999999983486,
+      0.9942267239603182,
+      2.961573691837045
+    ],
+    "MSD_fourier": [
+      0.19999999999834817,
+      0.994226717370577,
+      2.9615735390554248
+    ],
+    "generic_template_gate": "not applicable to exact mathematical plot",
+    "numerical_method": "Gaussian image sum k=-12..12; exact Fourier series truncated at n=800 with negligible positive-time tail; trapezoidal quadrature verification."
+  }
+}

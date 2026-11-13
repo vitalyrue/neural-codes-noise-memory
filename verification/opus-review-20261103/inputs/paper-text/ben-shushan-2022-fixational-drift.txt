@@ -1,0 +1,1748 @@
+# ORIGINAL SOURCE: ben-shushan-2022-fixational-drift.pdf | 13 PDF pages
+Extracted text can scramble equations; reopen the supplied PDF with Read for ambiguous formulas.
+
+## PDF PAGE 1
+ARTICLE
+Fixational drift is driven by diffusive dynamics in
+central neural circuitry
+Nadav Ben-Shushan1,4, Nimrod Shaham1,2,4, Mati Joshua
+3,5 & Yoram Burak
+1,3,5✉
+During ﬁxation and between saccades, our eyes undergo diffusive random motion called
+ﬁxational drift. The role of ﬁxational drift in visual coding and inference has been debated in
+the past few decades, but the mechanisms that underlie this motion remained unknown. In
+particular, it has been unclear whether ﬁxational drift arises from peripheral sources, or from
+central sources within the brain. Here we show that ﬁxational drift is correlated with neural
+activity, and identify its origin in central neural circuitry within the oculomotor system,
+upstream to the ocular motoneurons (OMNs). We analyzed a large data set of OMN
+recordings in the rhesus monkey, alongside precise measurements of eye position, and found
+that most of the variance of ﬁxational eye drifts must arise upstream of the OMNs. The
+diffusive statistics of the motion points to the oculomotor integrator, a memory circuit
+responsible for holding the eyes still between saccades, as a likely source of the motion.
+Theoretical modeling, constrained by the parameters of the primate oculomotor system,
+supports this hypothesis by accounting for the amplitude as well as the statistics of the
+motion. Thus, we propose that ﬁxational ocular drift provides a direct observation of diffusive
+dynamics in a neural circuit responsible for storage of continuous parameter memory in
+persistent neural activity. The identiﬁcation of a mechanistic origin for ﬁxational drift is likely
+to advance the understanding of its role in visual processing and inference.
+https://doi.org/10.1038/s41467-022-29201-y
+OPEN
+1 Racah Institute of Physics, The Hebrew University of Jerusalem, Jerusalem, Israel. 2 Swartz Program in Theoretical Neuroscience, Center for Brain Science,
+Harvard University, Cambridge, MA, USA. 3 Edmond and Lily Safra Center for Brain Sciences, The Hebrew University of Jerusalem, Jerusalem, Israel. 4These
+authors contributed equally: Nadav Ben-Shushan, Nimrod Shaham. 5These authors jointly supervised this work: Mati Joshua, Yoram Burak.
+✉email: yoram.burak@elsc.huji.ac.il
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+1
+1234567890():,;
+
+
+## PDF PAGE 2
+I
+n order to explore the ﬁne details of a visual scene, we
+ﬁxate our gaze on speciﬁc areas of interest1,2. Yet even during
+ﬁxation the eyes are not completely stationary. Over intervals
+that
+typically
+last
+a
+few
+hundred
+milliseconds,
+the
+eyes
+exhibit continuous motion called ﬁxational drift, ﬂanked by
+microsaccades3–5. Eye trajectories during ﬁxational drift are
+smooth, but are highly variable and are characterized by the
+statistics of a super-diffusive random walk6–9. The role of this
+irregular smooth motion in vision has been extensively studied
+and debated in the past few decades. It was shown that both drifts
+and
+microsaccades
+help
+prevent
+perceptual
+fading
+during
+ﬁxation10,11. In addition it has been proposed that ﬁxational drift
+increases the information carried by retinal spikes on the visual
+stimulus, thereby aiding high acuity vision4,12–16. On the other
+hand, it has been argued that ﬁxational drift poses a computa-
+tional challenge for high acuity inference in the visual cortex,
+since attempting to overcome retinal spiking noise by simple
+temporal averaging would smear out ﬁne visual features15,17,18.
+While extensive effort has been devoted to understand the
+functional role of ﬁxational drift in vision, the mechanisms
+responsible for this motion have remained unidentiﬁed. It is not
+even known whether the origin of ﬁxational drift is peripheral –
+arising, e.g., from noisy dynamics of the ocular muscles19, or
+whether ﬁxational drift arises in central brain circuits in similarity
+to saccades3,7,20. Recent behavioral studies indicated that visual
+feedback mechanisms, which likely involve central brain circuits
+in the visuomotor pathway, can modulate the statistics of the
+motion4,14,21–25. However, an active visuomotor response to a
+stimulus is not required to elicit ﬁxational drift, since it is
+observed even in complete darkness26. The stochastic nature of
+the motion, both in the presence and in the absence of visual
+stimuli, suggests that it is primarily driven by noise which may
+arise in various stages along the oculomotor pathway.
+So far, direct evidence for the control of ﬁxational eye drifts by
+neural activity has been lacking27. The main difﬁculty in seeking
+such evidence arises from the small amplitude of ﬁxational drifts
+in comparison with other types of eye movement. In human
+subjects it is highly challenging to measure the minute details of
+this motion1, and measurements of single neuron activity are not
+available. Therefore, we focus from here on non-human primates,
+whose control of eye movements is highly similar to that of
+humans both during saccades and pursuit28, and during ﬁxational
+eye movements1.
+During saccades and smooth pursuit, eye trajectories can be
+predicted quite precisely from the spiking activity of single ocu-
+lomotor neurons (OMNs). Correspondence between eye move-
+ments and neural activity has been established also during
+microssacades29. However, a correspondence between the posi-
+tion of the eye and single OMN activity has not been demon-
+strated during ﬁxational drift. It is highly challenging to test for
+such a relationship, because the subtle changes that are expected
+to occur in the ﬁring rate of individual OMNs during ﬁxational
+drift are largely masked by their spiking noise.
+Here we show that a systematic relationship does exist between
+ﬁxational eye motion and OMN activity. Furthermore, we show
+that most of the variability in ﬁxational eye drifts arises upstream
+of the OMNs. This result establishes that the main drive for
+ﬁxational drift lies in more central neural circuitry. Next, we point
+to a likely source of this motion in the oculomotor integrator, a
+memory circuit in the brainstem which is responsible for main-
+tenance of a steady eye position between saccades. We propose
+that ﬁxational eye drifts are driven by random diffusion along a
+line attractor that characterizes the dynamics of the oculomotor
+integrator30–32, as predicted by theoretical works that examined
+how noise inﬂuences the maintenance of continuous-parameter
+working memory in persistent neural activity33–35. Using a
+theoretical model, constrained by the parameters of the primate
+oculomotor system, we show that this mechanism naturally
+explains both the magnitude of the motion, and key features of its
+statistics.
+Results
+To test for a systematic relationship between OMN activity and
+ﬁxational eye drifts, we analyzed a large data set of OMN
+extracellular recordings in the rhesus monkey. These were col-
+lected simultaneously with precise measurements of eye trajec-
+tories using a search coil. Recordings were made while two
+monkeys moved their eyes to track repeated presentations of a
+target presented on a screen, initially at rest and then moving at
+constant speed (Fig. 1a). First, we ﬁtted a linear combination of
+horizontal eye position, velocity and acceleration to predict the
+ﬁring rate of single OMNs during large eye movements36 (n = 57
+cells, Fig. 1b). Fitted parameters were in agreement with pre-
+viously reported results36,37.
+OMNs exhibit highly regular ﬁring, with a typical coefﬁcient of
+variation (CV) of the interspike interval distribution of ∼0.0738.
+During ﬁxational drift, however, the variability in the activity of a
+single OMN is still far too large to identify a correspondence with
+the small changes in ﬁring rate predicted by eye motion over a
+single trial (Fig. 1b, lower panel). Over the hundreds of trials
+available from each cell, estimates of the correlation coefﬁcients,
+during ﬁxation, between the spiking rate of single OMNs and their
+predictors based on the eye trajectory were noisy (Fig. 1c), but
+signiﬁcantly deviated from zero over the population of 57 cells
+(Fig. 1d), providing us with initial evidence that neural activity,
+upstream of the muscles, is correlated with ﬁxational drift.
+To facilitate subsequent analysis, we replaced the standard
+approach discussed above, in which the ﬁring rates of OMNs are
+predicted from the eye trajectory by a complementary analysis, in
+which the eye trajectory is predicted from the OMN spikes. This
+allows us below to quantify shared neural variability directly in
+terms of its contribution to the eye movements, instead of the
+ﬁring rates. We thus inverted the ﬁt described above (Methods) to
+obtain for each OMN a double exponential ﬁlter (Fig. 2a), whose
+convolution with the OMN spikes constitutes an unbiased esti-
+mator of the eye trajectory. Fitted time constants (Fig. 2b) were in
+agreement with previous reports36,39. As expected due to the
+spiking noise in the activity of individual OMNs, predicted
+eye trajectories were highly variable compared to the actual eye
+motion during ﬁxational drift (Fig. 2c). Accordingly, correlation
+coefﬁcients between the predicted and actual eye position dif-
+ferences across 350 ms ﬁxational drift segments (denoted by R,
+Fig. 2d) were small. Furthermore, due to the limited number of
+trials available for each neuron, the estimates of the correlation
+coefﬁcients themselves were noisy (gray histogram in Fig. 2d).
+Nevertheless, their average value
+R
+h i ¼ 0:17 (angled brackets
+represent an average over the OMN population) was statistically
+different from zero (one sided t test, p = 3.8 × 10−12, Fig. 2d and
+Extended Data Fig. 1). Overall, our results (Figs. 1 and 2) indi-
+cated that ﬁxational drift is correlated with neural activity.
+Central source. We next sought to identify whether the weak
+correlations with eye motion, observed in the noisy activity of
+single OMNs, are indicative of a dominant central contribution to
+the motion, upstream of the OMNs. First, we examined the
+squared correlation coefﬁcient R2 (Fig. 2d). This quantity repre-
+sents the fraction of the motion variance (in 350 ms intervals)
+that can be linearly predicted based on the OMN spikes, using the
+estimator described above. Hence, it was of interest to estimate
+the average of R2 across the neural population, which we denote
+by R2
+
+
+. To do so, we ﬁrst evaluated the average of R across the
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+2
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+
+
+## PDF PAGE 3
+neural population ( R
+h i ¼ 0:17 ± 0:02, mean ± SEM), using the
+distribution shown in Fig. 2d (individual estimates of R for all
+neurons are shown in Extended Data Fig. 1a, c). By noting that
+R2
+
+
+≥R
+h i2 (since VarðRÞ ¼ R2
+
+
+ R
+h i2 ≥0) it was possible to
+deduce that 〈R2〉≳0.029: on average, at least ∼2.9% of the
+variability in eye motion during a 350 ms interval can be pre-
+dicted based on the activity of a single OMN (see also SI Notes).
+For comparison, consider a scenario in which the upstream drive
+to OMNs is completely static during ﬁxational drift, and the
+motion is driven by the intrinsic variability of the OMNs, which is
+independent in the different neurons. Since there are thousands
+of OMNs in the primate oculmotor system40,41, a single OMN
+would be expected to explain ∼0.1% of the variability in the eye
+motion, which is far smaller than the observed explanatory
+power. We could thus infer that the activity of different OMNs
+during ﬁxational drift covaries (see also SI Notes). It is unlikely
+that this shared variability among OMNs is generated intrinsically
+within the abducens, from which we recorded the neural activity
+(see Discussion). Hence, this result indicates that the eye motion
+is driven, at least in part, by a common upstream input42 (see also
+SI Notes).
+The above analysis indicates that there is a common input to
+OMNs, but since typical values of R2 were small compared to
+unity, it was not clear whether the common input provides a
+main drive for the motion. Importantly, the values of R2 are small
+because single OMN estimates of the eye motion are dominated
+by the irregularity in the spiking of the OMNs, but the variability
+arising from the spiking noise need not dominate the overall
+motion. The central input could, in principle, be the dominant
+drive for the motion because its contribution adds up coherently
+downstream of the OMNs, in contrast to the contribution of the
+spiking noise which is independent in different neurons.
+To estimate the contribution of the central source to the
+motion, we assumed that there are three types of sources that
+linearly contribute to the measured eye motion: ﬁrst, a central
+signal that feeds into all the OMNs. Second, noise in the activity
+of individual OMNs, which is independent in different units (see
+Discussion). Third, noise downstream of the OMNs, which may
+Eye position (deg)
+-10
+-5
+0
+5
+10
+15
+a
+500 ms
+0.1 deg
+250 ms
+Firing rate (spikes/s)
+50
+100
+150
+500 ms
+b
+Actual
+Predicted
+15 spk/s
+250 ms
+Actual firing rate (spikes/s)
+-10
+-5
+0
+5
+10
+Predicted firing rate (spikes/s)
+-5
+0
+5
+c
+R = 0.10
+Correlation coefficient
+-0.2
+0
+0.2
+0.4
+# of cells
+0
+5
+10
+15
+p****
+d
+0.1
+Fig. 1 Eye variability during ﬁxation is correlated with motoneuron activity. a Single recorded horizontal eye trajectory consisting of ﬁxation followed by
+smooth pursuit. Lower panel, ﬁxational period expanded and smoothed with a Savitzky-golay ﬁlter of order 3 (21 ms window, data sampled at 1 KHz).
+b Actual and predicted ﬁring rate of a single OMN during the trajectory shown in (a). Lower panel, zoom in on ﬁxational segment. Note that the actual ﬁring
+rate is much more variable than the predicted rate. The predicted ﬁring rate based on the spikes was obtained by ﬁtting the parameters k, r, m, ET in eq. (2) to
+minimize a mean squared error loss function, eq. (3) (Methods). c Predicted vs. actual ﬁring rate of a single cell during ﬁxation (mean rate subtracted in both
+axes). Each point represent the ﬁring rate at a single trial at speciﬁc time. Red line: result of linear regression analysis, correlation coefﬁcient: R = 0.10.
+d Distribution of correlation coefﬁcients between actual and predicted rate, collected from 57 cells in two monkeys. One sided t test, p = 3 × 10−9.
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+3
+
+
+## PDF PAGE 4
+Correlation coefficient
+-1
+-0.5
+0
+0.5
+1
+# of cells
+0
+5
+10
+15
+p****
+d
+Shuffled
+True
+-4
+-2
+0
+2
+4
+6
+Estimation error of
+0
+2
+4
+6
+f
+Monkey I
+Monkey P
+Weighted mean
+ [sec]
+0
+0.005
+0.01
+[sec]
+0
+0.1
+0.2
+b
+Monkey P
+Monkey I
+deg/spk
+0
+3
+100 ms
+delay
+a
+Eye position (deg)
+-10
+0
+10
+20
+c
+500 ms
+Actual
+Predicted
+1.5 deg
+250 ms
+Cell # sorted by SEM
+0
+10
+20
+30
+-5
+0
+5
+10
+15
+e
+0.17
+Fig. 2 Predicting the eye trajectory from OMN spikes. a Double exponent kernel as ﬁtted from the data, black and gray traces represent the mean and
+SEM over all kernels optimized. b Fast (τ−≈5 ms) and slow (τ+ ≈120 ms) time constants of the ﬁtted kernels, shown for all analyzed OMNs (excluding
+one cell with τ−= 0.01 s and τ+ = 0.79 s). c Actual and predicted eye position during a single trial. Lower panel, zoom in on ﬁxational segment. The
+predicted eye position, based on the spikes, was obtained using eqs. (4)–(7) (Methods). Note that the predicted eye position is much more variable than
+the actual eye position. d Distribution across OMNs of correlation coefﬁcients between actual and predicted eye position differences across 350 ms
+ﬁxational intervals (black). One sided t test, p = 3.8 × 10−12 (n = 57 OMN cells. Number of ﬁxational segments varied from cells to cell and was 302 on
+average. Histogram shown in Extended Data Fig. 7c). Gray, distribution of correlation coefﬁcients obtained from each OMN after shufﬂing (see Methods).
+e For each OMN of monkey I we estimated χ from the data, which is the fraction of measured eye position variance that can be attributed to a central
+source upstream of the OMNs. Cells (N = 26 shown) are sorted along the horizontal axis by the estimation error of χ. Circles represent the estimates of χ
+(eq. (15). Error bars extend above and below the circles by Δχ, where Δχ is the standard error of the estimate, as described in Methods. The horizontal
+black line is χ = 0 for reference. Note that while χ is expected to lie within the range [0, 1], our estimates for this quantity based on eq. (15) are noisy, due
+to the OMN spiking noise and the limited number of trials for each cell. Therefore, these estimates can deviate from the expected range. For visual clarity,
+two cells with χ = 73 ± 37, 44 ± 41 are not shown. f Distribution of both χ (horizontal-axis) and its estimated error (vertical-axis), from OMNs recorded in
+the two monkeys. Black diamond: weighted average of the results from both monkeys (see also Methods) indicates that a large fraction in the variance is
+attributed to a central source, 〈χ〉= 0.82 ± 0.07 (weighted mean ± weighted error).
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+4
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+
+
+## PDF PAGE 5
+arise in the muscle or plant dynamics and includes also the noise
+in the measurement of the eye position. In addition, we assumed
+that the same linear relationship between OMN activity and eye
+position holds during large eye motions and during ﬁxational
+drift. We thus used the estimator which was ﬁt to predict large
+eye motions, and evaluated the covariance between the motion
+predicted by this estimator over 350 ms intervals of ﬁxational
+drift, and the actual eye motion. The second assumption above
+implies that the central contribution to the output of the
+estimator is scaled correctly in units of eye position (yet may be
+swamped by the contribution of the intrinsic spiking noise). Thus,
+the covariance between the predicted motion and the measured
+eye motion extracts, from the overall variability in the measured
+eye motion, the variance that originates in the central source (see
+also Methods).
+Using this approach, we estimated the fraction of the variability
+in eye motion which is driven by the common input in 350 ms
+intervals (denoted below by χ), separately for each OMN. If we
+were to evaluate the covariance between the predicted and actual
+eye motion precisely, we would expect to obtain values of χ in the
+range [0, 1]. However, our estimates of the covariance were noisy
+since both the measured and predicted eye trajectories are
+inﬂuenced by sources of noise other than the common input
+(Methods) and the number of trials was limited. Hence, empirical
+values of χ obtained from individual OMNs could lie outside of
+the range [0, 1] (as corroberated also in simulated data, discussed
+below).
+The estimates, from one monkey, are presented in Fig. 2e with
+their standard errors, and results from all OMNs (both monkeys)
+are shown in Fig. 2f. In Fig. 2f each symbol corresponds to one
+OMN, and the horizontal and vertical axes represent the estimate
+of χ and its standard error, correspondingly. An average of all
+these estimates for χ, which takes into account the standard
+errors, produced a much tighter estimate than obtained from
+single OMNs: a fraction χ = 0.82 ± 0.07 (weighted mean ±
+weighted error, Fig. 2f and Extended Data Fig. 1) of the variance
+in eye motion during 350 ms intervals is driven by the common
+input to the OMNs. This central result of our work establishes
+that most of the eye motion during ﬁxational drift originates in
+central neural circuits.
+Mean square displacement curves. Even though our analysis
+above points to a central source for the motion upstream of the
+OMNs, we sought additional evidence that the correlations
+between eye motion and OMN activity are not simply a result of
+the spiking noise in the activity of single OMNs. Such evidence
+could be obtained by examining how the mean squared dis-
+placement (MSD) of the horizontal eye motion varies as a
+function of the time lag. In Fig. 3a we plot the MSD curve from
+the horizontal eye motion measurements of monkey P, calculated
+over all measured eye trajectories during ﬁxation (black trace, see
+Methods). The MSD approaches a constant at zero time lag
+(Fig. 3a and Extended Data Fig. 2a) which is indicative of mea-
+surement noise with a variance of order 103 deg2, in agreement
+with independent estimates of the measurement noise variance
+(Extended Data Fig. 2a, inset). The variance arising from the
+measurement noise was subtracted from the MSD measurements
+(see Methods and Extended Data Fig. 2) to obtain the MSD of the
+actual eye motion (blue symbols in Fig. 3a, b). The MSD curves
+measured in both monkeys (Fig. 3b) demonstrated super-
+diffusive statistics over the entire range of time lags that we
+examined: on logarithmic axes, the MSD increased steadily with a
+slope 1 < α < 2 (a slope α = 1 characterizes Brownian motion,
+whereas a slope α = 2 characterizes motion at constant velocity).
+In addition, the logarithmic slope decreased as a function of the
+time lag. Both observations are in agreement with measurements
+in human subjects9.
+We next estimated the MSD curve of the eye motion that
+would arise from independent spiking variability of OMNs (see
+Discussion),
+driving
+the
+occular
+muscles
+(Methods).
+The
+estimated MSD was too small to account for the experimentally
+observed variability across all time lags (Fig. 3b), and at time
+lags exceeding ∼0.1 s the predicted MSD was negligible compared
+to the experimentally observed MSD, in agreement with our
+previous
+conclusion
+that
+motion
+is
+driven
+upstream
+of
+the OMNs.
+Furthermore, the predicted logarithmic slope of the MSD
+curve, generated by the OMN spiking noise, was small at all time
+lags compared to the measurements, and beyond a few hundred
+ms the predicted curve saturated, whereas the experimentally
+measured MSD curve continued to increase steadily (Fig. 3b).
+Similar saturation is expected to arise from any form of
+temporally uncorrelated noise which is fed into the muscle
+dynamics, at time lags exceeding the characteristic time scale of
+the muscle response (∼180 ms, see Methods) . Thus, even if our
+estimates of the single OMN variability are incorrect, or if there
+is noise correlation between OMNs (which is unlikely, see
+Discussion), the outcome would be a vertical upward shift of the
+logarithmic MSD curve relative to the black trace (broken gray
+line, Fig. 3b), which cannot match the shape of the empirical
+curve.
+In
+conclusion,
+the
+steep
+logarithmic
+slope
+of
+the
+experimental MSD and its non-saturating behavior indicate that
+the input to the OMNs must itself be characterized by diffusive
+statistics, with a MSD curve that increases steadily as a function of
+the time lag, at least up to time lags of order 1 s. This conclusion
+provides an important insight into the possible underlying
+mechanism.
+Stochastic diffusion in a memory circuit. OMNs receive their
+input from the oculomotor integrator, a memory network which
+is capable of holding the eyes still between saccades by providing
+steady input to the ocular muscles36. Since the horizontal eye
+position is a continuous variable, the oculomotor integrator
+maintaining horizontal gaze is commonly modeled as a con-
+tinuous attractor neural network30–32,43, whose dynamics are
+characterized by a one-dimensional manifold of semi-stable
+steady states. The different activity patterns of the network along
+the attractor are mapped, through the synaptic outputs to the
+OMNs, to different horizontal eye positions.
+It has long been argued on theoretical grounds that in
+continuous attractor networks, neural noise can drive diffusive
+motion along the attractor, which gradually degrades the stored
+memory33–35,44. Fig. 4a schematically illustrates how the diffusive
+motion is generated: neural noise continuously perturbs the state
+of the network. While perturbations that shift the neural
+population activity away from the attractor decay rapidly,
+perturbations along the attractor do not decay since all positions
+along the attractor correspond to semi-stable states of the
+dynamics. These non-decaying perturbations cause random
+displacement in the position of the network along the attractor
+that accumulate over time with a variance that increases linearly
+with the time lag, giving rise to diffusive motion with simple
+random walk statistics along the attractor manifold33,35. Successes
+in directly observing this diffusive motion, and especially in
+relating it to neural mechanisms in speciﬁc brain circuits have
+been scarce and incomplete45,46. Diffusive dynamics in the output
+of the oculomotor integrator has the potential to drive ocular
+motion with a nonsaturating MSD curve. For this reason, we
+hypothesized that ﬁxational drift is driven by diffusion within the
+oculomotor integrator. To put this hypothesis to quantitative test
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+5
+
+
+## PDF PAGE 6
+we adapted a model of the goldﬁsh oculomotor integrator31 in
+two ways: ﬁrst, we replaced the rate model by a spiking model in
+which single neuron activity is variable. Second, we adapted the
+model to the parameters of the primate visual system (see
+Methods). Speciﬁcally, key parameters that affect the diffusivity33
+such as the number of neurons, their tuning curves, and their
+spiking variability, were set based on experimental estimates in
+Macaque (Methods). With these parameters, the output of the
+network exhibited random diffusion (example trajectories shown
+in Fig. 4c), with a slope of the MSD curve (using logarithmic axes)
+close to unity (Fig. 4d). The mean square displacement over a
+time lag of 350 ms was in the order of 0.1 deg2, comparable to the
+typical range of ﬁxational drift.
+To relate this result more quantitatively to the statistics of
+ﬁxational drift, we constructed a mathematical model of central
+and peripheral contributions to the eye dynamics: the stochastic
+dynamics of the oculomotor integrator, OMNs, muscles and the
+ocular plant. We also incorporated in the model a visual feedback
+mechanism, which can partly correct for the motion of the target
+due to drift but involves a relatively long delay due to the likely
+involvement of the cortical or sub-cortical areas9,21,47 (Fig. 5a,
+schematic of the model). The output of the integrator was used as
+an input to a diverse population of OMNs innervating different
+extra-ocular muscle ﬁbers, with intrinsic spiking noise48 and with
+dynamic impact on the muscles which was modeled based on37 to
+determine the horizontal eye position.
+Numerical simulations of the model using biologically plausible
+parameters (Methods) generated eye motion that resembles
+measured eye trajectories (Fig. 5b). The relationship between
+the output signal of the oculomotor integrator and the actual eye
+position is demonstrated in Fig. 5c: the oculomotor integrator
+output is noisy due to the spiking variability of oculomotor
+integrator neurons, whereas the actual eye trajectory is smoother,
+due to the mechanics of the muscles and the eye ball. When
+examined at a coarse scale of hundreds of milliseconds, the
+eye position follows the output of the oculomotor integrator,
+indicating that the diffusive dynamics within the integrator
+dominates the statistics of the ﬁnal eye position at this scale.
+Importantly, the simulated MSD curve of the eye position (black
+trace, Fig. 5d) increases steadily as a function of the time lag at
+time scales exceeding ∼100 ms due to the diffusive dynamics of
+the oculomotor integrator output, and explains well the MSD
+statistics which were measured from the data, both in terms of its
+slope and amplitude (magnitude of the variance).
+Since the motion is primarily driven by the output of the
+oculomotor integrator, its amplitude is determined mostly by the
+parameters of the oculomotor integrator network. As shown
+above, the oculomotor integrator output follows approximately
+the statistics of a simple random walk, which can be characterized
+by a a single parameter, the diffusion coefﬁcient D. It can be
+shown33 that D scales with the parameters of network as
+D / CV
+ð
+Þ2N1λ1
+0 k2
+0 τs
+2
+ð1Þ
+where N is the number of neurons in the oculomotor integrator
+network, CV is their spiking coefﬁcient of variation, τs is the
+synaptic time constant, and k0, λ0 are the typical values of the
+position sensitivity and discharge rate within the population of
+oculomotor integrator neurons. Since several of the parameters in
+eq. (1) are not known precisely, there is some freedom in
+adjusting the diffusion coefﬁcient to match the experimental data
+by tuning the model parameters, and there is no unique way to
+achieve a good match. Nevertheless, it is noteworthy that the
+model accounts well for the amplitude of ﬁxational drift, with
+parameters whose order of magnitude is correct.
+While there is some freedom in shifting the predicted MSD
+curve along the vertical axis (in logarithmic scales) by adjusting
+D, there is much less freedom in adjusting the MSD curve in
+other ways. The logarithmic slope of the MSD curve is primarily
+determined by the muscle response dynamics, whose modeling
+is ﬁrmly based on experimental data. The muscle response
+dynamics, acting on the diffusive input from the oculomotor
+integrator, results in superdiffusive motion with a logarithmic
+a
+b
+Monkey P - raw data
+Monkey P - noise removed
+Noise level
+time [s]
+0
+0.2
+0.4
+0.6
+MSD [deg²]
+0
+0.01
+0.02
+0
+0.1
+0
+0.002
+log(time [s])
+-2
+-1
+0
+log(MSD [deg²])
+-5
+-3
+-1
+Monkey I
+Monkey P
+Only OMN's noise
+Fig. 3 Motoneuron variability can’t explain the mean squared displacement at large time lags. a Mean squared displacement (MSD) curve, measured for
+monkey P with measurement noise (black trace). Dashed horizontal line: estimate of the contribution arising from measurement noise (Methods). Blue
+circles: MSD after subtraction of the measurement noise contribution. Inset: zoom in over the area marked by the yellow rectangle. Note that the black
+trace doesn't approach zero at zero time lag, which is indicative of contamination by temporally uncorrelated measurement errors. b Mean squared
+displacement (MSD) curves from both monkeys (blue and red traces), using logarithmic scales in both axes, after subtraction of the measurement noise
+contribution. Black trace: MSD obtained by simulation of the contribution arising from the spiking variability of OMNs, ﬁltered by the response dynamics of
+the muscles and mechanics of the eye (assuming 2000 heterogeneous OMNs, see Methods). The black trace ﬂattens at time lags exceeding ∼1 s and can
+only account for ∼1% of the total variance at a time lag of ∼900 ms. Dashed gray trace: translated copy of the black trace along the logarithmic vertical axis
+demonstrates that the slope of the MSD curve generated by the OMN variability cannot match the slope of the measured MSD curve. The yellow marked
+rectangle represents the same range of time lags and MSDs as the yellow rectangle in (a), on the logarithmic axes.
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+6
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+
+
+## PDF PAGE 7
+slope that decreases with increase of the time lag, and the
+predicted dependence of the logarithmic slope on the time lag
+matches the data very well. Thus, key features of the statistics are
+explained well by the model, independently of ﬁtting parameters.
+The main consequence of the visual feedback mechanism in
+the model is to decrease the logarithmic slope of the MSD curve
+at large time scales, which is otherwise a bit too steep compared to
+the experimental measurements (Extended Data Fig. 3a, b. See
+also SI Notes). On the other hand, the visual feedback mechanism
+has little inﬂuence on the slope of the logarithmic MSD curve at
+shorter time scales (Extended Data Fig. 3c), and is unlikely to
+affect this feature due to the synaptic delays involved. Therefore,
+we propose that the reason for the super-diffusive statistics of
+ﬁxational eye drifts lies in the diffusive dynamics within the
+oculomotor integrator (combined with the muscle dynamics),
+and is largely independent of visual feedback mechanisms. On the
+other hand, visual feedback can modulate the statistics of the
+motion, especially over long time lags, in accordance with the
+observations that these statistics are inﬂuenced by the visual
+task4,14,21–25.
+In summary, with a few parameters – most of which were
+chosen based on known features of the primate oculomotor
+system (Methods), the model produces simulated MSD curves
+that
+match
+experimental
+observations
+very
+well,
+both
+in
+magnitude and in shape (Fig. 5d and Extended Data Fig. 5).
+Finally, the availability of a generative model of ﬁxational drift
+and the accompanying neural activity, offered an opportunity to
+test the methodology that was used in Fig. 2e, f to identify the
+central contribution to the motion. We generated a data set of
+simulated eye trajectories and OMN spikes, and analyzed this
+data using the methodology that we previously applied to the
+experimental data. The numbers of analyzed OMNs and trials
+were similar to the experiment (Methods). Estimates for χ
+(Fig. 5e) were highly variable across the simulated OMN
+population, in similarity to the results obtained in Fig. 2f, yet
+their weighted average pointed to the existence of a central source
+to the motion. In an alternative model, in which the motion was
+fully driven by independent noise in the OMNs, the same
+methodology pointed correctly to the lack of a central contribu-
+tion to the motion (Extended Data Fig. 4). The simulated data
+produced also a similar distribution of correlation coefﬁcients
+between eye motion and its prediction based on single OMN
+spikes, as in the analysis of the experimental data (Fig. 5f).
+Discussion
+We showed for the ﬁrst time that ﬁxational drift is correlated with
+neural activity in the oculomotor control circuitry of the brainstem,
+and identiﬁed the main source of the motion in central neural
+circuitry upstream of the OMNs. The statistics of the motion
+provided an important clue on the identity of the upstream drive,
+pointing to noise-driven diffusion in the oculomotor integrator as a
+likely source of the motion. Theoretical modeling, constrained by
+the physiology of the primate oculomotor system, provided further
+support to this hypothesis since it accounted for the magnitude and
+detailed statistics of the motion. Taking the view that the oculo-
+motor integrator is a short-term memory network30–32, we thus
+propose that ﬁxational drift offers direct observation of diffusive
+dynamics in continuous attractor networks, and an arena for
+probing mechanistically how noise affects the storage of continuous
+parameter memory in neural circuits.
+Both in our analysis of the OMN recordings and in our the-
+oretical modeling of contributions to the MSD curves, we evoked
+the assumption that the intrinsic spiking is independent in dif-
+ferent OMNs. This assumption is based on the anatomy of the
+oculomotor nuclei that control the horizontal position of the eye,
+and on stimulation studies: anatomical tracing studies did not
+ﬁnd axon collaterals originating from OMNs in the abducens
+nucleus (from which we recorded)49,50, indicating that these
+neurons only innervate the lateral rectus muscle. In the medial
+rectus axon collaterals do not terminate within the nucleus51–53,
+indicating that there are no local recurrent connections, and in
+both areas stimulation studies did not ﬁnd evidence for recurrent
+excitation of inhibition between OMNs54. Therefore, it is unlikely
+that intrinsic spiking noise is spatially correlated among different
+OMNs. Furthermore, the temporal time course of eye motion in
+response to stimulation of OMNs matches the time course of the
+muscle response55,56, which excludes the existence of additional
+reverberation arising from recurrent connectivity within the
+oculomotor nucleus.
+Both intrinsic variability and noisy inputs can drive stochastic
+diffusion in continuous attractor networks. We assumed that the
+Fig. 4 Effect of intrinsic noise in a continuous attractor neural network. a
+Schematic illustration of a continuous attractor manifold. Steady states of
+the dynamics can be conceptualized as minima of an energy function
+deﬁned in the neural state space30. For visualization purposes, two
+dimensions of the neural state space are depicted in the plane, and the
+vertical dimension represents the energy. Each point along the curved
+valley (dashed line) maps to a speciﬁc horizontal eye position. During
+ﬁxation the state of the network is set initially to represent a particular eye
+position (yellow circle). Noise in the activity of neurons within the network
+dynamically perturbs the state of the network. Such perturbations generally
+decay (black arrows), but perturbations along the ﬂat direction (dashed
+yellow arrows) do not decay, causing motion along the valley that builds up
+over time in the form of diffusive motion33. The state of the network at two
+time points after initialization is depicted by the blue and red balls. The
+projection on the dashed line determines the horizontal eye position (b).
+b The horizontal eye trajectory resulting from the noise-driven diffusive
+motion. c Examples of two ﬁxational eye trajectories that emerge from the
+simulation of the oculomotor integrator model network, with neural noise.
+d The MSD statistics of 100 eye trajectories as in (c). At sufﬁciently large
+time lags the motion follows the statistics of simple diffusion, with a
+logarithmic slope equal to 1 (red line).
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+7
+
+
+## PDF PAGE 8
+Fig. 5 The model. a Schematic illustration of the model: an internal representation of the eye position, EOI is maintained by the oculomotor integrator and
+transmitted to the OMNs. OMNs activate the extraocular muscles, resulting in the actual eye position, E. The actual eye position serves as a delayed visual
+feedback to the oculomotor integrator. b Example of simulated and measured ﬁxational eye trajectories. The model generates eye trajectories which are
+qualitatively similar to the recordings (digitization applied to the simulated trajectory to facilitate the comparison). c Simulated trajectories of EOI, the
+internal eye representation (blue), and of E, the corresponding actual eye position (red). d Mean squared displacement (MSD) curves, shown using
+logarithmic axes, as measured from the eye trajectory recordings (blue and red traces) and from simulation of the computational model in (a) (black).
+Panels (e–f), Application of similar methodology as in Fig. 2 to simulated data generated by the model. The number of OMNs (57) and trial numbers per
+OMN (100) were set in similarity to the experimental data. e Distribution of estimates for χ and their standard errors (similar to Fig. 2f). Estimates for χ are
+highly variable, in similarity to those obtained from the experimental data, due to the single OMN noise. Consequently, individual estimates for χ can be
+negative or exceed unity. The weighted estimate of χ from all OMNs, 0.82 ± 0.07, (black diamonds) indicates that the variance of the motion is dominated
+by the central drive. In an alternative model, where the dominant contribution to the motion is peripheral, the estimate of χ obtained using the same
+method is close to zero (Extended Data Fig. 4). f Distribution of correlation coefﬁcients between eye displacement over 350 ms intervals, and their
+estimates based on the spikes of individual OMNs, with and without shufﬂing (similar to Fig. 2d). The mean value of the distribution, 〈R〉= 0.17 ± 0.02,
+signiﬁcantly deviates from zero (one sided t test, p = 10−14, shufﬂed distribution shown in gray).
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+8
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+
+
+## PDF PAGE 9
+noise is intrinsic to neurons within the oculomotor integrator
+network, and this assumption accounted well for the amplitude of
+the motion. However, we only have approximate estimates for
+some parameters that inﬂuence the diffusion coefﬁcient D of the
+oculomotor integrator output, such as the number of neurons in
+the network. Hence, we cannot rule out that the diffusive
+dynamics in the state of the oculomotor integrator is driven in
+part by noisy premotor inputs to this network, such as those
+arising from vestibular, optokinetic, and vergence signals.
+Our focus on noise in the occulomotor integrator as a drive of
+diffusive input into the OMNs does not imply that ﬁxational drift
+is unaffected by additional mechanisms, acting within the visual-
+motor pathway, such as fatigue57,58 and feedback mechanisms.
+The incorporation of a visual feedback mechanism in our model
+demonstrates, indeed, that a visual feedback loop can modulate
+the statistics of the motion at time lags exceeding ∼100 ms – but
+is unlikely to inﬂuence the slope of the MSD curve at shorter time
+scales, due to the synaptic processing delays involved, of order
+60–80 ms9,21,59. We note also that the strength and dynamics of
+modulation by visual feedback are likely affected by the salience
+and structure of the visual stimulus, in accordance with the
+observations that the detailed statistics, but not the superdiffusive
+nature,
+of
+ﬁxational
+drift
+is
+inﬂuenced
+by
+the
+visual
+task4,10,14,21–25. It has been recently argued27 that the superior
+colliculus (SC) may play a key role in the modulation of ﬁxational
+drift in response to visual inputs, for several reasons: ﬁrst, neural
+responses to ﬁxational eye drifts, which likely arise from sensory
+inputs, were observed in superﬁcial layers of the SC60. Second, the
+SC is involved in control of eye motion during large eye
+motions61 and microsaccades29. Finally, neural activity in the SC
+has been shown to represent a desired eye position during smooth
+eye motions62.
+Finally, ﬁxational drift is highly consequential for visual per-
+ception in the fovea, even though its amplitude is tiny compared
+to
+saccades4,10,12–15,17,18.
+Detailed
+understanding
+of
+the
+mechanisms underlying ﬁxational drift is likely to advance the
+research on its functional consequences, by opening up the pos-
+sibility to examine whether speciﬁc parameters of the oculomotor
+pathway, such as the variability of neural activity within the
+oculomotor integrator and the dynamics of the muscle response,
+are tuned to optimize visual function.
+Methods
+Behavioral task and recordings. We have reanalyzed data reported in published
+studies38,63,64. Data were collected from two male rhesus macaque monkeys
+(Macaca mulatta). All procedures had been approved in advance by the Institu-
+tional Animal Care and Use Committee at UCSF, where the experiments were
+performed. Procedures were in strict compliance with the National Institutes of
+Health Guide for the Care and Use of Laboratory Animals. To instrument monkeys
+for experiments we implanted a coil of wire on one eye65 and hardware to allow us
+to restrain the monkey’s head. After monkeys had recovered from surgery, we
+trained them to sit in a primate chair with the head restrained, and to ﬁxate and
+track spots of light that moved across a video monitor placed in front of them. In a
+later surgery, we used a trephine to make a hole in the skull, and secured a
+recording cylinder aimed at the brainstem66. During experiments, we lowered
+glass-coated platinum-iridium electrodes into the brainstem to record from neu-
+rons in the abducens nucleus. The abducens nucleus was distinguished by the
+characteristic singing activity associated with ipsiversive eye movements. We
+identiﬁed OMNs, as opposed to internuclear neurons (INNs) based on the criteria
+used in67, Extended Data Fig. 6. Voltage waveforms from the electrodes were
+ampliﬁed and bandpass ﬁltered, usually between 500 Hz and 5 kHz. We sampled
+the voltage waveforms from the electrode continuously at 25 kHz to allow off-line
+spike sorting (Plexon and custom software). Our analysis requires exquisite sorting
+as we are looking for correlation between small modulations in rate and low
+amplitude eye movements. We therefore corrected for errors in sorting by looking
+for discontinuities in the ﬁring rate of the neurons. The high regularity of the
+abducens neuron makes is possible to detect potential missed or erroneously added
+spikes. We then inspected the corresponding recorded waveform and corrected if
+necessary. Visual stimuli appeared on a monitor at a distance of 30 cm from the
+monkey’s eye. Targets were bright 0.6∘circles on a dark background. We recorded
+neural activity during pursuit of step-ramp target motions68. At the start of each
+trial, the monkeys had a second to acquire ﬁxation on a stationary target. They
+were then required to ﬁxate for an additional 500–700 ms within a 2∘–3∘square
+window. The target then displaced to a location eccentric to the position of gaze
+(step), and immediately began moving toward the ﬁxation point (ramp). The size
+of the displacement was chosen to minimize the presence of initial saccades and
+hence, varied slightly between monkeys, recording days and target speeds.
+OMN ﬁring rate estimators. We obtained estimators ^f ðtÞ of the OMN ﬁring rates
+based on the eye trajectory as follows. The estimators were expressed as a linear
+combination of the eye position, velocity, and acceleration36,69–71:
+^f ðtÞ ¼ k Eðt þ ΔtÞ  ET
+
+
+þ r _Eðt þ ΔtÞ þ m€Eðt þ ΔtÞ
+ð2Þ
+where the parameters k, r, m, Δt, and ET were chosen to ﬁt simultaneous mea-
+surements of the OMN ﬁring rate during the full extent of each trial, including the
+ﬁxational and smooth pursuit components. The ﬁring rate f(t) was extracted from
+the spike train as the inverse of the inter spike interval36, and was thus taken to be
+constant between successive spikes. We discarded trials in which the measured
+ﬁring rate went below 20 Hz37, since eq. (2) only holds above the OMN threshold.
+The parameters were chosen to minimize the loss function
+L ¼ ∑
+N
+i¼1 ∑
+Ti
+tj¼0 f iðtjÞ  ^f iðtj; k; r; m; Δt; ETÞ
+h
+i2
+ð3Þ
+where Ti is the duration of the i-th trial, tj 2 0; Ti
+
+
+are discrete time samples
+within a trial, and N is the total number of trials. To generate an estimate to the
+local eye acceleration we smoothed the velocity signal using a Savitzky-Golay ﬁlter
+of order 3 and 21 ms length72 and performed a two-sided numerical differentiation.
+To generate a ﬁring rate prediction for each of the hundreds of trials per cell we
+followed a “leave one out” scheme: we ﬁtted the cell parameters to all but one trial,
+and used these parameters to generate the ﬁring rate prediction for the left out trial.
+Extracting the ﬁxational segments. Microsaccade onsets and endings were
+detected using the eye motion in 2d (horizontal and vertical components), by
+applying a combination of thresholds for the magnitude of the velocity (10 deg/sec)
+and the magnitude of the acceleration (1000 deg/sec2). The horizontal eye position
+ﬁxation segments used for further analysis started 30 ms after termination and
+ended 30 ms before initiation of the microsaccades. Finally we veriﬁed manually
+that the ﬁxational segments didn’t contain any microsaccades. A histogram of the
+ﬁxational segment durations is shown in Extended Data Fig. 7.
+Firing rate correlation coefﬁcients. Correlation coefﬁcients in the ﬁring rate
+representation (Fig. 1) were calculated by generating two vectors of the actual and
+predicted ﬁring rates from all trials available per cell. Each vector was generated as
+follows: for each ﬁxational segment we calculated the ﬁring rate, either actual or
+predicted, and substracted from it the mean ﬁring rate during that ﬁxation. Finally
+we concatenated contributions from all ﬁxational segments and calculated the
+Pearson correlation between the predicted and actual ﬁring rate vectors.
+Model inversion. Eye position was predicted from the spiking activity by causal
+ﬁltering:
+^EðtÞ ¼ ET þ ðh  ξÞðtÞ
+ð4Þ
+Here, ξ(t) is the spike train emitted by the cell:
+ξðtÞ ¼ ∑
+i δðt  tiÞ
+ð5Þ
+where ti is the timing of the i-th spike and h(t) is the kernel of the linear ﬁlter that
+represents the inverse of the relationship in eq. (2):
+hðtÞ ¼ Θðt  ΔtÞ
+m
+τþτ
+τþ  τ
+eðtΔtÞ=τþ  eðtΔtÞ=τ
+h
+i
+ð6Þ
+where
+τ ¼ 2
+r
+m ±
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+r
+m
+ 2
+ 4 k
+m
+r
+ 
+!1
+ð7Þ
+and Θ is the Heaviside step function.
+Eye position correlation coefﬁcients. Correlation coefﬁcients between the mea-
+sured eye position and its prediction based on single OMN spike trains (Fig. 2d)
+were evaluated as follows. First, eq. (4) was used to generate a prediction ^EðtÞ of eye
+position. We discarded ﬁxational segments shorter than 350 ms and broke longer
+segments into non overlapping 350 ms ﬁxational segments. For each ﬁxational
+segment we calculated the difference in the measured eye position, δE = E(t =
+350 ms) −E(t = 0 ms), across the ﬁxational segment, and the corresponding pre-
+diction δ^E ¼ ^Eðt ¼ 350 msÞ  ^Eðt ¼ 0 msÞ. Finally, we calculated the Pearson
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+9
+
+
+## PDF PAGE 10
+correlation coefﬁcient between all predicted and measured eye position differences
+R ¼
+CovðδE; δ^EÞ
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+VarðδEÞVarðδ^EÞ
+q
+ð8Þ
+In addition we calculated the Spearman rank correlation between these two sets of
+eye differences which also demonstrated signiﬁcant correlation (p = 2.5 × 10−12,
+Extended Data Fig. 8).
+In Fig. 2d the shufﬂed distribution (gray) was obtained by randomly associating,
+for each cell, the measurements of δE and of δ^E from different ﬁxational segments.
+Note that in the shufﬂed data set there is no underlying correlation between δE and
+δ^E. Accordingly, the distribution of correlation coefﬁcients is centered around zero,
+yet its width is similar to the histogram that was obtained without shufﬂing, in
+agreement with the interpretation that the variability in measurements of R
+(reﬂected in the width of the distribution) is due to the estimation error of R.
+Standard error of the estimates for the covariance and R. The standard error of
+the covariance estimate (used to calculate the errors in Fig. 2e, Extended Data
+Fig. 1) is given73 by
+ΔCovð^E; EÞ
+	
+
+2 ¼ 1
+n dð^E; EÞ þ
+1
+n  1 VarðEÞVarð^EÞ  n  2
+n  1 Cov2ð^E; EÞ
+
+
+dð^E; EÞ ¼
+ðE  hEiÞð^E  h^EiÞ
+
+2
+D
+E
+ð9Þ
+where n is the number of ﬁxational segments used to evaluate the covariance.
+The standard error of the estimate for R, eq. (8) was evaluated as follows:
+ðΔRÞ2 ¼ R2
+ΔCovð^E; EÞ
+Covð^E; EÞ
+
+2
+þ
+ΔVarðEÞ
+VarðEÞ
+
+2
+þ
+ΔVarð^EÞ
+Varð^EÞ
+
+2
+"
+#
+ð10Þ
+where ΔVar(E) and ΔVarð^EÞ are the standard errors of the estimates for Var(E) and
+Varð^EÞ, obtained using expressions similar to eq. (9).
+Estimated contribution of central source to measured eye position. To esti-
+mate the contribution of a central source to the measured eye position, we evoke
+the following assumptions. We assume that the measured eye position E can be
+written as:
+E ¼ EC þ η
+ð11Þ
+where EC is a contribution arising from sources upstream of the OMNs, and η
+represents contributions arising from the OMNs as well as other sources of noise
+downstream of the OMNs. We assume that η and EC are uncorrelated.
+Similarly, we assume that the estimate of eye position ^E, obtained from the spike
+train of a single OMN can be written as
+^E ¼ EC þ ϵ
+ð12Þ
+where ϵ represents the error of the estimator and is assumed to be uncorrelated
+with EC. Thus, we assume that the estimator, which was ﬁtted to measurements
+obtained during large eye motions, remains unbiased during ﬁxational intervals.
+Note that during ﬁxation the variance of ϵ is large compared to that of EC, which is
+the main reason why the correlation coefﬁcient between ^E and EC is small
+compared to unity.
+Our goal is to estimate what fraction of the variance in the measured eye
+position, E, is due to the central source, EC, over a ﬁxational segment (in our
+analysis we took segments of duration 350 ms):
+χ ¼ VarðδECÞ
+VarðδEÞ
+ð13Þ
+where δx represent the difference between the value of a variable x at the end of the
+interval and its value at the start of the interval. Under the assumption that the
+noise terms η and ϵ are uncorrelated,
+Covðδ^E; δEÞ  VarðδECÞ
+ð14Þ
+In fact, there is a very weak correlation between η and ϵ which arises from the fact
+that η includes the noise contributions from all the OMNs, and ϵ represents the
+contribution of noise to the estimate error from a single OMN. This correlation
+however, is of order 1/Nm where Nm is the number of OMNs, and we can safely
+neglect it, as corroborated also from our separate estimate of the OMN
+contribution to ﬁxational drift (Fig. 3). Therefore, our estimate of χ is given by
+χ  Covðδ^E; δEÞ
+VarðδEÞ
+ð15Þ
+The standard error in our estimate of this quantity is dominated by our ability to
+measure the covariance from a limited number of trials. The estimated errors in
+Fig. 2d were thus calculated as
+ðΔχÞ2 
+ΔCovðδ^E; δEÞ
+VarðδEÞ
+
+2
+ð16Þ
+Note that ideally in eq. (16) we would like to include in the denominator the
+variance of the true eye position and not the measured eye position. However over
+intervals of duration 350 ms the measurement error of the change in the eye
+position is negligible compared to the actual motion, and is inconsequential for our
+estimate of the relative contribution of the central source to the motion.
+Assuming that the errors in our estimates of χ are normally distributed, we
+calculated a weighted mean of this quantity across all cells from both monkeys as
+follows
+^χ ¼ σ2
+χ ∑
+i
+χi
+Δχ2
+i
+σ2
+χ ¼ ∑
+i
+1
+Δχ2
+i
+
+1
+ð17Þ
+where χi and Δχi are the estimated value and the estimated standard error of χ from
+the i’th cell. We used a weighted mean, and not a simple average over all cells,
+because of the large variation in Δχ across cells, which was due to differences in
+various factors such as the number of trials and the structure of the tuning curves.
+Empirical MSD curves
+Calculation of empirical MSD. The horizontal MSD, as presented in Figs. 3 and 5d,
+was calculated from the data in the following way: ﬁrst we extracted all the inter-
+saccade eye trajectories as described above (Extended Data Fig. 4). Since each of the
+inter-saccade trajectories is of different length, we calculated the MSD separately in
+each ﬁxational interval. In the second step we averaged, for each time lag, over all
+the available MSD measurements that correspond to this time lag, in all of the
+ﬁxational intervals. Since the temporal resolution of the sampled eye trajectories is
+1ms, the time lags at which the MSD is evaluated are integer multiples of 1 ms.
+Removal of measurement noise. The measurements of the eye position from the
+search coil are corrupted by a measurement error of variance ∼10−3 deg2. This is
+evident when plotting the MSD curve of the eye movements, where the mea-
+surement error gives rise to a ﬂat MSD curve (when using logarithmic axes) up to
+time scales in which the diffusion becomes dominant. A similar estimate for the
+measurement noise was obtained by recording from a coil ﬁxed in space (Extended
+Data Fig. 2, inset). Therefore, in Figs. 3, 5d and Extended Data Fig. 5 we subtracted
+the variance of the measurement noise to recover the MSD statistics of the eyes
+themselves. The MSD curve prior to noise subtraction is shown in Fig. 3a, and
+Extended Data Fig. 2. Mathematically if we denote by E(t), ηm(t), the horizontal eye
+position and the measurement noise accordingly, then under the assumption that
+the measurement noise is white, the empirical MSD is given by
+Eðt þ ΔtÞ þ ηmðt þ ΔÞ  EðtÞ  ηmðtÞ
+
+2
+D
+E
+¼
+Eðt þ ΔtÞ  EðtÞ
+½
+2
+
+
+þ
+ηmðt þ ΔÞ  ηmðtÞ
+
+2
+D
+E
+ð18Þ
+¼ h Eðt þ ΔtÞ  EðtÞ
+½
+2i þ 2VarðηmÞ
+
+ð19Þ
+therefore eq. (19) justiﬁes that the estimated MSD curve, as shown in Figs. 3b, 5d
+and Extended Data Fig. 5, are a good approximation for the underlying MSD curve
+of the true eye position.
+MSD curve of low-pass ﬁltered white noise. Here we brieﬂy discuss why any source
+of white noise injected to the OMNs will result in a saturating MSD curve, over
+time lags greater than the typical time scale of the ﬁlter. For simplicity assume that
+the eye position is given by white noise ξ, convolved with a low-pass ﬁlter h(t). We
+assume that the white noise has zero mean and variance
+ξðtÞξðt0Þ
+
+
+¼ Aδðt  t0Þ
+ð20Þ
+The MSD is then given by
+Eðt þ ΔtÞ  EðtÞ
+½
+2
+
+
+¼ 2VarðEð0ÞÞ  2 Eðt þ ΔtÞEðtÞ
+
+
+ð21Þ
+where
+Eðt þ ΔtÞEðtÞ
+
+
+¼ A
+Z 1
+0
+hðtÞhðt þ ΔtÞ dt
+ð22Þ
+Hence, the second term on the right hand side of eq. (21) decays to zero (and
+consequently the MSD saturates) when Δt is large compared with the characteristic
+time scale over which the ﬁlter h decays. For examples if hðtÞ ¼ expðt=τÞΘðtÞ, we
+will get hEðt þ ΔtÞEðtÞi  expðjΔtj=τÞ.
+Model of ﬁxational drift. Our model of ﬁxational drift (Fig. 5a) consists of three
+stages. First, an internal signal of the desired eye position is generated and held in
+the memory network of the oculomotor integrator. In the second stage this signal is
+conveyed to a population of spiking OMNs. The synaptic output of each OMN is
+translated into an actual eye position using eq. (2). Finally, The actual eye position
+is taken to be an average over all OMNs.
+Oculomotor integrator network. The oculomotor integrator network model is based
+on the model proposed in31 for the neural network that determines the horizontal
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+10
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+
+
+## PDF PAGE 11
+eye position in goldﬁsh, adapted to the parameters of the primate oculomotor
+system. Brieﬂy, the network consists of two populations, of which one is more
+active when the eye is directed to the left and the other is more active when the eye
+is directed to the right. Each population forms excitatory synaptic connections to
+itself and inhibitory synaptic connections to the other population. The connectivity
+is tuned such that there is a continuum of steady states, representing a continuum
+of stable eye locations, and such that the ﬁring rates of the single neurons ﬁt the
+experimentally observed tuning curves across the full range of eye positions.
+We adapted the model of31 in the following ways. First, we introduced noise by
+using spiking neurons, with a CV of the inter spike intervals of ∼0.2238,74 as
+described below. The oculomotor integrator network dynamics are thus described
+in our model by the following eqs.
+λR
+i ðtÞ ¼ ζR
+i EOIðtÞ þ λ0
+i þ ζR
+i FðtÞ
+
+
+þ
+ð23Þ
+τs
+d
+dt SR
+i ðtÞ ¼ SR
+i ðtÞ þ XR
+i
+ð24Þ
+EOIðtÞ ¼ ∑
+i ηi SR
+i ðtÞ  SL
+i ðtÞ
+
+
+ð25Þ
+XR
+i ðtÞ ¼
+ξR
+i ðtÞ
+λt þ λR
+i ðtÞ
+ð26Þ
+In eq. (23) λR
+i is the ﬁring rate of neuron i from the right population, and
+x½ þ ¼ max x; 0
+ð
+Þ. In eqs. (24), (25) SR
+i is the synaptic output generated by neuron i
+of the right population. We similarly denote by λL
+i and SL
+i the ﬁring rate and the
+synaptic output of neuron i from the left population (see below). The spike train of
+neuron i from the right population is denoted in eq. (26) by ξR
+i ðtÞ, and τs in eq. (24)
+represents the characteristic time scale of post-synaptic currents. As in31, the
+inﬂuence of spikes on the synaptic current is nonlinear, through the relationship
+between ξR
+i and XR
+i , eq. (26), where λt is a characteristic ﬁring rate, in our case
+λt = 60 Hz. Note that if ξR
+i is replaced in eq. (26) by λR
+i , the dynamical eqs. become
+identical to those of31. In eq. (23) F(t) represents a visual feedback signal, which is
+determined as described below.
+The variable EOI(t) appearing in eq. (23) represents an internal readout of the
+eye position from the neural activity, which is a linear function of the synaptic
+activities with weights ηi. This quantity also serves as the eye position readout from
+the network. The slope of the tuning curve of neuron i from the right population is
+denoted by ζR
+i and is positive, and λ0
+i is an offset. In those neurons that are above
+threshold at central gaze (i.e. eye position zero), λ0
+i is equal to the ﬁring rate at
+central gaze.
+For the left population, eqs. analogous to (23), (24), and (26), are obtained by
+replacing the superscripts R and L. We assumed that for each neuron in the right
+population there is a matching neuron in the left population whose tuning curve is
+identical up to reversal of sign of the eye position. Hence, the slopes of the tuning
+curves in the left population are set as ζL
+i ¼ ζR
+i .
+The tuning curves were chosen based on75, where the position sensitivity of
+nucleus prepositus hypoglossi of the macaque were measured. Speciﬁcally we
+sampled the tuning curves randomly from
+ζi ¼
+0:032
+spks
+sec ´ deg2
+
+
+ET þ 4:04 þ ϵζ
+i
+ð27Þ
+where the coefﬁcients of the linear relationship are set based on75, and ϵζ
+i is a zero-
+mean, normally distributed random variable whose variance was set to obtain the
+same dispersion as experimentally observed in75, and the measured correlation
+coefﬁcient in75 was 0.61. The weights ηi were determined by an optimization
+process as in31, ensuring that the system has an approximate continuum of ﬁxed
+points in which the eye position variable EOI(t) spans the range of 50
+ to 50
+
+degrees. The precise values of ζi; λ0
+i , and ηi are listed in SI Data. 1.
+OMN activity and actual eye position. The internal eye representation generates
+activity of the OMNs according to the following dynamics
+λM
+i ðtÞ ¼ ki EOIðtÞ  ETi
+
+
+h
+i
+þ
+ð28Þ
+τMN
+d
+dt sM
+i ¼ sM
+i þ ξM
+i
+ð29Þ
+where λM
+i , the ﬁring rate of OMN i, is assumed to be determined linearly and
+instantaneously from the synaptic readout EOI(t) of the oculomotor integrator
+network. We incorporate noise in activity of the OMNs by generating a stochastic
+spike train ξM
+i with rate λM
+i and with a CV of ∼0.07 as described below. Each OMN
+generates a synaptic output sM
+i
+which is determined by eq. (29).
+Each OMN is assumed to innervate an extraocular muscle ﬁber and to
+contribute a signal Ei to the actual eye position, which can be expressed as a
+convolution of sM
+i with a double-exponential kernel or, equivalently, as the solution
+of the differential equation
+sM
+i ¼ ki Ei  ETi
+
+
+þ ri _Ei þ mi€Ei
+ð30Þ
+with parameters ki, ri, and mi. Note that eqs. ((28)–(30)) are set up such that when
+the eyes are still Ei = EOI up to stochastic ﬂuctuations (sM
+i is equal at steady state to
+λM
+i , up to stochastic ﬂuctuations, due to eq. (29)).
+Finally, the position of the eye is taken to be an average over all the OMN
+contributions:
+EðtÞ ¼ 1
+Nm
+∑
+Nm
+i¼1 EiðtÞ
+ð31Þ
+When the eyes are still and at steady state the actual eye position E matches the
+internal representation of the oculmotor integrator EOI76,77.
+The parameters ki, ri, mi, and ETi of the OMNs were set as follows. First, the eye
+position threshold ET was sampled uniformly in the range (−45∘)–(−5∘), with
+mean eye threshold of −25∘, similar to36, we discarded neurons with eye thresholds
+above −5∘since their contribution to eye position during straight ahead gaze is
+negligible. Second, we assumed an approximate linear relationship between k, r and
+ET, as observed in37. Thus, ki and ri were set as
+ki ¼
+0:18
+spks
+sec ´ deg2
+
+
+ET þ 8:07 þ ϵk
+i
+ð32Þ
+ri ¼
+0:02 spks
+deg2
+
+
+ET þ 1:23 þ ϵr
+i
+ð33Þ
+where the coefﬁcients of the linear relationships were set based on37, and where ϵk
+i
+and ϵr
+i are zero-mean, normally distributed random variables whose variance was
+chosen to obtain the same dispertion as experimentally observed in37 (correlation
+coefﬁcients R = 0.81 for k and R = 0.67 for r). In addition we imposed hard
+constraints k ≥1.1, r ≥0.25 according to36. The typical values for k, and r obtained
+from this procedure matched the values reported in36. For the acceleration
+coefﬁcient, m, we randomly sampled values according to typical values reported
+in36 while verifying that m < r2/(4k). The precise parameters values of r, k, and m
+are given in SI Data. 2 and illustrated in Extended Data Fig. 9.
+Our simulation included N = 30,000 neurons in the oculomotor integrator,
+Nm = 1000 OMNs, synaptic time constants of τs = 20 ms, and visual feedback
+amplitude A = 0.015 (see below). We used a set of parameters that is biologically
+plausible, but note that other combinations of parameters can produce similar
+results. Speciﬁcally, several key parameters determine together the amplitude of the
+MSD curve: the number of neurons in the oculomotor integrator, their synaptic
+time constant, ﬁring rate, non-linearity, and variability as stated in eq. (1)33.
+Visual feedback. We assume that the visual feedback during ﬁxational drift is based
+on motion of the target on the retina, rather than an attempt to ﬁx the absolute
+position of the target24. Therefore, the visual feedback signal F(t) in eq. (23) is
+proportional to an estimate of the target angular velocity relative to the eye
+direction in the recent history. The estimate of velocity is generated using a signal
+that arrives to the oculomotor integrator with a delay τd ≈70 ms9:
+FðtÞ ¼ A Eðt  τdÞ  EOIðtÞ
+
+
+ð34Þ
+where E(t) is the actual gaze direction established as described above.
+Sub-Poisson spike trains. Both oculomotor neurons and motoneurons are sub-
+Poisson with CV of the inter-spike interval <1. In order to take this into account in
+our model we used spike thinning by ﬁrst generating Poisson spikes at a rate equal
+to the desired ﬁring rate, multiplied by a factor M. From the resultant spike train
+we then used every M’th spike. This procedure keeps the average ﬁring unchanged,
+but reduces the CV by a factor 1=
+ﬃﬃﬃﬃ
+M
+p
+. When the ﬁring rate is constant, this
+procedure is equivalent to sampling inter-spike intervals from a Gamma dis-
+tribution. For oculomotor neurons we assumed CV ∼0.22, for the OMNs we
+assumed the CV is linear with the mean inter-spike interval, (ISI) in similarity to
+the observed values in48
+CV ¼ 102 ´ 6:34 þ
+0:17 1
+s
+
+
+ISI þ ϵCV
+
+
+ð35Þ
+where the ISI is measured in ms, and ϵCV is a zero-mean, normally distributed
+random variable whose variance was chosen to obtain the same dispersion as
+experimentally observed in48. Note that these values are based on the empirical
+distribution of inter-spike intervals during ﬁxational intervals and could therefore
+be inﬂuenced, in principle, by the small motion of the eye during ﬁxational drift.
+However, we show in SI Notes (Contribution of oculomotor state to the CV of
+OMNs) that this inﬂuence is negligible. In addition we demonstrate that spiking
+noise affects the MSD curve only at relatively short time lags (up to ∼10 ms, see
+Extended Data Fig. 10).
+Statistics. No statistical method was used to predetermine sample size. Cells in
+which we were unable to consistently detect and isolate spikes due to low signal-to-
+noise ratio of the recordings were excluded from the analysis. In addition, trials in
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+11
+
+
+## PDF PAGE 12
+which cells were not active for any fraction of the trial were excluded from the
+analysis. Error bars in Fig. 2e, f and in Extended Data Fig. 1 were calculated as
+described above (Standard error of the estimates for the covariance and R and
+Estimated contribution of central source to measured eye position).
+Reporting summary. Further information on research design is available in the Nature
+Research Reporting Summary linked to this article.
+Data availability
+Source data are provided with this paper. The raw data in this study, that includes
+recorded eye positions along OMN spike times have been deposited in the Zenodo
+database at 10.5281/zenodo.6076911. The data in this study was reported in published
+studies38,63,64. Source data are provided with this paper.
+Code availability
+The code for the computational model is publicly available in github. (see https://
+github.com/The-Burak-lab/Fixational-drift-is-driven-by-diffusive-dynamics-in-central-
+neuralcircuitry)
+Received: 21 January 2021; Accepted: 4 March 2022;
+References
+1.
+Ko, H.-k, Snodderly, D. M. & Poletti, M. Eye movements between saccades:
+Measuring ocular drift and tremor. Vision Res. 122, 93–104 (2016).
+2.
+Otero-Millan, J., Macknik, S. L., Langston, R. E. & Martinez-Conde, S. An
+oculomotor continuum from exploration to ﬁxation. Proc. Natl. Acad. Sci.
+110, 6175–6180 (2013).
+3.
+Martinez-Conde, S., Macknik, S. L. & Hubel, D. H. The role of ﬁxational eye
+movements in visual perception. Nat. Rev. Neurosci. 5, 229 (2004).
+4.
+Rucci, M. & Poletti, M. Control and functions of ﬁxational eye movements.
+Ann. Rev. Vision Sci. 1, 499–518 (2015).
+5.
+Martinez-Conde, S. & Macknik, S. L. Unchanging visions: the effects and
+limitations of ocular stillness. Philos. Trans. R. Soc. B Biol. Sci. 372, 20160204
+(2017).
+6.
+Cherici, C., Kuang, X., Poletti, M. & Rucci, M. Precision of sustained ﬁxation
+in trained and untrained observers. J. Vision 12, 31–31 (2012).
+7.
+Ezenman, M., Hallett, P. & Frecker, R. Power spectra for ocular drift and
+tremor. Vision Res. 25, 1635–1640 (1985).
+8.
+Engbert, R. & Kliegl, R. Microsaccades keep the eyes’ balance during ﬁxation.
+Psychol. Sci. 15, 431–431 (2004).
+9.
+Herrmann, C. J., Metzler, R. & Engbert, R. A self-avoiding walk with neural
+delays as a model of ﬁxational eye movements. Scientiﬁc Rep. 7, 1–17 (2017).
+10. McCamy, M. B., Macknik, S. L. & Martinez-Conde, S. Different ﬁxational eye
+movements mediate the prevention and the reversal of visual fading. J. Physiol.
+592, 4381–4394 (2014).
+11. McCamy, M. B. et al. Microsaccadic efﬁcacy and contribution to foveal and
+peripheral vision. J. Neurosci. 32, 9194–9204 (2012).
+12. Ratnam, K., Domdei, N., Harmening, W. M. & Roorda, A. Beneﬁts of retinal
+image motion at the limits of spatial vision. J. Vision 17, 30–30 (2017).
+13. Rucci, M., Iovin, R., Poletti, M. & Santini, F. Miniature eye movements
+enhance ﬁne spatial detail. Nature 447, 852 (2007).
+14. Intoy, J. & Rucci, M. Finely tuned eye movements enhance visual acuity.
+Nature Commun. 11, 1–11 (2020).
+15. Anderson, A. G., Ratnam, K., Roorda, A. & Olshausen, B. A. High-acuity
+vision from retinal image motion. J. Vision 20, 34–34 (2020).
+16. Ahissar, E. & Arieli, A. Figuring space by time. Neuron 32, 185–201 (2001).
+17. Pitkow, X., Sompolinsky, H. & Meister, M. A neural computation for visual
+acuity in the presence of eye movements. PLoS Biol. 5, e331 (2007).
+18. Burak, Y., Rokni, U., Meister, M. & Sompolinsky, H. Bayesian model of
+dynamic image stabilization in the visual system. Proc. Natl. Acad. Sci. 107,
+19525–19530 (2010).
+19. Carpenter, R. H. Movements of the Eyes, 2nd Rev (Pion Limited, 1988).
+20. Krauzlis, R. J., Goffart, L. & Hafed, Z. M. Neuronal control of ﬁxation and
+ﬁxational eye movements. Philos. Trans. R. Soc. B Biol. Sci. 372, 20160205
+(2017).
+21. Tatiana, M., Antimo, B. & Hafed, Z. M. Rapid stimulus-driven modulation of
+slow ocular position drifts. eLife 9, e57595 (2020).
+22. Nachmias, J. Determiners of the drift of the eye during monocular ﬁxation.
+JOSA 51, 761–766 (1961).
+23. Steinman, R. M., Haddad, G. M., Skavenski, A. A. & Wyman, D. Miniature eye
+movement. Science 181, 810–819 (1973).
+24. Epelboim, J. & Kowler, E. Slow control with eccentric targets: evidence against
+a position-corrective model. Vision Res. 33, 361–380 (1993).
+25. Poletti, M. & Rucci, M. Eye movements under various conditions of image
+fading. J. Vision 10, 6–6 (2010).
+26. Skavenski, A. A., Robinson, D. A., Steinman, R. M. & Timberlake, G. T.
+Miniature eye movements of ﬁxation in rhesus monkey. Vision Res. 15,
+1269–IN7 (1975).
+27. Hafed, Z. M., Chen, C.-Y., Tian, X., Baumann, M. P. & Zhang, T. Active vision
+at the foveal scale in the primate superior colliculus. J. Neurophysiol. 125,
+1121–1138 (2021).
+28. Fuchs, A. Saccadic and smooth pursuit eye movements in the monkey. J.
+Physiol. 191, 609–631 (1967).
+29. Hafed, Z. M., Goffart, L. & Krauzlis, R. J. A neural mechanism for
+microsaccade generation in the primate superior colliculus. Science 323,
+940–943 (2009).
+30. Seung, H. S. How the brain keeps the eyes still. Proc. Natl Acad. Sci. 93,
+13339–13344 (1996).
+31. Aksay, E. et al. Functional dissection of circuitry in a neural integrator. Nat.
+Neurosci. 10, 494 (2007).
+32. Fisher, D., Olasagasti, I., Tank, D. W., Aksay, E. R. & Goldman, M. S. A
+modeling framework for deriving the structural and functional architecture of
+a short-term memory microcircuit. Neuron 79, 987–1000 (2013).
+33. Burak, Y. & Fiete, I. R. Fundamental limits on persistent activity in networks
+of noisy neurons. Proc. Natl Acad. Sci. 109, 17645–17650 (2012).
+34. Kilpatrick, Z. P., Ermentrout, B. & Doiron, B. Optimizing working memory
+with heterogeneity of recurrent cortical excitation. J. Neurosci. 33,
+18999–19011 (2013).
+35. Kilpatrick, Z. P. & Ermentrout, B. Wandering bumps in stochastic neural
+ﬁelds. SIAM J. Appl. Dynamic. Systems 12, 61–94 (2013).
+36. Robinson, D. A. et al. Control of eye movements. Handbook Physiol. 2,
+1275–1320 (1981).
+37. Fuchs, A., Scudder, C. & Kaneko, C. Discharge patterns and recruitment order
+of identiﬁed motoneurons and internuclear neurons in the monkey abducens
+nucleus. J. Neurophysiol. 60, 1874–1895 (1988).
+38. Chaisanguanthum, K. S., Joshua, M., Medina, J. F., Bialek, W. & Lisberger, S.
+G. The neural code for motor control in the cerebellum and oculomotor
+brainstem. eNeuro 1, https://doi.org/10.1523/ENEURO.0004-14.2014 (2014).
+39. Robinson, D. Oculomotor unit behavior in the monkey. J. Neurophysiol. 33,
+393–403 (1970).
+40. Peachey, L. The structure of the extraocular muscle ﬁbers of mammals. In y
+Rita, P. B. & Collins, C. C. (eds.) The Control of Eye Movements, 47–66
+(Academic Press, 1971).
+41. McClung, J. R., Shall, M. S. & Goldberg, S. J. Motoneurons of the lateral and
+medial rectus extraocular muscles in squirrel monkey and cat. Cells Tissues
+Organs 168, 220–227 (2001).
+42. Sober, S. J., Wohlgemuth, M. J. & Brainard, M. S. Central contributions to
+acoustic variation in birdsong. J. Neurosci. 28, 10370–10379 (2008).
+43. Seung, H. S., Lee, D. D., Reis, B. Y. & Tank, D. W. Stability of the memory of
+eye position in a recurrent network of conductance-based model neurons.
+Neuron 26, 259–271 (2000).
+44. Brody, C. D., Romo, R. & Kepecs, A. Basic mechanisms for graded persistent
+activity: discrete attractors, continuous attractors, and dynamic
+representations. Curr. Opin. Neurobiol. 13, 204–211 (2003).
+45. Wimmer, K., Nykamp, D. Q., Constantinidis, C. & Compte, A. Bump attractor
+dynamics in prefrontal cortex explains behavioral precision in spatial working
+memory. Nat. Neurosci. 17, 431–439 (2014).
+46. Chaudhuri, R., Gercek, B., Pandey, B., Peyrache, A. & Fiete, I. The intrinsic
+attractor manifold and population dynamics of a canonical cognitive circuit
+across waking and sleep. Nat. Neurosci. 22, 1512–1520 (2019).
+47. Becker, W. & Klein, H.-M. Accuracy of saccadic eye movements and
+maintenance of eccentric eye positions in the dark. Vision Res. 13, 1021–1034
+(1973).
+48. Gomez, C., Canals, J., Torres, B. & Delgado-Garcia, J. Analysis of the
+ﬂuctuations in the interspike intervals of abducens nucleus neurons during
+ocular ﬁxation in the alert cat. Brain Res. 381, 401–404 (1986).
+49. Baker, R. & McCrea, R. The parabducens nucleus. Integration in the nervous
+system97-123 (1979).
+50. McCrea, R., Strassman, A. & Highstein, S. Morphology and physiology of
+abducens motoneurons and internuclear neurons intracellularly injected with
+horseradish peroxidase in alert squirrel monkeys. J. Comparative Neurol. 243,
+291–308 (1986).
+51. Evinger, C. & Baker, R. Are there subdivisions of extraocular motoneuronal
+pools that can be controlled separately. Motor control: concepts and issues
+(Humphrey DR, Freund HJ, eds) 23–31 (1991).
+52. Evinger, C., Graf, W. M. & Baker, R. Extra-and intracellular hrp analysis or
+the organization of extraocular motoneurons and internuclear neurons in the
+guinea pig and rabbit. J. Comparative Neurol. 262, 429–445 (1987).
+ARTICLE
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+12
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+
+
+## PDF PAGE 13
+53. Spencer, R., Evinger, C. & Baker, R. Electron microscopic observations of
+axon collateral synaptic endings of cat oculomotor motoneurons stained by
+intracellular injection of horseradish peroxidase. Brain Res. 234, 423–429 (1982).
+54. Evinger, C., Baker, R. & McCrea, R. Axon collaterals of cat medial rectus
+motoneurons. Brain Res. 174, 153–160 (1979).
+55. Klier, E. M., Meng, H. & Angelaki, D. E. Three-dimensional kinematics at the
+level of the oculomotor plant. J. Neurosci. 26, 2732–2737 (2006).
+56. Robinson, D. A note on the oculomotor pathway. Experimental Neurology
+(1968).
+57. Di Stasi, L. L. et al. Microsaccade and drift dynamics reﬂect mental fatigue.
+Eur. J. Neurosci. 38, 2389–2398 (2013).
+58. Di Stasi, L. L. et al. Effects of driving time on microsaccadic dynamics. Exp.
+Brain Res. 233, 599–605 (2015).
+59. Goldreich, D., Krauzlis, R. & Lisberger, S. Effect of changing feedback delay on
+spontaneous oscillations in smooth pursuit eye movements of monkeys. J.
+Neurophysiol. 67, 625–638 (1992).
+60. Chen, C.-Y., Hoffmann, K.-P., Distler, C. & Hafed, Z. M. The foveal visual
+representation of the primate superior colliculus. Curr. Biol. 29, 2109–2119
+(2019).
+61. Bergeron, A., Matsuo, S. & Guitton, D. Superior colliculus encodes distance to
+target, not saccade amplitude, in multi-step gaze shifts. Nature Neurosci. 6,
+404–413 (2003).
+62. Hafed, Z. M. & Krauzlis, R. J. Goal representations dominate superior colliculus
+activity during extrafoveal tracking. J. Neurosci. 28, 9426–9439 (2008).
+63. Joshua, M., Medina, J. F. & Lisberger, S. G. Diversity of neural responses in the
+brainstem during smooth pursuit eye movements constrains the circuit
+mechanisms of neural integration. J. Neurosci. 33, 6633–6647 (2013).
+64. Joshua, M. & Lisberger, S. G. A framework for using signal, noise, and
+variation to determine whether the brain controls movement synergies or
+single muscles. J. Neurophysiol. 111, 733–745 (2014).
+65. Ramachandran, R. & Lisberger, S. G. Normal performance and expression of
+learning in the vestibulo-ocular reﬂex (vor) at high frequencies. J.
+Neurophysiol. 93, 2028–2038 (2005).
+66. Lisberger, S., Pavelko, T. & Broussard, D. Responses during eye movements of
+brain stem neurons that receive monosynaptic inhibition from the ﬂocculus
+and ventral paraﬂocculus in monkeys. J. Neurophysiol. 72, 909–927 (1994).
+67. Sylvestre, P. A. & Cullen, K. E. Quantitative analysis of abducens neuron
+discharge dynamics during saccadic and slow eye movements. J. Neurophysiol.
+82, 2612–2632 (1999).
+68. Rashbass, C. The relationship between saccadic and smooth tracking eye
+movements. J. Physiol. 159, 326 (1961).
+69. Fuchs, A. & Luschei, E. Firing patterns of abducens neurons of alert monkeys in
+relationship to horizontal eye movement. J. Neurophysiol. 33, 382–392 (1970).
+70. Schiller, P. H. The discharge characteristics of single units in the oculomotor
+and abducens nuclei of the unanesthetized monkey. Exp. Brain Res. 10,
+347–362 (1970).
+71. Van Gisbergen, J. & Robinson, D. Generation of micro and macrosaccades by
+burst neurons in the monkey. Control of gaze by brain stem neurons 301-308
+(1977).
+72. Press, W. H., Teukolsky, S. A., Vetterling, W. T. & Flannery, B. P. Numerical
+recipes 3rd edition: The art of scientiﬁc computing (Cambridge University
+Press, 2007).
+73. Kendall, M. G. M. G. Kendall’s advanced theory of statistics: originally by Sir
+Maurice Kendall (Edward Arnold, London, 1987), 5th ed. edn.
+74. Dalezios, Y., Scudder, C., Highstein, S. & Moschovakis, A. Anatomy and
+physiology of the primate interstitial nucleus of cajal. ii. discharge pattern of
+single efferent ﬁbers. J. Neurophysiol. 80, 3100–3111 (1998).
+75. McFarland, J. L. & Fuchs, A. F. Discharge patterns in nucleus prepositus
+hypoglossi and adjacent medial vestibular nucleus during horizontal eye
+movement in behaving macaques. J. Neurophysiol. 68, 319–332 (1992).
+76. Fuglevand, A. J., Winter, D. A. & Patla, A. E. Models of recruitment and rate
+coding organization in motor-unit pools. J. Neurophysiol. 70, 2470–2488
+(1993).
+77. Yao, W., Fuglevand, R. J. & Enoka, R. M. Motor-unit synchronization
+increases emg amplitude and decreases force steadiness of simulated
+contractions. J. Neurophysiol. 83, 441–452 (2000).
+Acknowledgements
+The authors would like to thank Gilad Ben-Shushan for providing Fig. 4a. This research
+was supported by the Israel Science Foundation grant No. 1733/13 and grant No. 1745/
+18, and in part by the Israel Science Foundation grant No. 1978/13. We acknowledge
+additional support from the Swartz foundation and from the Center for Brains, Minds
+and Machines (N.S.), the Israel Science Foundation grant No. 380/17 and the European
+Research Council grant No. 755745 (M.J.), and the Gatsby Charitable Foundation (Y.B.).
+This work was done in part while visiting the Simons Institute for the Theory of
+Computing (N.B.-S., N.S., and Y.B.). Y.B. is the incumbent of the William N. Skirball
+Chair in Neurophysics.
+Author contributions
+The study was conceived by Y.B. with major inputs from all authors. The data was
+collected by M.J.; N.B-S. analyzed the neural recordings. The neural data was interpreted
+by N.B-S., M.J., and Y.B. with inputs from N.S. The theoretical model was developed by
+N.B-S., N.S., and Y.B. with inputs from M.J. Visualization of results was carried out by
+N.B.-S. and N.S. Numerical simulations were performed by N.B.-S. and N.S. Mean-
+squared displacement curves (experimental and theoretical) were analyzed by N.B.-S. and
+N.S. and interpreted by N.B-S., N.S., and Y.B. with inputs from M.J. The manuscript was
+written by N.B-S. and Y.B. with inputs from all authors. The manuscript was edited by all
+authors. The project was jointly supervised by M.J. and Y.B.; M.J. and Y.B. obtained
+funding.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Supplementary information The online version contains supplementary material
+available at https://doi.org/10.1038/s41467-022-29201-y.
+Correspondence and requests for materials should be addressed to Yoram Burak.
+Peer review information Nature Communications thanks the other anonymous
+reviewer(s) for their contribution to the peer review of this work. Peer review reports are
+available.
+Reprints and permission information is available at http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral with regard to jurisdictional claims in
+published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as long as you give
+appropriate credit to the original author(s) and the source, provide a link to the Creative
+Commons license, and indicate if changes were made. The images or other third party
+material in this article are included in the article’s Creative Commons license, unless
+indicated otherwise in a credit line to the material. If material is not included in the
+article’s Creative Commons license and your intended use is not permitted by statutory
+regulation or exceeds the permitted use, you will need to obtain permission directly from
+the copyright holder. To view a copy of this license, visit http://creativecommons.org/
+licenses/by/4.0/.
+© The Author(s) 2022
+NATURE COMMUNICATIONS | https://doi.org/10.1038/s41467-022-29201-y
+ARTICLE
+NATURE COMMUNICATIONS |  (2022) 13:1697 | https://doi.org/10.1038/s41467-022-29201-y | www.nature.com/naturecommunications
+13
