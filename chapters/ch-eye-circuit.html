@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>9&nbsp; A noisy memory circuit can produce eye drift – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/ch-place-fields.html" rel="next">
+<link href="../chapters/ch-eye-timing.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-observations.html">Part II: Eye motion and place fields constrain different parts of a neural code</a></li><li class="breadcrumb-item"><a href="../chapters/ch-eye-circuit.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-eye-circuit-model" id="toc-sec-eye-circuit-model" class="nav-link active" data-scroll-target="#sec-eye-circuit-model"><span class="header-section-number">9.1</span> A noisy integrator can reproduce drift after muscle filtering</a></li>
+  <li><a href="#sec-eye-scaling" id="toc-sec-eye-scaling" class="nav-link" data-scroll-target="#sec-eye-scaling"><span class="header-section-number">9.2</span> Spike regularity and circuit parameters set the model’s drift scale</a></li>
+  <li><a href="#sec-eye-figures" id="toc-sec-eye-figures" class="nav-link" data-scroll-target="#sec-eye-figures"><span class="header-section-number">9.3</span> The figures test shared drive, diffusion, and the full circuit model</a></li>
+  <li><a href="#sec-eye-limits" id="toc-sec-eye-limits" class="nav-link" data-scroll-target="#sec-eye-limits"><span class="header-section-number">9.4</span> The evidence places shared drive upstream without identifying one circuit</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-observations.html">Part II: Eye motion and place fields constrain different parts of a neural code</a></li><li class="breadcrumb-item"><a href="../chapters/ch-eye-circuit.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-eye-circuit" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>A circuit that stores the intended eye angle is one possible source of fixational drift. This chapter follows the proposed model from interacting neurons through motor neurons and muscles to eye motion, and explains how delayed visual feedback can limit that motion.</p>
+</div>
+<!-- vale ai-tells.NegatedSubject = NO -->
+<p>The recordings support a shared source before the motor neurons, and the movement’s timing is compatible with a stored position that wanders. <span class="key-statement">Neither result identifies the circuit that supplies that command. A noisy memory circuit is a proposed explanation whose output must pass through the motor neurons and muscles before it can be compared with eye movement.</span> <!-- vale ai-tells.NegatedSubject = YES --></p>
+<p>Following that complete path lets the model test whether neural noise can produce both the amount and timing of the observed drift. Its spike variability, neuron count and time constants determine how much freedom this match allows. Comparing the model with the separate recording and timing results then shows what the study supports, and why it still leaves other upstream sources possible.</p>
+<p><strong>Unreviewed draft diagrams.</strong> These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.</p>
+<div id="fig-draft-map-ch09-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated overview of A noisy memory circuit can produce eye drift; check the chapter text for definitions, relationships, and values.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch09-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch09-a.png" class="img-fluid figure-img" style="width:6.5in" alt="Unreviewed AI-generated overview of A noisy memory circuit can produce eye drift; check the chapter text for definitions, relationships, and values.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch09-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Draft overview for Chapter 9 (A). Unreviewed AI-generated illustration; labels, arrows, formulas, and numbers require verification.
+</figcaption>
+</figure>
+</div>
+<div id="fig-draft-map-ch09-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated overview of A noisy memory circuit can produce eye drift; check the chapter text for definitions, relationships, and values.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch09-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch09-b.png" class="img-fluid figure-img" style="width:6.5in" alt="Unreviewed AI-generated overview of A noisy memory circuit can produce eye drift; check the chapter text for definitions, relationships, and values.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch09-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: Draft overview for Chapter 9 (B). Unreviewed AI-generated illustration; labels, arrows, formulas, and numbers require verification. Correction: in the simplified comparison, diffusion decreases with firing rate when fractional slope is fixed; the plotted curve is not reliable.
+</figcaption>
+</figure>
+</div>
+<section id="sec-eye-circuit-model" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="sec-eye-circuit-model"><span class="header-section-number">9.1</span> A noisy integrator can reproduce drift after muscle filtering</h2>
+<p>The recording analysis places much of the drive upstream of OMNs. To test whether integrator noise could supply it, the authors build a model from a noisy memory circuit through to the eye. The model adapts an earlier goldfish integrator architecture to primate tuning and variability. The model has two groups of integrator neurons. One group fires more when the eye points farther right. The other fires more when it points farther left. Neurons excite cells in their own group and inhibit cells in the other group. The connection strengths are tuned so that the circuit can approximately maintain a range of represented eye positions.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>For the right population, the model’s rate is</p>
+<p><span class="math display">\[ \lambda_i^R(t)=\left[\zeta_i^R E_{OI}(t)+\lambda_i^0+\zeta_i^R F(t)\right]_+, \qquad [a]_+=\max(a,0). \]</span></p>
+<p><span class="math inline">\(E_{OI}\)</span> is the internally represented position in degrees, <span class="math inline">\(\zeta_i^R\)</span> is a tuning slope in spikes/(s deg), and <span class="math inline">\(\lambda_i^0\)</span> is a rate offset in spikes/s. Taking the maximum with zero prevents negative firing. <span class="math inline">\(F\)</span> is a feedback input in degrees, defined below. The matching left neuron has the opposite slope, <span class="math inline">\(\zeta_i^L=-\zeta_i^R\)</span>. In an active neuron, a change of one degree changes its rate by <span class="math inline">\(\zeta_i\)</span>.</p>
+<p>The model scales each spike train into an input <span class="math inline">\(X_i\)</span> with a saturating mean response. This input changes the neuron’s synaptic output <span class="math inline">\(S_i\)</span>, the lingering effect of its spikes on neurons receiving them. A weighted difference between the two groups’ synaptic outputs gives the represented eye angle <span class="math inline">\(E_{OI}\)</span>. This value sets the firing rates again, closing the feedback loop:</p>
+<p><span class="math display">\[ \tau_s\dot S_i^R=-S_i^R+X_i^R,\qquad X_i^R(t)=\frac{\xi_i^R(t)}{\lambda_t+\lambda_i^R(t)},\qquad E_{OI}(t)=\sum_i\eta_i[S_i^R(t)-S_i^L(t)]. \]</span></p>
+<!-- vale ai-tells.StrawmanContrast = NO -->
+<p>Here <span class="math inline">\(\xi_i^R\)</span> is a spike train generated at rate <span class="math inline">\(\lambda_i^R\)</span>, <span class="math inline">\(\tau_s\)</span> is the synaptic decay time, and <span class="math inline">\(\lambda_t=60\)</span> Hz sets the rate scale in the nonlinear synaptic response. Treating spikes as counts, <span class="math inline">\(X_i\)</span> and <span class="math inline">\(S_i\)</span> are dimensionless, and the weights <span class="math inline">\(\eta_i\)</span> are in degrees. Between spikes, <span class="math inline">\(S_i\)</span> decays exponentially. One spike adds a jump of <span class="math inline">\(1/[\tau_s(\lambda_t+\lambda_i^R)]\)</span>. Replacing spikes by their mean rate gives a drive <span class="math inline">\(\lambda_i^R/(\lambda_t+\lambda_i^R)\)</span> that approaches one as the rate increases. This is the model’s saturating synaptic effect, rather than the purely linear synapses of the basic 2012 example.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <!-- vale ai-tells.StrawmanContrast = YES --></p>
+<p>Persistence requires a further condition on that feedback. Set <span class="math inline">\(F=0\)</span> and replace spikes by their mean rates. Define the mean saturated drives at a proposed stored value <span class="math inline">\(z\)</span> by</p>
+<p><span class="math display">\[ q_i^R(z)=\frac{\lambda_i^R(z)}{\lambda_t+\lambda_i^R(z)}, \qquad q_i^L(z)=\frac{\lambda_i^L(z)}{\lambda_t+\lambda_i^L(z)}. \]</span></p>
+<p>Multiply each synaptic equation by its readout weight, subtract the left contribution, and sum. Since the same <span class="math inline">\(\tau_s\)</span> applies to every unit, the readout obeys</p>
+<p><span class="math display">\[ \tau_s\dot E_{OI}=-E_{OI}+G(E_{OI}), \qquad G(z)=\sum_i\eta_i[q_i^R(z)-q_i^L(z)]. \]</span></p>
+<p><span class="key-statement">An exact continuum of persistent readout values would require <span class="math inline">\(G(z)=z\)</span> over the represented range.</span> For a small displacement from a fixed value, Taylor expansion gives</p>
+<p><span class="math display">\[ \tau_s\,\frac{d\,\delta E_{OI}}{dt} =[G'(z)-1]\delta E_{OI}. \]</span></p>
+<!-- vale ai-tells.AnthropomorphicCognition = NO -->
+<p>Here <span class="math inline">\(\delta E_{OI}\)</span> is the small change in the represented eye angle, and <span class="math inline">\(G'(z)=dG/dz\)</span> measures how much the feedback readout changes per degree of that angle. Thus <span class="math inline">\(G'(z)=1\)</span> is the local neutral condition for the stored coordinate. Stable directions of the remaining synaptic state are also needed for an attractor. The weights were optimized to approximate the fixed-point relation across <span class="math inline">\(-50\)</span> to <span class="math inline">\(50\)</span> degrees. <span class="key-statement">Residual mismatch can produce deterministic drift, so this finite optimized circuit provides approximate persistence rather than an exactly neutral continuum.</span> The tuning slopes and thresholds were sampled to match reported macaque relationships and variation. With spikes, perturbations along the nearly neutral direction also accumulate. This reduction is a teaching derivation from the paper’s equations. Figure 4 separates the resulting internal diffusion from later muscle smoothing.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <!-- vale ai-tells.AnthropomorphicCognition = YES --></p>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Figure 4
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four panels show the attractor surface, a wandering coordinate, simulated horizontal eye position and its mean squared displacement.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-4.png" class="img-fluid figure-img" style="width:6.5in" alt="Four panels show the attractor surface, a wandering coordinate, simulated horizontal eye position and its mean squared displacement.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: Noise moves the stored position along a continuous attractor. Original Figure 4 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=7">PDF page 7</a>. <a href="../assets/fig-paper-eye-4.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<p>The motor neurons receive this position signal:</p>
+<p><span class="math display">\[ \lambda_i^M(t)=[k_i(E_{OI}(t)-E_{T_i})]_+, \qquad \tau_{MN}\dot s_i^M=-s_i^M+\xi_i^M. \]</span></p>
+<p><span class="math inline">\(\lambda_i^M\)</span> is a motor rate in spikes/s and <span class="math inline">\(E_{T_i}\)</span> is that neuron’s position threshold in degrees. <span class="definition-explanation">Its <span class="definition-term" data-custom-style="Definition Term"><strong>position sensitivity</strong></span> <span class="math inline">\(k_i\)</span> is the change in firing rate per degree of represented position while the unit is active.</span> <span class="math inline">\(\xi_i^M\)</span> is its generated spike train. The filtered output <span class="math inline">\(s_i^M\)</span> also has units spikes/s, with decay time <span class="math inline">\(\tau_{MN}\)</span>. One spike makes a jump of <span class="math inline">\(1/\tau_{MN}\)</span>. At constant mean rate, the mean output is that rate.</p>
+<p>Each motor unit’s muscle and plant response is represented by a position contribution <span class="math inline">\(E_i\)</span> satisfying</p>
+<p><span class="math display">\[ s_i^M=k_i(E_i-E_{T_i})+r_i\dot E_i+m_i\ddot E_i, \qquad E=\frac1{N_m}\sum_{i=1}^{N_m}E_i. \]</span></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>These are Eqs. 28–31. Here <span class="math inline">\(E_i\)</span> is motor unit <span class="math inline">\(i\)</span>’s position contribution, <span class="math inline">\(N_m\)</span> is the number of motor neurons being averaged, and <span class="math inline">\(E\)</span> is their model eye position. The coefficient <span class="math inline">\(r_i\)</span> sets the rate response to velocity and <span class="math inline">\(m_i\)</span> the response to acceleration; dots denote time derivatives. The second order equation uses the same roles and units as the forward fit. At constant <span class="math inline">\(E_{OI}\)</span>, an active unit has mean <span class="math inline">\(s_i^M=k_i(E_{OI}-E_{T_i})\)</span>, giving mean <span class="math inline">\(E_i=E_{OI}\)</span> when derivatives vanish. Averaging therefore transmits the common position while reducing independent private fluctuations. This is an effective model of combined motor output, not a claim that one motor unit moves an isolated eye of its own.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <!-- vale ai-tells.FormalTransitions = YES --> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<p>The model used diverse thresholds and response coefficients, with motor thresholds sampled between <span class="math inline">\(-45\)</span> and <span class="math inline">\(-5\)</span> degrees, and imposed <span class="math inline">\(m_i&lt;r_i^2/(4k_i)\)</span> to give nonoscillatory individual response kernels. Main Methods report <span class="math inline">\(N=30{,}000\)</span> integrator neurons, <span class="math inline">\(N_m=1{,}000\)</span> OMNs, and <span class="math inline">\(\tau_s=20\)</span> ms for the main full simulation. The separate private OMN comparison in Fig. 3 used 2,000 OMNs. These neuron counts belong to different simulation comparisons.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>As the eye moves while viewing a stationary target, the target’s image moves across the retina. The authors assume that visual feedback responds to this recent image motion rather than to an absolute target-position error. Their delayed feedback model is:</p>
+<p><span class="math display">\[ F(t)=A[E(t-\tau_d)-E_{OI}(t)], \qquad \tau_d\simeq70\ \text{ms}. \]</span></p>
+<p>Both positions are in degrees, so <span class="math inline">\(A\)</span> is dimensionless in this formulation. The main value is <span class="math inline">\(A=0.015\)</span>. If gaze and its internal representation have recently moved rightward, the delayed position is to their left, making <span class="math inline">\(F\)</span> negative. Its contribution to the integrator rates then opposes continued rightward movement. For a slowly varying position that the eye tracks, <span class="math inline">\(E(t-\tau_d)-E_{OI}(t)\simeq-\tau_d\dot E(t)\)</span>, showing the velocity-like action and sign. The approximation requires tracking and slow change over the delay.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p>The effect on the ongoing MSD must be checked from the coupled model, rather than inferred from the delay alone. A short MSD lag is a separation between two samples in a running process, not the time since a new perturbation. Past measurements can already affect both samples, and <span class="math inline">\(F\)</span> also contains the immediate term <span class="math inline">\(-A E_{OI}(t)\)</span>. Extended Data Fig. 3 compares the model with and without feedback: feedback changes amplitude across lags, while its larger effect on logarithmic slope occurs at longer lags. Figure 5 shows the full model. <span class="key-statement">Muscle filtering supplies the short-lag smoothness, and feedback improves the detailed longer-lag fit. These are results of this model comparison, not a hard delay-based cutoff or a claim excluding visual control under other tasks.</span><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Figure 5
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Six panels show the integrator, motor neurons, eye and delayed feedback, measured and simulated trajectories, displacement curves, shared variance estimates and correlation distributions.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-5.png" class="img-fluid figure-img" style="width:6.5in" alt="Six panels show the integrator, motor neurons, eye and delayed feedback, measured and simulated trajectories, displacement curves, shared variance estimates and correlation distributions.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.4: The full circuit model links internal diffusion to smooth eye motion and measured correlations. Original Figure 5 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=8">PDF page 8</a>. <a href="../assets/fig-paper-eye-5.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 3
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Three panels show fits at short and long lags and compare displacement and slope with and without feedback.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed3.png" class="img-fluid figure-img" style="width:6.5in" alt="Three panels show fits at short and long lags and compare displacement and slope with and without feedback.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.5: Visual feedback changes the displacement curve and its slope. Original Extended Data Figure 3 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=9">PDF page 9</a>. <a href="../assets/fig-paper-eye-ed3.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+</section>
+<section id="sec-eye-scaling" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="sec-eye-scaling"><span class="header-section-number">9.2</span> Spike regularity and circuit parameters set the model’s drift scale</h2>
+<p>The paper states its network-scale comparison as</p>
+<p><span class="math display">\[ D\propto\frac{\mathrm{CV}^2}{N\lambda_0 k_0^2\tau_s^2}. \]</span></p>
+<p>Here <span class="math inline">\(D\)</span> is the internal eye-position diffusion coefficient, <span class="math inline">\(N\)</span> the number of integrator neurons, <span class="math inline">\(\mathrm{CV}\)</span> their interspike-interval coefficient of variation, <span class="math inline">\(\lambda_0\)</span> a typical firing rate, <span class="math inline">\(k_0\)</span> a typical position sensitivity, meaning how much the firing response changes for a change in represented position, and <span class="math inline">\(\tau_s\)</span> the synaptic time constant. This is a scaling relation, not an exact prediction for every network. The paper does not specify a fractional normalization for <span class="math inline">\(k_0\)</span>; the calculation below explains why that detail matters when comparing changes in firing rate. See <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=6">paper, Eq. 1, PDF p.&nbsp;6</a>.</p>
+<p><strong>[Guide derivation: the scaling and sensitivity]</strong> The following simplified calculation makes the rate and sensitivity dependence explicit. For <span class="math inline">\(N\)</span> similar independent neurons with rate <span class="math inline">\(\lambda_0\)</span> and absolute position slope <span class="math inline">\(a=d\lambda/dE\)</span>, the Poisson information rate is <span class="math inline">\(J\simeq Na^2/\lambda_0\)</span>. For a stationary renewal spike train observed for a long window <span class="math inline">\(L\)</span>, the count variance is approximately <span class="math inline">\(\lambda_0L\,\mathrm{CV}^2\)</span>. Using the information–diffusion relation as a scale for comparable network geometry gives</p>
+<p><span class="math display">\[ D\ \propto\ \frac{\mathrm{CV}^2}{\tau_s^2J} \simeq\frac{\mathrm{CV}^2\lambda_0}{N a^2\tau_s^2}. \]</span></p>
+<p>With the fractional slope <span class="math inline">\(b=a/\lambda_0\)</span>, this becomes <span class="math inline">\(D\propto\mathrm{CV}^2/(N\lambda_0 b^2\tau_s^2)\)</span>. It has the paper’s printed dependence if <span class="math inline">\(k_0\)</span> means this fractional slope, but the paper does not state that normalization. This is a guide scale calculation, not an exact derivation of the full model with saturating synapses and sub-Poisson spikes. The next steps show the count-variance and information calculations.</p>
+<p>An agreement in amplitude is informative only if we know how much freedom the model has. The paper uses regular spike trains. The <a href="ch-foundations.html#sec-foundations-poisson">spike variability section</a> defined the interspike interval coefficient of variation (CV) as the interval standard deviation divided by its mean. A Poisson process at constant rate has CV one. The model uses about 0.22 for integrator neurons and about 0.07 for OMNs. <span class="definition-explanation">Such firing is called <span class="definition-term" data-custom-style="Definition Term"><strong>sub-Poisson spiking</strong></span> here because its long window count variability is lower than a Poisson process at the same rate, under the interval construction used in the model.</span><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>The construction starts with a Poisson process at <span class="math inline">\(M\)</span> times the desired rate and retains every <span class="math inline">\(M\)</span>th spike. At constant rate, a retained interval is the sum of <span class="math inline">\(M\)</span> independent exponential intervals. Each initial interval has mean <span class="math inline">\(1/(M\lambda)\)</span> and variance <span class="math inline">\(1/(M\lambda)^2\)</span>. The retained interval therefore has mean <span class="math inline">\(1/\lambda\)</span>, variance <span class="math inline">\(1/(M\lambda^2)\)</span>, and CV <span class="math inline">\(1/\sqrt M\)</span>. This preserves the mean rate while reducing variability. Its use at changing rates is part of the model. The simple interval derivation assumes a constant rate. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>At constant rate, the retained intervals are independent. <span class="definition-explanation">This is a <span class="definition-term" data-custom-style="Definition Term"><strong>renewal process</strong></span>, a spike process whose successive intervals are independent and identically distributed.</span> Let their mean be <span class="math inline">\(\mu=1/\lambda\)</span> and standard deviation <span class="math inline">\(\sigma_I\)</span>. The time to <span class="math inline">\(n\)</span> spikes has variance <span class="math inline">\(n\sigma_I^2\)</span>. For a long fixed window <span class="math inline">\(L\simeq n\mu\)</span>, a fluctuation in total interval time produces the opposite fluctuation in count divided by <span class="math inline">\(\mu\)</span>. Thus <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ \operatorname{Var}(n)\simeq\frac{n\sigma_I^2}{\mu^2} \simeq\lambda L\left(\frac{\sigma_I}{\mu}\right)^2 =\lambda L\,\mathrm{CV}^2. \]</span></p>
+<p>This explains why the diffusion scale contains CV squared: it is the strength of the accumulated spike fluctuations relative to the Poisson case. The <a href="ch-memory-dynamics.html#sec-memory-diffusion">diffusion calculation</a> and <a href="ch-memory-information.html#sec-memory-bound">information bound</a> show how projecting those fluctuations onto a neutral memory direction adds a factor proportional to <span class="math inline">\(1/\tau_s^2\)</span> and, for a comparable independent population, <span class="math inline">\(1/N\)</span>.</p>
+<p>Rate and sensitivity need more care. Write the absolute local rate slope as <span class="math inline">\(a=d\lambda/dE\)</span>, in spikes/(s deg). For a scale estimate, first use the simpler Poisson model with linear synapses. If <span class="math inline">\(N\)</span> similar cells fire near rate <span class="math inline">\(\lambda_0\)</span>, their Poisson information per unit time about position is</p>
+<p><span class="math display">\[ J\simeq\frac{Na^2}{\lambda_0}. \]</span></p>
+<p>Using the <a href="ch-memory-information.html#sec-memory-bound">information-diffusion relation</a> as a scale, including the <span class="math inline">\(\mathrm{CV}^2\)</span> factor just derived and holding the network geometry fixed,</p>
+<p><span class="math display">\[ D\ \propto\ \frac{\mathrm{CV}^2}{\tau_s^2J} =\frac{\mathrm{CV}^2\lambda_0}{N a^2\tau_s^2}. \]</span></p>
+<p>If instead sensitivity is expressed as the fractional slope <span class="math inline">\(b=a/\lambda_0\)</span>, in inverse degrees, the same expression becomes</p>
+<p><span class="math display">\[ D\ \propto\ \frac{\mathrm{CV}^2}{N\lambda_0 b^2\tau_s^2}. \]</span></p>
+<p>This second form has the dependence printed in the paper’s Eq. 1, <span class="math inline">\(D\propto\mathrm{CV}^2N^{-1}\lambda_0^{-1}k_0^{-2}\tau_s^{-2}\)</span>. <!-- vale ai-tells.ContrastiveFormulas = NO --> However, its surrounding text calls <span class="math inline">\(k_0\)</span> position sensitivity without specifying fractional normalization. If it means the absolute slope in Hz/degree, the Poisson estimate above instead puts <span class="math inline">\(\lambda_0\)</span> in the numerator at fixed slope. The printed inverse-rate dependence matches a fractional slope. The printed expression is a proportionality, so an omitted factor can carry units; units alone do not establish a printing error. This calculation is a scale estimate under fixed network geometry. The full 2022 model has saturating synapses and sub-Poisson spike trains, so inserting CV squared into the simpler Poisson relation does not give an exact formula for that network.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<p>Within this scale estimate, at fixed network geometry and under the noise assumptions above:</p>
+<ul>
+<li>Doubling <span class="math inline">\(N\)</span> halves it.</li>
+<li>Doubling CV multiplies it by four.</li>
+<li>Doubling <span class="math inline">\(\tau_s\)</span> divides it by four.</li>
+<li>Doubling the absolute slope at fixed rate also divides it by four.</li>
+</ul>
+<p><span class="key-statement">Increasing rate reduces diffusion when the fractional slope is fixed, because more spikes then also supply a proportionally steeper absolute slope. Increasing rate at fixed absolute slope is a different comparison and increases the scale in the first formula. A rate change alone does not specify which comparison is intended.</span></p>
+<p>Could the measured CV itself mostly reflect drift rather than private spike variability? Supplementary Notes test this. Let <span class="math inline">\(\lambda(t)=\bar\lambda+aB(t)\)</span> during a fixation of length <span class="math inline">\(T\)</span>, with the rate changes small relative to <span class="math inline">\(\bar\lambda\)</span>. Here <span class="math inline">\(\bar\lambda\)</span> is the baseline rate, <span class="math inline">\(a\)</span> its change per unit eye position, and <span class="math inline">\(B(t)\)</span> the Brownian position displacement, with <span class="math inline">\(\mathbb E[B(t)^2]=2Dt\)</span>. Write <span class="math inline">\(\bar B=T^{-1}\int_0^T B(t)\,dt\)</span> for its mean within that fixation. For a Brownian path starting at zero, the expected time averaged squared position is <span class="math inline">\(DT\)</span>, and the expected squared time mean is <span class="math inline">\(2DT/3\)</span>. Subtracting gives the expected within-segment position variance <span class="math inline">\(DT/3=2DT/6\)</span>:</p>
+<p><span class="math display">\[ \mathbb E\!\left[\frac1T\int_0^T(B(t)-\bar B)^2dt\right] =\frac{DT}{3}. \]</span></p>
+<p>The second term follows from <span class="math inline">\(\mathbb E[B(t)B(s)]=2D\min(t,s)\)</span> and <span class="math inline">\(T^{-2}\int_0^T\int_0^T2D\min(t,s)\,dt\,ds=2DT/3\)</span>. Expanding <span class="math inline">\(1/(\bar\lambda+aB)\)</span> to first order gives <span class="math inline">\(1/\bar\lambda-aB/\bar\lambda^2\)</span>. Dividing its standard deviation by its mean then gives</p>
+<p><span class="math display">\[ \mathrm{CV}_{\rm drift}\simeq \frac{|a|}{\bar\lambda}\sqrt{\frac{2DT}{6}}. \]</span></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p>With the supplement’s values <span class="math inline">\(a=1/15\)</span> spikes/(s arcmin), <span class="math inline">\(2D=100\)</span> arcmin<span class="math inline">\(^2\)</span>/s, <span class="math inline">\(T=0.5\)</span> s, and <span class="math inline">\(\bar\lambda=80\)</span> Hz, this is about <span class="math inline">\(0.0024\)</span>, well below the OMN CV near 0.07. These are an order of magnitude check, not a fitted diffusion constant for the whole model. Since one degree is 60 arcmin, that <span class="math inline">\(2D\)</span> equals <span class="math inline">\(0.0278\)</span> deg<span class="math inline">\(^2\)</span>/s, or <span class="math inline">\(D=0.0139\)</span> deg<span class="math inline">\(^2\)</span>/s.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+</section>
+<section id="sec-eye-figures" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="sec-eye-figures"><span class="header-section-number">9.3</span> The figures test shared drive, diffusion, and the full circuit model</h2>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p>The five figures address different steps. Their agreement is easier to assess when those questions remain separate. <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<div class="table-responsive">
+<div id="tbl-eye-figure-guide" class="publisher-fold-never publisher-row-labels quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-eye-figure-guide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.1: Reading the figures as an argument.
+</figcaption>
+<div aria-describedby="tbl-eye-figure-guide-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="publisher-fold-never publisher-row-labels caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Figure</th>
+<th>What to read</th>
+<th>What it establishes or checks</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1, main p.&nbsp;3</td>
+<td>Start with the large movement, then the expanded fixation. Compare the small predicted rate change with the larger observed fluctuation in b. Read c as one cell and d as the population.</td>
+<td>A weak, positive rate relationship exists during fixation. The large movement is used for calibration.</td>
+</tr>
+<tr class="even">
+<td>2, main p.&nbsp;4</td>
+<td>The spike response kernel in a has a delay and two decay times; b shows their spread. In c, a noisy cell prediction can coexist with a smooth eye trace. Panel d plots <span class="math inline">\(R\)</span>, while e–f plot <span class="math inline">\(\chi\)</span> and estimation error.</td>
+<td>Shared movement and a model-based fraction of common variance. The vertical axis in f is error in <span class="math inline">\(\chi\)</span>, not eye position or another variance fraction. Large error cells receive little weight.</td>
+</tr>
+<tr class="odd">
+<td>3, main p.&nbsp;6</td>
+<td>In a, distinguish the raw MSD, plateau estimate, and corrected curve. In b, compare both height and slope. Translating the private-noise curve upward does not remove its flattening.</td>
+<td>Independent filtered motor noise fails both the amplitude and time dependence comparison. The noise subtraction is part of this evidence.</td>
+</tr>
+<tr class="even">
+<td>4, main p.&nbsp;7</td>
+<td>The valley in a sketches stable directions across the attractor and a neutral direction along it. It is not a measured energy function of this brain circuit. Panels c–d show simulated internal drift and its nearly linear MSD.</td>
+<td>The mechanism by which neural noise can accumulate into an ordinary diffusive position signal. This is the integrator output before the full observation process.</td>
+</tr>
+<tr class="odd">
+<td>5, main p.&nbsp;8</td>
+<td>Trace integrator, OMNs, plant, and feedback in a. Compare internal and actual position in c, then model and data MSD in d.&nbsp;Panels e–f rerun the statistical analysis on simulated recordings.</td>
+<td>The full model can match filtered motion, and known simulated sources can produce noisy individual estimates with a useful population estimate. This checks the method under that model, rather than proving a unique biological source.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<p>The most useful supplemental comparisons are Extended Data Fig. 1 for individual uncertainty, Fig. 2 for noise subtraction and its simulated control, Fig. 3 for feedback, Fig. 4 for a no-central-drive control, and Fig. 5 for the other monkey’s fit. In the no-central-drive control, <span class="math inline">\(\widehat\chi=-0.09\pm0.22\)</span> is compatible with zero. That negative estimate is sampling variation. Figures 6–8 document cell classification, segment sampling, and a rank correlation check. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>Spearman correlation</strong></span> used in Figure 8 replaces each set of measured values by their ranks before computing correlation.</span> It checks whether larger predicted displacements tend to accompany larger recorded displacements, without requiring the relationship to be linear. Figure 9 shows the heterogeneous model parameters. Figure 10 separates spiking noise passed directly to the output from spiking noise that drives diffusion inside the integrator: internal stochastic spikes remain in the latter comparison. Its caption reports little direct output-noise effect beyond 50 ms.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 1
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Four panels show correlations and shared variance estimates with error bars for two monkeys.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed1.png" class="img-fluid figure-img" style="width:6.5in" alt="Four panels show correlations and shared variance estimates with error bars for two monkeys.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.6: Cell by cell uncertainty accompanies both correlation and shared variance estimates. Original Extended Data Figure 1 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=7">PDF page 7</a>. <a href="../assets/fig-paper-eye-ed1.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 4
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two panels show shared variance estimates with errors and true versus shuffled correlation distributions.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed4.png" class="img-fluid figure-img" style="width:6.5in" alt="Two panels show shared variance estimates with errors and true versus shuffled correlation distributions.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.7: The no-central-drive simulation gives a shared variance estimate compatible with zero. Original Extended Data Figure 4 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=10">PDF page 10</a>. <a href="../assets/fig-paper-eye-ed4.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 5
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A logarithmic displacement plot shows measurements from both monkeys and the model fit.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed5.png" class="img-fluid figure-img" style="width:6.5in" alt="A logarithmic displacement plot shows measurements from both monkeys and the model fit.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.8: The model also fits the other monkey after small parameter changes. Original Extended Data Figure 5 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=10">PDF page 10</a>. <a href="../assets/fig-paper-eye-ed5.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 8
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed8" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A histogram compares true and shuffled Spearman correlation distributions.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed8.png" class="img-fluid figure-img" style="width:6.5in" alt="A histogram compares true and shuffled Spearman correlation distributions.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.9: Rank correlations also show a positive relationship between recorded and predicted displacement. Original Extended Data Figure 8 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=12">PDF page 12</a>. <a href="../assets/fig-paper-eye-ed8.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 9
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed9" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five panels show integrator tuning curves and motor parameters, including position sensitivity, velocity sensitivity, acceleration sensitivity and coefficient of variation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed9.png" class="img-fluid figure-img" style="width:6.5in" alt="Five panels show integrator tuning curves and motor parameters, including position sensitivity, velocity sensitivity, acceleration sensitivity and coefficient of variation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed9-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.10: The model uses varied tuning curves, motor response parameters and spike regularity. Original Extended Data Figure 9 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=13">PDF page 13</a>. <a href="../assets/fig-paper-eye-ed9.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Ben-Shushan et al.&nbsp;(2022), Extended Data Figure 10
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-eye-ed10" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A logarithmic displacement plot compares the full model with a model excluding direct output spiking noise while retaining internal diffusion.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-eye-ed10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-eye-ed10.png" class="img-fluid figure-img" style="width:6.5in" alt="A logarithmic displacement plot compares the full model with a model excluding direct output spiking noise while retaining internal diffusion.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-eye-ed10-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.11: Direct output spiking noise has little effect beyond about 50 ms in the model. Original Extended Data Figure 10 from Ben-Shushan et al.&nbsp;(2022); exact artwork excerpt. <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=14">PDF page 14</a>. <a href="../assets/fig-paper-eye-ed10.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+</section>
+<section id="sec-eye-limits" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="sec-eye-limits"><span class="header-section-number">9.4</span> The evidence places shared drive upstream without identifying one circuit</h2>
+<p>The data and model answer different questions about where the drive originates:</p>
+<ul>
+<li>The common variance estimate supports a drive upstream of OMNs, given the calibration and noise assumptions.</li>
+<li>The MSD comparison supports a command that accumulates variation over the measured interval, rather than stationary white noise passed through a decaying muscle filter.</li>
+<li>The circuit model shows that integrator noise with plausible parameters can generate such a command and explain its filtered amplitude and timing.</li>
+</ul>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p>Those results do not uniquely locate the noise inside integrator neurons. Two missing tests limit that conclusion: <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<!-- vale ai-tells.NegatedSubject = NO -->
+<ul>
+<li>No integrator neurons were recorded in this study.</li>
+
+<!-- vale ai-tells.NegatedSubject = YES -->
+
+<li>No selective change of that circuit tested whether it was necessary for drift.</li>
+</ul>
+<p><span class="key-statement">Noisy inputs to the integrator, or an already diffusive upstream signal, remain possible. The authors make this distinction in the Discussion and explicitly in their peer review response. Several combinations of neuron count, variability, and synaptic time constant can also fit an amplitude, so matching one curve does not uniquely recover those parameters.</span><a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></p>
+<!-- vale ai-tells.ServesAsDodge = NO -->
+<p>The study’s empirical scope is horizontal motion during these fixation segments in two animals. Visual tasks, feedback, and other sources of input can alter the statistics. Its contribution to the connection with the 2012 theory is more precise: a continuous memory can diffuse internally, while a mechanical output of that memory looks smooth and superdiffusive at shorter lags. To compare a memory theory with behavior, the mapping from stored value to measured movement is part of the calculation. <!-- vale ai-tells.ServesAsDodge = YES --></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;10–11, “Oculomotor integrator network,” Eqs. 23–27; Supplementary Information, p.&nbsp;13, Extended Data Fig. 9. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;10–11, “Oculomotor integrator network,” Eqs. 23–27; Supplementary Information, p.&nbsp;13, Extended Data Fig. 9. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;10–11, “Oculomotor integrator network,” Eqs. 23–27; Supplementary Information, p.&nbsp;13, Extended Data Fig. 9. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;11, “OMN activity and actual eye position,” Eqs. 28–33 and simulation parameters; p.&nbsp;6, Fig. 3 caption, private OMN comparison. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;11, “OMN activity and actual eye position,” Eqs. 28–33 and simulation parameters; p.&nbsp;6, Fig. 3 caption, private OMN comparison. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;7, 9, 11, “Visual feedback,” Eq. 34; Supplementary Information, pp.&nbsp;4–5 and p.&nbsp;9, Extended Data Fig. 3. Some supplement cross references use earlier figure/equation numbers. Page 5 also mentions 15K integrator neurons, whereas final main Methods specify 30,000. This guide uses final main paper numbering and its main simulation parameters. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;7, 9, 11, “Visual feedback,” Eq. 34; Supplementary Information, pp.&nbsp;4–5 and p.&nbsp;9, Extended Data Fig. 3. Some supplement cross references use earlier figure/equation numbers. Page 5 also mentions 15K integrator neurons, whereas final main Methods specify 30,000. This guide uses final main paper numbering and its main simulation parameters. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;11, “Sub-Poisson spike trains,” Eq. 35 and integrator variability specification. The interval-sum derivation expands the construction given there.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main p.&nbsp;6, Eq. 1 and its parameter discussion; peer review file, p.&nbsp;23, changes in slope, synaptic time constant, and neuron count. The absolute versus fractional slope distinction is a guide comparison with the simpler linear Poisson model. Synaptic saturation and the model’s sub-Poisson construction limit its transfer to the full 2022 network; a dimensional proportionality factor also prevents units alone from establishing a printing error.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Supplementary Information, pp.&nbsp;2–3, “Contribution of oculomotor state to the CV of OMNs,” Eqs. S3–S6. Intermediate covariance integrals and numerical evaluation are expanded here. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697, Supplementary Information, pp.&nbsp;7–14, Extended Data Figs. 1–10. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. The no-central-drive result is Extended Data Fig. 4, p.&nbsp;10. The output-noise comparison is Extended Data Fig. 10, p.&nbsp;14. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Main pp.&nbsp;7, 9, Discussion; peer review file, pp.&nbsp;12–13, distinction between recording-based upstream localization and the integrator hypothesis. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/ch-eye-timing.html" class="pagination-link" aria-label="Drift growth distinguishes diffusion from filtered white noise">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/ch-place-fields.html" class="pagination-link" aria-label="Field counts and gaps reveal threshold and scale">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

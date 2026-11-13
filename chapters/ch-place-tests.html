@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>12&nbsp; Holes and measurements test the spatial explanation – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/ch-synthesis.html" rel="next">
+<link href="../chapters/ch-place-sizes.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-observations.html">Part II: Eye motion and place fields constrain different parts of a neural code</a></li><li class="breadcrumb-item"><a href="../chapters/ch-place-tests.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-place-topology" id="toc-sec-place-topology" class="nav-link active" data-scroll-target="#sec-place-topology"><span class="header-section-number">12.1</span> Holes distinguish maps with the same field count</a></li>
+  <li><a href="#sec-place-data" id="toc-sec-place-data" class="nav-link" data-scroll-target="#sec-place-data"><span class="header-section-number">12.2</span> What was fitted and what was tested</a></li>
+  <li><a href="#sec-place-wiring" id="toc-sec-place-wiring" class="nav-link" data-scroll-target="#sec-place-wiring"><span class="header-section-number">12.3</span> Random input weights can generate Gaussian maps</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-observations.html">Part II: Eye motion and place fields constrain different parts of a neural code</a></li><li class="breadcrumb-item"><a href="../chapters/ch-place-tests.html"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-place-tests" class="quarto-section-identifier"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>Recordings show where a hippocampal cell is active as an animal moves through an environment. This chapter tests the spatial model against the shapes and arrangement of those regions, then asks what agreement can reveal about the inputs and connections that produce them.</p>
+</div>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p><span class="key-statement">Two maps can have the same field sizes and counts while arranging their active regions differently. One may contain rings or tunnels that the other lacks. Can the Gaussian spatial model account for these differences, and how much would that agreement tell us about the circuit that produced the maps?</span> <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<p>We first count connected regions and holes together, which gives a prediction across activity thresholds. The boundary of the observed environment matters for this calculation, so we keep its contributions. We then examine which measured quantities set the model’s parameters and which provide further tests. Finally, a sum of many randomly weighted inputs shows one way a circuit could produce Gaussian spatial input, while making clear which assumptions and circuit measurements that explanation still needs.</p>
+<p>The input map varies with position but remains fixed in time in this model. As before, <span class="math inline">\(q\)</span> is the threshold applied to normalized input, <span class="math inline">\(\sigma\)</span> is the local spatial scale, and <span class="math inline">\(a\)</span> converts normalized input above threshold into firing rate. The number of spatial dimensions is <span class="math inline">\(d\)</span>. It is separate from the diffusion coefficient <span class="math inline">\(D\)</span> used in the memory chapters.</p>
+<p><strong>Unreviewed draft diagrams.</strong> These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.</p>
+<div id="fig-draft-map-ch12-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated overview of Holes and measurements test the spatial explanation; check the chapter text for definitions, relationships, and values.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch12-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch12-a.png" class="img-fluid figure-img" style="width:6.5in" alt="Unreviewed AI-generated overview of Holes and measurements test the spatial explanation; check the chapter text for definitions, relationships, and values.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch12-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.1: Draft overview for Chapter 12 (A). Unreviewed AI-generated illustration; labels, arrows, formulas, and numbers require verification.
+</figcaption>
+</figure>
+</div>
+<div id="fig-draft-map-ch12-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated overview of Holes and measurements test the spatial explanation; check the chapter text for definitions, relationships, and values.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch12-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch12-b.png" class="img-fluid figure-img" style="width:6.5in" alt="Unreviewed AI-generated overview of Holes and measurements test the spatial explanation; check the chapter text for definitions, relationships, and values.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch12-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.2: Draft overview for Chapter 12 (B). Unreviewed AI-generated illustration; labels, arrows, formulas, and numbers require verification.
+</figcaption>
+</figure>
+</div>
+<section id="sec-place-topology" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="sec-place-topology"><span class="header-section-number">12.1</span> Holes distinguish maps with the same field count</h2>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p>Two maps can have the same field count and total active area but different holes. As the input threshold <span class="math inline">\(q\)</span> rises, active regions shrink and can split or disappear. The numbers of components and holes can change. <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<p><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>Euler characteristic</strong></span>, written <span class="math inline">\(\chi\)</span> and unrelated to the common variance fraction <span class="math inline">\(\chi\)</span> in the eye chapter, combines these counts differently in each dimension:</span></p>
+<ul>
+<li>In 1D it equals the number of connected active intervals.</li>
+
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+
+<li>In 2D it is the number of connected components minus the number of independent holes. Three disjoint disks have <span class="math inline">\(\chi=3\)</span>. One connected ring has <span class="math inline">\(\chi=1-1=0\)</span>.</li>
+
+<!-- vale ai-tells.CataphoricForecasting = YES -->
+
+<li>In 3D it is components minus independent tunnels plus enclosed cavities. A solid ball has <span class="math inline">\(\chi=1\)</span>, a solid ring has <span class="math inline">\(\chi=0\)</span>, and a hollow spherical shell has <span class="math inline">\(\chi=2\)</span>.</li>
+</ul>
+<p><span class="definition-explanation">These counts are the first three <span class="definition-term" data-custom-style="Definition Term"><strong>Betti numbers</strong></span>: numbers of independent components, loops, and cavities, respectively.</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>For a smooth, stationary, isotropic Gaussian input on a closed interval, square, or cube of side length <span class="math inline">\(L\)</span>, the paper predicts the mean Euler characteristic (<a href="../papers/mainali-2025-universal-statistics.pdf#page=15">Eqs. 8–10</a>). Let <span class="math inline">\(r=L/\sigma\)</span> and <span class="math inline">\(Q(q)=\Pr(Z&gt;q)\)</span> for a standard normal variable <span class="math inline">\(Z\)</span>. Then</p>
+<p><span class="math display">\[ \begin{aligned} \mathbb E[\chi_1]&amp;=Q(q)+\frac{r}{2\pi}e^{-q^2/2},\\ \mathbb E[\chi_2]&amp;=Q(q)+\left[\frac{2r}{2\pi}+\frac{r^2q}{(2\pi)^{3/2}}\right]e^{-q^2/2},\\ \mathbb E[\chi_3]&amp;=Q(q)+\left[\frac{3r}{2\pi}+\frac{3r^2q}{(2\pi)^{3/2}}+\frac{r^3(q^2-1)}{(2\pi)^2}\right]e^{-q^2/2}. \end{aligned} \]</span></p>
+<p>The subscript gives the spatial dimension, <span class="math inline">\(q\)</span> is the normalized input threshold, and <span class="math inline">\(\sigma\)</span> is the local spatial scale. The terms involving powers of <span class="math inline">\(r\)</span> include interior and boundary contributions. These formulas predict the mean signed topology, not necessarily the number of fields when holes or tunnels are present. The calculation below explains their terms.</p>
+<p>The expected Euler characteristic has an exact Gaussian formula even where identifying it with field count would be wrong. We already derived the 1D case. To understand the higher dimensional factors, we use a mathematical result. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>critical point</strong></span> is a location where the gradient is zero.</span> <span class="definition-explanation">For a smooth function on a compact domain with invertible Hessians at its critical points and suitable boundary conditions, <span class="definition-term" data-custom-style="Definition Term"><strong>Morse theory</strong></span> expresses the Euler characteristic as a signed count of critical points, including boundary contributions.</span> We do not prove that topological theorem here. The calculation below shows how its Gaussian expectation produces the paper’s polynomials and boundary terms. The general Gaussian result is given by Taylor’s kinematic formula.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>The signs have a geometric meaning. In 2D, lowering the threshold through a maximum creates an active component, adding one to <span class="math inline">\(\chi\)</span>. Passing a saddle joins two components or opens a hole, subtracting one. Passing a minimum fills a hole, adding one. As in the <a href="ch-place-sizes.html#sec-place-rare-peaks">peak and saddle example</a>, the Hessian has two negative eigenvalues at a maximum, opposite signs at a saddle, and two positive eigenvalues at a minimum. The determinant is the product of the eigenvalues; for a two-dimensional Hessian, <span class="math inline">\(\det(-H)\)</span> is the product of their negatives. It therefore has the required signs <span class="math inline">\(+,-,+\)</span>. These signs require nonzero eigenvalues; a flat critical direction needs a different analysis. The boundary terms account for changes at the edge of the observed region. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<p>First take the interior of a <span class="math inline">\(j\)</span> dimensional region, with <span class="math inline">\(j\le3\)</span>, and set <span class="math inline">\(\lambda=\sigma^{-2}\)</span>. Here <span class="math inline">\(z\)</span> is the unit-variance input map, <span class="math inline">\(H\)</span> is its Hessian of second spatial derivatives, and <span class="math inline">\(\nabla z\)</span> is its gradient. A critical point has gradient zero. The multidimensional Kac–Rice rule counts these zeros with the absolute Hessian determinant. The Morse signs replace that absolute determinant by <span class="math inline">\(\det(-H)\)</span>. The resulting signed density above level <span class="math inline">\(q\)</span> is <!-- vale ai-tells.EmDashUsage = YES --></p>
+<p><span class="math display">\[ \eta_j(q)=p_{\nabla z}(0) \int_q^\infty \mathbb E[\det(-H)\mid z=b,\nabla z=0]\,\phi(b)\,db, \]</span></p>
+<p>Here <span class="math inline">\(\eta_j(q)\)</span> is the expected signed critical-point count per unit <span class="math inline">\(j\)</span>-dimensional volume above threshold <span class="math inline">\(q\)</span>, <span class="math inline">\(b\)</span> is a possible input height in the integral, and <span class="math inline">\(p_{\nabla z}(0)\)</span> is the gradient density at zero. The standard-normal height density is <span class="math inline">\(\phi(b)=e^{-b^2/2}/\sqrt{2\pi}\)</span>. The gradient’s <span class="math inline">\(j\)</span> components are independent Gaussians of variance <span class="math inline">\(\lambda\)</span>, so <span class="math inline">\(p_{\nabla z}(0)=(2\pi\lambda)^{-j/2}\)</span>. The determinant measures how spatial volume near a gradient zero converts to gradient volume, just as the slope did for a scalar crossing.</p>
+<p>The resulting signed densities are</p>
+<p><span class="math display">\[ \eta_1=\frac{e^{-q^2/2}}{2\pi\sigma},\qquad \eta_2=\frac{q e^{-q^2/2}}{(2\pi)^{3/2}\sigma^2},\qquad \eta_3=\frac{(q^2-1)e^{-q^2/2}}{(2\pi)^2\sigma^3}. \]</span></p>
+<p>These are signed densities per length, area, and volume, not three formulas for positive field counts.</p>
+<p><strong>[Guide derivation: the Gaussian determinant average]</strong> Write the conditional Hessian as <span class="math inline">\(H=-b\lambda I+G\)</span>, where <span class="math inline">\(G\)</span> has zero mean. Differentiating an isotropic covariance four times gives, for distinct indices <span class="math inline">\(i,k\)</span>,</p>
+<p><span class="math display">\[ \mathbb E[G_{ii}G_{kk}]=\kappa-\lambda^2, \qquad \mathbb E[G_{ik}^2]=\kappa. \]</span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>The constant <span class="math inline">\(\kappa\)</span> describes a fourth derivative of covariance. Conditioning on height subtracts <span class="math inline">\(\lambda^2\)</span> from the covariance of the two diagonal entries, but not from the off-diagonal variance. Hence each pair contributes <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ \mathbb E[G_{ii}G_{kk}-G_{ik}^2]=-\lambda^2. \]</span></p>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p>For <span class="math inline">\(j=1\)</span>, <span class="math inline">\(\mathbb E[\det(-H)\mid b]=b\lambda\)</span>. For <span class="math inline">\(j=2\)</span>, expand the two by two determinant to obtain <span class="math inline">\(\lambda^2(b^2-1)\)</span>. For <span class="math inline">\(j=3\)</span>, the leading term is <span class="math inline">\(b^3\lambda^3\)</span>. The three index pairs each contribute <span class="math inline">\(-b\lambda^3\)</span>, and all odd centered Gaussian products vanish. The result is <span class="math inline">\(\lambda^3(b^3-3b)\)</span>. The unknown fourth derivative <span class="math inline">\(\kappa\)</span> has canceled. <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<p>Integrating the three polynomials gives</p>
+<p><span class="math display">\[ \begin{aligned} \int_q^\infty b\phi(b)\,db&amp;=\phi(q),\\ \int_q^\infty(b^2-1)\phi(b)\,db&amp;=q\phi(q),\\ \int_q^\infty(b^3-3b)\phi(b)\,db&amp;=(q^2-1)\phi(q). \end{aligned} \]</span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>For example, differentiate <span class="math inline">\(-q\phi(q)\)</span> to get <span class="math inline">\((q^2-1)\phi(q)\)</span>, which verifies the second integral using its vanishing upper endpoint. Combining the determinant, gradient density, and integral gives the signed densities above. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>Now include the boundary of an ordinary closed square or cube of side <span class="math inline">\(L\)</span>, whose opposite faces are not joined and with every intersecting component retained. On a <span class="math inline">\(j\)</span> dimensional face, derivatives along the face give the same calculation as above. Each of its <span class="math inline">\(d-j\)</span> gradient components perpendicular to the face and directed out of the box must have the appropriate sign to contribute to the boundary Morse count. Symmetry and independence give a factor <span class="math inline">\(2^{-(d-j)}\)</span>. There are <span class="math inline">\(2^{d-j}\binom dj\)</span> such faces, each of size <span class="math inline">\(L^j\)</span>. Their combined coefficient is therefore <span class="math inline">\(\binom djL^j\)</span>. Corners supply <span class="math inline">\(Q(q)\)</span> in total, where <span class="math inline">\(Q(q)=\Pr(Z&gt;q)\)</span> for a standard normal variable <span class="math inline">\(Z\)</span>, as in the <a href="ch-place-fields.html#sec-place-kac-rice">one-dimensional crossing calculation</a>. With <span class="math inline">\(r=L/\sigma\)</span>, the formulas become <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ \begin{aligned} \mathbb E[\chi_1]&amp;=Q(q)+\frac{r}{2\pi}e^{-q^2/2},\\ \mathbb E[\chi_2]&amp;=Q(q)+ \left[\frac{2r}{2\pi}+\frac{r^2q}{(2\pi)^{3/2}}\right]e^{-q^2/2},\\ \mathbb E[\chi_3]&amp;=Q(q)+ \left[\frac{3r}{2\pi}+\frac{3r^2q}{(2\pi)^{3/2}} +\frac{r^3(q^2-1)}{(2\pi)^2}\right]e^{-q^2/2}. \end{aligned} \]</span></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<p>These reproduce the paper’s Equations 8–10 for interval, square, and cube geometry. They are not the formulas for a periodic box. For a rectangle or rectangular room, replace <span class="math inline">\(2L\)</span> or <span class="math inline">\(3L\)</span> by the sum of side lengths, <span class="math inline">\(3L^2\)</span> by the sum of pairwise side products, and <span class="math inline">\(L^3\)</span> by volume. A general domain requires its own geometric boundary factors. Applying only the volume term to a small room would discard real boundary contributions. <!-- vale ai-tells.EmDashUsage = YES --></p>
+<p>The formulas have two limiting checks:</p>
+<ul>
+<li>As <span class="math inline">\(q\to-\infty\)</span>, the whole box becomes active and all three expectations tend to one.</li>
+<li>As <span class="math inline">\(q\to+\infty\)</span>, they tend to zero.</li>
+</ul>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<!-- vale ai-tells.OverusedVocabulary = NO -->
+<p>At intermediate thresholds the higher dimensional signed densities can be negative because tunnels or holes outnumber components. For example a cube with <span class="math inline">\(L/\sigma=10\)</span> has expected <span class="math inline">\(\chi=-20.06\)</span> at <span class="math inline">\(q=0\)</span>. A negative expected Euler characteristic is meaningful. A negative expected field count would not be. <!-- vale ai-tells.OverusedVocabulary = YES --> <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p>Thresholding one fixed smooth map separates the number of connected fields from the number of holes.</p>
+<div class="figure-scroll">
+<div id="fig-place-topology" class="quarto-float quarto-figure quarto-figure-center anchored" alt="At q=0.3, the smooth two-dimensional map has one component with two holes and chi minus one. At q=0.5, it has one component with one hole and chi zero. At q=0.8, it has four components with no holes and chi four. At q=1.0, it has three components with no holes and chi three. Each active set is contained in the preceding one as q increases.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-place-topology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-place-topology.png" class="img-fluid figure-img" style="width:7.29167in" alt="At q=0.3, the smooth two-dimensional map has one component with two holes and chi minus one. At q=0.5, it has one component with one hole and chi zero. At q=0.8, it has four components with no holes and chi four. At q=1.0, it has three components with no holes and chi three. Each active set is contained in the preceding one as q increases.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-place-topology-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.3: As the threshold rises on one constructed smooth map, components and holes change separately, giving Euler characteristics -1, 0, 4, and 3. The above-threshold regions shrink as the threshold rises, while the Euler characteristic can rise or fall. This guide example is not an observed place-field map or a Gaussian-process sample. It illustrates Mainali et al.&nbsp;(2025), Figure 3F–H and STAR Methods Equations 8–10.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>A negative chi means that holes outnumber components in this 2D example. It does not mean a negative number of fields. When holes are absent, chi equals the component count.</p>
+<p>At a sufficiently high threshold, almost every component is a small solid blob with one peak and no holes. Then <span class="math inline">\(\chi\simeq N\)</span>. For a large box, retaining the leading volume term and the leading power of <span class="math inline">\(q\)</span> gives</p>
+<p><span class="math display">\[ \mathbb E[N]\simeq \frac{V}{(2\pi)^{(d+1)/2}\sigma^d} q^{d-1}e^{-q^2/2}, \]</span></p>
+<p>where <span class="math inline">\(V\)</span> is environment length, area, or volume. For a large domain with negligible boundary contributions, the pooled field-weighted mean size <span class="math inline">\(\mu_s\)</span> is the expected total active volume <span class="math inline">\(VQ(q)\)</span> divided by the expected component count, counting each field once. This ratio is not generally the expected value of the per-map average field size in a finite domain. Use <span class="math inline">\(Q(q)\simeq e^{-q^2/2}/(\sqrt{2\pi}q)\)</span> for high positive <span class="math inline">\(q\)</span>. The factors <span class="math inline">\(V\)</span> and <span class="math inline">\(e^{-q^2/2}\)</span> cancel, leaving <span class="math inline">\(\mu_s\simeq(\sqrt{2\pi}\sigma/q)^d\)</span>. This independently checks the size-law mean. <span class="key-statement">The exact EC formula and this approximate component count have different ranges of validity.</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<p>Read Figure 3F–H as whole curves, rather than single field counts. Increasing the applied firing rate cutoff by <span class="math inline">\(t\ge0\)</span> changes the normalized level to <span class="math inline">\(q+t/a\)</span>. It can reveal separation between peaks or remove components. The measured maps only test levels at or above their original effective cutoff. The rest of an analytic curve is a prediction. The gain was matched using mean maximum firing rate before the EC comparison, so the horizontal conversion from Hz to normalized level also uses fitted information. Two dimensional holes and three dimensional tunnels help explain the nonmonotonic curves.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+</section>
+<section id="sec-place-data" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="sec-place-data"><span class="header-section-number">12.2</span> What was fitted and what was tested</h2>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>The experiments supply estimated firing rate maps, not the hidden Gaussian input. To assess a prediction, we must therefore track both which summaries set its parameters and which processing decisions change the map’s geometry. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<p>The paper reanalyzes earlier bat and rodent recordings. It uses different available summaries in different conditions. The inspected article and supplement do not clearly give the final included cell count for every analysis, particularly the long-tunnel and 3D reanalyses. Counts from an original recording study should therefore not be silently substituted for those final samples.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <!-- vale ai-tells.ParallelStaccato = YES --> <!-- vale ai-tells.FormalTransitions = YES --></p>
+<div class="table-responsive">
+<div id="tbl-place-data-comparisons" class="publisher-fold-never publisher-row-labels quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-place-data-comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;12.1: Fitted quantities and additional comparisons.
+</figcaption>
+<div aria-describedby="tbl-place-data-comparisons-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="publisher-fold-never publisher-row-labels caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Condition</th>
+<th>Quantities used to choose parameters</th>
+<th>Main additional comparisons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bats, 200 m tunnel</td>
+<td>mean field length and mean gap</td>
+<td>full distributions, log-length moments, peaks, boundary slopes, rate versus width, EC</td>
+</tr>
+<tr class="even">
+<td>Bats, 6 m tunnel</td>
+<td>mean field length and occupied fraction</td>
+<td>length distribution and simpler field shapes. Figure 5D reports 40 cells.</td>
+</tr>
+<tr class="odd">
+<td>Bats in a 130 m tunnel and rats in a 48 m maze</td>
+<td>mean length and mean field count</td>
+<td>length distributions and parameter trends. Rat details are in Figure S1.</td>
+</tr>
+<tr class="even">
+<td>Mice, 40 m virtual track</td>
+<td>direct fit of <span class="math inline">\(\beta\)</span> to available length histograms</td>
+<td>qualitative Rayleigh comparison for four mice in Figure 1F</td>
+</tr>
+<tr class="odd">
+<td>Rats, 18.6 m<span class="math inline">\(^2\)</span> arena</td>
+<td>mean area and count, with silent-cell exclusion correction</td>
+<td>areas, counts, line slices, and EC. Slice and EC analyses of the raw maps use 20 supplied cells.</td>
+</tr>
+<tr class="even">
+<td>Bats, 5.8 by 4.6 by 2.7 m room</td>
+<td>mean volume and occupied volume fraction</td>
+<td>volumes, line/plane slices, rate versus linear size, EC, surface curvature</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<p>The STAR Methods call the virtual-track animals rats in one sentence. Figure 1F and the main results identify them as mice. Several STAR figure cross-references also appear displaced. The table follows the main figure captions and the analyses described in full, rather than those isolated labels.</p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>Figure 1C distinguishes a limiting analytical Rayleigh curve from the finite threshold simulation histogram. Its parameters were constrained by both mean length and mean gap, so the full length histogram is an additional check. Figure 1D does the same for gaps. Panel E tests whether the shape of the log-length distribution agrees with the model beyond its mean and variance.</p>
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<p>For <span class="math inline">\(Y=\log s\)</span>, write <span class="math inline">\(m_k=\mathbb E[(Y-\mathbb EY)^k]\)</span>. <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>Skew</strong></span>, <span class="math inline">\(m_3/m_2^{3/2}\)</span>, measures signed asymmetry: the cubed deviations retain their signs, so unusually large log lengths contribute positively and unusually small ones negatively.</span> <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>Excess kurtosis</strong></span>, <span class="math inline">\(m_4/m_2^2-3\)</span>, measures the fourth moment relative to a Gaussian with the same variance. The fourth power weights large departures from the mean strongly, on either side.</span> A positive value means a larger fourth moment than that Gaussian reference. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>lognormal distribution</strong></span> of lengths makes <span class="math inline">\(Y\)</span> Gaussian and both quantities zero.</span> Nonzero population values therefore rule out that lognormal description. Zero values alone do not prove it, and finite sample estimates fluctuate, which is why the figure compares simulated sampling distributions.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <!-- vale ai-tells.ParallelStaccato = YES --> <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p>For the long-tunnel data, the authors compared the Gaussian excursion model with a fitted lognormal using likelihoods, the probabilities or densities each model assigns to the observed data, and criteria that penalize fitted parameter count. Those comparisons favored the Gaussian model. <span class="key-statement">These are in-sample model comparisons. They are not reported held-out forecasts.</span> Model histogram error bars come from <span class="math inline">\(10^4\)</span> simulations matched to the number of recorded cells. They do not quantify every source of animal-level or measurement uncertainty.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>The processing choices affect the quantities being compared:</p>
+<ul>
+<li>Bat maps were rectified at about 0.5 Hz for denoising: rates below this cutoff were set to zero, removing weak activity from the measured fields.</li>
+<li>The 3D maps, sampled in 10 cm bins, also received a <span class="definition-term" data-custom-style="Definition Term"><strong>median filter</strong></span>, which replaces each bin’s rate with a middle-ranked rate in its local neighborhood. The paper used a neighborhood two bins wide on each axis. This reduces isolated high or low values but can also change small field features.</li>
+<li>Fields larger than three standard deviations above mean 3D volume were removed as possible merges, including from slice analyses.</li>
+<li>Peak counting excluded incomplete boundary fields and used a range of smoothing widths.</li>
+<li>The 1D rate versus width comparison used an additional 1 Hz cutoff.</li>
+</ul>
+<!-- vale ai-tells.VerbTricolon = NO -->
+<p><span class="key-statement">These decisions can remove small components, alter peaks, and change tails. They belong to the definition of the analyzed fields.</span><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> <!-- vale ai-tells.VerbTricolon = YES --></p>
+<p>Figure S1 matches the rat maze’s 15 cm minimum length cutoff in simulations and removes unusually large empirical fields. Changing that cutoff changes log-length moments. Figure S5 shows sensitivity of the higher-moment comparison across small denoising thresholds, while the rate versus width slope becomes stable above about 1 Hz. Figure S2 compares the spherical-field alternative and measures boundary curvature. <span class="definition-explanation">Locally, <span class="definition-term" data-custom-style="Definition Term"><strong>mean curvature</strong></span> averages bending in two principal directions and <span class="definition-term" data-custom-style="Definition Term"><strong>Gaussian curvature</strong></span> multiplies them: a spherical patch bends the same way in both directions, while a saddle bends in opposite directions.</span> These are extra shape measurements. They are not needed to derive the field-size law. Surface representations and finite differences affect their estimates.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Mainali, Azeredo da Silveira, and Burak (2025), Figure S1
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-place-s1" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Panels A–C compare rat field length, log length skew and kurtosis with model and exponential alternatives.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-place-s1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-place-s1.png" class="img-fluid figure-img" style="width:6.5in" alt="Panels A–C compare rat field length, log length skew and kurtosis with model and exponential alternatives.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-place-s1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.4: The rat comparison uses the same minimum field length in recorded and simulated maps. Original Figure S1 from Mainali, Azeredo da Silveira, and Burak (2025). Exact artwork excerpt. <a href="../papers/mainali-2025-supplement.pdf#page=2">PDF page 2</a>. <a href="../assets/fig-paper-place-s1.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Mainali, Azeredo da Silveira, and Burak (2025), Figure S5
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-place-s5" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Panels A–B show log size skew and kurtosis distributions across thresholds and the inferred rate versus width slope across thresholding range.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-place-s5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-place-s5.png" class="img-fluid figure-img" style="width:6.5in" alt="Panels A–B show log size skew and kurtosis distributions across thresholds and the inferred rate versus width slope across thresholding range.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-place-s5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.5: Denoising thresholds alter log size moments, while the rate versus width slope stabilizes above about one Hz. Original Figure S5 from Mainali, Azeredo da Silveira, and Burak (2025). Exact artwork excerpt. <a href="../papers/mainali-2025-supplement.pdf#page=7">PDF page 7</a>. <a href="../assets/fig-paper-place-s5.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.FormalTransitions = NO -->
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<p>Figure 4A–B summarizes fitted parameter changes across a small set of environments. The correlation length increases with environment size while the threshold generally decreases. At fixed <span class="math inline">\(q\)</span>, increasing <span class="math inline">\(\sigma\)</span> reduces crossings per metre. At fixed <span class="math inline">\(\sigma\)</span>, the crossing density is proportional to <span class="math inline">\(e^{-q^2/2}\)</span>: lowering a positive <span class="math inline">\(q\)</span> toward zero increases it, while lowering a negative <span class="math inline">\(q\)</span> decreases it. Both parameters also affect mean length, so these effects must be considered together. Figure S3 reports count scaling exponents below one and hence a weak decline in count per unit environment size. These cross-experiment trends do not establish a biological scaling law. In particular, the 3D table’s reported <span class="math inline">\(\sigma=4.0\)</span> has an unclear distance-unit conversion relative to the spatial binning, so it should not be read as a verified value in metres.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> <!-- vale ai-tells.ParallelStaccato = YES --> <!-- vale ai-tells.FormalTransitions = YES --> <!-- vale ai-tells.EmDashUsage = YES --></p>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Mainali, Azeredo da Silveira, and Burak (2025), Figure 4
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-place-4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Panels A–C show fitted parameters across environments, correlation length versus environment size and short tunnel rate versus field size with a local peak inset.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-place-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-place-4.png" class="img-fluid figure-img" style="width:6.5in" alt="Panels A–C show fitted parameters across environments, correlation length versus environment size and short tunnel rate versus field size with a local peak inset.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-place-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.6: Fitted map scale grows with environment size, while the threshold and field shape also change. Original Figure 4 from Mainali, Azeredo da Silveira, and Burak (2025). Exact artwork excerpt. <a href="../papers/mainali-2025-universal-statistics.pdf#page=8">PDF page 8</a>. <a href="../assets/fig-paper-place-4.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Mainali, Azeredo da Silveira, and Burak (2025), Figure S3
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-place-s3" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Panels A–B show log field size and log field count versus environment size with fitted slopes for one and two dimensional recordings.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-place-s3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-place-s3.png" class="img-fluid figure-img" style="width:6.5in" alt="Panels A–B show log field size and log field count versus environment size with fitted slopes for one and two dimensional recordings.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-place-s3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.7: Field counts grow more slowly than environment size in these cross experiment comparisons. Original Figure S3 from Mainali, Azeredo da Silveira, and Burak (2025). Exact artwork excerpt. <a href="../papers/mainali-2025-supplement.pdf#page=5">PDF page 5</a>. <a href="../assets/fig-paper-place-s3.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p>The model also allows differences between cells. Figure S4 draws a positive threshold separately for each cell and keeps that threshold for two otherwise independent maps representing opposite flight directions. Low-threshold cells tend to have more and larger fields in both maps. This shared cell property creates correlations between flight directions even when field locations differ between directions. Two distribution parameters were chosen to match the two empirical correlations, so those correlations are fitted features of this extension. Its continued agreement with length and gap distributions is the additional comparison. This extension should not be described as a two-parameter model shared by all cells.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<details class="publisher-long-content publisher-source-figure">
+<summary>
+Original paper figure: Mainali, Azeredo da Silveira, and Burak (2025), Figure S4
+</summary>
+<div class="publisher-fold-body">
+<div id="fig-paper-place-s4" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Panels A–F show the shared threshold setup, count and size correlations, threshold distribution and field length and gap comparisons.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-paper-place-s4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-paper-place-s4.png" class="img-fluid figure-img" style="width:6.5in" alt="Panels A–F show the shared threshold setup, count and size correlations, threshold distribution and field length and gap comparisons.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-paper-place-s4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;12.8: A shared threshold for each cell creates correlations between maps for opposite flight directions. Original Figure S4 from Mainali, Azeredo da Silveira, and Burak (2025). Exact artwork excerpt. <a href="../papers/mainali-2025-supplement.pdf#page=6">PDF page 6</a>. <a href="../assets/fig-paper-place-s4.png">Open image at full size</a>.
+</figcaption>
+</figure>
+</div>
+</div>
+</details>
+</section>
+<section id="sec-place-wiring" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="sec-place-wiring"><span class="header-section-number">12.3</span> Random input weights can generate Gaussian maps</h2>
+<p>The statistical model becomes biologically useful if it suggests how a circuit could make the maps. A random weighted sum of many inputs is one possible mechanism, and the supplement makes its assumptions explicit.</p>
+<p>At position <span class="math inline">\(x\)</span>, each input cell contributes according to its spatial firing profile. Fixed connection weights determine how those contributions combine at the receiving cell. The source treats the sum as effective input relative to a background that can be balanced through inhibition or regulation of excitation and inhibition. The signed random weights below are part of this simplified input model. They do not establish the signs of individual biological synapses.</p>
+<p>Let <span class="math inline">\(u_i(x)\)</span> be the fixed spatial tuning of input neuron <span class="math inline">\(i\)</span>, and let independent weights <span class="math inline">\(W_i\)</span> have zero mean and variance <span class="math inline">\(v_W\)</span>. The profiles <span class="math inline">\(u_i\)</span> may have nonzero spatial means. The expectation below is over weights: their zero means make the summed input <span class="math inline">\(h(x)\)</span> have mean zero. The summed input is</p>
+<p><span class="math display">\[ h(x)=\sum_{i=1}^n W_i u_i(x). \]</span></p>
+<!-- vale ai-tells.FillerIntensifier = NO -->
+<p><span class="key-statement">At a finite list of positions this is a sum of independent random vectors, one per input cell. Under a multivariate central limit condition, with a suitable normalization and no single input dominating, the sum approaches a Gaussian vector as the number of contributing inputs grows. Applying this at every finite list supplies the Gaussian-process description. This Gaussian limit requires many contributing inputs at each position. A large anatomical input count alone does not establish how many inputs contribute there.</span><a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> <!-- vale ai-tells.FillerIntensifier = YES --></p>
+<p>The covariance calculation exposes which assumption supplies spatial structure:</p>
+<p><span class="math display">\[ \begin{aligned} \mathbb E[h(x)h(y)] &amp;=\sum_{i,j}\mathbb E[W_iW_j]u_i(x)u_j(y)\\ &amp;=v_W\sum_i u_i(x)u_i(y). \end{aligned} \]</span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>The same fixed weight multiplies an input cell’s activity at both positions. For positive input profiles, cells active at both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> therefore make positive contributions to covariance across possible weight choices. Little overlap gives a smaller contribution. For profiles defined as deviations from background, the products can also be negative. Broad input profiles can produce broad spatial covariance, as the Gaussian example below shows. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p>If inputs are translated copies <span class="math inline">\(u_i(x)=u_0(x-x_i)\)</span> with centres densely and uniformly covering space at density <span class="math inline">\(\rho\)</span>, the sum is approximately</p>
+<p><span class="math display">\[ C(y-x)\simeq v_W\rho\int u_0(s)u_0(s+y-x)\,ds. \]</span></p>
+<p>The assumptions supply different parts of the model:</p>
+<ul>
+<li>Uniform coverage supplies stationarity away from boundaries.</li>
+<li>Smooth input tuning supplies smoothness.</li>
+<li>Random weights supply the Gaussian limit under their independence and size conditions.</li>
+</ul>
+<p>For input profiles with different shapes, average the last integral over the distribution of those shapes, as in Methods S2, Equation S8.</p>
+<p>At fixed profile shape, increasing the weight variance <span class="math inline">\(v_W\)</span> or input density <span class="math inline">\(\rho\)</span> increases the covariance amplitude. It does not change the normalized spatial dependence in this construction. Widening each input profile broadens the distances over which positions share input. It can also change the covariance amplitude and hence the normalized threshold <span class="math inline">\(q\)</span> when the absolute threshold is fixed. To isolate an effect of spatial scale at fixed <span class="math inline">\(q\)</span>, the input amplitude or absolute threshold must be adjusted accordingly.</p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>For example, take <span class="math inline">\(u_0(s)=R_0e^{-s^2/(2b^2)}\)</span> in one dimension, where <span class="math inline">\(s\)</span> is distance from an input cell’s centre, <span class="math inline">\(R_0\)</span> is its peak firing rate, <span class="math inline">\(b&gt;0\)</span> is the profile width, and <span class="math inline">\(\Delta=y-x\)</span> is the separation between the two positions whose input covariance is being calculated. To develop the covariance integral, first complete the square: <span class="math inline">\([s^2+(s+\Delta)^2]/(2b^2)=(s+\Delta/2)^2/b^2+\Delta^2/(4b^2)\)</span>. The shifted Gaussian integrates to <span class="math inline">\(\sqrt\pi b\)</span>, giving <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ \int u_0(s)u_0(s+\Delta)\,ds =R_0^2\sqrt\pi b\,e^{-\Delta^2/(4b^2)}. \]</span></p>
+<p>The covariance has Gaussian width parameter <span class="math inline">\(\sqrt2 b\)</span>. Its second derivative at zero gives the same correlation length, <span class="math inline">\(\sigma=\sqrt{-C(0)/C''(0)}=\sqrt2 b\)</span>. Thus widening the input profile increases the correlation length in proportion to <span class="math inline">\(b\)</span> in this ideal construction. The square of the Gaussian width doubles relative to <span class="math inline">\(b^2\)</span>, which is consistent with the supplement’s description of twice the width if that description uses the squared width. This comparison describes the input covariance; field sizes also depend on the threshold and need not change by the same factor.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></p>
+<!-- vale ai-tells.StrawmanContrast = NO -->
+<p>Agreement with the Gaussian field predictions supports this random-summation account as a possible explanation. It does not uniquely recover synaptic weights from rate maps. Correlated inputs, a structured component added to many random contributions, plasticity, or recurrent processing could also produce approximately Gaussian spatial input under some conditions. The paper measures rate maps, rather than the relevant weights or subthreshold input directly. Its analyzed environments were familiar and fairly uniform. Stationarity may fail near landmarks, boundaries, rewards, or in changing tasks.<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a> <!-- vale ai-tells.StrawmanContrast = YES --></p>
+<!-- vale ai-tells.NounString = NO -->
+<p><span class="key-statement">Thresholding a smooth spatial Gaussian input predicts field arrangement, shape, and topology from a small set of parameters. Several comparisons with recordings support these predictions. Inferring a circuit mechanism from this agreement requires additional measurements or perturbations.</span> <!-- vale ai-tells.NounString = YES --></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale Google.Units = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figure 3F–H; STAR Methods, “Euler characteristics,” Equations 8–10, p.&nbsp;e3. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Taylor, J. E. (2006). <em>A Gaussian kinematic formula</em>. The Annals of Probability, 34(1), 122–158. <a href="https://doi.org/10.1214/009117905000000594">DOI</a>; <a href="https://arxiv.org/pdf/math/0602545">author preprint</a>, Equation 1.4, Theorem 4.1, Section 5.1 and Equation 5.1. This chapter uses the signed critical-point and boundary-counting framework, then derives the Gaussian algebra for dimensions at most three and the face factors for a box, matching Mainali et al.’s Equations 8–10. It does not prove the underlying Morse or kinematic theorem. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Supplemental Methods S3, Equations S16–S17, p.&nbsp;12. These are high threshold, volume-dominated approximations. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figure 3F–H; STAR Methods, “Euler characteristics,” Equations 8–10, p.&nbsp;e3. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, STAR Methods, “Data processing,” “Parameter inference,” “Fields in 3D,” “Number of local peaks within a field,” and “Maximum firing rate vs.&nbsp;field width,” pp.&nbsp;e2–e3; Figures 1F, 2, 5D. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figure 1C–F; STAR Methods, “Fields in 1D,” “Kurtosis and skew,” Equations 6–7, pp.&nbsp;e2–e3. Centered moment notation is made explicit here. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figure 1C–F; STAR Methods, “Fields in 1D,” “Kurtosis and skew,” Equations 6–7, pp.&nbsp;e2–e3. Centered moment notation is made explicit here. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, STAR Methods, “Data processing,” “Parameter inference,” “Fields in 3D,” “Number of local peaks within a field,” and “Maximum firing rate vs.&nbsp;field width,” pp.&nbsp;e2–e3; Figures 1F, 2, 5D. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figures S1–S2 and S5, supplemental pp.&nbsp;1–3, 6–7. Curvature comparisons use local surface derivatives. The empirical surface representation does not supply an exact analytic reconstruction of every field surface. <!-- vale ai-tells.ParallelStaccato = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figure 4A–B and accompanying text, p.&nbsp;1116; Figure S3, supplemental p.&nbsp;4. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Figure S4 and caption, supplemental p.&nbsp;5; “Parameter variation across experiments,” p.&nbsp;1116. The threshold distribution is positive-conditioned skew normal, its mean fixed to the baseline fit and its two remaining parameters fitted to correlations. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Supplemental Methods S2, Equations S2–S8, pp.&nbsp;9–10; Figure 1B. The Gaussian autocorrelation integral is evaluated explicitly here. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale Google.Units = YES --><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Supplemental Methods S2, Equations S2–S8, pp.&nbsp;9–10; Figure 1B. The Gaussian autocorrelation integral is evaluated explicitly here. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale Google.Units = YES --><a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>Mainali et al.&nbsp;(2025), <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>, Neuron, 113, 1110–1120.e3, <a href="https://doi.org/10.1016/j.neuron.2025.01.017">doi:10.1016/j.neuron.2025.01.017</a>, Discussion, pp.&nbsp;1117–1118. The distinction between a sufficient mechanism and a uniquely identified mechanism is this guide’s inference from the model and measurement scope. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/ch-place-sizes.html" class="pagination-link" aria-label="High peaks explain size laws across dimensions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/ch-synthesis.html" class="pagination-link" aria-label="Spatial maps and memory dynamics need separate tests">
+        <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

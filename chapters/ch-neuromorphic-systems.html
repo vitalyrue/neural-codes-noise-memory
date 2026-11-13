@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>17&nbsp; Neuromorphic chips choose where physics performs the calculation – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/ch-hardware-tests.html" rel="next">
+<link href="../chapters/ch-hardware-dynamics.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-hardware.html">Part III: Neural memory in electronic hardware</a></li><li class="breadcrumb-item"><a href="../chapters/ch-neuromorphic-systems.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-neuromorphic-systems-architectures" id="toc-sec-neuromorphic-systems-architectures" class="nav-link active" data-scroll-target="#sec-neuromorphic-systems-architectures"><span class="header-section-number">17.1</span> Digital and analog implementations expose different parts of the neural model</a></li>
+  <li><a href="#sec-neuromorphic-systems-advances" id="toc-sec-neuromorphic-systems-advances" class="nav-link" data-scroll-target="#sec-neuromorphic-systems-advances"><span class="header-section-number">17.2</span> Recent results improve temporal computation, adaptation, and device stability</a></li>
+  <li><a href="#sec-neuromorphic-systems-limits" id="toc-sec-neuromorphic-systems-limits" class="nav-link" data-scroll-target="#sec-neuromorphic-systems-limits"><span class="header-section-number">17.3</span> Explicit slow memory is a current design choice, with distinct costs</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-hardware.html">Part III: Neural memory in electronic hardware</a></li><li class="breadcrumb-item"><a href="../chapters/ch-neuromorphic-systems.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-neuromorphic-systems" class="quarto-section-identifier"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Suppose we want to study how a noisy network retains an angle. One machine can calculate every state update as arithmetic. Another can let capacitor voltages perform part of the dynamics. A third can use material conductances to multiply inputs by stored weights. The scientific choice is which physical effects we want to control, measure, or exploit. This chapter compares these implementations and then examines recent demonstrations of memory and learning.</p>
+<!-- vale ai-tells.VerbTricolon = NO -->
+<p>The research snapshot is <strong>October 30, 2026</strong>. “State of the art” here means selected recent capabilities supported by primary papers, with older architecture papers supplying their physical explanation. It does not mean one machine leads every task. We distinguish measured chips, experiments partly run on a separate computer, and proposed hardware evaluated by simulation. A <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>host computer</strong></span> is a separate general-purpose computer that controls an experiment or performs calculations assigned outside the neuromorphic chip.</span> <!-- vale ai-tells.VerbTricolon = YES --></p>
+<p><strong>Draft diagrams:</strong> These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.</p>
+<div id="fig-draft-map-ch17-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed generated draft: first diagram for the chapter Neuromorphic chips choose where physics performs the calculation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch17-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch17-a.png" class="img-fluid figure-img" style="width:7in" alt="Unreviewed generated draft: first diagram for the chapter Neuromorphic chips choose where physics performs the calculation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch17-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.1: Unreviewed draft diagram, first part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them.
+</figcaption>
+</figure>
+</div>
+<div id="fig-draft-map-ch17-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed generated draft: second diagram for the chapter Neuromorphic chips choose where physics performs the calculation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch17-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch17-b.png" class="img-fluid figure-img" style="width:7in" alt="Unreviewed generated draft: second diagram for the chapter Neuromorphic chips choose where physics performs the calculation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch17-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;17.2: Unreviewed draft diagram, second part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them.
+</figcaption>
+</figure>
+</div>
+<section id="sec-neuromorphic-systems-architectures" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="sec-neuromorphic-systems-architectures"><span class="header-section-number">17.1</span> Digital and analog implementations expose different parts of the neural model</h2>
+<p>A useful platform must make the variables of interest accessible. If the question concerns a specific noise law, a digital update may allow precise control of the injected noise. If the question concerns physical circuit variability, analog dynamics expose that variability directly. Interpreting either choice as a biological result requires a matched model and experiment. <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>Hardware calibration</strong></span> adjusts circuit settings to make measured device responses match requested responses more closely.</span></p>
+<div class="table-responsive">
+<div id="tbl-neuromorphic-architectures" class="publisher-fold-never publisher-row-labels quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-neuromorphic-architectures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;17.1: Where selected neuromorphic systems store and update their variables.
+</figcaption>
+<div aria-describedby="tbl-neuromorphic-architectures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="publisher-fold-never publisher-row-labels caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>System</th>
+<th>Where weights and changing states reside</th>
+<th>How the neural state changes</th>
+<th>Consequence for a memory experiment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Loihi 2</td>
+<td>Local digital memory holds weights and neuron variables</td>
+<td>Programmable, finite-precision updates; events communicate between units</td>
+<td>Separate the chosen noise model and numerical precision from physical bit reliability</td>
+</tr>
+<tr class="even">
+<td>SpiNNaker2</td>
+<td>Demonstrated SNN workloads use local SRAM for parameters, weights, and states</td>
+<td>Processor software executes time-stepped neuron updates</td>
+<td>Check the update interval and whether the mapped workload meets its timing deadlines</td>
+</tr>
+<tr class="odd">
+<td>BrainScaleS-2</td>
+<td>Local 6-bit SRAM weights; physical analog membrane states</td>
+<td>Currents change capacitor voltages continuously</td>
+<td>Measure remaining differences between responses after calibration, and relate chip time to model time</td>
+</tr>
+<tr class="even">
+<td>PCM computing systems</td>
+<td>Conductances store weights; other states depend on the surrounding design</td>
+<td>Electrical reads form weighted sums; analog or digital circuits perform remaining operations</td>
+<td>Locate the recurrent state and host work before claiming a physical memory circuit</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<p>The first two rows describe digital neural computation, while BrainScaleS-2 directly implements parts of the differential equations in analog circuitry. Its dynamics run roughly a thousand times faster than the biological model time. That acceleration makes long model intervals accessible quickly, but communication and measurement delays still occur in physical time.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>On-chip learning</strong></span> means that circuitry on the chip computes and applies some weight changes.</span> It is distinct from loading previously trained weights. Loihi 2 offers programmable learning rules. SpiNNaker2’s 2026 technical preprint reports an on-chip learning implementation. BrainScaleS-2 combines local measurements with programmable processors that update weights. An experiment may still use weights trained beforehand or learning performed on a separate computer, so its learning setup must be checked.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</section>
+<section id="sec-neuromorphic-systems-advances" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="sec-neuromorphic-systems-advances"><span class="header-section-number">17.2</span> Recent results improve temporal computation, adaptation, and device stability</h2>
+<p>The following studies make progress on different parts of the memory problem. For each, ask what information persists and which physical component is responsible.</p>
+<p><strong>A useful input history on Loihi 2, 2025.</strong> Kleyko and colleagues implemented a stored history of recent inputs and functions of those inputs that include products. A trained readout uses these values to predict an output. This shows that changing chip state can supply useful information about recent inputs. It is not a measurement of indefinitely stable cue retention. Their pictured Hala Point system is much larger than the resources used in the experiment.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p><strong>Persistent spatial activity on SpiNNaker 2, September 2026.</strong> Aitsam and colleagues ran a 768-neuron recurrent sheet on one chip. A host computer processed the physical event camera’s output into a smoothed estimate of the target’s center and sent that position to the chip. The configured neural update used deterministic integer-weight dynamics, without an added stochastic neural-noise term. During an eight-second interval without input, the decoded activity center moved by at most half a cell. This establishes persistence for that interval, not a measured lifetime or a test of noise-driven diffusion. During tracking, recurrence reduced frame-to-frame jitter by 15% relative to the host-smoothed input, but added about 115 ms of lag and increased mean position error from 2.02 to 5.65 cells. The robot-guidance evaluation used a simulated robot, and its power figures were estimates. Longer-delay tests with controlled noise would help compare this implementation with the stochastic memory theory.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><strong>Rapid adaptation using PCM, 2025.</strong> Ortner and colleagues used physical PCM weights for a recurrent spiking network that produced robotic-arm commands after a task-specific update. Earlier training adjusted the model for rapid adaptation to new tasks. The PCM units performed matrix-vector products. Other operations ran on a host computer. This locates the demonstrated advance in weight adaptation and mixed hardware computation. It does not show that PCM cells themselves sustained an autonomous recurrent activity pattern.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p><strong>Reduced material drift, online 2025 and in a 2026 issue.</strong> Wang and colleagues measured low resistance drift in a chromium-telluride phase-change material, CrTe<span class="math inline">\(_3\)</span>. Reduced drift can help a programmed conductance continue representing the intended weight. Their demonstration of several programmed resistance levels used laser programming and electrical readout. Electrical switching was a separate demonstration. Operation with several levels in nanoscale devices, performance beyond a million programming cycles, and variability across large arrays remained open. This is progress in a storage material, not a complete multilevel neuromorphic processor.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<p><span class="key-statement">Better temporal state, faster adaptation, and more stable weights solve different problems, so progress in one does not establish the others.</span> For the Burak comparison, the missing measurement is often how a decoded value changes during an input-free delay.</p>
+</section>
+<section id="sec-neuromorphic-systems-limits" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="sec-neuromorphic-systems-limits"><span class="header-section-number">17.3</span> Explicit slow memory is a current design choice, with distinct costs</h2>
+<p>Fast spiking units can lose earlier inputs before a later decision needs them. One solution is to add a slower state that summarizes recent activity and sends input back to the fast units. Sun and colleagues’ 2026 dual-memory-pathway design takes this route. Their tested slow pathway uses a linear state based on a Legendre memory unit: several stored components summarize the shape of recent input over a sliding time window. It represents a recent input history, rather than a cue held unchanged on a continuous attractor. Its proposed digital hardware holds successive slow states in <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>registers</strong></span>, small, fast digital storage locations</span>, and other variables in SRAM. The hardware results came from post-layout simulations, which model a circuit after its physical layout has been designed. They were not measurements of a fabricated chip. The weights were trained before the evaluated tasks.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>A model with one stored number illustrates gradual forgetting without reproducing that richer input history. Let <span class="math inline">\(z_k\)</span> be current input to a stored quantity <span class="math inline">\(m_k\)</span>:</p>
+<p><span class="math display">\[ m_{k+1}=\alpha m_k+\beta z_k,\qquad 0&lt;\alpha&lt;1. \]</span></p>
+<p>Here <span class="math inline">\(m_k\)</span> is the stored state after update <span class="math inline">\(k\)</span>, <span class="math inline">\(z_k\)</span> is the input at that update, <span class="math inline">\(\alpha\)</span> is the retained fraction, and <span class="math inline">\(\beta\)</span> converts input units into state units. For gradual forgetting in this example, <span class="math inline">\(0&lt;\alpha&lt;1\)</span>. After input stops, <span class="math inline">\(m_{k+n}=\alpha^n m_k\)</span>. The state remembers earlier input through its present value, while gradually forgetting it. This model illustrates slow storage. It is not the full equations or an independent performance test of Sun and colleagues’ architecture.</p>
+<div class="publisher-worked-calculation publisher-fold-always">
+<p><strong>Example: the update interval determines the physical memory time.</strong></p>
+<p>If updates are separated by <span class="math inline">\(\Delta t\)</span>, equating <span class="math inline">\(\alpha^n\)</span> with <span class="math inline">\(e^{-n\Delta t/\tau_m}\)</span> gives <span class="math inline">\(\tau_m=-\Delta t/\ln\alpha\)</span>. With <span class="math inline">\(\Delta t=1\)</span> ms and <span class="math inline">\(\alpha=0.999\)</span>, <span class="math inline">\(\tau_m\)</span> is about 1 second. Executing the same updates a thousand times faster reduces that physical decay time to about 1 millisecond, unless the mapping between model time and wall time is changed. A number described as “slow” must be specified relative to other processes and the task clock.</p>
+</div>
+<p>Scaling a network also adds communication constraints. Ilmberger and Schemmel’s 2025 preprint measured communication in a four-chip BrainScaleS-2 prototype. The timing matters because its analog states continue changing while messages are transmitted. A small delay in wall time can be a substantial delay in accelerated model time.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p>The comparison needs a specified task, permitted error, delay, and system boundary. Energy for a matrix operation omits state maintenance, communication, conversion, and host work when those are outside the measured unit. The next chapter turns these qualifications into an experiment that can compare the machines on the same memory question.</p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Intel Labs (2021), <em>Taking neuromorphic computing to the next level with Loihi 2</em>, <a href="https://www.intel.com/content/dam/www/central-libraries/us/en/documents/neuromorphic-computing-loihi-2-brief.pdf#page=5">pp.&nbsp;5–7</a>; Scholze et al.&nbsp;(2026), <em>The SpiNNaker2 chip</em>, <a href="https://arxiv.org/html/2607.24396v1#S4.SS4">version 1, Section 4.4</a>; Pehle et al.&nbsp;(2022), <em>The BrainScaleS-2 accelerated neuromorphic system with hybrid plasticity</em>, <a href="https://doi.org/10.3389/fnins.2022.795876">Sections 2.1–2.3</a>; Le Gallo et al.&nbsp;(2023), <em>A 64-core mixed-signal in-memory compute chip</em>, <a href="https://doi.org/10.1038/s41928-023-01010-1">DOI</a>. Full entries are in <a href="../appendices/ch-references.html">References</a>. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>The same Loihi 2 brief, learning-rule section; Scholze et al.&nbsp;(2026), <a href="https://arxiv.org/html/2607.24396v1#S4.SS6">Section 4.6</a>; Pehle et al.&nbsp;(2022), <a href="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2022.795876/full">Section 2.3</a>. These describe capabilities and the reported demonstrations, not one common learning benchmark. <!-- vale ai-tells.SemicolonUsage = YES --><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Kleyko, D., Kymn, C. J., Thomas, A., Olshausen, B. A., Sommer, F. T., &amp; Frady, E. P. (2025). <em>Principled neuromorphic reservoir computing</em>. Nature Communications, 16, 640. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11733134/">Hardware experiments and Figure 5</a>. <a href="https://doi.org/10.1038/s41467-025-55832-y">DOI</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Aitsam, M., Htet, A., Hasan, S. S., Jimenez Rodriguez, A., &amp; Di Nuovo, A. (2026). <em>A spiking continuous attractor network for event-driven neuromorphic robot guidance</em>. Frontiers in Neuroscience, 20, 1910808. <a href="https://www.frontiersin.org/journals/neuroscience/articles/10.3389/fnins.2026.1910808/full">Sections 2.1–2.5, 3.2, and 4.1–4.5</a>. <a href="https://doi.org/10.3389/fnins.2026.1910808">DOI</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ortner, T., et al.&nbsp;(2025). <em>Rapid learning with phase-change memory-based in-memory computing through learning-to-learn</em>. Nature Communications, 16, 1243. <a href="https://www.nature.com/articles/s41467-025-56345-4.pdf#page=11">Results, Figures 4–5, and Methods p.&nbsp;11</a>. <a href="https://doi.org/10.1038/s41467-025-56345-4">DOI</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Wang, X., et al.&nbsp;(2026; online October 1, 2025). <em>Amorphous phase-change memory alloy with no resistance drift</em>. Nature Materials, 25, 456–462. <a href="https://www.nature.com/articles/s41563-025-02361-0.pdf#page=4">Electrical measurements and discussion, printed pp.&nbsp;459–461</a>. <a href="https://doi.org/10.1038/s41563-025-02361-0">DOI</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Sun, P., Su, Z., Achterberg, J., Indiveri, G., Goodman, D. F. M., &amp; Akarca, D. (2026). <em>Algorithm–hardware co-design of neuromorphic networks with dual memory pathways</em>. Nature Machine Intelligence, 8, 901–912. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC13286998/">Figure 4 and Methods, slow memory pathway and implementation and evaluation methodology</a>. <a href="https://doi.org/10.1038/s42256-026-01255-3">DOI</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Ilmberger, J., &amp; Schemmel, J. (2025). <em>The BrainScaleS-2 multi-chip system: Interconnecting continuous-time neuromorphic compute substrates</em>. arXiv:2512.03781v1, December 3, 2025. <a href="https://arxiv.org/html/2512.03781v1">Sections III–V</a>. Preprint. The reported prototype has four chips. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/ch-hardware-dynamics.html" class="pagination-link" aria-label="Discrete restoration and continuous random wandering produce different memory errors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/ch-hardware-tests.html" class="pagination-link" aria-label="Memory experiments must separate device error from network dynamics">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

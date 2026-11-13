@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>19&nbsp; Network simulations test how random spikes move a stored value – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/ch-simulating-eye.html" rel="next">
+<link href="../parts/part-simulations.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-simulations.html">Part IV: Simulations connect model assumptions to measurable outcomes</a></li><li class="breadcrumb-item"><a href="../chapters/ch-simulating-memory.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-simulating-memory-state" id="toc-sec-simulating-memory-state" class="nav-link active" data-scroll-target="#sec-simulating-memory-state"><span class="header-section-number">19.1</span> A simulation renews the same synaptic state that the theory approximates</a></li>
+  <li><a href="#sec-simulating-memory-ring" id="toc-sec-simulating-memory-ring" class="nav-link" data-scroll-target="#sec-simulating-memory-ring"><span class="header-section-number">19.2</span> Ring trajectories test both the diffusion rate and the effect of angular boundaries</a></li>
+  <li><a href="#sec-simulating-memory-controls" id="toc-sec-simulating-memory-controls" class="nav-link" data-scroll-target="#sec-simulating-memory-controls"><span class="header-section-number">19.3</span> Other network designs test which conclusions depend on the ring</a></li>
+  <li><a href="#sec-simulating-memory-outputs" id="toc-sec-simulating-memory-outputs" class="nav-link" data-scroll-target="#sec-simulating-memory-outputs"><span class="header-section-number">19.4</span> A plotted analytical curve is different from a network simulation</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-simulations.html">Part IV: Simulations connect model assumptions to measurable outcomes</a></li><li class="breadcrumb-item"><a href="../chapters/ch-simulating-memory.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-simulating-memory" class="quarto-section-identifier"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>To compare a simulated memory trace with Burak and Fiete’s (2012) theory, the numerical update and the measurement of the stored value must match the model. The foundation chapter explains the spike-update cycle, and the long-delay chapter interprets its diffusion tests. Here the additional task is to recover the published network settings, distinguish a numerical position measurement from the theoretical coordinate, and identify choices left open for an independent reproduction.</p>
+</div>
+<p>To compare a simulated memory trace with Burak and Fiete’s (2012) theory, the numerical update and the measurement of the stored value must match the model. The <a href="ch-foundations.html#sec-foundations-simulation">foundation chapter</a> explains the spike-update cycle, and the <a href="ch-memory-long-delays.html">long-delay chapter</a> interprets its diffusion tests. Here the additional task is to recover the published network settings, distinguish a numerical position measurement from the theoretical coordinate, and identify choices left open for an independent reproduction.</p>
+<p><strong>Draft diagrams:</strong> These unreviewed generated images may contain missing labels, incorrect numbers or misleading relationships. Use the chapter text and sources as the reference.</p>
+<div id="fig-draft-map-ch19-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed generated draft: first diagram for the chapter Network simulations test how random spikes move a stored value.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch19-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch19-a.png" class="img-fluid figure-img" style="width:7in" alt="Unreviewed generated draft: first diagram for the chapter Network simulations test how random spikes move a stored value.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch19-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.1: Unreviewed draft diagram, first part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them.
+</figcaption>
+</figure>
+</div>
+<div id="fig-draft-map-ch19-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed generated draft: second diagram for the chapter Network simulations test how random spikes move a stored value.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch19-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch19-b.png" class="img-fluid figure-img" style="width:7in" alt="Unreviewed generated draft: second diagram for the chapter Network simulations test how random spikes move a stored value.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch19-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;19.2: Unreviewed draft diagram, second part of the chapter overview. Labels, values and relationships may be wrong; use the chapter text and sources to check them.
+</figcaption>
+</figure>
+</div>
+<section id="sec-simulating-memory-state" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="sec-simulating-memory-state"><span class="header-section-number">19.1</span> A simulation renews the same synaptic state that the theory approximates</h2>
+<p>The physical idea is continuing neural activity after a cue has ended. A spike briefly increases synaptic activation. That activation decays, but it also changes the rates at which other neurons fire. Recurrent connections can therefore renew the activity. Random event times disturb the pattern that represents the remembered value.</p>
+<p>The computer stores each neuron’s synaptic activation <span class="math inline">\(s_i\)</span>. The total input <span class="math inline">\(g_i\)</span> and firing rate <span class="math inline">\(r_i\)</span> are calculated from it:</p>
+<p><span class="math display">\[ g_i=\sum_j W_{ij}s_j+b_i,\qquad r_i=\phi(g_i). \]</span></p>
+<p>Here <span class="math inline">\(W_{ij}\)</span> is the connection from neuron <span class="math inline">\(j\)</span> to neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> is a constant input, and <span class="math inline">\(\phi\)</span> converts total input into a rate in spikes per second. In the paper’s normalization, each spike increases <span class="math inline">\(s_i\)</span> by one and activation decays with time constant <span class="math inline">\(\tau\)</span>. The <a href="ch-foundations.html#sec-memory-spikes">earlier neural mechanism and derivation</a> explain these variables and the continuous-time equations.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>One short simulation step has a causal order:</p>
+<ol type="1">
+<li>Read the current activations and calculate the recurrent inputs and firing rates.</li>
+<li>Generate spikes using those rates and the chosen time interval.</li>
+<li>Apply synaptic decay and the increments caused by those spikes.</li>
+<li>Decode the represented value and repeat after the external cue is absent.</li>
+</ol>
+<p>The ring simulation uses the <a href="ch-foundations.html#sec-foundations-simulation">Euler update introduced in Chapter 1</a>: approximate a variable’s change over a short interval by its current derivative times that interval. For decay alone, an interval <span class="math inline">\(h\)</span> changes <span class="math inline">\(s_i\)</span> to approximately <span class="math inline">\(s_i(1-h/\tau)\)</span>. Spike increments are added according to the event model. This finite step approximates the continuous dynamics, so its accuracy must be checked at the resolution needed for the reported statistic.</p>
+<p><span class="key-statement">Each generated spike changes the recurrent inputs and can change the rates of later spikes.</span> The theory explains when these interacting changes can be described by diffusion of one coordinate.</p>
+</section>
+<section id="sec-simulating-memory-ring" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="sec-simulating-memory-ring"><span class="header-section-number">19.2</span> Ring trajectories test both the diffusion rate and the effect of angular boundaries</h2>
+<p>In the ring model, neurons are ordered by preferred angle, and the position of their localized activity pattern represents the stored angle. The <a href="ch-memory-long-delays.html">earlier Figure 2 discussion</a> explains the diffusion and information comparison. To reproduce that comparison, keep the exponential and sigmoid transfer functions as separate runs, with a theoretical prediction calculated from each run’s steady tuning curves.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>The comparison separates prediction from measurement. First, solve the noise-free network for its steady activity pattern and calculate the predicted diffusion coefficient and information rate. Then run the stochastic network and measure its angular displacement. For this simulation the authors record the preferred angle of the neuron with the largest instantaneous rate. This is a numerical proxy for the represented position. The theoretical coordinate <span class="math inline">\(\theta\)</span> is assigned by following noise-free relaxation back to the attractor; the largest-rate rule does not carry out that projection. Its output can take only one of the neurons’ preferred angles, and brief changes in the pattern’s shape can shift its maximum during relaxation. These effects matter when interpreting very short lags. This rule also differs from the ideal spike-based estimator studied later in the paper.</p>
+<p>At short lags, the displacement variance tests <span class="math inline">\(\operatorname{Var}(\Delta\theta)\simeq2D\ell\)</span>. Here <span class="math inline">\(\Delta\theta=\theta(t+\ell)-\theta(t)\)</span> is the change in represented angle over lag <span class="math inline">\(\ell\)</span>, measured in seconds, and <span class="math inline">\(D\)</span> is the diffusion coefficient in angle squared per second. At long lags, the reported differences are wrapped into <span class="math inline">\((-\pi,\pi)\)</span>, so the mean square levels off. The long-lag comparison uses a diffusion calculation with periodic boundaries. This saturation limits the reported angular error. It does not recover the initial angle.</p>
+<div class="publisher-clarification-note publisher-fold-always" data-custom-style="Clarification Note">
+<p><strong>Published settings: the ring network in Figure 2</strong></p>
+<p>The Methods specify 1,024 neurons, synaptic time constant 10 ms, and update interval 0.1 ms. Each step generates a spike for neuron <span class="math inline">\(i\)</span> with probability <span class="math inline">\(r_i h\)</span>, where <span class="math inline">\(r_i\)</span> is its current firing rate and <span class="math inline">\(h\)</span> is the update interval. This one-event approximation requires that probability to remain small. There are 100 trials of 1,000 seconds each. The displacement analysis excludes the first 10 ms. Error bars are standard errors across trials.</p>
+<p>Writing <span class="math inline">\(\alpha\)</span> for the separation of preferred angles, the finite network uses the connection weight <span class="math inline">\(w(\alpha)\)</span> from one neuron to the other:</p>
+<p><span class="math display">\[ w(\alpha)=e^{\cos\alpha-1}-e^{0.3(\cos\alpha-1)}. \]</span></p>
+<p>The common input is <span class="math inline">\(b=-2\)</span> and <span class="math inline">\(\tau=10\)</span> ms is the synaptic decay time. With <span class="math inline">\(g\)</span> the total input to a neuron and <span class="math inline">\(\phi(g)\)</span> its firing rate, the two transfer rules are <span class="math inline">\(\tau\phi(g)=10e^g\)</span> and <span class="math inline">\(\tau\phi(g)=0.2[1+\tanh(g+4)]\)</span>. Initial activations are independently uniform between 0 and 0.01. These settings describe the finite simulation. The supporting text separately divides a connection rule by <span class="math inline">\(N\)</span> to study larger populations. Applying that extra factor here would change the reported weights.</p>
+<p>The symmetric-network prediction uses the squared input slope in its numerator. Burak and Fiete’s 2017 correction confirms that square, which was missing in the supplied Early Edition’s Eq. 2. The correction does not change these simulation settings.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+</div>
+</section>
+<section id="sec-simulating-memory-controls" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="sec-simulating-memory-controls"><span class="header-section-number">19.3</span> Other network designs test which conclusions depend on the ring</h2>
+<p>A second network contains two mutually inhibiting units, interpreted also as two neural populations. Increasing one population’s activity while decreasing the other’s changes the stored value. Figure 2E–G tests diffusion in this family without relying on rotational symmetry. The diffusion calculation applies to both models because each has a continuous family of states and restoring dynamics toward that family.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>The Methods report cross-couplings of <span class="math inline">\(-1\)</span>, no self-coupling, common input <span class="math inline">\(b=5{,}000\)</span>, time constant 100 ms, update interval 0.4 ms, and duration 200 seconds. The transfer rule is <span class="math inline">\(\tau r_i=g_i\)</span> in the valid positive-rate range. These large rates can represent aggregate population activity. They should not be read as ordinary firing rates of two biological cells.</p>
+<p>Converting between activation and rate changes the units of the stored value. Let <span class="math inline">\(\theta_s=s_1-s_2\)</span> be the activation difference and <span class="math inline">\(\theta_r=r_1-r_2\)</span> the rate difference along the steady-state family. Since <span class="math inline">\(s_i=\tau r_i\)</span> there, <span class="math inline">\(\theta_r=\theta_s/\tau\)</span> and their diffusion coefficients satisfy <span class="math inline">\(D_r=D_s/\tau^2\)</span>. Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring’s at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not say how spike counts were drawn or give the complete initial state for this example.</p>
+<p>To reproduce Figure 2G, the measured displacement must be a change in the rate difference, not a change in either rate alone. Write <span class="math inline">\(T=200\,\mathrm{s}\)</span> for the recording duration and <span class="math inline">\(\ell\)</span> for the lag. Using the rate coordinate <span class="math inline">\(\theta_r(t)=r_1(t)-r_2(t)\)</span>, the plotted statistic is</p>
+<p><span class="math display">\[ \widehat{\operatorname{MSD}}_r(\ell) =\left\langle[\theta_r(t+\ell)-\theta_r(t)]^2\right\rangle_{0\leq t\leq T-\ell}. \]</span></p>
+<p>The hat marks an average calculated from the finite simulation. For each lag, take both rates at the beginning and end of every available interval, form their differences, square the change, and average those squared changes over starting times. At a 2-second lag, for example, valid starts run from 0 to 198 seconds. Intervals can overlap, so these are not independent trials. The average uses many positions along one simulated trajectory; it is not the 100-trial standard error calculation used for the ring panels.</p>
+<p>Figure 2F reports rates in <span class="math inline">\(\mathrm{ms}^{-1}\)</span>, so G reports squared rate displacements in <span class="math inline">\((\mathrm{ms}^{-1})^2\)</span>. If a reproduction stores rates in <span class="math inline">\(\mathrm{s}^{-1}\)</span>, divide its squared displacements by <span class="math inline">\(10^6\)</span> to compare their numerical values with G. The theoretical line must use <span class="math inline">\(2D_r\ell\)</span> in the same units. <span class="key-statement">Agreement tests whether the predicted diffusion gives the spreading of the simulated rate difference.</span> It does not compare the rate trace with a recorded animal’s memory errors.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>The supporting text also tests a mutually excitatory pair in Figure S1. Across 4,000 trials started at the same coordinate, its variance grows linearly even though the local diffusion coefficient depends on the state. The guide’s <a href="ch-memory-long-delays.html#sec-memory-long-time">long-delay chapter</a> explains the coordinate and the printed factor-of-two discrepancy. That discrepancy is separate from the authors’ 2017 correction.</p>
+</section>
+<section id="sec-simulating-memory-outputs" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="sec-simulating-memory-outputs"><span class="header-section-number">19.4</span> A plotted analytical curve is different from a network simulation</h2>
+<p>Figures 3 and S2 plot formulas for readout error. They compare an ideal estimator with an estimator that weights all observations equally as the observation interval grows. The sources do not describe an additional spiking-network experiment or a biological circuit implementing ideal estimation in these figures.</p>
+<p>The paper specifies its network equations and several numerical settings, but does not identify a programming language or simulator package. No public simulation-code archive was identified in the checked paper, supplement, or author publication entries. This describes the search as of October 30, 2026. It is not proof that no code exists. A new implementation must document choices the paper leaves open, including how it generates random numbers and events for aggregate populations.</p>
+<p><span class="key-statement">The simulations show that the stated network models can produce the predicted memory errors. Connecting those errors to animal behavior requires a measurement model and biological data.</span> Ben-Shushan et al.&nbsp;(2022) add those elements by following an internal eye-position command through motor neurons and muscles to measured motion.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Model equations 7–11, PDF pp.&nbsp;5–6</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1">Supporting Text, Sections I–II</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Figure 2A–D, PDF p.&nbsp;3</a>, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">Network Simulations, PDF p.&nbsp;6</a>, and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8">Supporting Text, Eq. S32</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Burak, Y., &amp; Fiete, I. R. (2017). <em>Correction for Burak and Fiete, Fundamental limits on persistent activity in networks of noisy neurons</em>. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5441759/">Published correction to Eq. 2</a>. <a href="https://doi.org/10.1073/pnas.1706051114">DOI</a>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Figure 2E–G and caption, PDF p.&nbsp;3</a>, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">mutual-inhibition simulation, PDF p.&nbsp;6</a>, and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10">Supporting Text, Figure S1, PDF p.&nbsp;10</a>.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Figure 2E–G and caption, PDF p.&nbsp;3</a>, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">mutual-inhibition simulation, PDF p.&nbsp;6</a>, and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10">Supporting Text, Figure S1, PDF p.&nbsp;10</a>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/part-simulations.html" class="pagination-link" aria-label="Part IV: Simulations connect model assumptions to measurable outcomes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Part IV: Simulations connect model assumptions to measurable outcomes</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/ch-simulating-eye.html" class="pagination-link" aria-label="Eye simulations connect a noisy neural command to measured motion">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

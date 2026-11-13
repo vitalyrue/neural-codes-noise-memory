@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Mathematical tools connect neural signals to the papers’ predictions – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../frontmatter/ch-exam-review.html" rel="next">
+<link href="../frontmatter/ch-reading-guide.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../frontmatter/ch-mathematical-tools.html">Mathematical tools connect neural signals to the papers’ predictions</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-math-tools-weights" id="toc-sec-math-tools-weights" class="nav-link active" data-scroll-target="#sec-math-tools-weights">Connection weights determine how neurons sustain activity</a></li>
+  <li><a href="#sec-math-tools-fisher" id="toc-sec-math-tools-fisher" class="nav-link" data-scroll-target="#sec-math-tools-fisher">Fisher information measures how clearly spikes distinguish nearby values</a></li>
+  <li><a href="#sec-math-tools-bound" id="toc-sec-math-tools-bound" class="nav-link" data-scroll-target="#sec-math-tools-bound">Information limits how slowly a neural memory can spread</a></li>
+  <li><a href="#sec-math-tools-shared" id="toc-sec-math-tools-shared" class="nav-link" data-scroll-target="#sec-math-tools-shared">Covariance tests which fluctuations are shared</a></li>
+  <li><a href="#sec-math-tools-filters" id="toc-sec-math-tools-filters" class="nav-link" data-scroll-target="#sec-math-tools-filters">Filtering changes how noise appears in eye motion</a></li>
+  <li><a href="#sec-math-tools-random-fields" id="toc-sec-math-tools-random-fields" class="nav-link" data-scroll-target="#sec-math-tools-random-fields">Random fields describe a fixed spatial map</a></li>
+  <li><a href="#sec-math-tools-crossings-peaks" id="toc-sec-math-tools-crossings-peaks" class="nav-link" data-scroll-target="#sec-math-tools-crossings-peaks">Crossings and peak geometry predict field counts and sizes</a></li>
+  <li><a href="#sec-math-tools-results" id="toc-sec-math-tools-results" class="nav-link" data-scroll-target="#sec-math-tools-results">Major results connect formulas to physical questions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-mathematical-tools" class="quarto-section-identifier">Mathematical tools connect neural signals to the papers’ predictions</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>Before Part I, explain the mathematical tools behind all three papers: feedback and Fisher information for memory; covariance and filtering for eye drift; Gaussian spatial maps, crossings and peak geometry for place fields. Keep physical meanings, assumptions and exact versus limiting results visible.</p>
+</div>
+<p><strong>Unreviewed draft diagrams.</strong> These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.</p>
+<div id="fig-draft-map-front-mathematical-tools-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Mathematical tools connect neural signals to the papers' predictions. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-front-mathematical-tools-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-front-mathematical-tools-a.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Mathematical tools connect neural signals to the papers' predictions. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-front-mathematical-tools-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Unreviewed draft map for Mathematical tools connect neural signals to the papers’ predictions. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
+</figcaption>
+</figure>
+</div>
+<div id="fig-draft-map-front-mathematical-tools-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Mathematical tools connect neural signals to the papers' predictions. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-front-mathematical-tools-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-front-mathematical-tools-b.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Mathematical tools connect neural signals to the papers' predictions. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-front-mathematical-tools-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Unreviewed draft map for Mathematical tools connect neural signals to the papers’ predictions. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
+</figcaption>
+</figure>
+</div>
+<p>The three papers ask different questions about neural activity. How accurately can a circuit retain a value? What do fluctuations in neural recordings reveal about eye movement? Why do place cells have fields of different sizes and shapes? Each question needs a mathematical tool whose variables correspond to a physical part of the system.</p>
+<p>This chapter introduces those tools before their use in Parts I and II. It assumes calculus, linear algebra and basic probability, including expected value, variance, standard deviation and probability density. The main text explains the physical meanings and conclusions; folded calculations supply the longer steps. The reading paths are:</p>
+<ul>
+<li><strong>Memory, Burak and Fiete (2012):</strong> <a href="#sec-math-tools-weights">connection weights</a> describe how neurons sustain activity, and <a href="#sec-math-tools-fisher">Fisher information</a> measures precision in their spikes. The <a href="#sec-math-tools-bound">information bound</a> connects that precision to memory spreading. Chapters 1–6 develop the model and proofs.</li>
+<li><strong>Eye drift, Ben-Shushan et al.&nbsp;(2022):</strong> <a href="#sec-math-tools-shared">covariance</a> tests for shared fluctuations, and <a href="#sec-math-tools-filters">filtering</a> describes how neural signals become eye motion. Chapters 7–9 apply the tools to recordings and a circuit model.</li>
+<li><strong>Place fields, Mainali et al.&nbsp;(2025):</strong> <a href="#sec-math-tools-random-fields">random fields</a> describe correlated input over space; <a href="#sec-math-tools-crossings-peaks">crossings and peak geometry</a> connect that input to field counts and sizes. Chapters 10–12 derive and test those predictions.</li>
+</ul>
+<p>For a quick return to the complete arguments, use the <a href="ch-exam-review.html">Exam review</a>: reasoning chains, formulas, symbol keys and exact locations.</p>
+<section id="sec-math-tools-weights" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-weights">Connection weights determine how neurons sustain activity</h2>
+<p>A single neural signal is brief, so retaining a value requires something to carry its effect forward. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>spike</strong></span> is a brief electrical event emitted by a neuron.</span> <span class="definition-explanation">Its <span class="definition-term" data-custom-style="Definition Term"><strong>firing rate</strong></span> is the expected number of spikes per unit time.</span> A rate gives an expectation; it does not specify an evenly spaced sequence of spikes.</p>
+<p>In Burak and Fiete’s (2012) model, a spike leaves a longer-lasting effect on the cells receiving it. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>synaptic activation</strong></span> <span class="math inline">\(s_j\)</span> tracks the remaining effect of neuron <span class="math inline">\(j\)</span>’s outgoing spikes.</span> Each spike increases <span class="math inline">\(s_j\)</span> by one, and between spikes it decays with time constant <span class="math inline">\(\tau\)</span>, measured in seconds. The changing activation therefore carries the effect of earlier spikes into the present.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>How does that effect change another cell’s activity? <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>connection matrix</strong></span> <span class="math inline">\(W\)</span> lists the strengths and signs of all the modeled neural connections: <span class="math inline">\(W_{ij}\)</span> converts neuron <span class="math inline">\(j\)</span>’s activation into input to neuron <span class="math inline">\(i\)</span>.</span> For <span class="math inline">\(N\)</span> neurons it is an <span class="math inline">\(N\times N\)</span> matrix. Rows identify receiving cells; columns identify sending cells. Each receiver adds its weighted inputs and a constant background input:</p>
+<p><span class="math display">\[ g_i=\sum_jW_{ij}s_j+b_i, \qquad r_i=\phi(g_i). \]</span></p>
+<p>Here <span class="math inline">\(g_i\)</span> is the total input, <span class="math inline">\(b_i\)</span> is its constant bias, and <span class="math inline">\(r_i\)</span> is the firing rate in spikes per second. The function <span class="math inline">\(\phi\)</span> converts total input into a nonnegative rate. Activations are dimensionless in this one-unit-per-spike convention, so <span class="math inline">\(W_{ij}\)</span> has input units per activation unit and <span class="math inline">\(b_i\)</span> has the same units as <span class="math inline">\(g_i\)</span>. A positive weight raises input, a negative weight lowers it, and zero means no direct influence in the model. These signs raise or lower firing when <span class="math inline">\(\phi\)</span> increases with input.</p>
+<p>The equations describe a complete feedback cycle:</p>
+<ol type="1">
+<li>A spike from cell <span class="math inline">\(j\)</span> increases <span class="math inline">\(s_j\)</span>.</li>
+<li>Receiving cell <span class="math inline">\(i\)</span> gets an input change <span class="math inline">\(W_{ij}\)</span>, which can change its firing rate.</li>
+<li>Its later spikes change other cells’ inputs, including paths that return to the original cell.</li>
+</ol>
+<p>Consider two mutually inhibiting populations. If population 1 becomes more active, it inhibits population 2 more strongly. Population 2 then fires less and inhibits population 1 less strongly. With the paper’s particular balance of weights, decay and rate response, the circuit restores changes in the total activation while leaving a change in the activation difference in place. That difference stores the value. Arbitrary mutual inhibition does not guarantee this balance.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: feedback preserves a difference while correcting the total activity
+</summary>
+<div class="publisher-fold-body">
+<p>Use the two-unit model with <span class="math inline">\(W_{12}=W_{21}=-1\)</span>, zero self-weights, equal biases <span class="math inline">\(b&gt;0\)</span>, and <span class="math inline">\(\phi(g)=g/\tau\)</span> where both inputs are positive. Replacing spike events by their mean rate gives <span class="math inline">\(\dot s_i=-s_i/\tau+r_i\)</span>. Substitution gives</p>
+<p><span class="math display">\[ \tau\dot s_1=b-s_1-s_2, \qquad \tau\dot s_2=b-s_1-s_2. \]</span></p>
+<p>For total activation <span class="math inline">\(S=s_1+s_2\)</span> and difference <span class="math inline">\(\theta_s=s_1-s_2\)</span>,</p>
+<p><span class="math display">\[ \dot S=\frac{2(b-S)}{\tau},\qquad \dot\theta_s=0. \]</span></p>
+<p>An equal increase in both activations raises <span class="math inline">\(S\)</span> above <span class="math inline">\(b\)</span>, and the circuit drives it back down. A difference between the activations persists. For the illustrative choice <span class="math inline">\(b=20\)</span>, the states <span class="math inline">\((s_1,s_2)=(12,8)\)</span> and <span class="math inline">\((8,12)\)</span> both have the required total but store different values, <span class="math inline">\(4\)</span> and <span class="math inline">\(-4\)</span>. The weights and transfer rule are as in the paper’s mutual-inhibition model; the calculation uses mean rates without random spikes. It does not imply that every inhibitory pair stores a continuous value. Both steady rates are positive only for <span class="math inline">\(|\theta_s|&lt;b\)</span>.</p>
+</div>
+</details>
+<p>If <span class="math inline">\(W=0\)</span> in this model, rates become the constants <span class="math inline">\(\phi(b_i)\)</span>. Any difference due to the initial synaptic activations then decays toward the bias-determined state. Connections allow the present activity to influence what happens next; their arrangement determines whether the circuit preserves a useful pattern. <span class="key-statement">The weights stay fixed during storage. The remembered value is carried by changing neural activity, rather than by changing the weights.</span> Chapter 1 gives the <a href="../chapters/ch-foundations.html#sec-memory-spikes">full spike and activation equations</a>; Chapter 3 calculates which disturbances those interactions remove and which leave a lasting memory change.</p>
+<p>In the model without spike fluctuations, <span class="definition-explanation">a <span class="definition-term" data-custom-style="Definition Term"><strong>fixed point</strong></span> is an activity pattern whose activations have zero rate of change.</span> The tuned memory circuit has a continuous family of these patterns, each labeled by a represented value <span class="math inline">\(\theta\)</span>. Small disturbances away from the family relax toward a member of it, which may differ from the original member. A shift along the family changes the represented value without being restored. <span class="definition-explanation">The direction along the family is its <span class="definition-term" data-custom-style="Definition Term"><strong>neutral tangent</strong></span>: a small displacement in that direction neither grows nor decays under the local noise-free dynamics.</span></p>
+<p>Near one fixed pattern, the network’s linear response matrix <span class="math inline">\(K\)</span> describes how a small activation disturbance <span class="math inline">\(\delta\mathbf s\)</span> changes: <span class="math inline">\(d(\delta\mathbf s)/dt\simeq K\delta\mathbf s\)</span>. A small change <span class="math inline">\(\delta s_j\)</span> in cell <span class="math inline">\(j\)</span>’s activation contributes <span class="math inline">\(K_{ij}\delta s_j\)</span> to the rate of change of cell <span class="math inline">\(i\)</span>’s activation. If a right eigenvector <span class="math inline">\(\mathbf z\)</span> satisfies <span class="math inline">\(K\mathbf z=\lambda\mathbf z\)</span>, a disturbance initially in that direction evolves as <span class="math inline">\(e^{\lambda t}\mathbf z\)</span>. The eigenvalue <span class="math inline">\(\lambda\)</span> has units of inverse time. A negative real eigenvalue gives decay; zero gives a neutral direction. For complex eigenvalues, the sign of the real part controls growth or decay, while the imaginary part describes oscillation; real disturbances use the real and imaginary components together. Write <span class="math inline">\(\bar{\mathbf s}(\theta)\)</span> for the noise-free activations at value <span class="math inline">\(\theta\)</span>. Their derivative <span class="math inline">\(\mathbf u=d\bar{\mathbf s}/d\theta\)</span> is the neutral tangent and satisfies <span class="math inline">\(K\mathbf u=0\)</span>.</p>
+<p>The network can return to the family along a tilted path. Let <span class="math inline">\(\delta\theta\)</span> be the lasting change in represented value. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>left zero eigenvector</strong></span> <span class="math inline">\(\mathbf v\)</span> satisfies <span class="math inline">\(\mathbf v^TK=0\)</span> and is normalized so that <span class="math inline">\(\mathbf v^T\mathbf u=1\)</span>. It extracts the lasting coordinate change from a small disturbance: <span class="math inline">\(\delta\theta=\mathbf v^T\delta\mathbf s\)</span>.</span> The first condition makes <span class="math inline">\(\mathbf v^T\delta\mathbf s\)</span> constant during the noise-free linear return; the second makes a change along <span class="math inline">\(\mathbf u\)</span> read out in units of <span class="math inline">\(\theta\)</span>. It need not point along <span class="math inline">\(\mathbf u\)</span>: unlike a perpendicular projection, it incorporates the circuit’s return path. Chapter 3 derives it for the neural model.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: a disturbance can move sideways while it decays
+</summary>
+<div class="publisher-fold-body">
+<p>Let <span class="math inline">\(x\)</span> be a coordinate along a line of fixed states and <span class="math inline">\(y\)</span> a disturbance away from it; take both as dimensionless activation coordinates. Consider <span class="math inline">\(\dot x=ay\)</span>, <span class="math inline">\(\dot y=-by\)</span>, with <span class="math inline">\(b&gt;0\)</span> and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> in inverse seconds. The response matrix and two directions are</p>
+<p><span class="math display">\[ K=\begin{pmatrix}0&amp;a\\0&amp;-b\end{pmatrix},\qquad \mathbf u=\binom{1}{0},\qquad \mathbf v=\binom{1}{a/b}. \]</span></p>
+<p><span class="math inline">\(K\mathbf u=0\)</span>, <span class="math inline">\(\mathbf v^TK=0\)</span>, and <span class="math inline">\(\mathbf v^T\mathbf u=1\)</span>. Starting at <span class="math inline">\((x_0,y_0)\)</span>, the disturbance <span class="math inline">\(y\)</span> decays as <span class="math inline">\(y_0e^{-bt}\)</span>, but it also changes <span class="math inline">\(x\)</span>. Integrating <span class="math inline">\(\dot x\)</span> gives <span class="math inline">\(x(\infty)=x_0+(a/b)y_0\)</span>. Thus <span class="math inline">\(\mathbf v^T(x_0,y_0)^T\)</span> gives the final position on the fixed line. A perpendicular projection would give <span class="math inline">\(x_0\)</span> and miss that shift. The model is an illustration; it is not a fitted neural circuit.</p>
+</div>
+</details>
+<p>Random spike counts also need a bridge to the continuous noise used later. Many weak, sufficiently independent contributions to a receiver can sum to an approximately Gaussian fluctuation. <span class="key-statement">Matching its mean and variance specifies the proposed approximation’s scale; those two moments alone do not prove that the fluctuation is Gaussian.</span> The network limit also requires an appropriate population and time-scale separation. Chapter 3 states how this approximation is used.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: averaging independent spike counts
+</summary>
+<div class="publisher-fold-body">
+<p>Suppose <span class="math inline">\(N\)</span> independent cells each have a fixed rate <span class="math inline">\(r\)</span> for a window of length <span class="math inline">\(h\)</span>, and their counts <span class="math inline">\(n_j\)</span> are Poisson with mean and variance <span class="math inline">\(rh\)</span>. The average count <span class="math inline">\(\bar n=N^{-1}\sum_jn_j\)</span> has mean <span class="math inline">\(rh\)</span> and variance <span class="math inline">\(rh/N\)</span>. As <span class="math inline">\(N\)</span> grows, the suitably centered and scaled average approaches a Gaussian distribution by the central limit theorem. No individual count has to be Gaussian. In a recurrent network, rates and inputs interact; applying a Gaussian approximation to their aggregate requires the paper’s additional weak-input assumptions. A single cell’s count over an interval made arbitrarily short remains a jump count.</p>
+</div>
+</details>
+</section>
+<section id="sec-math-tools-fisher" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-fisher">Fisher information measures how clearly spikes distinguish nearby values</h2>
+<p>Suppose a circuit currently represents an angle near <span class="math inline">\(30^\circ\)</span>. A receiving cell sees spikes rather than an angle label. If <span class="math inline">\(30^\circ\)</span> and <span class="math inline">\(31^\circ\)</span> produce almost identical probabilities of spike patterns, a short observation gives little evidence about which value is represented. If their spike probabilities differ strongly, the distinction is easier.</p>
+<p><span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>Fisher information</strong></span>, abbreviated FI, measures how sensitively the probabilities of observations change with a small change in the value being estimated.</span> It describes local precision: the distinction between nearby values. A large FI at one angle does not resolve ambiguity between distant angles that happen to produce the same activity pattern. It is not a count of stored bits or of different memories.</p>
+<p><span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>tuning curve</strong></span> <span class="math inline">\(\bar r_i(\theta)\)</span> gives neuron <span class="math inline">\(i\)</span>’s expected firing rate at represented value <span class="math inline">\(\theta\)</span>.</span> The bar here denotes the model’s steady rate in the absence of noise. Its slope <span class="math inline">\(\bar r_i'=d\bar r_i/d\theta\)</span> measures sensitivity to a small value change. To turn sensitivity into a measure of precision, we must also specify how the spikes fluctuate.</p>
+<p>For this calculation, hold <span class="math inline">\(\theta\)</span> approximately fixed during a brief observation of length <span class="math inline">\(h\)</span> seconds. Assume positive rates and independent <a href="../chapters/ch-foundations.html#sec-foundations-poisson">Poisson spike counts</a> conditional on that value. Under this spike model, count mean and variance are both <span class="math inline">\(h\bar r_i\)</span>. A small angle change <span class="math inline">\(\delta\theta\)</span> changes the expected count by approximately <span class="math inline">\(h\bar r_i'\delta\theta\)</span>. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>count sensitivity</strong></span> <span class="math inline">\(h\bar r_i'\)</span> is the change in expected spike count per unit change in <span class="math inline">\(\theta\)</span>.</span> The rate sensitivity <span class="math inline">\(\bar r_i'\)</span> is the change in expected firing rate per unit change in <span class="math inline">\(\theta\)</span>. Let <span class="math inline">\(I_{h,i}(\theta)\)</span> be the information supplied by cell <span class="math inline">\(i\)</span> in that observation. Comparing the squared count sensitivity with the count variance gives</p>
+<p><span class="math display">\[ I_{h,i}(\theta)=\frac{(h\bar r_i')^2}{h\bar r_i} =h\frac{(\bar r_i')^2}{\bar r_i}. \]</span></p>
+<p>For this Poisson model the ratio is exactly the single-cell Fisher information. Let <span class="math inline">\(I_h(\theta)\)</span> be the total information in the spike counts from all cells, and <span class="math inline">\(J(\theta)\)</span> be that information per unit observation time. Independent contributions add:</p>
+<p><span class="math display">\[ I_h(\theta)=hJ(\theta),\qquad J(\theta)=\sum_i\frac{(\bar r_i')^2}{\bar r_i}. \]</span></p>
+<p><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>internal Fisher information rate</strong></span> <span class="math inline">\(J\)</span> is the information per unit observation time in these spikes about the circuit’s current represented value.</span> “Internal” means that the value is maintained by the circuit; a present external stimulus is not needed. If <span class="math inline">\(\theta\)</span> is measured in degrees, <span class="math inline">\(I_h\)</span> has units <span class="math inline">\(\mathrm{degree}^{-2}\)</span> and <span class="math inline">\(J\)</span> has units <span class="math inline">\(\mathrm{degree}^{-2}\mathrm{s}^{-1}\)</span>. The paper uses this rate in Eq. 3.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p>The numerator measures how strongly expected firing changes with the value. The denominator reflects Poisson spike variability: sensitivity must be judged relative to count noise. Increasing every rate also changes the slopes, so the denominator alone does not imply that higher firing always lowers information.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: equal firing rates can provide different angle precision
+</summary>
+<div class="publisher-fold-body">
+<p>Take two illustrative cells, each firing at 20 spikes per second at the current angle. Their local slopes are 2 and 10 spikes per second per degree. In a 0.1-second observation, each has mean count 2 and count variance 2. Their expected count changes per degree are 0.2 and 1. Their information contributions are</p>
+<p><span class="math display">\[ I_{h,1}=\frac{0.2^2}{2}=0.02\,\mathrm{degree}^{-2}, \qquad I_{h,2}=\frac{1^2}{2}=0.5\,\mathrm{degree}^{-2}. \]</span></p>
+<p>The steeper response gives 25 times the local information despite the equal rates and count noise. If these two cells’ counts are independent at the given angle, their joint information is <span class="math inline">\(0.52\,\mathrm{degree}^{-2}\)</span>. These are chosen local response curves, not measured cells or a constructed recurrent network.</p>
+</div>
+</details>
+<p>The derivation in Chapter 5 connects this count calculation to the <a href="../chapters/ch-memory-information.html#sec-memory-fi">likelihood and formal definition of FI</a>. Shared spike fluctuations require a joint probability model; they cannot generally be handled by adding these single-cell terms.</p>
+</section>
+<section id="sec-math-tools-bound" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-bound">Information limits how slowly a neural memory can spread</h2>
+<p>The same uncertain spikes that tell a receiving cell about the value also renew activity inside the memory circuit. Synaptic effects fade, so the network must carry the value forward through those new events. This links the precision of the signals to the persistence of the memory.</p>
+<p>One statistical benchmark concerns reading a value that is effectively fixed during observation. Let <span class="math inline">\(\hat\theta\)</span> be an estimate computed from the spikes. <span class="definition-explanation">An estimate is <span class="definition-term" data-custom-style="Definition Term"><strong>locally unbiased</strong></span> when its mean agrees with the true value to first order near the value under study.</span> For smooth probability models satisfying the differentiation conditions explained in Chapter 5, <span class="definition-explanation">the <span class="definition-term" data-custom-style="Definition Term"><strong>Cramér Rao bound</strong></span> gives a lower limit on the variance of such an estimate:</span></p>
+<p><span class="math display">\[ \operatorname{Var}(\hat\theta)\geq\frac{1}{I_h(\theta)} =\frac{1}{hJ(\theta)}. \]</span></p>
+<p>The bound does not promise that every finite sample admits an estimate achieving it. Chapter 5 gives its <a href="../chapters/ch-memory-information.html#sec-memory-fi">derivation and conditions</a>.</p>
+<p>A second quantity describes what happens while the circuit stores the value. With zero mean drift and approximately constant coefficients, the displacement variance grows as <span class="math inline">\(\operatorname{Var}[\theta(t)-\theta(0)]\simeq2Dt\)</span>. Here <span class="math inline">\(t\)</span> is storage time and <span class="math inline">\(D\)</span> is the diffusion coefficient: half the variance growth per unit time. The paper’s weights are tuned so that, without noise, a continuous range of represented values can persist as stationary activity patterns. Other activity disturbances relax toward those patterns. Burak and Fiete (2012) prove, for these networks in the weak-fluctuation approximation with a common synaptic time constant <span class="math inline">\(\tau\)</span> and conditionally independent Poisson spike generation,</p>
+<p><span class="math display">\[ \boxed{D(\theta)\geq\frac{1}{2\tau^2J(\theta)}.} \]</span></p>
+<p><span class="key-statement">Low information in the spikes forces a high minimum rate of memory spreading. Larger information lowers that minimum; the network’s connections and dynamics determine whether it reaches the limit.</span> The factor <span class="math inline">\(\tau^2\)</span> makes the units consistent: if <span class="math inline">\(J\)</span> is inverse angle squared per second, the bound has angle squared per second, as <span class="math inline">\(D\)</span> must.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<p>The physical interpretation is that maintaining activity acts like repeatedly estimating the circuit’s own state from its spikes. This motivates the bound. It does not replace the dynamical proof: the state can move while spikes are collected, and the circuit’s feedback is itself noisy. Chapter 5 <a href="../chapters/ch-memory-information.html#sec-memory-bound">derives the bound from the network equations</a> and states its equality conditions.</p>
+<p>When a circuit represents several values, a single number cannot describe every possible change in them. The information-rate matrix <span class="math inline">\(J\)</span> describes how well the spikes distinguish small changes in each direction in that space. For a change <span class="math inline">\(\delta\boldsymbol\theta\)</span>, the quadratic form <span class="math inline">\(\delta\boldsymbol\theta^TJ\delta\boldsymbol\theta\)</span> measures its local distinguishability per unit observation time. For a brief window of length <span class="math inline">\(h\)</span> in which the state is effectively fixed, multiplying by <span class="math inline">\(h\)</span> gives a dimensionless measure. A direction that produces no change in the expected rates has zero information in this Poisson model. Individual diagonal entries can be positive even when a combination of values is invisible.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: two values can be visible separately but ambiguous together
+</summary>
+<div class="publisher-fold-body">
+<p>Suppose both coordinates are measured in degrees and all modeled firing rates depend on them only through their sum. At a given state, take their information-rate matrix to be</p>
+<p><span class="math display">\[ J=j\begin{pmatrix}1&amp;1\\1&amp;1\end{pmatrix},\qquad j&gt;0, \quad [j]=\mathrm{degree}^{-2}\mathrm{s}^{-1}. \]</span></p>
+<p>Changing either coordinate alone changes that sum. Increasing one by an amount and decreasing the other by the same amount leaves it unchanged. Indeed <span class="math inline">\(J(1,-1)^T=0\)</span>: this direction is invisible to those rates, and <span class="math inline">\(J\)</span> has no ordinary inverse. The multi-coordinate bound in Chapter 5 uses <span class="math inline">\(J^{-1}\)</span> only when the relevant directions are distinguishable. Its matrix inequality means that the corresponding scalar inequality holds for every linear combination of coordinates. For any matrix <span class="math inline">\(Q\)</span> and vector <span class="math inline">\(\mathbf z\)</span>, <span class="math inline">\(\mathbf z^TQ^TQ\mathbf z=\lVert Q\mathbf z\rVert^2\ge0\)</span>; this is the nonnegative quantity used in that proof.</p>
+</div>
+</details>
+<p>Finally, <span class="math inline">\(J\)</span> measures information about the current value <span class="math inline">\(\theta(t)\)</span>, while diffusion describes its departure from the initial value <span class="math inline">\(\theta(0)\)</span>. <span class="key-statement">The current angle can be easy to read even after it has wandered far from the angle originally supplied by the cue.</span> The eye paper asks how such internal fluctuations could appear in recordings and physical movement. That requires a model of shared signals and of the muscles that filter them.</p>
+</section>
+<section id="sec-math-tools-shared" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-shared">Covariance tests which fluctuations are shared</h2>
+<p>If one neuron’s spikes predict some eye movement, is the neuron passing on a common command or adding its own noise? Both can make its activity vary. Comparing the prediction with measured movement helps separate the part they share from fluctuations present in only one signal.</p>
+<p><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>covariance</strong></span> of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> measures how their deviations from their own means vary together.</span> Positive covariance means that deviations tend to have the same sign. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>correlation coefficient</strong></span> <span class="math inline">\(\rho\)</span> scales that covariance by both signals’ standard deviations.</span> Private noise in either signal can reduce this scaled measure even if the common source has not changed.</p>
+<details class="publisher-long-content publisher-long-note">
+<summary>
+Mathematical definitions: covariance and correlation
+</summary>
+<div class="publisher-fold-body">
+<p><span class="math display">\[ \operatorname{Cov}(X,Y)=\mathbb E[(X-\mathbb EX)(Y-\mathbb EY)],\qquad \rho=\frac{\operatorname{Cov}(X,Y)}{\sigma_X\sigma_Y}. \]</span></p>
+<p>Here <span class="math inline">\(\sigma_X\)</span> and <span class="math inline">\(\sigma_Y\)</span> are the standard deviations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>. Covariance has the product of the signals’ units. Correlation is dimensionless and lies between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span> when both variances are finite and positive.</p>
+</div>
+</details>
+<p>Consider a teaching model, with all signals measured in degrees:</p>
+<p><span class="math display">\[ X=aS+\eta_x,\qquad Y=bS+\eta_y. \]</span></p>
+<p>Here <span class="math inline">\(S\)</span> is a shared displacement command, <span class="math inline">\(X\)</span> a cell’s displacement prediction, and <span class="math inline">\(Y\)</span> measured displacement. <span class="definition-explanation">The dimensionless <span class="definition-term" data-custom-style="Definition Term"><strong>gain</strong></span>s <span class="math inline">\(a,b\)</span> multiply the common command to give its contribution to each signal.</span> This <span class="math inline">\(b\)</span> is a gain, not the bias <span class="math inline">\(b_i\)</span> in the memory model. The private contributions <span class="math inline">\(\eta_x,\eta_y\)</span> vary independently of one another and of <span class="math inline">\(S\)</span>. Let <span class="math inline">\(\chi_Y\)</span> be the fraction of the variance of measured displacement <span class="math inline">\(Y\)</span> contributed by the shared command <span class="math inline">\(bS\)</span>. Thus only the shared command survives in the covariance:</p>
+<p><span class="math display">\[ \operatorname{Cov}(X,Y)=ab\operatorname{Var}(S),\qquad \chi_Y=\frac{b^2\operatorname{Var}(S)}{\operatorname{Var}(Y)} =\frac ba\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(Y)}. \]</span></p>
+<p>The last equality requires <span class="math inline">\(a\ne0\)</span>. <span class="key-statement">Correlation alone does not give a shared variance fraction. That interpretation requires a model of the shared and private contributions and a calibrated gain.</span> The gain ratio <span class="math inline">\(b/a\)</span> converts the covariance to the shared contribution to <span class="math inline">\(Y\)</span>’s variance. The eye study obtains an eye-position prediction from each cell’s spikes by inverting a movement-to-firing fit calibrated on larger movements. Its variance estimate assumes this calibration also applies during drift and gives the shared component the same displacement scale in prediction and measurement. A calibration error can change the inferred fraction. Private noise in <span class="math inline">\(X\)</span> lowers correlation by increasing <span class="math inline">\(\sigma_X\)</span>, the standard deviation of <span class="math inline">\(X\)</span>, even when the shared command dominates <span class="math inline">\(Y\)</span>.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: a weak correlation can accompany mostly shared movement
+</summary>
+<div class="publisher-fold-body">
+<p>Choose unit gains and independent contributions with variances <span class="math inline">\(\operatorname{Var}(S)=1\)</span>, <span class="math inline">\(\operatorname{Var}(\eta_x)=24\)</span>, and <span class="math inline">\(\operatorname{Var}(\eta_y)=0.25\)</span>, all in deg<span class="math inline">\(^2\)</span>. Then <span class="math inline">\(\operatorname{Var}(X)=25\)</span>, <span class="math inline">\(\operatorname{Var}(Y)=1.25\)</span>, and <span class="math inline">\(\operatorname{Cov}(X,Y)=1\)</span> deg<span class="math inline">\(^2\)</span>. Consequently</p>
+<p><span class="math display">\[ \rho=\frac1{\sqrt{25\times1.25}}\simeq0.18, \qquad \chi_Y=\frac1{1.25}=0.80. \]</span></p>
+<p>The prediction has large private noise, while measured movement has little. These chosen numbers illustrate the mechanism; they are not experimental estimates.</p>
+</div>
+</details>
+<p>The 2022 analysis uses this logic for 350 ms displacements, assuming that calibration from larger movements still holds during drift. It also neglects a small covariance between the two private contributions, of order <span class="math inline">\(1/N_m\)</span>, where <span class="math inline">\(N_m\)</span> is the number of motor neurons in its population model. These are assumptions to check, not consequences of the covariance definition.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> Many independent private contributions can average down in actual movement while remaining large in a single cell’s prediction. Shared fluctuations survive that averaging; the paper’s separate population bound tests whether independent motor noise alone could explain the observations.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+</section>
+<section id="sec-math-tools-filters" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-filters">Filtering changes how noise appears in eye motion</h2>
+<p>Muscles take time to respond to neural commands. Could their response turn rapidly changing noise into the smooth, continuing motion seen during fixation? The answer depends on whether the input merely fluctuates or accumulates changes.</p>
+<p><span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>causal filter</strong></span> determines present output from present and past input.</span> For a linear response that does not change with time, <span class="definition-explanation">its <span class="definition-term" data-custom-style="Definition Term"><strong>impulse response</strong></span> <span class="math inline">\(h(u)\)</span> gives the surviving response after a unit impulse <span class="math inline">\(u\)</span> seconds ago.</span> Here <span class="math inline">\(h\)</span> is a function of time, not the observation duration <span class="math inline">\(h\)</span> used in the spike-count calculation. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>convolution</strong></span> adds these responses over the input history:</span></p>
+<p><span class="math display">\[ E(t)=\int_0^\infty h(u)U(t-u)\,du. \]</span></p>
+<p>For a simple response, <span class="math inline">\(h(u)=e^{-u/\tau}/\tau\)</span> for <span class="math inline">\(u\ge0\)</span>. Input <span class="math inline">\(U\)</span> and output <span class="math inline">\(E\)</span> are angles in degrees; <span class="math inline">\(h\)</span> has units s<span class="math inline">\(^{-1}\)</span> and response time <span class="math inline">\(\tau\)</span> is in seconds. This <span class="math inline">\(\tau\)</span> describes the eye’s response. It is a different physical quantity from the synaptic decay time also denoted by <span class="math inline">\(\tau\)</span> in the memory model, and their values need not be equal. Equivalently, <span class="math inline">\(\tau\dot E=U-E\)</span>: the command’s mismatch with current position drives velocity. <span class="definition-explanation">This is a <span class="definition-term" data-custom-style="Definition Term"><strong>low pass filter</strong></span>: it suppresses rapid changes relative to slow changes.</span></p>
+<p><span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>White noise</strong></span> idealizes fluctuations uncorrelated at distinct times; in continuous time its intensity specifies variability of integrated input, rather than an ordinary finite pointwise variance.</span> Passing it through this decaying filter produces a stationary position after initial transients: mean and variance stay constant and covariance depends only on time separation. Its mean squared displacement <span class="math inline">\(M(\ell)=\mathbb E[(E(t+\ell)-E(t))^2]\)</span> approaches a plateau. The lag <span class="math inline">\(\ell\)</span> is the separation between readings, not the clock time <span class="math inline">\(t\)</span>.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p>A diffusing position command instead accumulates independent changes with displacement variance <span class="math inline">\(2D\ell\)</span>, where <span class="math inline">\(D\)</span> has units deg<span class="math inline">\(^2\)</span>/s. Filtering smooths its motion without stopping that accumulation. In the simple model below, short lag MSD grows as <span class="math inline">\(\ell^2\)</span> and long lag MSD grows linearly. Position is not stationary; its increments have statistics independent of <span class="math inline">\(t\)</span> once the initial velocity transient has decayed.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: the same filter separates fluctuating and accumulating input
+</summary>
+<div class="publisher-fold-body">
+<p>For centered white input with <span class="math inline">\(\mathbb E[U(t)U(t')]=A\delta(t-t')\)</span>, intensity <span class="math inline">\(A\)</span> has units deg<span class="math inline">\(^2\)</span> s. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>Dirac delta</strong></span> <span class="math inline">\(\delta\)</span> is an instantaneous unit-area impulse; here it expresses the covariance concentrated at equal times.</span> Write <span class="math inline">\(C_E(\ell)=\mathbb E[E(t)E(t+\ell)]\)</span> for the covariance of the centered output at lag <span class="math inline">\(\ell\)</span>. Overlap of the two impulse responses gives</p>
+<p><span class="math display">\[ C_E(\ell)=A\int_0^\infty h(u)h(u+\ell)\,du =\frac{A}{2\tau}e^{-\ell/\tau},\qquad M_{\rm white}(\ell)=2[C_E(0)-C_E(\ell)]. \]</span></p>
+<p>Thus <span class="math inline">\(M_{\rm white}=(A/\tau)(1-e^{-\ell/\tau})\)</span>, approaching <span class="math inline">\(A/\tau\)</span>. For a Brownian position input with diffusivity <span class="math inline">\(D\)</span>, the same filter gives stationary velocity covariance <span class="math inline">\(C_v(s)=(D/\tau)e^{-|s|/\tau}\)</span> after the initial velocity transient. Velocities at two times share some of the same past Brownian increments; their exponentially weighted overlap gives this covariance. The <a href="../chapters/ch-eye-timing.html#sec-eye-filtered-msd">eye-timing derivation</a> calculates the overlap. Integrating velocity over the displacement interval gives</p>
+<p><span class="math display">\[ M_{\rm diffusion}(\ell)=2\int_0^\ell(\ell-s)C_v(s)\,ds =2D[\ell-\tau(1-e^{-\ell/\tau})]. \]</span></p>
+<p>Expansion at <span class="math inline">\(\ell\ll\tau\)</span> gives <span class="math inline">\((D/\tau)\ell^2\)</span>: velocity barely changes across that interval. For <span class="math inline">\(\ell\gg\tau\)</span>, it approaches <span class="math inline">\(2D(\ell-\tau)\)</span>, with continuing growth. White input instead has linear short lag MSD in this single exponential example. The input and filter together determine short lag behavior.</p>
+</div>
+</details>
+<p>These calculations use one response time as a teaching simplification. The 2022 model includes two muscle response times and visual feedback. Its conclusions concern the measured lag range; smooth movement alone does not identify diffusion, and short lag behavior also depends on measurement error. The <a href="../chapters/ch-eye-drift.html">eye-drift</a> and <a href="../chapters/ch-eye-timing.html">timing</a> chapters retain the full analysis.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+</section>
+<section id="sec-math-tools-random-fields" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-random-fields">Random fields describe a fixed spatial map</h2>
+<p>Why does a cell stay active over a stretch of track, rather than change its response independently at every position? Mainali, Azeredo da Silveira, and Burak (2025) describe the cell’s combined input as a spatial map <span class="math inline">\(h(x)\)</span>. This is a new use of <span class="math inline">\(h\)</span>, distinct from the eye filter’s impulse response. Nearby values depend on one another. A distribution of such maps can predict field sizes without predicting where a particular cell’s fields will occur.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p><span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>random field</strong></span> assigns random values to positions; a Gaussian random field requires the values at every finite set of positions to form a jointly Gaussian vector.</span> It is also called a <span class="definition-term" data-custom-style="Definition Term"><strong>Gaussian process</strong></span>, including when positions have more than one coordinate. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>jointly Gaussian vector</strong></span> has Gaussian distributions for all its linear combinations.</span> Gaussian distributions at individual positions alone do not impose this joint rule.</p>
+<p>For jointly Gaussian variables, zero covariance implies independence. This special rule will let us separate a map’s height and slope in the crossing calculation. Zero covariance does not generally imply independence.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: zero covariance needs a joint Gaussian assumption
+</summary>
+<div class="publisher-fold-body">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Z\)</span> be independent standard Gaussian variables and set <span class="math inline">\(Y=\rho X+\sqrt{1-\rho^2}\,Z\)</span>, with <span class="math inline">\(-1&lt;\rho&lt;1\)</span>. The pair is jointly Gaussian and has covariance <span class="math inline">\(\rho\)</span>. At <span class="math inline">\(\rho=0\)</span>, <span class="math inline">\(Y=Z\)</span> is independent of <span class="math inline">\(X\)</span>.</p>
+<p>For a contrast, let <span class="math inline">\(Y=X^2-1\)</span>. Its covariance with <span class="math inline">\(X\)</span> is <span class="math inline">\(\mathbb E[X^3-X]=0\)</span>, yet knowing <span class="math inline">\(X\)</span> determines <span class="math inline">\(Y\)</span>. This pair is not jointly Gaussian. The Gaussian rule cannot be applied merely because two quantities have zero covariance.</p>
+</div>
+</details>
+<p><span class="key-statement">Once a map is drawn, it stays fixed while the animal traverses it. Revisiting a position evaluates the same map value, rather than drawing a fresh input.</span> The randomness describes possible maps, not changes with time during a visit.</p>
+<p><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>spatial covariance</strong></span> <span class="math inline">\(C(x,y)\)</span> measures how deviations of input from its mean at two positions vary together across possible maps.</span> Mean and covariance determine the Gaussian law. <span class="definition-explanation">For a field, <span class="definition-term" data-custom-style="Definition Term"><strong>stationarity</strong></span> means that shifting all positions leaves its probability law unchanged.</span> The mean is then a constant <span class="math inline">\(\mu\)</span> and covariance depends on separation: <span class="math inline">\(C(x,y)=C(y-x)\)</span>. This does not make an individual map flat. <span class="definition-explanation">For a field, <span class="definition-term" data-custom-style="Definition Term"><strong>isotropy</strong></span> means there is no preferred direction in its statistics.</span> Stationarity alone does not require isotropy.</p>
+<p>Normalize the input using its standard deviation <span class="math inline">\(\sigma_0\)</span>, and express the firing threshold <span class="math inline">\(h_{\mathrm{th}}\)</span> in the same units:</p>
+<p><span class="math display">\[ z(x)=\frac{h(x)-\mu}{\sigma_0},\qquad q=\frac{h_{\mathrm{th}}-\mu}{\sigma_0},\qquad F(x)=a[z(x)-q]_+. \]</span></p>
+<p>Here <span class="math inline">\([u]_+=\max(u,0)\)</span> and <span class="math inline">\(a&gt;0\)</span> converts dimensionless input excess into firing rate. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>excursion set</strong></span> <span class="math inline">\(A_q=\{x:z(x)&gt;q\}\)</span> is the active part of the map.</span> Each connected piece is one field. Two peaks can belong to the same field if an active path connects them.</p>
+<p>Field widths also depend on how quickly the input changes over distance. <span class="definition-explanation">The paper’s <span class="definition-term" data-custom-style="Definition Term"><strong>correlation length</strong></span> compares typical input height with typical spatial slope.</span> For a differentiable stationary map along a line, write <span class="math inline">\(z'=dz/dx\)</span> for the spatial rate of change of the normalized input; <span class="math inline">\(C(0)\)</span> is the input variance and <span class="math inline">\(C''(0)\)</span> is the second derivative of spatial covariance with respect to separation, evaluated at zero. Then</p>
+<p><span class="math display">\[ \ell_c=\sqrt{-\frac{C(0)}{C''(0)}},\qquad \operatorname{Var}(z')=\ell_c^{-2}. \]</span></p>
+<p>It has distance units. For <span class="math inline">\(C(r)=\sigma_0^2e^{-r^2/(2\ell_c^2)}\)</span>, increasing <span class="math inline">\(\ell_c\)</span> stretches the map. More generally it describes local covariance curvature, without fixing distant spatial relationships. In an isotropic map the same scale applies along every direction.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<p>Gaussian values do not guarantee smooth maps. Crossing calculations need differentiable sample maps and a nonsingular covariance matrix for height and slope: those variables must not obey an exact linear constraint. Peak calculations additionally need second derivatives and enough regularity for a local quadratic approximation. For example, the corner at zero in <span class="math inline">\(C(r)\propto e^{-|r|/b}\)</span> prevents its use for the differentiable crossing calculation below.</p>
+</section>
+<section id="sec-math-tools-crossings-peaks" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-crossings-peaks">Crossings and peak geometry predict field counts and sizes</h2>
+<p>On a track, a field begins where the input crosses upward through threshold. <span class="definition-explanation">An <span class="definition-term" data-custom-style="Definition Term"><strong>upcrossing</strong></span> is a crossing of <span class="math inline">\(z=q\)</span> with positive spatial slope.</span> At a randomly selected position, conditioning on <span class="math inline">\(z=q\)</span> asks about slopes at that height. For a continuous height, an exact value has probability zero. Where the height density is positive and regular, the conditional mean can be understood as the limit of means for a narrowing band around <span class="math inline">\(q\)</span>; equivalently it is calculated from the conditional density. It is not a ratio of probabilities of two zero-probability events.</p>
+<p>To count crossings, imagine a narrow band of height <span class="math inline">\(2\varepsilon\)</span> around the threshold. A curve crossing upward with slope <span class="math inline">\(v\)</span> spends approximately <span class="math inline">\(2\varepsilon/v\)</span> of track length in that band. A steeper crossing therefore contributes less occupied length, so multiplying by its slope corrects for that shorter stay. Averaging gives the mean number of upcrossings per unit distance: the input’s probability density at the threshold times its mean positive slope conditional on being there. Write <span class="math inline">\(\nu_+(q)\)</span> for that number per unit distance, <span class="math inline">\(p_z(q)\)</span> for the normalized input’s density at threshold <span class="math inline">\(q\)</span>, and <span class="math inline">\(z'=dz/dx\)</span> for its slope along the track; <span class="math inline">\((z')_+=\max(z',0)\)</span> keeps only positive slopes. The scale <span class="math inline">\(\ell_c\)</span> is the correlation length defined above.</p>
+<p><span class="math display">\[ \nu_+(q)=p_z(q)\,\mathbb E[(z')_+\mid z=q] =\frac{e^{-q^2/2}}{2\pi\ell_c}. \]</span></p>
+<p><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>Kac–Rice formula</strong></span> counts crossings by combining the input density at threshold with conditional slope.</span> The displayed result applies to the smooth stationary Gaussian model. <span class="key-statement">The result is exact under these assumptions at any threshold.</span><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+<details class="publisher-long-content publisher-long-note">
+<summary>
+Derivation: height and slope give the crossing density
+</summary>
+<div class="publisher-fold-body">
+<p>In a narrow height band of width <span class="math inline">\(2\varepsilon\)</span> around <span class="math inline">\(q\)</span>, an upward crossing with slope <span class="math inline">\(v\)</span> occupies distance approximately <span class="math inline">\(2\varepsilon/v\)</span>. Weighting that distance by <span class="math inline">\(v/(2\varepsilon)\)</span> counts one crossing. Averaging gives <span class="math inline">\(\nu_+=\int_0^\infty v\,p_{z,z'}(q,v)\,dv\)</span>.</p>
+<p>Stationarity gives <span class="math inline">\(\operatorname{Cov}(z,z')=0\)</span>. Joint Gaussianity makes height and slope independent, with <span class="math inline">\(z\sim N(0,1)\)</span> and <span class="math inline">\(z'\sim N(0,\ell_c^{-2})\)</span>. Thus <span class="math inline">\(p_z(q)=e^{-q^2/2}/\sqrt{2\pi}\)</span> and <span class="math inline">\(\mathbb E[(z')_+]=1/(\ell_c\sqrt{2\pi})\)</span>, giving the displayed result.</p>
+</div>
+</details>
+<p>On a finite track of length <span class="math inline">\(L\)</span>, a field can already be active at the left endpoint. Counting all active components that intersect the track gives <span class="math inline">\(\mathbb E[N_L]=L\nu_+(q)+\Pr[z(0)&gt;q]\)</span>. Discarding clipped boundary fields changes this convention. The later place field chapter follows this correction explicitly.</p>
+<p>Counts do not determine the size distribution. At high positive <span class="math inline">\(q\)</span>, fields counted once each typically surround isolated high peaks. This sampling gives each field equal weight, rather than selecting fields by the amount of space they occupy. A smooth isotropic Gaussian field becomes approximately a downward quadratic near such a peak. If its height exceeds threshold by <span class="math inline">\(\epsilon\)</span>, the active radius grows as <span class="math inline">\(\sqrt{\epsilon}\)</span> at fixed <span class="math inline">\(q\)</span> and <span class="math inline">\(\ell_c\)</span>. Length, area and volume therefore grow as <span class="math inline">\(\epsilon^{d/2}\)</span> in spatial dimension <span class="math inline">\(d\)</span>.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+<p><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>Hessian</strong></span> <span class="math inline">\(H\)</span> is the matrix of second spatial derivatives of the input map.</span> At a point with zero gradient, a small spatial displacement <span class="math inline">\(\mathbf x\)</span> changes the normalized input by approximately <span class="math inline">\(\tfrac12\mathbf x^TH\mathbf x\)</span>. Its eigenvectors give principal spatial directions, and the eigenvalues give curvature in those directions. Negative curvature in every direction describes a nondegenerate local peak; mixed signs describe a saddle. A zero eigenvalue needs further analysis.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: curvature distinguishes a peak from a saddle
+</summary>
+<div class="publisher-fold-body">
+<p>For dimensionless input <span class="math inline">\(z\)</span> and coordinates <span class="math inline">\(x,y\)</span> in metres, suppose near a critical point</p>
+<p><span class="math display">\[ z(x,y)\simeq z(0,0)-(1\,\mathrm{m}^{-2})x^2-(4\,\mathrm{m}^{-2})y^2, \qquad H=\begin{pmatrix}-2&amp;0\\0&amp;-8\end{pmatrix}\,\mathrm{m}^{-2}. \]</span></p>
+<p>Moving along either axis lowers the input, faster along <span class="math inline">\(y\)</span>, so the point is a peak. Reversing the sign of the <span class="math inline">\(y^2\)</span> term changes the second eigenvalue to <span class="math inline">\(+8\,\mathrm{m}^{-2}\)</span>: input rises along <span class="math inline">\(y\)</span> but falls along <span class="math inline">\(x\)</span>, giving a saddle. In two dimensions, <span class="math inline">\(\det(-H)\)</span> is positive for the peak and negative for this saddle. The <a href="../chapters/ch-place-sizes.html#sec-place-rare-peaks">place-size chapter</a> applies the quadratic approximation to a random map; the <a href="../chapters/ch-place-tests.html#sec-place-topology">topology chapter</a> uses the signs to count changes in connected regions and holes.</p>
+</div>
+</details>
+<p>The Gaussian model also supplies the statistics of the peak excess. For fields selected this way in the high threshold limit, <span class="math inline">\(U=q\epsilon\)</span> approaches an exponential distribution of mean one: the chance that <span class="math inline">\(U&gt;u\)</span> approaches <span class="math inline">\(e^{-u}\)</span> for <span class="math inline">\(u\ge0\)</span>. Combining that excess law with the geometry gives the size distribution.<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></p>
+<p>The geometric conversion changes the density as well as the units. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>change of variables</strong></span> preserves the probability of each event while expressing it in a new variable.</span> Let <span class="math inline">\(X\)</span> be a random quantity and <span class="math inline">\(x\)</span> a possible value. If <span class="math inline">\(U=g(X)\)</span> for a smooth, strictly increasing function <span class="math inline">\(g\)</span>, a small interval <span class="math inline">\(dx\)</span> around <span class="math inline">\(x\)</span> corresponds to <span class="math inline">\(du=g'(x)dx\)</span>. Hence <span class="math inline">\(p_X(x)=p_U(g(x))g'(x)\)</span>: the derivative accounts for how the transformation stretches or compresses intervals. The density itself is not a probability at one exact value. For a decreasing transformation use the absolute derivative; a nonmonotonic transformation may have several branches.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: an exponential variable gives a Rayleigh-shaped density
+</summary>
+<div class="publisher-fold-body">
+<p>Let <span class="math inline">\(U\)</span> have density <span class="math inline">\(e^{-u}\)</span> for <span class="math inline">\(u\ge0\)</span> and define the dimensionless size <span class="math inline">\(X=\sqrt U\)</span>. The event <span class="math inline">\(X\le x\)</span> is the same event as <span class="math inline">\(U\le x^2\)</span>, for <span class="math inline">\(x\ge0\)</span>. Therefore</p>
+<p><span class="math display">\[ \Pr(X\le x)=1-e^{-x^2},\qquad p_X(x)=\frac{d}{dx}\Pr(X\le x)=2x e^{-x^2}. \]</span></p>
+<p>The factor <span class="math inline">\(2x\)</span> also follows from <span class="math inline">\(u=x^2\)</span> and <span class="math inline">\(du/dx=2x\)</span>. Both expressions assign the same probability to corresponding intervals. The place-field calculation uses the same step with <span class="math inline">\(U=\beta s^{2/d}\)</span>; its random field size <span class="math inline">\(s\)</span> has physical size units and <span class="math inline">\(\beta\)</span> supplies the required units.</p>
+</div>
+</details>
+<p>The result is three different limiting size laws. <span class="definition-explanation">The 1D length law is a <span class="definition-term" data-custom-style="Definition Term"><strong>Rayleigh distribution</strong></span>: the chance of a length exceeding <span class="math inline">\(S\)</span> is <span class="math inline">\(\exp(-\beta S^2)\)</span> for a positive scale constant <span class="math inline">\(\beta\)</span>.</span> The corresponding chance is <span class="math inline">\(\exp(-\beta S)\)</span> for area in 2D, an exponential distribution, and <span class="math inline">\(\exp(-\beta S^{2/3})\)</span> for volume in 3D. Because size <span class="math inline">\(S\)</span> has units distance<span class="math inline">\(^d\)</span>, <span class="math inline">\(\beta\)</span> has units inverse distance squared in every dimension; its geometric factor changes with dimension. Thus the same spatial mechanism can give different length, area and volume histograms.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: the same peak excess gives different size laws
+</summary>
+<div class="publisher-fold-body">
+<p>For a stationary isotropic Gaussian field, conditioning on height <span class="math inline">\(b\)</span> gives mean second derivative <span class="math inline">\(-b/\ell_c^2\)</span> along each unit direction, with fluctuations that do not grow with <span class="math inline">\(b\)</span>. Thus typical high peaks concentrate around a quadratic shape. Here <span class="math inline">\(x\)</span> is displacement from the peak, taken as the origin; <span class="math inline">\(\epsilon\)</span> is the peak height above threshold <span class="math inline">\(q\)</span>; <span class="math inline">\(\ell_c\)</span> is the correlation length; and <span class="math inline">\(r_*\)</span> is the approximate radius where input falls back to threshold:</p>
+<p><span class="math display">\[ z(x)-q\simeq\epsilon-\frac{q\|x\|^2}{2\ell_c^2},\qquad r_*\simeq\ell_c\sqrt{2\epsilon/q}. \]</span></p>
+<p>For typical high fields the scaled excess <span class="math inline">\(U=q\epsilon\)</span> approaches an exponential distribution of mean one. Writing size as <span class="math inline">\(s=v_dr_*^d\)</span>, with <span class="math inline">\(v_1=2\)</span>, <span class="math inline">\(v_2=\pi\)</span>, <span class="math inline">\(v_3=4\pi/3\)</span>, converts the size event <span class="math inline">\(s&gt;S\)</span> into <span class="math inline">\(U&gt;\beta S^{2/d}\)</span>. Therefore</p>
+<p><span class="math display">\[ \Pr(s&gt;S)\simeq\exp[-\beta S^{2/d}],\qquad \beta=\frac{q^2}{2\ell_c^2v_d^{2/d}}. \]</span></p>
+<p>Geometry changes the distribution even though the scaled peak excess has the same limiting law.</p>
+</div>
+</details>
+<p><span class="key-statement">These size laws are high threshold limits, not exact laws at finite <span class="math inline">\(q\)</span>.</span> At lower thresholds fields can have several peaks or irregular shapes. The detailed chapter checks the approximation against finite threshold calculations.</p>
+</section>
+<section id="sec-math-tools-results" class="level2">
+<h2 class="anchored" data-anchor-id="sec-math-tools-results">Major results connect formulas to physical questions</h2>
+<p><span id="tbl-math-results"></span></p>
+<p>The <a href="ch-exam-review.html">Exam review</a> organizes all 35 results by the question each paper answers. Begin with its three reasoning chains, then read the core results or open supporting calculations. A common notation key gives shared quantities and their aliases across the papers; paper keys add model-specific meanings, and result rows list further symbols or exceptions. Every result retains its paper equation/page locations and guide chapter/section links.</p>
+<p>This chapter introduces the mathematical tools. Use the separate review page when you want to reconstruct the complete argument or find a particular result quickly.</p>
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Eqs. 7–9, PDF p.&nbsp;5</a> and <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">mutual-inhibition model, PDF p.&nbsp;6</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. The deterministic two-unit calculation is an explicit teaching reconstruction of the stated model.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">internal Fisher information, Eq. 3 and Fig. 1B, PDF p.&nbsp;2</a>, and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9">Supporting Text, Section IV, PDF pp.&nbsp;9–10</a>. The finite-interval count comparison and numerical example here explain the independent Poisson model.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">information–diffusion inequality, Eq. 4, PDF p.&nbsp;3</a>, and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10">Supporting Text, Section V, PDF pp.&nbsp;10–12</a>. The bound is a result for the stated model assumptions, rather than a bound for all neural or electronic memories.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Ben-Shushan, N., Shaham, N., Joshua, M., &amp; Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=9">calibration, Eqs. 4–7, PDF p.&nbsp;9</a>, and <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=10">shared variance model, Eqs. 11–15, PDF p.&nbsp;10</a>. The model with explicit gains and the numerical example are teaching constructions.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Ben-Shushan et al.&nbsp;(2022), <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=2">Supplementary Notes, independent contribution bound, Eqs. S1–S2, PDF p.&nbsp;2</a>.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Ben-Shushan et al.&nbsp;(2022), <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=10">filtered white noise, Eqs. 20–22, PDF p.&nbsp;10</a>. The normalized single exponential filter and filtered Brownian calculation are teaching reconstructions.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Ben-Shushan et al.&nbsp;(2022), <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=9">muscle response, Eqs. 2–7, PDF p.&nbsp;9</a>, <a href="../papers/ben-shushan-2022-fixational-drift.pdf#page=10">measurement error, Eqs. 18–19, PDF p.&nbsp;10</a>, and <a href="../papers/ben-shushan-2022-supplement-1.pdf#page=4">Supplementary Notes, visual feedback, PDF pp.&nbsp;4–5</a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Mainali, N., Azeredo da Silveira, R., &amp; Burak, Y. (2025). <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>. Neuron, 113(7), 1110–1120.e3. <a href="https://doi.org/10.1016/j.neuron.2025.01.017">DOI</a>. <a href="../papers/mainali-2025-universal-statistics.pdf#page=3">model and Gaussian process definition, PDF p.&nbsp;3</a>; <a href="../papers/mainali-2025-universal-statistics.pdf#page=13">STAR Methods, Eqs. 2–3, PDF p.&nbsp;13</a>. The normalization here includes a constant mean, which can equivalently be absorbed into the threshold.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Mainali et al.&nbsp;(2025), <a href="../papers/mainali-2025-universal-statistics.pdf#page=14">STAR Methods, Eq. 4 and simulation covariance, PDF p.&nbsp;14</a>. The notation <span class="math inline">\(\sigma_0\)</span> denotes input standard deviation; <span class="math inline">\(\ell_c\)</span> denotes the paper’s spatial scale <span class="math inline">\(\sigma\)</span>.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Mainali et al.&nbsp;(2025), <a href="../papers/mainali-2025-supplement.pdf#page=11">Methods S3, Eqs. S9–S13, supplement PDF pp.&nbsp;11–12</a>. The slope weighting and finite track endpoint correction are teaching explanations; the endpoint term also appears in <a href="../papers/mainali-2025-universal-statistics.pdf#page=15">STAR Methods Eq. 8, main PDF p.&nbsp;15</a>.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Mainali et al.&nbsp;(2025), <a href="../papers/mainali-2025-universal-statistics.pdf#page=3">size law, Eq. 1, main PDF p.&nbsp;3</a>; <a href="../papers/mainali-2025-supplement.pdf#page=14">Methods S4, Eqs. S22–S25, supplement PDF pp.&nbsp;14–15</a>. The quadratic and change of variables here are a teaching reconstruction. Solving S22 retains the factor <span class="math inline">\(\sqrt2\)</span> missing from printed S23; the finite excess exponent used before the limit is <span class="math inline">\(-q\epsilon-\epsilon^2/2\)</span>. The detailed size chapter records these printed algebra issues.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Mainali et al.&nbsp;(2025), <a href="../papers/mainali-2025-universal-statistics.pdf#page=3">size law, Eq. 1, main PDF p.&nbsp;3</a>; <a href="../papers/mainali-2025-supplement.pdf#page=14">Methods S4, Eqs. S22–S25, supplement PDF pp.&nbsp;14–15</a>. The quadratic and change of variables here are a teaching reconstruction. Solving S22 retains the factor <span class="math inline">\(\sqrt2\)</span> missing from printed S23; the finite excess exponent used before the limit is <span class="math inline">\(-q\epsilon-\epsilon^2/2\)</span>. The detailed size chapter records these printed algebra issues.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../frontmatter/ch-reading-guide.html" class="pagination-link" aria-label="What the three papers establish">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">What the three papers establish</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../frontmatter/ch-exam-review.html" class="pagination-link" aria-label="Exam review: connect mechanisms, measurements and results">
+        <span class="nav-page-text">Exam review: connect mechanisms, measurements and results</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

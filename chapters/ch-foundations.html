@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>1&nbsp; Patterns of variable spikes can represent a value – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/ch-persistence.html" rel="next">
+<link href="../parts/part-mechanisms.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-mechanisms.html">Part I: Noise limits memory accuracy in continuous attractor models</a></li><li class="breadcrumb-item"><a href="../chapters/ch-foundations.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-foundations-eye-action" id="toc-sec-foundations-eye-action" class="nav-link active" data-scroll-target="#sec-foundations-eye-action"><span class="header-section-number">1.1</span> Repeated spikes maintain eye muscle tension</a></li>
+  <li><a href="#sec-memory-spikes" id="toc-sec-memory-spikes" class="nav-link" data-scroll-target="#sec-memory-spikes"><span class="header-section-number">1.2</span> Recurrent spikes renew decaying synaptic activity</a></li>
+  <li><a href="#sec-foundations-spikes" id="toc-sec-foundations-spikes" class="nav-link" data-scroll-target="#sec-foundations-spikes"><span class="header-section-number">1.3</span> Patterns of firing rates represent a value</a></li>
+  <li><a href="#sec-foundations-poisson" id="toc-sec-foundations-poisson" class="nav-link" data-scroll-target="#sec-foundations-poisson"><span class="header-section-number">1.4</span> A variable spike count at a fixed rate</a></li>
+  <li><a href="#sec-foundations-simulation" id="toc-sec-foundations-simulation" class="nav-link" data-scroll-target="#sec-foundations-simulation"><span class="header-section-number">1.5</span> Network simulations test whether spike noise moves a stored value</a></li>
+  <li><a href="#sec-foundations-covariance" id="toc-sec-foundations-covariance" class="nav-link" data-scroll-target="#sec-foundations-covariance"><span class="header-section-number">1.6</span> Shared neural signals and a biased command leave different signs in eye motion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-mechanisms.html">Part I: Noise limits memory accuracy in continuous attractor models</a></li><li class="breadcrumb-item"><a href="../chapters/ch-foundations.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-foundations" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>Introduce the question and steady-state equation in the 2012 paper, then explain eye mechanics, the neural model brought forward from Methods, spike statistics, and a preview of its simulations.</p>
+</div>
+<p><strong>Unreviewed draft diagrams.</strong> These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.</p>
+<div id="fig-draft-map-ch01-a" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch01-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch01-a.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch01-a-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.1: Unreviewed draft map for Patterns of variable spikes can represent a value. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
+</figcaption>
+</figure>
+</div>
+<div id="fig-draft-map-ch01-b" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch01-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch01-b.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Patterns of variable spikes can represent a value. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch01-b-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.2: Unreviewed draft map for Patterns of variable spikes can represent a value. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
+</figcaption>
+</figure>
+</div>
+<p><strong>[Paper: Introduction and Results, pp.&nbsp;1–2]</strong> Burak and Fiete (2012) ask how accurately a network of interacting neurons can retain a continuous value, such as an eye position or a direction, when its neurons emit spikes at variable times. The paper takes a continuous attractor model as its starting point. Its contribution is to calculate how spike variability makes the stored value wander, and how that wandering is related to the information available in the network’s spikes. For an effectively constant local diffusion coefficient <span class="math inline">\(D\)</span> and negligible systematic drift, the represented value has mean squared displacement approximately <span class="math inline">\(2Dt\)</span> over a suitable time interval <span class="math inline">\(t\)</span>. The paper’s information–diffusion inequality is <span class="math inline">\(D\ge 1/(2\tau^2J)\)</span>, where <span class="math inline">\(J\)</span> is the internal Fisher information rate in the network’s spikes and <span class="math inline">\(\tau\)</span> is the common synaptic decay time. These are results for the authors’ specified noisy continuous-attractor model, not universal bounds on every memory circuit. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=1">Read the introduction and Results setup</a>.</p>
+<p><strong>[Interpretation]</strong> Imagine the network holding an eye angle <span class="math inline">\(\theta\)</span> after a cue disappears. Neuron <span class="math inline">\(i\)</span> emits spikes at a firing rate <span class="math inline">\(r_i\)</span>, the expected number of spikes per unit time. Each spike increases its outgoing synaptic activation <span class="math inline">\(s_i\)</span>, which then decays. The weighted activations from the network determine each neuron’s input and thus its firing rate. This feedback can maintain an activity pattern that represents the angle.</p>
+<p><strong>[Guide derivation: preview of the paper’s bound]</strong> At a fixed represented value <span class="math inline">\(\theta\)</span>, write <span class="math inline">\(\bar r_i\)</span> for cell <span class="math inline">\(i\)</span>’s noise-free steady firing rate and <span class="math inline">\(r_i'=d\bar r_i/d\theta\)</span> for its slope. Let <span class="math inline">\(v_i\)</span> measure the lasting change in <span class="math inline">\(\theta\)</span> caused by one unit of activation disturbance in cell <span class="math inline">\(i\)</span> after the other disturbances relax. A unit change in <span class="math inline">\(\theta\)</span> changes the steady activations by <span class="math inline">\(\tau r_i'\)</span>; the projection must therefore obey <span class="math inline">\(\sum_i\tau v_i r_i'=1\)</span>. The steady-state relation used here is derived just below.</p>
+<p>Conditional Poisson spike fluctuations have variance <span class="math inline">\(\bar r_i\,dt\)</span> over a short interval <span class="math inline">\(dt\)</span>. Their independent contributions give <span class="math inline">\(2D=\sum_i v_i^2\bar r_i\)</span>. For positive rates, a Poisson count <span class="math inline">\(n_i\)</span> in a fixed-state window <span class="math inline">\(h\)</span> has mean <span class="math inline">\(h\bar r_i\)</span>. Differentiating its log probability <span class="math inline">\(\log p(n_i\mid\theta)=n_i\log(h\bar r_i)-h\bar r_i-\log(n_i!)\)</span> gives the score <span class="math inline">\(S_i=(r_i'/\bar r_i)(n_i-h\bar r_i)\)</span>. Since the count variance is <span class="math inline">\(h\bar r_i\)</span>, <span class="math inline">\(E[S_i^2]=h(r_i')^2/\bar r_i\)</span>. Independent counts add, so the internal information per unit time is <span class="math inline">\(J=\sum_i(r_i')^2/\bar r_i\)</span>. Cauchy–Schwarz applied to the two vectors with entries <span class="math inline">\(v_i\sqrt{\bar r_i}\)</span> and <span class="math inline">\(r_i'/\sqrt{\bar r_i}\)</span> then gives</p>
+<p><span class="math display">\[ \frac{1}{\tau^2} =\left(\sum_i v_i r_i'\right)^2 \leq\left(\sum_i v_i^2\bar r_i\right) \left(\sum_i\frac{(r_i')^2}{\bar r_i}\right) =2DJ. \]</span></p>
+<p>For <span class="math inline">\(J&gt;0\)</span>, rearranging gives <span class="math inline">\(D\geq1/(2\tau^2J)\)</span>. This preview assumes the stable continuous family, weak fluctuations, a common synaptic time constant and independent Poisson spike generation conditional on the current rates. Chapters 3 and 5 derive the lasting-shift weights and information rate instead of taking them as starting points.</p>
+<p><strong>[Paper: Results setup, Eq. 1, p.&nbsp;2]</strong> In the idealized noise-free model, each value <span class="math inline">\(\theta\)</span> corresponds to a persistent pattern across the neurons. For neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(\bar s_i(\theta)\)</span> is its steady synaptic activation and <span class="math inline">\(\bar r_i(\theta)\)</span> its steady firing rate. The bar means a steady value in the noise-free model; it does not mean a time average of a noisy trajectory. The paper states the condition for this family of states as</p>
+<p><span class="math display">\[ \bar s_i(\theta)=\tau\phi\!\left(\sum_j W_{ij}\bar s_j(\theta)+b_i\right)=\tau\bar r_i(\theta).\qquad\text{(Burak and Fiete, Eq. 1)} \]</span></p>
+<p>Here <span class="math inline">\(W_{ij}\)</span> is the strength with which neuron <span class="math inline">\(j\)</span> affects neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> is a constant input to neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(\phi\)</span> converts its total input into a firing rate, and <span class="math inline">\(\tau\)</span> is the synaptic decay time. The sum collects input from the network. The equation says that, at each steady state, activation lost by decay is balanced by the activation supplied by firing. The next sections explain these quantities and how the model obtains this balance; the <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">original Eq. 1</a> precedes the paper’s analysis of noise.</p>
+<p><strong>[Guide derivation: steady states]</strong> The relation follows from balancing decay against the mean effect of new spikes. Over a short interval <span class="math inline">\(dt\)</span>, neuron <span class="math inline">\(i\)</span>’s activation changes by <span class="math inline">\(ds_i=-s_i\,dt/\tau+dN_i\)</span>, where <span class="math inline">\(dN_i\)</span> counts its new spikes. At the current state, the expected spike count is <span class="math inline">\(E[dN_i\mid\mathbf s]=\phi(g_i)dt\)</span> to leading order, with input <span class="math inline">\(g_i=\sum_j W_{ij}s_j+b_i\)</span>. Thus the deterministic rate of change obtained by averaging the spike increment at that state is</p>
+<p><span class="math display">\[ \frac{E[ds_i\mid\mathbf s]}{dt}=-\frac{s_i}{\tau}+\phi\!\left(\sum_jW_{ij}s_j+b_i\right). \]</span></p>
+<p>At a noise-free steady state the right-hand side is zero. Multiplying by <span class="math inline">\(\tau\)</span> gives <span class="math inline">\(\bar s_i=\tau\phi(\sum_jW_{ij}\bar s_j+b_i)=\tau\bar r_i\)</span>, which is Eq. 1. This is a conditional local drift calculation; it does not replace the average of a nonlinear function by the function of the average across noisy trials. The detailed spike and input equations follow in this chapter.</p>
+<p><strong>[Interpretation]</strong> A family of steady patterns gives the network different values it can hold. It does not by itself guarantee that noisy spikes leave the chosen value unchanged. Chapter 2 explains this distinction. This chapter first gives the eye and neuron background needed to read the model, then brings forward the model equations from the paper’s Methods and explains the spike statistics. A simulation example previews the later test of the diffusion result, and a final section connects the statistics to the eye paper.</p>
+<section id="sec-foundations-eye-action" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sec-foundations-eye-action"><span class="header-section-number">1.1</span> Repeated spikes maintain eye muscle tension</h2>
+<p><strong>[Background: eye muscles and neurons]</strong> For the eye to stay directed at a target, its muscles must keep exerting force after the movement command ends. The following anatomy and mechanics prepare us for the neural model; Burak and Fiete (2012) do not derive them.</p>
+<!-- vale ai-tells.StrawmanContrast = NO -->
+<p>A neuron communicates through brief electrical events called spikes. A firing rate is the expected number of spikes per unit time. A rate of 20 hertz means an average of 20 spikes per second under the specified conditions, rather than a promise of one spike every 50 milliseconds. <!-- vale ai-tells.StrawmanContrast = YES --></p>
+<p><strong>Anatomy: muscles turn the eyeball.</strong> In humans and macaques, the eyeball rotates within the bony eye socket, or orbit. <span class="definition-explanation">The six <span class="definition-term" data-custom-style="Definition Term"><strong>extraocular muscles</strong></span> attach to the outside of the eyeball and control its orientation.</span> The medial rectus pulls it toward the nose; the lateral rectus pulls it away. The superior and inferior rectus and the two oblique muscles contribute to vertical movement and rotation about the line of sight. Their actions depend on the eye’s orientation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><span class="definition-term" data-custom-style="Definition Term"><strong>Ocular motoneurons (OMNs)</strong></span> <span class="definition-explanation">are neurons that activate these muscles through long nerve fibres.</span> Their cell bodies lie in brainstem groups, and these fibres travel through three cranial nerves. The abducens nerve, VI, supplies the lateral rectus; the trochlear nerve, IV, supplies the superior oblique; the oculomotor nerve, III, supplies the other four. For horizontal gaze, changing the relative pull of the medial and lateral rectus rotates the eye. <span class="definition-explanation">A force’s turning effect is its <span class="definition-term" data-custom-style="Definition Term"><strong>torque</strong></span>.</span> Opposing torques can balance even while the muscles remain under tension.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><strong>Repeated spikes maintain tension.</strong> Each motor spike affects muscle force for longer than the electrical event lasts. Repeated activation and the combined action of many muscle fibres give a smoother force than a sequence of isolated eye movements. <span class="definition-term" data-custom-style="Definition Term"><strong>Tonic firing</strong></span> <span class="definition-explanation">means sustained firing during the holding period.</span> It need not be perfectly periodic. During a rapid repositioning movement, called a <span class="definition-term" data-custom-style="Definition Term"><strong>saccade</strong></span>, a brief strong drive moves the eye; a sustained position-dependent drive then holds the new angle. This is the pulse-and-step description: the step means continuing drive, not one more spike.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p>The mechanical properties contribute in different ways:</p>
+<ul>
+<li><span class="definition-term" data-custom-style="Definition Term"><strong>Elasticity</strong></span> <span class="definition-explanation">creates restoring forces when muscles and surrounding tissues are stretched.</span> At an off-centre gaze angle, active muscle torque must balance the restoring tendency.</li>
+<li><span class="definition-term" data-custom-style="Definition Term"><strong>Viscosity</strong></span> <span class="definition-explanation">resists motion and dissipates mechanical energy.</span> It damps rapid changes but supplies no holding torque once velocity is zero.</li>
+<li><span class="definition-term" data-custom-style="Definition Term"><strong>Inertia</strong></span> <span class="definition-explanation">is resistance to a change in angular velocity.</span> It matters during acceleration, not as a force holding a stationary eye. In primate eye movements, elastic and viscous effects dominate inertia.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+</ul>
+<p><strong>[Interpretation: holding the eye]</strong> <span class="key-statement">Mechanical damping smooths movement; sustained neural drive selects the angle around which the eye is held. Inertia cannot preserve a stationary gaze against an unbalanced elastic pull.</span></p>
+<p>So far we have followed the output from motor neurons to muscles. The next step is a model of how neurons act on one another and sustain a signal.</p>
+</section>
+<section id="sec-memory-spikes" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="sec-memory-spikes"><span class="header-section-number">1.2</span> Recurrent spikes renew decaying synaptic activity</h2>
+<p><strong>[Interpretation]</strong> How can brief spikes maintain a state for much longer than a spike lasts? In the paper’s model, each spike leaves a synaptic activation that decays gradually. <span class="key-statement">Incoming activations determine new firing rates. The resulting spikes renew those activations. This feedback can support activity after the external stimulus has ended.</span></p>
+<p><strong>[Background]</strong> <span class="definition-explanation">Neurons affect one another through connections called <span class="definition-term" data-custom-style="Definition Term"><strong>synapse</strong></span>s.</span> In the models used here, inputs have two contrasting effects:</p>
+<ul>
+<li><span class="definition-explanation">An <span class="definition-term" data-custom-style="Definition Term"><strong>excitatory input</strong></span> increases a receiving neuron’s tendency to fire.</span></li>
+<li><span class="definition-explanation">An <span class="definition-term" data-custom-style="Definition Term"><strong>inhibitory input</strong></span> reduces it.</span></li>
+</ul>
+<p><strong>[Interpretation]</strong> The effect of a spike can last beyond the spike itself because synaptic input decays over time. <span class="definition-explanation">When neurons send signals back into the same population, the circuit has <span class="definition-term" data-custom-style="Definition Term"><strong>recurrent connectivity</strong></span>.</span> Such feedback can maintain activity after an external signal disappears.</p>
+<p><strong>[Paper]</strong> Burak and Fiete (2012) specify the following interacting-neuron model in <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Materials and Methods, Eqs. 7–9, PDF p.&nbsp;5</a>. The model assumes fixed connection weights, constant input biases and a common synaptic decay time. In full, its three rules are <span class="math inline">\(\dot s_i=-s_i/\tau+\sum_\alpha\delta(t-t_i^\alpha)\)</span>, <span class="math inline">\(g_i=\sum_jW_{ij}s_j+b_i\)</span>, and <span class="math inline">\(r_i=\phi(g_i)\)</span>. Here <span class="math inline">\(s_i\)</span> is the effect of spikes from neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(t_i^\alpha\)</span> are their times, <span class="math inline">\(g_i\)</span> is total input, <span class="math inline">\(W_{ij}\)</span> is the effect of neuron <span class="math inline">\(j\)</span> on neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> is the fixed bias, and <span class="math inline">\(\phi\)</span> converts input to the firing rate <span class="math inline">\(r_i\)</span>. Spikes follow the model’s conditional Poisson rule, explained in the <a href="#sec-foundations-poisson">spike-count section</a>. Each equation and its meaning follow immediately below.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<p><strong>[Interpretation]</strong> These equations describe synaptic activity; muscle motion is a later part of the pathway.</p>
+<p><strong>[Paper]</strong> <strong>Equation 7.</strong> The synaptic activation <span class="math inline">\(s_i\)</span> tracks the decaying effect of neuron <span class="math inline">\(i\)</span>’s outgoing spikes on receiving cells. The dot means <span class="math inline">\(\dot s_i=ds_i/dt\)</span>, and <span class="math inline">\(\tau\)</span> is the decay time in seconds. The index <span class="math inline">\(\alpha\)</span> numbers the spikes of neuron <span class="math inline">\(i\)</span>, with spike <span class="math inline">\(\alpha\)</span> occurring at time <span class="math inline">\(t_i^\alpha\)</span>. The Dirac delta <span class="math inline">\(\delta(t-t_i^\alpha)\)</span> represents an instantaneous unit pulse at that spike time; its integral across that time is one. The paper writes the <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">activation dynamics, PDF p.&nbsp;5</a>, as</p>
+<p><span class="math display">\[ \dot s_i+\frac{s_i}{\tau}=\sum_\alpha\delta(t-t_i^\alpha). \]</span></p>
+<p><strong>[Interpretation]</strong> Between spikes, the right-hand side is zero and activation decays. Integrating through one spike gives a one-unit increase in <span class="math inline">\(s_i\)</span>. <span class="key-statement">Read Eq. 7 as a balance: spikes add activation, while the term <span class="math inline">\(s_i/\tau\)</span> removes it.</span> <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Original Eq. 7, PDF p.&nbsp;5</a>.</p>
+<p><strong>[Guide derivation]</strong> <strong>Equivalent count form.</strong> Let <span class="math inline">\(N_i(t)\)</span> count neuron <span class="math inline">\(i\)</span>’s spikes up to time <span class="math inline">\(t\)</span>. Integrating the pulse train counts the spikes, so the same dynamics can be written as</p>
+<p><span class="math display">\[ ds_i=-\frac{s_i}{\tau}\,dt+dN_i(t). \]</span></p>
+<p>Equivalently, if its spikes occur at times <span class="math inline">\(t_i^\alpha\)</span>,</p>
+<p><span class="math display">\[ s_i(t)=\sum_{t_i^\alpha\le t}\exp[-(t-t_i^\alpha)/\tau] \]</span></p>
+<p>once the contribution from any activation present at the starting time has decayed. The sum includes a spike at time <span class="math inline">\(t\)</span>, so it gives the activation immediately after that spike. Here <span class="math inline">\(s_i\)</span> is dimensionless in the convention that each spike adds one unit.</p>
+<p><strong>[Example]</strong> For five illustrative spike times, the plot shows the events and the activation they leave behind.</p>
+<div class="figure-scroll">
+<div id="fig-memory-spike-trace" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Five spike marks share a time axis with an activation trace. Each mark aligns with a vertical rise of one activation unit. The activation decays smoothly between spikes, and nearby spikes build on the remaining activation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-memory-spike-trace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-memory-spike-trace.png" class="img-fluid figure-img" style="width:7.29167in" alt="Five spike marks share a time axis with an activation trace. Each mark aligns with a vertical rise of one activation unit. The activation decays smoothly between spikes, and nearby spikes build on the remaining activation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-memory-spike-trace-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.3: Each spike adds one activation unit, which then decays with a 50 ms time constant. Closely spaced spikes add to the activation left by earlier spikes. The five spike times are an illustrative input, and the activation is calculated exactly from Burak and Fiete (2012), Eq. 7.
+</figcaption>
+</figure>
+</div>
+</div>
+<p><strong>[Interpretation: activation and connections]</strong> The activation retains a decaying contribution from earlier spikes, so a spike train and its activation trace are different objects.</p>
+<p>The <a href="../frontmatter/ch-mathematical-tools.html#sec-math-tools-weights">connection-matrix explanation</a> establishes why the model needs these interactions.</p>
+<p><strong>[Paper]</strong> <strong>From activation to new spikes: Equations 8 and 9.</strong> The total input <span class="math inline">\(g_i\)</span> to neuron <span class="math inline">\(i\)</span> combines the activation arriving from other cells with a constant input bias <span class="math inline">\(b_i\)</span>. The fixed connection weight <span class="math inline">\(W_{ij}\)</span> says how the activation of neuron <span class="math inline">\(j\)</span> affects the input to neuron <span class="math inline">\(i\)</span> (<a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Eqs. 8–9, PDF p.&nbsp;5</a>):</p>
+<p><span class="math display">\[ g_i=\sum_jW_{ij}s_j+b_i.\qquad\text{(Burak and Fiete, Eq. 8)} \]</span></p>
+<p><strong>[Paper]</strong> <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>neural transfer function</strong></span> <span class="math inline">\(\phi\)</span> converts total input into a nonnegative firing rate <span class="math inline">\(r_i\)</span>, in spikes per second.</span> This is <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Eq. 9, PDF p.&nbsp;5</a>:</p>
+<p><span class="math display">\[ r_i=\phi(g_i).\qquad\text{(Burak and Fiete, Eq. 9)} \]</span></p>
+<p><strong>[Interpretation]</strong> These equations specify how the input sets the rate; they do not prescribe each spike’s time.</p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Example]</strong> Increasing input might increase firing linearly over some input range, or exponentially. The paper allows general connectivity and transfer functions at first (<a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5&amp;zoom=125,0,372">Model, Eqs. 7–9, p.&nbsp;5</a>).<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <!-- vale ai-tells.FormalTransitions = YES --> <!-- vale ai-tells.EmDashUsage = YES --></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Interpretation: recurrent feedback]</strong> A spike from cell <span class="math inline">\(j\)</span> raises <span class="math inline">\(s_j\)</span> by one and therefore changes the input to cell <span class="math inline">\(i\)</span> by <span class="math inline">\(W_{ij}\)</span>. That contribution then decays over time <span class="math inline">\(\tau\)</span>. For an increasing transfer function, a positive weight raises the receiving cell’s rate and a negative weight lowers it. The resulting new spikes affect other cells in turn. Thus the weights set where a disturbance goes, the transfer function sets the rate response, and <span class="math inline">\(\tau\)</span> sets how long each synaptic contribution lasts. The input <span class="math inline">\(g_i\)</span> is in the model’s input units. It is not specified as a measured membrane voltage. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p>Together, Eqs. 7–9 describe one feedback cycle: spikes change synaptic activation, weighted activation changes input, and input changes the rate of new spikes. The next question is how the resulting pattern of rates can represent an eye angle or location.</p>
+</section>
+<section id="sec-foundations-spikes" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sec-foundations-spikes"><span class="header-section-number">1.3</span> Patterns of firing rates represent a value</h2>
+<p><strong>[Background]</strong> A tuning curve gives a neuron’s expected firing rate as a function of a represented variable. The linear eye-tuning example here draws on the 2022 eye paper; it is not an equation from the 2012 article. For eye angle <span class="math inline">\(\theta\)</span>, a simple local model is <span class="math inline">\(r_i(\theta)=r_{i,0}+k_i\theta\)</span>. Neuron <span class="math inline">\(i\)</span> has baseline rate <span class="math inline">\(r_{i,0}\)</span> in spikes per second and slope <span class="math inline">\(k_i\)</span> in spikes per second per degree. This rate baseline is different from the input bias <span class="math inline">\(b_i\)</span> in Eq. 8. The linear expression can describe an active range, but it must be modified where it would predict negative firing. The eye paper includes a firing threshold and terms for movement as well as position.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p><strong>[Paper]</strong> The 2012 model represents a value by a pattern across neurons; see its <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Results setup and Fig. 1, PDF p.&nbsp;2</a>. Cells can have different tuning curves. The vector</p>
+<p><span class="math display">\[ \mathbf r(\theta)=\bigl(r_1(\theta),\ldots,r_N(\theta)\bigr) \]</span></p>
+<!-- vale ai-tells.FigurativeCarries = NO -->
+<!-- vale ai-tells.StrawmanContrast = NO -->
+<p><span class="definition-explanation">is a <span class="definition-term" data-custom-style="Definition Term"><strong>population code</strong></span>: the pattern across <span class="math inline">\(N\)</span> neurons carries information about <span class="math inline">\(\theta\)</span>.</span> The position of a cell in this vector is a neuron identity, rather than a location in physical space. <span class="definition-explanation">Reading a value from observed spikes is <span class="definition-term" data-custom-style="Definition Term"><strong>decoding</strong></span>.</span> <span class="definition-explanation">Establishing a population pattern from an input is <span class="definition-term" data-custom-style="Definition Term"><strong>encoding</strong></span>.</span> <span class="key-statement">The 2012 paper asks how accurately the network can maintain such a pattern using its own noisy activity.</span> <!-- vale ai-tells.StrawmanContrast = YES --> <!-- vale ai-tells.FigurativeCarries = YES --></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Background]</strong> Spatial tuning gives a second example. This discussion draws on <a href="../papers/mainali-2025-universal-statistics.pdf">Mainali and colleagues (2025)</a>, not on the 2012 memory model. In the hippocampus, a brain structure involved in memory and navigation, a place cell fires strongly in one or more localized regions of an environment. A connected region of elevated spatial firing is a place field. One neuron can have several fields. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>rate map</strong></span> estimates the rate at each position by dividing the spikes recorded there by the time spent there.</span> Sparse visits, smoothing, and firing cutoffs therefore affect the estimated map and its fields. A field in a model’s expected rate and a field extracted from finite recordings are related objects with different measurement uncertainties.<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><strong>[Background]</strong> The hippocampal areas CA3 and CA1 contain place cells, but their connections differ:</p>
+<ul>
+<li>CA3 supplies major input to CA1 and has substantial recurrent excitation.</li>
+<li>CA1 also receives input from entorhinal cortex and has much less local recurrent excitation.</li>
+</ul>
+<p><strong>[Background]</strong> <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>grid cell</strong></span>, found in entorhinal cortex, has repeated spatial fields that often form an approximately hexagonal pattern in a two-dimensional arena.</span> These repeated grid fields and a place cell’s irregular multiple fields should be kept distinct. A model explaining CA1’s output maps need not identify where the animal’s position estimate is maintained.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
+</section>
+<section id="sec-foundations-poisson" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="sec-foundations-poisson"><span class="header-section-number">1.4</span> A variable spike count at a fixed rate</h2>
+<p><strong>[Paper]</strong> A tuning curve describes expected activity, but a brief spike observation can differ each time the same value is represented. The <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">2012 model, Materials and Methods, PDF p.&nbsp;5</a>, uses a Poisson rule for spike generation: conditional on the current network state, neuron <span class="math inline">\(i\)</span> emits a spike in a sufficiently short interval <span class="math inline">\(dt\)</span> with probability <span class="math inline">\(r_i(t)dt+o(dt)\)</span>. Spike generation is independent between neurons conditional on their current rates. The rate itself changes with the recurrent input, so this rule does not make complete spike trains independent.</p>
+<p><strong>[Background]</strong> For a predetermined rate function, a <span class="definition-term" data-custom-style="Definition Term"><strong>Poisson process</strong></span> has <span class="definition-explanation">independent spike counts in disjoint intervals; in a short interval, the probability of a spike is approximately the rate multiplied by the interval’s duration.</span> In the recurrent model, the rate depends on network activity; the qualification about whole spike trains appears below.</p>
+<p><strong>[Guide derivation]</strong> For a constant rate <span class="math inline">\(r\)</span>, the Poisson assumption gives the following law for the number <span class="math inline">\(K\)</span> of spikes in an interval of length <span class="math inline">\(\Delta t\)</span>:</p>
+<p><span class="math display">\[ \Pr(K=k)=e^{-\lambda}\frac{\lambda^k}{k!}, \qquad \lambda=r\Delta t, \qquad k=0,1,2,\ldots . \]</span></p>
+<p><strong>[Guide derivation: the count law]</strong> Divide the interval into <span class="math inline">\(n\)</span> independent short bins, each with spike probability <span class="math inline">\(\lambda/n\)</span>, where <span class="math inline">\(\lambda=r\Delta t\)</span>. For fixed <span class="math inline">\(k\)</span>, the chance of spikes in exactly <span class="math inline">\(k\)</span> bins is <span class="math inline">\(\binom nk(\lambda/n)^k(1-\lambda/n)^{n-k}\)</span>. As <span class="math inline">\(n\)</span> grows, <span class="math inline">\(\binom nk/n^k\to1/k!\)</span> and <span class="math inline">\((1-\lambda/n)^{n-k}\to e^{-\lambda}\)</span>, giving the displayed Poisson formula. The longer derivation below shows these limits and the mean and variance step by step.</p>
+<p><strong>[Interpretation]</strong> Here <span class="math inline">\(\lambda\)</span> is an expected count, so it has no units. For this distribution,</p>
+<p><span class="math display">\[ \mathbb E[K]=\lambda, \qquad \operatorname{Var}(K)=\lambda. \]</span></p>
+<div class="publisher-clarification-note publisher-fold-always" data-custom-style="Clarification Note">
+<p><strong>Derivation: where the Poisson count formula and its variance come from</strong></p>
+<p><strong>[Guide derivation] From random spike times to a count.</strong> Hold the rate <span class="math inline">\(r\)</span> fixed over the observation of length <span class="math inline">\(\Delta t\)</span>. Divide that observation into <span class="math inline">\(n\)</span> short bins of width <span class="math inline">\(\delta t=\Delta t/n\)</span>. Approximate each bin by one independent spike-or-no-spike trial, with spike probability</p>
+<p><span class="math display">\[ p=r\delta t=\frac{\lambda}{n},\qquad \lambda=r\Delta t. \]</span></p>
+<p>Take <span class="math inline">\(n\)</span> large enough that <span class="math inline">\(p&lt;1\)</span>. This construction assumes a constant chance of a spike per unit time and independence between nonoverlapping bins. In the continuous-time limit, the chance of two or more spikes in one bin becomes negligible compared with its width. These are assumptions of the Poisson model, not properties of every recorded neuron.<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a></p>
+<p>A particular pattern with spikes in exactly <span class="math inline">\(k\)</span> bins and silence in the other <span class="math inline">\(n-k\)</span> bins has probability <span class="math inline">\(p^k(1-p)^{n-k}\)</span>. There are</p>
+<p><span class="math display">\[ \binom nk=\frac{n(n-1)\cdots(n-k+1)}{k!} \]</span></p>
+<p>ways to choose the occupied bins. The numerator chooses them in order; dividing by <span class="math inline">\(k!=1\cdot2\cdots k\)</span> removes the repeated counting of the same set in different orders. For <span class="math inline">\(k=0\)</span>, there is one empty set and <span class="math inline">\(0!=1\)</span>. Adding the probabilities of all these patterns gives</p>
+<p><span class="math display">\[ \begin{aligned} \Pr(K_n=k) &amp;=\binom nk\left(\frac{\lambda}{n}\right)^k \left(1-\frac{\lambda}{n}\right)^{n-k}\\ &amp;=\frac{\lambda^k}{k!} \left[\prod_{j=0}^{k-1}\left(1-\frac{j}{n}\right)\right] \left(1-\frac{\lambda}{n}\right)^{n-k}. \end{aligned} \]</span></p>
+<p>Here <span class="math inline">\(K_n\)</span> is the count in the finite-bin construction. Keep the observation duration, <span class="math inline">\(\lambda\)</span>, and the integer <span class="math inline">\(k\)</span> fixed while making the bins finer. The finite product tends to one. The remaining factor tends to</p>
+<p><span class="math display">\[ \lim_{n\to\infty}\left(1-\frac{\lambda}{n}\right)^{n-k} =e^{-\lambda}. \]</span></p>
+<p>For example, its logarithm is <span class="math inline">\((n-k)\log(1-\lambda/n)\)</span>, which tends to <span class="math inline">\(-\lambda\)</span> because <span class="math inline">\(\log(1-u)/u\to-1\)</span> as <span class="math inline">\(u\to0\)</span>. Exponentiating gives the displayed limit. The limiting count <span class="math inline">\(K\)</span> therefore obeys</p>
+<p><span class="math display">\[ \boxed{\Pr(K=k)=e^{-\lambda}\frac{\lambda^k}{k!}.} \]</span></p>
+<p><span class="key-statement">The exponential comes from requiring silence in all the unoccupied bins. The factor <span class="math inline">\(\lambda^k\)</span> comes from the <span class="math inline">\(k\)</span> spike probabilities together with the number of possible bin locations, and <span class="math inline">\(k!\)</span> corrects repeated counting.</span> In particular, <span class="math inline">\(e^{-\lambda}\)</span> is the probability of no spikes. A positive expected count can therefore coexist with a silent observation.</p>
+<p><strong>[Guide derivation] From the count formula to its mean and variance.</strong> Shifting the summation index by one gives</p>
+<p><span class="math display">\[ \begin{aligned} \mathbb E[K] &amp;=e^{-\lambda}\sum_{k=1}^{\infty}k\frac{\lambda^k}{k!}\\ &amp;=\lambda e^{-\lambda}\sum_{j=0}^{\infty}\frac{\lambda^j}{j!} =\lambda, \end{aligned} \]</span></p>
+<p>where the last sum is <span class="math inline">\(e^\lambda\)</span>. Shifting by two similarly gives</p>
+<p><span class="math display">\[ \mathbb E[K(K-1)] =e^{-\lambda}\sum_{k=2}^{\infty} \frac{\lambda^k}{(k-2)!} =\lambda^2e^{-\lambda}\sum_{j=0}^{\infty}\frac{\lambda^j}{j!} =\lambda^2. \]</span></p>
+<p>Since <span class="math inline">\(K^2=K(K-1)+K\)</span>,</p>
+<p><span class="math display">\[ \mathbb E[K^2]=\lambda^2+\lambda, \qquad \operatorname{Var}(K)=\mathbb E[K^2]-\mathbb E[K]^2=\lambda. \]</span></p>
+</div>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Interpretation]</strong> The count variance grows with rate, while its size relative to the mean falls. Its relative standard deviation is <span class="math inline">\(\sqrt\lambda/\lambda=1/\sqrt\lambda\)</span>. This is why collecting more independent spikes can improve a rate estimate. It also means that increasing a firing-rate scale does not keep absolute noise amplitude fixed. Comparisons between networks must specify which quantities are held constant.<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> <!-- vale ai-tells.FormalTransitions = YES --></p>
+<div class="publisher-worked-calculation publisher-fold-always">
+<p><span id="sec-foundations-count-example"><strong>Example: an apparently silent cell and an informative population</strong></span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Example]</strong> Suppose the expected rate is 20 spikes per second and an observation lasts 50 ms. The expected count is <span class="math inline">\(20\times0.05=1\)</span>. The probability of seeing no spike is <span class="math inline">\(e^{-1}=0.368\)</span>. A silent interval is therefore common even though the expected rate is positive. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p>Now suppose 20 conditionally independent cells each have that rate. Their total count is Poisson with mean 20 and standard deviation <span class="math inline">\(\sqrt{20}=4.47\)</span>. The total rate estimate has a relative standard deviation of about 22.4%, compared with 100% for one cell. <span class="key-statement">Population averaging helps because the independent count variances add while the mean signal adds directly. If a common varying input makes several cells’ firing rates rise and fall together, that shared variation will not disappear in the same way.</span></p>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p>The two count distributions can be compared on the same rate per cell scale. <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<div class="figure-scroll">
+<div id="fig-foundations-poisson-population" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters around twenty hertz. Their means match, but the rate standard deviation falls from twenty to 4.47 hertz.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-foundations-poisson-population-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-foundations-poisson-population.png" class="img-fluid figure-img" style="width:7.29167in" alt="Two discrete Poisson distributions share a rate per cell axis. One cell has widely spaced possible estimates at zero, twenty, forty hertz and so on, with probability 0.368 at zero. The twenty cell estimate has possible values one hertz apart and clusters around twenty hertz. Their means match, but the rate standard deviation falls from twenty to 4.47 hertz.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-foundations-poisson-population-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1.4: Analytic teaching construction for the chapter’s 20 Hz, 50 ms example. The count is Poisson with mean 1 for one cell and mean 20 for 20 conditionally independent cells. Both panels plot the rate per cell <span class="math inline">\(K/(N\Delta t)\)</span>, so both estimates have mean 20 Hz. Their standard deviations are 20 Hz and 4.47 Hz. Each stem is a probability at one possible estimate, rather than a continuous density. Only estimates through 100 Hz are drawn. The independence condition concerns fixed modeled rates, not complete recurrent spike trains.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Dividing the pooled rate estimate by 20 keeps the expected rate per cell fixed, while independent averaging reduces its relative spread. See <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9">Poisson count likelihood, SI Eq. S43, p.&nbsp;9</a>.</p>
+</div>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Interpretation]</strong> For a predetermined rate function <span class="math inline">\(r(t)\)</span>, the time-varying Poisson model has a count parameter <span class="math inline">\(\lambda=\int r(t)\,dt\)</span> over the observation. In a recurrent network, however, <span class="math inline">\(r(t)\)</span> itself depends on earlier spikes. The whole-interval count need not then be Poisson. The useful independence statement is local and conditional: given the current modeled state, the elementary spike-generation noise is independent across cells in the basic 2012 model. The changing state can still produce correlations across time and across neurons. This qualification prevents treating a recurrent Poisson network as a collection of independent complete spike trains. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p><strong>[Background]</strong> Two other measurements describe different aspects of variability: <!-- vale ai-tells.CataphoricForecasting = YES --></p>
+<ul>
+<li><span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>coefficient of variation</strong></span>, or CV, of interspike intervals, the times between successive spikes, is their standard deviation divided by their mean.</span> A homogeneous Poisson process has exponential intervals and CV equal to one. More regular firing can have CV below one, as in the ocular motor neurons analyzed in 2022.</li>
+<li><span class="definition-explanation">The count variance divided by mean count is the <span class="definition-term" data-custom-style="Definition Term"><strong>Fano factor</strong></span></span>. Its value also depends on the counting interval.</li>
+</ul>
+<p><strong>[Interpretation]</strong> CV and Fano factor cannot be substituted for one another without additional assumptions.</p>
+</section>
+<section id="sec-foundations-simulation" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="sec-foundations-simulation"><span class="header-section-number">1.5</span> Network simulations test whether spike noise moves a stored value</h2>
+<p><strong>[Paper]</strong> Can a network keep firing while losing the value it represents? Burak and Fiete (2012) test this by following the spikes and synaptic activations generated by Eqs. 7–9. In two different simulated networks, the represented value wanders while the neural activity persists. The simulation measurements agree with diffusion predicted from each network’s noise-free activity, without fitting a free diffusion parameter. At short times, their prediction is <span class="math inline">\(\operatorname{Var}[\theta(t)-\theta(0)]\simeq2Dt\)</span>, where <span class="math inline">\(\theta\)</span> labels the represented value and <span class="math inline">\(D\)</span> is the local diffusion coefficient; this assumes negligible systematic drift and an appropriate time window after fast disturbances relax. The ring and two-unit settings and the measurements are given below. They describe the result in <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Diffusive Drift, PDF p.&nbsp;2</a>, show <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Fig. 2, p.&nbsp;3</a>, and specify <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">Network Simulations, p.&nbsp;6</a>.<a href="#fn13" class="footnote-ref" id="fnref13" role="doc-noteref"><sup>13</sup></a></p>
+<p><strong>[Guide derivation]</strong> The update rule below reconstructs the stated simulation method. It shows how the simulated spikes generate changes in the stored value that can be compared with the paper’s theoretical prediction.</p>
+<p><strong>[Interpretation]</strong> <strong>The simulated system.</strong> The computer stores one changing activation <span class="math inline">\(s_i\)</span> for each neuron. It calculates each input <span class="math inline">\(g_i\)</span> and rate <span class="math inline">\(r_i\)</span> from the current activations. The connections <span class="math inline">\(W_{ij}\)</span>, input biases <span class="math inline">\(b_i\)</span>, decay time <span class="math inline">\(\tau\)</span> and transfer function <span class="math inline">\(\phi\)</span> stay fixed during a run. Constant bias remains present, but no continuing stimulus fixes the remembered value. The model follows recurrent neural activity; it does not calculate muscle forces, membrane-voltage waveforms or learning of connections. This describes the procedure specified under <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">Network Simulations, PDF p.&nbsp;6</a>.</p>
+<p><strong>[Paper]</strong> In the ring example, 1,024 neurons are ordered by their <span class="definition-term" data-custom-style="Definition Term"><strong>preferred angle</strong></span>, <span class="definition-explanation">the represented angle at which each neuron’s expected firing rate is highest.</span> <span class="definition-explanation">An <span class="definition-term" data-custom-style="Definition Term"><strong>activity bump</strong></span> is a localized peak of firing rates across these neurons; its position represents the stored angle.</span> For neuron <span class="math inline">\(i\)</span>, let <span class="math inline">\(\theta_i=2\pi i/N\)</span> with <span class="math inline">\(N=1024\)</span>. The inhibitory connection from neuron <span class="math inline">\(j\)</span> to neuron <span class="math inline">\(i\)</span> is <span class="math inline">\(W_{ij}=w(\theta_i-\theta_j)\)</span>; write <span class="math inline">\(\delta=\theta_i-\theta_j\)</span> for the difference in preferred angles. The connection profile is</p>
+<p><span class="math display">\[ w(\delta)=e^{\cos\delta-1}-e^{0.3(\cos\delta-1)}. \]</span></p>
+<p>The authors use common bias <span class="math inline">\(b=-2\)</span> and synaptic time constant <span class="math inline">\(\tau=10\)</span> ms. They compare two firing rules, <span class="math inline">\(\tau\phi(g)=10e^g\)</span> and <span class="math inline">\(\tau\phi(g)=0.2[1+\tanh(g+4)]\)</span>. They initialize synaptic activations uniformly between 0 and 0.01, then simulate 100 trials of 1,000 s each, with 0.1 ms steps. The plotted theory uses the noise-free steady-state tuning curves, rather than a diffusion coefficient fitted to the noisy trajectory (<a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Fig. 2 and Network Simulations, PDF pp.&nbsp;3 and 6</a>).</p>
+<p><strong>[Interpretation: ring dynamics]</strong> The ring describes the ordering of preferred angles, not an anatomical circle of cells. Nearby preferred angles have weak mutual inhibition, while the active group suppresses competing activity farther away. The chosen connection profile and firing rule sustain a localized pattern. Random spike timing can move its peak even while the pattern persists.</p>
+<p><strong>How neurons depend on one another.</strong> A spike in cell <span class="math inline">\(j\)</span> increases <span class="math inline">\(s_j\)</span> by one. Every receiving cell <span class="math inline">\(i\)</span> then gets an input change <span class="math inline">\(W_{ij}\)</span>, which changes its rate through <span class="math inline">\(\phi\)</span>. Its later spikes feed back into the network. <span class="key-statement">Independent random spike draws at given rates do not make the neurons’ activity independent: earlier spikes change the rates used for later draws.</span></p>
+<p><strong>[Guide derivation]</strong> The following update reconstructs one step of the ring simulation, of duration <span class="math inline">\(h\)</span>, from the stated method:</p>
+<ol type="1">
+<li>Calculate <span class="math inline">\(g_i\)</span> and <span class="math inline">\(r_i\)</span> from all current activations.</li>
+<li>Draw a spike indicator <span class="math inline">\(X_i\)</span>: it is one with probability <span class="math inline">\(r_i h\)</span> and zero otherwise, independently across cells conditional on those current rates.</li>
+<li>Reduce the old activation by its decay over the step and add the generated spike:</li>
+</ol>
+<p><span class="math display">\[ s_i(t+h)\approx s_i(t)\left(1-\frac{h}{\tau}\right)+X_i. \]</span></p>
+<p>The next step uses these updated activations. This <span class="definition-term" data-custom-style="Definition Term"><strong>Euler update</strong></span> <span class="definition-explanation">approximates continuous decay by the current rate of change times the step duration.</span> The one-spike draw requires <span class="math inline">\(r_i h\)</span> to be small. The authors use <span class="math inline">\(h=0.1\)</span> ms and <span class="math inline">\(\tau=10\)</span> ms. Their two-population example requires a spike-count rule suitable for aggregate population activity; the one-spike restriction above belongs to the ring implementation. The <a href="ch-simulating-memory.html#sec-simulating-memory-state">simulation chapter</a> gives the full settings and numerical cautions.</p>
+<p><strong>[Background]</strong> Before comparing simulated motion with theory, we need a measure of how far the represented value moves. Let <span class="math inline">\(x(t)\)</span> be that value at absolute time <span class="math inline">\(t\)</span>, and let <span class="math inline">\(\ell\)</span> be the time between two observations, called the lag. <span class="definition-explanation">The <span class="definition-term" data-custom-style="Definition Term"><strong>displacement</strong></span> is <span class="math inline">\(\Delta x=x(t+\ell)-x(t)\)</span>.</span> The mean squared displacement, or MSD, is the average of <span class="math inline">\((\Delta x)^2\)</span> over intervals with the same lag. The average can use different starting times along a recording, repeated trials, or both; which intervals can be combined depends on whether their movement statistics are comparable. Squaring prevents leftward and rightward changes from cancelling.</p>
+<p><strong>[Interpretation: reading the MSD]</strong> For an angle measured in degrees, MSD has units degrees squared. An MSD plot puts lag on the horizontal axis and MSD on the vertical axis. Lag is a duration, not the clock time at which an interval starts. If the statistics change during a trial, the MSD can depend on that starting time as well as on lag.</p>
+<p><span class="key-statement">A straight MSD curve on ordinary axes means that the average squared displacement grows at a constant rate over that range.</span> The zero-mean diffusion model taught in the next chapter gives <span class="math inline">\(\operatorname{MSD}(\ell)=2D\ell\)</span>, where the diffusion coefficient <span class="math inline">\(D\)</span> is half the rate of displacement-variance growth. The MSD slope is <span class="math inline">\(2D\)</span> in degrees squared per second. On axes that plot logarithms, a relation <span class="math inline">\(\operatorname{MSD}\propto\ell^\beta\)</span> has slope <span class="math inline">\(\beta\)</span>: diffusion has slope one, while constant-velocity motion has slope two. A slope alone does not identify the neural cause. Bias, smoothing by muscles, boundaries and the range of lags measured can change the curve.</p>
+<p><strong>[Paper]</strong> <strong>What is measured and compared.</strong> At each step, the ring’s angle is read from the preferred angle of the neuron with the highest instantaneous rate. The authors measure how much that angle changes over different time intervals and average the squared changes. They independently calculate the predicted spreading from the same network’s steady activity in the absence of noise. In <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Figure 2C–D</a>, simulation points agree with these theoretical curves without fitting a free diffusion parameter. The paper also compares the prediction with the bound <span class="math inline">\(D\ge 1/(2\tau^2J)\)</span>, where <span class="math inline">\(J\)</span> is the internal spike Fisher information rate. The symmetric exponential-transfer example reaches this bound, while the sigmoidal example’s predicted diffusion coefficient lies above its own information bound. Error bars show the standard error over 100 trials. Over short intervals <span class="math inline">\(t\)</span>, the mean squared angle change grows approximately as <span class="math inline">\(E[(\theta(t)-\theta(0))^2]\simeq 2Dt\)</span>, where <span class="math inline">\(D\)</span> is the model’s local diffusion coefficient. This approximation assumes negligible systematic drift and an interval long enough for transient disturbances to relax but short enough that the local diffusion coefficient stays nearly constant. Over long intervals, wrapping angle differences into a single turn limits the plotted error.</p>
+<p><strong>[Interpretation]</strong> That flattening does not mean the original angle has been recovered.</p>
+<p><strong>[Paper]</strong> <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Figure 2E–G</a> repeats the test with two mutually inhibiting units, which can represent two groups of neurons. Their difference in firing rates represents the stored value. The two-unit model has <span class="math inline">\(W_{11}=W_{22}=0\)</span>, <span class="math inline">\(W_{12}=W_{21}=-1\)</span>, common input <span class="math inline">\(b=5000\)</span>, <span class="math inline">\(\tau=100\)</span> ms, and linear transfer <span class="math inline">\(\tau\phi(g)=g\)</span> over its active range. Its steady rates satisfy <span class="math inline">\(2\tau\bar r_1=b+\theta\)</span> and <span class="math inline">\(2\tau\bar r_2=b-\theta\)</span>. Thus <span class="math inline">\(\theta=\tau(\bar r_1-\bar r_2)\)</span> labels the persistent state. For this coordinate the paper obtains <span class="math inline">\(D=b/(2\tau)\)</span>, so its short-time prediction is <span class="math inline">\(\operatorname{Var}[\theta(t)-\theta(0)]\simeq bt/\tau\)</span>. The simulation uses 0.4 ms steps over 200 s; the reported displacement statistic averages squared changes of <span class="math inline">\(r_1-r_2\)</span> over starting times. Writing <span class="math inline">\(\Delta r=r_1-r_2\)</span>, the activation-difference coordinate <span class="math inline">\(\theta=\tau\Delta r\)</span> gives <span class="math inline">\(\operatorname{Var}[\Delta r(t)-\Delta r(0)]=\operatorname{Var}[\theta(t)-\theta(0)]/\tau^2\simeq bt/\tau^3\)</span>. Thus its rate-difference diffusion coefficient is <span class="math inline">\(D_{\Delta r}=D_\theta/\tau^2=b/(2\tau^3)\)</span> within the linear active range and the local diffusion regime. Agreement in this second design checks that the prediction is not specific to the ring’s symmetry.</p>
+<p><strong>[Interpretation: model and data]</strong> <strong>Relation to biological data.</strong> <span class="key-statement">Figure 2 compares theory with simulated data. It does not fit the memory errors of a recorded animal.</span> The paper motivates persistent activity and variable spiking using earlier experiments, and proposes tests using measured tuning curves. It also notes that eye-position neurons can spike more regularly than a Poisson process, so the Poisson formula cannot be applied directly to those recordings. The <a href="ch-eye-drift.html">2022 eye-drift study</a> supplies a separate comparison with recorded neural activity and eye motion. Here the established result is narrower: the specified interacting network models produce the memory spreading predicted by the theory.<a href="#fn14" class="footnote-ref" id="fnref14" role="doc-noteref"><sup>14</sup></a></p>
+<p>The next section explains how measured changes can distinguish shared neural variation from a directional bias when the output is an eye movement.</p>
+</section>
+<section id="sec-foundations-covariance" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="sec-foundations-covariance"><span class="header-section-number">1.6</span> Shared neural signals and a biased command leave different signs in eye motion</h2>
+<p><strong>[Background]</strong> This section prepares the covariance and motion analysis in <a href="../papers/ben-shushan-2022-fixational-drift.pdf">Ben-Shushan and colleagues (2022)</a>; it is not a result of the 2012 paper. During fixation, a monkey tries to keep looking at a stationary target, yet its eye moves slightly. A changing command from the brain can make many motor neurons change their firing together. Their spikes act on the eye muscles, which turn the eye. An individual motor neuron also adds spike variability of its own. The 2022 paper asks how much of the observed movement follows a shared neural command, and whether that command itself wanders over time.<a href="#fn15" class="footnote-ref" id="fnref15" role="doc-noteref"><sup>15</sup></a></p>
+<!-- vale ai-tells.NegatedSubject = NO -->
+<p><strong>[Interpretation]</strong> <span class="key-statement">Covariance asks which recorded changes occur together. Displacement statistics ask how far the eye moves and how that movement grows with elapsed time.</span> Neither measurement by itself identifies the neural circuit responsible. <!-- vale ai-tells.NegatedSubject = YES --></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p>The <a href="../frontmatter/ch-mathematical-tools.html#sec-math-tools-shared">shared-signal explanation</a> establishes the covariance and gain model.</p>
+<p><strong>[Interpretation]</strong> <strong>A shared command can survive averaging across neurons.</strong> If a common input raises the firing of many motor neurons that pull the eye in the same direction, their effects add. Independent extra and missing spikes partly cancel when those neurons act together.</p>
+<p><strong>[Background]</strong> Ben-Shushan and colleagues (2022) compare measured eye displacement with a displacement predicted from one neuron’s spikes, after converting both to degrees.</p>
+<p><strong>[Interpretation]</strong> That prediction is an analysis of a recording, not an extra command sent to the muscles. A relationship between the two is evidence to test against a model of shared input and private noise. It does not mean that the one recorded cell causes all the movement. <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<p><strong>[Interpretation]</strong> Covariance measures whether two signals tend to be above their own averages together or on opposite sides of those averages. Positive covariance between the two displacements means that above-average changes in the neural prediction tend to accompany above-average changes in eye position. The correlation coefficient, written <span class="math inline">\(\rho\)</span>, expresses this shared variation relative to the spread of each signal. Extra private noise can lower <span class="math inline">\(\rho\)</span> even when the shared drive has not weakened. The <a href="ch-eye-drift.html#sec-eye-chi">eye-drift calculation</a> explains why a modest correlation need not mean a small shared contribution to movement.</p>
+<div class="publisher-clarification-note publisher-fold-always" data-custom-style="Clarification Note">
+<p><strong>Mathematical definitions: covariance, variance and correlation</strong></p>
+<p><strong>[Guide derivation]</strong> Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be the two displacements, in degrees, across repeated intervals of the same duration. Subtracting each average leaves its fluctuation. Their covariance is</p>
+<p><span class="math display">\[ \operatorname{Cov}(X,Y)=\mathbb E[(X-\mathbb E[X])(Y-\mathbb E[Y])]. \]</span></p>
+<p>Here it has units degrees squared. In general its units are the product of the two signals’ units. Variance is <span class="math inline">\(\operatorname{Cov}(X,X)\)</span>. Expanding the square of a centered sum or difference gives</p>
+<p><span class="math display">\[ \operatorname{Var}(X\pm Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)\pm2\operatorname{Cov}(X,Y). \]</span></p>
+<p>For nonzero variances, correlation is</p>
+<p><span class="math display">\[ \rho_{XY}=\frac{\operatorname{Cov}(X,Y)}{\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}}. \]</span></p>
+<!-- vale ai-tells.NegatedObject = NO -->
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<p>It is dimensionless and lies between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. Independence gives zero covariance when these moments exist. Zero covariance alone does not imply independence. <!-- vale ai-tells.ParallelStaccato = YES --> <!-- vale ai-tells.NegatedObject = YES --></p>
+<p>To see the physical roles, write <span class="math inline">\(X=g_X S+\epsilon_X\)</span> and <span class="math inline">\(Y=g_Y S+\epsilon_Y\)</span>. Here <span class="math inline">\(S\)</span> is a shared displacement signal in degrees, the dimensionless gains <span class="math inline">\(g_X,g_Y\)</span> multiply its contribution in each recording, and <span class="math inline">\(\epsilon_X,\epsilon_Y\)</span> are private contributions in degrees. If all three random contributions are independent,</p>
+<p><span class="math display">\[ \operatorname{Cov}(X,Y)=g_Xg_Y\operatorname{Var}(S),\qquad \operatorname{Var}(X)=g_X^2\operatorname{Var}(S)+\operatorname{Var}(\epsilon_X). \]</span></p>
+<p>Increasing private variance increases the denominator of <span class="math inline">\(\rho\)</span> without increasing the covariance. Changing a gain changes the measured covariance even if the shared source is unchanged. This simple construction explains the need for calibration and explicit noise assumptions. It is not the paper’s full inference model.</p>
+</div>
+<p><strong>[Interpretation]</strong> <strong>Random wandering differs from a persistent directional error.</strong> Apply the displacement measure above to horizontal eye angle <span class="math inline">\(x(t)\)</span> in degrees, using a lag <span class="math inline">\(\ell\)</span> in seconds. A random change in the maintained command can move the eye left in one interval and right in another. The average displacement can then be close to zero while individual displacements are large. A persistent imbalance in the command can instead make the average displacement grow in one direction. Muscles smooth the command before it becomes eye movement, so the timescale of the observation also matters.</p>
+<p><strong>[Interpretation]</strong> The MSD of this eye displacement has units degrees squared. Its two contributions are</p>
+<p><span class="math display">\[ \mathbb E[(\Delta x)^2]=\operatorname{Var}(\Delta x)+\mathbb E[\Delta x]^2. \]</span></p>
+<!-- vale ai-tells.VerbTricolon = NO -->
+<p><strong>[Interpretation]</strong> <span class="key-statement">A larger MSD can mean stronger random movement, a larger directional bias, or both. Measuring the mean displacement separately prevents mistaking bias for increased noise.</span> <!-- vale ai-tells.VerbTricolon = YES --></p>
+<div class="publisher-clarification-note publisher-fold-always" data-custom-style="Clarification Note">
+<p><strong>Derivation: separating spread from mean displacement</strong></p>
+<p><strong>[Guide derivation]</strong> Write <span class="math inline">\(\mu=\mathbb E[\Delta x]\)</span> and <span class="math inline">\(\eta=\Delta x-\mu\)</span>, so <span class="math inline">\(\mathbb E[\eta]=0\)</span>. Squaring and averaging gives</p>
+<p><span class="math display">\[ \mathbb E[(\mu+\eta)^2]=\mu^2+2\mu\mathbb E[\eta]+\mathbb E[\eta^2] =\mu^2+\operatorname{Var}(\Delta x). \]</span></p>
+<p>The cross term vanishes because the fluctuations are measured relative to their own mean. This identity needs finite second moments, but no diffusion assumption.</p>
+</div>
+<p><strong>[Interpretation]</strong> <strong>What changes the physical movement?</strong> The model must say which part of the pathway a parameter controls:</p>
+<ul>
+<li><strong>Random changes in the stored command:</strong> more frequent or larger lasting changes make the stored angle spread faster. The next chapter explains why the diffusion coefficient <span class="math inline">\(D\)</span> depends on spike variability and the circuit’s response to each spike.</li>
+
+<!-- vale ai-tells.LabelAndExplain = NO -->
+
+<li><strong>A persistent directional imbalance:</strong> this changes the mean displacement. In a constant-velocity approximation, doubling that velocity doubles the mean displacement at a fixed lag and quadruples its squared contribution to MSD.</li>
+
+<!-- vale ai-tells.LabelAndExplain = YES -->
+
+<li><strong>The gain from command to eye angle:</strong> multiplying the command’s contribution to each displacement by a gain <span class="math inline">\(G\)</span> multiplies that contribution’s variance and MSD by <span class="math inline">\(G^2\)</span>, with the input fluctuations held fixed. Any noise added after that gain needs to be counted separately. A fitted tuning slope, which describes rate as a function of angle, is not by itself a causal muscle gain.</li>
+<li><strong>Muscle response time:</strong> a slower response smooths rapid command changes more strongly. It changes the short-lag shape of the MSD curve, not just its height. The <a href="ch-eye-timing.html#sec-eye-filtered-msd">timing chapter</a> separates this smoothing from growth of noise inside the memory circuit.</li>
+</ul>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Interpretation]</strong> Measurement error is a separate contribution: it changes recorded positions without moving the eye. Independent zero-mean position errors, each of variance <span class="math inline">\(\sigma_m^2\)</span> and independent of true motion, add <span class="math inline">\(2\sigma_m^2\)</span> to displacement MSD at nonzero lags. Thus an upward shift in the observed curve need not be a physical increase in movement. The <a href="ch-eye-timing.html#sec-eye-measurement-noise">measurement-noise calculation</a> shows the conditions needed to remove it. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p>The next chapter follows the proposed source upstream: how a circuit can keep a pattern of activity while random spikes change the angle that pattern represents.</p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Dragoi, V. (2026, July 7 review). <em>Ocular Motor Control</em>. Neuroscience Online, Section 3, Chapter 8, McGovern Medical School, UTHealth Houston. <a href="https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html">Sections 8.2–8.3 and Fig. 8.1</a>. Anatomy, muscle innervation and visual/vestibular control.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Dragoi, V. (2026, July 7 review). <em>Ocular Motor Control</em>. Neuroscience Online, Section 3, Chapter 8, McGovern Medical School, UTHealth Houston. <a href="https://nba.uth.tmc.edu/neuroscience/m/s3/chapter08.html">Sections 8.2–8.3 and Fig. 8.1</a>. Anatomy, muscle innervation and visual/vestibular control.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). <em>Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation</em>. Journal of Neurophysiology, 101(6), 2907–2923. <a href="https://doi.org/10.1152/jn.91045.2008">DOI</a>. Introduction and stimulation/relaxation results. The spring-and-damper calculation is a guide reconstruction of the physical roles, not a fitted reproduction of these experiments.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Major, G., Baker, R., Aksay, E., Mensh, B., Seung, H. S., and Tank, D. W. (2004). <em>Plasticity and tuning by visual feedback of the stability of a neural integrator</em>. Proceedings of the National Academy of Sciences, 101(20), 7739–7744. <a href="https://doi.org/10.1073/pnas.0401970101">DOI</a>. Fig. 1 for movement and holding signals; Figs. 2–4 and Discussion for goldfish training, reversibility and unresolved cellular mechanisms.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Anderson, S. R., Porrill, J., Sklavos, S., Gandhi, N. J., Sparks, D. L., and Dean, P. (2009). <em>Dynamics of primate oculomotor plant revealed by effects of abducens microstimulation</em>. Journal of Neurophysiology, 101(6), 2907–2923. <a href="https://doi.org/10.1152/jn.91045.2008">DOI</a>. Introduction and stimulation/relaxation results. The spring-and-damper calculation is a guide reconstruction of the physical roles, not a fitted reproduction of these experiments.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2&amp;zoom=125,0,60">Main Eq. 1 and the steady state, p.&nbsp;2</a>; <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5&amp;zoom=125,0,372">Model, Eqs. 7–9, p.&nbsp;5</a>.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2&amp;zoom=125,0,60">Main Eq. 1 and the steady state, p.&nbsp;2</a>; <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5&amp;zoom=125,0,372">Model, Eqs. 7–9, p.&nbsp;5</a>.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Ben-Shushan, N., Shaham, N., Joshua, M., and Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Introduction, Figs. 1–2, and Methods, Eqs. 2–7. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>. Neuron, 113(7), 1110–1120.e3. <a href="https://doi.org/10.1016/j.neuron.2025.01.017">DOI</a>. Introduction, Results, and STAR Methods. The distinction between map randomness and visit-to-visit spike variation follows from what the model’s random function indexes. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Maimon, S. R., and colleagues (2026). <em>Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1</em>. Nature. <a href="https://doi.org/10.1038/s41586-026-10537-0">DOI</a>. Main text, Introduction and Figs. 1–2. The present guide uses this later comparison for anatomical and coding context. It is not evidence reported in the 2025 paper. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Massachusetts Institute of Technology, OpenCourseWare (2018). <em>Introduction to Probability: Lecture 22 notes, the Poisson process</em>. <a href="https://ocw.mit.edu/courses/res-6-012-introduction-to-probability-spring-2018/d92a00a2bc9d20d84ad11d43be0e7ae0_MITRES_6_012S18_L22.pdf#page=3">PDF, pp.&nbsp;3–5</a>. The guide reconstructs the independent-bin limit using <span class="math inline">\(r\)</span> for rate and <span class="math inline">\(\lambda=r\Delta t\)</span> for expected count.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Burak, Y., and Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. Results and Methods, Eqs. 7–10, describe the Poisson spike model and weak-fluctuation approximation. The finite count calculations in this section are direct consequences of the Poisson distribution and are guide derivations. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn13"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">comparison with theory, PDF p.&nbsp;2</a>, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3">Figure 2 and caption, PDF p.&nbsp;3</a>, and <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6">Network Simulations, PDF p.&nbsp;6</a>. The update displayed here writes their stated Euler step and spike-generation rule together using the guide’s spike indicator <span class="math inline">\(X_i\)</span>.<a href="#fnref13" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn14"><p>Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=1">experimental motivation, PDF p.&nbsp;1</a>, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">possible use of tuning data, PDF p.&nbsp;2</a>, and <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">proposed experimental tests and non-Poisson eye-position firing, PDF p.&nbsp;5</a>. Ben-Shushan et al.&nbsp;(2022), <a href="../papers/ben-shushan-2022-fixational-drift.pdf">main paper</a>, provides the separate empirical eye-drift study.<a href="#fnref14" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn15"><p>Ben-Shushan, N., Shaham, N., Joshua, M., and Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>. Introduction, Figs. 1–2, and Methods, Eqs. 2–7. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref15" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../parts/part-mechanisms.html" class="pagination-link" aria-label="Part I: Noise limits memory accuracy in continuous attractor models">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Part I: Noise limits memory accuracy in continuous attractor models</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/ch-persistence.html" class="pagination-link" aria-label="Stable representations can accumulate error">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

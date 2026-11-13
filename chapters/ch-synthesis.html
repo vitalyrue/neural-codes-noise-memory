@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>13&nbsp; Spatial maps and memory dynamics need separate tests – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../parts/part-hardware.html" rel="next">
+<link href="../chapters/ch-place-tests.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-observations.html">Part II: Eye motion and place fields constrain different parts of a neural code</a></li><li class="breadcrumb-item"><a href="../chapters/ch-synthesis.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-synthesis-questions" id="toc-sec-synthesis-questions" class="nav-link active" data-scroll-target="#sec-synthesis-questions"><span class="header-section-number">13.1</span> The three papers constrain maps, dynamics, and movement</a></li>
+  <li><a href="#sec-synthesis-joint-calculation" id="toc-sec-synthesis-joint-calculation" class="nav-link" data-scroll-target="#sec-synthesis-joint-calculation"><span class="header-section-number">13.2</span> A shared position error changes rates according to their tuning slopes</a>
+  <ul class="collapse">
+  <li><a href="#sec-synthesis-covariance-example" id="toc-sec-synthesis-covariance-example" class="nav-link" data-scroll-target="#sec-synthesis-covariance-example"><span class="header-section-number">13.2.1</span> Example: opposite rate changes from the same position error</a></li>
+  </ul></li>
+  <li><a href="#sec-synthesis-evidence" id="toc-sec-synthesis-evidence" class="nav-link" data-scroll-target="#sec-synthesis-evidence"><span class="header-section-number">13.3</span> Each model needs a test matched to its claim</a></li>
+  <li><a href="#sec-synthesis-related" id="toc-sec-synthesis-related" class="nav-link" data-scroll-target="#sec-synthesis-related"><span class="header-section-number">13.4</span> Related studies change assumptions and leave circuit choices open</a></li>
+  <li><a href="#sec-synthesis-next" id="toc-sec-synthesis-next" class="nav-link" data-scroll-target="#sec-synthesis-next"><span class="header-section-number">13.5</span> A joint test would compare tuning maps with population fluctuations</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-observations.html">Part II: Eye motion and place fields constrain different parts of a neural code</a></li><li class="breadcrumb-item"><a href="../chapters/ch-synthesis.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-synthesis" class="quarto-section-identifier"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>The three papers address different links between nerve-cell activity and behavior: retaining a value, producing eye movement, and representing location. This chapter compares what the models and recordings establish, and separates supported connections from further questions about how a complete neural circuit would work.</p>
+</div>
+<p><span class="key-statement">A model can explain the shape of a neural code without explaining how that code is maintained. It can also explain fluctuations inside a circuit without uniquely locating the source of a measured behavior. Comparing the three papers requires keeping each claim with the mathematical or experimental test that supports it.</span></p>
+<!-- vale ai-tells.VerbTricolon = NO -->
+<p>To connect them, we first separate the spatial map, the changing represented position, and the movement measured downstream. A short calculation then shows how a common position error can make cells with different tuning change together. Comparing that calculation with each paper’s evidence and related studies identifies what a joint experiment would still need to measure. <!-- vale ai-tells.VerbTricolon = YES --></p>
+<!-- vale ai-tells.CataphoricForecasting = NO -->
+<p><strong>Unreviewed draft diagrams.</strong> These AI-generated overviews may contain incorrect labels, arrows, formulas, or numbers. Use the chapter text and cited papers for the scientific claims.</p>
+<div id="fig-draft-map-ch13" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated overview of Spatial maps and memory dynamics need separate tests; check the chapter text for definitions, relationships, and values.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch13.png" class="img-fluid figure-img" style="width:6.5in" alt="Unreviewed AI-generated overview of Spatial maps and memory dynamics need separate tests; check the chapter text for definitions, relationships, and values.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch13-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.1: Draft overview for Chapter 13. Unreviewed AI-generated illustration; labels, arrows, formulas, and numbers require verification.
+</figcaption>
+</figure>
+</div>
+<section id="sec-synthesis-questions" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="sec-synthesis-questions"><span class="header-section-number">13.1</span> The three papers constrain maps, dynamics, and movement</h2>
+<!-- vale ai-tells.CataphoricForecasting = YES -->
+<p>For a circuit representing position, three questions arise:</p>
+<ul>
+<li><strong>Spatial map:</strong> What activity pattern corresponds to each position? The place-field model addresses this question.</li>
+<li><strong>Memory motion:</strong> How does the represented position evolve when there is no corrective input? The persistent-activity model addresses this question.</li>
+<li><strong>Observed movement:</strong> How does a downstream physical system transform that changing signal into an observable movement? The eye-drift model combines a candidate account of memory motion with a detailed account of this transformation.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+</ul>
+<p>The objects differ even when the word position appears in all three. In 2012, <span class="math inline">\(\theta(t)\)</span> locates a network state on its attractor. In 2022, the internal eye-position command and actual eye angle are separate quantities linked through motor neurons and mechanics. In 2025, <span class="math inline">\(x\)</span> locates an animal in an environment, and <span class="math inline">\(h_i(x)\)</span> is a spatial input function assigned to a cell. The Gaussian process does not update a remembered <span class="math inline">\(x\)</span> through time.</p>
+<p>The <a href="ch-persistence.html#fig-foundations-paper-map">guide map</a> gives a visual comparison of these three questions.</p>
+<div class="table-responsive">
+<div id="tbl-synthesis-models" class="publisher-fold-never publisher-row-labels quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-synthesis-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;13.1: Comparison of the three models.
+</figcaption>
+<div aria-describedby="tbl-synthesis-models-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="publisher-fold-never publisher-row-labels caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Model</th>
+<th>Random object</th>
+<th>What determines its statistics</th>
+<th>Principal observable</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Persistent activity, 2012</td>
+<td>Increments of a represented coordinate</td>
+<td>Spike variability, recurrent dynamics, tuning, neural time constants</td>
+<td>Diffusion of the stored value and readout error</td>
+</tr>
+<tr class="even">
+<td>Eye drift, 2022</td>
+<td>Internal command fluctuations, private motor fluctuations, and measurement noise</td>
+<td>A circuit model and the downstream filters and feedback</td>
+<td>Displacement covariance and the eye’s MSD</td>
+</tr>
+<tr class="odd">
+<td>Place fields, 2025</td>
+<td>A function of physical position for each cell</td>
+<td>Spatial covariance, threshold, and spatial dimension</td>
+<td>Field sizes, counts, shapes, and topology</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+<p>The 2012 and 2022 connection is direct: neural noise can move a maintained eye-position command, which then drives muscles. The 2022 result provides evidence for a substantial shared source before the final motor neurons and shows that integrator diffusion is sufficient within the constructed model. It does not measure the circuit’s Fisher information or test equality in the 2012 bound. The place-field model describes spatially irregular tuning curves. To connect those curves to memory dynamics, we must also specify how the represented position moves.</p>
+</section>
+<section id="sec-synthesis-joint-calculation" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="sec-synthesis-joint-calculation"><span class="header-section-number">13.2</span> A shared position error changes rates according to their tuning slopes</h2>
+<p>Suppose a network maintains a one-dimensional estimate <span class="math inline">\(x(t)\)</span> and cell <span class="math inline">\(i\)</span> has a fixed expected-rate function <span class="math inline">\(f_i(x)\)</span>. Its time-dependent expected rate is</p>
+<p><span class="math display">\[ R_i(t)=f_i(x(t)). \]</span></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p><span class="key-statement">Here <span class="math inline">\(f_i\)</span> describes spatial tuning and <span class="math inline">\(x(t)\)</span> describes dynamics. A source of time variation has entered even though <span class="math inline">\(f_i\)</span> is fixed. Actual spike counts add another layer of variability around the expected rate.</span> This construction is a guide calculation connecting the papers’ objects, not a model tested jointly by the three studies. <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<p>Consider a short interval of duration <span class="math inline">\(t\)</span> starting at <span class="math inline">\(x_0\)</span>. Assume that the estimate’s local displacement <span class="math inline">\(\delta x=x(t)-x_0\)</span> has mean zero and variance <span class="math inline">\(2Dt\)</span>, where <span class="math inline">\(D\)</span> is the diffusion coefficient of the represented position. The displacement must be small enough to linearize each rate curve; <span class="math inline">\(f_i'(x_0)=df_i/dx|_{x_0}\)</span> is cell <span class="math inline">\(i\)</span>’s rate change per unit position change at the start. Taylor expansion gives</p>
+<p><span class="math display">\[ f_i(x_0+\delta x) =f_i(x_0)+f_i'(x_0)\delta x+O((\delta x)^2). \]</span></p>
+<p>The <span class="math inline">\(O((\delta x)^2)\)</span> term collects smaller corrections of quadratic or higher order for small displacements. To leading order, the change is <span class="math inline">\(\delta R_i=f_i'(x_0)\delta x\)</span>. Multiplying the centered changes for neurons <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> and averaging yields</p>
+<p><span class="math display">\[ \operatorname{Cov}(\delta R_i,\delta R_j) \simeq f_i'(x_0)f_j'(x_0)\operatorname{Var}(\delta x) =2Dt\,f_i'(x_0)f_j'(x_0). \]</span></p>
+<p>This covariance concerns expected-rate changes caused by the common represented displacement, conditional on the starting position. It is not a formula for every covariance in a spiking recurrent network. It neglects higher-order changes in tuning and additional private or shared fluctuations. Near a threshold or over a large spatial displacement, the linear approximation must be revisited.</p>
+<!-- vale Microsoft.HeadingColons = NO -->
+<section id="sec-synthesis-covariance-example" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="sec-synthesis-covariance-example"><span class="header-section-number">13.2.1</span> Example: opposite rate changes from the same position error</h3>
+<!-- vale Microsoft.HeadingColons = YES -->
+<div class="publisher-worked-calculation publisher-fold-always">
+<p><strong>Calculation and figure</strong></p>
+<p>Let the local slopes of two rate curves be <span class="math inline">\(f_1'=2\)</span> Hz/m and <span class="math inline">\(f_2'=-1\)</span> Hz/m. Suppose <span class="math inline">\(D=0.01\)</span> m²/s and the interval is 0.5 s. Then the variance of the common position displacement is <span class="math inline">\(2Dt=0.01\)</span> m². The contributions to rate variance and covariance are</p>
+<p><span class="math display">\[ \operatorname{Var}(\delta R_1)=2^2(0.01)=0.04\ \mathrm{Hz}^2, \]</span></p>
+<p><span class="math display">\[ \operatorname{Var}(\delta R_2)=(-1)^2(0.01)=0.01\ \mathrm{Hz}^2, \qquad \operatorname{Cov}(\delta R_1,\delta R_2)=(2)(-1)(0.01) =-0.02\ \mathrm{Hz}^2. \]</span></p>
+<p>With only this one source, the two rate changes have correlation <span class="math inline">\(-1\)</span>: one rises whenever the other falls. Adding independent private noise lowers the magnitude. <span class="key-statement">The negative covariance here comes from opposite tuning slopes under a common position change. It does not establish an inhibitory connection between the cells.</span></p>
+<p>For the same slopes, set both expected rates to 10 Hz at the starting position. The upper plot shows the fixed rate curves. The lower plot shows their changes under a common position displacement.</p>
+<div class="figure-scroll">
+<div id="fig-synthesis-shared-position" class="quarto-float quarto-figure quarto-figure-center anchored" alt="The upper plot shows two fixed linear tuning curves with slopes plus two and minus one hertz per meter, crossing at ten hertz. Moving from zero to plus 0.1 meter raises the first rate by 0.2 hertz and lowers the second by 0.1 hertz. The lower plot puts the paired rate changes on a downward sloping line through zero, with that example marked.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-synthesis-shared-position-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-synthesis-shared-position.png" class="img-fluid figure-img" style="width:7.29167in" alt="The upper plot shows two fixed linear tuning curves with slopes plus two and minus one hertz per meter, crossing at ten hertz. Moving from zero to plus 0.1 meter raises the first rate by 0.2 hertz and lowers the second by 0.1 hertz. The lower plot puts the paired rate changes on a downward sloping line through zero, with that example marked.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-synthesis-shared-position-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;13.2: A common displacement of <span class="math inline">\(+0.1\)</span> m increases rate 1 by <span class="math inline">\(0.2\)</span> Hz and decreases rate 2 by <span class="math inline">\(0.1\)</span> Hz. The changes lie on one line. With displacement variance <span class="math inline">\(0.01\)</span> m², their covariance is <span class="math inline">\(-0.02\)</span> Hz² and their correlation is <span class="math inline">\(-1\)</span>. The 10 Hz baseline is chosen only to display positive rates. These are exact lines from the guide’s local example, not recorded data.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Both changes are set by the same position displacement, so they occupy one direction in the two-rate plane. Independent private fluctuations would spread them away from that line.</p>
+</div>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<!-- vale ai-tells.ParallelStaccato = NO -->
+<p><span class="key-statement">Irregular single-cell responses can therefore coexist with population changes along just one direction. To test whether a shared position error causes that pattern, one must measure how the rate changes align with the tuning curves. Field shapes alone do not supply that evidence.</span> <!-- vale ai-tells.ParallelStaccato = YES --> <!-- vale ai-tells.FormalTransitions = YES --></p>
+</section>
+</section>
+<section id="sec-synthesis-evidence" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="sec-synthesis-evidence"><span class="header-section-number">13.3</span> Each model needs a test matched to its claim</h2>
+<p>The shared-position calculation predicts how rates would change together. Establishing that connection requires measurements of those changes as well as the spatial maps. Each paper tests a different part of the proposed connection:</p>
+<ul>
+<li><strong>Place-field statistics:</strong> A model that matches one distribution may have enough adjustable parameters to do so for several different reasons. The place-field paper gains support by fitting arrangement parameters and then comparing additional features, including slices and shape statistics. The separate firing-rate multiplier used in some comparisons should remain visible when counting how many quantities were predicted without further fitting. A successful high-threshold formula is also a statement about its limiting assumptions. Finite-threshold simulations and the original recordings provide different kinds of checks.</li>
+
+<!-- vale ai-tells.FigurativeCarries = NO -->
+<!-- vale ai-tells.VerbTricolon = NO -->
+
+<li><strong>Eye drift:</strong> The eye paper calibrates a movement-to-firing relationship, inverts it, and compares the resulting single-neuron displacement predictions with measured displacement. Shared covariance then carries information that independent private fluctuations cannot supply under the decomposition’s assumptions. The additional MSD comparison tests the time structure: increasing stationary motor-noise amplitude cannot by itself reproduce the accumulating upstream signal. Calibration validity, source correlations, two animals, and horizontal movement remain part of the result’s scope.</li>
+
+<!-- vale ai-tells.VerbTricolon = YES -->
+<!-- vale ai-tells.FigurativeCarries = YES -->
+<!-- vale ai-tells.VerbTricolon = NO -->
+
+<li><strong>Memory stability:</strong> The 2012 inequality <span class="math inline">\(D\ge 1/(2\tau^2J)\)</span> is a mathematical constraint rather than an experimental fit: <span class="math inline">\(D\)</span> is memory diffusion, <span class="math inline">\(J\)</span> is the internal spike information rate, and <span class="math inline">\(\tau\)</span> is the synaptic time constant. Its derivation specifies what noise and dynamics it covers. An experimental comparison would need estimates of diffusion, the relevant time constants, and the appropriate instantaneous information rate, all under compatible conditions. Agreement with <span class="math inline">\(1/N\)</span> scaling alone would not test the entire inequality, since several mechanisms can share that scaling.</li>
+</ul>
+<p><strong>[Guide derivation: the memory bound]</strong> At the represented value <span class="math inline">\(\theta\)</span>, let <span class="math inline">\(\bar r_i\)</span> be neuron <span class="math inline">\(i\)</span>’s steady firing rate and <span class="math inline">\(r_i'=d\bar r_i/d\theta\)</span> its rate slope. Let <span class="math inline">\(v_i\)</span> be the lasting change in <span class="math inline">\(\theta\)</span> from a unit activation perturbation in that neuron. For a stable continuous family with one neutral memory direction, in the weak-noise Poisson model with independent spike generation conditional on rates and a common <span class="math inline">\(\tau\)</span>, normalize the projection so a unit coordinate change is read as one unit. Then the projection gives <span class="math inline">\(2D=\sum_i v_i^2\bar r_i\)</span> and <span class="math inline">\(\tau\sum_i v_i r_i'=1\)</span>; the local spike information rate about the current attractor state is <span class="math inline">\(J=\sum_i(r_i')^2/\bar r_i\)</span> for positive rates. Cauchy–Schwarz then gives <span class="math inline">\(1/\tau^2=(\sum_i v_i r_i')^2\le(\sum_i v_i^2\bar r_i)(\sum_i(r_i')^2/\bar r_i)=2DJ\)</span>, hence <span class="math inline">\(D\ge1/(2\tau^2J)\)</span> when <span class="math inline">\(J&gt;0\)</span>. The full projection and information calculations appear in Part I of this guide.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <!-- vale ai-tells.VerbTricolon = YES --></p>
+</section>
+<section id="sec-synthesis-related" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="sec-synthesis-related"><span class="header-section-number">13.4</span> Related studies change assumptions and leave circuit choices open</h2>
+<p>Related studies test the assumptions and ask questions the three papers leave open:</p>
+<ul>
+<li><p><strong>Integrating movement:</strong> The eye-position account begins with Seung’s line-attractor model. Aksay and colleagues then used recordings and perturbations in goldfish to constrain integrator circuitry. These establish the dynamical problem and experimental architecture behind the 2022 model. Neither supplies the macaque displacement-variance estimate. Burak and Fiete’s earlier grid-cell study examines <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>path integration</strong></span>, updating a position estimate from movement.</span> In its model, velocity drives recurrent population activity, and errors accumulate in the position estimate. Its accuracy ranges belong to the simulated networks and parameter choices, rather than all biological grid circuits.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p></li>
+<li><p><strong>Storage capacity and changing synapses:</strong> Noise-driven storage also connects to memory capacity. Koyluoglu and colleagues ask how noise limits recall as the delay and number of stored items increase. Their comparison with human data shows why direct storage of several independent values need not capture observed behavior. Transformations before and after storage alter the performance prediction. Seeholzer and colleagues examine how short-term changes in synaptic strength affect diffusion and systematic drift. These papers change the storage assumptions rather than invalidate the 2012 calculation inside its original model.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p></li>
+<li><p><strong>Recordings from larger environments:</strong> For place fields, Eliav and colleagues’ long-tunnel recordings and Harland and colleagues’ large-arena recordings supply the multiple-field, multiple-scale observations. Yartsev and Ulanovsky supply the three-dimensional bat recordings. The 2025 paper reanalyzes those existing data, so its agreement across dimensions is not three newly collected experiments under one protocol. The later study by Maimon and colleagues directly compares CA3 and CA1 in large tunnels: predominantly single fields in CA3 contrast with multiple fields in CA1, while field sizes are similar. That distinction supports treating the CA1 statistics and the upstream spatial circuit as related but separately constrained parts of the explanation.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p></li>
+
+<!-- vale ai-tells.FormalTransitions = NO -->
+
+<li><strong>Connectivity and learning:</strong> Gaussian spatial statistics do not identify a unique pattern of connections. Druckmann and colleagues report structured synaptic connectivity between hippocampal regions. Bittner and colleagues show how electrical events in <span class="definition-explanation"><span class="definition-term" data-custom-style="Definition Term"><strong>dendrite</strong></span>s, the branching input structures of neurons,</span> can induce changes in synaptic strength and form CA1 place fields. Structure and learning can therefore be present even when a random-function model describes many aggregate field statistics. The model’s success leaves open which circuit mechanism produces these maps. Input, connectivity, learning, or perturbation measurements could distinguish the possibilities.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+
+<!-- vale ai-tells.FormalTransitions = YES -->
+
+<li><strong>Benefits for perception:</strong> The source and use of eye motion are different questions. Nghiem and colleagues combine human eye tracking with a model of how eye movement affects visual signals to explain why an intermediate amount of fixational motion can help fine visual discrimination. A movement that partly originates from internal noise can still have useful sensory consequences, and feedback can regulate its statistics. Benefit for perception does not uniquely identify the neural generator.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></li>
+</ul>
+</section>
+<section id="sec-synthesis-next" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="sec-synthesis-next"><span class="header-section-number">13.5</span> A joint test would compare tuning maps with population fluctuations</h2>
+<p><span class="key-statement">A joint test needs tuning maps and fluctuations from the same population.</span> A possible sequence is:</p>
+<ol type="1">
+<li>Estimate the tuning maps and their uncertainty.</li>
+<li>Measure fluctuations when external signals provide little correction of the represented position. Test whether their covariance aligns with the changes implied by the tuning maps.</li>
+<li>Fit diffusion only over a range where the local approximation and measurement corrections are justified.</li>
+<li><strong>If comparing behavior,</strong> include the physical or neural filters between the representation and the measurement.</li>
+</ol>
+<!-- vale ai-tells.VerbTricolon = NO -->
+<p>These measurements would test whether one system satisfies both spatial-statistics and dynamical-stability constraints. <span class="key-statement">A static Gaussian-process fit alone cannot supply the diffusion coefficient. A diffusion fit alone cannot establish the distribution of fields.</span> Agreement with both would constrain the model more than either fit alone. A mismatch would require further tests of spatial input statistics, recurrent maintenance, the observation filter, or their coupling. This is proposed follow-up work, not a replication claimed by this guide. <!-- vale ai-tells.VerbTricolon = YES --></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale Vale.Repetition = NO -->
+<!-- vale Vale.Repetition = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale proselint.Very = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Burak, Y., and Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>, Eqs. 1–5; Ben-Shushan, N., Shaham, N., Joshua, M., and Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>, Figs. 2–5; Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>. Neuron, 113(7), 1110–1120.e3. <a href="https://doi.org/10.1016/j.neuron.2025.01.017">DOI</a>, Eq. 1 and Figs. 1–5. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Burak, Y., and Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>, Eqs. 1–5; Ben-Shushan, N., Shaham, N., Joshua, M., and Burak, Y. (2022). <em>Fixational drift is driven by diffusive dynamics in central neural circuitry</em>. Nature Communications, 13, 1697. <a href="https://doi.org/10.1038/s41467-022-29201-y">DOI</a>, Figs. 2–5; Mainali, N., Azeredo da Silveira, R., and Burak, Y. (2025). <em>Universal statistics of hippocampal place fields across species and dimensionalities</em>. Neuron, 113(7), 1110–1120.e3. <a href="https://doi.org/10.1016/j.neuron.2025.01.017">DOI</a>, Eq. 1 and Figs. 1–5. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Seung, H. S. (1996). <em>How the brain keeps the eyes still</em>. PNAS, 93(23), 13339–13344. <a href="https://doi.org/10.1073/pnas.93.23.13339">DOI</a>; Aksay, E., and colleagues (2007). <em>Functional dissection of circuitry in a neural integrator</em>. Nature Neuroscience, 10, 494–504. <a href="https://doi.org/10.1038/nn1877">DOI</a>; Burak, Y., and Fiete, I. R. (2009). <em>Accurate path integration in continuous attractor network models of grid cells</em>. PLoS Computational Biology, 5(2), e1000291. <a href="https://doi.org/10.1371/journal.pcbi.1000291">DOI</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Koyluoglu, O. O., Pertzov, Y., Manohar, S., Husain, M., and Fiete, I. R. (2017). <em>Fundamental bound on the persistence and capacity of short-term memory stored as graded persistent activity</em>. eLife, 6, e22225. <a href="https://doi.org/10.7554/eLife.22225">DOI</a>; Seeholzer, A., Deger, M., and Gerstner, W. (2019). <em>Stability of working memory in continuous attractor networks under the control of short-term plasticity</em>. PLoS Computational Biology, 15, e1006928. <a href="https://doi.org/10.1371/journal.pcbi.1006928">DOI</a>. <!-- vale Vale.Repetition = YES --><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Eliav, T., and colleagues (2021). <em>Multiscale representation of very large environments in the hippocampus of flying bats</em>. Science, 372, eabg4020. <a href="https://doi.org/10.1126/science.abg4020">DOI</a>; Harland, B., Contreras, M., Souder, M., and Fellous, J. M. (2021). <em>Dorsal CA1 hippocampal place cells form a multi-scale representation of megaspace</em>. Current Biology, 31, 2178–2190.e6. <a href="https://doi.org/10.1016/j.cub.2021.03.003">DOI</a>; Yartsev, M. M., and Ulanovsky, N. (2013). <em>Representation of three-dimensional space in the hippocampus of flying bats</em>. Science, 340, 367–372. <a href="https://doi.org/10.1126/science.1235338">DOI</a>; Maimon, S. R., and colleagues (2026). <em>Sparse-to-dense coding transformation between hippocampal areas CA3 and CA1</em>. Nature. <a href="https://doi.org/10.1038/s41586-026-10537-0">DOI</a>. <!-- vale proselint.Very = YES --> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale Vale.Repetition = YES --><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Druckmann, S., and colleagues (2014). <em>Structured synaptic connectivity between hippocampal regions</em>. Neuron, 81, 629–640. <a href="https://doi.org/10.1016/j.neuron.2013.11.026">DOI</a>; Bittner, K. C., Milstein, A. D., Grienberger, C., Romani, S., and Magee, J. C. (2017). <em>Behavioral time scale synaptic plasticity underlies CA1 place fields</em>. Science, 357, 1033–1036. <a href="https://doi.org/10.1126/science.aan3846">DOI</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Nghiem, T. A. E., Witten, J. L., Dufour, O., Harmening, W. M., and Azeredo da Silveira, R. (2025). <em>Fixational eye movements as active sensation for high visual acuity</em>. PNAS, 122, e2416266122. <a href="https://doi.org/10.1073/pnas.2416266122">DOI</a>. Results, 17-participant acuity experiment and Bayesian retinal model.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/ch-place-tests.html" class="pagination-link" aria-label="Holes and measurements test the spatial explanation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../parts/part-hardware.html" class="pagination-link" aria-label="Part III: Neural memory in electronic hardware">
+        <span class="nav-page-text">Part III: Neural memory in electronic hardware</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

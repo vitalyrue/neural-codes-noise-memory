@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>3&nbsp; Spiking noise produces diffusion along the memory attractor – Neural Codes, Noise, and Memory: A Guide to Three Papers</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../chapters/ch-memory-long-delays.html" rel="next">
+<link href="../chapters/ch-persistence.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-9e6c75b63f330ca6992d1da0fbaf20d1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css?v=fe3eb9db9533">
+<script src="../scripts/chapter-redirects.js" data-chapter-redirects defer></script>
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-mechanisms.html">Part I: Noise limits memory accuracy in continuous attractor models</a></li><li class="breadcrumb-item"><a href="../chapters/ch-memory-dynamics.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Neural Codes, Noise, and Memory: A Guide to Three Papers</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neural Codes, Noise, and Memory: A Guide to Three Papers</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-reading-guide.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What the three papers establish</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-mathematical-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Mathematical tools connect neural signals to the papers’ predictions</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frontmatter/ch-exam-review.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Exam review: connect mechanisms, measurements and results</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-mechanisms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part I: Noise limits memory accuracy in continuous attractor models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-foundations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Patterns of variable spikes can represent a value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-persistence.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-dynamics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-long-delays.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-information.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Spike information limits memory stability</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-memory-readout.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Readout accuracy depends on how a moving memory is observed</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-observations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part II: Eye motion and place fields constrain different parts of a neural code</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-drift.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Eye drift points to a shared neural drive</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-timing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Drift growth distinguishes diffusion from filtered white noise</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-eye-circuit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">A noisy memory circuit can produce eye drift</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-fields.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Field counts and gaps reveal threshold and scale</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">High peaks explain size laws across dimensions</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-place-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Holes and measurements test the spatial explanation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-synthesis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Spatial maps and memory dynamics need separate tests</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-hardware.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part III: Neural memory in electronic hardware</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">A stored weight and a remembered value are different states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-electronic-architectures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Electronic feedback circuits store and transform neural-like states</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-dynamics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Discrete restoration and continuous random wandering produce different memory errors</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-neuromorphic-systems.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Neuromorphic chips choose where physics performs the calculation</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-hardware-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Memory experiments must separate device error from network dynamics</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../parts/part-simulations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Part IV: Simulations connect model assumptions to measurable outcomes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-memory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Network simulations test how random spikes move a stored value</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-eye.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Eye simulations connect a noisy neural command to measured motion</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulating-place.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Random spatial maps test the statistics of place fields</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/ch-simulation-tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Reproduction depends on the model, numerical method, and measurement</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../appendices/ch-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-memory-weak-noise" id="toc-sec-memory-weak-noise" class="nav-link active" data-scroll-target="#sec-memory-weak-noise"><span class="header-section-number">3.1</span> Many weak inputs allow a continuous approximation to spike noise</a></li>
+  <li><a href="#sec-memory-linearization" id="toc-sec-memory-linearization" class="nav-link" data-scroll-target="#sec-memory-linearization"><span class="header-section-number">3.2</span> The network’s return flow determines the lasting memory change</a></li>
+  <li><a href="#sec-memory-diffusion" id="toc-sec-memory-diffusion" class="nav-link" data-scroll-target="#sec-memory-diffusion"><span class="header-section-number">3.3</span> Projecting spike fluctuations gives the diffusion coefficient</a></li>
+  <li><a href="#sec-memory-symmetric" id="toc-sec-memory-symmetric" class="nav-link" data-scroll-target="#sec-memory-symmetric"><span class="header-section-number">3.4</span> Symmetric weights express diffusion through tuning curves</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../parts/part-mechanisms.html">Part I: Noise limits memory accuracy in continuous attractor models</a></li><li class="breadcrumb-item"><a href="../chapters/ch-memory-dynamics.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-ch-memory-dynamics" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Spiking noise produces diffusion along the memory attractor</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="publisher-purpose">
+<p>Starting from the neural model in Chapter 1, derive the weak-fluctuation approximation and follow small disturbances through the circuit to calculate diffusion of a stored value.</p>
+</div>
+<p><strong>Unreviewed draft diagrams.</strong> These AI-generated images may contain incorrect or missing labels, arrows, formulas and numbers. Use the chapter text and paper links as the source for the explanation.</p>
+<div id="fig-draft-map-ch03" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Unreviewed AI-generated visual draft for Spiking noise produces diffusion along the memory attractor. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-draft-map-ch03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-draft-map-ch03.png" class="img-fluid figure-img" style="width:7.29167in" alt="Unreviewed AI-generated visual draft for Spiking noise produces diffusion along the memory attractor. It contains schematic scenes with potentially incorrect or incomplete labels, arrows and values; use the chapter text for the checked explanation.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-draft-map-ch03-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Unreviewed draft map for Spiking noise produces diffusion along the memory attractor. The labels, arrows, equations and numerical values have not been checked and may be incorrect.
+</figcaption>
+</figure>
+</div>
+<p><strong>[Paper section: “Diffusive Drift due to Ongoing Neural Noise”]</strong> <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Main article, pp.&nbsp;2–3</a>. This chapter intersperses the supporting derivation with the paper’s diffusion result; the next chapter examines its simulation tests and long-delay implications.</p>
+<p><strong>[Paper]</strong> <span class="key-statement">A network can keep firing after a stimulus disappears and still lose the value that the stimulus supplied.</span> Burak and Fiete study this distinction in a network whose stable activity patterns form a continuous set. They ask how random spikes move the represented value along that set. For negligible systematic drift, after transients have relaxed and before the local diffusion coefficient <span class="math inline">\(D\)</span> changes appreciably, their result gives <span class="math inline">\(\operatorname{Var}[\theta(t)-\Theta]\simeq2Dt\)</span>, where <span class="math inline">\(\theta\)</span> is the represented value and <span class="math inline">\(\Theta\)</span> its initial value (<a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">main article, p.&nbsp;2</a>).<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><strong>[Background]</strong> The article states its diffusion result in the main text and derives it in the supporting text. We start with the spike model from Chapter 1, replace the accumulated fluctuations by continuous noise under the authors’ assumptions, and follow one disturbance through the circuit’s return flow. The part of that disturbance that survives changes the remembered value. Adding many such changes gives the diffusion coefficient. We then examine symmetric connections and a two-cell example. The next chapter extends the calculation to longer delays.</p>
+<p>Sources: Burak and Fiete (2012), <a href="../papers/burak-fiete-2012-persistent-activity.pdf">paper</a> and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf">Supporting Information (SI)</a>.</p>
+<p><strong>[Interpretation]</strong> Here the physical network state is the vector of synaptic activations <span class="math inline">\(\mathbf s=(s_1,\ldots,s_N)\)</span>; firing rates follow from that state through the input and transfer function. The memory coordinate is <span class="math inline">\(\theta\)</span>, and its initial value is <span class="math inline">\(\Theta\)</span>. “Stored value” and “represented value” refer to this same coordinate, rather than to the whole activation vector. An observer’s estimate <span class="math inline">\(\widehat\theta\)</span>, obtained from a finite spike sample, can differ from <span class="math inline">\(\theta\)</span>.</p>
+<p><strong>[Paper]</strong> Noise generally puts <span class="math inline">\(\mathbf s\)</span> slightly away from the attractor. To assign it a memory coordinate, imagine turning off further noise and following the deterministic return flow. <span class="definition-explanation">The fixed point reached by this flow is the paper’s <span class="definition-term" data-custom-style="Definition Term"><strong>instantaneous attractor state</strong></span>; <span class="math inline">\(\theta\)</span> labels that point.</span> This local definition assumes that nearby states return to a unique point on the continuous family. It uses the circuit’s return dynamics, which can differ from a perpendicular geometric projection. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Original definition and Figure 1A, p.&nbsp;2</a>.</p>
+<p><strong>[Background]</strong> A bar denotes a noise free steady state, so <span class="math inline">\(\bar r_i(\theta)\)</span> is neuron <span class="math inline">\(i\)</span>’s steady firing rate at memory value <span class="math inline">\(\theta\)</span>, and <span class="math inline">\(\bar s_i=\tau\bar r_i\)</span>. The common synaptic time constant is <span class="math inline">\(\tau\)</span>. A one dimensional diffusion coefficient <span class="math inline">\(D\)</span> has units of memory coordinate squared per time, with the convention <span class="math inline">\(\operatorname{Var}[\theta(t)-\Theta]=2Dt\)</span> when <span class="math inline">\(D\)</span> is constant and boundaries do not matter.</p>
+<p><strong>[Paper: random and systematic drift]</strong> Noise can cause both random wandering and a systematic tendency to move in one direction. The main diffusion calculation assumes that the network is tuned so that systematic drift is absent or negligible. We return to the consequences of relaxing this assumption in <a href="ch-memory-long-delays.html#sec-memory-drift-scope">Chapter 4</a>. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">Paper, p.&nbsp;2</a>.</p>
+<p><strong>[Paper: short-time diffusion and Eq. 2]</strong> The paper first states the result it will derive: for short times near a chosen state, with negligible systematic drift, the mean squared change in the represented value grows approximately as <span class="math inline">\(2D(\theta)t\)</span>. For symmetric weights, its corrected expression is</p>
+<p><span class="math display">\[ 2D(\theta)=\frac{\sum_i\bar r_i(g_i')^2}{\tau^2[\sum_i r_i'g_i']^2}. \]</span></p>
+<p>Here <span class="math inline">\(r_i'=d\bar r_i/d\theta\)</span> describes how neuron <span class="math inline">\(i\)</span>’s steady firing rate changes with the represented value. Likewise <span class="math inline">\(g_i'=d\bar g_i/d\theta\)</span> describes the change in its steady total input; <span class="math inline">\(\tau\)</span> is the synaptic decay time. The formula is local in <span class="math inline">\(\theta\)</span> and assumes a stable continuous family, weak fluctuations, symmetric weights, and Poisson spike generation independent across neurons conditional on the current rates. The time window must be long enough for stable disturbances to relax and many small contributions to accumulate, but short enough that the local coefficients change little. It is shown in the form given by the <a href="https://doi.org/10.1073/pnas.1706051114">authors’ 2017 correction</a>. The original article prints an uncorrected version. The derivation below explains why spike-rate variability and the rate and input slopes enter this expression; the <a href="#sec-memory-symmetric">symmetric-weight section</a> derives it explicitly.</p>
+<p><strong>[Guide derivation: the diffusion result]</strong> The calculation needs one direction along the family of steady patterns and one rule for projecting a disturbance onto the final memory value. The tangent is <span class="math inline">\(u_i=d\bar s_i/d\theta=\tau r_i'\)</span>. Let <span class="math inline">\(K\)</span> be the linearized return matrix, with <span class="math inline">\(K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}\)</span>. Here <span class="math inline">\(W_{ij}\)</span> weights neuron <span class="math inline">\(j\)</span>’s input to neuron <span class="math inline">\(i\)</span>, <span class="math inline">\(\phi'(\bar g_i)\)</span> is the firing-rate change per unit input at the steady input <span class="math inline">\(\bar g_i\)</span>, and <span class="math inline">\(\delta_{ij}\)</span> is one when <span class="math inline">\(i=j\)</span> and zero otherwise. The left zero vector <span class="math inline">\(\mathbf v\)</span> satisfies <span class="math inline">\(\mathbf v^TK=0\)</span> and is normalized by <span class="math inline">\(\mathbf v^T\mathbf u=1\)</span>. Its component <span class="math inline">\(v_i\)</span> is the lasting memory shift caused by a unit activation perturbation in neuron <span class="math inline">\(i\)</span>.</p>
+<p>A local spike fluctuation in neuron <span class="math inline">\(i\)</span> has variance <span class="math inline">\(\bar r_i\,dt\)</span>. Projecting independent fluctuations through <span class="math inline">\(\mathbf v\)</span> gives <span class="math inline">\(d\theta=\sum_i v_i\sqrt{\bar r_i}\,dB_i\)</span> and <span class="math inline">\(E[(d\theta)^2]=(\sum_i v_i^2\bar r_i)dt=2D\,dt\)</span>, with independent Brownian increments <span class="math inline">\(dB_i\)</span> of variance <span class="math inline">\(dt\)</span>. Thus the general projection result is <span class="math inline">\(2D=\sum_i v_i^2\bar r_i\)</span>.</p>
+<p>To find <span class="math inline">\(\mathbf v\)</span> when <span class="math inline">\(W\)</span> is symmetric, differentiate the steady-rate and input equations: <span class="math inline">\(\mathbf r'=\operatorname{diag}[\phi'(\bar g_i)]\mathbf g'\)</span> and <span class="math inline">\(\mathbf g'=\tau W\mathbf r'\)</span>. Hence</p>
+<p><span class="math display">\[ K^T\mathbf g'=-\frac{\mathbf g'}{\tau}+W^T\mathbf r'=0, \qquad v_i=\frac{g_i'}{\tau\sum_jr_j'g_j'}. \]</span></p>
+<p>The second equality uses <span class="math inline">\(\mathbf v^T\mathbf u=1\)</span> and assumes a nonzero normalization. Substituting these <span class="math inline">\(v_i\)</span> into <span class="math inline">\(2D=\sum_i v_i^2\bar r_i\)</span> gives the corrected formula above. This is the local weak-noise calculation; the following sections derive the Gaussian approximation, return matrix and projection step in more detail, and retain the full symmetry calculation beside the example.</p>
+<p><strong>[Interpretation]</strong> <span class="math inline">\(D\)</span> measures how quickly the remembered value spreads across repeated noisy realizations. Increasing <span class="math inline">\(D\)</span> makes the loss of precision faster; a persistent population activity pattern can therefore coexist with a drifting memory.</p>
+<section id="sec-memory-weak-noise" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-memory-weak-noise"><span class="header-section-number">3.1</span> Many weak inputs allow a continuous approximation to spike noise</h2>
+<p><strong>[Paper]</strong> In the weak-fluctuation limit, the authors approximate the summed effects of many spikes by Gaussian noise. In the guide’s Brownian notation, their local noisy activation equation is</p>
+<p><span class="math display">\[ ds_i=\left[-\frac{s_i}{\tau}+\phi(g_i)\right]dt+\sqrt{r_i}\,dB_i, \qquad r_i=\phi(g_i),\quad g_i=\sum_jW_{ij}s_j+b_i. \]</span></p>
+<p><span class="math inline">\(s_i\)</span> is neuron <span class="math inline">\(i\)</span>’s synaptic activation, <span class="math inline">\(\tau\)</span> its decay time, <span class="math inline">\(g_i\)</span> its total input, and <span class="math inline">\(r_i\)</span> its firing rate. <span class="math inline">\(W_{ij}\)</span> weights the activation sent from neuron <span class="math inline">\(j\)</span> to <span class="math inline">\(i\)</span>, <span class="math inline">\(b_i\)</span> is its constant input, and <span class="math inline">\(\phi\)</span> maps total input to firing rate. <span class="math inline">\(dB_i\)</span> is a Brownian increment with mean zero and variance <span class="math inline">\(dt\)</span>, independent across neurons in this approximation. This is a continuous approximation to the effects of many small spike contributions, not a claim that an individual spike count is continuous. The assumptions and population-size argument appear in <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5">Materials and Methods, Eqs. 10–11, PDF pp.&nbsp;5–6</a>, and <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1">supporting text, section I, Eqs. S1–S6, PDF pp.&nbsp;1–2</a>. The following steps derive this teaching notation.</p>
+<p><strong>[Interpretation]</strong> <a href="ch-foundations.html#sec-memory-spikes">Chapter 1 established the spike, activation and firing-rate model, Eqs. 7–9</a>. The <a href="../frontmatter/ch-mathematical-tools.html#sec-math-tools-weights">connection-matrix explanation</a> establishes the feedback role of those connections. Here we calculate how random spike timing makes activation fluctuate. The connections are tuned to a continuous family of steady patterns, and the Gaussian approximation assumes small fluctuations in each neuron’s total input.</p>
+<p><strong>[Guide derivation]</strong> To see what the approximation replaces, start from <span class="math inline">\(ds_i=-s_i\,dt/\tau+dN_i\)</span>. The elementary spike-generation noise is independent across neurons conditional on the present rates. The count and Brownian steps below expand the authors’ argument; the individual spike process itself remains discrete.</p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Guide derivation]</strong> Conditioned on the present rates, the spike-count increments have the following leading-order infinitesimal mean and covariance. This does not assert independence of finite-interval counts when recurrent feedback changes the rates. Let <span class="math inline">\(\delta_{ij}\)</span> be one when <span class="math inline">\(i=j\)</span> and zero otherwise: <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ E[dN_i\mid r_i]=r_i\,dt, \qquad \operatorname{Cov}(dN_i,dN_j\mid\mathbf r) =\delta_{ij}r_i\,dt. \]</span></p>
+<p><strong>[Guide derivation]</strong> Write <span class="math inline">\(dM_i=dN_i-r_i\,dt\)</span> for the spike count minus its conditional mean: the surplus or deficit of spikes in this interval. Splitting the count into its mean and this fluctuation gives</p>
+<p><span class="math display">\[ ds_i=\left[-\frac{s_i}{\tau}+\phi(g_i)\right]dt+dM_i, \qquad E[dM_i\mid\mathbf r]=0, \quad E[dM_i dM_j\mid\mathbf r]=\delta_{ij}r_i\,dt. \]</span></p>
+<p><strong>[Interpretation]</strong> The split into a mean and a fluctuation leaves the individual spike events unchanged. Each spike raises <span class="math inline">\(s_i\)</span> by one, and <span class="math inline">\(s_i\)</span> decays between spikes. <span class="definition-explanation">In the paper’s <span class="definition-term" data-custom-style="Definition Term"><strong>weak fluctuation approximation</strong></span>, many individually small spike contributions produce only small changes in each neuron’s total input. Their summed fluctuation can then be represented by Gaussian noise with the same leading mean and covariance.</span> Many suitably independent contributions justify the approximately Gaussian sum; matching mean and covariance alone would not establish its distribution. The approximation describes a summed input on a scale where many small contributions matter. A single neuron’s count in an infinitesimal interval remains a discrete spike count.</p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: how many small spike inputs approach a Gaussian
+</summary>
+<div class="publisher-fold-body">
+<p><strong>[Example]</strong> Suppose <span class="math inline">\(n\)</span> cells fire independently at the same constant rate <span class="math inline">\(r\)</span> during an interval <span class="math inline">\(h\)</span>, and each spike adds <span class="math inline">\(1/n\)</span> to a receiving cell’s input. The total number of spikes is Poisson with mean <span class="math inline">\(nrh\)</span>, so the summed input has mean <span class="math inline">\(rh\)</span> and variance <span class="math inline">\(rh/n\)</span>. When <span class="math inline">\(nrh\)</span> is large, the standardized total count is approximately Gaussian: no single spike supplies a large share of the summed input. Increasing <span class="math inline">\(n\)</span> keeps the mean input fixed while shrinking its fluctuations.</p>
+<p>This example holds the rates fixed during the interval. In a recurrent network the rates change with the state, so the approximation must also use intervals short enough for the rates to change little. Synaptic activation sums and smooths spike effects over its decay time <span class="math inline">\(\tau\)</span>. The approximation does not say that each cell produces many spikes in every infinitesimal interval.</p>
+</div>
+</details>
+<p><strong>[Guide derivation]</strong> Each receiving cell sees a weighted sum <span class="math inline">\(g_i=\sum_j W_{ij}s_j+b_i\)</span>. With fixed weights, the random part of its input increment is <span class="math inline">\(\sum_jW_{ij}\,dM_j\)</span>. Conditional independence gives its leading covariance with the corresponding increment of receiver <span class="math inline">\(k\)</span>:</p>
+<p><span class="math display">\[ \operatorname{Cov}(dg_i,dg_k\mid\mathbf r) =\sum_jW_{ij}W_{kj}r_j\,dt. \]</span></p>
+<p><strong>[Interpretation]</strong> The same presynaptic fluctuation can affect both receivers, so their summed inputs can be correlated even when spike generation is conditionally independent. In the weak-fluctuation limit, the paper approximates the summed and synaptically smoothed input as Gaussian. It can represent that approximation using a separate Gaussian drive for each activation variable: multiplying those drives by <span class="math inline">\(W\)</span> gives the input covariance above.</p>
+<p><strong>[Guide derivation]</strong> Let <span class="math inline">\(F_i(\mathbf s)\)</span> be the mean rate of change of neuron <span class="math inline">\(i\)</span>’s activation. Let <span class="math inline">\(B_i\)</span> be independent standard <a href="ch-persistence.html#sec-foundations-diffusion">Brownian motions</a>. The increment <span class="math inline">\(dB_i=B_i(t+dt)-B_i(t)\)</span> has mean zero and variance <span class="math inline">\(dt\)</span>. Multiplying it by <span class="math inline">\(\sqrt{r_i}\)</span> gives the same leading variance <span class="math inline">\(r_i\,dt\)</span> as the centered spike count. The Gaussian representation of the activation equation is</p>
+<p><span class="math display">\[ ds_i=F_i(\mathbf s)dt+\sqrt{r_i}\,dB_i, \qquad F_i(\mathbf s)=-s_i/\tau+\phi\!\left(\sum_jW_{ij}s_j+b_i\right), \]</span></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<p><strong>[Interpretation]</strong> The noise coefficient has units <span class="math inline">\(\mathrm{s}^{-1/2}\)</span>, so its product with <span class="math inline">\(dB_i\)</span> is a dimensionless activation increment. The Brownian drives are a representation of the approximated summed-input dynamics; they are not a claim that an individual neuron’s discrete spike path or its isolated synaptic activation is Gaussian. The supplement derives the equivalent input equations after making the Gaussian approximation (<a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&amp;zoom=125,0,128">SI Eqs. S2–S5, p.&nbsp;2</a>).<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> <!-- vale ai-tells.EmDashUsage = YES --></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Paper]</strong> The supplement makes this limit concrete by replacing each population with <span class="math inline">\(n\)</span> equivalent neurons and dividing each connection weight by <span class="math inline">\(n\)</span>. A summed input has a mean proportional to <span class="math inline">\(n/n=1\)</span>, while its variance is proportional to <span class="math inline">\(n/n^2=1/n\)</span>. Increasing population size therefore keeps the mean dynamics fixed and reduces input fluctuations. For a ring network, a neuron’s preferred angle is an angle where its tuning curve peaks. Increasing the density of equally spaced preferred angles and scaling weights as <span class="math inline">\(1/N\)</span> serves the same purpose. The paper’s formulas give the leading terms in this large population limit, rather than exact finite network identities.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><strong>[Paper]</strong> Setting noise to zero gives the deterministic rate dynamics <span class="math inline">\(\dot{\mathbf s}=\mathbf F(\mathbf s)\)</span>. The continuous family of fixed points satisfies <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">main Eq. 1, p.&nbsp;2</a>:</p>
+<p><span class="math display">\[ 0=-\frac{\bar s_i(\theta)}{\tau} +\phi[\bar g_i(\theta)], \qquad \bar s_i(\theta)=\tau\bar r_i(\theta). \]</span></p>
+<p><strong>[Interpretation]</strong> In the noise free dynamics, recurrent firing balances synaptic decay at each fixed point. The network must be tuned to possess this family. An arbitrary recurrent network will generally have isolated fixed points rather than a whole line or ring of them.</p>
+</section>
+<section id="sec-memory-linearization" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="sec-memory-linearization"><span class="header-section-number">3.2</span> The network’s return flow determines the lasting memory change</h2>
+<p><strong>[Paper]</strong> The authors write <span class="math inline">\(s_i=\bar s_i(\theta)+\delta s_i\)</span> and linearize around the steady pattern. The perturbation obeys <span class="math inline">\(\delta\dot s_i=\sum_jK_{ij}\delta s_j+\xi_i\)</span>, with <span class="math inline">\(K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}\)</span>. Here <span class="math inline">\(\xi_i\)</span> is spike noise, <span class="math inline">\(\delta_{ij}\)</span> is one when <span class="math inline">\(i=j\)</span> and zero otherwise, <span class="math inline">\(\tau\)</span> is the activation decay time, and <span class="math inline">\(W_{ij}\)</span> weights activation from neuron <span class="math inline">\(j\)</span> to <span class="math inline">\(i\)</span>. The derivative <span class="math inline">\(\phi'(\bar g_i)\)</span> is the change in neuron <span class="math inline">\(i\)</span>’s firing rate per unit change in its input, evaluated at its steady input <span class="math inline">\(\bar g_i\)</span>. The component that survives after the stable disturbances decay is a displacement along the family of fixed patterns. See <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3">supporting text, Eqs. S7–S13, PDF p.&nbsp;3</a>; the steps below expand the calculation.</p>
+<p><strong>[Interpretation]</strong> A spike perturbs many aspects of a network’s state. Most of those changes decay as the state returns to the attractor. <span class="key-statement">To calculate memory loss, we need the lasting change: the displacement to a different fixed point. We assume a smooth continuous family with one neutral memory direction, while all other local modes decay. The disturbance must be small enough that the first order response describes the return flow.</span></p>
+<p><strong>[Guide derivation]</strong> The supplement’s Eq. S7 writes <span class="math inline">\(s_i=\bar s_i(\theta)+\delta s_i\)</span>. Fix the reference value <span class="math inline">\(\theta\)</span> while analyzing a small change, so <span class="math inline">\(\bar s_i\)</span> does not change with time and <span class="math inline">\(\dot s_i=\delta\dot s_i\)</span>. Ignoring noise for a moment, substitute this expression into the deterministic activation equation:</p>
+<p><span class="math display">\[ \delta\dot s_i=-\frac{\bar s_i+\delta s_i}{\tau} +\phi\!\left(\bar g_i+\sum_jW_{ij}\delta s_j\right), \qquad \bar g_i=\sum_jW_{ij}\bar s_j+b_i. \]</span></p>
+<p>The change in input to neuron <span class="math inline">\(i\)</span> is <span class="math inline">\(\sum_jW_{ij}\delta s_j\)</span>. <span class="definition-explanation">A <span class="definition-term" data-custom-style="Definition Term"><strong>linearization</strong></span> keeps terms proportional to a small perturbation and drops terms quadratic or higher in it.</span> Taylor expansion of the transfer function gives</p>
+<p><span class="math display">\[ \phi\!\left(\bar g_i+\sum_j W_{ij}\delta s_j\right) \simeq\phi(\bar g_i)+\phi'(\bar g_i)\sum_jW_{ij}\delta s_j. \]</span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Guide derivation]</strong> Substitute this expansion into the previous equation. The terms <span class="math inline">\(-\bar s_i/\tau+\phi(\bar g_i)\)</span> cancel because the reference pattern is a fixed point. What remains is</p>
+<p><span class="math display">\[ \delta\dot s_i=-\frac{\delta s_i}{\tau} +\phi'(\bar g_i)\sum_jW_{ij}\delta s_j. \]</span></p>
+<p>Thus the first term makes a disturbance decay, and the second passes it through the network. Writing <span class="math inline">\(-\delta s_i/\tau\)</span> as <span class="math inline">\(-\sum_j\delta_{ij}\delta s_j/\tau\)</span> gives the paper’s matrix <span class="math inline">\(K\)</span>. Restoring the leading Gaussian noise gives the following Brownian form of S8 and S9. Here <span class="math inline">\(R\)</span> is the diagonal matrix of spike-count variance rates at the fixed point: <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ d\delta\mathbf s=K\delta\mathbf s\,dt+R^{1/2}d\mathbf B, \qquad K_{ij}=-\frac{\delta_{ij}}{\tau}+\phi'(\bar g_i)W_{ij}, \qquad R=\operatorname{diag}(\bar r_i). \]</span></p>
+<p><strong>[Paper]</strong> In the authors’ notation, <span class="math inline">\(\delta\dot s_i=\sum_jK_{ij}\delta s_j+\xi_i\)</span>, with <span class="math inline">\(K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}\)</span>. Their noise covariance is <span class="math inline">\(\langle\xi_i(t)\xi_j(t')\rangle=\delta_{ij}\delta(t-t')\bar r_i\)</span>. This is the linearization and noise rule in <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3">S8–S10, p.&nbsp;3</a>; the display above writes the same leading fluctuations as Brownian increments.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><strong>[Interpretation: network response]</strong> The Brownian increment above is an equivalent leading local notation, with noise strengths evaluated at the fixed point. The entries of <span class="math inline">\(K\)</span> have units of inverse time.</p>
+<p><span class="math inline">\(K_{ij}\)</span> says how a small change in neuron <span class="math inline">\(j\)</span>’s activation changes the rate at which neuron <span class="math inline">\(i\)</span>’s activation evolves, near the reference state. The term <span class="math inline">\(-\delta_{ij}/\tau\)</span> removes a disturbance as synaptic activation fades. The term <span class="math inline">\(\phi'(\bar g_i)W_{ij}\)</span> describes recurrent renewal: the connection converts a change in cell <span class="math inline">\(j\)</span>’s activation into input to cell <span class="math inline">\(i\)</span>, and the local slope of the transfer function converts that input into a rate change. A steeper slope makes this response stronger. <span class="key-statement">Whether a disturbance decays, persists, or grows depends on the combined feedback through the whole network.</span> A stronger connection alone does not establish better memory.</p>
+<p><strong>[Guide derivation]</strong> To see how the matrix controls time, temporarily switch off the noise and consider a disturbance in a right eigenvector direction <span class="math inline">\(\mathbf z\)</span>, with <span class="math inline">\(K\mathbf z=\lambda\mathbf z\)</span>. If it starts at <span class="math inline">\(c\mathbf z\)</span>, the linear equation gives <span class="math inline">\(\delta\mathbf s(t)=c e^{\lambda t}\mathbf z\)</span>. A negative real eigenvalue makes that component decay; a zero eigenvalue leaves it unchanged. Complex eigenvalues describe oscillating combinations, which decay when their real parts are negative. The attractor calculation assumes all directions away from its neutral tangent decay. Even if the matrix is not diagonalizable, stable components can have transient polynomial factors but still decay when their eigenvalues have negative real parts.</p>
+<p><strong>[Paper]</strong> The tangent to the fixed-pattern family is <span class="math inline">\(u_i=d\bar s_i/d\theta=\tau\phi'(\bar g_i)\,d\bar g_i/d\theta\)</span>. It is a right zero mode, <span class="math inline">\(K\mathbf u=0\)</span>: a small displacement along this direction changes the represented value without being restored by the noise-free linear dynamics. This is <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3">supporting text, Eq. S11, PDF p.&nbsp;3</a>. The derivative steps below explain why.</p>
+<p><strong>[Guide derivation]</strong> Moving a little along the fixed point family changes the activation by</p>
+<p><span class="math display">\[ \delta\mathbf s\simeq\mathbf u\,\delta\theta, \qquad u_i=\frac{d\bar s_i}{d\theta}=\tau\frac{d\bar r_i}{d\theta}. \]</span></p>
+<p>Differentiate the fixed point equation <span class="math inline">\(\mathbf F[\bar{\mathbf s}(\theta)]=0\)</span>. The chain rule gives</p>
+<p><span class="math display">\[ K\mathbf u=0. \]</span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p><strong>[Interpretation]</strong> <span class="definition-explanation">Thus <span class="math inline">\(\mathbf u\)</span> is a <span class="definition-term" data-custom-style="Definition Term"><strong>right zero eigenvector</strong></span>: a state direction that the linear dynamics neither restores nor amplifies.</span> It is the tangent to the attractor. The other modes must decay for this local family to be attracting. <!-- vale ai-tells.FormalTransitions = YES --></p>
+<!-- vale ai-tells.NegatedObject = NO -->
+<p><strong>[Paper]</strong> The left vector <span class="math inline">\(\mathbf v\)</span> is chosen so <span class="math inline">\(\mathbf v^T K=0\)</span> and <span class="math inline">\(\mathbf v^T\mathbf u=1\)</span>. It extracts the lasting coordinate displacement: for a small perturbation <span class="math inline">\(\delta\mathbf s\)</span>, <span class="math inline">\(\delta\theta=\mathbf v^T\delta\mathbf s\)</span>. Its components weight the different neurons’ contributions. These are <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3">supporting text, Eqs. S12–S13, PDF p.&nbsp;3</a>. The tilted two-variable example below is a guide construction.</p>
+<p><strong>[Interpretation]</strong> To extract the lasting memory displacement from a general perturbation, recall the <a href="../frontmatter/ch-mathematical-tools.html#sec-math-tools-weights">left zero eigenvector</a>, a vector <span class="math inline">\(\mathbf v\)</span> satisfying <!-- vale ai-tells.NegatedObject = YES --></p>
+<p><span class="math display">\[ \mathbf v^T K=0, \qquad \mathbf v^T\mathbf u=1. \]</span></p>
+<p><strong>[Guide derivation]</strong> The normalization makes <span class="math inline">\(\mathbf v^T(\mathbf u\,\delta\theta)=\delta\theta\)</span>. If a stable mode <span class="math inline">\(\mathbf z\)</span> satisfies <span class="math inline">\(K\mathbf z=\lambda\mathbf z\)</span> with <span class="math inline">\(\lambda\ne0\)</span>, then</p>
+<p><span class="math display">\[ 0=\mathbf v^T K\mathbf z=\lambda\mathbf v^T\mathbf z, \]</span></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>so <span class="math inline">\(\mathbf v^T\mathbf z=0\)</span>. The left vector discards every decaying mode (<a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,409">SI Eqs. S12–S13, p.&nbsp;3</a>). More generally, <span class="math inline">\(\mathbf v^T K=0\)</span> makes <span class="math inline">\(\mathbf v^T\delta\mathbf s\)</span> constant during the noise-free linear return, even when stable modes are not a complete eigenvector basis. Once those modes decay, this constant is the remaining coordinate change. Consequently the surviving part of a small perturbation is <!-- vale ai-tells.FormalTransitions = YES --> <!-- vale ai-tells.EmDashUsage = YES --></p>
+<p><span class="math display">\[ \delta\mathbf s_{\mathrm{surviving}} =\mathbf u\,(\mathbf v^T\delta\mathbf s). \]</span></p>
+<p><strong>[Interpretation]</strong> This generally differs from a perpendicular geometric projection. Decay can be tilted relative to the tangent. Even symmetric synaptic weights do not usually make <span class="math inline">\(K\)</span> symmetric, because <span class="math inline">\(\phi'(\bar g_i)\)</span> multiplies different rows by different amounts.</p>
+<div class="publisher-worked-calculation publisher-fold-always">
+<p><strong>Example: a disturbance that slides while it decays.</strong></p>
+<p><strong>[Example]</strong> To see the distinction without a neural simulation, let <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> be dimensionless state coordinates and consider the local system</p>
+<p><span class="math display">\[ \dot x=ay,\qquad \dot y=-\lambda y,\quad\lambda&gt;0, \qquad [a]=[\lambda]=\mathrm{s}^{-1}. \]</span></p>
+<p>Every point with <span class="math inline">\(y=0\)</span> is fixed. Starting from <span class="math inline">\((x_0,y_0)\)</span> gives <span class="math inline">\(y(t)=y_0e^{-\lambda t}\)</span> and</p>
+<p><span class="math display">\[ x(\infty)=x_0+\frac{a}{\lambda}y_0. \]</span></p>
+<!-- vale ai-tells.AnthropomorphicCognition = NO -->
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p>The response matrix and its neutral vectors are</p>
+<p><span class="math display">\[ K=\begin{pmatrix}0&amp;a\\0&amp;-\lambda\end{pmatrix},\qquad \mathbf u=\begin{pmatrix}1\\0\end{pmatrix},\qquad \mathbf v=\begin{pmatrix}1\\a/\lambda\end{pmatrix}. \]</span></p>
+<p>The right vector <span class="math inline">\(\mathbf u\)</span> points along the fixed-point line. The left vector <span class="math inline">\(\mathbf v\)</span> reads out the final shift: <span class="math inline">\(\mathbf v^T(x_0,y_0)=x_0+(a/\lambda)y_0\)</span>. The decaying eigenvector is <span class="math inline">\(\mathbf z=(-a/\lambda,1)^T\)</span>, with <span class="math inline">\(K\mathbf z=-\lambda\mathbf z\)</span> and <span class="math inline">\(\mathbf v^T\mathbf z=0\)</span>. A vertical perturbation changes the final memory whenever <span class="math inline">\(a\ne0\)</span>. A perpendicular projection would miss that change. This is a teaching example of the projection geometry, not an additional network used in the paper. <!-- vale ai-tells.ContrastiveFormulas = YES --> <!-- vale ai-tells.AnthropomorphicCognition = YES --></p>
+<div class="figure-scroll">
+<div id="fig-memory-tilted-decay" class="quarto-float quarto-figure quarto-figure-center anchored" alt="A line of fixed points lies at y equals zero. An imposed vertical jump from zero zero to zero two is followed by a straight tilted flow toward one zero. Equal time marks crowd toward the endpoint. Perpendicular projection would return to zero zero and miss the lasting shift of one. The tangent is one zero. The left vector measures delta x plus one half delta y.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-memory-tilted-decay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-memory-tilted-decay.png" class="img-fluid figure-img" style="width:7.29167in" alt="A line of fixed points lies at y equals zero. An imposed vertical jump from zero zero to zero two is followed by a straight tilted flow toward one zero. Equal time marks crowd toward the endpoint. Perpendicular projection would return to zero zero and miss the lasting shift of one. The tangent is one zero. The left vector measures delta x plus one half delta y.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-memory-tilted-decay-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Original guide construction of the tilted decay example, with dimensionless coordinates and <span class="math inline">\(a/\lambda=1/2\)</span>. After an imposed jump from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((0,2)\)</span>, the state relaxes toward <span class="math inline">\((1,0)\)</span>. Successive time marks crowd toward that endpoint. This illustrates the left and right zero vector construction in Burak and Fiete (2012), Supporting Text, Section II, pp.&nbsp;3–4, Eqs. S10–S16. It is not a paper network simulation.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>As <span class="math inline">\(y\)</span> decays, <span class="math inline">\(x\)</span> changes by one. The left vector extracts that lasting shift.</p>
+</div>
+</section>
+<section id="sec-memory-diffusion" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-memory-diffusion"><span class="header-section-number">3.3</span> Projecting spike fluctuations gives the diffusion coefficient</h2>
+<p><strong>[Paper]</strong> Projecting spike fluctuations onto the lasting memory change gives the general local result (<a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3">supporting text, Eqs. S14–S15, PDF p.&nbsp;3</a>):</p>
+<p><span class="math display">\[ 2D(\theta)=\sum_i v_i(\theta)^2\bar r_i(\theta). \]</span></p>
+<p>Here <span class="math inline">\(\bar r_i\)</span> is neuron <span class="math inline">\(i\)</span>’s steady firing rate and <span class="math inline">\(v_i\)</span> is the lasting shift in the memory coordinate caused by a unit perturbation of its synaptic activation after the other disturbances decay. The rate <span class="math inline">\(\bar r_i\)</span> supplies the local Poisson spike-count variance; <span class="math inline">\(v_i^2\)</span> weights how strongly it shifts the stored value. The assumptions include weak fluctuations and independent spike generation conditional on the current rates. The <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">main article’s diffusion discussion, PDF p.&nbsp;2</a>, states its role in memory loss; the steps below derive it.</p>
+<p><strong>[Interpretation]</strong> We can now calculate how much random displacement remains after the stable components have relaxed. <span class="key-statement">Each cell’s random spikes disturb its outgoing synaptic activation. The circuit’s return flow determines the lasting shift in memory.</span> This calculation uses the weak noise and conditional independence assumptions, with rates and return flow evaluated near one fixed point.</p>
+<p><strong>[Guide derivation]</strong> Recall the <a href="#sec-memory-linearization">projection vector <span class="math inline">\(\mathbf v\)</span> derived above</a>: a small disturbance <span class="math inline">\(\delta\mathbf s\)</span> leaves a coordinate shift <span class="math inline">\(\delta\theta=\sum_i v_i\delta s_i\)</span> after the other components decay. Thus <span class="math inline">\(v_i\)</span> is the lasting change in the represented value per unit change in neuron <span class="math inline">\(i\)</span>’s synaptic activation, in this local linear model. These projection coefficients describe the whole circuit’s response; they are distinct from its connection weights <span class="math inline">\(W_{ij}\)</span>.</p>
+<p>The variance of a linear combination of independent noise increments is the sum of their variances multiplied by squared weights. Let <span class="math inline">\(K\)</span> be the matrix of the linearized return dynamics, <span class="math inline">\(R\)</span> the diagonal matrix with entries <span class="math inline">\(R_{ii}=\bar r_i\)</span>, and <span class="math inline">\(d\mathbf B\)</span> the vector of independent Brownian increments. Multiplying the linear stochastic equation by <span class="math inline">\(\mathbf v^T\)</span> removes its deterministic return term because <span class="math inline">\(\mathbf v^TK=0\)</span>, leaving</p>
+<p><span class="math display">\[ d\theta=\mathbf v^T R^{1/2}d\mathbf B =\sum_i v_i\sqrt{\bar r_i}\,dB_i. \]</span></p>
+<p>Here <span class="math inline">\(\delta_{ij}\)</span> equals one if <span class="math inline">\(i=j\)</span> and zero otherwise. The independent Brownian increments have covariance <span class="math inline">\(E[dB_i dB_j]=\delta_{ij}dt\)</span>, so</p>
+<p><span class="math display">\[ E[(d\theta)^2] =\sum_{ij}v_iv_j\sqrt{\bar r_i\bar r_j}\,E[dB_i dB_j] =\left(\sum_i v_i^2\bar r_i\right)dt. \]</span></p>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<p>Matching this to <span class="math inline">\(2D\,dt\)</span> yields the general local result (<a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,576">SI Eqs. S14–S15, p.&nbsp;3</a>) <!-- vale ai-tells.EmDashUsage = YES --></p>
+<p><span class="math display">\[ \boxed{2D(\theta)=\sum_i v_i(\theta)^2\bar r_i(\theta).} \]</span></p>
+<p><strong>[Interpretation: local diffusion]</strong> For one memory coordinate, each neuron’s contribution combines its spike variability, <span class="math inline">\(\bar r_i\)</span>, with the squared effect of one activation fluctuation on the final memory, <span class="math inline">\(v_i^2\)</span>. The formula does not say that neurons with high rates necessarily damage memory more: changing rates can also change the tuning curves and the projection coefficients. Those changes must be included in a comparison.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p>
+<p>The result is local in state and leading order in weak noise. The time interval must satisfy two conditions:</p>
+<ul>
+<li>It must be long enough for the approximation based on many spike contributions to apply.</li>
+<li>It must be short enough that the coefficients do not change substantially as the memory moves.</li>
+</ul>
+<p>These conditions justify a local spreading rate.</p>
+<p><strong>[Paper]</strong> For several memory coordinates <span class="math inline">\(\theta_\alpha\)</span>, the authors define their local displacement covariances by <span class="math inline">\(\langle\Delta\theta_\alpha\Delta\theta_\beta\rangle=2D_{\alpha\beta}\Delta t\)</span> and obtain <span class="math inline">\(2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta\)</span>. Here <span class="math inline">\(\mathbf v^\alpha\)</span> extracts the lasting change of coordinate <span class="math inline">\(\alpha\)</span>, and <span class="math inline">\(\bar r_i\)</span> sets neuron <span class="math inline">\(i\)</span>’s local Poisson noise strength. This result and its conditions are in <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5">supporting text, Eqs. S21–S27, PDF pp.&nbsp;5–6</a>. The paired-vector example that follows is added by the guide.</p>
+<p><strong>[Guide derivation]</strong> For several memory coordinates <span class="math inline">\(\theta_\alpha\)</span>, choose tangent vectors <span class="math inline">\(u_i^\alpha=\partial\bar s_i/\partial\theta_\alpha\)</span> and left zero vectors <span class="math inline">\(\mathbf v^\alpha\)</span> satisfying <span class="math inline">\((\mathbf v^\alpha)^T K=0\)</span> and <span class="math inline">\(\sum_i v_i^\alpha u_i^\beta=\delta_{\alpha\beta}\)</span>. A unit change of coordinate <span class="math inline">\(\beta\)</span> moves the activation along <span class="math inline">\(\mathbf u^\beta\)</span>. The projection vector <span class="math inline">\(\mathbf v^\alpha\)</span> extracts one unit when <span class="math inline">\(\alpha=\beta\)</span> and zero when the two coordinates differ. It also discards the decaying activity components. Thus <span class="math inline">\(\sum_i v_i^\alpha\delta s_i\)</span> gives the lasting local change in coordinate <span class="math inline">\(\alpha\)</span>. The same covariance calculation gives</p>
+<p><span class="math display">\[ 2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta. \]</span></p>
+<p><strong>[Interpretation]</strong> <span class="definition-explanation">In this local approximation, the <span class="definition-term" data-custom-style="Definition Term"><strong>diffusion tensor</strong></span> is the matrix of displacement covariances divided by twice the elapsed time over a short interval.</span> Its diagonal entries describe spreading in individual coordinates. Its other entries describe how coordinate displacements vary together. Even independently generated spike-count fluctuations can generate coupled motion of the represented coordinates.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></p>
+<details class="publisher-long-content publisher-long-example">
+<summary>
+Example: reading two coordinates from tilted directions
+</summary>
+<div class="publisher-fold-body">
+<p><strong>[Example]</strong> Suppose two coordinate changes alter two activities along <span class="math inline">\(\mathbf u^1=(1,0)^T\)</span> and <span class="math inline">\(\mathbf u^2=(1,1)^T\)</span>. A change by <span class="math inline">\(a\)</span> in the first coordinate and <span class="math inline">\(b\)</span> in the second gives the combined activity change <span class="math inline">\((a+b,b)^T\)</span>. The corresponding projection vectors are <span class="math inline">\(\mathbf v^1=(1,-1)^T\)</span> and <span class="math inline">\(\mathbf v^2=(0,1)^T\)</span>: their dot products with the combined change give <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, respectively. For example, <span class="math inline">\(\mathbf v^1\)</span> removes the contribution of the second coordinate because <span class="math inline">\((\mathbf v^1)^T\mathbf u^2=0\)</span>. This is a geometric example of the paired vectors; it does not specify a biological circuit.</p>
+</div>
+</details>
+<p>Systematic drift requires a <a href="ch-memory-long-delays.html#sec-memory-drift-scope">separate check in the next chapter</a>.</p>
+</section>
+<section id="sec-memory-symmetric" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="sec-memory-symmetric"><span class="header-section-number">3.4</span> Symmetric weights express diffusion through tuning curves</h2>
+<p><strong>[Paper]</strong> For symmetric weights <span class="math inline">\(W_{ij}=W_{ji}\)</span>, the corrected result is <span class="math inline">\(2D=\sum_i\bar r_i(g_i')^2/[\tau^2(\sum_i r_i'g_i')^2]\)</span>, where <span class="math inline">\(r_i'=d\bar r_i/d\theta\)</span> and <span class="math inline">\(g_i'=d\bar g_i/d\theta\)</span> are the response and input slopes along the memory family. This is <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2">main article, Eq. 2, PDF p.&nbsp;2</a>, with the authors’ 2017 correction; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4">supporting text, Eqs. S16–S18, PDF p.&nbsp;4</a>, derives it. The derivation below supplies the intermediate steps.</p>
+<!-- vale ai-tells.VerbTricolon = NO -->
+<p><strong>[Interpretation]</strong> The general formula uses the projection vector <span class="math inline">\(\mathbf v\)</span> derived from the network’s dynamics. The distinct matrix <span class="math inline">\(W\)</span> contains the <a href="ch-foundations.html#sec-memory-spikes">connection weights</a>: <span class="math inline">\(W_{ij}\)</span> describes the effect of neuron <span class="math inline">\(j\)</span>’s synaptic activation on neuron <span class="math inline">\(i\)</span>’s input. <span class="key-statement">If each pair has equal connection weights in opposite directions, <span class="math inline">\(W_{ij}=W_{ji}\)</span>, can we express <span class="math inline">\(\mathbf v\)</span> through the tuning curves and neural transfer function?</span> Equal connection weights do not require equal firing responses. We retain the common synaptic time constant, a stable continuous family, and the weak noise and conditional independence assumptions. <!-- vale ai-tells.VerbTricolon = YES --></p>
+<p><strong>[Guide derivation]</strong> The chain rule relates the slope of a response curve to the slope of its input curve. Here let <span class="math inline">\(g_i'=d\bar g_i/d\theta\)</span> and <span class="math inline">\(r_i'=d\bar r_i/d\theta\)</span>. Differentiating the fixed point identities gives</p>
+<p><span class="math display">\[ r_i'=\phi'(\bar g_i)g_i', \qquad \mathbf g'=\tau W\mathbf r'. \]</span></p>
+<p>With symmetric <span class="math inline">\(W\)</span>, the transpose of the linearized matrix satisfies</p>
+<p><span class="math display">\[ K^T\mathbf g' =-\mathbf g'/\tau+W\operatorname{diag}[\phi'(\bar g_i)]\mathbf g' =-\mathbf g'/\tau+W\mathbf r'=0. \]</span></p>
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>Therefore <span class="math inline">\(\mathbf v\)</span> is proportional to <span class="math inline">\(\mathbf g'\)</span>. Its normalization is <!-- vale ai-tells.FormalTransitions = YES --></p>
+<p><span class="math display">\[ v_i=\frac{g_i'}{\tau\sum_jr_j'g_j'}, \]</span></p>
+<p>because <span class="math inline">\(u_i=\tau r_i'\)</span>. Substituting into the noise projection gives</p>
+<p><span class="math display">\[ \boxed{ 2D(\theta)= \frac{\sum_i\bar r_i(g_i')^2} {\tau^2[\sum_i r_i'g_i']^2}. } \]</span></p>
+<!-- vale ai-tells.ContrastiveFormulas = NO -->
+<p><strong>[Interpretation]</strong> The input slopes <span class="math inline">\(g_i'\)</span> now determine the projection coefficients, so the diffusion coefficient can be calculated from the tuning curves and transfer function. This follows from <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&amp;zoom=125,0,239">SI Eq. S18, p.&nbsp;4</a>, with <span class="math inline">\(\bar g_i=\phi^{-1}(\bar r_i)\)</span> wherever the transfer function is invertible over the relevant range. The supplied Early Edition <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2&amp;zoom=125,0,88">main Eq. 2, p.&nbsp;2</a> omits the square on <span class="math inline">\(g_i'\)</span> in the numerator. <a href="https://doi.org/10.1073/pnas.1706051114">Burak and Fiete’s published correction (2017)</a> confirms the squared expression shown here, which also follows from the projection calculation and SI S18. The guide’s checks of other printed formulas remain separate from that correction. The result requires: <!-- vale ai-tells.ContrastiveFormulas = YES --></p>
+<ul>
+<li>Symmetric weights.</li>
+<li>A stable continuous family.</li>
+<li>The noise assumptions already introduced.</li>
+</ul>
+<p><strong>[Interpretation]</strong> The result does not require <span class="definition-term" data-custom-style="Definition Term"><strong>translation symmetry</strong></span>, in which shifting an activity pattern along the represented coordinate leaves the network dynamics unchanged in form.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<div class="publisher-worked-calculation publisher-fold-always">
+<p><strong>Example: opposite firing changes with constant diffusion.</strong></p>
+<p><strong>[Example]</strong> Take two mutually inhibiting cells with <span class="math inline">\(W_{12}=W_{21}=-1\)</span>, zero self weights, equal biases <span class="math inline">\(b\)</span>, and <span class="math inline">\(\phi(g)=g/\tau\)</span> over the positive input range. Its fixed points obey</p>
+<p><span class="math display">\[ \bar s_1=\frac{b+\theta}{2},\qquad \bar s_2=\frac{b-\theta}{2},\qquad |\theta|&lt;b. \]</span></p>
+<p>Here <span class="math inline">\(b\)</span> is an activation bias and <span class="math inline">\(\theta=s_1-s_2\)</span> is an activation difference. These have different units from the rate baseline and angle in the <a href="ch-persistence.html#sec-foundations-attractor-example">earlier two-cell example</a>. Writing that example’s baseline as <span class="math inline">\(b_{\mathrm{rate}}\)</span> and its angle as <span class="math inline">\(\theta_{\mathrm{angle}}\)</span>, the conversion is <span class="math inline">\(b=2\tau b_{\mathrm{rate}}\)</span> and <span class="math inline">\(\theta=2\tau k\theta_{\mathrm{angle}}\)</span>. The sum <span class="math inline">\(s_1+s_2\)</span> relaxes to <span class="math inline">\(b\)</span> at rate <span class="math inline">\(2/\tau\)</span>, while the difference is neutral. Here <span class="math inline">\(\mathbf u=(1/2,-1/2)^T\)</span>, <span class="math inline">\(\mathbf v=(1,-1)^T\)</span>, and</p>
+<p><span class="math display">\[ 2D=\bar r_1+\bar r_2=b/\tau. \]</span></p>
+<p>The boxed tuning-curve formula gives the same result. Here <span class="math inline">\(\bar g_1=(b+\theta)/2\)</span> and <span class="math inline">\(\bar g_2=(b-\theta)/2\)</span>, so <span class="math inline">\(g_1'=1/2\)</span>, <span class="math inline">\(g_2'=-1/2\)</span> and <span class="math inline">\(r_i'=g_i'/\tau\)</span>. Thus <span class="math inline">\(\sum_i r_i'g_i'=1/(2\tau)\)</span> and the boxed formula reduces to <span class="math inline">\(2D=\bar r_1+\bar r_2\)</span>.</p>
+<!-- vale ai-tells.DefensiveHedges = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.FormalTransitions = NO -->
+<p>Although the two firing rates change with the stored value, their summed spike variability is constant. Therefore this network has constant local diffusion throughout its valid range. Near an endpoint, a negative linear rate would be impossible. A physical implementation must alter the transfer rule, and the interior formula alone does not describe that boundary. This model underlies the mutual inhibition example in <a href="ch-memory-long-delays.html#fig-paper-memory-2">Fig. 2E–G, p.&nbsp;3</a>.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> <!-- vale ai-tells.FormalTransitions = YES --> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale ai-tells.DefensiveHedges = YES --></p>
+<p>The plot uses <span class="math inline">\(b=20\)</span> activation units and <span class="math inline">\(\tau=0.1\,\mathrm{s}\)</span>.</p>
+<div class="figure-scroll">
+<div id="fig-memory-inhibition-rates" class="quarto-float quarto-figure quarto-figure-center anchored" alt="As theta increases through the interior from minus 20 to 20 activation units, r1 increases toward 200 spikes per second and r2 decreases toward zero. Their dashed sum stays at 200. A lower aligned plot shows D constant at 100 coordinate units squared per second. Open endpoint circles exclude both boundaries.">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-memory-inhibition-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../assets/fig-memory-inhibition-rates.png" class="img-fluid figure-img" style="width:7.29167in" alt="As theta increases through the interior from minus 20 to 20 activation units, r1 increases toward 200 spikes per second and r2 decreases toward zero. Their dashed sum stays at 200. A lower aligned plot shows D constant at 100 coordinate units squared per second. Open endpoint circles exclude both boundaries.">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-memory-inhibition-rates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.3: For the chapter’s two mutually inhibiting cells, b = 20 activation units and tau = 0.1 s give opposite changes in the two rates. Their sum remains 200 spikes/s, so local D remains 100 coordinate units squared/s. Open endpoints mark the excluded boundaries. The linear interior model does not determine boundary behavior. These curves are calculated examples, not simulation data.
+</figcaption>
+</figure>
+</div>
+</div>
+<!-- vale ai-tells.FigurativeStays = NO -->
+<p>The dashed rate sum in the upper plot stays fixed, so the lower plot has the same <span class="math inline">\(D\)</span> at every interior value of <span class="math inline">\(\theta\)</span>. <!-- vale ai-tells.FigurativeStays = YES --></p>
+</div>
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.AnthropomorphicCognition = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.SemicolonUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+<!-- vale ai-tells.EmDashUsage = NO -->
+
+
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. Proceedings of the National Academy of Sciences, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2&amp;zoom=125,0,60">Main Eq. 1 and the steady state, p.&nbsp;2</a>; <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5&amp;zoom=125,0,372">Model, Eqs. 7–9, p.&nbsp;5</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=5&amp;zoom=125,0,550">Weak Fluctuations, Eqs. 10–11, p.&nbsp;5</a>, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6&amp;zoom=125,0,22">continuation, p.&nbsp;6</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&amp;zoom=125,0,128">SI Eqs. S2–S5, p.&nbsp;2</a>. Brownian increment notation is a teaching rewrite of the paper’s white noise notation. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --> <!-- vale ai-tells.AnthropomorphicCognition = YES --><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>, Supporting Text: <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=1&amp;zoom=125,0,548">Eq. S1, p.&nbsp;1</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&amp;zoom=125,0,128">Eqs. S2–S5, p.&nbsp;2</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=2&amp;zoom=125,0,539">ring population limit, Eq. S6, p.&nbsp;2</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>, Supporting Text, p.&nbsp;3: <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,82">linearization, Eqs. S7–S10</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,328">tangent, Eq. S11</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,409">left vector, Eqs. S12–S13</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,576">projected diffusion, Eqs. S14–S15</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. The left vector interpretation is expanded here for teaching. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>, Supporting Text, p.&nbsp;3: <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,82">linearization, Eqs. S7–S10</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,328">tangent, Eq. S11</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,409">left vector, Eqs. S12–S13</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3&amp;zoom=125,0,576">projected diffusion, Eqs. S14–S15</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. The left vector interpretation is expanded here for teaching. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>, Supporting Text: <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5&amp;zoom=125,0,592">Eq. S21, p.&nbsp;5</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=6&amp;zoom=125,0,48">Eqs. S22–S27, p.&nbsp;6</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <!-- vale ai-tells.SemicolonUsage = YES --> <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=2&amp;zoom=125,0,88">main Eq. 2, p.&nbsp;2</a>; <a href="../papers/burak-fiete-2012-persistent-activity-si.pdf#page=4&amp;zoom=125,0,48">Supporting Text, Eqs. S16–S18, p.&nbsp;4</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Burak, Y., &amp; Fiete, I. R. (2012). <em>Fundamental limits on persistent activity in networks of noisy neurons</em>. PNAS, 109(43), 17645–17650, <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=3&amp;zoom=125,0,205">Fig. 2E–G and caption, p.&nbsp;3</a>; <a href="../papers/burak-fiete-2012-persistent-activity.pdf#page=6&amp;zoom=125,0,22">Network Simulations, mutual inhibition, p.&nbsp;6</a>. <a href="https://doi.org/10.1073/pnas.1117386109">DOI</a>. The activation coordinate is made explicit here to avoid confusing it with a rate difference, which rescales <span class="math inline">\(D\)</span> by <span class="math inline">\(1/\tau^2\)</span>. <!-- vale ai-tells.EmDashUsage = YES --><a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const automaticLongContentFolding = true;
+
+  const referenceSections = document.querySelectorAll(
+
+    'main.content section.footnotes[role="doc-endnotes"]'
+
+  );
+
+
+
+  referenceSections.forEach((section) => {
+
+    if (section.closest("details.publisher-chapter-references")) return;
+
+
+
+    const details = document.createElement("details");
+
+    details.className = "publisher-chapter-references";
+
+    const summary = document.createElement("summary");
+
+    const count = section.querySelectorAll("ol > li").length;
+
+    summary.textContent = count ? `References (${count})` : "References";
+
+
+
+    section.parentNode.insertBefore(details, section);
+
+    details.append(summary, section);
+
+  });
+
+
+
+  const openFoldTarget = (target) => {
+
+    const details = target?.closest(
+
+      "details.publisher-chapter-references, details.publisher-long-content"
+
+    );
+
+    if (details) details.open = true;
+
+  };
+
+
+
+  const targetFromHash = (hash) => {
+
+    if (!hash || hash === "#") return null;
+
+    try {
+
+      return document.getElementById(decodeURIComponent(hash.slice(1)));
+
+    } catch (_error) {
+
+      return null;
+
+    }
+
+  };
+
+
+
+  document.addEventListener("click", (event) => {
+
+    const link = event.target.closest?.('a[href*="#"]');
+
+    if (!link) return;
+
+    let destination;
+
+    try {
+
+      destination = new URL(link.getAttribute("href") || "", location.href);
+
+    } catch (_error) {
+
+      return;
+
+    }
+
+    if (destination.href.split("#")[0] !== location.href.split("#")[0]) return;
+
+    openFoldTarget(targetFromHash(destination.hash));
+
+  });
+
+
+
+  const foldMode = (candidate, inherit = true) => {
+
+    const selector = '[data-publisher-fold], .publisher-fold-never, .publisher-fold-always, .publisher-fold-open';
+
+    const control = candidate.matches(selector)
+
+      ? candidate
+
+      : inherit ? candidate.closest(selector) : null;
+
+    if (control?.classList.contains("publisher-fold-never")) return "never";
+
+    if (control?.classList.contains("publisher-fold-always")) return "always";
+
+    if (control?.classList.contains("publisher-fold-open")) return "open";
+
+    const requested = control?.dataset.publisherFold || "auto";
+
+    return ["auto", "never", "always", "open"].includes(requested)
+
+      ? requested
+
+      : "auto";
+
+  };
+
+
+
+  const foldCandidate = (candidate, kind) => {
+
+    if (!candidate || candidate.closest("details") || candidate.querySelector("details")) return;
+
+
+
+    const mode = foldMode(candidate, kind !== "note" && kind !== "code");
+
+    if (mode === "never") return;
+
+    if (kind === "note" && mode === "auto") return;
+
+    const minimumFoldHeight = 320;
+
+    const foldHeight = Math.max(
+
+      minimumFoldHeight,
+
+      Math.round(document.documentElement.clientHeight * 0.5)
+
+    );
+
+    if (mode === "auto" && candidate.getBoundingClientRect().height <= foldHeight) return;
+
+
+
+    const titleSource = kind === "table"
+
+      ? candidate.querySelector("figcaption, caption")
+
+      : kind === "code"
+
+        ? candidate.querySelector(":scope > .publisher-code-caption")
+
+        : candidate.querySelector(":scope > p:first-child");
+
+    const label = titleSource?.textContent.replace(/\s+/g, " ").trim();
+
+
+
+    const details = document.createElement("details");
+
+    details.className = `publisher-long-content publisher-long-${kind}`;
+
+    if (mode === "open") details.open = true;
+
+    const summary = document.createElement("summary");
+
+    if (titleSource && label) {
+
+      titleSource.childNodes.forEach((node) => {
+
+        const clone = node.cloneNode(true);
+
+        clone.removeAttribute?.("id");
+
+        clone.querySelectorAll?.("[id]").forEach((element) => element.removeAttribute("id"));
+
+        summary.append(clone);
+
+      });
+
+    } else {
+
+      summary.textContent = kind === "table" ? "Table" : kind === "note" ? "Details" : kind === "code" ? "Code" : "Example";
+
+    }
+
+    const body = document.createElement("div");
+
+    body.className = "publisher-fold-body";
+
+    if (titleSource) titleSource.classList.add("publisher-fold-title-source");
+
+
+
+    candidate.parentNode.insertBefore(details, candidate);
+
+    details.append(summary, body);
+
+    body.append(candidate);
+
+  };
+
+
+
+  const foldLongContent = () => {
+
+    if (!automaticLongContentFolding) return;
+
+    document.querySelectorAll(
+
+      "main.content .publisher-worked-calculation, main.content .publisher-clarification-note, main.content .publisher-code-fold"
+
+    ).forEach((candidate) => {
+
+      const kind = candidate.classList.contains("publisher-code-fold") ? "code"
+
+        : candidate.classList.contains("publisher-clarification-note") ? "note" : "example";
+
+      foldCandidate(candidate, kind);
+
+    });
+
+    document.querySelectorAll("main.content figure.quarto-float-tbl").forEach((figure) => {
+
+      const float = figure.parentElement?.classList.contains("quarto-float")
+
+        ? figure.parentElement
+
+        : figure;
+
+      foldCandidate(float, "table");
+
+    });
+
+    document.querySelectorAll("main.content table").forEach((table) => {
+
+      if (!table.closest("figure.quarto-float-tbl")) foldCandidate(table, "table");
+
+    });
+
+    openFoldTarget(targetFromHash(location.hash));
+
+  };
+
+
+
+  if (document.readyState === "complete") {
+
+    requestAnimationFrame(foldLongContent);
+
+  } else {
+
+    window.addEventListener("load", () => requestAnimationFrame(foldLongContent), {
+
+      once: true,
+
+    });
+
+  }
+
+
+
+  const closedBeforePrint = new Set();
+
+  window.addEventListener("beforeprint", () => {
+
+    document.querySelectorAll("details.publisher-long-content, details.publisher-chapter-references").forEach((details) => {
+
+      if (!details.open) {
+
+        closedBeforePrint.add(details);
+
+        details.open = true;
+
+      }
+
+    });
+
+  });
+
+  window.addEventListener("afterprint", () => {
+
+    closedBeforePrint.forEach((details) => { details.open = false; });
+
+    closedBeforePrint.clear();
+
+  });
+
+  document.addEventListener("beforematch", (event) => openFoldTarget(event.target));
+
+  const openLocationTarget = () => openFoldTarget(targetFromHash(location.hash));
+
+  window.addEventListener("hashchange", openLocationTarget);
+
+  openLocationTarget();
+
+});
+
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/ch-persistence.html" class="pagination-link" aria-label="Stable representations can accumulate error">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Stable representations can accumulate error</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/ch-memory-long-delays.html" class="pagination-link" aria-label="Boundaries and drift change memory error over long delays">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Boundaries and drift change memory error over long delays</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
