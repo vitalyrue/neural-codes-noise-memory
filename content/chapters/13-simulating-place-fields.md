@@ -52,7 +52,13 @@ Figures 1 and 2 connect the generated maps to size, count, gap, and slice statis
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Width and edge conventions must be checked before copying parameters"}
 
-For one spatial dimension, let $C(x)$ be the input covariance between positions separated by distance $x$; $C(0)$ is the variance and $C''(0)$ is the second derivative with respect to separation, evaluated at zero. The paper defines its local correlation scale by $\ell=\sqrt{-C(0)/C''(0)}$. The code also uses a parameter called `sigma`, but as the width $b$ of the Gaussian smoothing filter. For ideal continuous white noise smoothed by a Gaussian of width $b$, the covariance is proportional to $\exp[-x^2/(4b^2)]$. Differentiating at zero gives $\ell=\sqrt2\,b$. The two widths are therefore different quantities.
+For one spatial dimension, let $C(x)$ be the input covariance between positions separated by distance $x$; $C(0)$ is the variance and $C''(0)$ is the second derivative with respect to separation, evaluated at zero. The paper defines its local correlation scale by
+
+$$
+\ell=\sqrt{-\frac{C(0)}{C''(0)}}.
+$$
+
+The code also uses a parameter called `sigma`, but as the width $b$ of the Gaussian smoothing filter. For ideal continuous white noise smoothed by a Gaussian of width $b$, the covariance is proportional to $\exp[-x^2/(4b^2)]$. Differentiating at zero gives $\ell=\sqrt2\,b$. The two widths are therefore different quantities.
 
 This conversion follows from the smoothing construction. It is not another fitted biological result. Finite sampling and filter truncation can modify the ideal relation. The archived 1D generator uses reflected edges, whereas its 3D generator wraps the filter around the array edges. The boundary rule used for smoothing also does not, by itself, specify the boundary rule for a later topology calculation.
 

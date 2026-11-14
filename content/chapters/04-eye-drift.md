@@ -210,7 +210,14 @@ A+B=0,\qquad
 $$
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-Substituting $B=-A$ gives $A(1/\tau_- -1/\tau_+)=1/m$, hence $A=\tau_+\tau_-/[m(\tau_+-\tau_-)]$. Making the response zero before the spike gives the impulse response $h_0(u)$.
+Substituting $B=-A$ gives
+
+$$
+A\left(\frac1{\tau_-}-\frac1{\tau_+}\right)=\frac1m,
+\qquad A=\frac{\tau_+\tau_-}{m(\tau_+-\tau_-)}.
+$$
+
+Making the response zero before the spike gives the impulse response $h_0(u)$.
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 The corresponding impulse response is

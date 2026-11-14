@@ -94,7 +94,13 @@ I_h(\theta)=E_\theta[S(\theta)^2]
 =h\sum_i\frac{(r_i')^2}{\bar r_i}.
 $$
 
-The equality follows by differentiating the identity $\sum_{\mathbf n}p(\mathbf n\mid\theta)=1$ twice: $\partial_\theta^2p=p[(\partial_\theta\ell)^2+\partial_\theta^2\ell]$, so the probability-weighted average of the sum in brackets is zero. This is the connection to [SI Eqs. S42–S44, PDF pp. 9–10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9). It gives $I_h=hJ$ in the Poisson model. Other spike distributions can give a different expression.
+The equality follows by differentiating the identity $\sum_{\mathbf n}p(\mathbf n\mid\theta)=1$ twice. With $\ell=\log p$,
+
+$$
+\partial_\theta^2p=p\left[(\partial_\theta\ell)^2+\partial_\theta^2\ell\right].
+$$
+
+The probability-weighted average of the sum in brackets is therefore zero. This is the connection to [SI Eqs. S42–S44, PDF pp. 9–10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=9). It gives $I_h=hJ$ in the Poisson model. Other spike distributions can give a different expression.
 
 
 **[Interpretation: Fisher information]** A receiving neuron gets spikes, not a label saying which angle the memory circuit represents. [Fisher information is large when a small change in the stored value changes the expected counts strongly compared with their random spread.]{.key-statement} It measures how readily the probabilities of possible observations distinguish nearby values. The ratio of squared count sensitivity to count variance is exact here because the counts have the assumed Poisson distribution; it is not the general definition for arbitrary spike statistics.

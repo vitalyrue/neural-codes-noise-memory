@@ -25,11 +25,43 @@ book:
     content:
     - type: paragraph
       text: |-
-        **[Paper 2012]** In the model of [Burak and Fiete (2012), Results and Eq. 1, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), each value $\theta$ has a noise-free sustained pattern satisfying $\bar s_i(\theta)=\tau\phi(\sum_j W_{ij}\bar s_j(\theta)+b_i)=\tau\bar r_i(\theta)$. Here $\bar s_i$ is neuron $i$'s steady synaptic activation, $\bar r_i$ its steady firing rate, $W_{ij}$ the connection from neuron $j$ to $i$, $b_i$ a constant input, $\phi$ the input-to-rate rule, and $\tau$ the synaptic decay time. Bars indicate noise-free steady values.
+        **[Paper 2012]** In the model of [Burak and Fiete (2012), Results and Eq. 1, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), each value $\theta$ has a noise-free sustained pattern satisfying
 
-        Random spike timing moves the represented value. For intervals long enough for transient disturbances to relax but short enough for the local diffusion coefficient $D$ to remain approximately constant, with negligible systematic drift and boundary effects, the mean squared displacement is approximately $2Dt$. With symmetric weights the authors' [corrected formula](https://doi.org/10.1073/pnas.1706051114) is $2D=\sum_i\bar r_i(\bar g_i')^2/[\tau^2(\sum_i\bar r_i'\bar g_i')^2]$, where $\bar g_i=\sum_jW_{ij}\bar s_j+b_i$ is the steady input to neuron $i$. The internal Fisher information rate is $J(\theta)=\sum_i[\bar r_i'(\theta)]^2/\bar r_i(\theta)$ for positive firing rates and conditionally independent Poisson spikes. The authors establish $D\geq1/(2\tau^2J)$ for their model. A prime denotes differentiation with respect to $\theta$. These results link the neural circuit's noise to the precision of its spike signals ([diffusion and information, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2)).
+        $$
+        \bar s_i(\theta)=\tau\phi\left(\sum_j W_{ij}\bar s_j(\theta)+b_i\right)=\tau\bar r_i(\theta).
+        $$
 
-        Let $T$ be the storage delay and $L$ the duration of observing spikes after the recall cue. In the paper's local, unbounded, constant-$D$, constant-$J$ Gaussian readout approximation, with independent future fluctuations and a locally unbiased estimate, the ideal observer with access to all network spikes has initial-value error variance $2DT+\sqrt{2D/J}\,\coth(\sqrt{2DJ}L)$. An observer who equally weights spikes has variance $2DT+1/(JL)+2DL/3$. Here $\coth z=(e^{2z}+1)/(e^{2z}-1)$. The term $2DT$ is storage error; the remaining term is readout error for the state at the cue. As $L$ increases, the ideal readout term approaches $\sqrt{2D/J}$, while the equal-weight observer eventually worsens because it treats an evolving state as fixed. The [main readout results, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4), and [supporting text section VI, PDF pp. 12–16](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12), are developed in Chapter 6.
+        Here $\bar s_i$ is neuron $i$'s steady synaptic activation, $\bar r_i$ its steady firing rate, $W_{ij}$ the connection from neuron $j$ to $i$, $b_i$ a constant input, $\phi$ the input-to-rate rule, and $\tau$ the synaptic decay time. Bars indicate noise-free steady values.
+
+        Random spike timing moves the represented value. For intervals long enough for transient disturbances to relax but short enough for the local diffusion coefficient $D$ to remain approximately constant, with negligible systematic drift and boundary effects, the mean squared displacement is approximately $2Dt$. With symmetric weights the authors' [corrected formula](https://doi.org/10.1073/pnas.1706051114) is
+
+        $$
+        2D=\frac{\sum_i\bar r_i(\bar g_i')^2}{\tau^2(\sum_i\bar r_i'\bar g_i')^2}.
+        $$
+
+        Here $\bar g_i=\sum_jW_{ij}\bar s_j+b_i$ is the steady input to neuron $i$. For positive firing rates and conditionally independent Poisson spikes, the internal Fisher information rate and the authors' bound are
+
+        $$
+        J(\theta)=\sum_i\frac{[\bar r_i'(\theta)]^2}{\bar r_i(\theta)},\qquad D\geq\frac{1}{2\tau^2J}.
+        $$
+
+        These expressions apply to their model. A prime denotes differentiation with respect to $\theta$. These results link the neural circuit's noise to the precision of its spike signals ([diffusion and information, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2)).
+
+        Let $T$ be the storage delay and $L$ the duration of observing spikes after the recall cue. In the paper's local, unbounded, constant-$D$, constant-$J$ Gaussian readout approximation, with independent future fluctuations and a locally unbiased estimate, the two observers have these initial-value error variances:
+
+        - **Ideal observer, with access to all network spikes:**
+
+          $$
+          2DT+\sqrt{\frac{2D}{J}}\,\coth(\sqrt{2DJ}L).
+          $$
+
+        - **Observer who equally weights spikes:**
+
+          $$
+          2DT+\frac{1}{JL}+\frac{2DL}{3}.
+          $$
+
+        Here $\coth z=(e^{2z}+1)/(e^{2z}-1)$. The term $2DT$ is storage error; the remaining term is readout error for the state at the cue. As $L$ increases, the ideal readout term approaches $\sqrt{2D/J}$, while the equal-weight observer eventually worsens because it treats an evolving state as fixed. The [main readout results, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4), and [supporting text section VI, PDF pp. 12–16](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=12), are developed in Chapter 6.
     - type: paragraph
       text: '**[Interpretation]** A network can keep firing without keeping the original angle exactly. This Part follows that distinction from the model’s physical components to its predictions about error. Chapters 1–2 prepare the neural and mathematical background; Chapters 3–4 follow noise and diffusion; Chapter 5 explains the information bound; Chapter 6 follows the readout calculation.'
     - type: paragraph

@@ -27,7 +27,12 @@ $$
 d\theta=b(\theta)dt+\sqrt{2D(\theta)}\,dW_t.
 $$
 
-Here $\theta$ is the represented angle, $b(\theta)$ is its systematic angular motion per unit time, and $D(\theta)$ is half its local variance growth rate. The Brownian increment $dW_t$ has mean zero and variance $dt$; it represents the random disturbance accumulated during the short interval $dt$. Let $\Delta\theta=\theta(t+\Delta t)-\theta(t)$ be the angular change over lag $\Delta t$. With nearly constant coefficients over that short lag, repeated trials near the same angle give $\mathbb E[\Delta\theta]\simeq b\Delta t$ and $\operatorname{Var}(\Delta\theta)\simeq2D\Delta t$. Correlated perturbations, preferred states, or boundaries can invalidate that short-lag fit. At long delays, report the distribution of angular errors around the circle. Values separated by a full turn represent the same angle, so a local unwrapped variance cannot be extended indefinitely as a measure of angular error.
+Here $\theta$ is the represented angle, $b(\theta)$ is its systematic angular motion per unit time, and $D(\theta)$ is half its local variance growth rate. The Brownian increment $dW_t$ has mean zero and variance $dt$; it represents the random disturbance accumulated during the short interval $dt$. Let $\Delta\theta=\theta(t+\Delta t)-\theta(t)$ be the angular change over lag $\Delta t$. With nearly constant coefficients over that short lag, repeated trials near the same angle give:
+
+- **Mean displacement:** $\mathbb E[\Delta\theta]\simeq b\Delta t$.
+- **Displacement variance:** $\operatorname{Var}(\Delta\theta)\simeq2D\Delta t$.
+
+Correlated perturbations, preferred states, or boundaries can invalidate that short-lag fit. At long delays, report the distribution of angular errors around the circle. Values separated by a full turn represent the same angle, so a local unwrapped variance cannot be extended indefinitely as a measure of angular error.
 
 The [[**mean squared displacement**]{.definition-term custom-style="Definition Term"}, or MSD, is the mean of the squared changes $\mathbb E[(\Delta\theta)^2]$ over the chosen lag.]{.definition-explanation} It equals $\operatorname{Var}(\Delta\theta)+\mathbb E[\Delta\theta]^2$. Thus a growing MSD can include systematic motion as well as random spreading. Compare the mean displacement and its variance before interpreting an MSD slope as diffusion. The [eye-drift measurements](ch-eye-timing.html#sec-eye-measurement-noise) likewise require an explicit displacement convention and an estimate of measurement error.
 
@@ -57,7 +62,14 @@ Here $B$ represents fluctuations that vary across time and trials, including noi
 
 ::: {.publisher-clarification-note .publisher-fold-always title="Derivation: project circuit fluctuations onto the remembered angle"}
 
-Write $\delta\theta\simeq\boldsymbol\ell^T\delta\mathbf r$ in the local linear regime. For the neutral mode, $\boldsymbol\ell^T$ times the linearized deterministic drift is zero. The stochastic increment is $d\theta\simeq\boldsymbol\ell^TB\,d\mathbf W_t$. Since $\operatorname{Cov}(d\mathbf W_t)=I\,dt$, its variance is $\boldsymbol\ell^TBB^T\boldsymbol\ell\,dt$. Equating this to $2D\,dt$ gives the displayed coefficient. The normalization ensures that the result measures angular displacement rather than an arbitrarily scaled activity coordinate. This calculation transfers only after the hardware's local dynamics and noise assumptions have been checked.
+Write $\delta\theta\simeq\boldsymbol\ell^T\delta\mathbf r$ in the local linear regime. For the neutral mode, $\boldsymbol\ell^T$ times the linearized deterministic drift is zero. The stochastic increment and its variance are
+
+$$
+d\theta\simeq\boldsymbol\ell^TB\,d\mathbf W_t,\qquad
+\operatorname{Var}(d\theta)\simeq\boldsymbol\ell^TBB^T\boldsymbol\ell\,dt,
+$$
+
+because $\operatorname{Cov}(d\mathbf W_t)=I\,dt$. Equating the variance to $2D\,dt$ gives the displayed coefficient. The normalization ensures that the result measures angular displacement rather than an arbitrarily scaled activity coordinate. This calculation transfers only after the hardware's local dynamics and noise assumptions have been checked.
 
 :::
 

@@ -126,7 +126,13 @@ $$
 $$
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-Thus $\sigma$ compares typical height with typical slope and has units of distance. In an isotropic field, the same definition applies along any unit direction. For the smooth Gaussian covariance $C(\Delta x)=\sigma_h^2\exp[-\|\Delta x\|^2/(2\sigma^2)]$, it is exactly the parameter in that exponent. The paper uses a Gaussian covariance for its simulations. Other smooth covariances can share this local scale while having different longer distance structure.[^p3-scale]
+Thus $\sigma$ compares typical height with typical slope and has units of distance. In an isotropic field, the same definition applies along any unit direction. For the smooth Gaussian covariance
+
+$$
+C(\Delta x)=\sigma_h^2\exp\!\left[-\frac{\|\Delta x\|^2}{2\sigma^2}\right],
+$$
+
+it is exactly the parameter in the exponent. The paper uses a Gaussian covariance for its simulations. Other smooth covariances can share this local scale while having different longer distance structure.[^p3-scale]
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 A simulated Gaussian input map with covariance $C(\Delta x)=\exp[-(\Delta x/\sigma)^2/2]$ gives the firing map below when $q=0.8$ and $a=6$ Hz. Position is shown in units of $\sigma$.

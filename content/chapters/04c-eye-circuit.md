@@ -182,8 +182,11 @@ $$
 D\ \propto\ \frac{\mathrm{CV}^2}{N\lambda_0 b^2\tau_s^2}.
 $$
 
-This second form has the dependence printed in the paper's Eq. 1,
-$D\propto\mathrm{CV}^2N^{-1}\lambda_0^{-1}k_0^{-2}\tau_s^{-2}$.
+This second form has the dependence printed in the paper's Eq. 1:
+
+$$
+D\propto\mathrm{CV}^2N^{-1}\lambda_0^{-1}k_0^{-2}\tau_s^{-2}.
+$$
 <!-- vale ai-tells.ContrastiveFormulas = NO -->
 However, its surrounding text calls $k_0$ position sensitivity without specifying fractional normalization. If it means the absolute slope in Hz/degree, the Poisson estimate above instead puts $\lambda_0$ in the numerator at fixed slope. The printed inverse-rate dependence matches a fractional slope. The printed expression is a proportionality, so an omitted factor can carry units; units alone do not establish a printing error. This calculation is a scale estimate under fixed network geometry. The full 2022 model has saturating synapses and sub-Poisson spike trains, so inserting CV squared into the simpler Poisson relation does not give an exact formula for that network.[^p2-scaling]
 <!-- vale ai-tells.ContrastiveFormulas = YES -->
@@ -205,7 +208,11 @@ $$
 $$
 
 The second term follows from $\mathbb E[B(t)B(s)]=2D\min(t,s)$ and
-$T^{-2}\int_0^T\int_0^T2D\min(t,s)\,dt\,ds=2DT/3$.
+
+$$
+\frac1{T^2}\int_0^T\int_0^T2D\min(t,s)\,dt\,ds=\frac{2DT}{3}.
+$$
+
 Expanding $1/(\bar\lambda+aB)$ to first order gives $1/\bar\lambda-aB/\bar\lambda^2$. Dividing its standard deviation by its mean then gives
 
 $$

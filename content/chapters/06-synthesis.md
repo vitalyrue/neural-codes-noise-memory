@@ -114,7 +114,28 @@ The shared-position calculation predicts how rates would change together. Establ
   <!-- vale ai-tells.VerbTricolon = NO -->
 - **Memory stability:** The 2012 inequality $D\ge 1/(2\tau^2J)$ is a mathematical constraint rather than an experimental fit: $D$ is memory diffusion, $J$ is the internal spike information rate, and $\tau$ is the synaptic time constant. Its derivation specifies what noise and dynamics it covers. An experimental comparison would need estimates of diffusion, the relevant time constants, and the appropriate instantaneous information rate, all under compatible conditions. Agreement with $1/N$ scaling alone would not test the entire inequality, since several mechanisms can share that scaling.
 
-  **[Derivation: the memory bound]** At the represented value $\theta$, let $\bar r_i$ be neuron $i$'s steady firing rate and $r_i'=d\bar r_i/d\theta$ its rate slope. Let $v_i$ be the lasting change in $\theta$ from a unit activation perturbation in that neuron. For a stable continuous family with one neutral memory direction, in the weak-noise Poisson model with independent spike generation conditional on rates and a common $\tau$, normalize the projection so a unit coordinate change is read as one unit. Then the projection gives $2D=\sum_i v_i^2\bar r_i$ and $\tau\sum_i v_i r_i'=1$; the local spike information rate about the current attractor state is $J=\sum_i(r_i')^2/\bar r_i$ for positive rates. Cauchy–Schwarz then gives $1/\tau^2=(\sum_i v_i r_i')^2\le(\sum_i v_i^2\bar r_i)(\sum_i(r_i')^2/\bar r_i)=2DJ$, hence $D\ge1/(2\tau^2J)$ when $J>0$. The full projection and information calculations appear in Part I.[^s-three]
+  **[Derivation: the memory bound]** At the represented value $\theta$, let $\bar r_i$ be neuron $i$'s steady firing rate and $r_i'=d\bar r_i/d\theta$ its rate slope. Let $v_i$ be the lasting change in $\theta$ from a unit activation perturbation in that neuron. For a stable continuous family with one neutral memory direction, in the weak-noise Poisson model with independent spike generation conditional on rates and a common $\tau$, normalize the projection so a unit coordinate change is read as one unit. Then the projection and its normalization give
+
+  $$
+  2D=\sum_i v_i^2\bar r_i,\qquad
+  \tau\sum_i v_i r_i'=1.
+  $$
+
+  The local spike information rate about the current attractor state, for positive rates, is
+
+  $$
+  J=\sum_i\frac{(r_i')^2}{\bar r_i}.
+  $$
+
+  Cauchy–Schwarz then gives
+
+  $$
+  \frac1{\tau^2}=\left(\sum_i v_i r_i'\right)^2
+  \leq\left(\sum_i v_i^2\bar r_i\right)
+  \left(\sum_i\frac{(r_i')^2}{\bar r_i}\right)=2DJ.
+  $$
+
+  Hence $D\ge1/(2\tau^2J)$ when $J>0$. The full projection and information calculations appear in Part I.[^s-three]
   <!-- vale ai-tells.VerbTricolon = YES -->
 
 ## Related studies change assumptions and leave circuit choices open {#sec:SYNTHESIS-RELATED}

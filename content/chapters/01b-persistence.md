@@ -1,7 +1,13 @@
 # Stable representations can accumulate error {#ch:PERSISTENCE}
 
 
-**[Paper 2012: Results setup, p. 2]** The 2012 paper begins its analysis with a continuous family of steady neural activity patterns, described by Eq. 1 in Chapter 1. For neuron $i$, the family obeys $\bar s_i(\theta)=\tau\phi(\sum_jW_{ij}\bar s_j(\theta)+b_i)=\tau\bar r_i(\theta)$. Here $\theta$ is the represented value; $\bar s_i$ and $\bar r_i$ are steady activation and firing rate; $W_{ij}$ couples neuron $j$ to neuron $i$; $b_i$ is fixed input; $\phi$ maps input to rate; and $\tau$ is the common activation decay time. Each pattern represents a different value. Spike variability disturbs the activity, and the paper asks how the represented value changes as the network responds. [Read the Results setup and Fig. 1](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).
+**[Paper 2012: Results setup, p. 2]** The 2012 paper begins its analysis with a continuous family of steady neural activity patterns, described by Eq. 1 in Chapter 1. For neuron $i$, the family obeys
+
+$$
+\bar s_i(\theta)=\tau\phi(\sum_jW_{ij}\bar s_j(\theta)+b_i)=\tau\bar r_i(\theta).
+$$
+
+Here $\theta$ is the represented value; $\bar s_i$ and $\bar r_i$ are steady activation and firing rate; $W_{ij}$ couples neuron $j$ to neuron $i$; $b_i$ is fixed input; $\phi$ maps input to rate; and $\tau$ is the common activation decay time. Each pattern represents a different value. Spike variability disturbs the activity, and the paper asks how the represented value changes as the network responds. [Read the Results setup and Fig. 1](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).
 
 **[Interpretation]** We first explain the geometry of the persistent states and use a small example to distinguish recovery of activity from preservation of the stored value. The eye mechanics that follow provide biological background. We then introduce the random spreading used in the paper and distinguish it from a spatial map that varies across position.
 
@@ -15,7 +21,13 @@
 
 **[Background]** [A circuit's current activities are its [**state**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} A dynamical equation specifies how that state changes. A fixed point is a state where the deterministic rate of change is zero, as introduced in the [mathematical-tools chapter](../frontmatter/ch-mathematical-tools.html#sec-math-tools-weights). It is stable in a direction if a small disturbance in that direction decays.
 
-**[Paper 2012]** Burak and Fiete model a continuous quantity using a [family of persistent states, Results, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2). In their Eq. 1, $\bar s_i(\theta)=\tau\bar r_i(\theta)=\tau\phi(\sum_j W_{ij}\bar s_j(\theta)+b_i)$. For each value $\theta$, firing replenishes activation at the rate it decays, so the pattern can persist without a cue. The bar denotes the ideal steady state without spike noise. Noisy activation usually lies near, rather than exactly on, this family. The authors assign it the coordinate $\theta$ of the fixed point it would reach if noise were turned off and deterministic dynamics continued.
+**[Paper 2012]** Burak and Fiete model a continuous quantity using a [family of persistent states, Results, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2). Their Eq. 1 is
+
+$$
+\bar s_i(\theta)=\tau\bar r_i(\theta)=\tau\phi(\sum_j W_{ij}\bar s_j(\theta)+b_i).
+$$
+
+For each value $\theta$, firing replenishes activation at the rate it decays, so the pattern can persist without a cue. The bar denotes the ideal steady state without spike noise. Noisy activation usually lies near, rather than exactly on, this family. The authors assign it the coordinate $\theta$ of the fixed point it would reach if noise were turned off and deterministic dynamics continued.
 
 **[Interpretation]** [A [**continuous attractor**]{.definition-term custom-style="Definition Term"} is a continuous family of fixed points with restoring dynamics toward the family and a neutral direction along it. Neutral means that there is no restoring force along that direction in the ideal deterministic model.]{.definition-explanation} [The family is an [**attractor manifold**]{.definition-term custom-style="Definition Term"}. Its dimension counts independent coordinates represented on it, rather than neurons in the circuit.]{.definition-explanation} A line attractor has one represented coordinate. A ring can represent a periodic coordinate such as heading.[^f-memory]
 

@@ -14,7 +14,13 @@ P(L+h)=Jh+\frac{P(L)}{1+2DhP(L)},\qquad
 \frac{dP}{dL}=J-2DP^2.
 $$
 
-Separating variables and using $P(0)=0$ gives $P(L)=\sqrt{J/(2D)}\,\tanh(\sqrt{2DJ}L)$. Its reciprocal is the readout variance, $\sqrt{2D/J}\,\coth(\sqrt{2DJ}L)$, with $\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$ and $\coth z=1/\tanh z$. The argument of $\tanh$ becomes one at $L^*=1/\sqrt{2DJ}$; the information–diffusion bound $2DJ\ge\tau^{-2}$ then gives $L^*\le\tau$. The sections below derive the recursion and its assumptions step by step.
+Separating variables and using $P(0)=0$ gives
+
+$$
+P(L)=\sqrt{J/(2D)}\,\tanh(\sqrt{2DJ}L).
+$$
+
+Its reciprocal is the readout variance, $\sqrt{2D/J}\,\coth(\sqrt{2DJ}L)$, with $\tanh z=(e^z-e^{-z})/(e^z+e^{-z})$ and $\coth z=1/\tanh z$. The argument of $\tanh$ becomes one at $L^*=1/\sqrt{2DJ}$; the information–diffusion bound $2DJ\ge\tau^{-2}$ then gives $L^*\le\tau$. The sections below derive the recursion and its assumptions step by step.
 
 **[Interpretation]** When a recall cue arrives, the stored value has already moved. Later spikes can help estimate the value present at that cue, but they cannot reveal the particular random displacements that occurred before it. Waiting for more spikes also allows the network to move further. [The question is how much observation helps when the value being read keeps changing.]{.key-statement}
 <!-- vale ai-tells.EmptyPadding = YES -->
@@ -58,7 +64,13 @@ $$
 $$
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-Assume the readout is locally unbiased at every possible $x$ and the future noise is independent of the storage history. Conditional on that history, the readout error then has mean zero. Since $s$ is fixed by the history, $\mathbb E[se]=\mathbb E[s\,\mathbb E(e\mid\text{storage history})]=0$. Both errors have zero mean, so their covariance vanishes. [In this readout model, [**translation invariance**]{.definition-term custom-style="Definition Term"} means that shifting the represented value does not change the statistics of the readout error.]{.definition-explanation} Its variance is therefore the same at every $x$. Denote it by $V_{\mathrm{read}}(L)$. Using $\operatorname{Var}(s)=2DT$ gives
+Assume the readout is locally unbiased at every possible $x$ and the future noise is independent of the storage history. Conditional on that history, the readout error then has mean zero. Since $s$ is fixed by the history,
+
+$$
+\mathbb E[se]=\mathbb E[s\,\mathbb E(e\mid\text{storage history})]=0.
+$$
+
+Both errors have zero mean, so their covariance vanishes. [In this readout model, [**translation invariance**]{.definition-term custom-style="Definition Term"} means that shifting the represented value does not change the statistics of the readout error.]{.definition-explanation} Its variance is therefore the same at every $x$. Denote it by $V_{\mathrm{read}}(L)$. Using $\operatorname{Var}(s)=2DT$ gives
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 $$

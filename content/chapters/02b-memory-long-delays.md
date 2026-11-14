@@ -145,7 +145,13 @@ $$
 
 **[Interpretation]** As the wrapped density approaches uniform, its mean squared error approaches $\pi^2/3$. The unbounded line error keeps growing.
 
-**[Paper 2012]** For zero-drift diffusion with a state-dependent $D(\theta)$, the supplement obtains $\operatorname{Var}[\theta(t)-\Theta]=2D(\Theta)t+D(\Theta)D''(\Theta)t^2+\cdots$ at short times, where $D''$ is the second derivative with respect to the represented value. The first term is the local diffusion result; curvature in $D$ produces the displayed next correction. The supplement then gives a mutual-excitation example and tests it in simulation ([Eqs. S33–S41, PDF pp. 8–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8); [Fig. S1, PDF p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10)). The steps below show the moment calculation and identifies an apparent factor discrepancy in the printed example.
+**[Paper 2012]** For zero-drift diffusion with a state-dependent $D(\theta)$, the supplement obtains the following short-time result:
+
+$$
+\operatorname{Var}[\theta(t)-\Theta]=2D(\Theta)t+D(\Theta)D''(\Theta)t^2+\cdots.
+$$
+
+Here $D''$ is the second derivative with respect to the represented value. The first term is the local diffusion result; curvature in $D$ produces the displayed next correction. The supplement then gives a mutual-excitation example and tests it in simulation ([Eqs. S33–S41, PDF pp. 8–9](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=8); [Fig. S1, PDF p. 10](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10)). The steps below show the moment calculation and identify an apparent factor discrepancy in the printed example.
 
 **[Derivation]** When $D$ varies with state, the zero drift stochastic equation is $d\theta=\sqrt{2D(\theta)}\,dB$ with the Itô convention. Here $dB$ is a Brownian increment of mean zero and variance $dt$. Under conditions that remove boundary terms, the density equation gives
 

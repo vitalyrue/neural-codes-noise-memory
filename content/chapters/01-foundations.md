@@ -7,7 +7,33 @@
 
 **[Derivation: preview of the paper's bound]** At a fixed represented value $\theta$, write $\bar r_i$ for cell $i$'s noise-free steady firing rate and $r_i'=d\bar r_i/d\theta$ for its slope. Let $v_i$ measure the lasting change in $\theta$ caused by one unit of activation disturbance in cell $i$ after the other disturbances relax. A unit change in $\theta$ changes the steady activations by $\tau r_i'$; the projection must therefore obey $\sum_i\tau v_i r_i'=1$. The steady-state relation used here is derived just below.
 
-Conditional Poisson spike fluctuations have variance $\bar r_i\,dt$ over a short interval $dt$. Their independent contributions give $2D=\sum_i v_i^2\bar r_i$. For positive rates, a Poisson count $n_i$ in a fixed-state window $h$ has mean $h\bar r_i$. Differentiating its log probability $\log p(n_i\mid\theta)=n_i\log(h\bar r_i)-h\bar r_i-\log(n_i!)$ gives the score $S_i=(r_i'/\bar r_i)(n_i-h\bar r_i)$. Since the count variance is $h\bar r_i$, $E[S_i^2]=h(r_i')^2/\bar r_i$. Independent counts add, so the internal information per unit time is $J=\sum_i(r_i')^2/\bar r_i$. Cauchy–Schwarz applied to the two vectors with entries $v_i\sqrt{\bar r_i}$ and $r_i'/\sqrt{\bar r_i}$ then gives
+Conditional Poisson spike fluctuations have variance $\bar r_i\,dt$ over a short interval $dt$. Their independent contributions give
+
+$$
+2D=\sum_i v_i^2\bar r_i.
+$$
+
+For positive rates, a Poisson count $n_i$ in a fixed-state window $h$ has mean and variance $h\bar r_i$. Its log probability and score are
+
+$$
+\log p(n_i\mid\theta)=n_i\log(h\bar r_i)-h\bar r_i-\log(n_i!),
+\qquad
+S_i=\frac{r_i'}{\bar r_i}(n_i-h\bar r_i).
+$$
+
+Differentiating the log probability gives the score $S_i$. Since the count variance is $h\bar r_i$, its expected squared score is
+
+$$
+E[S_i^2]=h\frac{(r_i')^2}{\bar r_i}.
+$$
+
+Independent counts add, so the internal information per unit time is
+
+$$
+J=\sum_i\frac{(r_i')^2}{\bar r_i}.
+$$
+
+Cauchy–Schwarz applied to the two vectors with entries $v_i\sqrt{\bar r_i}$ and $r_i'/\sqrt{\bar r_i}$ then gives
 
 $$
 \frac{1}{\tau^2}
@@ -72,7 +98,18 @@ So far we have followed the output from motor neurons to muscles. The next step 
 
 **[Interpretation]** The effect of a spike can last beyond the spike itself because synaptic input decays over time. [When neurons send signals back into the same population, the circuit has [**recurrent connectivity**]{.definition-term custom-style="Definition Term"}.]{.definition-explanation} Such feedback can maintain activity after an external signal disappears.
 
-**[Paper 2012]** Burak and Fiete (2012) specify the following interacting-neuron model in [Materials and Methods, Eqs. 7–9, PDF p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5). The model assumes fixed connection weights, constant input biases and a common synaptic decay time. In full, its three rules are $\dot s_i=-s_i/\tau+\sum_\alpha\delta(t-t_i^\alpha)$, $g_i=\sum_jW_{ij}s_j+b_i$, and $r_i=\phi(g_i)$. Here $s_i$ is the effect of spikes from neuron $i$, $t_i^\alpha$ are their times, $g_i$ is total input, $W_{ij}$ is the effect of neuron $j$ on neuron $i$, $b_i$ is the fixed bias, and $\phi$ converts input to the firing rate $r_i$. Spikes follow the model's conditional Poisson rule, explained in the [spike-count section](#sec-foundations-poisson). Each equation and its meaning follow immediately below.[^p1-model]
+**[Paper 2012]** Burak and Fiete (2012) specify the following interacting-neuron model in [Materials and Methods, Eqs. 7–9, PDF p. 5](../papers/burak-fiete-2012-persistent-activity.pdf#page=5). The model assumes fixed connection weights, constant input biases and a common synaptic decay time. Its three rules describe a chain from spikes to synaptic activation, then to input and firing rate:
+
+<ol>
+<li><strong>Spike effects decay and are renewed by spikes:</strong>
+<p><span class="math display">&#92;[&#92;dot s_i=-s_i/&#92;tau+&#92;sum_&#92;alpha&#92;delta(t-t_i^&#92;alpha).&#92;]</span></p></li>
+<li><strong>The network combines those effects into input:</strong>
+<p><span class="math display">&#92;[g_i=&#92;sum_jW_{ij}s_j+b_i.&#92;]</span></p></li>
+<li><strong>A transfer function maps input to firing rate:</strong>
+<p><span class="math display">&#92;[r_i=&#92;phi(g_i).&#92;]</span></p></li>
+</ol>
+
+Here $s_i$ is the effect of spikes from neuron $i$, $t_i^\alpha$ are their times, $g_i$ is total input, $W_{ij}$ is the effect of neuron $j$ on neuron $i$, $b_i$ is the fixed bias, and $\phi$ converts input to the firing rate $r_i$. Spikes follow the model's conditional Poisson rule, explained in the [spike-count section](#sec-foundations-poisson). Each equation and its meaning follow immediately below.[^p1-model]
 
 **[Interpretation]** These equations describe synaptic activity; muscle motion is a later part of the pathway.
 
@@ -344,7 +381,13 @@ The next step uses these updated activations. This [**Euler update**]{.definitio
 
 **[Interpretation]** That flattening does not mean the original angle has been recovered.
 
-**[Paper 2012]** [Figure 2E–G](../papers/burak-fiete-2012-persistent-activity.pdf#page=3) repeats the test with two mutually inhibiting units, which can represent two groups of neurons. Their difference in firing rates represents the stored value. The two-unit model has $W_{11}=W_{22}=0$, $W_{12}=W_{21}=-1$, common input $b=5000$, $\tau=100$ ms, and linear transfer $\tau\phi(g)=g$ over its active range. Its steady rates satisfy $2\tau\bar r_1=b+\theta$ and $2\tau\bar r_2=b-\theta$. Thus $\theta=\tau(\bar r_1-\bar r_2)$ labels the persistent state. For this coordinate the paper obtains $D=b/(2\tau)$, so its short-time prediction is $\operatorname{Var}[\theta(t)-\theta(0)]\simeq bt/\tau$. The simulation uses 0.4 ms steps over 200 s; the reported displacement statistic averages squared changes of $r_1-r_2$ over starting times. Writing $\Delta r=r_1-r_2$, the activation-difference coordinate $\theta=\tau\Delta r$ gives $\operatorname{Var}[\Delta r(t)-\Delta r(0)]=\operatorname{Var}[\theta(t)-\theta(0)]/\tau^2\simeq bt/\tau^3$. Thus its rate-difference diffusion coefficient is $D_{\Delta r}=D_\theta/\tau^2=b/(2\tau^3)$ within the linear active range and the local diffusion regime. Agreement in this second design checks that the prediction is not specific to the ring's symmetry.
+**[Paper 2012]** [Figure 2E–G](../papers/burak-fiete-2012-persistent-activity.pdf#page=3) repeats the test with two mutually inhibiting units, which can represent two groups of neurons. Their difference in firing rates represents the stored value. The two-unit model has $W_{11}=W_{22}=0$, $W_{12}=W_{21}=-1$, common input $b=5000$, $\tau=100$ ms, and linear transfer $\tau\phi(g)=g$ over its active range. Its steady rates satisfy $2\tau\bar r_1=b+\theta$ and $2\tau\bar r_2=b-\theta$. Thus $\theta=\tau(\bar r_1-\bar r_2)$ labels the persistent state. For this coordinate the paper obtains $D=b/(2\tau)$, so its short-time prediction is $\operatorname{Var}[\theta(t)-\theta(0)]\simeq bt/\tau$. The simulation uses 0.4 ms steps over 200 s; the reported displacement statistic averages squared changes of $r_1-r_2$ over starting times. Writing $\Delta r=r_1-r_2$, the activation-difference coordinate $\theta=\tau\Delta r$ gives
+
+$$
+\operatorname{Var}[\Delta r(t)-\Delta r(0)]=\operatorname{Var}[\theta(t)-\theta(0)]/\tau^2\simeq bt/\tau^3.
+$$
+
+Thus its rate-difference diffusion coefficient is $D_{\Delta r}=D_\theta/\tau^2=b/(2\tau^3)$ within the linear active range and the local diffusion regime. Agreement in this second design checks that the prediction is not specific to the ring's symmetry.
 
 **[Interpretation: model and data]** **Relation to biological data.** [Figure 2 compares theory with simulated data. It does not fit the memory errors of a recorded animal.]{.key-statement} The paper motivates persistent activity and variable spiking using earlier experiments, and proposes tests using measured tuning curves. It also notes that eye-position neurons can spike more regularly than a Poisson process, so the Poisson formula cannot be applied directly to those recordings. The [2022 eye-drift study](ch-eye-drift.html) supplies a separate comparison with recorded neural activity and eye motion. Here the established result is narrower: the specified interacting network models produce the memory spreading predicted by the theory.[^f-network-data]
 

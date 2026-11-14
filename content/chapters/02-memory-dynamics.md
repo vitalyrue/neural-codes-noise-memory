@@ -127,7 +127,13 @@ $$
 
 ## The network's return flow determines the lasting memory change {#sec:MEMORY-LINEARIZATION}
 
-**[Paper 2012]** The authors write $s_i=\bar s_i(\theta)+\delta s_i$ and linearize around the steady pattern. The perturbation obeys $\delta\dot s_i=\sum_jK_{ij}\delta s_j+\xi_i$, with $K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}$. Here $\xi_i$ is spike noise, $\delta_{ij}$ is one when $i=j$ and zero otherwise, $\tau$ is the activation decay time, and $W_{ij}$ weights activation from neuron $j$ to $i$. The derivative $\phi'(\bar g_i)$ is the change in neuron $i$'s firing rate per unit change in its input, evaluated at its steady input $\bar g_i$. The component that survives after the stable disturbances decay is a displacement along the family of fixed patterns. See [supporting text, Eqs. S7–S13, PDF p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3); the steps below expand the calculation.
+**[Paper 2012]** The authors write $s_i=\bar s_i(\theta)+\delta s_i$ and linearize around the steady pattern. The perturbation obeys
+
+$$
+\delta\dot s_i=\sum_jK_{ij}\delta s_j+\xi_i,
+$$
+
+with $K_{ij}=-\delta_{ij}/\tau+\phi'(\bar g_i)W_{ij}$. Here $\xi_i$ is spike noise, $\delta_{ij}$ is one when $i=j$ and zero otherwise, $\tau$ is the activation decay time, and $W_{ij}$ weights activation from neuron $j$ to $i$. The derivative $\phi'(\bar g_i)$ is the change in neuron $i$'s firing rate per unit change in its input, evaluated at its steady input $\bar g_i$. The component that survives after the stable disturbances decay is a displacement along the family of fixed patterns. See [supporting text, Eqs. S7–S13, PDF p. 3](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=3); the steps below expand the calculation.
 
 **[Interpretation]** A spike perturbs many aspects of a network's state. Most of those changes decay as the state returns to the attractor. [To calculate memory loss, we need the lasting change: the displacement to a different fixed point. We assume a smooth continuous family with one neutral memory direction, while all other local modes decay. The disturbance must be small enough that the first order response describes the return flow.]{.key-statement}
 
@@ -308,7 +314,14 @@ The result is local in state and leading order in weak noise. The time interval 
 
 These conditions justify a local spreading rate.
 
-**[Paper 2012]** For several memory coordinates $\theta_\alpha$, the authors define their local displacement covariances by $\langle\Delta\theta_\alpha\Delta\theta_\beta\rangle=2D_{\alpha\beta}\Delta t$ and obtain $2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta$. Here $\mathbf v^\alpha$ extracts the lasting change of coordinate $\alpha$, and $\bar r_i$ sets neuron $i$'s local Poisson noise strength. This result and its conditions are in [supporting text, Eqs. S21–S27, PDF pp. 5–6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5). The paired-vector example that follows is an additional illustration.
+**[Paper 2012]** For several memory coordinates $\theta_\alpha$, the authors define their local displacement covariances and obtain
+
+$$
+\langle\Delta\theta_\alpha\Delta\theta_\beta\rangle=2D_{\alpha\beta}\Delta t,\qquad
+2D_{\alpha\beta}=\sum_i v_i^\alpha\bar r_i v_i^\beta.
+$$
+
+Here $\mathbf v^\alpha$ extracts the lasting change of coordinate $\alpha$, and $\bar r_i$ sets neuron $i$'s local Poisson noise strength. This result and its conditions are in [supporting text, Eqs. S21–S27, PDF pp. 5–6](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=5). The paired-vector example that follows is an additional illustration.
 
 **[Derivation]** For several memory coordinates $\theta_\alpha$, choose tangent vectors $u_i^\alpha=\partial\bar s_i/\partial\theta_\alpha$ and left zero vectors $\mathbf v^\alpha$ satisfying $(\mathbf v^\alpha)^T K=0$ and $\sum_i v_i^\alpha u_i^\beta=\delta_{\alpha\beta}$. A unit change of coordinate $\beta$ moves the activation along $\mathbf u^\beta$. The projection vector $\mathbf v^\alpha$ extracts one unit when $\alpha=\beta$ and zero when the two coordinates differ. It also discards the decaying activity components. Thus $\sum_i v_i^\alpha\delta s_i$ gives the lasting local change in coordinate $\alpha$. The same covariance calculation gives
 

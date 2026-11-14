@@ -60,7 +60,13 @@ If $W=0$ in this model, rates become the constants $\phi(b_i)$. Any difference d
 
 In the model without spike fluctuations, [a [**fixed point**]{.definition-term custom-style="Definition Term"} is an activity pattern whose activations have zero rate of change.]{.definition-explanation} The tuned memory circuit has a continuous family of these patterns, each labeled by a represented value $\theta$. Small disturbances away from the family relax toward a member of it, which may differ from the original member. A shift along the family changes the represented value without being restored. [The direction along the family is its [**neutral tangent**]{.definition-term custom-style="Definition Term"}: a small displacement in that direction neither grows nor decays under the local noise-free dynamics.]{.definition-explanation}
 
-Near one fixed pattern, the network's linear response matrix $K$ describes how a small activation disturbance $\delta\mathbf s$ changes: $d(\delta\mathbf s)/dt\simeq K\delta\mathbf s$. A small change $\delta s_j$ in cell $j$'s activation contributes $K_{ij}\delta s_j$ to the rate of change of cell $i$'s activation. If a right eigenvector $\mathbf z$ satisfies $K\mathbf z=\lambda\mathbf z$, a disturbance initially in that direction evolves as $e^{\lambda t}\mathbf z$. The eigenvalue $\lambda$ has units of inverse time. A negative real eigenvalue gives decay; zero gives a neutral direction. For complex eigenvalues, the sign of the real part controls growth or decay, while the imaginary part describes oscillation; real disturbances use the real and imaginary components together. Write $\bar{\mathbf s}(\theta)$ for the noise-free activations at value $\theta$. Their derivative $\mathbf u=d\bar{\mathbf s}/d\theta$ is the neutral tangent and satisfies $K\mathbf u=0$.
+Near one fixed pattern, the network's linear response matrix $K$ describes how a small activation disturbance $\delta\mathbf s$ changes:
+
+$$
+\frac{d(\delta\mathbf s)}{dt}\simeq K\delta\mathbf s.
+$$
+
+A small change $\delta s_j$ in cell $j$'s activation contributes $K_{ij}\delta s_j$ to the rate of change of cell $i$'s activation. If a right eigenvector $\mathbf z$ satisfies $K\mathbf z=\lambda\mathbf z$, a disturbance initially in that direction evolves as $e^{\lambda t}\mathbf z$. The eigenvalue $\lambda$ has units of inverse time. A negative real eigenvalue gives decay; zero gives a neutral direction. For complex eigenvalues, the sign of the real part controls growth or decay, while the imaginary part describes oscillation; real disturbances use the real and imaginary components together. Write $\bar{\mathbf s}(\theta)$ for the noise-free activations at value $\theta$. Their derivative $\mathbf u=d\bar{\mathbf s}/d\theta$ is the neutral tangent and satisfies $K\mathbf u=0$.
 
 The network can return to the family along a tilted path. Let $\delta\theta$ be the lasting change in represented value. [The [**left zero eigenvector**]{.definition-term custom-style="Definition Term"} $\mathbf v$ satisfies $\mathbf v^TK=0$ and is normalized so that $\mathbf v^T\mathbf u=1$. It extracts the lasting coordinate change from a small disturbance: $\delta\theta=\mathbf v^T\delta\mathbf s$.]{.definition-explanation} The first condition makes $\mathbf v^T\delta\mathbf s$ constant during the noise-free linear return; the second makes a change along $\mathbf u$ read out in units of $\theta$. It need not point along $\mathbf u$: unlike a perpendicular projection, it incorporates the circuit's return path. Chapter 3 derives it for the neural model.
 
@@ -68,7 +74,13 @@ The network can return to the family along a tilted path. Let $\delta\theta$ be 
 <summary>Example: a disturbance can move sideways while it decays</summary>
 <div class="publisher-fold-body">
 
-Let $x$ be a coordinate along a line of fixed states and $y$ a disturbance away from it; take both as dimensionless activation coordinates. Consider $\dot x=ay$, $\dot y=-by$, with $b>0$ and $a$ and $b$ in inverse seconds. The response matrix and two directions are
+Let $x$ be a coordinate along a line of fixed states and $y$ a disturbance away from it; take both as dimensionless activation coordinates. Consider a system with $b>0$ and $a$ and $b$ in inverse seconds. Its two equations are
+
+$$
+\dot x=ay,\qquad \dot y=-by.
+$$
+
+The response matrix and two directions are
 
 $$
 K=\begin{pmatrix}0&a\\0&-b\end{pmatrix},\qquad
@@ -76,7 +88,13 @@ K=\begin{pmatrix}0&a\\0&-b\end{pmatrix},\qquad
 \mathbf v=\binom{1}{a/b}.
 $$
 
-$K\mathbf u=0$, $\mathbf v^TK=0$, and $\mathbf v^T\mathbf u=1$. Starting at $(x_0,y_0)$, the disturbance $y$ decays as $y_0e^{-bt}$, but it also changes $x$. Integrating $\dot x$ gives $x(\infty)=x_0+(a/b)y_0$. Thus $\mathbf v^T(x_0,y_0)^T$ gives the final position on the fixed line. A perpendicular projection would give $x_0$ and miss that shift. The model is an illustration; it is not a fitted neural circuit.
+These vectors satisfy
+
+$$
+K\mathbf u=0,\qquad \mathbf v^TK=0,\qquad \mathbf v^T\mathbf u=1.
+$$
+
+Starting at $(x_0,y_0)$, the disturbance $y$ decays as $y_0e^{-bt}$, but it also changes $x$. Integrating $\dot x$ gives $x(\infty)=x_0+(a/b)y_0$. Thus $\mathbf v^T(x_0,y_0)^T$ gives the final position on the fixed line. A perpendicular projection would give $x_0$ and miss that shift. The model is an illustration; it is not a fitted neural circuit.
 
 </div>
 </details>

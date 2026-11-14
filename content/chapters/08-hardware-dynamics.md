@@ -71,7 +71,19 @@ For a neutral memory direction with $\kappa=0$, the corresponding result is $\op
 ::: {.publisher-clarification-note .publisher-fold-always title="Derivation: restoring feedback limits local spreading"}
 
 <!-- vale ai-tells.FillerPhrases = NO -->
-For displacement $e(t)$ from the chosen stable state, restoration strength $\kappa$, and diffusion coefficient $D$, the linear stochastic equation has solution $e(t)=\sqrt{2D}\int_0^t e^{-\kappa(t-s)}dW_s$ when $e(0)=0$. Here $s$ is the integration time and $dW_s$ is the Brownian increment at that time. Independent Brownian increments make its variance the integral of the squared weighting function: $2D\int_0^t e^{-2\kappa(t-s)}ds=D(1-e^{-2\kappa t})/\kappa$. As $\kappa$ tends to zero, expanding the exponential gives $2Dt$. This is a local model inside one stable state's region of attraction. It does not describe rare switches between digital states or estimate a hardware bit-error rate.
+For displacement $e(t)$ from the chosen stable state, restoration strength $\kappa$, and diffusion coefficient $D$, the linear stochastic equation has the following solution when $e(0)=0$:
+
+$$
+e(t)=\sqrt{2D}\int_0^t e^{-\kappa(t-s)}dW_s.
+$$
+
+Here $s$ is the integration time and $dW_s$ is the Brownian increment at that time. Independent Brownian increments make its variance the integral of the squared weighting function:
+
+$$
+2D\int_0^t e^{-2\kappa(t-s)}ds=\frac{D(1-e^{-2\kappa t})}{\kappa}.
+$$
+
+As $\kappa$ tends to zero, expanding the exponential gives $2Dt$. This is a local model inside one stable state's region of attraction. It does not describe rare switches between digital states or estimate a hardware bit-error rate.
 <!-- vale ai-tells.FillerPhrases = YES -->
 
 :::

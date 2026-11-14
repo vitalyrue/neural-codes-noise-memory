@@ -82,7 +82,13 @@ $$
 $$
 
 <!-- vale ai-tells.CataphoricForecasting = NO -->
-For $j=1$, $\mathbb E[\det(-H)\mid b]=b\lambda$. For $j=2$, expand the two by two determinant to obtain $\lambda^2(b^2-1)$. For $j=3$, the leading term is $b^3\lambda^3$. The three index pairs each contribute $-b\lambda^3$, and all odd centered Gaussian products vanish. The result is $\lambda^3(b^3-3b)$. The unknown fourth derivative $\kappa$ has canceled.
+The conditional determinant has a different polynomial in each dimension:
+
+- **One dimension:** $\mathbb E[\det(-H)\mid b]=b\lambda$.
+- **Two dimensions:** expanding the two by two determinant gives $\lambda^2(b^2-1)$.
+- **Three dimensions:** the leading term is $b^3\lambda^3$. The three index pairs each contribute $-b\lambda^3$, and all odd centered Gaussian products vanish. The result is $\lambda^3(b^3-3b)$.
+
+The unknown fourth derivative $\kappa$ has canceled.
 <!-- vale ai-tells.CataphoricForecasting = YES -->
 
 Integrating the three polynomials gives
@@ -303,7 +309,14 @@ For input profiles with different shapes, average the last integral over the dis
 At fixed profile shape, increasing the weight variance $v_W$ or input density $\rho$ increases the covariance amplitude. It does not change the normalized spatial dependence in this construction. Widening each input profile broadens the distances over which positions share input. It can also change the covariance amplitude and hence the normalized threshold $q$ when the absolute threshold is fixed. To isolate an effect of spatial scale at fixed $q$, the input amplitude or absolute threshold must be adjusted accordingly.
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-For example, take $u_0(s)=R_0e^{-s^2/(2b^2)}$ in one dimension, where $s$ is distance from an input cell’s centre, $R_0$ is its peak firing rate, $b>0$ is the profile width, and $\Delta=y-x$ is the separation between the two positions whose input covariance is being calculated. To develop the covariance integral, first complete the square: $[s^2+(s+\Delta)^2]/(2b^2)=(s+\Delta/2)^2/b^2+\Delta^2/(4b^2)$. The shifted Gaussian integrates to $\sqrt\pi b$, giving
+For example, take $u_0(s)=R_0e^{-s^2/(2b^2)}$ in one dimension, where $s$ is distance from an input cell’s centre, $R_0$ is its peak firing rate, $b>0$ is the profile width, and $\Delta=y-x$ is the separation between the two positions whose input covariance is being calculated. To develop the covariance integral, first complete the square:
+
+$$
+\frac{s^2+(s+\Delta)^2}{2b^2}
+=\frac{(s+\Delta/2)^2}{b^2}+\frac{\Delta^2}{4b^2}.
+$$
+
+The shifted Gaussian integrates to $\sqrt\pi b$, giving
 <!-- vale ai-tells.FormalTransitions = YES -->
 
 $$

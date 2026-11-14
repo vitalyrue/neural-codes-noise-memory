@@ -25,7 +25,13 @@ The authors analyze a network with a continuous family of persistent activity pa
 <!-- vale ai-tells.VerbTricolon = YES -->
 
 <!-- vale ai-tells.EmDashUsage = NO -->
-[Their central result is the lower bound $D\ge 1/(2\tau^2J)$: uncertainty in reading the network's current value limits how slowly that value can wander.]{.key-statement} Here $D$ measures how quickly the represented value spreads, $J$ is the internal spike information rate, and $\tau$ is the synaptic decay time. Under the model's assumptions, at short times near a chosen state the variance of memory displacement grows approximately as $2Dt$, where $t$ is elapsed storage time; boundaries can change that behavior over longer delays. Reading for longer also has diminishing benefit because the state continues moving during observation. This gives a benchmark for evaluating proposed memory circuits and their recall errors. It applies to the analyzed family of continuous-state memory models, with the required noise assumptions and no external signal anchoring the value. Chapters 3–6 develop the [diffusion calculation](../chapters/ch-memory-dynamics.html), its long-delay behavior, the [information bound](../chapters/ch-memory-information.html), and the limits of [readout](../chapters/ch-memory-readout.html).[^orientation-memory]
+[Their central result is a lower bound: uncertainty in reading the network's current value limits how slowly that value can wander.]{.key-statement}
+
+$$
+D\ge \frac{1}{2\tau^2J}.
+$$
+
+Here $D$ measures how quickly the represented value spreads, $J$ is the internal spike information rate, and $\tau$ is the synaptic decay time. Under the model's assumptions, at short times near a chosen state the variance of memory displacement grows approximately as $2Dt$, where $t$ is elapsed storage time; boundaries can change that behavior over longer delays. Reading for longer also has diminishing benefit because the state continues moving during observation. This gives a benchmark for evaluating proposed memory circuits and their recall errors. It applies to the analyzed family of continuous-state memory models, with the required noise assumptions and no external signal anchoring the value. Chapters 3–6 develop the [diffusion calculation](../chapters/ch-memory-dynamics.html), its long-delay behavior, the [information bound](../chapters/ch-memory-information.html), and the limits of [readout](../chapters/ch-memory-readout.html).[^orientation-memory]
 <!-- vale ai-tells.EmDashUsage = YES -->
 
 ## Eye drift points to a shared neural source {#sec:READING-EYE}
@@ -40,7 +46,13 @@ They reanalyze recordings from 57 neurons that send commands to eye muscles in t
 
 <!-- vale ai-tells.EmDashUsage = NO -->
 <!-- vale ai-tells.ParallelStaccato = NO -->
-For 350-millisecond intervals, their analysis estimates that about 82% of horizontal displacement variance comes from a common source before the final motor neurons, assuming the fitted movement relation also holds during fixation and the relevant noise contributions do not vary together. Writing $Y$ for measured displacement and $X$ for a single neuron's displacement prediction, the estimated shared fraction of measured displacement variance is $\chi\simeq\operatorname{Cov}(X,Y)/\operatorname{Var}(Y)$, after matching their calibrated gains. The reported $0.82\pm0.07$ is the weighted estimate across cells, not an individual cell's fraction. This supports a central neural contribution to drift. The memory-circuit model provides a possible explanation of that contribution, linking an internal storage error to observable behavior. The recordings do not uniquely locate the noise inside that memory circuit. Chapters 7–9 separate the [shared-drive inference](../chapters/ch-eye-drift.html), the [timing of drift](../chapters/ch-eye-timing.html), and the [proposed circuit mechanism](../chapters/ch-eye-circuit.html).[^orientation-eye]
+For 350-millisecond intervals, their analysis estimates that about 82% of horizontal displacement variance comes from a common source before the final motor neurons, assuming the fitted movement relation also holds during fixation and the relevant noise contributions do not vary together. Writing $Y$ for measured displacement and $X$ for a single neuron's displacement prediction, after matching their calibrated gains, the estimated shared fraction of measured displacement variance is
+
+$$
+\chi\simeq\frac{\operatorname{Cov}(X,Y)}{\operatorname{Var}(Y)}.
+$$
+
+The reported $0.82\pm0.07$ is the weighted estimate across cells, not an individual cell's fraction. This supports a central neural contribution to drift. The memory-circuit model provides a possible explanation of that contribution, linking an internal storage error to observable behavior. The recordings do not uniquely locate the noise inside that memory circuit. Chapters 7–9 separate the [shared-drive inference](../chapters/ch-eye-drift.html), the [timing of drift](../chapters/ch-eye-timing.html), and the [proposed circuit mechanism](../chapters/ch-eye-circuit.html).[^orientation-eye]
 <!-- vale ai-tells.ParallelStaccato = YES -->
 <!-- vale ai-tells.EmDashUsage = YES -->
 
@@ -52,7 +64,13 @@ For 350-millisecond intervals, their analysis estimates that about 82% of horizo
 <!-- vale ai-tells.FormalTransitions = YES -->
 <!-- vale ai-tells.EmptyPaddingStacked = YES -->
 
-Their model gives each cell a smooth, mean-centered random input $h(x)$ at position $x$ and firing rate $F(x)=a[z(x)-q]_+$, where $z(x)=h(x)/\sigma_h$, $\sigma_h$ is the input standard deviation, $q$ is a dimensionless threshold, $a$ is a positive gain, and $[u]_+=\max(u,0)$. Activity is positive where the normalized input exceeds the threshold. The authors derive predictions for the resulting regions, simulate the model, and compare it with existing rodent and bat recordings from one-, two- and three-dimensional environments. Parameters fitted to field sizes and their spatial arrangement also support further tests of field shapes and connectedness.
+Their model gives each cell a smooth, mean-centered random input $h(x)$ at position $x$. Its firing rate $F(x)$ is determined by
+
+$$
+F(x)=a[z(x)-q]_+,\qquad z(x)=\frac{h(x)}{\sigma_h}.
+$$
+
+Here $\sigma_h$ is the input standard deviation, $q$ is a dimensionless threshold, $a$ is a positive gain, and $[u]_+=\max(u,0)$. Activity is positive where the normalized input exceeds the threshold. The authors derive predictions for the resulting regions, simulate the model, and compare it with existing rodent and bat recordings from one-, two- and three-dimensional environments. Parameters fitted to field sizes and their spatial arrangement also support further tests of field shapes and connectedness.
 
 <!-- vale ai-tells.EmDashUsage = NO -->
 <!-- vale ai-tells.ParallelStaccato = NO -->

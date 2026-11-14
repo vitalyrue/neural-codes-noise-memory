@@ -98,7 +98,12 @@ $$
 $$
 
 <!-- vale ai-tells.FillerIntensifier = NO -->
-Ordinary diffusion has $M=2D\ell$ and $\alpha=1$. A roughly constant velocity over a short interval gives displacement $v\ell$ and $M=\mathbb E[v^2]\ell^2$, so $\alpha=2$. [Growth faster than linear is called [**superdiffusion**]{.definition-term custom-style="Definition Term"}. Here it describes a finite range of lags. It does not assert a single power law for arbitrarily long times.]{.definition-explanation}[^p2-msd-result]
+Two examples show how the exponent describes motion:
+
+- **Ordinary diffusion:** $M=2D\ell$, so $\alpha=1$.
+- **Roughly constant velocity over a short interval:** displacement is $v\ell$, giving $M=\mathbb E[v^2]\ell^2$ and $\alpha=2$.
+
+[Growth faster than linear is called [**superdiffusion**]{.definition-term custom-style="Definition Term"}. Here it describes a finite range of lags. It does not assert a single power law for arbitrarily long times.]{.definition-explanation}[^p2-msd-result]
 <!-- vale ai-tells.FillerIntensifier = YES -->
 
 <!-- vale ai-tells.FormalTransitions = NO -->

@@ -199,7 +199,13 @@ $$
 \beta=\left[\frac{\Gamma(1+d/2)}{\mu_s}\right]^{2/d}.
 $$
 
-**[Derivation: normalization and higher size moments]** The same substitution verifies normalization: $\int_0^\infty p_d(s)\,ds=\int_0^\infty e^{-u}\,du=1$. It also supplies every positive moment,
+**[Derivation: normalization and higher size moments]** The same substitution verifies normalization:
+
+$$
+\int_0^\infty p_d(s)\,ds=\int_0^\infty e^{-u}\,du=1.
+$$
+
+It also supplies every positive moment,
 
 $$
 \mathbb E[s^k]

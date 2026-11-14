@@ -44,7 +44,12 @@ $$
 w(\alpha)=e^{\cos\alpha-1}-e^{0.3(\cos\alpha-1)}.
 $$
 
-The common input is $b=-2$ and $\tau=10$ ms is the synaptic decay time. With $g$ the total input to a neuron and $\phi(g)$ its firing rate, the two transfer rules are $\tau\phi(g)=10e^g$ and $\tau\phi(g)=0.2[1+\tanh(g+4)]$. Initial activations are independently uniform between 0 and 0.01. These settings describe the finite simulation. The supporting text separately divides a connection rule by $N$ to study larger populations. Applying that extra factor here would change the reported weights.
+The common input is $b=-2$ and $\tau=10$ ms is the synaptic decay time. With $g$ the total input to a neuron and $\phi(g)$ its firing rate, the two transfer rules are:
+
+- **Exponential:** $\tau\phi(g)=10e^g$.
+- **Sigmoidal:** $\tau\phi(g)=0.2[1+\tanh(g+4)]$.
+
+Initial activations are independently uniform between 0 and 0.01. These settings describe the finite simulation. The supporting text separately divides a connection rule by $N$ to study larger populations. Applying that extra factor here would change the reported weights.
 
 The symmetric-network prediction uses the squared input slope in its numerator. Burak and Fiete's 2017 correction confirms that square, which was missing in the supplied Early Edition's Eq. 2. The correction does not change these simulation settings.[^simmem-correction]
 
@@ -56,7 +61,13 @@ A second network contains two mutually inhibiting units, interpreted also as two
 
 The Methods report cross-couplings of $-1$, no self-coupling, common input $b=5{,}000$, time constant 100 ms, update interval 0.4 ms, and duration 200 seconds. The transfer rule is $\tau r_i=g_i$ in the valid positive-rate range. These large rates can represent aggregate population activity. They should not be read as ordinary firing rates of two biological cells.
 
-Converting between activation and rate changes the units of the stored value. Let $\theta_s=s_1-s_2$ be the activation difference and $\theta_r=r_1-r_2$ the rate difference along the steady-state family. Since $s_i=\tau r_i$ there, $\theta_r=\theta_s/\tau$ and their diffusion coefficients satisfy $D_r=D_s/\tau^2$. Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring's at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not say how spike counts were drawn or give the complete initial state for this example.
+Converting between activation and rate changes the units of the stored value. Let $\theta_s=s_1-s_2$ be the activation difference and $\theta_r=r_1-r_2$ the rate difference along the steady-state family. Since $s_i=\tau r_i$ there, the two coordinate scales and their diffusion coefficients are related by
+
+$$
+\theta_r=\frac{\theta_s}{\tau},\qquad D_r=\frac{D_s}{\tau^2}.
+$$
+
+Their units differ, so their numerical values should not be compared without this conversion. A population can also emit several spikes within one update. The ring's at-most-one-spike rule cannot be copied into this setting. The paper specifies a Poisson process but does not say how spike counts were drawn or give the complete initial state for this example.
 
 To reproduce Figure 2G, the measured displacement must be a change in the rate difference, not a change in either rate alone. Write $T=200\,\mathrm{s}$ for the recording duration and $\ell$ for the lag. Using the rate coordinate $\theta_r(t)=r_1(t)-r_2(t)$, the plotted statistic is
 
