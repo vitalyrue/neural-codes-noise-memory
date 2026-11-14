@@ -12,6 +12,7 @@ import hashlib,json,shutil,datetime,re
 import yaml
 from repair_lint_lists import join_lint_split_lists
 from merge_part_chapter_maps import merge_part_chapter_map
+from attach_reading_actions import attach_reading_actions
 ROOT=Path(__file__).resolve().parents[1]
 manifest=yaml.safe_load((ROOT/"sources/source-manifest.yaml").read_text())
 target=ROOT/"site/papers";target.mkdir(parents=True,exist_ok=True)
@@ -95,6 +96,7 @@ for part in plan['book']['parts']:
                      'changed':changed,'before_sha256':hashlib.sha256(markup.encode('utf-8')).hexdigest(),
                      'after_sha256':hashlib.sha256(merged.encode('utf-8')).hexdigest()})
 record['part_chapter_maps']={'maps':part_maps,'reason':'The authored result/source/role map is the single linked chapter list; repeated chapter-purpose text stays at chapter openings.'}
+record['reading_actions']={'pages':attach_reading_actions(ROOT/'site')}
 record['final_index_sha256']=hashlib.sha256(index.read_bytes()).hexdigest()
 (ROOT/"verification/publication/paper-assets.json").write_text(json.dumps(record,indent=2),encoding="utf-8")
 print(f"Published {len(copied)} paper assets with checked hashes.")

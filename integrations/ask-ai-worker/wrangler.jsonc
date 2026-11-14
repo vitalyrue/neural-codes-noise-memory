@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "course-ask-ai",
+  "main": "worker.mjs",
+  "compatibility_date": "2026-10-17",
+  "workers_dev": true,
+  "ai": { "binding": "AI" },
+  "durable_objects": {
+    "bindings": [{ "name": "QUOTA", "class_name": "Quota" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["Quota"] }],
+  "vars": {
+    "ALLOWED_ORIGINS": "https://aisyseng.dev,https://vitalyrue.github.io,https://vrdell15.tail8b993e.ts.net",
+    "ENVIRONMENT": "production",
+    "ALLOW_LOCALHOST": "false",
+    "GLOBAL_DAILY_LIMIT": "100",
+    "IP_DAILY_LIMIT": "10",
+    "GLOBAL_MINUTE_LIMIT": "20",
+    "IP_MINUTE_LIMIT": "3",
+    "AI_TIMEOUT_MS": "20000"
+  },
+  "observability": { "enabled": false }
+}
