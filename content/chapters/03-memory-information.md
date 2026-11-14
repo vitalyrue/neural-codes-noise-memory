@@ -4,7 +4,7 @@
 
 <!-- vale ai-tells.NounString = YES -->
 
-**[Paper]** Burak and Fiete ask how well the network's own spikes distinguish nearby values of the memory it currently holds. They calculate this *internal Fisher information rate* $J$ and show that it limits how slowly the memory can diffuse: $D\ge1/(2\tau^2J)$. Here $D$ is the local diffusion coefficient of the represented value and $\tau$ is the synaptic time constant. The result assumes a stable continuous family of states, weak fluctuations, Poisson spike generation that is independent across neurons conditional on the current rates, and a common synaptic time constant. It holds for arbitrary connection weights and transfer functions under those assumptions. These are the second and third steps of the argument, after Chapter 3's diffusion calculation. See [main Eqs. 3–4, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).[^p1-info-main]
+**[Paper 2012]** Burak and Fiete ask how well the network's own spikes distinguish nearby values of the memory it currently holds. They calculate this *internal Fisher information rate* $J$ and show that it limits how slowly the memory can diffuse: $D\ge1/(2\tau^2J)$. Here $D$ is the local diffusion coefficient of the represented value and $\tau$ is the synaptic time constant. The result assumes a stable continuous family of states, weak fluctuations, Poisson spike generation that is independent across neurons conditional on the current rates, and a common synaptic time constant. It holds for arbitrary connection weights and transfer functions under those assumptions. These are the second and third steps of the argument, after Chapter 3's diffusion calculation. See [main Eqs. 3–4, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2).[^p1-info-main]
 
 **[Derivation: the bound]** For neuron $i$, let $\bar r_i(\theta)>0$ be its noise-free steady rate and $r_i'=d\bar r_i/d\theta$ its change per unit memory coordinate. Let $v_i$ be the lasting change in the represented value caused by a unit perturbation of that neuron's outgoing activation, after the other disturbances relax. Chapter 3 gives $2D=\sum_i v_i^2\bar r_i$ and the normalization $\tau\sum_i v_i r_i'=1$. The paper's information rate is $J=\sum_i(r_i')^2/\bar r_i$. Applying Cauchy–Schwarz to $v_i\sqrt{\bar r_i}$ and $r_i'/\sqrt{\bar r_i}$ gives
 
@@ -28,7 +28,7 @@ The bound describes each network under the paper's stated assumptions. When comp
 
 ## Internal Fisher Information: rate slopes and spike variability {#sec:MEMORY-FI}
 
-**[Paper]** In [“Internal Fisher Information,” main Eq. 3, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), the information per unit time in the network's spikes about its current attractor coordinate $\theta$ is
+**[Paper 2012]** In [“Internal Fisher Information,” main Eq. 3, PDF pp. 2–3](../papers/burak-fiete-2012-persistent-activity.pdf#page=2), the information per unit time in the network's spikes about its current attractor coordinate $\theta$ is
 
 $$
 J(\theta)=\sum_i\frac{1}{\bar r_i(\theta)}\left(\frac{d\bar r_i(\theta)}{d\theta}\right)^2.
@@ -45,7 +45,7 @@ I_{h,i}(\theta)=\frac{(h r_i')^2}{\bar r_i h}
 =h\frac{(r_i')^2}{\bar r_i}.
 $$
 
-**[Paper]** For this Poisson model, the squared count sensitivity $(h r_i')^2$ divided by the count variance $h\bar r_i$ is exactly the single-cell Fisher information $I_{h,i}$ over duration $h$. Here $r_i'=d\bar r_i/d\theta$ is the rate slope, and $\bar r_i$ is that cell's steady firing rate at the represented value $\theta$. For counts independent across neurons, the single-cell contributions add to give $I_h$, the information in the population's counts; dividing by $h$ gives the information rate $J$. This is the authors' [Eq. 3, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2):
+**[Paper 2012]** For this Poisson model, the squared count sensitivity $(h r_i')^2$ divided by the count variance $h\bar r_i$ is exactly the single-cell Fisher information $I_{h,i}$ over duration $h$. Here $r_i'=d\bar r_i/d\theta$ is the rate slope, and $\bar r_i$ is that cell's steady firing rate at the represented value $\theta$. For counts independent across neurons, the single-cell contributions add to give $I_h$, the information in the population's counts; dividing by $h$ gives the information rate $J$. This is the authors' [Eq. 3, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2):
 
 $$
 I_h(\theta)=h\sum_i\frac{(r_i')^2}{\bar r_i}=hJ(\theta),
@@ -181,7 +181,7 @@ Unbiasedness makes the mean squared error equal to the variance. Dividing by $E[
 
 ## Information-Diffusion Inequality: a lower bound on memory diffusion {#sec:MEMORY-BOUND}
 
-**[Paper]** In [“Information-Diffusion Inequality,” main Eq. 4, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), the authors bound the diffusion coefficient $D$ using the information rate $J$:
+**[Paper 2012]** In [“Information-Diffusion Inequality,” main Eq. 4, PDF p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), the authors bound the diffusion coefficient $D$ using the information rate $J$:
 
 $$
 D(\theta)\geq\frac{1}{2\tau^2J(\theta)},\qquad\text{equivalently}\qquad 2D(\theta)J(\theta)\tau^2\geq1.
@@ -189,7 +189,7 @@ $$
 
 $D$ measures the local rate at which the represented value $\theta$ spreads across trials: its short-time displacement variance is $2D\,dt$. $J$ is the internal Fisher information rate carried by spikes about the current $\theta$, and $\tau$ is the common synaptic time constant. This is the paper's bound for its weak-noise model, not a claim about all memory circuits. The [supporting text, section V, PDF pp. 10–12, Eqs. S45–S56](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=10), gives the proof. The shorter derivation below spells out the scalar case.
 
-**[Paper]** The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. Burak and Fiete suggest thinking of maintenance as estimating the state again from roughly one synaptic time constant $\tau$ of the network's own spikes. For a state held fixed, that sample would supply information $J\tau$, so even an ideal locally unbiased estimate would have variance at least $1/(J\tau)$. Comparing this with the variance $2D\tau$ accumulated over the same time suggests $2D\tau\ge1/(J\tau)$. One factor of $\tau$ comes from collecting information; the other comes from accumulating displacement variance. This is the authors' heuristic; the calculation below establishes the inequality from the projection assumptions. [Paper, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3).
+**[Paper 2012]** The network has no access to its exact firing rates as noiseless numbers. Its recurrent input is built from the same random spikes that an external observer sees. Burak and Fiete suggest thinking of maintenance as estimating the state again from roughly one synaptic time constant $\tau$ of the network's own spikes. For a state held fixed, that sample would supply information $J\tau$, so even an ideal locally unbiased estimate would have variance at least $1/(J\tau)$. Comparing this with the variance $2D\tau$ accumulated over the same time suggests $2D\tau\ge1/(J\tau)$. One factor of $\tau$ comes from collecting information; the other comes from accumulating displacement variance. This is the authors' heuristic; the calculation below establishes the inequality from the projection assumptions. [Paper, p. 3](../papers/burak-fiete-2012-persistent-activity.pdf#page=3).
 
 **[Derivation]** Cauchy Schwarz bounds a dot product by the product of the two vector lengths. Here $u_i=d\bar s_i/d\theta$ is the change in neuron $i$'s steady activation per unit change of the memory value; $v_i$ gives the lasting change in that value per unit perturbation of $s_i$. Their normalization $\sum_i v_i u_i=1$ fixes the dot product, while the two lengths measure diffusion and information. The rate slope is $r_i'=d\bar r_i/d\theta$, and $\tau$ is the common synaptic decay time. From the [projection and diffusion calculation](ch-memory-dynamics.html#sec-memory-diffusion),
 
@@ -231,7 +231,7 @@ The units agree: $\tau^2J$ has units of time per coordinate squared, so its reci
 ## Generalizations: multiple coordinates, time scales, and noise laws {#sec:MEMORY-EXTENSIONS}
 
 <!-- vale ai-tells.FormalTransitions = NO -->
-**[Paper]** The authors extend the information–diffusion inequality to several coordinates ([supporting text section V, PDF pp. 11–12](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=11)). If the information matrix $J$ is invertible, the matrix form is
+**[Paper 2012]** The authors extend the information–diffusion inequality to several coordinates ([supporting text section V, PDF pp. 11–12](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=11)). If the information matrix $J$ is invertible, the matrix form is
 
 $$
 2D\succeq \tau^{-2}J^{-1}.
@@ -276,7 +276,7 @@ The squared length cannot be negative. This is what the matrix inequality says: 
 **[Interpretation]** The bound controls every combination of stored coordinates, including coupled directions that separate scalar bounds would miss. If $J$ is singular, this ordinary inverse formula cannot be used.[^p1-matrix]
 
 
-**[Paper]** The [main article's “Generalizations” and “Saturation” discussion, PDF pp. 3–4](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), gives a further case. In the studied model with a synaptic time constant $\tau$ and a membrane time constant $\tau_m$, the scalar lower bound becomes $D\ge 1/[2(\tau+\tau_m)^2J]$. The larger time constant contributes most when the two are very different. The supplement develops this case in [section VII, Eqs. S84–S92, PDF pp. 17–19](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=17), after its readout analysis. The calculation below specifies the model and separately identifies apparent printed-equation discrepancies.
+**[Paper 2012]** The [main article's “Generalizations” and “Saturation” discussion, PDF pp. 3–4](../papers/burak-fiete-2012-persistent-activity.pdf#page=3), gives a further case. In the studied model with a synaptic time constant $\tau$ and a membrane time constant $\tau_m$, the scalar lower bound becomes $D\ge 1/[2(\tau+\tau_m)^2J]$. The larger time constant contributes most when the two are very different. The supplement develops this case in [section VII, Eqs. S84–S92, PDF pp. 17–19](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=17), after its readout analysis. The calculation below specifies the model and separately identifies apparent printed-equation discrepancies.
 
 <!-- vale ai-tells.FigurativeCarries = NO -->
 **[Interpretation]** The time constant in the inequality comes from the dynamics that carry an activation fluctuation into a lasting memory change. If both synaptic activation and firing rate adjust gradually, which time constant matters?
@@ -324,7 +324,7 @@ $$
 **[Interpretation]** The sum of the two time constants replaces $\tau$. When one time constant is much larger, it supplies most of that sum. This result belongs to the two stage model and noise placement just described. The paper does not prove that arbitrary collections of biological time constants can always be added.[^p1-two-times]
 <!-- vale ai-tells.ParallelStaccato = YES -->
 
-**[Paper]** For the alternative in [supporting text section VII, PDF p. 19](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=19), the authors report that the same information–diffusion inequality holds with additive white Gaussian noise of constant variance. For symmetric weights, a linear transfer function is sufficient to attain equality; for Poisson noise, an exponential transfer function is sufficient. The comparison depends on the noise model and how information is defined for its observations.
+**[Paper 2012]** For the alternative in [supporting text section VII, PDF p. 19](../papers/burak-fiete-2012-persistent-activity-si.pdf#page=19), the authors report that the same information–diffusion inequality holds with additive white Gaussian noise of constant variance. For symmetric weights, a linear transfer function is sufficient to attain equality; for Poisson noise, an exponential transfer function is sufficient. The comparison depends on the noise model and how information is defined for its observations.
 
 **[Derivation]** To explain the comparison, the discussion replaces Poisson spike-count fluctuations with independent Gaussian noise of constant strength $q>0$:
 
@@ -365,7 +365,7 @@ $$
 
 gives $\phi(g)=A e^{kg}$.
 
-**[Paper]** The authors show that $\phi(g)=A e^{kg}$, with positive constants $A$ and $k$, attains $D=1/(2\tau^2J)$ for symmetric weights and Poisson noise under the other model assumptions. They also state the converse: that saturation requires an exponential transfer function. The example below tests that converse separately; the claimed inequality itself is not in question.[^p1-equality]
+**[Paper 2012]** The authors show that $\phi(g)=A e^{kg}$, with positive constants $A$ and $k$, attains $D=1/(2\tau^2J)$ for symmetric weights and Poisson noise under the other model assumptions. They also state the converse: that saturation requires an exponential transfer function. The example below tests that converse separately; the claimed inequality itself is not in question.[^p1-equality]
 
 **[Interpretation]** The check below finds that further restrictions are needed for that converse: the common ratio may depend on the current memory state. This check is separate from the authors' published correction to Eq. 2.
 
@@ -432,7 +432,7 @@ The gap at $\theta=100$ shows why a lower minimum allowed by the inequality is n
 <!-- vale ai-tells.ExplainerHeadings = YES -->
 <!-- vale ai-tells.BareHolds = YES -->
 
-**[Paper]** The authors report that increasing the population size $N$, the tuning-curve firing rates, or the synaptic time constant $\tau$ reduces diffusion in the comparisons made [after Eq. 2, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2). For the population-size comparison they scale connection weights as $1/N$, holding each cell's total input and tuning curve fixed; in the symmetric formula this gives $D\propto 1/N$. The paper also relates tuning width to information in its [discussion, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4). The calculations below spell out the controlled comparisons and alternatives.
+**[Paper 2012]** The authors report that increasing the population size $N$, the tuning-curve firing rates, or the synaptic time constant $\tau$ reduces diffusion in the comparisons made [after Eq. 2, PDF p. 2](../papers/burak-fiete-2012-persistent-activity.pdf#page=2). For the population-size comparison they scale connection weights as $1/N$, holding each cell's total input and tuning curve fixed; in the symmetric formula this gives $D\propto 1/N$. The paper also relates tuning width to information in its [discussion, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4). The calculations below spell out the controlled comparisons and alternatives.
 
 <!-- vale ai-tells.FigurativeStays = NO -->
 <!-- vale ai-tells.HedgingPhrases = NO -->
@@ -464,7 +464,7 @@ The gap at $\theta=100$ shows why a lower minimum allowed by the inequality is n
 
 <!-- vale ai-tells.AnthropomorphicCognition = NO -->
 <!-- vale ai-tells.StrawmanContrast = NO -->
-**[Paper]** The paper links tuning width to memory persistence: under the sensory-coding comparison it cites, narrower tuning improves persistence for a one-dimensional attractor, whereas broader tuning improves it in three dimensions ([main article, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4)).[^p1-width]
+**[Paper 2012]** The paper links tuning width to memory persistence: under the sensory-coding comparison it cites, narrower tuning improves persistence for a one-dimensional attractor, whereas broader tuning improves it in three dimensions ([main article, PDF p. 4](../papers/burak-fiete-2012-persistent-activity.pdf#page=4)).[^p1-width]
 
 **[Derivation]** The independent reconstruction below makes one such comparison explicit: for tuning width $w$ in dimension $d$, $J\propto w^{d-2}$, so a network saturating the information bound has $D\propto w^{2-d}$ when peak rates, population density and tuning shape are fixed. These exponents belong to that reconstruction, not to every possible tuning family.
 <!-- vale ai-tells.StrawmanContrast = YES -->
